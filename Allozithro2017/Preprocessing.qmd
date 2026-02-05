@@ -12,6 +12,20 @@ editor: visual
 
 -   Bioproject: PRJNA902819
 
+# Software Versions
+
+Sra toolkit
+
+```         
+(sra-env) sophiehuebler@Sophies-MBP RawData % prefetch --version
+
+prefetch : 3.2.1
+
+(sra-env) sophiehuebler@Sophies-MBP RawData % fastq-dump --version
+
+fastq-dump : 3.2.1
+```
+
 # Data Access
 
 -   meta_samples.csv downloaded from bioproject
@@ -25,3 +39,25 @@ editor: visual
 -   sequences downloaded from bioproject
 
     -   (February 4, 2026)
+
+# Reading Data
+
+## Getting accessions
+
+```         
+arch -x86_64 zsh
+source ~/miniconda3-x86_64/etc/profile.d/conda.sh
+cd ~/Documents/ODSi/ODSiData/Allozithro2017/RawData
+conda activate sra-env
+prefetch --option-file run_accessions.txt
+cat run_accessions.txt | while read srr; do fasterq-dump --split-files --progress "$srr"; done
+conda deactivate
+```
+
+## Creating manifest
+
+```         
+../../create_manifest_script.sh
+```
+
+## Importing to qiime
