@@ -1,5 +1,5 @@
 ---
-title: "Preprocessing"
+title: "Preprocessing Allozithro"
 format: html
 editor: visual
 ---
@@ -72,7 +72,7 @@ blastn: 2.16.0+
 Greengenes2
 
 ```         
-2024.09.phylogeny.id.nwk.qza
+2024.09.phylogeny.asv.nwk.qza
 2024.09.seqs.fna.qza
 2024.09.backbone.v4.nb.sklearn-1.4.2.qza
 ```
