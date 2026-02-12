@@ -145,6 +145,8 @@ qiime demux summarize \
 
 ## Checking for primers
 
+Did not check for primers
+
 ## DADA2 
 
 ```         
@@ -158,3 +160,37 @@ qiime dada2 denoise-single \
   --o-table table.qza \
   --o-denoising-stats stats.qza
 ```
+
+## Stats
+
+```         
+qiime metadata tabulate \
+  --m-input-file stats.qza \
+  --o-visualization stats_viz.qzv
+```
+
+## Table
+
+```         
+qiime feature-table summarize \
+  --i-table table.qza \
+  --o-visualization table_viz.qzv
+```
+
+## Rep Seqs
+
+```         
+qiime feature-table tabulate-seqs \
+  --i-data rep-seqs.qza \
+  --o-visualization rep-seqs_viz.qzv
+```
+
+## Export
+
+```         
+qiime tools export \
+  --input-path rep-seqs.qza \
+  --output-path exported-seqs
+```
+
+# BLAST Analysis
