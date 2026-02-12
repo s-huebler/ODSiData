@@ -69,6 +69,14 @@ blastn: 2.16.0+
  Package: blast 2.16.0, build Nov 27 2024 10:36:47
 ```
 
+Greengenes2
+
+```         
+2024.09.phylogeny.id.nwk.qza
+2024.09.seqs.fna.qza
+2024.09.backbone.v4.nb.sklearn-1.4.2.qza
+```
+
 # Data Access
 
 -   meta_samples.csv downloaded from bioproject
@@ -95,6 +103,16 @@ conda activate sra-env
 prefetch --option-file run_accessions.txt
 cat run_accessions.txt | while read srr; do fasterq-dump --split-files --progress "$srr"; done
 conda deactivate
+```
+
+## Getting Metadata
+
+Downloaded as csv from Bioproject
+
+```         
+cd ../Metadata
+./clean_meta.sh meta_samples.csv
+cd ../RawData
 ```
 
 ## Creating manifest
@@ -326,7 +344,157 @@ cat("\nFinal classification rate among non-human reads:", round(pct_classified, 
 
 # 6. EXPORT RESULTS --------------------------------------------------------
 write_tsv(top_hits, "~/Documents/ODSi/ODSiData/Allozithro2017/FilteredData/16s_blast_results.tsv")
-writeXStringSet(bact_seqs, "~/Documents/ODSi/ODSiData/Allozithro2017/FilteredData/cleaned_seqs.fasta")
+writeXStringSet(bact_seqs, "~/Documents/ODSi/ODSiData/Allozithro2017/FilteredData/blast_seqs.fasta")
 
 cat("\nAnalysis Complete. Results saved to '16s_blast_results.tsv'.\n")
+```
+
+# Filtering
+
+Keeping only sequences classified by blast and present in at least 2 samples
+
+```         
+qiime tools import \
+  --input-path blast_seqs.fasta \
+  --output-path blast_seqs.qza \
+  --type 'FeatureData[Sequence]'
+```
+
+```         
+qiime feature-table filter-features \
+  --i-table ../QiimeData/table.qza \
+  --p-min-samples 2 \
+  --m-metadata-file blast_seqs.qza \
+  --o-filtered-table clean-table.qza
+```
+
+```         
+qiime feature-table filter-seqs \
+  --i-data ../QiimeData/rep-seqs.qza \
+  --i-table clean-table.qza \
+  --o-filtered-data clean-seqs.qza
+```
+
+## Table
+
+```         
+qiime feature-table summarize \
+  --i-table clean-table.qza \
+  --o-visualization clean-table_viz.qzv \
+  --m-sample-metadata-file ../Metadata/meta_samples_qiime.tsv
+```
+
+![](images/clipboard-3349140328.png)
+
+![](images/clipboard-3736071805.png)
+
+![](images/clipboard-2285115661.png)
+
+![](images/clipboard-2163400282.png)
+
+## Sequences
+
+```         
+qiime feature-table tabulate-seqs \
+  --i-data clean-seqs.qza \
+  --o-visualization clean-seqs_viz.qzv
+```
+
+![](images/clipboard-1582509456.png)
+
+# Greengenes2 Reference
+
+There was no overlap between the filtered ASVs (from clean-table) and the greengenes2 reference database. Decided to do clustering to 97% to greengenes2 sequences.
+
+## Clustering
+
+\~5 minutes
+
+```         
+qiime vsearch cluster-features-closed-reference \
+  --i-table ../FilteredData/clean-table.qza \
+  --i-sequences ../FilteredData/clean-seqs.qza \
+  --i-reference-sequences ../../2024.09.seqs.fna.qza \
+  --p-perc-identity 0.97 \
+  --o-clustered-table clustered-table.qza \
+  --o-clustered-sequences clustered-seqs.qza \
+  --o-unmatched-sequences unmatched-seqs.qza
+```
+
+```         
+qiime feature-table tabulate-seqs \
+  --i-data clustered-seqs.qza \
+  --o-visualization clustered-seqs_viz.qzv
+```
+
+```         
+qiime feature-table summarize \
+  --i-table clustered-table.qza \
+  --o-visualization clustered-table_viz.qzv \
+  --m-sample-metadata-file ../Metadata/meta_samples_qiime.tsv
+```
+
+## Phylogenetic Tree
+
+Filtered asv table for those that appear within the greengenes phylogeny.
+
+```         
+qiime phylogeny filter-table \
+  --i-table ../ClusteredData/clustered-table.qza \
+  --i-tree ../../2024.09.phylogeny.asv.nwk.qza \
+  --o-filtered-table tree-table.qza
+  
+qiime feature-table summarize \
+  --i-table tree-table.qza \
+  --o-visualization tree-table_viz.qzv \
+  --m-sample-metadata-file ../Metadata/meta_samples_qiime.tsv  
+  
+```
+
+Lost some features, have 410 left.
+
+![](images/clipboard-2279159327.png){width="463"}
+
+```         
+qiime phylogeny filter-tree \
+  --i-tree ../../2024.09.phylogeny.asv.nwk.qza \
+  --i-table tree-table.qza \
+  --o-filtered-tree greengenes2-subset-tree.qza
+```
+
+## Taxonomy
+
+Choosing a taxonomy classifier based on V4 515F.
+
+Took under 2 minutes.
+
+```         
+qiime feature-classifier classify-sklearn \
+  --i-classifier ../../2024.09.backbone.v4.nb.sklearn-1.4.2.qza\
+  --i-reads ../ClusteredData/clustered-seqs.qza \
+  --p-confidence 0.9 \
+  --o-classification greengenes2_taxonomy.qza
+```
+
+```         
+qiime taxa barplot \
+  --i-table ../ClusteredData/clustered-table.qza \
+  --i-taxonomy greengenes2_taxonomy.qza \
+  --m-metadata-file ../Metadata/meta_samples_qiime.tsv\
+  --o-visualization taxa-bar-plots.qzv
+```
+
+![](images/clipboard-2401740830.png){width="547"}
+
+![](images/clipboard-1017551878.png)
+
+# De Novo Tree
+
+```         
+qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences ../FilteredData/clean-seqs.qza \
+  --o-alignment QuickTree/aligned-seqs.qza \
+  --o-masked-alignment QuickTree/masked-aligned-seqs.qza \
+  --o-tree QuickTree/unrooted-tree.qza \
+  --o-rooted-tree QuickTree/rooted-tree.qza
 ```
