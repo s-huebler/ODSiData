@@ -147,7 +147,7 @@ qiime demux summarize \
 
 Did not check for primers
 
-## DADA2 
+## DADA2
 
 ```         
 qiime dada2 denoise-single \
@@ -194,3 +194,243 @@ qiime tools export \
 ```
 
 # BLAST Analysis
+
+```{r}
+library(RCurl)
+library(rBLAST)
+library(Biostrings)
+library(tidyverse)
+```
+
+```{r}
+
+# 1. DATABASE PATHS -----------------------------------------------------------
+conda_blast_path <- "/Users/sophiehuebler/miniconda3-x86_64/envs/qiime2-env/bin"
+Sys.setenv(PATH = paste(conda_blast_path, Sys.getenv("PATH"), sep = ":"))
+
+db_dir <- "~/blast_databases"
+human_db_path <- file.path(db_dir, "GCF_000001405.39_top_level")
+s16_db_path   <- file.path(db_dir, "16S_ribosomal_RNA")
+
+# 2. LOAD SEQUENCES --------------------------------------------------------
+fasta_input <- "~/Documents/ODSi/ODSiData/Liu2017/QiimeData/exported-seqs/dna-sequences.fasta"
+seqs <- readDNAStringSet(fasta_input)
+cat("Starting with", length(seqs), "total sequences.\n")
+
+# 3. STEP 1: HUMAN DECONTAMINATION -----------------------------------------
+cat("\n--- Step 1: Human Decontamination ---\n")
+bl_human <- blast(db = human_db_path)
+
+# High confidence human matches
+human_args <- paste('-perc_identity 95', '-qcov_hsp_perc 90', '-num_threads 4')
+
+blast_human <- predict(bl_human, seqs, type = 'megablast', BLAST_args = human_args)
+
+human_ids <- unique(blast_human$qseqid)
+non_human_seqs <- seqs[!(names(seqs) %in% human_ids)]
+
+cat("Detected", length(human_ids), "human sequences.\n")
+cat("Proceeding with", length(non_human_seqs), "microbial candidate sequences.\n")
+
+# 4. STEP 2: 16S RRNA CLASSIFICATION ---------------------------------------
+cat("\n--- Step 2: 16S rRNA Classification ---\n")
+bl_16s <- blast(db = s16_db_path)
+
+# Microbiome standard: identity > 75%
+s16_args <- paste('-perc_identity 75', 
+                  '-word_size 15', 
+                  '-qcov_hsp_perc 90', 
+                  '-max_target_seqs 10', 
+                  '-num_threads 4')
+
+blast_16s <- predict(bl_16s, non_human_seqs, type = 'megablast', BLAST_args = s16_args)
+bact_ids <- unique(blast_16s$qseqid)
+bact_seqs <- seqs[names(seqs) %in% bact_ids]
+
+# 5. FILTER TO BEST HIT ----------------------------------------------------
+cat("Filtering results to best hit per sequence...\n")
+
+top_hits <- blast_16s %>%
+  group_by(qseqid) %>%
+  arrange(desc(pident), evalue) %>%
+  slice(1) %>%
+  ungroup()
+
+# 7. CALCULATE SUMMARY STATISTICS -----------------------------------------
+cat("\n--- Final Summary Statistics ---\n")
+
+total_count      <- length(seqs)
+non_human_count  <- length(non_human_seqs)
+classified_count <- length(unique(top_hits$qseqid))
+
+# Calculate percentages
+pct_human      <- ((total_count - non_human_count) / total_count) * 100
+pct_classified <- (classified_count / non_human_count) * 100
+pct_total_loss <- ((total_count - classified_count) / total_count) * 100
+
+# Create a clean summary table
+summary_stats <- data.frame(
+  Metric = c("Total Raw ASVs", 
+             "Human Contaminants Removed", 
+             "Microbial Candidates Remaining", 
+             "Successfully Classified (16S)",
+             "Unclassified"),
+  Count = c(total_count, 
+            total_count - non_human_count, 
+            non_human_count, 
+            classified_count, 
+            non_human_count - classified_count),
+  Percentage = c(100, pct_human, (100 - pct_human), pct_classified, (100 - pct_classified))
+)
+
+print(summary_stats)
+
+# Optional: Plotting the "Sankey" or Flow of sequences
+# This is great for supplemental figures in your dissertation
+cat("\nFinal classification rate among non-human reads:", round(pct_classified, 2), "%\n")
+
+# 6. EXPORT RESULTS --------------------------------------------------------
+write_tsv(top_hits, "~/Documents/ODSi/ODSiData/Liu2017/FilteredData/16s_blast_results.tsv")
+writeXStringSet(bact_seqs, "~/Documents/ODSi/ODSiData/Liu2017/FilteredData/blast_seqs.fasta")
+
+cat("\nAnalysis Complete. Results saved to '16s_blast_results.tsv'.\n")
+```
+
+# Filtering
+
+```         
+qiime tools import \
+  --input-path blast_seqs.fasta \
+  --output-path blast_seqs.qza \
+  --type 'FeatureData[Sequence]'
+```
+
+```         
+qiime feature-table filter-features \
+  --i-table ../QiimeData/table.qza \
+  --p-min-samples 1 \
+  --o-filtered-table clean-table.qza
+```
+
+```         
+qiime feature-table filter-seqs \
+  --i-data ../QiimeData/rep-seqs.qza \
+  --i-table clean-table.qza \
+  --o-filtered-data clean-seqs.qza
+```
+
+## Table
+
+```         
+qiime feature-table summarize \
+  --i-table clean-table.qza \
+  --o-visualization clean-table_viz.qzv \
+  --m-sample-metadata-file ../Metadata/meta_samples_qiime.tsv
+```
+
+![](images/clipboard-3136617632.png)
+
+## Sequences
+
+```         
+qiime feature-table tabulate-seqs \
+  --i-data clean-seqs.qza \
+  --o-visualization clean-seqs_viz.qzv
+```
+
+# Greengenes
+
+## Clustering
+
+\~30
+
+```         
+qiime vsearch cluster-features-closed-reference \
+  --i-table ../FilteredData/clean-table.qza \
+  --i-sequences ../FilteredData/clean-seqs.qza \
+  --i-reference-sequences ../../Greengenes2/2024.09.seqs.fna.qza \
+  --p-perc-identity 0.95 \
+  --o-clustered-table clustered-table.qza \
+  --o-clustered-sequences clustered-seqs.qza \
+  --o-unmatched-sequences unmatched-seqs.qza
+```
+
+```         
+qiime feature-table tabulate-seqs \
+  --i-data clustered-seqs.qza \
+  --o-visualization clustered-seqs_viz.qzv
+```
+
+```         
+qiime feature-table summarize \
+  --i-table clustered-table.qza \
+  --o-visualization clustered-table_viz.qzv
+```
+
+![](images/clipboard-3729366322.png)
+
+## Phylogenetic Tree
+
+```         
+qiime phylogeny filter-table \
+  --i-table ../ClusteredData/clustered-table.qza \
+  --i-tree ../../Greengenes2/2024.09.phylogeny.asv.nwk.qza \
+  --o-filtered-table tree-table.qza
+  
+qiime feature-table summarize \
+  --i-table tree-table.qza \
+  --o-visualization tree-table_viz.qzv  
+  
+```
+
+![](images/clipboard-3609801985.png){width="438"}
+
+```         
+qiime phylogeny filter-tree \
+  --i-tree ../../Greengenes2/2024.09.phylogeny.asv.nwk.qza \
+  --i-table tree-table.qza \
+  --o-filtered-tree greengenes2-subset-tree.qza
+```
+
+```         
+qiime feature-table filter-features \
+  --i-table tree-table.qza \
+  --p-min-samples 2 \
+  --o-filtered-table final-tree-table.qza
+```
+
+```         
+qiime feature-table filter-seqs \
+  --i-data ../ClusteredData/clustered-seqs.qza \
+  --i-table final-tree-table.qza \
+  --o-filtered-data final-tree-seqs.qza
+```
+
+```         
+qiime feature-table summarize \
+  --i-table final-tree-table.qza \
+  --o-visualization final-tree-table_viz.qzv
+```
+
+![](images/clipboard-1876922440.png){width="429"}
+
+## Taxonomy
+
+```         
+qiime feature-classifier classify-sklearn \
+  --i-classifier ../../Greengenes2/2024.09.backbone.full-length.nb.sklearn-1.4.2.qza\
+  --i-reads ../PhylogeneticTree/final-tree-seqs.qza \
+  --p-confidence 0.9 \
+  --o-classification greengenes2_taxonomy.qza
+```
+
+```         
+qiime taxa barplot \
+  --i-table ../PhylogeneticTree/final-tree-table.qza \
+  --i-taxonomy greengenes2_taxonomy.qza \
+  --o-visualization taxa-bar-plots.qzv
+```
+
+![](images/clipboard-3381721508.png){width="447"}
+
+![](images/clipboard-775299395.png)

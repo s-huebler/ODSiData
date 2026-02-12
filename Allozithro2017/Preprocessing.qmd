@@ -462,6 +462,13 @@ qiime phylogeny filter-tree \
   --o-filtered-tree greengenes2-subset-tree.qza
 ```
 
+```         
+qiime feature-table filter-seqs \
+  --i-data ../ClusteredData/clustered-seqs.qza \
+  --i-table tree-table.qza \
+  --o-filtered-data final-tree-seqs.qza
+```
+
 ## Taxonomy
 
 Choosing a taxonomy classifier based on V4 515F.
@@ -471,22 +478,22 @@ Took under 2 minutes.
 ```         
 qiime feature-classifier classify-sklearn \
   --i-classifier ../../Greengenes2/2024.09.backbone.v4.nb.sklearn-1.4.2.qza\
-  --i-reads ../ClusteredData/clustered-seqs.qza \
+  --i-reads ../PhylogeneticTree/final-tree-seqs.qza \
   --p-confidence 0.9 \
   --o-classification greengenes2_taxonomy.qza
 ```
 
 ```         
 qiime taxa barplot \
-  --i-table ../ClusteredData/clustered-table.qza \
+  --i-table ../PhylogeneticTree/tree-table.qza \
   --i-taxonomy greengenes2_taxonomy.qza \
   --m-metadata-file ../Metadata/meta_samples_qiime.tsv\
   --o-visualization taxa-bar-plots.qzv
 ```
 
-![](images/clipboard-2401740830.png){width="547"}
+![](images/clipboard-3446127984.png)
 
-![](images/clipboard-1017551878.png)
+![](images/clipboard-1949670840.png)
 
 # De Novo Tree
 
