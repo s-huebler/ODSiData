@@ -1,6 +1,10 @@
 .Rproj.user
 .Rhistory
 .RData
-.DS_Store
+**/.DS_Store
 .Ruserdata
-
+*sklearn*
+*asv.nwk*
+*id.nwk*
+*seqs.fna.qza
+**/demux.qza
