@@ -8,3 +8,9 @@ Data processing for GVHD microbiome meta analysis.
 - Associated github: https://gitlab.com/nivall/azimutfeces
 - Bioproject: PRJNA902819
 
+# Liu2017
+
+## Data source details
+- Full citation: Liu C, Frank DN, Horch M, Chau S, Ir D, Horch EA, Tretina K, van Besien K, Lozupone CA, Nguyen VH. Associations between acute gastrointestinal GvHD and the baseline gut microbiota of allogeneic hematopoietic stem cell transplant recipients and donors. Bone Marrow Transplant. 2017 Dec;52(12):1643-1650. doi: 10.1038/bmt.2017.200. Epub 2017 Oct 2. PMID: 28967895
+- Associated qiita: https://qiita.ucsd.edu/study/description/10564
+- Bioproject: PRJEB16057
