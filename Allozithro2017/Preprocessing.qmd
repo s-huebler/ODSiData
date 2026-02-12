@@ -118,7 +118,7 @@ cd ../RawData
 ## Creating manifest
 
 ```         
-../../create_manifest_script.sh
+../../Bash/create_manifest_script.sh
 ```
 
 ## Importing to qiime
@@ -414,7 +414,7 @@ There was no overlap between the filtered ASVs (from clean-table) and the greeng
 qiime vsearch cluster-features-closed-reference \
   --i-table ../FilteredData/clean-table.qza \
   --i-sequences ../FilteredData/clean-seqs.qza \
-  --i-reference-sequences ../../2024.09.seqs.fna.qza \
+  --i-reference-sequences ../../Greengenes2/2024.09.seqs.fna.qza \
   --p-perc-identity 0.97 \
   --o-clustered-table clustered-table.qza \
   --o-clustered-sequences clustered-seqs.qza \
@@ -441,7 +441,7 @@ Filtered asv table for those that appear within the greengenes phylogeny.
 ```         
 qiime phylogeny filter-table \
   --i-table ../ClusteredData/clustered-table.qza \
-  --i-tree ../../2024.09.phylogeny.asv.nwk.qza \
+  --i-tree ../../Greengenes2/2024.09.phylogeny.asv.nwk.qza \
   --o-filtered-table tree-table.qza
   
 qiime feature-table summarize \
@@ -457,7 +457,7 @@ Lost some features, have 410 left.
 
 ```         
 qiime phylogeny filter-tree \
-  --i-tree ../../2024.09.phylogeny.asv.nwk.qza \
+  --i-tree ../../Greengenes2/2024.09.phylogeny.asv.nwk.qza \
   --i-table tree-table.qza \
   --o-filtered-tree greengenes2-subset-tree.qza
 ```
@@ -470,7 +470,7 @@ Took under 2 minutes.
 
 ```         
 qiime feature-classifier classify-sklearn \
-  --i-classifier ../../2024.09.backbone.v4.nb.sklearn-1.4.2.qza\
+  --i-classifier ../../Greengenes2/2024.09.backbone.v4.nb.sklearn-1.4.2.qza\
   --i-reads ../ClusteredData/clustered-seqs.qza \
   --p-confidence 0.9 \
   --o-classification greengenes2_taxonomy.qza
