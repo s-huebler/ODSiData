@@ -1,0 +1,23 @@
+---
+title: "Merged Metadata"
+format: html
+editor: visual
+---
+
+# Coding Set Up
+
+```{r}
+library(tidyverse)
+```
+
+# Reading
+
+## Allozithro2017
+
+```{r}
+allo_samples <- read.csv("~/Documents/ODSi/ODSiData/Allozithro2017/Metadata/meta_samples.csv",
+                     stringsAsFactors = FALSE, check.names = FALSE)
+
+allo_clinical <- read.csv("~/Documents/ODSi/ODSiData/Allozithro2017/Metadata/meta_samples.csv",
+                     stringsAsFactors = FALSE, check.names = FALSE)
+```
