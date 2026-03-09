@@ -240,6 +240,10 @@ A_meta <- A_meta_raw %>%
 ```
 
 ```{r}
+A_meta_raw2 <- readxl::read_xlsx("~/Documents/ODSi/ODSiData/Allozithro2017/Metadata/meta_clinical.xlsx")
+```
+
+```{r}
 meta <- bind_rows(L_meta, A_meta)
 rownames(meta)<- meta$Run
 
