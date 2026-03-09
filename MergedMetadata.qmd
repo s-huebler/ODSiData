@@ -4,20 +4,30 @@ format: html
 editor: visual
 ---
 
-# Coding Set Up
+# Liu2017
+
+## Liu2017
 
 ```{r}
-library(tidyverse)
+liu_samples_raw <- read.csv("~/Documents/ODSi/ODSiData/Liu2017/Metadata/meta_samples.csv",
+                     stringsAsFactors = FALSE, check.names = FALSE)
+
+liu_clinical_raw <- readxl::read_excel("~/Documents/ODSi/ODSiData/Liu2017/Metadata/meta_clinical.xlsx", col_types = "text")
 ```
 
-# Reading
-
-## Allozithro2017
-
 ```{r}
-allo_samples <- read.csv("~/Documents/ODSi/ODSiData/Allozithro2017/Metadata/meta_samples.csv",
-                     stringsAsFactors = FALSE, check.names = FALSE)
-
-allo_clinical <- read.csv("~/Documents/ODSi/ODSiData/Allozithro2017/Metadata/meta_samples.csv",
-                     stringsAsFactors = FALSE, check.names = FALSE)
+liu_clinical <- janitor::clean_names(liu_clinical_raw)%>%
+  mutate(across(c(donor1_match, donor2_match), ~ case_when(
+    # Detect if the cell contains only numbers (an Excel serial date)
+    grepl("^[0-9]+$", .) ~ {
+      # Convert the number to a Date object
+      temp_date <- excel_numeric_to_date(as.numeric(.))
+      
+      # Extract the month and day, and paste them together with a slash
+      paste0(month(temp_date), "/", day(temp_date))
+    },
+    
+    # If it's already text (like "not applicable" or NA), leave it alone
+    TRUE ~ .
+  )))
 ```

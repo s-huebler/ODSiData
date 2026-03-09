@@ -1,0 +1,423 @@
+---
+title: "Parsing Allozithro Metadata"
+format: html
+editor: visual
+---
+
+# Coding Set Up
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(lubridate)
+```
+
+## Parsing dates
+
+```{r}
+parse_mixed_dates <- function(x,
+                              corrupted = F) {
+  # Identify which values are purely numeric (Excel dates converted to strings)
+  is_excel_num <- grepl("^[0-9]+$", x)
+  
+  # Step A: Convert the Excel numbers
+  # We convert to numeric first, and handle the NAs
+  num_dates <- excel_numeric_to_date(as.numeric(ifelse(is_excel_num, x, NA)))
+  
+  #if corrupted, then switch the day and month
+  if (corrupted == TRUE) {
+    
+    num_dates <- make_date(
+      year  = year(num_dates),
+      month = day(num_dates),   # Swap day into month
+      day   = month(num_dates)  # Swap month into day
+    )
+  }
+  
+  # Step B: Convert the text strings (like "26/05/2014")
+  str_dates <- as.Date(parse_date_time(ifelse(!is_excel_num, x, NA), orders = "dmy"))
+  
+  # Step C: Combine them seamlessly
+  coalesce(num_dates, str_dates)
+  
+
+}
+```
+
+# Allozithro2017
+
+## Reading
+
+Samples has 118 observations belonging to 50 different people. Clinical has 154 observations belonging to 55 people. We have at most 50 people. We need to first link allozithro_id from the clinical data frame to the sample_name prefix in the samples data frame, both of which link to the individual person the observation belongs to. Additionally, the sample_name suffix in the samples data frame is a date which we can link to sample.time in the clinical data frame to determine which observation is baseline (closest to dat.hsct).
+
+```{r}
+allo_samples_raw <- read.csv("~/Documents/ODSi/ODSiData/Allozithro2017/Metadata/Raw_metadata/meta_samples.csv",
+                     stringsAsFactors = FALSE, check.names = FALSE)
+
+allo_clinical_raw <- readxl::read_excel("~/Documents/ODSi/ODSiData/Allozithro2017/Metadata/Raw_metadata/meta_clinical.xlsx", col_types = "text")
+```
+
+There are some corrupted dates in the xlsx file so we'll need to fix the date parsing further. Specifically, sample time should align with the azimut_id suffix and the j.cond and j.hsct should give the difference between the sample time and those 2 dates. We'll confirm that parse_mixed_dates is working correctly in this case.
+
+```{r}
+allo_clinical_raw %>%
+  mutate(
+    across(
+      c(sample.time, starts_with("dat")),
+      ~parse_mixed_dates(.x, corrupted = T)
+    )
+  )%>% 
+  #check sample time
+  mutate(sample.time2 = dmy(str_extract(azimut_id, "\\d{2}_\\d{2}_\\d{2}$")))%>%
+  #check hsct and cond
+  mutate(dat.hsct2 = sample.time2 - as.numeric(j.hsct))%>%
+  mutate(dat.cond2 = sample.time2 - as.numeric(j.cond))%>%
+   select(azimut_id, sample.time, sample.time2,
+          dat.hsct, dat.hsct2,
+          dat.cond, dat.cond2)%>%
+    filter((sample.time != sample.time2) |
+             (dat.hsct != dat.hsct2) |
+             (dat.cond != dat.cond2)
+           )
+
+#should be table with 0
+#ignore parsing warnings as it is expected
+```
+
+```{r, warning=FALSE}
+
+allo_clinical <- allo_clinical_raw%>%
+  mutate(
+    across(
+      c(sample.time, starts_with("dat")),
+      ~parse_mixed_dates(.x, corrupted = T)
+    )
+  )
+```
+
+```{r}
+
+allo_samples <- clean_names(allo_samples_raw)
+allo_samples <- allo_samples %>%
+  rowwise() %>%
+  mutate(sample_name_prefix = str_split(sample_name, "_")[[1]][1],
+         sample_name_suffix = str_split(sample_name, "_")[[1]][2])%>%
+  mutate(sample.time = parse_mixed_dates(as.numeric(sample_name_suffix)))%>%
+  ungroup()
+
+```
+
+## Linking samples and clinical
+
+The observations available in both data frames are age, sex, and treatment assignment. Linking these variables (age rounded to 0 decimal points), as well as the sample.time (taken directly from the clinical data frame or taken from the sample_name suffix in the samples data frame) gives us a mapping of 50 allozithro_id to sample_name_prefix, which accounts for all 50 observations in the sample.
+
+```{r}
+linking_allo_samples <- allo_samples %>%
+  mutate(age = round(as.numeric(age), 0))%>%
+  select(run, 
+         sample_name_prefix,
+         sample.time,
+         age,
+         sex,
+         treatment
+         )%>%
+  group_by(sample_name_prefix)%>%
+  mutate(no.obs = n())%>%
+  ungroup()
+```
+
+```{r}
+linking_allo_clinical <- allo_clinical %>%
+  mutate(sex = ifelse(gender == 1, "male", "female"))%>%
+  mutate(age = round(as.numeric(age),0 ))%>%
+  select(azimut_id,
+         allozithro_id,
+         sample.time,
+         dat.hsct,
+         age,
+         sex,
+         treatment = group
+         )%>%
+  group_by(allozithro_id)%>%
+  mutate(no.obs = n())%>%
+  ungroup()
+```
+
+```{r}
+linking_allo <- distinct(linking_allo_clinical %>%
+           select(allozithro_id,
+                  sample.time,
+                  age,
+                  sex, 
+                  treatment))%>%
+  full_join(linking_allo_samples %>%
+              select(sample_name_prefix,
+                     sample.time,
+                     age,
+                     sex,
+                     treatment),
+            by = c("sample.time", "age", "sex", "treatment"))
+```
+
+```{r}
+linked_allo <- linking_allo %>% 
+  filter(!is.na(allozithro_id) & !is.na(sample_name_prefix))%>%
+  select(allozithro_id, sample_name_prefix) %>%
+  distinct()
+```
+
+```{r}
+
+allo_map <- linked_allo %>%
+  left_join(allo_samples %>%
+              mutate(age = as.numeric(age))%>%
+              group_by(sample_name_prefix)%>%
+              mutate(age = min(age))%>%
+              ungroup()%>%
+              select(sampledf_id = sample_name_prefix,
+                     sample_sex = sex,
+                     sample_age = age,
+                     sample_trt = treatment
+                     )%>%
+              distinct(), by = c("sample_name_prefix" = "sampledf_id"))%>%
+  left_join(allo_clinical %>%
+              mutate(age = as.numeric(age))%>%
+              mutate(sex = ifelse(gender == 1, "male", "female"))%>%
+              group_by(allozithro_id)%>%
+              mutate(age = min(age))%>%
+              ungroup()%>%
+              select(clinical_id = allozithro_id,
+                     clinical_sex = sex,
+                     clinical_age = age,
+                     clinical_trt = group)%>%
+              distinct(),
+            by = c("allozithro_id" = "clinical_id"))
+
+
+```
+
+We can confirm here whether everything observed in both datasets aligns by making sure that the starting age is the same (within 6 months) as well as the gender and the treatment group.
+
+```{r}
+sum(abs(allo_map$clinical_age - allo_map$sample_age)>.5)
+sum(allo_map$clinical_sex != allo_map$sample_sex)
+sum(allo_map$clinical_trt != allo_map$sample_trt)
+```
+
+For the 50 observations we can merge in all of the time independent observations.
+
+## Time invariant
+
+```{r}
+allo_meta <- allo_map %>%
+  mutate(age = pmin(clinical_age, sample_age))%>%
+  select(sampledf_id = sample_name_prefix,
+         clinical_id = allozithro_id,
+         sex = clinical_sex,
+         age,
+         trt = clinical_trt
+         )%>%
+  left_join(allo_clinical %>%
+              select(clinical_id = allozithro_id,
+                     
+                     #start times
+                     dat.cond, #conditioning
+                     dat.hsct, #transplant time
+                     
+                     #disease
+                     disease_status,
+                     diagnosis,
+                     diagnosis2,
+                     
+                     #conditioning and trt info
+                     donor_type,
+                     nutrition,
+                     dat.azm_stop,
+                     
+                     #Outcomes
+                     agvhd,
+                     dat.agvhd,
+                     grad.agvhd,
+                     gvhd_proph_type,
+                     
+                     cgvhd_grad,
+                     dat_cgvhd,
+                     
+                     relapse,
+                     relapse01,
+                     dat.relapse,
+                     
+                     dat.death,
+                     dat.endstudy,
+                     dat.lfu,
+                     
+                     
+                     
+                     #unknown
+                     dri,
+                     csh_type,
+                     nut_detail,
+                     vemsBos,
+                     dat_bos,
+                     bos,
+                     cmvD,
+                     cmvR,
+                     cmvDR
+                     )%>%
+              distinct(),
+            by = "clinical_id")
+```
+
+## Baseline
+
+There are 147 observations in the clinical dataset attributed to the individuals in the sample dataset. Each of the 118 runs from the sample dataset is correctly attributed to one of the clinical observations.
+
+```{r}
+linked_allo_times <- allo_clinical %>%
+  filter(allozithro_id %in% allo_meta$clinical_id)%>%
+  left_join(allo_map %>%
+              select(allozithro_id,
+                     sample_name_prefix),
+            by = "allozithro_id")%>%
+  select(azimut_id,
+         allozithro_id,
+         dat.hsct,
+         j.hsct,
+         dat.cond,
+         j.cond,
+         sample.time,
+         sample_name_prefix
+         )%>%
+  full_join(allo_samples %>%
+              select(run,
+                     sample_name_prefix, 
+                     sample.time),
+            by = c("sample_name_prefix",
+                   "sample.time"))
+
+nrow(linked_allo_times)
+sum(!is.na(linked_allo_times$run))
+```
+
+We can confirm that j.hsct is the number of days since hsct.
+
+```{r}
+with((linked_allo_times %>%
+  mutate(days_since_hsct = as.numeric(sample.time - dat.hsct)) %>%
+  select(days_since_hsct, j.hsct)),
+  sum(days_since_hsct - as.numeric(j.hsct) != 0))
+```
+
+Now we can try to find the sample with a run number taken closest to baseline (j.hsct = -1). Going to prioritize keeping negative values such that we will choose a baseline to occur before the transplant (up to a point, would rather keep an observation 5 days post transplant than 10 days pretransplant. So call a 5 day difference as priority)
+
+```{r}
+baselines <- linked_allo_times %>%
+  transform(j.hsct = as.numeric(j.hsct),
+            j.cond = as.numeric(j.cond))%>%
+  filter(!is.na(run))%>%
+  group_by(sample_name_prefix)%>%
+  slice_min(order_by = if_else(j.hsct < 0, 
+                       abs(j.hsct + 1), 
+                       abs(j.hsct + 1) + 5),
+            n = 1, with_ties =F)
+
+table(baselines$j.hsct)
+```
+
+There are 6 observations where we only have samples available over 1 week after baseline. Might need to adjust later.
+
+## Final
+
+```{r}
+allo_meta <- allo_meta %>%
+  left_join(baselines %>%
+              select(sampledf_id = sample_name_prefix,
+                     dat.baseline = sample.time,
+                     run.baseline = run
+                     ),
+            by = "sampledf_id")
+```
+
+```{r}
+allo_meta_qiime <- allo_samples %>%
+  mutate(baseline = ifelse(run %in% allo_meta$run.baseline, 1, 0))%>%
+  left_join(allo_meta %>%
+              mutate(agvhd = ifelse(agvhd == 1, 1, 0),
+                     death = ifelse(!is.na(dat.death), 1, 0))%>%
+              select(sample_name_prefix = sampledf_id,
+                     agvhd,
+                     relapse = relapse01,
+                     death),
+            by = "sample_name_prefix")%>%
+  mutate(id = run)%>%
+  select(id,
+         
+         #sample identifiers
+         run, 
+         experiment,
+         sample_name,
+         bio_sample,
+         library_name,
+         
+         #important person info
+         individual = sample_name_prefix,
+         sample_date = sample.time,
+         baseline,
+         sex,
+         
+         #outcomes
+         agvhd,
+         death,
+         relapse,
+         
+         #specifics
+         bases,
+         bytes,
+         datastore_filetype,
+         datastore_provider, 
+         datastore_region,
+         create_date,
+         
+         #constants
+         assay_type, 
+         avg_spot_len,
+         biomaterial_provider,
+         bio_project, 
+         bio_sample_model, 
+         center_name, 
+         consent,
+         instrument,
+         isolate,
+         library_layout, 
+         library_selection,
+         library_source, 
+         organism, 
+         platform, 
+         release_date, 
+         version, 
+         sra_study, 
+         tissue
+         
+         )
+```
+
+## Exporting
+
+```{r}
+write.csv(allo_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Allozithro2017/Metadata/allo_meta.csv", row.names = FALSE)
+```
+
+```{r}
+write_tsv(allo_meta_qiime, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Allozithro2017/Metadata/allo_meta_qiime.tsv")
+```
+
+# Importing
+
+```{r}
+allo_meta <- read.csv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Allozithro2017/Metadata/allo_meta.csv")
+```
+
+```{r}
+allo_meta_qiime <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Allozithro2017/Metadata/allo_meta_qiime.tsv")
+```
