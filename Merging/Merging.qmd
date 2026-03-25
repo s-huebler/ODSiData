@@ -1,0 +1,815 @@
+---
+title: "Merging Trees"
+format: html
+editor: visual
+---
+
+```         
+qiime feature-table merge \
+  --i-tables ../Allozithro2017/PhylogeneticTree/tree-table.qza ../Liu2017/PhylogeneticTree/final-tree-table.qza ../Fujimoto2024/PhylogeneticTree/tree-table.qza\
+  --o-merged-table merged-table.qza
+
+qiime feature-table merge-seqs \
+  --i-data ../Allozithro2017/PhylogeneticTree/final-tree-seqs.qza ../Liu2017/PhylogeneticTree/final-tree-seqs.qza ../Fujimoto2024/PhylogeneticTree/final-tree-seqs.qza\
+  --o-merged-data merged-seqs.qza
+```
+
+```         
+qiime phylogeny filter-tree \
+  --i-tree ../Greengenes2/2024.09.phylogeny.asv.nwk.qza \
+  --i-table merged-table.qza \
+  --o-filtered-tree greengenes2-merged-tree.qza
+```
+
+```         
+qiime feature-classifier classify-sklearn \
+  --i-classifier ../Greengenes2/2024.09.backbone.full-length.nb.sklearn-1.4.2.qza\
+  --i-reads merged-seqs.qza \
+  --p-confidence 0.9 \
+  --o-classification greengenes2_merged_taxonomy.qza
+```
+
+```         
+qiime taxa barplot \
+  --i-table merged-table.qza \
+  --i-taxonomy greengenes2_merged_taxonomy.qza \
+  --m-metadata-file ../merged_metadata.tsv\
+  --o-visualization merged-taxa-bar-plots.qzv
+```
+
+# ![](images/clipboard-1417000913.png){width="522"}
+
+![](images/clipboard-275620303.png){width="515"}
+
+![](images/clipboard-1734994386.png){width="516"}
+
+# Phyloseq
+
+## Libraries
+
+```{r}
+library(phyloseq)
+library(qiime2R)
+library(biomformat)
+library(readr)
+library(tidyverse)
+library(ape)
+library(Biostrings)
+library(ggtree)
+```
+
+## Reading
+
+```{r}
+table_qza <- "~/Documents/ODSi/ODSiData/Merging/MergedTree/merged-table.qza"
+taxonomy_qza  <- "~/Documents/ODSi/ODSiData/Merging/MergedTree/greengenes2_merged_taxonomy.qza"
+repseqs_qza   <- "~/Documents/ODSi/ODSiData/Merging/MergedTree/merged-seqs.qza"      
+tree_qza      <- "~/Documents/ODSi/ODSiData/Merging/MergedTree/greengenes2-merged-tree.qza"
+```
+
+## OTU
+
+```{r}
+# Read in files
+qt_orig <- read_qza(table_qza)$data
+
+tax_q  <- read_qza(taxonomy_qza)$data
+tree    <- read_qza(tree_qza)$data
+rep_seqs <- tryCatch(read_qza(repseqs_qza)$data, error = function(e) NULL)
+```
+
+```{r}
+otu_mat <- otu_table(qt_orig, taxa_are_rows = TRUE)
+```
+
+## Taxonomy
+
+```{r}
+# Taxonomy matrix
+parse_taxonomy <- function(tax_df) {
+  # tax_df expected to have columns: Feature.ID (or similar) and Taxon (string "k__; p__; ...")
+  cnames <- colnames(tax_df)
+  idcol <- cnames[1]    # usually "Feature.ID"
+  taxcol <- cnames[2]   # usually "Taxon"
+  tax_df2 <- as.data.frame(tax_df, stringsAsFactors = FALSE)
+  colnames(tax_df2)[1:2] <- c("FeatureID","Taxon")
+  tax_df2$Taxon <- as.character(tax_df2$Taxon)
+  ranks <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
+  tax_sep <- tidyr::separate(tax_df2, Taxon, into = ranks, sep = ";\\s*", fill = "right", remove = FALSE)
+  clean_rank <- function(x) {
+    x <- ifelse(is.na(x) | x == "" , NA, x)
+    x <- gsub("^[dkpcofgs]__|^__", "", x)   # remove prefixes like 'k__'
+    trimws(x)
+  }
+  tax_mat <- tax_sep %>%
+    dplyr::select(all_of(ranks)) %>%
+    mutate_all(clean_rank) %>%
+    as.matrix()
+  rownames(tax_mat) <- tax_sep$FeatureID
+  tax_mat
+}
+
+tax_mat <- parse_taxonomy(tax_q)
+tax_mat <- tax_table(tax_mat)
+```
+
+## Sequences
+
+```{r}
+seqs <- Biostrings::DNAStringSet(rep_seqs)
+names(seqs) <- names(rep_seqs)
+```
+
+## Meta
+
+```{r}
+
+meta <- as.data.frame(read_tsv(file = "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv"))
+setdiff(meta$`sample-id`, colnames(otu_mat))->excluded
+meta_df <- sample_data(meta %>%
+                         filter(!(`sample-id` %in% excluded)))
+rownames(meta_df)<- meta_df$`sample-id`
+```
+
+## Checks
+
+```{r}
+print("Matching otu rownames and tree tip labels:")
+all(rownames(otu_mat) %in% tree$tip.label)
+
+print(sprintf("OTU features: %d ; tree tips: %d", ntaxa(otu_mat), length(tree$tip.label)))
+print(sprintf("Intersection: %d", sum(rownames(otu_mat) %in% tree$tip.label)))
+
+
+print(sprintf("OTU sample: %d ; meta samples: %d", ncol(otu_mat), nrow(meta_df)))
+print(sprintf("Intersection: %d", sum(colnames(otu_mat) %in% rownames(meta_df))))
+```
+
+## Object
+
+```{r}
+ps <- phyloseq(otu_mat, tax_mat, meta_df, phy_tree(tree), refseq(seqs))
+```
+
+## Exporting
+
+```{r}
+#save(ps, file = "~/Documents/ODSi/ODSiData/Merging/merged_ps.Rdata")
+```
+
+# Tree
+
+```{r}
+circular_tree <- ggtree(ps@phy_tree, layout = "circular", branch.length = "none") +
+  geom_tippoint( size = 1.6, alpha = 0.9)
+
+circular_tree
+```
+
+## Functions for annotating
+
+```{r}
+get_combinations <- function(vec) {
+  # We want combinations of size 2 up to the full length of the vector
+  n <- length(vec)
+  
+  # If there are fewer than 2 elements, there are no "combinations" to return
+  if (n < 2) return(character(0))
+  
+  # Iterate through each combination size (k) from 2 to n
+  res <- lapply(2:n, function(k) {
+    # combn generates a matrix where each column is a unique combination
+    combs_matrix <- combn(vec, k)
+    
+    # Collapse each column into a single string using "_"
+    apply(combs_matrix, 2, paste, collapse = "_")
+  })
+  
+  # Flatten the list of vectors into a single character vector
+  unlist(c(vec,res))
+  
+
+}
+
+get_combinations(c("Allo", "Fuji", "Liu"))
+```
+
+```{r}
+
+
+just_colors <- c(
+  "#FFFF00",
+  "#56B4E9",
+  "#76EE00",
+  "darkgoldenrod",
+  "darkolivegreen",
+  "darkslategray4",
+  "black"
+)
+
+cohort_colors <- just_colors
+names(cohort_colors)<- c("Allozithro",
+                         "Fujimoto",
+                         "Liu",
+                         "Allozithro_Fujimoto",
+                         "Allozithro_Liu",
+                         "Fujimoto_Liu",
+                         "Allozithro_Fujimoto_Liu")
+
+colors_cohort <- unlist(lapply(names(cohort_colors), FUN = function(x) gsub("_", " & ", x)))
+names(colors_cohort)<- just_colors
+
+
+asv_mapping_func <- function(phylo_obj,
+                             save = TRUE,
+                             save_file_name = "Allo_Liu_ASVs.txt",
+                             id_col_name = "SampleID",
+                             cohort_col_name = "Project",
+save_path = "/Users/sophiehuebler/Documents/ODSi/ODSiData/MergedTree/TreeColors",
+custom_color_map = data.frame(
+  Cohort = c("Allo", "Fuji", "Liu", "Allo_Fuji", "Allo_Liu", "Fuji_Liu", "Allo_Fuji_Liu"),
+  Color = just_colors
+  )) {
+  
+  # Extract OTUs
+  if(taxa_are_rows(phylo_obj@otu_table)){
+    otus <- as.data.frame(t(phylo_obj@otu_table))
+    otus[,id_col_name] <- colnames(phylo_obj@otu_table)
+  } else {
+    otus <- as.data.frame(phylo_obj@otu_table) 
+    otus[,id_col_name] <- rownames(phylo_obj@otu_table)
+  }
+  
+  # Extract Metadata
+  metas <- as.data.frame(unclass(phylo_obj@sam_data))
+  metas[,id_col_name] <- rownames(phylo_obj@sam_data)
+  metas <- metas[, c(id_col_name, cohort_col_name)]
+  
+  # Pivot and identify presence/absence
+  df <- otus %>%
+    left_join(metas, by = id_col_name) %>%
+    pivot_longer(
+      cols = -all_of(c(id_col_name, cohort_col_name)),
+      names_to = "ASV_ID",
+      values_to = "Count"
+    ) %>%
+    filter(Count > 0) %>%
+    distinct(ASV_ID, !!sym(cohort_col_name)) %>%
+    arrange(!!sym(cohort_col_name)) %>%
+    mutate(exists = 1) %>%
+    pivot_wider(
+      names_from = all_of(cohort_col_name), 
+      values_from = exists, 
+      values_fill = 0 
+    ) 
+  
+  cohort_cols <- setdiff(colnames(df), "ASV_ID")
+  
+  # Map overlaps and join with colors
+  df_final <- df %>%
+    rowwise() %>%
+    mutate(
+      # Extract column names where the value is 1, sort alphabetically, and combine with "_"
+      Cohort = paste(sort(cohort_cols[c_across(all_of(cohort_cols)) == 1]), collapse = "_")
+    ) %>%
+    ungroup() %>%
+    select(ASV_ID, Cohort) %>%
+    left_join(custom_color_map, by = "Cohort")
+  
+  # Save to iTOL format
+  if(save){
+    color_mapping <- df_final %>%
+      mutate(
+        Type = "label",
+        Style = "bold"
+      )
+    
+    itol_data <- paste(color_mapping$ASV_ID, color_mapping$Type, color_mapping$Color, color_mapping$Style, sep = ",")
+    
+    writeLines(
+      c("TREE_COLORS", "SEPARATOR COMMA", "DATA", itol_data), 
+      paste0(save_path, "/", save_file_name)
+    )
+  }
+  
+  return(df_final)
+}
+```
+
+```{r}
+ps
+all_asv_merge <- asv_mapping_func(ps,
+                             save = FALSE,
+           save_file_name = "Allo_Liu_Fuji_ASVs.txt",
+           id_col_name = "sample.id",
+           cohort_col_name = "study",
+           save_path = "/Users/sophiehuebler/Documents/ODSi/ODSiData/MergedTree/TreeColors")
+table(all_asv_merge$Cohort)
+ 
+```
+
+```{r}
+
+ggtree(phy_tree(ps), layout = "circular", branch.length = "none") %<+% all_asv_merge +
+  geom_tippoint(size = 1.6, alpha = 0.9, aes(color = Color)) +
+  #scale_color_manual(values = cohort_colors) +
+  scale_color_identity(guide = "legend",
+                       name = "Cohort",
+                       breaks = names(colors_cohort),
+                       labels = unname(colors_cohort))+
+  ggtitle("ASV Level")
+
+```
+
+# Tree (Collapsing)
+
+```{r}
+vizualize_collapse <- function(phylo_obj, tax_level){
+  
+  ps_temp  <- suppressMessages(tax_glom(phylo_obj, taxrank = tax_level))
+  ps_temp <- prune_samples(sample_sums(ps_temp)>0, ps_temp)
+  
+  print(ps_temp)
+  
+  merge_colors <- asv_mapping_func(ps_temp,
+                             save = FALSE,
+           save_file_name = "Allo_Liu_Fuji_genus.txt",
+           id_col_name = "sample.id",
+           cohort_col_name = "study",
+           save_path = "/Users/sophiehuebler/Documents/ODSi/ODSiData/MergedTree/TreeColors")
+  
+  print(table(merge_colors$Cohort))
+  
+  tax <- tax_table(ps_temp)%>%
+    as.data.frame()%>%
+    rownames_to_column("ASV_ID")
+  
+  tax2 <- merge_colors %>%
+  left_join(tax %>%
+              select(ASV_ID, !!ensym(tax_level)),
+            by = "ASV_ID")
+  
+  ggtree(phy_tree(ps_temp), 
+         layout = "circular", 
+         branch.length = "none") %<+%   
+    tax2 +
+  geom_tippoint( size = 1.6, alpha = 0.9, aes(color = Color))+
+  geom_tiplab(aes(label = !!ensym(tax_level), color = Color),
+              offset = 1, size = 2)+
+  #scale_color_manual(values = cohort_colors) +
+  scale_color_identity(guide = "legend",
+                       name = "Cohort",
+                       breaks = names(colors_cohort),
+                       labels = unname(colors_cohort))+
+  ggtitle(paste0(tax_level, " Level"))
+
+}
+```
+
+## Genus
+
+```{r}
+vizualize_collapse(ps, "Genus")
+```
+
+## Family
+
+```{r}
+vizualize_collapse(ps, "Family")
+```
+
+## Order
+
+```{r}
+
+vizualize_collapse(ps, "Order")
+```
+
+## Class
+
+```{r}
+
+vizualize_collapse(ps, "Class")
+```
+
+## Together
+
+```{r}
+# library(phyloseq)
+# library(ggtree)
+# library(ape)
+# library(dplyr)
+# library(purrr)
+# library(tidytree)
+# 
+# # 1. Extract tree and taxonomy from the genus-level phyloseq object
+# tree <- phy_tree(ps_genus)
+# tax_df <-  tax_table(ps_genus)%>%
+#   as.data.frame()%>%
+#   rownames_to_column("ASV_ID")
+# 
+# tax2 <- all_genus_merge %>%
+#   left_join(tax_df %>%
+#               select(ASV_ID, Genus, Family, Order, Class),
+#             by = "ASV_ID")%>%
+#   mutate(tip_label = ASV_ID)
+# 
+# 
+# 
+# # 2. Define a helper function to aggregate Cohort status for a group of genera
+# aggregate_cohort <- function(cohorts) {
+#   unique_cohorts <- unique(na.omit(cohorts))
+#   # If the class contains genera from different cohorts, or already contains "Both"
+#   if (length(unique_cohorts) > 1 || "Both" %in% unique_cohorts) {
+#     return("Both")
+#   } else if (length(unique_cohorts) == 1) {
+#     return(unique_cohorts) # Returns "Allozithro2017" or "Liu2017"
+#   } else {
+#     return(NA)
+#   }
+# }
+# 
+# 
+
+```
+
+```{r}
+# # 3. Iterate over all unique Classes to map MRCA nodes and aggregate Cohort
+# classes <- unique(na.omit(tax2$Class))
+# 
+# class_node_data <- map_df(classes, function(cls) {
+#   # Subset tips belonging to the current Class
+#   class_tips <- tax2%>% filter(Class == cls)
+#   tip_names <- class_tips$tip_label
+#   
+#   # Find the Node ID representing the MRCA
+#   if (length(tip_names) == 1) {
+#     node_id <- which(tree$tip.label == tip_names) # Tip is its own MRCA
+#   } else {
+#     node_id <- getMRCA(tree, tip_names)           # Internal node
+#   }
+#   
+#   # Determine the aggregated cohort status for this node
+#   agg_cohort <- aggregate_cohort(class_tips$Cohort)
+#   
+#   # Return a single-row tibble to be compiled by map_df
+#   tibble(
+#     node = node_id,
+#     Class_Name = cls,
+#     Class_Cohort = agg_cohort
+#   )
+# })
+# 
+# orders <- unique(na.omit(tax2$Order))
+# 
+# order_node_data <- map_df(orders, function(cls) {
+#   # Subset tips belonging to the current Class
+#   order_tips <- tax2%>% filter(Order == cls)
+#   tip_names <- order_tips$tip_label
+#   
+#   # Find the Node ID representing the MRCA
+#   if (length(tip_names) == 1) {
+#     node_id <- which(tree$tip.label == tip_names) # Tip is its own MRCA
+#   } else {
+#     node_id <- getMRCA(tree, tip_names)           # Internal node
+#   }
+#   
+#   # Determine the aggregated cohort status for this node
+#   agg_cohort <- aggregate_cohort(order_tips$Cohort)
+#   
+#   # Return a single-row tibble to be compiled by map_df
+#   tibble(
+#     node = node_id,
+#     Order_Name = cls,
+#     Order_Cohort = agg_cohort
+#   )
+# })
+# 
+# families <- unique(na.omit(tax2$Family))
+# 
+# family_node_data <- map_df(families, function(cls) {
+#   # Subset tips belonging to the current Class
+#   family_tips <- tax2%>% filter(Family == cls)
+#   tip_names <- family_tips$tip_label
+#   
+#   # Find the Node ID representing the MRCA
+#   if (length(tip_names) == 1) {
+#     node_id <- which(tree$tip.label == tip_names) # Tip is its own MRCA
+#   } else {
+#     node_id <- getMRCA(tree, tip_names)           # Internal node
+#   }
+#   
+#   # Determine the aggregated cohort status for this node
+#   agg_cohort <- aggregate_cohort(family_tips$Cohort)
+#   
+#   # Return a single-row tibble to be compiled by map_df
+#   tibble(
+#     node = node_id,
+#     Family_Name = cls,
+#     Family_Cohort = agg_cohort
+#   )
+# })
+```
+
+```{r}
+# p <- ggtree(ps_genus@phy_tree, layout = "circular",
+#        branch.length = "none") %<+% genus_tax2 +
+#   geom_tippoint( size = 1.6, alpha = 0.9, aes(color = Cohort))+
+#   geom_tiplab(aes(label = Genus),
+#               offset = 1, size = 2)
+```
+
+```{r}
+
+# p <- p %<+% family_node_data
+# p <- p %<+% order_node_data
+# p <- p %<+% class_node_data
+```
+
+```{r}
+#p
+```
+
+```{r}
+# p +   geom_tippoint(aes(shape = "Genus", color = Cohort),
+#                     size = 2)+ 
+#   # 1. Plot Family nodes (Smallest points)
+#   geom_point2(
+#     aes(subset = !is.na(Family_Cohort), color = Family_Cohort, shape = "Family"), 
+#     size = 2
+#   ) +
+#   # 2. Plot Order nodes (Medium points)
+#   geom_point2(
+#     aes(subset = !is.na(Order_Cohort), color = Order_Cohort, shape = "Order"), 
+#     size = 3.5
+#   ) +
+#   # 3. Plot Class nodes (Largest points)
+#   geom_point2(
+#     aes(subset = !is.na(Class_Cohort), color = Class_Cohort, shape = "Class"), 
+#     size = 5
+#   ) +
+#   # 4. Standardize the colors to match your tip points
+#   scale_color_manual(
+#     name = "Cohort",
+#     values = c("Allozithro2017" = "#F8766D", "Liu2017" = "#619CFF", "Both" = "#00BA38"),
+#     na.translate = FALSE 
+#   ) +
+#   # 5. Add the manual shape scale to generate the new legend
+#   scale_shape_manual(
+#     name = "Taxonomic Level",
+#     values = c("Genus" = 16,"Family" = 15, "Order" = 17, "Class" = 8),
+#     drop = F,
+#     breaks = c("Genus", "Family", "Order", "Class")
+#   )+
+#   ggtitle("Multi-levels")
+```
+
+# Combat seq
+
+```{r}
+#BiocManager::install("sva")
+library(sva)
+```
+
+```{r}
+
+# count_matrix <- as.matrix(otu_table(ps_filtered))
+# count_matrix <- t(count_matrix)
+# 
+# count_meta <- data.frame(sample_data(ps_filtered))
+# batch_var <- factor(count_meta$study)
+# bio_var <- count_meta$agvhd
+# 
+# any(colSums(count_matrix) == 0)
+```
+
+```{r}
+# adjusted_counts <- sva::ComBat_seq(count_matrix,
+#                               batch = batch_var,
+#                               group = bio_var)
+```
+
+```{r}
+## 1) Build the matrix in the orientation ComBat_seq expects:
+##    rows = taxa/features, cols = samples
+count_matrix <- as(otu_table(ps_filtered), "matrix")
+if (!taxa_are_rows(ps_filtered)) {
+  count_matrix <- t(count_matrix)
+}
+
+## 2) Align metadata to the count matrix columns
+count_meta <- data.frame(sample_data(ps_filtered))
+count_meta <- count_meta[colnames(count_matrix), , drop = FALSE]
+
+batch_var <- droplevels(factor(count_meta$study))
+
+## If agvhd is categorical, use group
+bio_var <- droplevels(factor(count_meta$agvhd))
+
+## 3) Sanity checks
+stopifnot(ncol(count_matrix) == nrow(count_meta))
+stopifnot(identical(colnames(count_matrix), rownames(count_meta)))
+stopifnot(all(count_matrix >= 0))
+stopifnot(all(count_matrix == round(count_matrix)))   # raw counts
+
+## Original sample library sizes
+summary(colSums(count_matrix))
+which(colSums(count_matrix) == 0)
+```
+
+```{r}
+## 4) Reproduce ComBat_seq's internal filtering:
+## keep taxa that are NON-zero in at least one sample of EVERY batch
+keep <- Reduce("&", lapply(levels(batch_var), function(b) {
+  rowSums(count_matrix[, batch_var == b, drop = FALSE]) > 0
+}))
+
+sum(keep)  # how many taxa survive?
+
+count_matrix_keep <- count_matrix[keep, , drop = FALSE]
+
+## These are the "library sizes" edgeR sees after ComBat_seq filtering
+summary(colSums(count_matrix_keep))
+bad_samples <- colnames(count_matrix_keep)[colSums(count_matrix_keep) == 0]
+bad_samples
+```
+
+```{r}
+sample_keep <- colSums(count_matrix_keep) > 0
+
+count_matrix_cb <- count_matrix_keep[, sample_keep, drop = FALSE]
+batch_var_cb <- droplevels(batch_var[sample_keep])
+bio_var_cb   <- droplevels(bio_var[sample_keep])
+
+adjusted_counts <- sva::ComBat_seq(
+  counts = count_matrix_cb,
+  batch  = batch_var_cb,
+  group  = bio_var_cb
+)
+```
+
+```{r}
+
+ps_corrected <- prune_samples(!(sample_data(ps_filtered)$sample.id %in% bad_samples), ps_filtered)
+otu_table(ps_corrected) <- otu_table(adjusted_counts, taxa_are_rows = TRUE)
+```
+
+```{r}
+print("Matching otu rownames and tree tip labels:")
+all(rownames(ps_corrected@otu_table) %in% ps_corrected@phy_tree$tip.label)
+
+print(sprintf("OTU features: %d ; tree tips: %d", ntaxa(ps_corrected@otu_table), length(ps_corrected@phy_tree$tip.label)))
+print(sprintf("Intersection: %d", sum(rownames(ps_corrected@otu_table) %in% ps_corrected@phy_tree$tip.label)))
+
+
+print(sprintf("OTU sample: %d ; meta samples: %d", ncol(ps_corrected@otu_table), nrow(ps_corrected@sam_data)))
+print(sprintf("Intersection: %d", sum(colnames(ps_corrected@otu_table) %in% rownames(ps_corrected@sam_data))))
+```
+
+## Export to qiime
+
+```{r}
+# # 1. Convert the adjusted matrix to a data frame
+# export_df <- as.data.frame(adjusted_counts)
+# 
+# # 2. Add the required QIIME 2 header for the row names (ASVs)
+# export_df <- cbind("#OTU ID" = rownames(export_df), export_df)
+# 
+# # 3. Write to a TSV file
+# write.table(export_df,
+#             file = "~/Documents/ODSi/ODSiData/Merging/combatseq_adjusted_asv_table.tsv",
+#             sep = "\t",
+#             row.names = FALSE,
+#             quote = FALSE)
+```
+
+```{r}
+# Load libraries
+
+library(biomformat)
+
+# 1. Extract the OTU table (convert to matrix)
+otu_mat <- as(otu_table(ps_corrected), "matrix")
+
+# 2. Create OTU biom
+biom_otu <- make_biom(data = otu_mat)
+write_biom(biom_otu, "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat-feature-table.biom")
+
+
+# 3. Extract Taxonomy table
+tax_mat <- as(tax_table(ps_corrected), "matrix")
+tax_strings <- apply(tax_mat, 1, function(x) paste(x, collapse = "; "))
+qiime_tax <- data.frame(
+  `Feature ID` = rownames(tax_mat),
+  Taxon = tax_strings,
+  check.names = FALSE
+)
+write.table(qiime_tax, "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat-taxonomy.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+
+
+
+
+rm(otu_mat, tax_mat, biom_otu, tax_strings, qiime_tax)
+
+# 4. Export Metadata (Standard TSV)
+#metadata <- as(sample_data(ps), "data.frame")
+# Add the #SampleID header required by QIIME 2
+#metadata <- cbind(SampleID = rownames(metadata), metadata)
+
+combat_adjusted_meta <- sample_data(ps_corrected)%>%data.frame()
+names(combat_adjusted_meta)<- c("sampleid","study","individual","sex","age","disease","agvhd","death", "relapse")
+
+#write_tsv(combat_adjusted_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat_adjusted_meta.tsv")
+write.table(combat_adjusted_meta, "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat_adjusted_meta2.tsv", sep="\t", row.names=FALSE, quote=FALSE)
+
+# 5. Export Tree (if available)
+if (!is.null(phy_tree(ps_corrected, errorIfNULL = FALSE))) {
+  ape::write.tree(phy_tree(ps_corrected), "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat_tree.nwk")
+}
+```
+
+## Rarefaction Curves
+
+```         
+qiime tools import \
+  --input-path combat-feature-table.biom \
+  --type 'FeatureTable[Frequency]' \
+  --input-format BIOMV100Format \
+  --output-path combat-feature-table.qza
+  
+  qiime tools import \
+  --type 'FeatureData[Taxonomy]' \
+  --input-path combat-taxonomy.tsv \
+  --output-path combat-taxonomy.qza
+  
+  qiime tools import \
+  --input-path combat_tree.nwk \
+  --type 'Phylogeny[Unrooted]' \
+  --output-path combatcorrected-unrooted-tree.qza
+```
+
+```         
+qiime feature-table summarize \
+  --i-table combat-feature-table.qza \
+  --o-visualization combat-feature-table-viz.qzv
+```
+
+\~15min
+
+```         
+qiime diversity alpha-rarefaction \
+  --i-table combat-feature-table.qza \
+  --p-max-depth 10000 \
+  --m-metadata-file combat_adjusted_meta.tsv \
+  --o-visualization alpha-rarefaction.qzv
+```
+
+```{r}
+library(vegan)
+library(DESeq2)
+```
+
+```{r}
+rarecurve(t(ps_corrected@otu_table@.Data), step = 1000, tidy = FALSE)
+```
+
+```{r}
+test_curve <- rarecurve(t(ps_corrected@otu_table@.Data), step = 1000, tidy = TRUE)
+
+test_curve <- test_curve %>%
+  left_join(combat_adjusted_meta %>%
+              select(Site = sampleid, study),
+            by = "Site")
+```
+
+```{r}
+ggplot(test_curve, aes(x = Sample, y = Species, group = Site, color = study))+
+  geom_line()+
+  xlim(0, 10000)
+
+test_curve %>%
+  group_by(study, Sample)%>%
+  summarize(Species = mean(Species, na.rm = F),
+            sd_species = sd(Species),
+            n = n())
+
+
+  ggplot(aes(x = Sample, y = Species, group = Site, color = study))+
+  geom_line()+
+  xlim(0, 10000)
+```
+
+## Corrected beta
+
+```{r}
+ord_bray_uncorrected <- ordinate(ps_filtered, method = "PCoA", distance = "bray", na.rm = T)
+ord_bray_corrected <- ordinate(ps_corrected, method = "PCoA", distance = "bray", na.rm = T)
+
+plot_ordination(ps_filtered, ord_bray_uncorrected, color = "study") + 
+  geom_point(size = 3) +
+  ggtitle("PCoA of Global Patterns (Bray-Curtis): Uncorrected Baseline Samples")
+
+plot_ordination(ps_corrected, ord_bray_corrected, color = "study") + 
+  geom_point(size = 3) +
+  ggtitle("PCoA of Global Patterns (Bray-Curtis): ComBat-seq Corrected Baseline Samples")
+```
