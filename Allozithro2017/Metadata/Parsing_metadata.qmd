@@ -346,6 +346,8 @@ allo_meta_qiime <- allo_samples %>%
               mutate(agvhd = ifelse(agvhd == 1, 1, 0),
                      death = ifelse(!is.na(dat.death), 1, 0))%>%
               select(sample_name_prefix = sampledf_id,
+                     dat.hsct,
+                     diagnosis2,
                      agvhd,
                      relapse = relapse01,
                      death),
@@ -363,41 +365,44 @@ allo_meta_qiime <- allo_samples %>%
          #important person info
          individual = sample_name_prefix,
          sample_date = sample.time,
+         dat.hsct,
          baseline,
          sex,
+         age,
+         diagnosis2,
          
          #outcomes
          agvhd,
          death,
          relapse,
          
-         #specifics
-         bases,
-         bytes,
-         datastore_filetype,
-         datastore_provider, 
-         datastore_region,
-         create_date,
-         
-         #constants
-         assay_type, 
-         avg_spot_len,
-         biomaterial_provider,
-         bio_project, 
-         bio_sample_model, 
-         center_name, 
-         consent,
-         instrument,
-         isolate,
-         library_layout, 
-         library_selection,
-         library_source, 
-         organism, 
-         platform, 
-         release_date, 
-         version, 
-         sra_study, 
-         tissue
+         # #specifics
+         # bases,
+         # bytes,
+         # datastore_filetype,
+         # datastore_provider, 
+         # datastore_region,
+         # create_date,
+         # 
+         # #constants
+         # assay_type, 
+         # avg_spot_len,
+         # biomaterial_provider,
+         # bio_project, 
+         # bio_sample_model, 
+         # center_name, 
+         # consent,
+         # instrument,
+         # isolate,
+         # library_layout, 
+         # library_selection,
+         # library_source, 
+         # organism, 
+         # platform, 
+         # release_date, 
+         # version, 
+         # sra_study, 
+         # tissue
          
          )
 ```

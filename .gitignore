@@ -9,3 +9,5 @@
 *id.nwk*
 *seqs.fna.qza
 **/demux.qza
+*.fastq
+*.sra

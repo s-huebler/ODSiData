@@ -1,0 +1,156 @@
+---
+title: "Parsing Fujimoto Metadata"
+format: html
+editor: visual
+---
+
+# Coding Set Up
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(lubridate)
+```
+
+# Reading
+
+The clinical data comes from supplementary table 2 (detailed patient characteristics) from the publication.
+
+```{r}
+fuji_samples_raw <- read.csv("~/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/Raw_metadata/meta_samples.csv",
+                     stringsAsFactors = FALSE, check.names = FALSE)
+```
+
+# Cleaning Samples
+
+Filter for only the patient samples
+
+```{r}
+fuji_samples_human <- fuji_samples_raw %>%
+  filter(Organism == "human metagenome")
+```
+
+Getting the constant columns
+
+```{r}
+constant_columns <- sapply(fuji_samples_human,
+                           function(x) length(unique(x))==1)
+paste(names(fuji_samples_human[constant_columns]), collapse = ", ")
+```
+
+```{r}
+fuji_PCRinfo <- fuji_samples_human %>%
+  select(`Assay Type`, 
+         BioProject, BioSampleModel, `Center Name`, Collection_Date, Consent,
+         geo_loc_name_country, geo_loc_name_country_continent, geo_loc_name, HOST,
+         Instrument, lat_lon, LibraryLayout, LibrarySelection, LibrarySource,
+         Organism, Platform, ReleaseDate, version, `SRA Study`,
+         AvgSpotLen, Bases, Bytes, `DATASTORE provider`, `DATASTORE filetype`,
+         `DATASTORE region`, create_date)
+
+fuji_identifiers <- fuji_samples_human %>%
+  select(BioSample, Experiment, `Library Name`, `isolation_source`)
+
+fuji_samples_patients <- fuji_samples_human %>%
+  select(-c(`Assay Type`, 
+         BioProject, BioSampleModel, `Center Name`, Collection_Date, Consent,
+         geo_loc_name_country, geo_loc_name_country_continent, geo_loc_name, HOST,
+         Instrument, lat_lon, LibraryLayout, LibrarySelection, LibrarySource,
+         Organism, Platform, ReleaseDate, version, `SRA Study`,
+         AvgSpotLen, Bases, Bytes, `DATASTORE provider`, `DATASTORE filetype`,
+         `DATASTORE region`, create_date, BioSample, Experiment, `Library Name`,
+         `isolation_source`))
+```
+
+```{r}
+fuji_samples <- fuji_samples_patients %>%
+mutate(sample_name = str_remove( `Sample Name`, "OCUBMT"))%>%
+  separate_wider_delim(
+    cols = sample_name, 
+    delim = "_", 
+    names = c("Patient", "Timepoint")
+  )%>%
+  mutate(Timepoint = str_remove(Timepoint, "-.*"))%>%
+  # mutate(Timepoint = case_when(Day == "pre" ~ NA,
+  #                              TRUE ~ Day))%>%
+  #mutate(Timepoint = as.numeric(Timepoint))%>%
+  mutate(Baseline1 = ifelse(Timepoint == "pre", 1, 0),
+         Baseline2 = ifelse(Timepoint == "day0", 1, 0))%>%
+  mutate(id = Run)%>%
+  select(
+    id,
+    Run,
+    `Sample Name`,
+    Patient,
+    Timepoint,
+    Baseline1,
+    Baseline2
+  )%>%
+  arrange(Patient, Timepoint)
+```
+
+All patients have a preconditioning baseline (within 14days before the initial date of conditioning therapy) and 38 have a day 0 measurement.
+
+```{r}
+fuji_samples %>%
+  group_by(Patient)%>%
+  summarize(Has_Pre = "pre" %in% Timepoint,
+            Has_Zero = "day0" %in% Timepoint)%>%
+  filter(!Has_Pre | !Has_Zero)
+```
+
+# Cleaning Clinical
+
+```{r}
+fuji_clinical_raw <- readxl::read_excel("~/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/Raw_metadata/meta_clinical.xlsx", col_types = "text")
+
+fuji_clinical <- fuji_clinical_raw
+```
+
+# Linking samples and clinical
+
+```{r}
+fuji_meta_qiime <- fuji_samples %>%
+  left_join(fuji_clinical %>%
+              select(Patient, 
+                     Age, Sex,
+                     Disease,
+                     Donor, Graft_Type,
+                     AGVHD),
+            by = "Patient")
+```
+
+# Exporting
+
+```{r}
+write_tsv(fuji_meta_qiime, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
+```
+
+# Linking post filtering
+
+One of the samples got removed in the importing to qiime or dada processing. So need to remove from the metadata.
+
+```{r}
+original_meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
+
+
+filtered_meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/post_filtering.tsv", col_names = T)%>%
+  filter(`sample-id` != "#q2:types") %>%
+  type.convert(as.is = TRUE)
+```
+
+```{r}
+setdiff(original_meta$id, filtered_meta$`sample-id`)
+```
+
+```{r}
+fixed_meta <- original_meta %>%
+  filter(id != "SRR28984726")
+
+names(fixed_meta)[1]<- "sample-id"
+```
+
+```{r}
+write_tsv(fixed_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
+```

@@ -4,30 +4,155 @@ format: html
 editor: visual
 ---
 
-# Liu2017
-
-## Liu2017
+# Samples Metadata
 
 ```{r}
-liu_samples_raw <- read.csv("~/Documents/ODSi/ODSiData/Liu2017/Metadata/meta_samples.csv",
-                     stringsAsFactors = FALSE, check.names = FALSE)
-
-liu_clinical_raw <- readxl::read_excel("~/Documents/ODSi/ODSiData/Liu2017/Metadata/meta_clinical.xlsx", col_types = "text")
+fuji_raw <- read_tsv(file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
 ```
 
 ```{r}
-liu_clinical <- janitor::clean_names(liu_clinical_raw)%>%
-  mutate(across(c(donor1_match, donor2_match), ~ case_when(
-    # Detect if the cell contains only numbers (an Excel serial date)
-    grepl("^[0-9]+$", .) ~ {
-      # Convert the number to a Date object
-      temp_date <- excel_numeric_to_date(as.numeric(.))
-      
-      # Extract the month and day, and paste them together with a slash
-      paste0(month(temp_date), "/", day(temp_date))
-    },
-    
-    # If it's already text (like "not applicable" or NA), leave it alone
-    TRUE ~ .
-  )))
+allo <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Allozithro2017/Metadata/allo_meta_qiime.tsv")
+
+```
+
+```{r}
+liu <- read_tsv(file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv")
+```
+
+## Examine as groups
+
+-   sample-id
+
+-   Individual
+
+-   Baseline/Timepoint
+
+    -   Choosing time since transplant
+
+    -   Since Liu was conditioning, imputing -7
+
+-   Sex
+
+-   Age
+
+-   Disease
+
+-   AGVHD
+
+-   Death
+
+    -   No reported deaths in Fuji
+
+-   Relapse
+
+    -   Only 1 reported relapse in Fuji, single individual entered twice
+
+```{r}
+allo$timepoint <- as.numeric(allo$sample_date-allo$dat.hsct)
+#allo$HCT_baseline <- allo$baseline
+allo$Patient <- rep(1, nrow(allo))
+allo[allo$diagnosis2 %in% c("AML", "ALL", "Biphenotypic leukemia"), "disease1"] <- "AcuteLeukemia"
+allo[allo$diagnosis2 %in% c("MDS", "CMML", "CML", "Myelofibrosis"), "disease1"] <- "MdsMpn"
+allo[allo$diagnosis2 %in% c("CLL", "NHL", "Hodgkin"), "disease1"] <- "Lymphoma"
+allo[allo$diagnosis2 %in% c("Dual Hemopathy"), "disease1"] <- "Other"
+  
+  
+fuji <- fuji_raw %>%
+  mutate(timepoint = case_when(Timepoint == "pre" ~ -7,
+                               TRUE ~ as.numeric(str_remove(Timepoint, "day"))))%>%
+  mutate(sex = case_when(Sex == "M" ~ "male",
+                         Sex == "F" ~ "female"))%>%
+  mutate(disease1 = case_when(Disease %in% "AL" ~ "AcuteLeukemia",
+                              Disease %in% "MDS/MPN" ~ "MdsMpn",
+                              Disease %in% "Lymphoma" ~ "Lymphoma",
+                              TRUE ~ "Other"))%>%
+  mutate(relapse = ifelse(Patient == "011",1,0))%>%
+  mutate(isPat = 1)%>%
+  mutate(baseline = Baseline2)
+
+liu[liu$donor_or_patient == "Donor", "Patient"]<-0
+liu[liu$donor_or_patient == "Patient", "Patient"]<-1
+
+
+liu[liu$disease %in% c("AML", "ALL"), "disease1"] <- "AcuteLeukemia"
+liu[liu$disease %in% c("MDS", "CML"), "disease1"] <- "MdsMpn"
+liu[liu$disease %in% c("CLL", "NHL", "HD", "TCL"), "disease1"] <- "Lymphoma"
+liu[liu$disease %in% c("AA"), "disease1"] <- "Other"
+liu[liu$donor_or_patient == "Donor", "disease1"] <- "None"
+
+liu[liu$donor_or_patient == "Donor", "agvhd"] <- 0
+liu[liu$donor_or_patient == "Donor", "deceased"] <- 0
+
+liu[liu$donor_or_patient == "Donor", "relapse"] <- 0
+liu[liu$relapsed == "no" & liu$donor_or_patient == "Patient", "relapse"]<-0
+liu[liu$relapsed == "yes" & liu$donor_or_patient == "Patient", "relapse"]<-1
+
+
+liu[liu$donor_or_patient == "Donor", "age"] <- 0
+
+liu$baseline <- 1
+```
+
+```{r}
+table(allo$disease1,  useNA = "ifany")
+table(fuji$disease1,  useNA = "ifany")
+table(liu$disease1,  useNA = "ifany")
+```
+
+```{r}
+merged_meta <- tibble(
+  "sample-id" = c(allo$id, fuji$`sample-id`, liu$ID),
+  "study" = c(rep("Allo", nrow(allo)), rep("Fuji", nrow(fuji)), rep("Liu", nrow(liu))),
+  "individual" = c(allo$individual, fuji$Patient, liu$host_subject_id),
+  "patient" = c(allo$Patient, fuji$isPat, liu$Patient),
+  "timepoint" = c(allo$timepoint, fuji$timepoint, rep(-7, nrow(liu))),
+  "baseline" = c(allo$baseline, fuji$baseline, liu$baseline),
+  "sex" = c(allo$sex, fuji$sex, liu$sex),
+  "age" = as.numeric(c(allo$age, fuji$Age, liu$age)),
+  "disease" = c(allo$disease1, fuji$disease1, liu$disease1),
+  "agvhd" = as.numeric(c(allo$agvhd, fuji$AGVHD, liu$agvhd)),
+  "death" = as.numeric(c(allo$death, rep(0, nrow(fuji)), liu$deceased)),
+  "relapse" = as.numeric(c(allo$relapse, fuji$relapse, liu$relapse))
+)
+```
+
+```{r}
+#check that dropped record from fuji filtered out
+merged_meta %>%
+  filter(`sample-id`== "SRR28984726")
+```
+
+```{r}
+merged_meta %>% summarise(across(everything(), ~any(is.na(.x))))
+
+```
+
+```{r}
+write_tsv(merged_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/merged_metadata.tsv")
+```
+
+```{r}
+merged_meta <- read_tsv(file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/merged_metadata.tsv")
+```
+
+```{r}
+library(table1)
+
+dat_sum <- merged_meta %>% filter(patient == 1)%>%select(-c(`sample-id`, timepoint, patient))%>%distinct()%>%select(-individual)
+dat_sum$sex <- factor(dat_sum$sex, levels =c("male", "female"))
+dat_sum$disease <- factor(dat_sum$disease)
+dat_sum$agvhd<- as.logical(dat_sum$agvhd)
+dat_sum$death <- as.logical(dat_sum$death)
+dat_sum$relapse <- as.logical(dat_sum$relapse)
+
+
+label(dat_sum$sex)<- "Sex"
+label(dat_sum$age)<- "Age"
+label(dat_sum$disease)<- "Cancer type"
+label(dat_sum$agvhd)<- "AGVHD"
+label(dat_sum$death)<- "Death"
+label(dat_sum$relapse)<- "Relapse"
+
+table1::table1(~age + sex + disease + agvhd + death + relapse | study, data = dat_sum)
+
 ```

@@ -1,0 +1,134 @@
+---
+title: "Parsing Liu2017 Metadata"
+format: html
+---
+
+# Coding set up
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(lubridate)
+```
+
+# Reading
+
+```{r}
+liu_samples_raw <- read.csv("~/Documents/ODSi/ODSiData/Liu2017/Metadata/Raw_metadata/meta_samples.csv",
+                     stringsAsFactors = FALSE, check.names = FALSE)
+
+liu_clinical_raw <- readxl::read_excel("~/Documents/ODSi/ODSiData/Liu2017/Metadata/Raw_metadata/meta_clinical.xlsx", col_types = "text")
+```
+
+# Cleaning
+
+```{r}
+liu_samples <- liu_samples_raw %>%
+  mutate(ID = `Run`)%>%
+  select(
+    # Identifications
+    ID,
+    #Project,
+    BioSample,
+    `Library Name`,
+    Run,
+    host_subject_id,
+    #Experiment,
+    external_id,
+    
+    #Covariates
+    ## Donor or Patient
+    donor_or_patient,
+    
+    ## Demographics
+    age = AGE,
+    race,
+    sex,
+    #aborh,
+    #BMI,
+    
+    ## Medical History
+    disease,
+    # disease_status_at_transplant,
+    # infection_prior_to_transplant,
+    # other_viruses,
+    # gi_history_details,
+    # 
+    # ## Donor Information
+    # donor_source,
+    # donor_type,
+    # 
+    # ## Treatments
+    # chemotherapy_regimen,
+    # conditioning_intensity,
+    # cyclosporine,
+    # cytogenetics,
+    # methotrexate,
+    # mmf,
+    # sirolimus,
+    # tacrolimus,
+    
+    # Outcomes
+    #right_censor_time,
+    
+    ## Death
+    deceased,
+    #etiology_of_death,
+    #time_to_death,
+    
+    ## Relapse
+    relapsed,
+    #days_at_relapse,
+    
+    # ## Platelet Engraftment
+    # platelet_engrafment,
+    # days_to_platelet_engrafment,
+    # 
+    # ## ANC Engraftment
+    # anc_engrafment,
+    # days_to_anc_engrafment,
+     
+    # ## AGVHD
+    #agvhd
+     agvhd_organ,
+    # agvhd_severity,
+    # agvhd_gut,
+    # time_to_agvhd,
+    # 
+    # ## CGVHD
+    # cgvhd_severity,
+    # time_to_cgvhd,
+    
+  
+    # ## Infection
+    # infection_duringafter_transplant,
+    # infection_details,
+    # 
+    # # PB
+    # pb_cd3_day_30,
+    # pb_cd3_day_100,
+    # pb_cd3_day_180,
+    # pb_cd3_1_year,
+    # 
+    # pb_unfx_day_30,
+    # pb_unfx_day_100,
+    # pb_unfx_day_180,
+    # pb_unfx_1_year
+    )%>%
+  # standardize missing values
+  mutate(across(everything(), ~na_if(., "Missing: Not applicable"))) %>%
+  mutate(across(everything(), ~na_if(., "Missing: Not collected"))) %>%
+  mutate(across(everything(), ~na_if(., "Missing: Restricted access"))) %>%
+  distinct()%>%
+  mutate(agvhd = case_when(is.na(agvhd_organ) ~ NA,
+                           agvhd_organ == "None documented" ~ 0,
+                           TRUE ~ 1))%>%
+  mutate(age = as.numeric(age))
+```
+
+# Exporting
+
+```{r}
+write_tsv(liu_samples, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv")
+```

@@ -1,0 +1,211 @@
+---
+title: "Diversity"
+format: html
+---
+
+```{r}
+source("~Documents/ODSi/ODSiData/MergedTree/Merging.qmd")
+library(vegan)
+library(patchwork)
+```
+
+Using the PS genus level
+
+# Beta diversity with permanovas
+
+## Bray Curtis
+
+```{r}
+ord_bray_genus <- ordinate(ps_genus, method = "PCoA", distance = "bray", na.rm = T)
+
+plot_ordination(ps_genus, ord_bray_genus, color = "study", shape = "agvhd") + 
+  geom_point(size = 3) +
+  ggtitle("PCoA of Global Patterns (Bray-Curtis) :
+          Genus Level")+
+  scale_shape_binned()
+```
+
+```{r}
+bray_genus <- phyloseq::distance(ps_genus, method = "bray")
+adonis2(bray_genus ~ agvhd + study + agvhd*study,
+        data = data.frame(sam_data(ps_genus)),
+        permutations = 200)
+```
+
+We do see a significant omnibus.
+
+### Per study
+
+```{r}
+fuji_index <- sample_data(ps_genus)$study == "Fuji"
+ps_genus_fuji <- prune_samples(fuji_index, ps_genus)
+ps_genus_fuji <- prune_taxa(taxa_sums(ps_genus_fuji)>0, ps_genus_fuji)
+
+liu_index <- sample_data(ps_genus)$study == "Liu"
+ps_genus_liu <- prune_samples(liu_index, ps_genus)
+ps_genus_liu <- prune_taxa(taxa_sums(ps_genus_liu)>0, ps_genus_liu)
+
+allo_index <- sample_data(ps_genus)$study == "Allo"
+ps_genus_allo <- prune_samples(allo_index, ps_genus)
+ps_genus_allo <- prune_taxa(taxa_sums(ps_genus_allo)>0, ps_genus_allo)
+```
+
+```{r}
+ord_bray_fuji <- ordinate(ps_genus_fuji, method = "PCoA", distance = "bray", na.rm = T)
+
+brayplot_fuji <- plot_ordination(ps_genus_fuji, ord_bray_fuji, color = "agvhd") + 
+  geom_point(size = 3) +
+  ggtitle("Fuji")
+
+bray_genus_fuji <- phyloseq::distance(ps_genus_fuji, method = "bray")
+adonis2(bray_genus_fuji ~ agvhd ,
+        data = data.frame(sample_data(ps_genus_fuji)),
+        permutations = 999)
+```
+
+```{r}
+ord_bray_liu <- ordinate(ps_genus_liu, method = "PCoA", distance = "bray", na.rm = T)
+
+brayplot_liu <- plot_ordination(ps_genus_liu, ord_bray_liu, color = "agvhd") + 
+  geom_point(size = 3) +
+  ggtitle("Liu")
+
+bray_genus_liu <- phyloseq::distance(ps_genus_liu, method = "bray")
+adonis2(bray_genus_liu ~ agvhd ,
+        data = data.frame(sample_data(ps_genus_liu)),
+        permutations = 999)
+```
+
+```{r}
+ord_bray_allo <- ordinate(ps_genus_allo, method = "PCoA", distance = "bray", na.rm = T)
+
+brayplot_allo <- plot_ordination(ps_genus_allo, ord_bray_allo, color = "agvhd") + 
+  geom_point(size = 3) +
+  ggtitle("Allo")
+
+bray_genus_allo <- phyloseq::distance(ps_genus_allo, method = "bray")
+adonis2(bray_genus_allo ~ agvhd ,
+        permutations = 999)
+```
+
+```{r}
+brayplot_fuji  + brayplot_liu + brayplot_allo +
+  plot_annotation(title = "PCoA (Bray Curtis)")+
+  plot_layout(guides = "collect")
+```
+
+## Unweighted Unifrac
+
+```{r}
+ord_uni_genus <- ordinate(ps_genus, method = "PCoA", distance = "unifrac", weighted = F)
+
+plot_ordination(ps_genus, ord_uni_genus, color = "study", shape = "agvhd") + 
+  geom_point(size = 3) +
+  ggtitle("PCoA of Global Patterns (Unweighted Unifrac) :
+          Genus Level")+
+  scale_shape_binned()
+```
+
+```{r}
+uni_genus <- phyloseq::distance(ps_genus, method = "unifrac")
+adonis2(uni_genus ~ agvhd + study + agvhd*study,
+        data = data.frame(sample_data(ps_genus)),
+        permutations = 200)
+```
+
+### Per study
+
+```{r}
+ord_uni_fuji <- ordinate(ps_genus_fuji, method = "PCoA", distance = "unifrac",
+                         weighted = F)
+
+uniplot_fuji <- plot_ordination(ps_genus_fuji, ord_uni_fuji, color = "agvhd") + 
+  geom_point(size = 3) +
+  ggtitle("Fuji")
+
+uni_genus_fuji <- phyloseq::distance(ps_genus_fuji, method = "unifrac")
+adonis2(uni_genus_fuji ~ agvhd ,
+        data = data.frame(sample_data(ps_genus_fuji)),
+        permutations = 999)
+```
+
+```{r}
+ord_uni_liu <- ordinate(ps_genus_liu, method = "PCoA", distance = "unifrac",
+                         weighted = F)
+
+uniplot_liu <- plot_ordination(ps_genus_liu, ord_uni_liu, color = "agvhd") + 
+  geom_point(size = 3) +
+  ggtitle("Liu")
+
+uni_genus_liu <- phyloseq::distance(ps_genus_liu, method = "unifrac")
+adonis2(uni_genus_liu ~ agvhd ,
+        data = data.frame(sample_data(ps_genus_liu)),
+        permutations = 999)
+```
+
+```{r}
+ord_uni_allo <- ordinate(ps_genus_allo, method = "PCoA", distance = "unifrac",
+                         weighted = F)
+
+uniplot_allo <- plot_ordination(ps_genus_allo, ord_uni_allo, color = "agvhd") + 
+  geom_point(size = 3) +
+  ggtitle("Allo")
+
+uni_genus_allo <- phyloseq::distance(ps_genus_allo, method = "unifrac")
+adonis2(uni_genus_allo ~ agvhd ,
+        data = data.frame(sample_data(ps_genus_allo)),
+        permutations = 999)
+```
+
+```{r}
+uniplot_fuji  + uniplot_liu + uniplot_allo +
+  plot_annotation(title = "PCoA (Unweighted Unifrac)")+
+  plot_layout(guides = "collect")
+```
+
+# Alpha diversity
+
+```{r}
+ps_genus%>%
+  plot_richness(
+    x = "study",
+    measures = c("Observed", "Shannon", "Simpson")
+  )+
+  geom_boxplot(aes(fill = study),
+               show.legend = FALSE)
+```
+
+### Per study
+
+```{r}
+ps_genus_fuji%>%
+  plot_richness(
+    x = "agvhd",
+    measures = c("Observed", "Shannon", "Simpson")
+  )+
+  geom_boxplot(aes(fill = as.factor(agvhd)),
+               show.legend = FALSE)+
+  ggtitle("Alpha diversity: Fuji")
+```
+
+```{r}
+ps_genus_liu%>%
+  plot_richness(
+    x = "agvhd",
+    measures = c("Observed", "Shannon", "Simpson")
+  )+
+  geom_boxplot(aes(fill = as.factor(agvhd)),
+               show.legend = FALSE)+
+  ggtitle("Alpha diversity: Liu")
+```
+
+```{r}
+ps_genus_allo%>%
+  plot_richness(
+    x = "agvhd",
+    measures = c("Observed", "Shannon", "Simpson")
+  )+
+  geom_boxplot(aes(fill = as.factor(agvhd)),
+               show.legend = FALSE)+
+  ggtitle("Alpha diversity: Allo")
+```
