@@ -1,0 +1,53 @@
+---
+title: "Batch Effects Correction"
+format: html
+editor: visual
+---
+
+# Overview
+
+We are working off of the uncorreced_ps object created in ODSiData/AnalyticCohort.
+
+```{r}
+library(tidyverse)
+#BiocManager::install("sva")
+library(sva)
+```
+
+```{r}
+load("~/Documents/ODSi/ODSiData/AnalyticCohort/uncorrected_ps.Rdata")
+```
+
+# Combat-seq
+
+Developed by \[<https://pmc.ncbi.nlm.nih.gov/articles/PMC7518324/>\]
+
+Uses a negative binomial regression model for batch correction. Allows designation of biological variables such that clinicly explainable heterogeneity is not removed.
+
+```{r}
+## 1) Build the matrix in the orientation ComBat_seq expects:
+##    rows = taxa/features, cols = samples
+count_matrix <- as(otu_table(uncorrected_ps), "matrix")
+if (!taxa_are_rows(uncorrected_ps)) {
+  count_matrix <- t(count_matrix)
+}
+
+## 2) Align metadata to the count matrix columns
+count_meta <- data.frame(sample_data(uncorrected_ps))
+count_meta <- count_meta[colnames(count_matrix), , drop = FALSE]
+
+batch_var <- droplevels(factor(count_meta$study))
+
+## Treat agvhd as categorical (any gvhd)
+bio_var <- droplevels(factor(count_meta$agvhd))
+
+## 3) Sanity checks
+stopifnot(ncol(count_matrix) == nrow(count_meta))
+stopifnot(identical(colnames(count_matrix), rownames(count_meta)))
+stopifnot(all(count_matrix >= 0))
+stopifnot(all(count_matrix == round(count_matrix)))   # raw counts
+
+## Original sample library sizes
+summary(colSums(count_matrix))
+which(colSums(count_matrix) == 0)
+```
