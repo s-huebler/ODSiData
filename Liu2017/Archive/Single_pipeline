@@ -1,0 +1,17 @@
+#arch -x86_64 zsh
+#source ~/miniconda3-x86_64/etc/profile.d/conda.sh
+#cd ~/Documents/ODSi/ODSiData/Liu2017/RawData
+#conda activate sra-env
+#prefetch --option-file run_accessions.txt
+#cat run_accessions.txt | while read srr; do fasterq-dump --split-files --progress "$srr"; #done
+#conda deactivate
+
+qiime dada2 denoise-single \
+  --i-demultiplexed-seqs demux.qza \
+  --p-trim-left 0 \
+  --p-trunc-len 230 \
+  --p-trunc-q 2 \
+  --p-n-threads 4 \
+  --o-representative-sequences rep-seqs.qza \
+  --o-table table.qza \
+  --o-denoising-stats stats.qza

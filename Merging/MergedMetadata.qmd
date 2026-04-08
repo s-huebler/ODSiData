@@ -128,11 +128,11 @@ merged_meta %>% summarise(across(everything(), ~any(is.na(.x))))
 ```
 
 ```{r}
-write_tsv(merged_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/merged_metadata.tsv")
+write_tsv(merged_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
 ```
 
 ```{r}
-merged_meta <- read_tsv(file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/merged_metadata.tsv")
+merged_meta <- read_tsv(file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
 ```
 
 ```{r}

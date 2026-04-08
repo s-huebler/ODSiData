@@ -52,11 +52,11 @@ names(colors_cohort)<- just_colors
 asv_mapping_func <- function(phylo_obj,
       save = TRUE,
       save_file_name = "Allo_Liu_ASVs.txt",
-      d_col_name = "SampleID",
-      cohort_col_name = "Project",
-      save_path = "/Users/sophiehuebler/Documents/ODSi/ODSiData/MergedTree/TreeColors",
+      id_col_name = "sample.id",
+      cohort_col_name = "study",
+      save_path = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/MergedTree/TreeColors",
       custom_color_map = data.frame(
-        Cohort = names(cohort_colors),
+        Cohort = c("Allo", "Fuji", "Liu", "Allo_Liu", "Allo_Fuji", "Fuji_Liu", "Allo_Fuji_Liu"),
         Color = just_colors)
       ){
   # Extract OTUs
@@ -126,7 +126,9 @@ asv_mapping_func <- function(phylo_obj,
 
 # Function for a colored tree collapsed at whatever level
     
-vizualize_collapse <- function(phylo_obj, tax_level){
+vizualize_collapse <- function(phylo_obj, tax_level,
+                               id_col_name = "sample.id",
+                               cohort_col_name = "study"){
       
     if(tax_level != "ASV"){
       ps_temp  <- suppressMessages(tax_glom(phylo_obj, taxrank = tax_level))
@@ -140,11 +142,21 @@ vizualize_collapse <- function(phylo_obj, tax_level){
       merge_colors <- suppressMessages(asv_mapping_func(ps_temp,
           save = FALSE,
           save_file_name = "Allo_Liu_Fuji_genus.txt",
-          id_col_name = "sample.id",
-          cohort_col_name = "study",
+          id_col_name = id_col_name,
+          cohort_col_name = cohort_col_name,
           save_path = "/Users/sophiehuebler/Documents/ODSi"))
       
+      
+      print(table(merge_colors$Color))
+      if("Allo" %in% merge_colors$Cohort){
+        merge_colors$Cohort <- gsub("Allo", "Allozithro", merge_colors$Cohort)
+        merge_colors$Cohort <- gsub("Fuji", "Fujimoto", merge_colors$Cohort)
+      }
+      
+      
+      
       print(table(merge_colors$Cohort))
+      
       
       tax <- tax_table(ps_temp)%>%
         as.data.frame()%>%
@@ -156,6 +168,8 @@ vizualize_collapse <- function(phylo_obj, tax_level){
         left_join(tax %>%
                     select(ASV_ID, !!ensym(tax_level)),
                   by = "ASV_ID")
+      
+      print(head(tax2))
       
      plot <- suppressWarnings( ggtree(phy_tree(ps_temp), 
              layout = "circular", 

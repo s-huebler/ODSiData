@@ -97,7 +97,7 @@ uncorrected_ps <- ps_filtered
 #save(uncorrected_ps, file = "~/Documents/ODSi/ODSiData/AnalyticCohort/uncorrected_ps.Rdata")
 ```
 
-# Visualize 
+# Visualize
 
 ```{r}
 vizualize_collapse(ps_filtered, "ASV")

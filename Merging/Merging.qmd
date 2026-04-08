@@ -6,24 +6,24 @@ editor: visual
 
 ```         
 qiime feature-table merge \
-  --i-tables ../Allozithro2017/PhylogeneticTree/tree-table.qza ../Liu2017/PhylogeneticTree/final-tree-table.qza ../Fujimoto2024/PhylogeneticTree/tree-table.qza\
+  --i-tables ../../Allozithro2017/PhylogeneticTree/tree-table.qza ../../Liu2017/PhylogeneticTree/tree-table.qza ../../Fujimoto2024/PhylogeneticTree/tree-table.qza\
   --o-merged-table merged-table.qza
 
 qiime feature-table merge-seqs \
-  --i-data ../Allozithro2017/PhylogeneticTree/final-tree-seqs.qza ../Liu2017/PhylogeneticTree/final-tree-seqs.qza ../Fujimoto2024/PhylogeneticTree/final-tree-seqs.qza\
+  --i-data ../../Allozithro2017/PhylogeneticTree/final-tree-seqs.qza ../../Liu2017/PhylogeneticTree/tree-seqs.qza ../../Fujimoto2024/PhylogeneticTree/final-tree-seqs.qza\
   --o-merged-data merged-seqs.qza
 ```
 
 ```         
 qiime phylogeny filter-tree \
-  --i-tree ../Greengenes2/2024.09.phylogeny.asv.nwk.qza \
+  --i-tree ../../Greengenes2/2024.09.phylogeny.asv.nwk.qza \
   --i-table merged-table.qza \
   --o-filtered-tree greengenes2-merged-tree.qza
 ```
 
 ```         
 qiime feature-classifier classify-sklearn \
-  --i-classifier ../Greengenes2/2024.09.backbone.full-length.nb.sklearn-1.4.2.qza\
+  --i-classifier ../../Greengenes2/2024.09.backbone.full-length.nb.sklearn-1.4.2.qza\
   --i-reads merged-seqs.qza \
   --p-confidence 0.9 \
   --o-classification greengenes2_merged_taxonomy.qza
@@ -155,6 +155,7 @@ ps <- phyloseq(otu_mat, tax_mat, meta_df, phy_tree(tree), refseq(seqs))
 
 ```{r}
 #save(ps, file = "~/Documents/ODSi/ODSiData/Merging/merged_ps.Rdata")
+
 ```
 
 # Tree
@@ -374,170 +375,6 @@ vizualize_collapse(ps, "Class")
 #     breaks = c("Genus", "Family", "Order", "Class")
 #   )+
 #   ggtitle("Multi-levels")
-```
-
-# Combat seq
-
-```{r}
-#BiocManager::install("sva")
-library(sva)
-```
-
-```{r}
-
-# count_matrix <- as.matrix(otu_table(ps_filtered))
-# count_matrix <- t(count_matrix)
-# 
-# count_meta <- data.frame(sample_data(ps_filtered))
-# batch_var <- factor(count_meta$study)
-# bio_var <- count_meta$agvhd
-# 
-# any(colSums(count_matrix) == 0)
-```
-
-```{r}
-# adjusted_counts <- sva::ComBat_seq(count_matrix,
-#                               batch = batch_var,
-#                               group = bio_var)
-```
-
-```{r}
-## 1) Build the matrix in the orientation ComBat_seq expects:
-##    rows = taxa/features, cols = samples
-count_matrix <- as(otu_table(ps_filtered), "matrix")
-if (!taxa_are_rows(ps_filtered)) {
-  count_matrix <- t(count_matrix)
-}
-
-## 2) Align metadata to the count matrix columns
-count_meta <- data.frame(sample_data(ps_filtered))
-count_meta <- count_meta[colnames(count_matrix), , drop = FALSE]
-
-batch_var <- droplevels(factor(count_meta$study))
-
-## If agvhd is categorical, use group
-bio_var <- droplevels(factor(count_meta$agvhd))
-
-## 3) Sanity checks
-stopifnot(ncol(count_matrix) == nrow(count_meta))
-stopifnot(identical(colnames(count_matrix), rownames(count_meta)))
-stopifnot(all(count_matrix >= 0))
-stopifnot(all(count_matrix == round(count_matrix)))   # raw counts
-
-## Original sample library sizes
-summary(colSums(count_matrix))
-which(colSums(count_matrix) == 0)
-```
-
-```{r}
-## 4) Reproduce ComBat_seq's internal filtering:
-## keep taxa that are NON-zero in at least one sample of EVERY batch
-keep <- Reduce("&", lapply(levels(batch_var), function(b) {
-  rowSums(count_matrix[, batch_var == b, drop = FALSE]) > 0
-}))
-
-sum(keep)  # how many taxa survive?
-
-count_matrix_keep <- count_matrix[keep, , drop = FALSE]
-
-## These are the "library sizes" edgeR sees after ComBat_seq filtering
-summary(colSums(count_matrix_keep))
-bad_samples <- colnames(count_matrix_keep)[colSums(count_matrix_keep) == 0]
-bad_samples
-```
-
-```{r}
-sample_keep <- colSums(count_matrix_keep) > 0
-
-count_matrix_cb <- count_matrix_keep[, sample_keep, drop = FALSE]
-batch_var_cb <- droplevels(batch_var[sample_keep])
-bio_var_cb   <- droplevels(bio_var[sample_keep])
-
-adjusted_counts <- sva::ComBat_seq(
-  counts = count_matrix_cb,
-  batch  = batch_var_cb,
-  group  = bio_var_cb
-)
-```
-
-```{r}
-
-ps_corrected <- prune_samples(!(sample_data(ps_filtered)$sample.id %in% bad_samples), ps_filtered)
-otu_table(ps_corrected) <- otu_table(adjusted_counts, taxa_are_rows = TRUE)
-```
-
-```{r}
-print("Matching otu rownames and tree tip labels:")
-all(rownames(ps_corrected@otu_table) %in% ps_corrected@phy_tree$tip.label)
-
-print(sprintf("OTU features: %d ; tree tips: %d", ntaxa(ps_corrected@otu_table), length(ps_corrected@phy_tree$tip.label)))
-print(sprintf("Intersection: %d", sum(rownames(ps_corrected@otu_table) %in% ps_corrected@phy_tree$tip.label)))
-
-
-print(sprintf("OTU sample: %d ; meta samples: %d", ncol(ps_corrected@otu_table), nrow(ps_corrected@sam_data)))
-print(sprintf("Intersection: %d", sum(colnames(ps_corrected@otu_table) %in% rownames(ps_corrected@sam_data))))
-```
-
-## Export to qiime
-
-```{r}
-# # 1. Convert the adjusted matrix to a data frame
-# export_df <- as.data.frame(adjusted_counts)
-# 
-# # 2. Add the required QIIME 2 header for the row names (ASVs)
-# export_df <- cbind("#OTU ID" = rownames(export_df), export_df)
-# 
-# # 3. Write to a TSV file
-# write.table(export_df,
-#             file = "~/Documents/ODSi/ODSiData/Merging/combatseq_adjusted_asv_table.tsv",
-#             sep = "\t",
-#             row.names = FALSE,
-#             quote = FALSE)
-```
-
-```{r}
-# Load libraries
-
-library(biomformat)
-
-# 1. Extract the OTU table (convert to matrix)
-otu_mat <- as(otu_table(ps_corrected), "matrix")
-
-# 2. Create OTU biom
-biom_otu <- make_biom(data = otu_mat)
-write_biom(biom_otu, "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat-feature-table.biom")
-
-
-# 3. Extract Taxonomy table
-tax_mat <- as(tax_table(ps_corrected), "matrix")
-tax_strings <- apply(tax_mat, 1, function(x) paste(x, collapse = "; "))
-qiime_tax <- data.frame(
-  `Feature ID` = rownames(tax_mat),
-  Taxon = tax_strings,
-  check.names = FALSE
-)
-write.table(qiime_tax, "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat-taxonomy.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
-
-
-
-
-rm(otu_mat, tax_mat, biom_otu, tax_strings, qiime_tax)
-
-# 4. Export Metadata (Standard TSV)
-#metadata <- as(sample_data(ps), "data.frame")
-# Add the #SampleID header required by QIIME 2
-#metadata <- cbind(SampleID = rownames(metadata), metadata)
-
-combat_adjusted_meta <- sample_data(ps_corrected)%>%data.frame()
-names(combat_adjusted_meta)<- c("sampleid","study","individual","sex","age","disease","agvhd","death", "relapse")
-
-#write_tsv(combat_adjusted_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat_adjusted_meta.tsv")
-write.table(combat_adjusted_meta, "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat_adjusted_meta2.tsv", sep="\t", row.names=FALSE, quote=FALSE)
-
-# 5. Export Tree (if available)
-if (!is.null(phy_tree(ps_corrected, errorIfNULL = FALSE))) {
-  ape::write.tree(phy_tree(ps_corrected), "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/combat_tree.nwk")
-}
 ```
 
 ## Rarefaction Curves

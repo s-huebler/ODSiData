@@ -89,75 +89,109 @@ Greengenes2
 
     -   Downloaded as a .tsv from prep 2125 and converted to xlsx
 
--   sequences downloaded from bioproject
+-   ENA_samples.tsv downloaded from <https://www.ebi.ac.uk/ena/browser/view/ERP017899> 
+
+    -   (March 31, 2025)
+
+-   sequences downloaded from ENA website
 
 # Reading Data
 
 ## Getting accessions
 
 ```         
-arch -x86_64 zsh
-source ~/miniconda3-x86_64/etc/profile.d/conda.sh
-cd ~/Documents/ODSi/ODSiData/Liu2017/RawData
-conda activate sra-env
-prefetch --option-file run_accessions.txt
-cat run_accessions.txt | while read srr; do fasterq-dump --split-files --progress "$srr"; done
-conda deactivate
+../../Bash/fetch_ena_and_pair.sh
+```
+
+Checked using fastqc that the higher run_accessions which were labelled \_2 were actually higher quality. Now switching the names of the files.
+
+```         
+# 1. Rename all current _1 (reverse) files to a temporary name
+for f in *_1.fastq; do mv "$f" "${f/_1.fastq/_temp.fastq}"; done
+
+# 2. Rename all current _2 (forward) files to _1
+for f in *_2.fastq; do mv "$f" "${f/_2.fastq/_1.fastq}"; done
+
+# 3. Rename all temporary files (the real reverse reads) to _2
+for f in *_temp.fastq; do mv "$f" "${f/_temp.fastq/_2.fastq}"; done
+
+echo "All files successfully swapped!"
 ```
 
 ## Getting metadata
 
-Need to write a cleaning script that will identify the correct sample.
+See Metadata/Parsing_metadata.qmd
+
+## Pairing reads
+
+```         
+../../Bash/bb_repair.sh
+```
 
 ## Creating manifest
 
 ```         
-../../Bash/create_manifest_single_script.sh
+cd synced_reads
+../../../Bash/create_manifest_script.sh
 ```
 
 ## Importing to qiime
 
+Took about 1.25 hours
+
 ```         
 
 
-conda activate qiime2-env
-
+cd ../..
+  
 qiime tools import \
-  --type 'SampleData[SequencesWithQuality]' \
-  --input-path RawData/manifest_single.tsv \
+  --type 'SampleData[PairedEndSequencesWithQuality]' \
+  --input-path RawData/synced_reads/manifest.tsv \
   --output-path QiimeData/demux.qza \
-  --input-format SingleEndFastqManifestPhred33V2
-
+  --input-format PairedEndFastqManifestPhred33V2
+  
 cd QiimeData
-
+  
 qiime demux summarize \
   --i-data demux.qza \
   --o-visualization demux_viz.qzv
+  
 ```
 
-![](images/clipboard-580514994.png){width="639"}
+![](images/clipboard-3666640327.png)
 
-![](images/clipboard-3607304566.png){width="263"}
-
-![](images/clipboard-1962159403.png){width="343"}
+![](images/clipboard-4115508954.png)
 
 # Cleaning Data
 
-## Checking for primers
+## Removing primers
 
-Did not check for primers
+```         
+qiime cutadapt trim-paired \
+  --i-demultiplexed-sequences demux.qza \
+  --p-front-f GTGCCAGCMGCCGCGGTAA \
+  --p-front-r GGACTACHVGGGTWTCTAAT \
+  --o-trimmed-sequences demux-trimmed.qza
+  
+  qiime demux summarize \
+  --i-data demux-trimmed.qza \
+  --o-visualization demux-trimmed-viz.qzv
+```
 
 ## DADA2
 
+\~30 minutes
+
 ```         
-qiime dada2 denoise-single \
-  --i-demultiplexed-seqs demux.qza \
-  --p-trim-left 0 \
-  --p-trunc-len 230 \
-  --p-trunc-q 2 \
-  --p-n-threads 4 \
-  --o-representative-sequences rep-seqs.qza \
+caffeinate -i -m qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs demux-trimmed.qza \
+  --p-trim-left-f 0 \
+  --p-trim-left-r 0 \
+  --p-trunc-len-f 250 \
+  --p-trunc-len-r 180 \
+  --p-n-threads 5 \
   --o-table table.qza \
+  --o-representative-sequences rep-seqs.qza \
   --o-denoising-stats stats.qza
 ```
 
@@ -253,7 +287,7 @@ cat("Filtering results to best hit per sequence...\n")
 top_hits <- blast_16s %>%
   group_by(qseqid) %>%
   arrange(desc(pident), evalue) %>%
-  slice(1) %>%
+  dplyr::slice(1) %>%
   ungroup()
 
 # 7. CALCULATE SUMMARY STATISTICS -----------------------------------------
@@ -325,10 +359,10 @@ qiime feature-table filter-seqs \
 qiime feature-table summarize \
   --i-table clean-table.qza \
   --o-visualization clean-table_viz.qzv \
-  --m-sample-metadata-file ../Metadata/meta_samples_qiime.tsv
+  --m-sample-metadata-file ../Metadata/liu_meta_qiime.tsv
 ```
 
-![](images/clipboard-3136617632.png)
+![](images/clipboard-1020546950.png){width="533"}
 
 ## Sequences
 
@@ -349,7 +383,7 @@ qiime vsearch cluster-features-closed-reference \
   --i-table ../FilteredData/clean-table.qza \
   --i-sequences ../FilteredData/clean-seqs.qza \
   --i-reference-sequences ../../Greengenes2/2024.09.seqs.fna.qza \
-  --p-perc-identity 0.95 \
+  --p-perc-identity 0.97 \
   --o-clustered-table clustered-table.qza \
   --o-clustered-sequences clustered-seqs.qza \
   --o-unmatched-sequences unmatched-seqs.qza
@@ -393,23 +427,23 @@ qiime phylogeny filter-tree \
 ```
 
 ```         
-qiime feature-table filter-features \
-  --i-table tree-table.qza \
-  --p-min-samples 2 \
-  --o-filtered-table final-tree-table.qza
+#qiime feature-table filter-features \
+#  --i-table tree-table.qza \
+# --p-min-samples 2 \
+#  --o-filtered-table final-tree-table.qza
 ```
 
 ```         
 qiime feature-table filter-seqs \
   --i-data ../ClusteredData/clustered-seqs.qza \
-  --i-table final-tree-table.qza \
-  --o-filtered-data final-tree-seqs.qza
+  --i-table tree-table.qza \
+  --o-filtered-data tree-seqs.qza
 ```
 
 ```         
 qiime feature-table summarize \
-  --i-table final-tree-table.qza \
-  --o-visualization final-tree-table_viz.qzv
+  --i-table tree-table.qza \
+  --o-visualization tree-table_viz.qzv
 ```
 
 ![](images/clipboard-1876922440.png){width="429"}

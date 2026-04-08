@@ -11,6 +11,7 @@ editor: visual
 
 library(tidyverse)
 library(qiime2R)
+library(ggh4x)
 ```
 
 # Overview
@@ -51,7 +52,7 @@ Here is an overview of the inclusion/exclusion steps.
 #| include: false
 
 
-merged_meta <- read_tsv("~/Documents/ODSi/ODSiData/merged_metadata.tsv")
+merged_meta <- read_tsv("~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
 
 included_samples<- merged_meta %>%
   filter(patient == 1)%>%
@@ -421,7 +422,7 @@ ggplot(df_long%>%
 ```
 
 ```{r}
-library(ggh4x) 
+ 
 
 
 base_study_colors <- c("#FFFF00",
@@ -470,7 +471,7 @@ transparent_study_colors <- alpha(base_study_colors, 0.65)
 ```
 
 ```{r}
-read_attrition_option4 <- ggplot(df_long, aes(y = sample.id, x = logReads, fill = Pipeline_Step)) +
+read_attrition_option4 <- ggplot(df_long, aes(y = sample.id, x = Reads, fill = Pipeline_Step)) +
   geom_bar(stat = "identity", position = "identity") +
   scale_fill_manual(values = my_colors3) +
   
@@ -489,7 +490,7 @@ read_attrition_option4 <- ggplot(df_long, aes(y = sample.id, x = logReads, fill 
   labs(
     title = "Read Attrition Across Microbiome Processing Pipeline",
     y = "Individual Samples", 
-    x = "Log(Number of Reads)", 
+    x = "Number of Reads", 
     fill = "Processing Step"
   ) +
   theme_minimal() +

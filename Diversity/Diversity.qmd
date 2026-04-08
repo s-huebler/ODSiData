@@ -209,3 +209,41 @@ ps_genus_allo%>%
                show.legend = FALSE)+
   ggtitle("Alpha diversity: Allo")
 ```
+
+```{r}
+ps_1 <- subset_taxa(ps, taxa_sums(ps) > 0)
+
+ps_2 <- prune_samples(sample_sums(ps_1) > 0, ps_1)
+
+ps_rel <- transform_sample_counts(ps_2, function(x) x / sum(x))
+```
+
+```{r}
+ord_bray <- ordinate(ps_rel, method = "PCoA", distance = "bray", na.rm = T)
+```
+
+```{r}
+ord_unifrac <- ordinate(ps_rel, method = "PCoA", distance = "unifrac", weighted = TRUE)
+```
+
+```{r}
+plot_ordination(ps_rel, ord_bray, color = "study") + 
+  geom_point(size = 3) +
+  ggtitle("PCoA of Global Patterns (Bray-Curtis)")
+```
+
+```{r}
+plot_scree(ord_bray, "Scree Plot")
+```
+
+```{r}
+plot_ordination(ps_rel, ord_unifrac, color = "study") + 
+  geom_point(size = 3) +
+  ggtitle("PCoA of Global Patterns (Weighted Unifrac)")
+```
+
+```{r}
+plot_scree(ord_unifrac, "Scree Plot")
+```
+
+# Collapsing
