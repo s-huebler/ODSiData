@@ -120,6 +120,7 @@ A Scoping Review and Description of an Analytic Cohort}
 \label{sec:protocol}
 %-------------------------------------------------------------------
 \todoitem{This scoping review was conducted in accordance with the PRISMA-ScR (Preferred Reporting Items for Systematic Reviews and Meta-Analyses extension for Scoping Reviews) guidelines.}
+\todoitem{AI tool use is reported following the \textbf{PRISMA-trAIce} checklist \cite{PRISMAtrAIce2025} --- the extension to PRISMA 2020 for transparent reporting of AI as a \emph{methodological tool} in evidence synthesis. This is distinct from PRISMA-AI \cite{PRISMAAI2023}, which covers systematic reviews \emph{of} AI interventions.}
 \todoitem{The protocol was not pre-registered. Rationale: scoping review, not systematic review; no meta-analytic synthesis.}
 
 %-------------------------------------------------------------------
@@ -149,6 +150,43 @@ A Scoping Review and Description of an Analytic Cohort}
 \todoitem{Supplementary: hand-searching reference lists of all included reviews.}
 
 \placeholder{Full search strategy to be included as Supplementary Table S1.}
+
+%-------------------------------------------------------------------
+\subsection{Use of Artificial Intelligence}
+\label{sec:ai_use}
+%-------------------------------------------------------------------
+
+\writingnote{Required by PRISMA-trAIce. Report tool name, version, prompts, human--AI interaction model, and performance metrics for each stage. All records logged in \texttt{AI\_assisted\_litreview/}.}
+
+\todoitem{\textbf{AI tool:} Claude [version] (Anthropic). All sessions logged with date, prompts, and outputs in \texttt{AI\_assisted\_litreview/logs/}.}
+
+\todoitem{\textbf{Title/abstract screening:} AI performed initial pass against documented eligibility criteria using the prompt provided in Supplementary Table S3. Human reviewer independently screened a random [10\%] validation subsample; sensitivity and specificity of AI screening reported in Table~\ref{tab:ai_performance}. All AI ``include'' and ``uncertain'' decisions were reviewed by a human reviewer. Disagreements resolved by [method].}
+
+\todoitem{\textbf{Full-text screening:} Human reviewer made all final include/exclude decisions. AI was used to flag potential exclusion reasons for human confirmation. All AI-generated flags were verified by the human reviewer.}
+
+\todoitem{\textbf{Data extraction:} AI generated a structured first-pass draft of the data extraction table from full-text PDFs. Human reviewer verified every field against the source document. Discrepancies and corrections are logged in \texttt{AI\_assisted\_litreview/logs/}.}
+
+\todoitem{\textbf{Citation network construction:} Automated via R/Python scripts (see \texttt{AI\_assisted\_litreview/prompts/citation\_network.md}). Reference lists were parsed programmatically; the citation network was constructed computationally (igraph/networkx), not by LLM inference. Human review of network outputs performed before finalization.}
+
+\todoitem{\textbf{AI performance (title/abstract screening):}}
+
+\begin{table}[htbp]
+\centering
+\caption{\textbf{AI screening performance on validation sample.} \textcolor{red}{To be filled after screening is complete.}}
+\label{tab:ai_performance}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Metric & Value & 95\% CI \\
+\midrule
+Validation sample size & \textcolor{red}{??} & --- \\
+Sensitivity (recall) & \textcolor{red}{??} & \textcolor{red}{??} \\
+Specificity & \textcolor{red}{??} & \textcolor{red}{??} \\
+Cohen's $\kappa$ (AI vs.\ human) & \textcolor{red}{??} & \textcolor{red}{??} \\
+AI workload reduction & \textcolor{red}{??}\% & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 %-------------------------------------------------------------------
 \subsection{Study Selection and Data Extraction}
@@ -217,65 +255,142 @@ A Scoping Review and Description of an Analytic Cohort}
 \label{sec:prisma}
 %-------------------------------------------------------------------
 
-%%% FIGURE 1: PRISMA FLOW DIAGRAM %%%
+%%% FIGURE 1: PRISMA-trAIce MODIFIED FLOW DIAGRAM %%%
+% Modified per PRISMA-trAIce (2025): AI exclusions and human exclusions tracked separately.
+% AI steps shown in purple/violet; human steps in standard blue/green.
 \begin{figure}[htbp]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
-    box/.style={rectangle, draw=black, thick, rounded corners=2pt,
-                text width=5cm, minimum height=1.2cm, align=center,
-                font=\small},
-    sidebox/.style={rectangle, draw=gray, thick, rounded corners=2pt,
-                    text width=4cm, minimum height=1cm, align=center,
-                    font=\small, fill=gray!10},
-    arrow/.style={-{Stealth[length=3mm]}, thick},
-    node distance=1.2cm
+    % Standard PRISMA boxes (human decisions)
+    box/.style={rectangle, draw=black!70, thick, rounded corners=3pt,
+                text width=5.2cm, minimum height=1.3cm, align=center, font=\small},
+    % AI-step boxes (violet border, light fill)
+    aibox/.style={rectangle, draw=violet!80, thick, rounded corners=3pt,
+                  text width=5.2cm, minimum height=1.3cm, align=center,
+                  font=\small, fill=violet!8},
+    % Exclusion side-boxes
+    excbox/.style={rectangle, draw=gray!60, thick, rounded corners=3pt,
+                   text width=4.2cm, minimum height=1.1cm, align=center,
+                   font=\small, fill=gray!8},
+    % AI exclusion side-boxes (violet)
+    aiexcbox/.style={rectangle, draw=violet!60, thick, rounded corners=3pt,
+                     text width=4.2cm, minimum height=1.1cm, align=center,
+                     font=\small, fill=violet!8},
+    % Performance note box
+    notebox/.style={rectangle, draw=violet!50, dashed, rounded corners=3pt,
+                    text width=4.5cm, align=center, font=\footnotesize,
+                    fill=violet!5},
+    arrow/.style={-{Stealth[length=2.8mm]}, thick, black!70},
+    aiarrow/.style={-{Stealth[length=2.8mm]}, thick, violet!70},
+    node distance=1.3cm
 ]
 
-% Identification
-\node[box, fill=blue!10] (id) {Records identified through\\database searching\\(n = \textcolor{red}{??})};
-\node[box, fill=blue!10, right=2cm of id] (other) {Records from\\reference lists\\(n = \textcolor{red}{??})};
+%-------- IDENTIFICATION --------
+\node[box, fill=blue!8] (id) {Records from database search\\(PubMed, Embase, Web of Science)\\(n~=~\textcolor{red}{??})};
+\node[box, fill=blue!8, right=2.2cm of id] (other) {Additional records\\(reference list hand-search)\\(n~=~\textcolor{red}{??})};
+\node[box, below=1.2cm of $(id)!0.5!(other)$] (dedup) {Records after deduplication\\(n~=~\textcolor{red}{??})};
 
-% Merge
-\node[box, below=of $(id)!0.5!(other)$] (dedup) {After duplicates removed\\(n = \textcolor{red}{??})};
+%-------- SCREENING: AI STAGE --------
+\node[aibox, below=of dedup] (aiscreen)
+    {\textbf{[AI]} Title/abstract screening\\
+     Claude [version], prompt v1\\
+     (n~=~\textcolor{red}{??})};
+\node[aiexcbox, right=2.2cm of aiscreen] (aiexcl)
+    {\textbf{[AI] Excluded}\\
+     (n~=~\textcolor{red}{??})\\
+     {\footnotesize Does not meet eligibility\\criteria per AI assessment}};
+\node[notebox, below=0.4cm of aiexcl] (aiperf)
+    {\textbf{AI validation} (10\% sample):\\
+     Sensitivity~=~\textcolor{red}{??}\\
+     Specificity~=~\textcolor{red}{??}\\
+     $\kappa$~=~\textcolor{red}{??}};
 
-% Screening
-\node[box, below=of dedup] (screen) {Records screened\\(n = \textcolor{red}{??})};
-\node[sidebox, right=2.5cm of screen] (excl1) {Excluded by\\title/abstract\\(n = \textcolor{red}{??})};
+%-------- SCREENING: HUMAN VERIFICATION --------
+\node[box, fill=blue!5, below=of aiscreen] (humanscreen)
+    {\textbf{[Human]} Review of AI includes\\
+     + uncertain cases\\
+     (n~=~\textcolor{red}{??})};
+\node[excbox, right=2.2cm of humanscreen] (humanexcl)
+    {\textbf{[Human] Excluded}\\
+     at screening\\
+     (n~=~\textcolor{red}{??})};
 
-% Eligibility
-\node[box, below=of screen] (elig) {Full-text articles\\assessed for eligibility\\(n = \textcolor{red}{??})};
-\node[sidebox, right=2.5cm of elig] (excl2) {Excluded with reasons\\(n = \textcolor{red}{??})\\{\footnotesize No GVHD outcome\\No microbiome data\\Pediatric only (flagged)\\Case report $n<5$}};
+%-------- ELIGIBILITY: FULL-TEXT --------
+\node[box, fill=blue!5, below=of humanscreen] (elig)
+    {\textbf{[Human]} Full-text assessed\\
+     for eligibility\\
+     (n~=~\textcolor{red}{??})};
+\node[excbox, right=2.2cm of elig] (excl2)
+    {\textbf{[Human] Excluded}\\
+     with reasons (n~=~\textcolor{red}{??})\\
+     {\footnotesize No GVHD outcome\\
+     No microbiome data\\
+     Pediatric only (flagged)\\
+     Case report $n<5$}};
 
-% Included
-\node[box, fill=green!10, below=1.5cm of elig] (incl) {Studies included in\\scoping review\\(n = \textcolor{red}{??})};
+%-------- INCLUDED --------
+\node[box, fill=green!10, below=1.4cm of elig] (incl)
+    {Studies included in scoping review\\(n~=~\textcolor{red}{??})};
 
-% Tiers
-\node[box, fill=green!20, below left=1cm and 0.5cm of incl, text width=3.5cm] (t13) {Tiers 1--3\\Primary studies\\(n = \textcolor{red}{??})};
-\node[box, fill=yellow!20, below right=1cm and 0.5cm of incl, text width=3.5cm] (t4) {Tier 4\\Reviews/narratives\\(n = \textcolor{red}{??})};
+%-------- TIERS --------
+\node[box, fill=green!20, below left=1.1cm and 0.6cm of incl, text width=3.8cm]
+    (t13) {Tiers 1--3\\Primary studies\\(n~=~\textcolor{red}{??})};
+\node[box, fill=yellow!20, below right=1.1cm and 0.6cm of incl, text width=3.8cm]
+    (t4)  {Tier 4\\Reviews/narratives\\(n~=~\textcolor{red}{??})};
 
-% Sub-cohort
-\node[box, fill=green!40, below=1cm of t13, text width=3.5cm] (sub) {Analytic sub-cohort\\(n = \textcolor{red}{??} studies,\\\textcolor{red}{??} patients)};
+%-------- ANALYTIC SUB-COHORT --------
+\node[box, fill=green!35, below=1.1cm of t13, text width=3.8cm]
+    (sub) {Analytic sub-cohort\\(n~=~\textcolor{red}{??} studies,\\\textcolor{red}{??} patients)};
 
-% Arrows
-\draw[arrow] (id) -- (dedup);
-\draw[arrow] (other) -- (dedup);
-\draw[arrow] (dedup) -- (screen);
-\draw[arrow] (screen) -- (elig);
-\draw[arrow] (elig) -- (incl);
-\draw[arrow] (screen) -- (excl1);
-\draw[arrow] (elig) -- (excl2);
-\draw[arrow] (incl) -- (t13);
-\draw[arrow] (incl) -- (t4);
-\draw[arrow] (t13) -- (sub);
+%-------- ARROWS: main flow --------
+\draw[arrow] (id)          -- (dedup);
+\draw[arrow] (other)       -- (dedup);
+\draw[arrow] (dedup)       -- (aiscreen);
+\draw[aiarrow] (aiscreen)  -- (humanscreen);
+\draw[arrow]  (humanscreen)-- (elig);
+\draw[arrow]  (elig)       -- (incl);
+\draw[arrow]  (incl)       -- (t13);
+\draw[arrow]  (incl)       -- (t4);
+\draw[arrow]  (t13)        -- (sub);
 
-% Phase labels
-\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60] at ($(id.west)+(-1.2,0)$) {Identification};
-\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60] at ($(screen.west)+(-1.2,0)$) {Screening};
-\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60] at ($(elig.west)+(-1.2,0)$) {Eligibility};
-\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60] at ($(incl.west)+(-1.2,0)$) {Included};
+%-------- ARROWS: exclusions --------
+\draw[aiarrow] (aiscreen)    -- (aiexcl);
+\draw[arrow]   (aiexcl)      -- (aiperf);
+\draw[arrow]   (humanscreen) -- (humanexcl);
+\draw[arrow]   (elig)        -- (excl2);
+
+%-------- PHASE LABELS --------
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60]
+    at ($(id.west)+(-1.5,0)$)          {Identification};
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=violet!70]
+    at ($(aiscreen.west)+(-1.5,0)$)    {AI Screening};
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60]
+    at ($(humanscreen.west)+(-1.5,0)$) {Human Screening};
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60]
+    at ($(elig.west)+(-1.5,0)$)        {Eligibility};
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60]
+    at ($(incl.west)+(-1.5,0)$)        {Included};
+
+%-------- LEGEND --------
+\node[box, fill=violet!8, draw=violet!80, text width=3.2cm, minimum height=0.7cm,
+      font=\footnotesize, anchor=north west]
+    at ($(id.south west)+(-0.5,-0.3)$) (leg_ai)
+    {\textcolor{violet}{$\blacksquare$} AI-performed step};
+\node[box, fill=blue!5, draw=black!70, text width=3.2cm, minimum height=0.7cm,
+      font=\footnotesize, anchor=north west]
+    at ($(leg_ai.south west)+(0,-0.1)$)
+    {$\square$ Human-performed step};
 
 \end{tikzpicture}
-\caption{\textbf{PRISMA flow diagram.} Study identification, screening, and inclusion process. Numbers to be filled after search completion. Studies are categorized into Tiers 1--4. The analytic sub-cohort includes only Tier 1 studies with time-to-GVHD outcomes and publicly available 16S data.}
+}% end resizebox
+\caption{\textbf{PRISMA-trAIce modified flow diagram.}
+Study identification, screening, and inclusion process following PRISMA-ScR guidelines with the PRISMA-trAIce extension for transparent AI reporting.
+Violet nodes represent steps performed by AI (Claude); blue nodes represent human-performed steps.
+The screening stage is split per PRISMA-trAIce requirements: AI exclusions and human exclusions are tracked separately.
+The AI validation box reports screening performance on a random 10\% human gold-standard subsample.
+Numbers to be filled after search and screening are complete.
+Studies are categorized into Tiers 1--4; the analytic sub-cohort additionally requires time-to-GVHD outcomes and publicly available 16S data.}
 \label{fig:prisma}
 \end{figure}
 
@@ -700,6 +815,14 @@ Fujimoto & 2024 & 46? & Retrospective & aGVHD (occurrence) & Pre-cond. & PRJNA11
 \todoitem{Scoping review limitations: single reviewer (if applicable), English-language bias, possible missed studies.}
 \todoitem{Analytic sub-cohort limitations: small $N$, limited to 16S (not shotgun), batch effects.}
 \todoitem{Citation network limitations: only traces citations through included reviews, not the entire literature.}
+\todoitem{\textbf{AI-specific limitations (required by PRISMA-trAIce):}}
+\begin{itemize}[nosep]
+    \item AI screening was validated on [X\%] of records; performance on the remaining records is estimated but not directly verified
+    \item LLM hallucination risk at the data extraction stage: all AI-extracted fields were verified by a human reviewer, but subtle errors may persist
+    \item Prompt sensitivity: AI decisions may vary with prompt wording; final prompts are documented in Supplementary Table S3 for reproducibility
+    \item The Claude model version used ([version]) may produce different outputs in future queries; all session logs are archived for reproducibility
+    \item The citation network parses published reference lists, which may contain errors or incomplete citations in the source papers
+\end{itemize}
 
 \subsection*{Paragraph 6: Future directions}
 \todoitem{Explicitly connect to the broader thesis: this paper motivates and provides the data for a Bayesian hierarchical competing risks analysis (Project 3 / bhCRR).}
@@ -738,6 +861,12 @@ Fujimoto & 2024 & 46? & Retrospective & aGVHD (occurrence) & Pre-cond. & PRJNA11
 
 \subsection{Table S2: PRISMA-ScR Checklist}
 \placeholder{Completed PRISMA-ScR checklist with page numbers for each item.}
+
+\subsection{Table S3: PRISMA-trAIce Checklist}
+\placeholder{Completed PRISMA-trAIce checklist (14 items) documenting AI use at each stage of the review. Synthesized from session logs in \texttt{AI\_assisted\_litreview/logs/}. Items rated Mandatory / Highly Recommended / Recommended / Optional.}
+
+\subsection{Table S4: AI Prompts Documentation}
+\placeholder{Verbatim prompts used at each stage (title/abstract screening, full-text flagging, data extraction first-pass). Each prompt entry includes: stage, date first used, Claude version, any modifications made during the review, and rationale for modifications. Synthesized from \texttt{AI\_assisted\_litreview/prompts/}.}
 
 \subsection{Table S3: Full Data Extraction Table}
 \placeholder{Complete data extraction for all included primary studies, including fields not shown in Table~\ref{tab:characteristics}: conditioning regimen, GvHD prophylaxis, follow-up duration, detailed findings, quality indicators.}

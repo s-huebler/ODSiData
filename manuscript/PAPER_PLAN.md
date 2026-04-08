@@ -35,6 +35,30 @@ This paper serves as the bedrock of a biostatistics dissertation investigating m
 - Document deviations explicitly (e.g., Allozithro samples during pre-conditioning)
 - This turns a limitation into a motivated design choice grounded in the evidence synthesis
 
+### AI-Assisted Review Methodology
+This review will use AI (Claude) as a methodological tool at multiple stages. All AI use will be reported following the **PRISMA-trAIce** framework (JMIR AI, 2025) — the current standard for transparent reporting of AI in systematic literature reviews. Note: this is distinct from **PRISMA-AI** (Nature Medicine, 2023), which covers systematic reviews *of* AI interventions and is not relevant here.
+
+**Key PRISMA-trAIce requirements:**
+- Name AI tool(s), version, and provider used at each stage
+- Document exact prompts verbatim (reproducibility requirement)
+- Describe the human–AI interaction model at each stage
+- Report AI performance metrics (sensitivity, specificity, Cohen's kappa) validated against a human gold standard (~10% sample)
+- Use the trAIce-modified PRISMA flow diagram, which tracks AI exclusions and human exclusions separately
+- Discuss AI-related limitations explicitly in the Discussion
+
+**Stage-by-stage AI use plan and permitted scope:**
+
+| Stage | AI Role | Human Role | Risk Level |
+|-------|---------|-----------|------------|
+| Search string refinement | AI assists with term generation and testing | Human defines and approves final string | Low |
+| Title/abstract screening | AI first-pass; validated on 10% gold standard | Human reviews all AI "include" + uncertain decisions | Medium — validated in literature |
+| Full-text screening | AI flags likely exclusions with reasons | Human makes all final include/exclude decisions | Medium-high |
+| Data extraction | AI generates structured first-pass draft | Human verifies every field | High — error rates 31%+ in literature |
+| Citation network construction | Computational (code, not LLM inference) | Human reviews network logic and outputs | Low — this is a methods/code task |
+| Synthesis and writing | AI assists drafting | Human leads, verifies all claims against sources | High — hallucination risk |
+
+**All AI decisions, prompts, and validation records are logged in `AI_assisted_litreview/`** (see that directory's CLAUDE.md for logging rules and the session log template).
+
 
 ## Paper Structure
 
@@ -169,12 +193,14 @@ Additional discussion points:
 
 ### Phase 1: Scoping Review Infrastructure (Priority)
 - [ ] Write formal eligibility criteria (PCC framework: Population, Concept, Context)
-- [ ] Develop and document the database search string (PubMed, Embase, Web of Science)
+- [ ] Develop and document the database search string (PubMed, Embase, Web of Science); document any AI assistance in refinement
 - [ ] Run the search and deduplicate results
-- [ ] Screen titles/abstracts against eligibility criteria
-- [ ] Full-text review of included studies
+- [ ] **Build human gold standard:** manually screen ~10% random sample for AI performance validation
+- [ ] Screen titles/abstracts (AI-first, human review of includes/uncertain); compute sensitivity/specificity vs. gold standard
+- [ ] Full-text review (human primary, AI assist for flagging); log all AI prompts and decisions
 - [ ] Design the structured data extraction form
-- [ ] Extract data into the evidence table
+- [ ] Extract data (AI first-pass, human verification field-by-field); log discrepancies
+- [ ] Complete PRISMA-trAIce checklist for Methods/supplement
 
 ### Phase 2: Citation Network (High Priority — this is the differentiator)
 - [ ] Compile complete reference lists from all Tier 4 narrative reviews
@@ -204,8 +230,20 @@ Additional discussion points:
 - [ ] Internal review with advisor
 - [ ] Verify all citation network claims against sources
 - [ ] Check PRISMA-ScR checklist compliance
+- [ ] Check PRISMA-trAIce checklist compliance; complete all 14 items
 - [ ] Select target journal and format accordingly
-- [ ] Prepare supplementary materials (full evidence table, search strategy details)
+- [ ] Prepare supplementary materials:
+  - Full evidence table
+  - Full search strategy with database-specific strings
+  - PRISMA-trAIce checklist (Table S2)
+  - AI prompt documentation (synthesized from `AI_assisted_litreview/prompts/`)
+  - AI performance validation results (from `AI_assisted_litreview/validation/`)
+
+### Key References for AI Methodology
+- PRISMA-trAIce: https://ai.jmir.org/2025/1/e80247 (and GitHub: https://github.com/cqh4046/PRISMA-trAIce)
+- PRISMA-AI (for AI-as-subject reviews, not directly applicable): https://pubmed.ncbi.nlm.nih.gov/36646804/
+- LLM screening validation: https://www.cambridge.org/core/journals/research-synthesis-methods/article/validation-of-large-language-models-llama-3-and-chatgpt4o-mini-for-title-and-abstract-screening-in-biomedical-systematic-reviews/EDE7C95374C7FF6200B7280D5742D906
+- LLM effectiveness in abstract screening: https://link.springer.com/article/10.1186/s13643-024-02609-x
 
 
 ## Key Strategic Notes

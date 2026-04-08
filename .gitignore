@@ -11,3 +11,4 @@
 **/demux.qza
 *.fastq
 *.sra
+**/demux-trimmed.qza
