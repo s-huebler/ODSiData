@@ -6,42 +6,50 @@ editor: visual
 
 ```         
 qiime feature-table merge \
-  --i-tables ../../Allozithro2017/PhylogeneticTree/tree-table.qza ../../Liu2017/PhylogeneticTree/tree-table.qza ../../Fujimoto2024/PhylogeneticTree/tree-table.qza\
+  --i-tables ../Allozithro2017/PhylogeneticTree/tree-table.qza ../Liu2017/PhylogeneticTree/tree-table.qza ../Fujimoto2024/PhylogeneticTree/tree-table.qza\
   --o-merged-table merged-table.qza
 
 qiime feature-table merge-seqs \
-  --i-data ../../Allozithro2017/PhylogeneticTree/final-tree-seqs.qza ../../Liu2017/PhylogeneticTree/tree-seqs.qza ../../Fujimoto2024/PhylogeneticTree/final-tree-seqs.qza\
+  --i-data ../Allozithro2017/PhylogeneticTree/final-tree-seqs.qza ../Liu2017/PhylogeneticTree/tree-seqs.qza ../Fujimoto2024/PhylogeneticTree/final-tree-seqs.qza\
   --o-merged-data merged-seqs.qza
 ```
 
 ```         
 qiime phylogeny filter-tree \
-  --i-tree ../../Greengenes2/2024.09.phylogeny.asv.nwk.qza \
+  --i-tree ../Greengenes2/2024.09.phylogeny.asv.nwk.qza \
   --i-table merged-table.qza \
   --o-filtered-tree greengenes2-merged-tree.qza
 ```
 
 ```         
 qiime feature-classifier classify-sklearn \
-  --i-classifier ../../Greengenes2/2024.09.backbone.full-length.nb.sklearn-1.4.2.qza\
+  --i-classifier ../Greengenes2/2024.09.backbone.full-length.nb.sklearn-1.4.2.qza\
   --i-reads merged-seqs.qza \
   --p-confidence 0.9 \
-  --o-classification greengenes2_merged_taxonomy.qza
+  --o-classification greengenes2_merged_taxonomy_full_length_90.qza
+  
+  qiime feature-classifier classify-sklearn \
+  --i-classifier ../Greengenes2/2024.09.backbone.v4.nb.sklearn-1.4.2.qza\
+  --i-reads merged-seqs.qza \
+  --p-confidence 0.9 \
+  --o-classification greengenes2_merged_taxonomy_v4_length_90.qza
 ```
 
 ```         
 qiime taxa barplot \
   --i-table merged-table.qza \
-  --i-taxonomy greengenes2_merged_taxonomy.qza \
+  --i-taxonomy greengenes2_merged_taxonomy_full_length_90.qza \
   --m-metadata-file ../merged_metadata.tsv\
-  --o-visualization merged-taxa-bar-plots.qzv
+  --o-visualization merged-taxa-bar-plots_full_length_90.qzv
+  
+  qiime taxa barplot \
+  --i-table merged-table.qza \
+  --i-taxonomy greengenes2_merged_taxonomy_v4_length_90.qza \
+  --m-metadata-file ../merged_metadata.tsv\
+  --o-visualization merged-taxa-bar-plots_v4_length_90.qzv
 ```
 
-# ![](images/clipboard-1417000913.png){width="522"}
-
-![](images/clipboard-275620303.png){width="515"}
-
-![](images/clipboard-1734994386.png){width="516"}
+Visually the full length looks better
 
 # Phyloseq
 
@@ -61,10 +69,10 @@ library(ggtree)
 ## Reading
 
 ```{r}
-table_qza <- "~/Documents/ODSi/ODSiData/Merging/MergedTree/merged-table.qza"
-taxonomy_qza  <- "~/Documents/ODSi/ODSiData/Merging/MergedTree/greengenes2_merged_taxonomy.qza"
-repseqs_qza   <- "~/Documents/ODSi/ODSiData/Merging/MergedTree/merged-seqs.qza"      
-tree_qza      <- "~/Documents/ODSi/ODSiData/Merging/MergedTree/greengenes2-merged-tree.qza"
+table_qza <- "~/Documents/ODSi/ODSiData/Merging/merged-table.qza"
+taxonomy_qza  <- "~/Documents/ODSi/ODSiData/Merging/greengenes2_merged_taxonomy_full_length_90.qza"
+repseqs_qza   <- "~/Documents/ODSi/ODSiData/Merging/merged-seqs.qza"      
+tree_qza      <- "~/Documents/ODSi/ODSiData/Merging/greengenes2-merged-tree.qza"
 ```
 
 ## OTU
@@ -380,85 +388,85 @@ vizualize_collapse(ps, "Class")
 ## Rarefaction Curves
 
 ```         
-qiime tools import \
-  --input-path combat-feature-table.biom \
-  --type 'FeatureTable[Frequency]' \
-  --input-format BIOMV100Format \
-  --output-path combat-feature-table.qza
-  
-  qiime tools import \
-  --type 'FeatureData[Taxonomy]' \
-  --input-path combat-taxonomy.tsv \
-  --output-path combat-taxonomy.qza
-  
-  qiime tools import \
-  --input-path combat_tree.nwk \
-  --type 'Phylogeny[Unrooted]' \
-  --output-path combatcorrected-unrooted-tree.qza
+#qiime tools import \
+#  --input-path combat-feature-table.biom \
+#  --type 'FeatureTable[Frequency]' \
+#  --input-format BIOMV100Format \
+#  --output-path combat-feature-table.qza
+#  
+#  qiime tools import \
+#  --type 'FeatureData[Taxonomy]' \
+#  --input-path combat-taxonomy.tsv \
+#  --output-path combat-taxonomy.qza
+#  
+#  qiime tools import \
+#  --input-path combat_tree.nwk \
+#  --type 'Phylogeny[Unrooted]' \
+#  --output-path combatcorrected-unrooted-tree.qza
 ```
 
 ```         
-qiime feature-table summarize \
-  --i-table combat-feature-table.qza \
-  --o-visualization combat-feature-table-viz.qzv
+#qiime feature-table summarize \
+#  --i-table combat-feature-table.qza \
+#  --o-visualization combat-feature-table-viz.qzv
 ```
 
 \~15min
 
 ```         
-qiime diversity alpha-rarefaction \
-  --i-table combat-feature-table.qza \
-  --p-max-depth 10000 \
-  --m-metadata-file combat_adjusted_meta.tsv \
-  --o-visualization alpha-rarefaction.qzv
+#qiime diversity alpha-rarefaction \
+#  --i-table combat-feature-table.qza \
+#  --p-max-depth 10000 \
+#  --m-metadata-file combat_adjusted_meta.tsv \
+#  --o-visualization alpha-rarefaction.qzv
 ```
 
 ```{r}
-library(vegan)
-library(DESeq2)
+#library(vegan)
+#library(DESeq2)
 ```
 
 ```{r}
-rarecurve(t(ps_corrected@otu_table@.Data), step = 1000, tidy = FALSE)
+#rarecurve(t(ps_corrected@otu_table@.Data), step = 1000, tidy = FALSE)
 ```
 
 ```{r}
-test_curve <- rarecurve(t(ps_corrected@otu_table@.Data), step = 1000, tidy = TRUE)
-
-test_curve <- test_curve %>%
-  left_join(combat_adjusted_meta %>%
-              select(Site = sampleid, study),
-            by = "Site")
+# test_curve <- rarecurve(t(ps_corrected@otu_table@.Data), step = 1000, tidy = TRUE)
+# 
+# test_curve <- test_curve %>%
+#   left_join(combat_adjusted_meta %>%
+#               select(Site = sampleid, study),
+#             by = "Site")
 ```
 
 ```{r}
-ggplot(test_curve, aes(x = Sample, y = Species, group = Site, color = study))+
-  geom_line()+
-  xlim(0, 10000)
-
-test_curve %>%
-  group_by(study, Sample)%>%
-  summarize(Species = mean(Species, na.rm = F),
-            sd_species = sd(Species),
-            n = n())
-
-
-  ggplot(aes(x = Sample, y = Species, group = Site, color = study))+
-  geom_line()+
-  xlim(0, 10000)
+# ggplot(test_curve, aes(x = Sample, y = Species, group = Site, color = study))+
+#   geom_line()+
+#   xlim(0, 10000)
+# 
+# test_curve %>%
+#   group_by(study, Sample)%>%
+#   summarize(Species = mean(Species, na.rm = F),
+#             sd_species = sd(Species),
+#             n = n())
+# 
+# 
+#   ggplot(aes(x = Sample, y = Species, group = Site, color = study))+
+#   geom_line()+
+#   xlim(0, 10000)
 ```
 
 ## Corrected beta
 
 ```{r}
-ord_bray_uncorrected <- ordinate(ps_filtered, method = "PCoA", distance = "bray", na.rm = T)
-ord_bray_corrected <- ordinate(ps_corrected, method = "PCoA", distance = "bray", na.rm = T)
-
-plot_ordination(ps_filtered, ord_bray_uncorrected, color = "study") + 
-  geom_point(size = 3) +
-  ggtitle("PCoA of Global Patterns (Bray-Curtis): Uncorrected Baseline Samples")
-
-plot_ordination(ps_corrected, ord_bray_corrected, color = "study") + 
-  geom_point(size = 3) +
-  ggtitle("PCoA of Global Patterns (Bray-Curtis): ComBat-seq Corrected Baseline Samples")
+# ord_bray_uncorrected <- ordinate(ps_filtered, method = "PCoA", distance = "bray", na.rm = T)
+# ord_bray_corrected <- ordinate(ps_corrected, method = "PCoA", distance = "bray", na.rm = T)
+# 
+# plot_ordination(ps_filtered, ord_bray_uncorrected, color = "study") + 
+#   geom_point(size = 3) +
+#   ggtitle("PCoA of Global Patterns (Bray-Curtis): Uncorrected Baseline Samples")
+# 
+# plot_ordination(ps_corrected, ord_bray_corrected, color = "study") + 
+#   geom_point(size = 3) +
+#   ggtitle("PCoA of Global Patterns (Bray-Curtis): ComBat-seq Corrected Baseline Samples")
 ```

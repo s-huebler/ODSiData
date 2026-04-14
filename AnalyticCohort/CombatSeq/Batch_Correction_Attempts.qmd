@@ -264,6 +264,60 @@ plot_heat(uncorrected_ps, "sparsity")
 plot_heat(uncorrected_ps, "size")
 ```
 
+```{r}
+## Showing only ~200 taxa shared by all studies
+temp_count_matrix <- as(otu_table(uncorrected_ps), "matrix")
+if (!taxa_are_rows(uncorrected_ps)) {
+  temp_count_matrix <- t(temp_count_matrix)
+}
+
+## Extract batch (study) 
+temp_count_meta <- data.frame(sample_data(uncorrected_ps))
+temp_count_meta <- count_meta[colnames(temp_count_matrix), , drop = FALSE]
+
+temp_batch_var <- droplevels(factor(temp_count_meta$study))
+
+
+# Filter for samples that have taxa which only appears in a single batch
+
+## 1) Identify taxa that are non-zero in at least one sample of at least two batches
+temp_shared_taxa <-  rowSums(sapply(levels(temp_batch_var), function(b) {
+  rowSums(temp_count_matrix[, temp_batch_var == b, drop = FALSE]) > 0
+  })) >= 3
+
+temp_ps <- prune_taxa(temp_shared_taxa, uncorrected_ps)
+temp_ps <- prune_samples(!(grepl("_", sample_data(temp_ps)$sample.id)),
+                         temp_ps)
+
+temp_otu_mat <- t(as(otu_table(temp_ps), "matrix"))
+
+temp_log_mat <- log10(temp_otu_mat + 1)
+
+
+temp_lib_size <- sample_sums(temp_ps)
+
+
+temp_ha = HeatmapAnnotation(LibSize = anno_barplot(temp_lib_size))
+
+
+
+
+
+```
+
+```{r}
+
+Heatmap(temp_log_mat, 
+        name = "Log10(Counts)",
+        top_annotation = ha,
+        col = viridis::viridis(100),
+        show_row_names = FALSE,
+        cluster_columns = TRUE, 
+        column_title = "Samples ordered by similarity")
+
+
+```
+
 # ComBat-seq correction (applied to raw counts)
 
 -   Combat seq correction on original counts
