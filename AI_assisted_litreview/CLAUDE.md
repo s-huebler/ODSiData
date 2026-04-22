@@ -37,6 +37,25 @@ Skip logging entirely for:
 
 ---
 
+## CONFIRM BEFORE WRITING
+
+**Rule: never auto-write a log. Always ask first.**
+
+Before creating or appending to any file in `logs/`:
+1. Recommend a logging status — one of `FULL`, `BRIEF`, or `NO log` — and give a
+   one-line reason based on the tier rules above.
+2. Ask the user to accept, reject, or defer the recommendation.
+3. If the user supplies a note indicating the log should wait for a pending decision
+   (e.g., "defer — eligibility criteria still being revised", "hold until validation
+   numbers are in"), record the deferral reason in the scratch stub and do **not**
+   create the log file.
+4. Only write the log after the user has explicitly accepted the recommendation.
+
+This applies to both FULL and BRIEF logs, including "inline at end of session"
+BRIEF logs — still ask before writing.
+
+---
+
 ## WHEN TO WRITE THE LOG
 
 **Rule: do not write the log inside a long work session.**

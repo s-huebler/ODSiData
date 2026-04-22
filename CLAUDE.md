@@ -56,6 +56,29 @@ Application of bhCRR to the harmonized ODSiData cohort.
 - Project 2 commits: "feat/fix/docs/test: brief description"
 - Always run devtools::check() before pushing bhCRR
 
+## Logging Confirmation
+Never auto-write a log (session log, lab notebook entry, AI-assisted lit review log,
+or any similar record). Instead, when a log would normally be written:
+1. Propose a recommended logging status (e.g., "FULL log recommended — screening batch",
+   "BRIEF log recommended", or "No log needed") with a one-line justification.
+2. Ask the user to accept, reject, or defer the recommendation before writing anything.
+3. Accept user-supplied notes that indicate the log should not be written until a
+   specific decision is finalized (e.g., "defer until eligibility criteria are locked").
+   Record the deferral reason in the scratch stub rather than the log file.
+4. Only write the log file after explicit user acceptance.
+
+## LaTeX Compilation — Overfull Errors
+When compiling manuscripts (Overleaf sync, local `pdflatex`/`latexmk`, etc.):
+- On the **first compile**, do not iteratively chase overfull hbox/vbox warnings.
+- For each overfull warning, insert a comment in the `.tex` source at or immediately
+  above the offending line in the form:
+  `% flagged to do: fix overfull (hbox, <size>pt at line <N>)`
+- If an overfull location already carries a `% flagged to do: fix overfull` comment,
+  ignore it on subsequent compiles unless the user specifically asks for it to be
+  addressed.
+- Other LaTeX errors (undefined references, missing packages, syntax errors) should
+  still be resolved normally — this rule applies only to overfull box warnings.
+
 ## Prompt Requests
 When Sophie asks for a "prompt", says "help me with a prompt", "write me a prompt",
 "give me a prompt", or any similar phrasing, interpret this as a request for a
