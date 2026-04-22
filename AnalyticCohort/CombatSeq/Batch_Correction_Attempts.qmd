@@ -26,6 +26,7 @@ library(vegan)
 library(phyloseq)
 library(ggExtra)
 library(ComplexHeatmap)
+library(ggridges)
 ```
 
 ```{r}
@@ -229,8 +230,8 @@ plot <- Heatmap(log_mat,
         top_annotation = ha,
         col = viridis::viridis(100),
         show_row_names = FALSE,
-        cluster_columns = TRUE, 
-        column_title = "Samples ordered by similarity")
+        cluster_columns = FALSE, 
+        column_title = "Samples")
 }
   
   plot
@@ -239,6 +240,8 @@ plot <- Heatmap(log_mat,
 ```
 
 # Original object
+
+Starting with our analytic_samples_ps object (called here uncorrected_ps):
 
 ```{r}
 #| label: print_uncorrected_ps
@@ -264,56 +267,53 @@ plot_heat(uncorrected_ps, "sparsity")
 plot_heat(uncorrected_ps, "size")
 ```
 
+Subset for only the taxa which appear in all studies:
+
 ```{r}
-## Showing only ~200 taxa shared by all studies
-temp_count_matrix <- as(otu_table(uncorrected_ps), "matrix")
+#| label: uncorrected_size_heatmap_shared_taxa
+
+## Showing only ~450 taxa shared by all studies
+shared_count_matrix <- as(otu_table(uncorrected_ps), "matrix")
 if (!taxa_are_rows(uncorrected_ps)) {
-  temp_count_matrix <- t(temp_count_matrix)
+  shared_count_matrix <- t(shared_count_matrix)
 }
 
 ## Extract batch (study) 
-temp_count_meta <- data.frame(sample_data(uncorrected_ps))
-temp_count_meta <- count_meta[colnames(temp_count_matrix), , drop = FALSE]
+shared_count_meta <- data.frame(sample_data(uncorrected_ps))
+shared_count_meta <- shared_count_meta[colnames(shared_count_matrix), , drop = FALSE]
 
-temp_batch_var <- droplevels(factor(temp_count_meta$study))
+shared_batch_var <- droplevels(factor(shared_count_meta$study))
 
 
 # Filter for samples that have taxa which only appears in a single batch
 
 ## 1) Identify taxa that are non-zero in at least one sample of at least two batches
-temp_shared_taxa <-  rowSums(sapply(levels(temp_batch_var), function(b) {
-  rowSums(temp_count_matrix[, temp_batch_var == b, drop = FALSE]) > 0
+shared_shared_taxa <-  rowSums(sapply(levels(shared_batch_var), function(b) {
+  rowSums(shared_count_matrix[, shared_batch_var == b, drop = FALSE]) > 0
   })) >= 3
 
-temp_ps <- prune_taxa(temp_shared_taxa, uncorrected_ps)
-temp_ps <- prune_samples(!(grepl("_", sample_data(temp_ps)$sample.id)),
-                         temp_ps)
+shared_ps <- prune_taxa(shared_shared_taxa, uncorrected_ps)
+shared_ps <- prune_samples(!(grepl("_", sample_data(shared_ps)$sample.id)),
+                         shared_ps)
 
-temp_otu_mat <- t(as(otu_table(temp_ps), "matrix"))
+shared_otu_mat <- t(as(otu_table(shared_ps), "matrix"))
 
-temp_log_mat <- log10(temp_otu_mat + 1)
-
-
-temp_lib_size <- sample_sums(temp_ps)
+shared_log_mat <- log10(shared_otu_mat + 1)
 
 
-temp_ha = HeatmapAnnotation(LibSize = anno_barplot(temp_lib_size))
+shared_lib_size <- sample_sums(shared_ps)
 
 
+shared_ha = HeatmapAnnotation(LibSize = anno_barplot(shared_lib_size))
 
-
-
-```
-
-```{r}
-
-Heatmap(temp_log_mat, 
+Heatmap(shared_log_mat, 
         name = "Log10(Counts)",
-        top_annotation = ha,
+        top_annotation = shared_ha,
         col = viridis::viridis(100),
         show_row_names = FALSE,
-        cluster_columns = TRUE, 
-        column_title = "Samples ordered by similarity")
+        cluster_columns = FALSE, 
+        column_title = "Samples")
+
 
 
 ```
@@ -391,7 +391,7 @@ print(combatseq_ps)
 ```{r}
 #| label: corrected_sparsity_heatmap
 
-plot_heat(uncorrected_ps, "sparsity")
+plot_heat(combatseq_ps, "sparsity")
 ```
 
 ### Library size variation
@@ -399,7 +399,286 @@ plot_heat(uncorrected_ps, "sparsity")
 ```{r}
 #| label: corrected_size_heatmap
 
-plot_heat(uncorrected_ps, "size")
+plot_heat(combatseq_ps, "size")
+```
+
+# Ridge Plots
+
+```{r}
+get_melted <- function(ps, label) {
+  psmelt(ps) %>%
+    mutate(source = label)
+}
+
+orig <- get_melted(uncorrected_ps, "Before Correction")
+corr <- get_melted(combatseq_ps, "After Correction")
+combined <- bind_rows(orig, corr) %>%
+  mutate(source = factor(source, levels = c("Before Correction", "After Correction")))
+```
+
+## Per study total read count before/after
+
+```{r}
+#| label: ridge plots 1
+#| output: false
+
+fig1_data <- combined %>%
+  group_by(Sample, study, source) %>%
+  summarise(total_reads = sum(Abundance), .groups = "drop") %>%
+  mutate(log_total = log10(total_reads + 1))
+
+fig1 <- ggplot(fig1_data, aes(x = log_total, y = factor(study), fill = study)) +
+  geom_density_ridges(alpha = 0.65, scale = 1.2, rel_min_height = 0.01) +
+  facet_wrap(~source) +
+  theme_ridges(grid = FALSE) +
+  theme(#legend.position = "none",
+        strip.text = element_text(face = "bold")) +
+  labs(
+    title    = "Per-Sample Total Read Count Distribution by Study",
+    x        = "log10(Total Read Count + 1)",
+    y        = "Study"
+  )+              
+      scale_fill_manual(name = "Cohort",
+                     labels = c("Allo" = "Allozithro",
+                                "Fuji" = "Fujimoto",
+                                "Liu" = "Liu"),
+                     values = c("gold", "#56B4E9", "#76EE00"))
+
+
+
+```
+
+```{r}
+print(fig1)
+```
+
+## Top 25 taxa abundance distribution across samples
+
+```{r}
+#| label: ridge plot 2
+#| output: false
+
+N_TAXA <- 25  # adjust as needed
+COLLAPSE_RANK <- "Genus"  # change to "Family", "Phylum", etc. as appropriate
+
+# Collapse to desired rank
+ps_orig_genus <- tax_glom(uncorrected_ps, taxrank = COLLAPSE_RANK, NArm = FALSE)
+ps_corr_genus <- tax_glom(combatseq_ps, taxrank = COLLAPSE_RANK, NArm = FALSE)
+
+# Get top N taxa by mean abundance from original
+top_taxa_names <- names(sort(
+  rowMeans(t(otu_table(ps_orig_genus))),
+  decreasing = TRUE
+))[1:N_TAXA]
+
+# Subset both objects to those taxa
+ps_orig_top <- prune_taxa(top_taxa_names, ps_orig_genus)
+ps_corr_top <- prune_taxa(top_taxa_names, ps_corr_genus)
+
+# Melt and combine
+fig2_orig <- psmelt(ps_orig_top) %>% mutate(source = "Before Correction")
+fig2_corr <- psmelt(ps_corr_top) %>% mutate(source = "After Correction")
+fig2_data <- bind_rows(fig2_orig, fig2_corr) %>%
+  mutate(
+    source     = factor(source, levels = c("Before Correction", "After Correction")),
+    log_abund  = log10(Abundance + 1),
+    taxon_label = coalesce(get(COLLAPSE_RANK), OTU)  # pulls the genus/family/etc. column
+  ) %>%
+  # Order taxa by median abundance for readability
+  group_by(taxon_label) %>%
+  mutate(median_abund = median(log_abund)) %>%
+  ungroup() %>%
+  mutate(taxon_label = fct_reorder(taxon_label, median_abund))%>%
+  select(OTU, taxon_label, study, Sample, source, log_abund)
+
+fig2 <- ggplot(fig2_data, aes(x = log_abund, y = taxon_label, color = study)) +
+  geom_density_ridges(alpha = 0.05, scale = 1.5, rel_min_height = 0.01) +
+  facet_wrap(~source) +
+  # scale_fill_manual(values = c("Before Correction" = "#E07B54",
+  #                              "After Correction"  = "#5B8DB8")) +
+  theme_ridges(grid = FALSE) +
+  theme(#legend.position = "none",
+        axis.text.y     = element_text(size = 8),
+        strip.text      = element_text(face = "bold")) +
+  labs(
+    title    = paste0("Figure 2: Top ", N_TAXA, " Taxa Abundance Distributions"),
+    x        = "log10(Abundance + 1)",
+    y        = COLLAPSE_RANK
+  )+              
+      scale_color_manual(name = "Cohort",
+                     labels = c("Allo" = "Allozithro",
+                                "Fuji" = "Fujimoto",
+                                "Liu" = "Liu"),
+                     values = c("gold", "#56B4E9", "#76EE00"))
+
+
+
+
+```
+
+```{r}
+print(fig2)
+```
+
+## Per study read count before/after
+
+```{r}
+#| label: ridge plot 3
+#| output: false
+
+
+get_sample_totals <- function(ps, label) {
+  otu <- as.data.frame(otu_table(ps))
+  if (!taxa_are_rows(ps)) otu <- t(otu)
+  
+  data.frame(
+    SampleID   = colnames(otu),
+    total_reads = colSums(otu),
+    source      = label
+  ) %>%
+    left_join(
+      data.frame(sample_data(ps)) %>% rownames_to_column("SampleID"),
+      by = "SampleID"
+    )
+}
+
+orig_totals <- get_sample_totals(uncorrected_ps,  "Before")
+corr_totals <- get_sample_totals(combatseq_ps, "After")
+
+# Join and compute difference and fold change
+delta_df <- orig_totals %>%
+  select(SampleID, study, before = total_reads) %>%   # replace Study with your variable name
+  left_join(
+    corr_totals %>% select(SampleID, after = total_reads),
+    by = "SampleID"
+  ) %>%
+  mutate(
+    delta      = after - before,                       
+    log2fc     = log2((after + 1) / (before + 1)),     
+    pct_change = 100 * (after - before) / (before + 1)  
+  ) %>%
+  group_by(study) %>%
+  mutate(median_abs_delta = median(abs(delta))) %>%
+  ungroup() %>%
+  mutate(study = fct_reorder(study, median_abs_delta))
+
+plot_a <- ggplot(delta_df, aes(x = delta, y = study, fill = study)) +
+  geom_density_ridges(
+    alpha          = 0.75,
+    scale          = 1.3,
+    rel_min_height = 0.01,
+    quantile_lines = TRUE,   # adds median line
+    quantiles      = 2
+  ) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray30", linewidth = 0.7) +
+  scale_fill_viridis_d(option = "turbo", guide = "none") +
+  theme_ridges(grid = FALSE) +
+  theme(
+    axis.text.y = element_text(size = 10),
+    plot.subtitle = element_text(size = 9, color = "gray40")
+  ) +
+  labs(
+    title    = "Read Count Change per Sample by Study",
+    subtitle = "After − Before correction | Dashed line = no change | Tick = median",
+    x        = "Read Count Difference (After − Before)",
+    y        = "Study"
+  )+              
+      scale_fill_manual(name = "Cohort",
+                     labels = c("Allo" = "Allozithro",
+                                "Fuji" = "Fujimoto",
+                                "Liu" = "Liu"),
+                     values = c("gold", "#56B4E9", "#76EE00"))
+
+```
+
+```{r}
+#| label: print ridge plot 3a 
+
+
+
+
+plot_a
+```
+
+```{r}
+#| label: ridge plot 3b
+#| output: false
+
+
+plot_b <- ggplot(delta_df, aes(x = log2fc, y = study, fill = study)) +
+  geom_density_ridges(
+    alpha          = 0.75,
+    scale          = 1.3,
+    rel_min_height = 0.01,
+    quantile_lines = TRUE,
+    quantiles      = 2
+  ) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray30", linewidth = 0.7) +
+  scale_fill_viridis_d(option = "turbo", guide = "none") +
+  theme_ridges(grid = FALSE) +
+  theme(
+    axis.text.y   = element_text(size = 10),
+    plot.subtitle = element_text(size = 9, color = "gray40")
+  ) +
+  labs(
+    title    = "Log2 Fold Change per Sample by Study",
+    subtitle = "log2(After + 1 / Before + 1) | Dashed line = no change | Tick = median",
+    x        = "Log2 Fold Change",
+    y        = "Study"
+  )+              
+      scale_fill_manual(name = "Cohort",
+                     labels = c("Allo" = "Allozithro",
+                                "Fuji" = "Fujimoto",
+                                "Liu" = "Liu"),
+                     values = c("gold", "#56B4E9", "#76EE00"))
+
+
+```
+
+```{r}
+#| label: print ridge plot 3b
+
+
+plot_b
+```
+
+```{r}
+#| label: ridge plot 3c
+#| output: false
+#| 
+plot_c <- ggplot(delta_df, aes(x = pct_change, y = study, fill = study)) +
+  geom_density_ridges(
+    alpha          = 0.75,
+    scale          = 1.3,
+    rel_min_height = 0.01,
+    quantile_lines = TRUE,
+    quantiles      = 2
+  ) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray30", linewidth = 0.7) +
+  scale_fill_viridis_d(option = "turbo", guide = "none") +
+  theme_ridges(grid = FALSE) +
+  theme(
+    axis.text.y   = element_text(size = 10),
+    plot.subtitle = element_text(size = 9, color = "gray40")
+  ) +
+  labs(
+    title    = "Percent Read Count Change per Sample by Study",
+    subtitle = "100 × (After − Before) / Before | Dashed line = no change | Tick = median",
+    x        = "Percent Change (%)",
+    y        = "Study"
+  )+              
+      scale_fill_manual(name = "Cohort",
+                     labels = c("Allo" = "Allozithro",
+                                "Fuji" = "Fujimoto",
+                                "Liu" = "Liu"),
+                     values = c("gold", "#56B4E9", "#76EE00"))
+
+```
+
+```{r}
+#| label: print ridge plot 3c
+
+plot_c
 ```
 
 # Comparing beta diversity before/after

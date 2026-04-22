@@ -55,3 +55,31 @@ Application of bhCRR to the harmonized ODSiData cohort.
 - Project 1 commits: "[Study] brief description" e.g. "[Liu2017] fix DADA2 params"
 - Project 2 commits: "feat/fix/docs/test: brief description"
 - Always run devtools::check() before pushing bhCRR
+
+## Prompt Requests
+When Sophie asks for a "prompt", says "help me with a prompt", "write me a prompt",
+"give me a prompt", or any similar phrasing, interpret this as a request for a
+**Claude Code prompt** that she will copy-paste into the Claude Code CLI running in
+the Positron terminal.
+
+Formatting rules for these prompt requests:
+- Output the prompt as plain text in a single fenced code block so it can be copied
+  and pasted directly into the terminal. No surrounding commentary inside the block.
+- Write in the second person, directed at Claude Code (e.g., "Read X, then do Y").
+- Assume Claude Code is running from the relevant project root
+  (usually `~/Documents/ODSi/ODSiData` or `~/Documents/bhCRR`) — use paths relative
+  to that root unless an absolute path is needed.
+- Reference the `run_qiime` alias for any QIIME2 commands rather than raw conda activation.
+- Respect the repo's commit convention ("[Study] brief description" for Project 1;
+  "feat/fix/docs/test: brief description" for Project 2) whenever the prompt includes
+  a commit step.
+- Keep each prompt focused on a single, verifiable unit of work.
+
+Multi-step / complex tasks:
+- If the task is complex or multi-step, do **not** cram everything into one prompt.
+  Split it into a numbered sequence of prompts, each in its own fenced code block,
+  with a brief one-line heading above each block describing the step.
+- Order the prompts so each one can be run and verified before moving to the next
+  (e.g., explore → plan → implement → test → commit).
+- Explicitly note any handoffs between prompts (files produced, state changed) so
+  Sophie knows what to check before pasting the next one.

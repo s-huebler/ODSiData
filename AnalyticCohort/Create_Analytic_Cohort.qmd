@@ -1,108 +1,105 @@
 ---
 title: "Create Analytic Cohort"
-format: html
+author: "Sophie Huebler"
+format: 
+  html:
+    code-fold: true
+    code-tools: true
+    toc: true
+    embed-resources: true
 editor: visual
+execute:
+  warning: false
+  cache: false
+engine: knitr
 ---
 
 # Overview
 
 Here we create the analytic cohort. We start from the phyloseq object created in ODSi/ODSiData/Merging/Merging.qmd.
 
-We first apply the inclusion/excusion criteria:
+We first apply the inclusion/exclusion criteria:
 
-![](images/Sample_IncExc.png)
+![](Inclusion_Exclusion.png){width="641"}
 
-We then collapse the Liu data to have 1 sample/person/timepoint by adding together libraries. Note, not all person-timepoints had both reads pass the preprocessing stage.
-
-![](images/Filtering_barplot_nolegend.png)
+![](images/Read_Attrition.png){width="620"}
 
 ```{r}
+#| label: libraries
+#| output: false
 library(tidyverse)
+library(phyloseq)
 ```
 
 ```{r}
+#| label: load
+#| output: false
+
+
+#ps = all_samples_ps
 load("~/Documents/ODSi/ODSiData/Merging/merged_ps.Rdata")
 source("/Users/sophiehuebler/Documents/ODSi/ODSiData/Functions/tree_coloring.R")
 ```
 
 # Filtering for baseline
 
+Starting with our all_samples_ps phyloseq object:
+
 ```{r}
+#| label: filter
+#| output: false
+
 baseline_index <- sample_data(ps)$baseline 
 patient_index <- sample_data(ps)$patient
 adult_index <- sample_data(ps)$age >= 18
 
 final_index <- as.logical(pmin(baseline_index, patient_index, adult_index))
 ps_filtered_01 <- prune_samples(final_index, ps)
-ps_filtered_01 <- prune_taxa(taxa_sums(ps_filtered_01)>0, ps_filtered_01)
-```
-
-## Collapse Liu
-
-```{r}
-
-filtered_meta <- sample_data(ps_filtered_01)%>%
-  data.frame()%>%
-  dplyr::group_by(individual)%>%
-  mutate(sample.id2 = paste(unique(sample.id), collapse = "_"))%>%
-  dplyr::select(-sample.id)%>%
-  dplyr::select(sample.id = sample.id2,
-                study,
-                individual,
-                sex,
-                age,
-                disease,
-                agvhd,
-                death, 
-                relapse)%>%
-  distinct()
- 
-
-ps_filtered_02 <- merge_samples(ps_filtered_01, group = "individual")
+ps_filtered <- prune_taxa(taxa_sums(ps_filtered_01)>0, ps_filtered_01)
 ```
 
 ```{r}
-filtered_otu <- otu_table(ps_filtered_02)
-rownames(filtered_otu)<- filtered_meta$sample.id
-filtered_meta <- sample_data(filtered_meta)
-rownames(filtered_meta)<- filtered_meta$sample.id
+#| label: check ps
 
-ps_filtered <- phyloseq(filtered_otu, tax_table(ps_filtered_02), filtered_meta, phy_tree(ps_filtered_02), refseq(ps_filtered_01))
-
-ps_filtered <- prune_taxa(taxa_sums(ps_filtered)>0, ps_filtered)
-ps_filtered <- prune_samples(sample_sums(ps_filtered)>0, ps_filtered)
-```
-
-```{r}
 print("Matching otu rownames and tree tip labels:")
-all(colnames(ps_filtered@otu_table) %in% ps_filtered@phy_tree$tip.label)
+all(rownames(ps_filtered@otu_table) %in% ps_filtered@phy_tree$tip.label)
 
 print(sprintf("OTU features: %d ; tree tips: %d", ntaxa(ps_filtered@otu_table), length(ps_filtered@phy_tree$tip.label)))
-print(sprintf("Intersection: %d", sum(colnames(ps_filtered@otu_table) %in% ps_filtered@phy_tree$tip.label)))
+print(sprintf("Intersection: %d", sum(rownames(ps_filtered@otu_table) %in% ps_filtered@phy_tree$tip.label)))
 
 
-print(sprintf("OTU sample: %d ; meta samples: %d", nrow(ps_filtered@otu_table), nrow(ps_filtered@sam_data)))
-print(sprintf("Intersection: %d", sum(rownames(ps_filtered@otu_table) %in% rownames(ps_filtered@sam_data))))
+print(sprintf("OTU sample: %d ; meta samples: %d", ncol(ps_filtered@otu_table), nrow(ps_filtered@sam_data)))
+print(sprintf("Intersection: %d", sum(colnames(ps_filtered@otu_table) %in% rownames(ps_filtered@sam_data))))
 ```
 
 ```{r}
+#| label: print ps
+
 print(ps_filtered)
 ```
 
 # Export
 
+Saving our analytic_samples_ps object:
+
 ```{r}
 
 uncorrected_ps <- ps_filtered
 #save(uncorrected_ps, file = "~/Documents/ODSi/ODSiData/AnalyticCohort/uncorrected_ps.Rdata")
+analytic_samples_ps <- uncorrected_ps
+#save(analytic_samples_ps, file = "~/Documents/ODSi/ODSiData/analytic_samples_ps.Rdata")
 ```
 
 # Visualize
 
 ```{r}
-vizualize_collapse(ps_filtered, "ASV")
+vizualize_collapse(analytic_samples_ps, "ASV")
 ```
 
 ```{r}
-vizualize_collapse(ps_filtered, "Genus")
+vizualize_collapse(analytic_samples_ps, "Species")
+```
+
+```{r}
+vizualize_collapse(analytic_samples_ps, "Genus")
 ```

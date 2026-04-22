@@ -1,4 +1,6 @@
 
+library(ggtree)
+
 # Function to get combination of all studies
 
 get_combinations <- function(vec) {

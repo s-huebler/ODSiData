@@ -144,12 +144,49 @@ A Scoping Review and Description of an Analytic Cohort}
 \subsection{Information Sources and Search Strategy}
 \label{sec:search}
 %-------------------------------------------------------------------
-\todoitem{Databases: PubMed, Embase, Web of Science.}
-\todoitem{Date range: inception through [search date, 2026].}
-\todoitem{Search string: [document the full Boolean query].}
-\todoitem{Supplementary: hand-searching reference lists of all included reviews.}
 
-\placeholder{Full search strategy to be included as Supplementary Table S1.}
+We searched two bibliographic databases from inception through
+\textcolor{red}{[search date, 2026]}: PubMed\slash MEDLINE (via the
+National Library of Medicine interface,
+\url{https://pubmed.ncbi.nlm.nih.gov}) and the Web of Science Core
+Collection (Clarivate). No date,
+language, or publication-type restrictions were applied at the
+retrieval stage; non-English records and ineligible publication types
+were flagged during title/abstract screening. Narrative and clinical
+reviews were retained in the retrieval to support the Tier~4 citation
+network analysis (§\ref{sec:citation_network}).
+
+The search combined four concept blocks with Boolean \texttt{AND}:
+(C1)~allogeneic hematopoietic stem cell transplantation, (C2)~gut
+microbiome, (C3)~graft-versus-host disease, and (C4)~a human-species
+restriction. Each concept block combined Medical Subject Headings
+(MeSH, PubMed) with free-text title/abstract terms; the analogous
+Web of Science block used Topic searches (\texttt{TS=}) across title,
+abstract, author keywords, and Keywords Plus. Because Web of Science
+lacks a species-indexed MeSH field, we approximated the human filter
+with a conservative title-only exclusion of animal-model terms
+(\texttt{mouse}, \texttt{mice}, \texttt{murine}, \texttt{rat},
+\texttt{rats}, \texttt{"animal model"}); records whose abstracts
+referenced animal comparisons were retained for human screening. The
+complete line-by-line search queries for both databases are provided
+in Supplementary Table~S1.
+
+We supplemented the database search by hand-searching the reference
+lists of all narrative and clinical reviews retrieved at full-text
+review (Tier~4 sources). De-duplication across databases was
+performed using Zotero's built-in deduplication algorithm, a
+rule-based automated tool distinct from the evaluative AI systems
+documented in §\ref{sec:ai_use} (see Figure~\ref{fig:prisma} for this
+PRISMA-trAIce distinction).
+
+The initial Boolean strings were drafted by a large language model
+(Claude Opus 4.7, Anthropic; model string \texttt{claude-opus-4-7})
+using the eligibility criteria (§\ref{sec:eligibility}) and a
+structured prompt (Supplementary Table~S4; managed prompt file
+\path{AI_assisted_litreview/prompts/search-v1.md}) and were
+iteratively refined by the reviewer (S.H.). The search strategy was
+not peer-reviewed by a medical librarian; we note this as a
+limitation in §\ref{sec:discussion}.
 
 %-------------------------------------------------------------------
 \subsection{Use of Artificial Intelligence}
@@ -857,7 +894,135 @@ Fujimoto & 2024 & 46? & Retrospective & aGVHD (occurrence) & Pre-cond. & PRJNA11
 \label{sec:supplementary}
 
 \subsection{Table S1: Full Search Strategy}
-\placeholder{Complete Boolean search strings for each database (PubMed, Embase, Web of Science), including MeSH terms and date filters.}
+\label{subsec:S1}
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}p{0.06\linewidth} p{0.88\linewidth}@{}}
+\caption{Full Boolean search queries, line-by-line, for each
+database. Retrieval counts ($n$) to be populated after the search is
+executed. Quotation marks are rendered typographically; transcribe
+as straight double quotes (\texttt{"}) when copying into database
+interfaces. Deduplication across databases was performed in Zotero
+using its built-in rule-based deduplication algorithm (an automated
+tool distinct from the evaluative AI systems documented in
+§\ref{sec:ai_use}).\label{tab:S1}}\\
+\toprule
+\textbf{Line} & \textbf{Query} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l@{}}{\textit{Table S1 continued from previous page.}}\\
+\toprule
+\textbf{Line} & \textbf{Query}\\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{2}{r@{}}{\textit{continued on next page}}\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+% ---- Panel A: PubMed ----
+\multicolumn{2}{@{}p{0.95\linewidth}@{}}{%
+\textbf{Panel A. PubMed/MEDLINE.}~
+Interface: \url{https://pubmed.ncbi.nlm.nih.gov}.~
+Search date: \textcolor{red}{[date, 2026]}.~
+Filters at retrieval: none beyond the human-species restriction
+included as Line~\#5.}\\
+\addlinespace
+
+\#1 & Transplantation type (HSCT / BMT / PBSCT / CBT / SCT).\newline
+``Hematopoietic Stem Cell Transplantation''[Mesh] OR
+``Bone Marrow Transplantation''[Mesh] OR
+``Cord Blood Stem Cell Transplantation''[Mesh] OR
+``hematopoietic stem cell transplant*''[tiab] OR
+``haematopoietic stem cell transplant*''[tiab] OR
+``bone marrow transplant*''[tiab] OR
+``stem cell transplant*''[tiab] OR
+``cord blood transplant*''[tiab] OR
+``peripheral blood stem cell transplant*''[tiab] OR
+HSCT[tiab] OR HCT[tiab] OR BMT[tiab] OR PBSCT[tiab] OR CBT[tiab] OR
+SCT[tiab] OR ``allo-SCT''[tiab] OR ``allo-HSCT''[tiab] OR
+``allo-HCT''[tiab]\\
+
+\#2 & Allogeneic modifier.\newline
+``Transplantation, Homologous''[Mesh] OR allogen*[tiab]\\
+
+\#3 & Gut microbiome concept (C2).\newline
+``Gastrointestinal Microbiome''[Mesh] OR ``Microbiota''[Mesh] OR
+``Metagenomics''[Mesh] OR ``RNA, Ribosomal, 16S''[Mesh] OR
+``Dysbiosis''[Mesh] OR
+microbiom*[tiab] OR microbiota[tiab] OR microflora[tiab] OR
+``microbial communit*''[tiab] OR ``microbial divers*''[tiab] OR
+``microbial compos*''[tiab] OR ``microbial signature*''[tiab] OR
+``microbial profile*''[tiab] OR ``microbial ecolog*''[tiab] OR
+``gut flora''[tiab] OR ``gut bacteri*''[tiab] OR
+``intestinal flora''[tiab] OR ``intestinal bacteri*''[tiab] OR
+``fecal microbi*''[tiab] OR ``faecal microbi*''[tiab] OR
+``stool microbi*''[tiab] OR ``16S rRNA''[tiab] OR
+``16S ribosomal''[tiab] OR metagenom*[tiab] OR dysbiosis[tiab]\\
+
+\#4 & Graft-versus-host disease (C3).\newline
+``Graft vs Host Disease''[Mesh] OR ``graft versus host''[tiab] OR
+``graft vs host''[tiab] OR ``graft-versus-host''[tiab] OR
+GVHD[tiab] OR GvHD[tiab] OR aGVHD[tiab] OR cGVHD[tiab]\\
+
+\#5 & Human-species restriction (C4).\newline
+humans[MeSH]\\
+
+\#6 & \textbf{Final retrieval:} (\#1 AND \#2) AND \#3 AND \#4 AND \#5\\
+
+\addlinespace
+% ---- Panel B: Web of Science ----
+\multicolumn{2}{@{}p{0.95\linewidth}@{}}{%
+\textbf{Panel B. Web of Science Core Collection.}~
+Interface: \url{https://www.webofscience.com}.~
+Database selection: Web of Science Core Collection (all indices
+available to the University of Utah institutional subscription).~
+Search date: \textcolor{red}{[date, 2026]}.~
+Filters at retrieval: none beyond the title-only animal exclusion
+included as Line~\#5.}\\
+\addlinespace
+
+\#1 & Transplantation type (HSCT / BMT / PBSCT / CBT / SCT).\newline
+TS=(``hematopoietic stem cell transplant*'' OR
+``haematopoietic stem cell transplant*'' OR
+``bone marrow transplant*'' OR ``stem cell transplant*'' OR
+``cord blood transplant*'' OR
+``peripheral blood stem cell transplant*'' OR
+HSCT OR HCT OR BMT OR PBSCT OR CBT OR SCT OR
+``allo-SCT'' OR ``allo-HSCT'' OR ``allo-HCT'')\\
+
+\#2 & Allogeneic modifier.\newline
+TS=(allogen*)\\
+
+\#3 & Gut microbiome concept (C2).\newline
+TS=(microbiom* OR microbiota OR microflora OR
+``microbial communit*'' OR ``microbial divers*'' OR
+``microbial compos*'' OR ``microbial signature*'' OR
+``microbial profile*'' OR ``microbial ecolog*'' OR
+``gut flora'' OR ``gut bacteri*'' OR
+``intestinal flora'' OR ``intestinal bacteri*'' OR
+``fecal microbi*'' OR ``faecal microbi*'' OR
+``stool microbi*'' OR ``16S rRNA'' OR ``16S ribosomal'' OR
+metagenom* OR dysbiosis)\\
+
+\#4 & Graft-versus-host disease (C3).\newline
+TS=(``graft versus host'' OR ``graft vs host'' OR
+``graft-versus-host'' OR GVHD OR GvHD OR aGVHD OR cGVHD)\\
+
+\#5 & Title-only animal exclusion (human-species proxy, C4).\newline
+NOT TI=(mouse OR mice OR murine OR rat OR rats OR ``animal model'')\\
+
+\#6 & \textbf{Final retrieval:} (\#1 AND \#2) AND \#3 AND \#4 AND \#5\\
+
+\end{longtable}
+\endgroup
 
 \subsection{Table S2: PRISMA-ScR Checklist}
 \placeholder{Completed PRISMA-ScR checklist with page numbers for each item.}

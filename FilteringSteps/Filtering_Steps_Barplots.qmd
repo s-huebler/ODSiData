@@ -12,6 +12,8 @@ editor: visual
 library(tidyverse)
 library(qiime2R)
 library(ggh4x)
+library(cowplot)
+library(grid)
 ```
 
 # Overview
@@ -24,10 +26,6 @@ The bar charts shown in this document show the uniform pre-processing pipeline f
 
 -   One sample was corrupted from the fujimoto dataset: SRR28984726. Unable to import this into qiime. It is one of the 591 samples shown in the inclusion/exclusion diagram (although it gets filtered out in the baseline vs followup stage). It is not currently (03.24.2026) included in the merged_metadata.tsv so it had to be manually added to the dataframe.
 
--   Liu was forward reads only. So the 'merged' column is directly imputed from the denoised column.
-
--   Liu has 2 samples/person/timepoint. The samples get merged later on.
-
 -   More filtering happens once the ASV tables are merged, but that is not displayed here in any of the figures. Those next steps are:
 
     -   Samples put into a single ASV table
@@ -38,15 +36,13 @@ The bar charts shown in this document show the uniform pre-processing pipeline f
 
     -   Filter for 'included' samples only (see inclusion/exclusion criteria + non-zero library size)
 
-    -   Merge the reads from Liu study by adding together the libraries from samples corresponding to the same observation
-
     -   Run batch correction between studies using combat-seq (this step filters out samples for which all observed sequences are found only within one single study. This occurs in only 1 sample)
 
 ## Inclusion/Exclusion
 
 Here is an overview of the inclusion/exclusion steps.
 
-![](Sample_IncExc.png){width="1007"}
+![](images/Inclusion_Exclusion.png){width="674"}
 
 ```{r}
 #| include: false
@@ -195,30 +191,38 @@ barplot_04 <- barplot_03 %>%
 ## Greengenes Reference
 
 ```{r}
-#| include: false
-tree_allo <- qiime2R::read_qza("~/Documents/ODSi/ODSiData/Allozithro2017/PhylogeneticTree/tree-table.qza")
-tree_allo <- tree_allo$data
-tree_allo <- data.frame(sample.id = colnames(tree_allo),
-                         GreengenesTree = colSums(tree_allo))
-
-tree_fuji <- qiime2R::read_qza("~/Documents/ODSi/ODSiData/Fujimoto2024/PhylogeneticTree/tree-table.qza")
-tree_fuji <- tree_fuji$data
-tree_fuji <- data.frame(sample.id = colnames(tree_fuji),
-                         GreengenesTree = colSums(tree_fuji))
-
-tree_liu <- qiime2R::read_qza("~/Documents/ODSi/ODSiData/Liu2017/PhylogeneticTree/tree-table.qza")
-tree_liu <- tree_liu$data
-tree_liu <- data.frame(sample.id = colnames(tree_liu),
-                         GreengenesTree = colSums(tree_liu))
+tree <- qiime2R::read_qza("~/Documents/ODSi/ODSiData/Merging/merged-table.qza")
+tree <- tree$data
+tree <- data.frame(sample.id = colnames(tree),
+                   GreengenesTree = colSums(tree))
 ```
 
 ```{r}
 #| include: false
-tree <- bind_rows(
-  tree_allo, 
-  tree_fuji,
-  tree_liu
-)
+#   tree_allo <- qiime2R::read_qza("~/Documents/ODSi/ODSiData/Allozithro2017/PhylogeneticTree/tree-table.qza")
+# tree_allo <- tree_allo$data
+# tree_allo <- data.frame(sample.id = colnames(tree_allo),
+#                          GreengenesTree = colSums(tree_allo))
+# 
+# tree_fuji <- qiime2R::read_qza("~/Documents/ODSi/ODSiData/Fujimoto2024/PhylogeneticTree/tree-table.qza")
+# tree_fuji <- tree_fuji$data
+# tree_fuji <- data.frame(sample.id = colnames(tree_fuji),
+#                          GreengenesTree = colSums(tree_fuji))
+# 
+# tree_liu <- qiime2R::read_qza("~/Documents/ODSi/ODSiData/Liu2017/PhylogeneticTree/tree-table.qza")
+# tree_liu <- tree_liu$data
+# tree_liu <- data.frame(sample.id = colnames(tree_liu),
+#                          GreengenesTree = colSums(tree_liu))
+# tree <- bind_rows(
+#   tree_allo, 
+#   tree_fuji,
+#   tree_liu
+# )
+```
+
+```{r}
+#| include: false
+
 
 barplot_05 <- barplot_04 %>%
   left_join(tree,
@@ -481,7 +485,7 @@ read_attrition_option4 <- ggplot(df_long, aes(y = sample.id, x = Reads, fill = P
     scales = "free_y", 
     space = "free_y", 
     switch = "y",
-    # strip_themed allows us to pass a list of different rectangle fills
+
     strip = strip_themed(
       background_y = elem_list_rect(fill = transparent_study_colors, color = base_study_colors)
     )
@@ -499,16 +503,111 @@ read_attrition_option4 <- ggplot(df_long, aes(y = sample.id, x = Reads, fill = P
     axis.ticks.y = element_blank(),
     #strip.placement = "outside", 
     
-    # I changed the text color here to "white" so it stands out against the dark backgrounds
+
     strip.text.y.left = element_text(size = 12, face = "bold", color = "black", angle = 0),
     panel.grid.major.y = element_blank(),
     legend.position = "bottom" 
   ) +
   
-  # Keeps your 3-row, left-to-right legend formatting
+
   guides(fill = guide_legend(nrow = 1, byrow = TRUE))
 
 read_attrition_option4
+```
+
+```{r}
+# --- Build your main plot (same as before, but remove bottom legend) ---
+read_attrition_option5 <- ggplot(df_long, aes(y = sample.id, x = Reads, fill = Pipeline_Step)) +
+  geom_bar(stat = "identity", position = "identity") +
+  scale_fill_manual(values = my_colors3) +
+  facet_grid2(
+    study ~ ., 
+    scales = "free_y", 
+    space = "free_y", 
+    switch = "y",
+    strip = strip_themed(
+      background_y = elem_list_rect(fill = transparent_study_colors, color = base_study_colors)
+    )
+  ) +
+  labs(
+    title = "Read Attrition Across Microbiome Processing Pipeline",
+    y = "Individual Samples", 
+    x = "Number of Reads", 
+    fill = "Processing Step"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    strip.text.y.left = element_text(size = 12, face = "bold", color = "black", angle = 0),
+    panel.grid.major.y = element_blank(),
+    legend.position = "bottom"
+  ) +
+  guides(fill = guide_legend(nrow = 1, byrow = TRUE))
+
+# --- Create the grouping label strip as a separate grob ---
+# Adjust x positions (0-1 scale) to align with legend color swatches
+# These will need tweaking based on your final legend width
+
+make_bracket_grob <- function() {
+  grob_list <- grobTree(
+    
+    # ── DADA2 bracket (covers: Input, Filtered, Denoised, Merged, Non-chimeric) ──
+    linesGrob(x = unit(c(0.22, 0.22, 0.68, 0.68), "npc"),
+              y = unit(c(0.85, 0.5, 0.5, 0.85), "npc"),
+              gp = gpar(col = "black", lwd = 1)),
+    textGrob("DADA2", x = unit(0.42, "npc"), y = unit(0.1, "npc"),  # centered in bracket
+             gp = gpar(fontsize = 9)),
+    
+    # ── BLAST bracket (covers: BLAST only) ──
+    linesGrob(x = unit(c(0.69, 0.69, 0.75, 0.75), "npc"),
+              y = unit(c(0.85, 0.5, 0.5, 0.85), "npc"),
+              gp = gpar(col = "black", lwd = 1)),
+    textGrob("BLAST", x = unit(0.705, "npc"), y = unit(0.1, "npc"),  # centered in bracket
+             gp = gpar(fontsize = 9)),
+    
+    # ── Greengenes2 bracket (covers: OTU Clustered, Reference Tree) ──
+    linesGrob(x = unit(c(0.76, 0.76, 1, 1), "npc"),
+              y = unit(c(0.85, 0.5, 0.5, 0.85), "npc"),
+              gp = gpar(col = "black", lwd = 1)),
+    textGrob("Greengenes2", x = unit(0.885, "npc"), y = unit(0.1, "npc"),  # centered in bracket
+             gp = gpar(fontsize = 9))
+  )
+  return(grob_list)
+}
+
+# --- Combine plot + bracket strip ---
+final_plot <- plot_grid(
+  read_attrition_option5,
+  make_bracket_grob(),
+  ncol = 1,
+  rel_heights = c(1, 0.08)  # small sliver for the bracket row
+)
+
+print(final_plot)
+```
+
+```{r}
+reference_grid <- ggplot() +
+  theme_void() +
+  geom_vline(xintercept = seq(0, 1, by = 0.01), color = "red", linewidth = 0.4) +
+  geom_text(aes(x = seq(0, 1, by = 0.1), y = 0.5, 
+                label = seq(0, 1, by = 0.1)), 
+            color = "red", size = 3, vjust = -1) +
+  xlim(0, 1) + ylim(0, 1)
+
+final_plot <- plot_grid(
+  read_attrition_option5,
+  make_bracket_grob(),
+  reference_grid,  # <-- add this temporarily
+  ncol = 1,
+  rel_heights = c(1, 0.06, 0.06)
+)
+print(final_plot)
+```
+
+```{r}
+read_attrition_option5
 ```
 
 # Table 1
