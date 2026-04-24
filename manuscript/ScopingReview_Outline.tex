@@ -324,8 +324,8 @@ AI workload reduction & \textcolor{red}{??}\% & --- \\
 ]
 
 %-------- IDENTIFICATION --------
-\node[box, fill=blue!8] (id) {Records from database search\\(PubMed, Embase, Web of Science)\\(n~=~\textcolor{red}{??})};
-\node[box, fill=blue!8, right=2.2cm of id] (other) {Additional records\\(reference list hand-search)\\(n~=~\textcolor{red}{??})};
+\node[box, fill=blue!8] (id) {Records from database search\\(PubMed, Web of Science)\\(n~=~\textcolor{red}{330 (Pubmed)+ 993 (Web of Science})};
+\node[box, fill=blue!8, right=2.2cm of id] (other) {Additional records\\(reference list hand-search)\\(n~=~\textcolor{red}{37})};
 \node[box, below=1.2cm of $(id)!0.5!(other)$] (dedup) {Records after deduplication\\(n~=~\textcolor{red}{??})};
 
 %-------- SCREENING: AI STAGE --------
@@ -1017,7 +1017,9 @@ TS=(``graft versus host'' OR ``graft vs host'' OR
 ``graft-versus-host'' OR GVHD OR GvHD OR aGVHD OR cGVHD)\\
 
 \#5 & Title-only animal exclusion (human-species proxy, C4).\newline
-NOT TI=(mouse OR mice OR murine OR rat OR rats OR ``animal model'')\\
+%NOT TI=(mouse OR mice OR murine OR rat OR rats OR ``animal model'')
+TS=(human* OR patient* OR clinical)
+\\
 
 \#6 & \textbf{Final retrieval:} (\#1 AND \#2) AND \#3 AND \#4 AND \#5\\
 
