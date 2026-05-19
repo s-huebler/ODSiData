@@ -179,3 +179,73 @@ This will produce draft text for:
 | Revised and saved a new prompt version | BRIEF log + new file in prompts/ |
 | Debugged the citation network R script | No log |
 | Planned the paper outline | BRIEF log (already done: 2026-04-08) |
+
+---
+
+## SECOND-PASS SCREENING WORKFLOW (full-text AI screening)
+
+After the title/abstract pass yields ~481 candidates, the second pass uses
+Claude Code to read each full-text PDF and label it for inclusion.
+
+### Inputs
+- **PDF folder:** `AI_assisted_litreview/Screening2_AI/Exported_PDFs/`
+  Contains the full-text PDFs exported from Papers / ReadCube.
+- **Reference CSV:** `AI_assisted_litreview/Screening2_AI/Input481.csv`
+  (not yet exported) — the Papers export of all 481 candidate references,
+  one row per paper, including a `Tags` column. Schema matches the Papers
+  CSV export format (see `Prompt_Gen_V1/V1_input.csv` for column layout —
+  e.g. `item ID`, `doi`, `pmid`, `Title`, `Author`, `Tags`, etc.).
+
+### Output
+- **Output CSV:** a new CSV mirroring the input schema, with each row's
+  `Tags` column updated to include classification tags. The output CSV is
+  re-importable into Papers (ReadCube), which lets Sophie build sublists
+  from any tag.
+
+### Classification labels (one per paper)
+- `SecondPassAI-Include`
+- `SecondPassAI-Exclude`
+- `SecondPassAI-EdgeCase-Include`
+- `SecondPassAI-EdgeCase-Exclude`
+
+### Reason tags (required for any Exclude or EdgeCase decision)
+Reason tags follow the pattern:
+`SecondPassAI-ExcludeReason-<ShortCamelCaseReason>`
+e.g. `SecondPassAI-ExcludeReason-UnmeasuredGutMicrobiome`. The full
+controlled vocabulary of reason tags will be developed iteratively with
+Sophie — the prompt should constrain the model to a fixed list once
+finalized.
+
+Tags are appended to the existing comma-separated `Tags` column without
+overwriting any pre-existing Papers tags (e.g. `Prompt Gen`, `Screen2.1`).
+
+### Execution model — looped bash script
+A bash wrapper (drafted in `scripts/bash/screen_loop_template.sh`)
+processes the PDFs one at a time so each PDF gets its own fresh Claude
+Code context. Loop behavior:
+1. Find PDFs in `Exported_PDFs/` that are not yet represented in the
+   output CSV.
+2. For each next PDF, invoke `claude -p --dangerously-skip-permissions`
+   with a prompt that:
+   - Points Claude at the managed prompt file
+     (likely `prompts/screening-ft_v1.md`).
+   - Identifies the PDF path and the matching row in `Input481.csv`
+     (matched on filename / identifier).
+   - Instructs Claude to copy that row verbatim into the output CSV,
+     append the classification + reason tags to the `Tags` column, and
+     leave `Input481.csv` untouched.
+3. When token limits hit, the script exits / pauses; Sophie restarts it
+   after the quota resets. The script is idempotent — it skips PDFs
+   already present in the output CSV, so reruns resume where they
+   stopped.
+
+### Prompt file location
+The finalized full-text screening prompt will live in
+`prompts/screening-ft_v1.md` and be referenced from session logs via
+`prompt_ref` (same convention as `screening-ta_v*.md`).
+
+### Why tags-in-CSV (rather than a separate decisions table)
+Papers (ReadCube) lets Sophie filter and build sublists from the `Tags`
+column. Writing decisions as tags means the second-pass output is
+directly importable into her reference manager for the next stage
+(e.g. manual review of EdgeCase papers, data extraction on Includes).

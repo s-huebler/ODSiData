@@ -1,0 +1,237 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(phyloseq)
+library(readxl)
+```
+
+```{r}
+load("~/Documents/ODSi/ODSiData/AnalyticCohort/uncorrected_ps.Rdata")
+ps_raw <- uncorrected_ps
+
+load()
+```
+
+```{r}
+original_taxa_names <- taxa_names(ps_raw)
+original_taxonomy_rownames <- rownames(ps_raw@tax_table@.Data)
+original_tree_labels <- ps_raw@phy_tree$tip.label
+original_refstring_names <- ps_raw@refseq@ranges@NAMES
+
+identical(original_taxa_names, original_taxonomy_rownames)
+identical(original_taxa_names, original_tree_labels)
+identical(original_taxa_names, original_refstring_names)
+
+map_names <- data.frame("Original_Name" = original_taxa_names,
+                        "New_Name" = paste0("ASV", 1:length(original_taxa_names)))
+
+ps_renamed <- ps_raw
+taxa_names(ps_renamed) <- map_names$New_Name
+rownames(ps_renamed@tax_table@.Data)<- map_names$New_Name
+ps_renamed@phy_tree$tip.label <- map_names$New_Name
+ps_renamed@refseq@ranges@NAMES<- map_names$New_Name
+```
+
+```{r}
+# Calculate prevalence for each taxon
+prevalence_threshold <- 0.1 * nsamples(ps_renamed) # results in 9
+
+# Filter the taxa
+ps<- filter_taxa(ps_renamed, function(x) sum(x > 0) >= prevalence_threshold, prune = TRUE)
+```
+
+```{r}
+otu <- as.matrix(otu_table(ps))
+taxa_are_rows(otu)
+otu <- t(otu)
+
+sample_depths <- colSums(otu)
+mean_depth <- mean(sample_depths)
+N_samples <- ncol(otu)
+
+imputed <- t(otu) + 1
+
+prop_mat <- sweep(imputed, 1, sample_depths, FUN = "/")
+clr_mat <- t(apply(imputed , 1, function(r) compositions::clr(r)))
+```
+
+```{r}
+ps_genus <- tax_glom(ps, "Genus")
+
+otu_genus <- as.matrix(otu_table(ps_genus))
+taxa_are_rows(otu_genus)
+otu_genus <- t(otu_genus)
+
+sample_depths_genus <- colSums(otu_genus)
+mean_depth_genus <- mean(sample_depths_genus)
+N_samples_genus <- ncol(otu_genus)
+
+imputed_genus <- t(otu_genus) + 1
+
+prop_mat_genus <- sweep(imputed_genus, 1, sample_depths_genus, FUN = "/")
+clr_mat_genus <- t(apply(imputed_genus , 1, function(r) compositions::clr(r)))
+```
+
+```{r}
+df <- as.data.frame(ps@sam_data)
+```
+
+```{r}
+fuji_meta <- read_xlsx("/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/Raw_metadata/meta_clinical.xlsx")
+allo_meta <- read.csv(file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Allozithro2017/Metadata/allo_meta.csv")
+liu_meta <- read_xlsx("/Users/sophiehuebler/Documents/ODSi/ODSiData/Liu2017/Metadata/Raw_metadata/meta_clinical.xlsx")
+liu_meta[liu_meta == "not applicable"]<- NA
+```
+
+```{r}
+
+df_out <- df %>%
+  left_join(
+    
+bind_rows(
+liu_meta %>%
+  mutate(CENSOR_STATUS = as.numeric(NA),
+         CENSOR_TTE = as.numeric(NA))%>%
+  mutate(GVHD_STATUS = case_when(agvhd_gut == "negative"~ 0, 
+                                 agvhd_gut == "positive" ~ 1,
+                                 TRUE ~ NA),
+         GVHD_TTE = as.numeric(time_to_agvhd),
+         DEATH_STATUS = as.numeric(deceased),
+         DEATH_TTE = as.numeric(time_to_death)
+  )%>%
+  select(individual = description, 
+         GVHD_STATUS, 
+         GVHD_TTE , 
+         DEATH_STATUS, 
+         DEATH_TTE,
+         CENSOR_STATUS,
+         CENSOR_TTE),
+
+
+
+fuji_meta %>%
+  mutate(DEATH_STATUS = as.numeric(0),
+         DEATH_TTE = as.numeric(NA),
+         CENSOR_STATUS = as.numeric(NA),
+         CENSOR_TTE = as.numeric(NA))%>%
+  select(individual = Patient, 
+         GVHD_STATUS = AGVHD, 
+         GVHD_TTE = AGVHD_TTE,
+         DEATH_STATUS,
+         DEATH_TTE,
+         CENSOR_STATUS,
+         CENSOR_TTE),
+
+
+allo_meta %>%
+  mutate(day_agvhd = as.numeric(difftime( dat.agvhd, dat.hsct, units = "days")),
+         day_death = as.numeric(difftime( dat.death, dat.hsct, units = "days")),
+         day_eos = as.numeric(difftime(dat.endstudy,dat.hsct, units = "days")),
+         day_censor = as.numeric(difftime( dat.lfu, dat.hsct, units = "days")),
+         DEATH_STATUS = as.numeric(NA),
+         CENSOR_STATUS = as.numeric(NA),
+         GVHD_STATUS = as.numeric(agvhd))%>%
+  rowwise()%>%
+  mutate(CENSOR_TTE = min(day_eos, day_censor, na.rm = T))%>% #select(day_eos, day_censor, CENSOR_TTE)
+  ungroup()%>%
+  select(individual = sampledf_id,
+         GVHD_STATUS,
+         GVHD_TTE = day_agvhd,
+         DEATH_STATUS,
+         DEATH_TTE = day_death,
+         CENSOR_STATUS,
+         CENSOR_TTE)
+),
+by = c("individual"))
+  
+```
+
+```{r}
+df_out %>% filter(!is.na(CENSOR_TTE))%>%filter(GVHD_TTE > CENSOR_TTE | DEATH_TTE > CENSOR_TTE)
+```
+
+```{r}
+#set as truly competing risks, GVHD precludes death
+df_outcomes <- df_out %>%
+  #All GVHD status has a value, but not all have coded 0, 1, 2
+  mutate(GVHD_STATUS = case_when(GVHD_STATUS == 2 ~ 2,
+                                 GVHD_STATUS == 1 ~ 1,
+                                 # Determine whether 0 is by EOS or death
+                                 # No death = EOS
+                                 GVHD_STATUS == 0 &
+                                   is.na(DEATH_TTE) ~ 0,
+                                 # Death and no EOS time = death
+                                 GVHD_STATUS == 0 &
+                                   !is.na(DEATH_STATUS) &
+                                   is.na(CENSOR_TTE) ~ 2,
+                                 # Death before EOS = death
+                                 GVHD_STATUS == 0 &
+                                   !is.na(DEATH_STATUS) &
+                                   !is.na(CENSOR_TTE) &
+                                   DEATH_TTE <= CENSOR_TTE ~ 2,
+                                 # Death after EOS = censoring
+                                 GVHD_STATUS == 0 &
+                                   !is.na(DEATH_STATUS) &
+                                   !is.na(CENSOR_TTE) &
+                                   DEATH_TTE > CENSOR_TTE ~ 0))%>%
+  mutate(DEATH_STATUS = case_when(is.na(DEATH_TTE) ~ 0,
+                                  # No GVHD and given death time = death
+                                  !is.na(DEATH_TTE) &
+                                  GVHD_STATUS == 0 ~ 1,
+                                  # GVHD precluded by death = death
+                                  !is.na(DEATH_TTE) &
+                                  GVHD_STATUS == 2 ~ 1,
+                                  GVHD_STATUS == 1 &
+                                    GVHD_TTE <= DEATH_TTE ~ 2,
+                                  GVHD_STATUS == 1 &
+                                    GVHD_TTE > DEATH_TTE ~ 1))%>%
+  mutate(CENSOR_STATUS = case_when(GVHD_STATUS == 0 & DEATH_STATUS == 0 ~ 1,
+                                   TRUE ~ 0))%>%
+  group_by(study)%>%
+  mutate(max_study_TTE = max(GVHD_TTE, DEATH_TTE, CENSOR_TTE, na.rm = T))%>%
+  ungroup()%>%
+  rowwise()%>%
+  mutate(TTE = min(GVHD_TTE, DEATH_TTE, CENSOR_TTE, max_study_TTE, na.rm = T))%>%
+  ungroup()%>%
+  mutate(TTE = ifelse(is.na(TTE), max_study_TTE, TTE))%>%
+  select(-max_study_TTE)
+  #select(-c(GVHD_TTE, DEATH_TTE, CENSOR_TTE, max_study_TTE))
+
+df_outcomes <- as.data.frame(df_outcomes)
+rownames(df_outcomes)<- df_outcomes$sample.id
+```
+
+```{r}
+df_asv <- merge(df_outcomes, clr_mat, by = "row.names")%>%
+  select(-Row.names)
+
+df_genus <- merge(df_outcomes, clr_mat_genus, by = "row.names")%>%
+  select(-Row.names)
+
+```
+
+```{r}
+df_asv_key <- as.data.frame(ps@tax_table)%>%
+  rownames_to_column("ASV")%>%
+  left_join(map_names %>%
+              select(ASV = New_Name, Original_Name), by = ("ASV"))
+
+df_genus_key <-  as.data.frame(ps_genus@tax_table)%>%
+  rownames_to_column("ASV")
+```
+
+```{r}
+write.csv(df_asv, file = "~/Documents/ODSi/ODSiData/AnalyticCohort/Example_Data/df_asv.csv",
+          row.names = FALSE)
+write.csv(df_genus, file = "~/Documents/ODSi/ODSiData/AnalyticCohort/Example_Data/df_genus.csv",
+          row.names = FALSE)
+write.csv(df_asv_key, file = "~/Documents/ODSi/ODSiData/AnalyticCohort/Example_Data/df_asv_key.csv",
+          row.names = FALSE)
+write.csv(df_genus_key, file = "~/Documents/ODSi/ODSiData/AnalyticCohort/Example_Data/df_genus_key.csv",
+          row.names = FALSE)
+```

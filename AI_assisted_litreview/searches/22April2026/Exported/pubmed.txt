@@ -1,0 +1,1127 @@
+PMID- 30455702
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20190926
+LR  - 20190926
+IS  - 1664-3224 (Electronic)
+IS  - 1664-3224 (Linking)
+VI  - 9
+DP  - 2018
+TI  - Toll-Like Receptor Stimulation by MicroRNAs in Acute Graft-vs.-Host Disease.
+PG  - 2561
+LID - 10.3389/fimmu.2018.02561 [doi]
+LID - 2561
+AB  - Acute graft-vs.-host disease (aGVHD) is a frequent complication of allogeneic 
+      hematopoietic stem cell transplantation (allo-HSCT), accounting for substantial 
+      morbidity and mortality associated with this treatment modality. The pathogenesis 
+      of aGVHD involves a complex cascade of humoral and cellular interactions in which 
+      donor T cells target HLA mismatched host tissues, causing tissue injury through 
+      secretion of pro-inflammatory cytokines and induction of direct cytotoxicity. 
+      Toll-like receptors (TLRs) are key components of the innate immune system that 
+      recognize endogenous danger-associated molecular patterns (DAMPs) and exogenous 
+      pathogen-associated molecular patterns (PAMPs). Patients receiving conditioning 
+      chemotherapy and/or whole-body irradiation prior to all-HSCT are prone to 
+      gastrointestinal damage and translocation of microbiota across compromised 
+      intestinal epithelium, resulting in release of PAMPs and DAMPs. These "danger 
+      signals" play critical roles in disease pathogenesis by both initiating and 
+      propagating aGVHD through dendritic cell maturation and alloreactive T cell 
+      responses. There are 10-15 TLRs identified in mammalian species, a subset of 
+      which recognize single-stranded RNA (ssRNA) and serve as a key component of viral 
+      immunity. Recently, ssRNAs other than those of viral origin have been 
+      investigated as potential ligands of TLRs. MicroRNAs (miRs) are short (19-24 nt) 
+      non-coding RNAs that play critical roles in a variety of diseases. While 
+      traditionally miRs post-translationally modulate gene expression, non-canonical 
+      functions such as regulating TLR stimulation by acting as TLR ligands have been 
+      described. Here, we review the role of TLRs in aGVHD pathogenesis, the function 
+      of miRs in TLR stimulation, and the recent literature describing miRs as TLR 
+      ligands in aGVHD.
+FAU - Zitzer, Nina C
+AU  - Zitzer NC
+AD  - Division of Hematology, Department of Internal Medicine, Comprehensive Cancer 
+      Center, The Ohio State University, Columbus, OH, United States.
+AD  - Department of Veterinary Biosciences, College of Veterinary Medicine, The Ohio 
+      State University, Columbus, OH, United States.
+FAU - Garzon, Ramiro
+AU  - Garzon R
+AD  - Division of Hematology, Department of Internal Medicine, Comprehensive Cancer 
+      Center, The Ohio State University, Columbus, OH, United States.
+FAU - Ranganathan, Parvathi
+AU  - Ranganathan P
+AD  - Division of Hematology, Department of Internal Medicine, Comprehensive Cancer 
+      Center, The Ohio State University, Columbus, OH, United States.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20181105
+PL  - Switzerland
+TA  - Front Immunol
+JT  - Frontiers in immunology
+JID - 101560960
+RN  - 0 (Alarmins)
+RN  - 0 (Cytokines)
+RN  - 0 (MicroRNAs)
+RN  - 0 (Pathogen-Associated Molecular Pattern Molecules)
+RN  - 0 (Toll-Like Receptors)
+SB  - IM
+MH  - Alarmins/immunology
+MH  - Cytokines/immunology
+MH  - Dendritic Cells/immunology
+MH  - Graft vs Host Disease/*genetics/*immunology
+MH  - Hematopoietic Stem Cell Transplantation/*adverse effects
+MH  - Humans
+MH  - MicroRNAs/*genetics
+MH  - Pathogen-Associated Molecular Pattern Molecules/immunology
+MH  - Signal Transduction/immunology
+MH  - T-Lymphocytes/immunology
+MH  - Toll-Like Receptors/*genetics
+MH  - Transplantation, Homologous/adverse effects
+PMC - PMC6230675
+OTO - NOTNLM
+OT  - Toll-like receptors
+OT  - allogeneic stem cell transplantation
+OT  - graft-vs.-host disease
+OT  - innate immunity
+OT  - microRNAs
+EDAT- 2018/11/21 06:00
+MHDA- 2019/09/27 06:00
+PMCR- 2018/01/01
+CRDT- 2018/11/21 06:00
+PHST- 2018/06/16 00:00 [received]
+PHST- 2018/10/17 00:00 [accepted]
+PHST- 2018/11/21 06:00 [entrez]
+PHST- 2018/11/21 06:00 [pubmed]
+PHST- 2019/09/27 06:00 [medline]
+PHST- 2018/01/01 00:00 [pmc-release]
+AID - 10.3389/fimmu.2018.02561 [doi]
+PST - epublish
+SO  - Front Immunol. 2018 Nov 5;9:2561. doi: 10.3389/fimmu.2018.02561. eCollection 
+      2018.
+
+PMID- 33512420
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20210823
+LR  - 20240923
+IS  - 1528-0020 (Electronic)
+IS  - 0006-4971 (Print)
+IS  - 0006-4971 (Linking)
+VI  - 137
+IP  - 12
+DP  - 2021 Mar 25
+TI  - The pulmonary metatranscriptome prior to pediatric HCT identifies post-HCT lung 
+      injury.
+PG  - 1679-1689
+LID - 10.1182/blood.2020009246 [doi]
+AB  - Lung injury after pediatric allogeneic hematopoietic cell transplantation (HCT) 
+      is a common and disastrous complication that threatens long-term survival. To 
+      develop strategies to prevent lung injury, novel tools are needed to 
+      comprehensively assess lung health in HCT candidates. Therefore, this study 
+      analyzed biospecimens from 181 pediatric HCT candidates who underwent routine 
+      pre-HCT bronchoalveolar lavage (BAL) at the University Medical Center Utrecht 
+      between 2005 and 2016. BAL fluid underwent metatranscriptomic sequencing of 
+      microbial and human RNA, and unsupervised clustering and generalized linear 
+      models were used to associate microbiome gene expression data with the 
+      development of post-HCT lung injury. Microbe-gene correlations were validated 
+      using a geographically distinct cohort of 18 pediatric HCT candidates. The 
+      cumulative incidence of post-HCT lung injury varied significantly according to 4 
+      pre-HCT pulmonary metatranscriptome clusters, with the highest incidence observed 
+      in children with pre-HCT viral enrichment and innate immune activation, as well 
+      as in children with profound microbial depletion and concomitant natural 
+      killer/T-cell activation (P < .001). In contrast, children with pre-HCT pulmonary 
+      metatranscriptomes containing diverse oropharyngeal taxa and lacking inflammation 
+      rarely developed post-HCT lung injury. In addition, activation of 
+      epithelial-epidermal differentiation, mucus production, and cellular adhesion 
+      were associated with fatal post-HCT lung injury. In a separate validation cohort, 
+      associations among pulmonary respiratory viral load, oropharyngeal taxa, and 
+      pulmonary gene expression were recapitulated; the association with post-HCT lung 
+      injury needs to be validated in an independent cohort. This analysis suggests 
+      that assessment of the pre-HCT BAL fluid may identify high-risk pediatric HCT 
+      candidates who may benefit from pathobiology-targeted interventions.
+CI  - © 2021 by The American Society of Hematology.
+FAU - Zinter, Matt S
+AU  - Zinter MS
+AD  - Division of Critical Care Medicine and.
+AD  - Division of Allergy, Immunology, and Bone Marrow Transplantation, Department of 
+      Pediatrics, School of Medicine, University of California, San Francisco, CA.
+FAU - Lindemans, Caroline A
+AU  - Lindemans CA
+AD  - Department of Pediatric Stem Cell Transplantation, University Medical Center 
+      Utrecht, Utrecht, The Netherlands.
+AD  - Department of Hematopoietic Cell Transplantation, Princess Maxima Center for 
+      Pediatric Oncology, Utrecht, The Netherlands.
+FAU - Versluys, Birgitta A
+AU  - Versluys BA
+AD  - Department of Pediatric Stem Cell Transplantation, University Medical Center 
+      Utrecht, Utrecht, The Netherlands.
+AD  - Department of Hematopoietic Cell Transplantation, Princess Maxima Center for 
+      Pediatric Oncology, Utrecht, The Netherlands.
+FAU - Mayday, Madeline Y
+AU  - Mayday MY
+AD  - Graduate Program in Experimental Pathology, and Yale Stem Cell Center, Department 
+      of Pathology, Yale University, New Haven, CT.
+FAU - Sunshine, Sara
+AU  - Sunshine S
+AD  - Department of Biochemistry and Biophysics, School of Medicine.
+FAU - Reyes, Gustavo
+AU  - Reyes G
+AD  - Division of Critical Care Medicine and.
+FAU - Sirota, Marina
+AU  - Sirota M
+AD  - Bakar Computational Health Sciences Institute, and.
+AD  - Department of Pediatrics, School of Medicine, University of California, San 
+      Francisco, CA.
+FAU - Sapru, Anil
+AU  - Sapru A
+AD  - Division of Critical Care Medicine, Department of Pediatrics, School of Medicine, 
+      University of California, Los Angeles, CA.
+FAU - Matthay, Michael A
+AU  - Matthay MA
+AD  - Department of Medicine and.
+AD  - Department of Anesthesiology, Cardiovascular Research Institute, School of 
+      Medicine, University of California, San Francisco, CA.
+FAU - Kharbanda, Sandhya
+AU  - Kharbanda S
+AD  - Division of Allergy, Immunology, and Bone Marrow Transplantation, Department of 
+      Pediatrics, School of Medicine, University of California, San Francisco, CA.
+FAU - Dvorak, Christopher C
+AU  - Dvorak CC
+AD  - Division of Allergy, Immunology, and Bone Marrow Transplantation, Department of 
+      Pediatrics, School of Medicine, University of California, San Francisco, CA.
+FAU - Boelens, Jaap J
+AU  - Boelens JJ
+AD  - Department of Pediatric Stem Cell Transplantation and Cellular Therapies, 
+      Memorial Sloan Kettering Cancer Center, New York, NY; and.
+FAU - DeRisi, Joseph L
+AU  - DeRisi JL
+AD  - Department of Biochemistry and Biophysics, School of Medicine.
+AD  - Chan Zuckerberg Biohub, San Francisco, CA.
+LA  - eng
+GR  - T32 AI060537/AI/NIAID NIH HHS/United States
+GR  - R35 HL140026/HL/NHLBI NIH HHS/United States
+GR  - K23 HL146936/HL/NHLBI NIH HHS/United States
+GR  - P30 CA008748/CA/NCI NIH HHS/United States
+GR  - K12 HD000850/HD/NICHD NIH HHS/United States
+GR  - R01 HL134828/HL/NHLBI NIH HHS/United States
+GR  - F31 AI150007/AI/NIAID NIH HHS/United States
+PT  - Journal Article
+PT  - Research Support, N.I.H., Extramural
+PT  - Research Support, Non-U.S. Gov't
+PL  - United States
+TA  - Blood
+JT  - Blood
+JID - 7603509
+SB  - IM
+CIN - Blood. 2021 Mar 25;137(12):1570-1572. doi: 10.1182/blood.2020010539. PMID: 
+      33764433
+MH  - Adolescent
+MH  - Adult
+MH  - Child
+MH  - Child, Preschool
+MH  - Female
+MH  - Graft vs Host Disease/etiology/genetics/immunology
+MH  - Hematopoietic Stem Cell Transplantation/*adverse effects
+MH  - Humans
+MH  - Immunity, Innate
+MH  - Infant
+MH  - Lung/metabolism
+MH  - Lung Injury/*etiology/genetics/immunology
+MH  - Male
+MH  - *Transcriptome
+MH  - Transplantation, Homologous/adverse effects
+MH  - Young Adult
+PMC - PMC7995292
+COIS- Conflict-of-interest disclosure: The authors declare no competing financial 
+      interests.
+EDAT- 2021/01/30 06:00
+MHDA- 2021/08/24 06:00
+PMCR- 2021/03/25
+CRDT- 2021/01/29 12:13
+PHST- 2020/09/22 00:00 [received]
+PHST- 2020/12/15 00:00 [accepted]
+PHST- 2021/01/30 06:00 [pubmed]
+PHST- 2021/08/24 06:00 [medline]
+PHST- 2021/01/29 12:13 [entrez]
+PHST- 2021/03/25 00:00 [pmc-release]
+AID - S0006-4971(20)86035-2 [pii]
+AID - 2021/BLD2020009246 [pii]
+AID - 10.1182/blood.2020009246 [doi]
+PST - ppublish
+SO  - Blood. 2021 Mar 25;137(12):1679-1689. doi: 10.1182/blood.2020009246.
+
+PMID- 37550190
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20230809
+LR  - 20230823
+IS  - 0253-2727 (Print)
+IS  - 2707-9740 (Electronic)
+IS  - 0253-2727 (Linking)
+VI  - 44
+IP  - 5
+DP  - 2023 May 14
+TI  - [Clinical study of 19 cases of steroid-refractory gastrointestinal acute 
+      graft-versus-host disease after allogeneic hematopoietic stem cell 
+      transplantation with fecal microbiota transplantation].
+PG  - 401-407
+LID - 10.3760/cma.j.issn.0253-2727.2023.05.008 [doi]
+AB  - Objective: To investigate the clinical efficacy of fecal microbiota 
+      transplantation (FMT) for treating steroid-refractory gastrointestinal acute 
+      graft-versus-host disease (GI-aGVHD) . Methods: This analysis included 29 
+      patients with hematology who developed steroid-refractory GI-aGVHD after 
+      allogeneic hematopoietic stem cell transplantation (allo-HSCT) in Huaian Hospital 
+      Affiliated to Xuzhou Medical University from March 2017 to March 2022. Among 
+      them, 19 patients underwent FMT treatment (the FMT group) and 10 patients did not 
+      (the control group). The efficacy and safety of FMT were assessed, as well as the 
+      changes in intestinal microbiota abundance, lymphocyte subpopulation ratio, 
+      peripheral blood inflammatory cytokines, and GVHD biomarkers before and after FMT 
+      treatment. Results: ① Complete remission of clinical symptoms after FMT was 
+      achieved by 13 (68.4%) patients and 2 (20.0%) controls, with a statistically 
+      significant difference (P<0.05). Intestinal microbiota diversity increased and 
+      gradually recovered to normal levels after FMT and FMT-related infections did not 
+      occur. ②The proportion of CD3(+) and CD8(+) cells in the FMT group after 
+      treatment decreased compared with the control group, and the ratio of CD4(+), 
+      regulatory T cells (Treg), and CD4(+)/CD8(+) cells increased (all P< 0.05). The 
+      interleukin (IL) -6 concentration in the FMT group was lower than that in the 
+      control group [4.15 (1.91-5.71) ng/L vs 6.82 (2.40-8.91) ng/L, P=0.040], and the 
+      IL-10 concentration in the FMT group was higher than that in the control group 
+      [12.11 (5.69-20.36) ng/L vs 7.51 (4.10-9.58) ng/L, P=0.024]. Islet-derived 
+      protein 3α (REG3α) was significantly increased in patients with GI-aGVHD, and the 
+      REG3α level in the FMT group was lower than that in the control group after 
+      treatment [30.70 (10.50-105.00) μg/L vs 74.35 (33.50-139.50) μg/L, P=0.021]. 
+      Conclusion: FMT is a safe and effective method for the treatment of 
+      steroid-refractory GI-aGVHD by restoring intestinal microbiota diversity, 
+      regulating inflammatory cytokines, and upregulating Treg cells.
+FAU - Zheng, Y Y
+AU  - Zheng YY
+AD  - Department of Hematology, Huai'an Hospital Affiliated to Xuzhou Medical 
+      Universitity, Huai'an 223002, China.
+FAU - Yang, X T
+AU  - Yang XT
+AD  - Department of Hematology, Huai'an Hospital Affiliated to Xuzhou Medical 
+      Universitity, Huai'an 223002, China.
+FAU - Lin, G Q
+AU  - Lin GQ
+AD  - Department of Hematology, Huai'an Hospital Affiliated to Xuzhou Medical 
+      Universitity, Huai'an 223002, China.
+FAU - Bian, M R
+AU  - Bian MR
+AD  - Department of Hematology, Huai'an Hospital Affiliated to Xuzhou Medical 
+      Universitity, Huai'an 223002, China.
+FAU - Si, Y J
+AU  - Si YJ
+AD  - Department of Hematology, Huai'an Hospital Affiliated to Xuzhou Medical 
+      Universitity, Huai'an 223002, China.
+FAU - Zhang, X X
+AU  - Zhang XX
+AD  - Department of Hematology, Huai'an Hospital Affiliated to Xuzhou Medical 
+      Universitity, Huai'an 223002, China.
+FAU - Zhang, Y M
+AU  - Zhang YM
+AD  - Department of Hematology, Huai'an Hospital Affiliated to Xuzhou Medical 
+      Universitity, Huai'an 223002, China.
+FAU - Wu, D P
+AU  - Wu DP
+AD  - Department of Hematology, the First Affiliated Hospital of Soochow University, 
+      Jiangsu Institute of Hematology, National Clinical Research Center for 
+      Hematologic Disease, Suzhou 215006, China.
+LA  - chi
+GR  - M2020058/General Project of Medical Scientific Research of Jiangsu Provincial 
+      Health Commission/
+GR  - SBK202003003/Opening Project of Sample Bank of Biological Resources of Key 
+      Diseases in Jiangsu Province/
+GR  - XZSYSKF2020038, XZSYSKF2021026/Opening Project of Jiangsu Key Laboratory/
+PT  - English Abstract
+PT  - Journal Article
+PL  - China
+TA  - Zhonghua Xue Ye Xue Za Zhi
+JT  - Zhonghua xue ye xue za zhi = Zhonghua xueyexue zazhi
+JID - 8212398
+RN  - 0 (Steroids)
+SB  - IM
+MH  - Humans
+MH  - Fecal Microbiota Transplantation/methods
+MH  - Treatment Outcome
+MH  - *Graft vs Host Disease/therapy/diagnosis/etiology
+MH  - *Hematopoietic Stem Cell Transplantation/adverse effects
+MH  - Steroids
+PMC - PMC10440624
+OTO - NOTNLM
+OT  - Acute graft-versus-host disease
+OT  - Allogeneic hematopoietic stem cell transplantation
+OT  - Fecal microbiota transplantation
+OT  - Inflammatory cytokines
+OT  - Intestinal microbiota
+OT  - Lymphocyte subpopulation
+COIS- 利益冲突 所有作者声明不存在利益冲突
+EDAT- 2023/08/08 00:42
+MHDA- 2023/08/09 06:43
+PMCR- 2023/05/01
+CRDT- 2023/08/07 22:04
+PHST- 2023/08/09 06:43 [medline]
+PHST- 2023/08/08 00:42 [pubmed]
+PHST- 2023/08/07 22:04 [entrez]
+PHST- 2023/05/01 00:00 [pmc-release]
+AID - cjh-44-05-401 [pii]
+AID - 10.3760/cma.j.issn.0253-2727.2023.05.008 [doi]
+PST - ppublish
+SO  - Zhonghua Xue Ye Xue Za Zhi. 2023 May 14;44(5):401-407. doi: 
+      10.3760/cma.j.issn.0253-2727.2023.05.008.
+
+PMID- 32898248
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20210514
+LR  - 20210925
+IS  - 2473-9537 (Electronic)
+IS  - 2473-9529 (Print)
+IS  - 2473-9529 (Linking)
+VI  - 4
+IP  - 17
+DP  - 2020 Sep 8
+TI  - Recipient-specific T-cell repertoire reconstitution in the gut following murine 
+      hematopoietic cell transplant.
+PG  - 4232-4243
+LID - 10.1182/bloodadvances.2019000977 [doi]
+AB  - Graft-versus-host disease (GVHD) is a complication of hematopoietic cell 
+      transplantation (HCT) caused by alloreactive T cells. Murine models of HCT are 
+      used to understand GVHD and T-cell reconstitution in GVHD target organs, most 
+      notably the gastrointestinal (GI) tract where the disease contributes most to 
+      patient mortality. T-cell receptor (TCR) repertoire sequencing was used to 
+      measure T-cell reconstitution from the same donor graft (C57BL/6 H-2b) in the GI 
+      tract of different recipients across a spectrum of matching, from syngeneic 
+      (C57BL/6), to minor histocompatibility (MHC) antigen mismatch BALB.B (H-2b), to 
+      major MHC mismatched B10.BR (H-2k) and BALB/c (H-2d). Although the donor T-cell 
+      pools had highly similar TCR, the TCR repertoire after HCT was very specific to 
+      recipients in each experiment independent of geography. A single invariant 
+      natural killer T clone was identifiable in every recipient group and was enriched 
+      in syngeneic recipients according to clonal count and confirmatory flow 
+      cytometry. Using a novel cluster analysis of the TCR repertoire, we could 
+      classify recipient groups based only on their CDR3 size distribution or TCR 
+      repertoire relatedness. Using a method for evaluating the contribution of common 
+      TCR motifs to relatedness, we found that reproducible sets of clones were 
+      associated with specific recipient groups within each experiment and that 
+      relatedness did not necessarily depend on the most common clones in allogeneic 
+      recipients. This finding suggests that TCR reconstitution is highly stochastic 
+      and likely does not depend on the evaluation of the most expanded TCR clones in 
+      any individual recipient but instead depends on a complex polyclonal 
+      architecture.
+CI  - © 2020 by The American Society of Hematology.
+FAU - Zheng, Pingping
+AU  - Zheng P
+AD  - Blood and Marrow Transplantation.
+AD  - Institute for Immunity, Transplantation and Infection, and.
+FAU - Tamaresis, John
+AU  - Tamaresis J
+AD  - Department of Biomedical Data Science, Stanford University School of Medicine, 
+      Stanford, CA.
+FAU - Thangavelu, Govindarajan
+AU  - Thangavelu G
+AD  - Division of Blood and Marrow Transplantation, Department of Pediatrics, 
+      University of Minnesota, Minneapolis, MN; and.
+FAU - Xu, Liwen
+AU  - Xu L
+AD  - Department of Pathology, Stanford University School of Medicine, Stanford, CA.
+FAU - You, Xiaoqing
+AU  - You X
+AD  - Department of Pathology, Stanford University School of Medicine, Stanford, CA.
+FAU - Blazar, Bruce R
+AU  - Blazar BR
+AD  - Division of Blood and Marrow Transplantation, Department of Pediatrics, 
+      University of Minnesota, Minneapolis, MN; and.
+FAU - Negrin, Robert S
+AU  - Negrin RS
+AD  - Blood and Marrow Transplantation.
+FAU - Zehnder, James L
+AU  - Zehnder JL
+AD  - Department of Pathology, Stanford University School of Medicine, Stanford, CA.
+FAU - Iliopoulou, Bettina P
+AU  - Iliopoulou BP
+AD  - Blood and Marrow Transplantation.
+AD  - Institute for Immunity, Transplantation and Infection, and.
+FAU - Meyer, Everett H
+AU  - Meyer EH
+AD  - Blood and Marrow Transplantation.
+AD  - Institute for Immunity, Transplantation and Infection, and.
+LA  - eng
+GR  - R01 HL073794/HL/NHLBI NIH HHS/United States
+GR  - K08 HL119590/HL/NHLBI NIH HHS/United States
+GR  - P30 CA077598/CA/NCI NIH HHS/United States
+GR  - P01 CA065493/CA/NCI NIH HHS/United States
+GR  - R01 HL118979/HL/NHLBI NIH HHS/United States
+GR  - R37 AI034495/AI/NIAID NIH HHS/United States
+GR  - R01 HL056067/HL/NHLBI NIH HHS/United States
+GR  - P30 DK116074/DK/NIDDK NIH HHS/United States
+GR  - P01 CA049605/CA/NCI NIH HHS/United States
+PT  - Journal Article
+PT  - Research Support, N.I.H., Extramural
+PT  - Research Support, Non-U.S. Gov't
+PL  - United States
+TA  - Blood Adv
+JT  - Blood advances
+JID - 101698425
+SB  - IM
+MH  - Animals
+MH  - *Gastrointestinal Microbiome
+MH  - *Graft vs Host Disease
+MH  - *Hematopoietic Stem Cell Transplantation
+MH  - Humans
+MH  - Mice
+MH  - T-Lymphocytes
+MH  - Transplantation, Homologous
+PMC - PMC7479954
+COIS- Conflict-of-interest disclosure: B.R.B. receives remuneration as an advisor to 
+      Kamon Pharmaceuticals, Inc., Five Prime Therapeutics Inc., Regeneron 
+      Pharmaceuticals, Magenta Therapeutics, and BlueRock Therapeutics; research 
+      support from Fate Therapeutics, RXi Pharmaceuticals, Alpine Immune Sciences, Inc, 
+      AbbVie Inc., the Leukemia and Lymphoma Society, Children’s Cancer Research Fund, 
+      and KidsFirst Fund; and is a cofounder of Tmunity. E.H.M. is a cofounder of 
+      GigaGen Inc. and Triursus Therapeutics Inc.; and has research support from Orca 
+      Biosystems. The remaining authors declare no competing financial interests.
+EDAT- 2020/09/09 06:00
+MHDA- 2021/05/15 06:00
+PMCR- 2020/09/08
+CRDT- 2020/09/08 17:13
+PHST- 2019/09/16 00:00 [received]
+PHST- 2020/06/27 00:00 [accepted]
+PHST- 2020/09/08 17:13 [entrez]
+PHST- 2020/09/09 06:00 [pubmed]
+PHST- 2021/05/15 06:00 [medline]
+PHST- 2020/09/08 00:00 [pmc-release]
+AID - S2473-9529(20)31185-X [pii]
+AID - 2019/ADV2019000977 [pii]
+AID - 10.1182/bloodadvances.2019000977 [doi]
+PST - ppublish
+SO  - Blood Adv. 2020 Sep 8;4(17):4232-4243. doi: 10.1182/bloodadvances.2019000977.
+
+PMID- 30106382
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20190911
+LR  - 20200725
+IS  - 1558-8238 (Electronic)
+IS  - 0021-9738 (Print)
+IS  - 0021-9738 (Linking)
+VI  - 128
+IP  - 11
+DP  - 2018 Nov 1
+TI  - Survival signal REG3α prevents crypt apoptosis to control acute gastrointestinal 
+      graft-versus-host disease.
+PG  - 4970-4979
+LID - 99261 [pii]
+LID - 10.1172/JCI99261 [doi]
+AB  - Graft-versus-host disease (GVHD) in the gastrointestinal (GI) tract remains the 
+      major cause of morbidity and nonrelapse mortality after BM transplantation (BMT). 
+      The Paneth cell protein regenerating islet-derived 3α (REG3α) is a biomarker 
+      specific for GI GVHD. REG3α serum levels rose in the systematic circulation as 
+      GVHD progressively destroyed Paneth cells and reduced GI epithelial barrier 
+      function. Paradoxically, GVHD suppressed intestinal REG3γ (the mouse homolog of 
+      human REG3α), and the absence of REG3γ in BMT recipients intensified GVHD but did 
+      not change the composition of the microbiome. IL-22 administration restored REG3γ 
+      production and prevented apoptosis of both intestinal stem cells (ISCs) and 
+      Paneth cells, but this protection was completely abrogated in Reg3g-/- mice. In 
+      vitro, addition of REG3α reduced the apoptosis of colonic cell lines. Strategies 
+      that increase intestinal REG3α/γ to promote crypt regeneration may offer a novel, 
+      nonimmunosuppressive approach for GVHD and perhaps for other diseases involving 
+      the ISC niche, such as inflammatory bowel disease.
+FAU - Zhao, Dongchang
+AU  - Zhao D
+AD  - The Tisch Cancer Institute and Division of Hematology/Medical Oncology, Icahn 
+      School of Medicine at Mount Sinai Hospital, New York, New York, USA.
+FAU - Kim, Yeung-Hyen
+AU  - Kim YH
+AD  - Department of Microbiology and Immunology, and.
+FAU - Jeong, Seihwan
+AU  - Jeong S
+AD  - The Tisch Cancer Institute and Division of Hematology/Medical Oncology, Icahn 
+      School of Medicine at Mount Sinai Hospital, New York, New York, USA.
+FAU - Greenson, Joel K
+AU  - Greenson JK
+AD  - Department of Pathology, University of Michigan, Ann Arbor, Michigan, USA.
+FAU - Chaudhry, Mohammed S
+AU  - Chaudhry MS
+AD  - The Tisch Cancer Institute and Division of Hematology/Medical Oncology, Icahn 
+      School of Medicine at Mount Sinai Hospital, New York, New York, USA.
+FAU - Hoepting, Matthias
+AU  - Hoepting M
+AD  - Department of Hematology, Hemostasis, Oncology and Stem Cell Transplantation, 
+      Hannover Medical School, Hannover, Germany.
+FAU - Anderson, Erik R
+AU  - Anderson ER
+AD  - The Tisch Cancer Institute and Division of Hematology/Medical Oncology, Icahn 
+      School of Medicine at Mount Sinai Hospital, New York, New York, USA.
+FAU - van den Brink, Marcel Rm
+AU  - van den Brink MR
+AD  - Memorial Sloan Kettering Cancer Center, Weill Cornell Medical College, New York, 
+      New York, USA.
+FAU - Peled, Jonathan U
+AU  - Peled JU
+AD  - Memorial Sloan Kettering Cancer Center, Weill Cornell Medical College, New York, 
+      New York, USA.
+FAU - Gomes, Antonio Lc
+AU  - Gomes AL
+AD  - Memorial Sloan Kettering Cancer Center, Weill Cornell Medical College, New York, 
+      New York, USA.
+FAU - Slingerland, Ann E
+AU  - Slingerland AE
+AD  - Memorial Sloan Kettering Cancer Center, Weill Cornell Medical College, New York, 
+      New York, USA.
+FAU - Donovan, Michael J
+AU  - Donovan MJ
+AD  - Department of Pathology, Icahn School of Medicine at Mount Sinai Hospital, New 
+      York, New York, USA.
+FAU - Harris, Andrew C
+AU  - Harris AC
+AD  - Blood and Marrow Transplantation Program, University of Utah, Salt Lake City, 
+      Utah, USA.
+FAU - Levine, John E
+AU  - Levine JE
+AD  - The Tisch Cancer Institute and Division of Hematology/Medical Oncology, Icahn 
+      School of Medicine at Mount Sinai Hospital, New York, New York, USA.
+FAU - Ozbek, Umut
+AU  - Ozbek U
+AD  - The Tisch Cancer Institute and Division of Hematology/Medical Oncology, Icahn 
+      School of Medicine at Mount Sinai Hospital, New York, New York, USA.
+FAU - Hooper, Lora V
+AU  - Hooper LV
+AD  - Howard Hughes Medical Institute, Department of Immunology, University of Texas 
+      Southwestern Medical Center, Dallas, Texas, USA.
+FAU - Stappenbeck, Thaddeus S
+AU  - Stappenbeck TS
+AD  - Department of Pathology and Immunology, Washington University School of Medicine, 
+      St. Louis, Missouri, USA.
+FAU - Ver Heul, Aaron
+AU  - Ver Heul A
+AD  - Department of Pathology and Immunology, Washington University School of Medicine, 
+      St. Louis, Missouri, USA.
+FAU - Liu, Ta-Chiang
+AU  - Liu TC
+AD  - Department of Pathology and Immunology, Washington University School of Medicine, 
+      St. Louis, Missouri, USA.
+FAU - Reddy, Pavan
+AU  - Reddy P
+AD  - Division of Hematology/Oncology, University of Michigan, Ann Arbor, Michigan, 
+      USA.
+FAU - Ferrara, James Lm
+AU  - Ferrara JL
+AD  - The Tisch Cancer Institute and Division of Hematology/Medical Oncology, Icahn 
+      School of Medicine at Mount Sinai Hospital, New York, New York, USA.
+LA  - eng
+GR  - T32 HL007622/HL/NHLBI NIH HHS/United States
+GR  - R01 CA228308/CA/NCI NIH HHS/United States
+GR  - P30 CA008748/CA/NCI NIH HHS/United States
+GR  - R01 CA228358/CA/NCI NIH HHS/United States
+GR  - T32 AI078892/AI/NIAID NIH HHS/United States
+GR  - P01 CA039542/CA/NCI NIH HHS/United States
+PT  - Clinical Trial
+PT  - Journal Article
+PT  - Research Support, N.I.H., Extramural
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20180924
+PL  - United States
+TA  - J Clin Invest
+JT  - The Journal of clinical investigation
+JID - 7802877
+RN  - 0 (Pancreatitis-Associated Proteins)
+RN  - 0 (REG3A protein, human)
+RN  - 0 (Reg3g protein, mouse)
+SB  - IM
+MH  - Animals
+MH  - *Apoptosis
+MH  - *Bone Marrow Transplantation
+MH  - Cell Survival/genetics
+MH  - Colon/*metabolism/pathology
+MH  - Female
+MH  - Graft vs Host Disease/*metabolism/pathology
+MH  - Humans
+MH  - Inflammatory Bowel Diseases/genetics/*metabolism/pathology
+MH  - Male
+MH  - Mice
+MH  - Mice, Inbred BALB C
+MH  - Mice, Knockout
+MH  - Pancreatitis-Associated Proteins/genetics/*metabolism
+MH  - Paneth Cells/*metabolism/pathology
+MH  - Prospective Studies
+MH  - *Signal Transduction
+MH  - Transplantation, Homologous
+PMC - PMC6205404
+OTO - NOTNLM
+OT  - Adaptive immunity
+OT  - Bone marrow transplantation
+OT  - Immunology
+OT  - Innate immunity
+OT  - Transplantation
+COIS- Conflict of interest: The authors have declared that no conflict of interest 
+      exists.
+EDAT- 2018/08/15 06:00
+MHDA- 2019/09/12 06:00
+PMCR- 2019/02/01
+CRDT- 2018/08/15 06:00
+PHST- 2017/12/14 00:00 [received]
+PHST- 2018/08/07 00:00 [accepted]
+PHST- 2018/08/15 06:00 [pubmed]
+PHST- 2019/09/12 06:00 [medline]
+PHST- 2018/08/15 06:00 [entrez]
+PHST- 2019/02/01 00:00 [pmc-release]
+AID - 99261 [pii]
+AID - 10.1172/JCI99261 [doi]
+PST - ppublish
+SO  - J Clin Invest. 2018 Nov 1;128(11):4970-4979. doi: 10.1172/JCI99261. Epub 2018 Sep 
+      24.
+
+PMID- 31640914
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20200521
+LR  - 20200521
+IS  - 1096-3618 (Electronic)
+IS  - 1044-5323 (Linking)
+VI  - 44
+DP  - 2019 Aug
+TI  - Interleukin-10 mediated immune regulation after stem cell transplantation: 
+      Mechanisms and implications for therapeutic intervention.
+PG  - 101322
+LID - S1044-5323(19)30045-4 [pii]
+LID - 10.1016/j.smim.2019.101322 [doi]
+AB  - Interleukin-10 (IL-10) is a multi-faceted anti-inflammatory cytokine which plays 
+      an essential role in immune tolerance. Indeed, deficiency of IL-10 or its 
+      receptor results in aberrant immune responses that lead to immunopathology. 
+      Graft-versus-host disease (GVHD) is the limiting complication of allogeneic stem 
+      cell transplantation (SCT) and results from an imbalance in pathological versus 
+      regulatory immune networks. A number of immune cells exert their immunomodulatory 
+      role through secretion of IL-10 or induction of IL-10-secreting cells after SCT. 
+      Type-1 regulatory T cells (Tr1 cells) and FoxP3(+) regulatory T cells (T(regs)) 
+      are predominant sources of IL-10 after SCT and the critical role of this cytokine 
+      in preventing GVHD is now established. Recently, intriguing interactions among 
+      IL-10, immune cells, commensal microbes and host tissues in the gastrointestinal 
+      (GI) tract and other barrier surfaces have been uncovered. We now understand that 
+      IL-10 secretion is dynamically modulated by the availability of antigen, 
+      co-stimulatory signals, cytokines, commensal microbes and their metabolites in 
+      the microenvironment. In this review, we provide an overview of the control of 
+      IL-10 secretion and signaling after SCT and the therapeutic interventions, with a 
+      focus on Tr1 cells.
+CI  - Copyright © 2019 Elsevier Ltd. All rights reserved.
+FAU - Zhang, Ping
+AU  - Zhang P
+AD  - Bone Marrow Transplantation Laboratory, QIMR Berghofer Medical Research 
+      Institute, Herston, QLD, 4006, Australia. Electronic address: 
+      ping.zhang@qimrberghofer.edu.au.
+FAU - Hill, Geoffrey R
+AU  - Hill GR
+AD  - Bone Marrow Transplantation Laboratory, QIMR Berghofer Medical Research 
+      Institute, Herston, QLD, 4006, Australia; Clinical Research Division, Fred 
+      Hutchinson Cancer Research Center, Seattle, WA 98109, USA; Division of Medical 
+      Oncology, The University of Washington, Seattle, WA 98109, USA. Electronic 
+      address: grhill@fredhutch.org.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20191019
+PL  - England
+TA  - Semin Immunol
+JT  - Seminars in immunology
+JID - 9009458
+RN  - 130068-27-8 (Interleukin-10)
+SB  - IM
+MH  - Animals
+MH  - Gastrointestinal Microbiome
+MH  - Graft vs Host Disease/immunology/microbiology
+MH  - Humans
+MH  - Immune Tolerance
+MH  - Interleukin-10/*immunology
+MH  - *Stem Cell Transplantation
+OTO - NOTNLM
+OT  - Adoptive transfer
+OT  - Graft-versus-host disease
+OT  - Immune tolerance
+OT  - Interleukin-10
+OT  - Intestinal microbiota
+OT  - type-1 regulatory T cells
+EDAT- 2019/10/24 06:00
+MHDA- 2020/05/22 06:00
+CRDT- 2019/10/24 06:00
+PHST- 2019/07/18 00:00 [received]
+PHST- 2019/10/08 00:00 [accepted]
+PHST- 2019/10/24 06:00 [pubmed]
+PHST- 2020/05/22 06:00 [medline]
+PHST- 2019/10/24 06:00 [entrez]
+AID - S1044-5323(19)30045-4 [pii]
+AID - 10.1016/j.smim.2019.101322 [doi]
+PST - ppublish
+SO  - Semin Immunol. 2019 Aug;44:101322. doi: 10.1016/j.smim.2019.101322. Epub 2019 Oct 
+      19.
+
+PMID- 37944820
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20240205
+LR  - 20250822
+IS  - 2666-6367 (Electronic)
+IS  - 2666-6375 (Print)
+IS  - 2666-6367 (Linking)
+VI  - 30
+IP  - 2
+DP  - 2024 Feb
+TI  - Acute Steroid-Refractory Gastrointestinal Graft-Versus-Host Disease Is Not 
+      Associated With Significant Differences in Gut Taxonomic Composition Compared to 
+      Steroid-Sensitive Gastrointestinal Graft-Versus-Host Disease Immediately Before 
+      Onset of Disease.
+PG  - 237.e1-237.e9
+LID - S2666-6367(23)01673-1 [pii]
+LID - 10.1016/j.jtct.2023.11.006 [doi]
+AB  - Taxonomic composition of the gut microbiota at the time of neutrophil engraftment 
+      is associated with the development of acute gastrointestinal graft-versus-host 
+      disease (GI GVHD) in patients undergoing allogeneic hematopoietic stem cell 
+      transplantation. However, less is known about the relationship between the gut 
+      microbiota and development of steroid-refractory GI GVHD immediately before the 
+      onset of disease. Markers of steroid-refractory GI GVHD are needed to identify 
+      patients who may benefit from the early initiation of non-corticosteroid-based 
+      GVHD treatment. Our aim was to identify differences in taxonomic composition in 
+      stool samples from patients without GVHD, with steroid-responsive GVHD and with 
+      steroid-refractory GI GVHD to identify predictive microbiome biomarkers of 
+      steroid-refractory GI GVHD. We conducted a retrospective case-control, single 
+      institution study, performing shotgun metagenomic sequencing on stool samples 
+      from patients with (n = 36) and without GVHD (n = 34) matched for time since 
+      transplantation. We compared the taxonomic composition of the gut microbiome in 
+      those with steroid-sensitive GI GVHD (n = 17) and steroid-refractory GI GVHD (n = 
+      19) to each other and to those without GVHD. We also performed associations 
+      between steroid-refractory GI GVHD, gut taxonomic composition, and fecal 
+      calprotectin, a marker of GI GVHD to develop composite fecal markers of 
+      steroid-refractory GVHD before the onset of GI disease. We found that fecal 
+      samples within 30 days of GVHD onset from patients with and without GVHD or with 
+      and without steroid-refractory GI GVHD did not differ significantly in Shannon 
+      diversity (alpha-diversity) or in overall taxonomic composition (beta-diversity). 
+      Although those patients without GVHD had higher relative abundance of Clostridium 
+      spp., those with and without steroid-refractory GI GVHD did not significantly 
+      differ in taxonomic composition between one another. In our study, fecal 
+      calprotectin before disease onset was significantly higher in patients with GVHD 
+      compared to those without GVHD and higher in patients with steroid-refractory GI 
+      GVHD compared to steroid-sensitive GI GVHD. No taxa were significantly associated 
+      with higher levels of calprotectin.
+CI  - Copyright © 2023 The American Society for Transplantation and Cellular Therapy. 
+      Published by Elsevier Inc. All rights reserved.
+FAU - Zeng, Ke
+AU  - Zeng K
+AD  - Department of Bioinformatics and Genomics University of North Carolina at 
+      Charlotte Charlotte, North Carolina.
+FAU - Brewster, Ryan
+AU  - Brewster R
+AD  - Department of Pediatrics Boston Children's Hospital Boston, Massachusetts.
+FAU - Kang, Joyce B
+AU  - Kang JB
+AD  - School of Medicine Harvard Boston, Massachusetts.
+FAU - Tkachenko, Ekaterina
+AU  - Tkachenko E
+AD  - School of Medicine Stanford University Stanford, California.
+FAU - Brooks, Erin
+AU  - Brooks E
+AD  - Department of Medicine Division of Hematology Stanford University, Stanford, 
+      California.
+FAU - Bhatt, Ami S
+AU  - Bhatt AS
+AD  - Department of Genetics, Stanford University, Stanford, California; Department of 
+      Medicine, Division of Blood and Marrow Transplantation, Stanford University, 
+      Stanford, California.
+FAU - Fodor, Anthony A
+AU  - Fodor AA
+AD  - Department of Bioinformatics and Genomics University of North Carolina at 
+      Charlotte Charlotte, North Carolina.
+FAU - Andermann, Tessa M
+AU  - Andermann TM
+AD  - Department of Medicine Division of Infectious Diseases University of North 
+      Carolina at Chapel Hill Chapel Hill, North Carolina. Electronic address: 
+      tessa_andermann@med.unc.edu.
+LA  - eng
+GR  - K08 CA184420/CA/NCI NIH HHS/United States
+GR  - K23 AI163365/AI/NIAID NIH HHS/United States
+GR  - T32 GM144273/GM/NIGMS NIH HHS/United States
+PT  - Journal Article
+PT  - Research Support, N.I.H., Extramural
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20231107
+PL  - United States
+TA  - Transplant Cell Ther
+JT  - Transplantation and cellular therapy
+JID - 101774629
+RN  - 0 (Leukocyte L1 Antigen Complex)
+RN  - 0 (Steroids)
+SB  - IM
+MH  - Humans
+MH  - Retrospective Studies
+MH  - *Gastrointestinal Tract
+MH  - *Graft vs Host Disease/therapy
+MH  - Leukocyte L1 Antigen Complex
+MH  - Steroids/therapeutic use
+PMC - PMC10872415
+MID - NIHMS1952753
+OTO - NOTNLM
+OT  - Blood and marrow transplant
+OT  - Graft-versus-host disease
+OT  - Hematopoietic stem cell transplantation
+OT  - Microbiome
+OT  - Microbiota
+OT  - Steroid-refractory GVHD
+EDAT- 2023/11/10 00:44
+MHDA- 2024/02/05 06:43
+PMCR- 2025/02/01
+CRDT- 2023/11/09 19:18
+PHST- 2023/05/26 00:00 [received]
+PHST- 2023/10/15 00:00 [revised]
+PHST- 2023/11/02 00:00 [accepted]
+PHST- 2024/02/05 06:43 [medline]
+PHST- 2023/11/10 00:44 [pubmed]
+PHST- 2023/11/09 19:18 [entrez]
+PHST- 2025/02/01 00:00 [pmc-release]
+AID - S2666-6367(23)01673-1 [pii]
+AID - 10.1016/j.jtct.2023.11.006 [doi]
+PST - ppublish
+SO  - Transplant Cell Ther. 2024 Feb;30(2):237.e1-237.e9. doi: 
+      10.1016/j.jtct.2023.11.006. Epub 2023 Nov 7.
+
+PMID- 31588560
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20200622
+LR  - 20200622
+IS  - 1365-2141 (Electronic)
+IS  - 0007-1048 (Linking)
+VI  - 187
+IP  - 5
+DP  - 2019 Dec
+TI  - Advances in understanding the pathogenesis of graft-versus-host disease.
+PG  - 563-572
+LID - 10.1111/bjh.16190 [doi]
+AB  - Acute graft-versus-host disease (GVHD) remains a major complication after 
+      allogeneic haematopoietic stem cell transplantation (allo-HSCT). The emergence of 
+      different immuno-prophylaxis strategies, such as post-transplant cyclophosphamide 
+      or anti-thymocyteglobulin has reduced the incidence of acute GVHD in recent 
+      years. The biology of the acute GVHD we observe in the clinic may change due to 
+      the use of novel immuno-stimulatory agents, including immune checkpoint 
+      inhibitors or anti-neoplastic immune-modifiers, like lenalidomide, given before 
+      or after allo-HSCT. Here we discuss the recent advances in our understanding of 
+      acute GVHD with a focus on early events of the disease, including tissue damaging 
+      factors, innate immune cells, costimulatory pathways, immune cell signalling, 
+      immuno-regulatory cell types, biomarkers of GVHD and regenerative approaches. New 
+      insight in the pathogenesis of acute GVHD has revealed the role of 
+      pro-inflammatory intracellular signalling, defects in intestinal tissue 
+      regeneration and anti-bacterial defence, as well as a reduced diversity of the 
+      microbiome, which will be the basis for the development of novel therapies.
+CI  - © 2019 The Authors. British Journal of Haematology published by British Society 
+      for Haematology and John Wiley & Sons Ltd.
+FAU - Zeiser, Robert
+AU  - Zeiser R
+AUID- ORCID: 0000-0001-6565-3393
+AD  - Department of Haematology, Oncology and Stem Cell Transplantation, Faculty of 
+      Medicine, Freiburg University Medical Centre, Freiburg, Germany.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+PT  - Review
+DEP - 20191006
+PL  - England
+TA  - Br J Haematol
+JT  - British journal of haematology
+JID - 0372544
+RN  - 0 (Biomarkers)
+RN  - 0 (Chemokines)
+RN  - 0 (Cytokines)
+RN  - 0 (Protease Inhibitors)
+SB  - IM
+MH  - Acute Disease
+MH  - Biomarkers/blood
+MH  - Cell- and Tissue-Based Therapy/methods
+MH  - Chemokines/immunology
+MH  - Cytokines/immunology
+MH  - Graft vs Host Disease/diagnosis/*etiology/immunology/therapy
+MH  - Humans
+MH  - Immunity, Innate
+MH  - Protease Inhibitors/therapeutic use
+OTO - NOTNLM
+OT  - GVHD
+OT  - immunopathology
+OT  - stem cell transplantation
+EDAT- 2019/10/08 06:00
+MHDA- 2020/06/23 06:00
+CRDT- 2019/10/08 06:00
+PHST- 2019/06/29 00:00 [received]
+PHST- 2019/08/17 00:00 [revised]
+PHST- 2019/08/19 00:00 [accepted]
+PHST- 2019/10/08 06:00 [pubmed]
+PHST- 2020/06/23 06:00 [medline]
+PHST- 2019/10/08 06:00 [entrez]
+AID - 10.1111/bjh.16190 [doi]
+PST - ppublish
+SO  - Br J Haematol. 2019 Dec;187(5):563-572. doi: 10.1111/bjh.16190. Epub 2019 Oct 6.
+
+PMID- 30504316
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20190110
+LR  - 20211204
+IS  - 1520-4383 (Electronic)
+IS  - 1520-4391 (Print)
+IS  - 1520-4383 (Linking)
+VI  - 2018
+IP  - 1
+DP  - 2018 Nov 30
+TI  - Biology-driven developments in the therapy of acute graft-versus-host disease.
+PG  - 236-241
+LID - 10.1182/asheducation-2018.1.236 [doi]
+AB  - Allogeneic hematopoietic cell transplantation is a potentially curative treatment 
+      of different hematological malignancies. A major life-threatening complication is 
+      acute graft-versus-host disease (GVHD), in particular when the disease becomes 
+      steroid refractory. Based on the detection of pathogenic cytokines, chemokines, 
+      and T-cell subsets in individuals developing GVHD or experimental GVHD models, 
+      different therapeutic strategies have been developed. A potential cause why 
+      targeting individual receptors can lack efficacy could be that multiple 
+      cytokines, danger signals, and chemokine that have redundant functions are 
+      released during GVHD. To overcome this redundancy, novel strategies that do not 
+      target individual surface molecules like chemokine receptors, integrins, and 
+      cytokine receptors, but instead inhibit signaling pathways downstream of these 
+      molecules, have been tested in preclinical GVHD models and are currently being 
+      tested in clinical GVHD trials. Another important development is tissue 
+      regenerative approaches that promote healing of GVHD-related tissue damage as 
+      well as strategies that rely on microbiota modifications. These approaches are 
+      promising because they act very differently from conventional immunosuppression, 
+      instead aiming at reinstalling tissue homeostasis and microbiome diversity. This 
+      review discusses major novel developments in GVHD therapy that are based on a 
+      better understanding of GVHD biology, the repurposing of novel kinase inhibitors, 
+      microbiome modification strategies, and tissue-regenerative approaches.
+CI  - © 2018 by The American Society of Hematology. All rights reserved.
+FAU - Zeiser, Robert
+AU  - Zeiser R
+AD  - Department of Hematology, Oncology and Stem Cell Transplantation, Faculty of 
+      Medicine, Freiburg University Medical Center, Freiburg, Germany.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+PL  - United States
+TA  - Hematology Am Soc Hematol Educ Program
+JT  - Hematology. American Society of Hematology. Education Program
+JID - 100890099
+RN  - 0 (Cytokines)
+RN  - 0 (Enzyme Inhibitors)
+SB  - IM
+MH  - Allografts
+MH  - Animals
+MH  - Clinical Trials as Topic
+MH  - Cytokines/*immunology
+MH  - Enzyme Inhibitors/*therapeutic use
+MH  - *Graft vs Host Disease/etiology/immunology/microbiology/therapy
+MH  - *Hematopoietic Stem Cell Transplantation
+MH  - Humans
+MH  - Immunosuppression Therapy/*methods
+MH  - Microbiota/*immunology
+MH  - Signal Transduction/*immunology
+PMC - PMC6245989
+COIS- Conflict-of-interest disclosure: R.Z has received research funding from Jazz 
+      Pharma, honoraria from Novartis and Incyte, and speakers fees from Novartis and 
+      Incyte.
+EDAT- 2018/12/07 06:00
+MHDA- 2019/01/11 06:00
+PMCR- 2019/11/30
+CRDT- 2018/12/04 06:00
+PHST- 2018/12/04 06:00 [entrez]
+PHST- 2018/12/07 06:00 [pubmed]
+PHST- 2019/01/11 06:00 [medline]
+PHST- 2019/11/30 00:00 [pmc-release]
+AID - 2018/1/236 [pii]
+AID - 01832 [pii]
+AID - 10.1182/asheducation-2018.1.236 [doi]
+PST - ppublish
+SO  - Hematology Am Soc Hematol Educ Program. 2018 Nov 30;2018(1):236-241. doi: 
+      10.1182/asheducation-2018.1.236.
+
+PMID- 27619472
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20170515
+LR  - 20250530
+IS  - 1365-2141 (Electronic)
+IS  - 0007-1048 (Linking)
+VI  - 175
+IP  - 2
+DP  - 2016 Oct
+TI  - Pathogenesis of acute graft-versus-host disease: from intestinal microbiota 
+      alterations to donor T cell activation.
+PG  - 191-207
+LID - 10.1111/bjh.14295 [doi]
+AB  - Acute graft-versus-host disease (aGVHD) is a major life-threatening complication 
+      of allogeneic haematopoietic cell transplantation (allo-HCT). Here we discuss the 
+      aGVHD pathophysiology initiated by multiple signals that cause alloreactive 
+      T-cell activation. The outcome of such donor T-cell activation is influenced by 
+      T-cell receptor-signal strength, anatomical location, 
+      co-stimulatory/co-inhibitory signals and differentiation stage (naive, 
+      effector/memory) of T-cells. Additionally, cross-priming of T cells to antigens 
+      expressed by pathogens can contribute to aGVHD-mediated tissue injury. In 
+      addition to the properties of donor T-cell activation, highly specialized tissue 
+      resident cell types, such as innate lymphoid cells, antigen-presenting cells, 
+      immune regulatory cells and various intestinal cell populations are critically 
+      involved in aGVHD pathogenesis. The role of the thymus and secondary lymphoid 
+      tissue injury, non-haematopoietic cells, intestinal microflora, cytokines, 
+      chemokines, microRNAs, metabolites and kinases in aGVHD pathophysiology will be 
+      highlighted. Acute GVHD pathogenic mechanisms will be connected to novel 
+      therapeutic approaches under development for, and tested in, the clinic.
+CI  - © 2016 John Wiley & Sons Ltd.
+FAU - Zeiser, Robert
+AU  - Zeiser R
+AD  - Department of Haematology, Oncology and Stem Cell Transplantation, Freiburg 
+      University Medical Centre, Freiburg, Germany. 
+      robert.zeiser@uniklinik-freiburg.de.
+FAU - Socié, Gerard
+AU  - Socié G
+AD  - Haematology Stem cell transplant Unit, Saint Louis Hospital, APHP, Paris, France.
+FAU - Blazar, Bruce R
+AU  - Blazar BR
+AD  - Department of Pediatrics, Division of Blood and Marrow Transplantation, 
+      University of Minnesota, Minneapolis, MN, USA. blaza001@umn.edu.
+LA  - eng
+GR  - P01 CA065493/CA/NCI NIH HHS/United States
+GR  - R01 HL118979/HL/NHLBI NIH HHS/United States
+GR  - 681012/ERC_/European Research Council/International
+GR  - R01 AI034495/AI/NIAID NIH HHS/United States
+GR  - R01 HL056067/HL/NHLBI NIH HHS/United States
+PT  - Journal Article
+PT  - Review
+DEP - 20160913
+PL  - England
+TA  - Br J Haematol
+JT  - British journal of haematology
+JID - 0372544
+RN  - 0 (Cytokines)
+RN  - 0 (MicroRNAs)
+RN  - 0 (Receptors, Antigen, T-Cell)
+SB  - IM
+MH  - Acute Disease
+MH  - Animals
+MH  - Cell Survival/immunology
+MH  - Chemotaxis/immunology
+MH  - Cytokines/metabolism
+MH  - Gastrointestinal Microbiome
+MH  - Gene Expression Regulation
+MH  - Graft vs Host Disease/*etiology/metabolism
+MH  - Humans
+MH  - Immunomodulation
+MH  - Lymphocyte Activation/immunology
+MH  - MicroRNAs/genetics
+MH  - Receptors, Antigen, T-Cell/metabolism
+MH  - Signal Transduction
+MH  - T-Lymphocytes/immunology/metabolism
+MH  - Tissue Donors
+OTO - NOTNLM
+OT  - danger associated molecular patterns
+OT  - graft-versus-host disease
+OT  - micro RNAs
+OT  - neutrophils
+OT  - novel targets
+EDAT- 2016/09/14 06:00
+MHDA- 2017/05/16 06:00
+CRDT- 2016/09/14 06:00
+PHST- 2016/06/03 00:00 [received]
+PHST- 2016/06/30 00:00 [revised]
+PHST- 2016/06/30 00:00 [accepted]
+PHST- 2016/09/14 06:00 [pubmed]
+PHST- 2017/05/16 06:00 [medline]
+PHST- 2016/09/14 06:00 [entrez]
+AID - 10.1111/bjh.14295 [doi]
+PST - ppublish
+SO  - Br J Haematol. 2016 Oct;175(2):191-207. doi: 10.1111/bjh.14295. Epub 2016 Sep 13.

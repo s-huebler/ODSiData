@@ -1,0 +1,1827 @@
+﻿FN Clarivate Analytics Web of Science
+VR 1.0
+PT J
+AU Din, Muhammad Azhar Ud
+   Lin, Yan
+   Lyu, Changkun
+   Yi, Chengxue
+   Fang, Anning
+   Mao, Fei
+TI Advancing therapeutic strategies for graft-versus-host disease by
+   targeting gut microbiome dynamics in allogeneic hematopoietic stem cell
+   transplantation: current evidence and future directions
+SO MOLECULAR MEDICINE
+VL 31
+IS 1
+AR 2
+DI 10.1186/s10020-024-01060-x
+DT Review
+PD JAN 3 2025
+PY 2025
+Z8 0
+ZR 0
+ZA 0
+TC 8
+ZS 0
+ZB 2
+Z9 8
+SN 1076-1551
+EI 1528-3658
+DA 2025-01-09
+UT WOS:001389251100002
+PM 39754054
+ER
+
+PT J
+AU Chen, Xiao-Yu
+   Wang, Shun-Qing
+TI [Relationship Between the Change of Microbial Diversity and
+   Gastrointestinal Graft-Versus-Host Disease Following Allogeneic
+   Hematopoietic Stem Cell Transplantation].
+SO Zhongguo shi yan xue ye xue za zhi
+VL 27
+IS 1
+BP 239
+EP 245
+DI 10.7534/j.issn.1009-2137.2019.01.039
+DT Journal Article
+PD 2019-Feb
+PY 2019
+ZS 0
+TC 0
+Z8 0
+ZA 0
+ZR 0
+ZB 0
+Z9 0
+SN 1009-2137
+DA 2019-02-13
+UT MEDLINE:30738477
+PM 30738477
+ER
+
+PT J
+AU Smith, Melody
+   Markey, Kate A.
+TI Microbes matter in pediatric allo-HSCT
+SO BLOOD
+VL 142
+IS 16
+BP 1335
+EP 1337
+DI 10.1182/blood.2023021608
+EA OCT 2023
+DT Editorial Material
+PD OCT 19 2023
+PY 2023
+RI Smith, Melody/; Markey, Kate/C-9443-2014
+OI Smith, Melody/0000-0002-2702-0381; Markey, Kate/0000-0002-7064-2362
+TC 1
+ZS 0
+Z8 0
+ZR 0
+ZB 1
+ZA 0
+Z9 1
+SN 0006-4971
+EI 1528-0020
+DA 2023-11-28
+UT WOS:001103383700001
+PM 37856093
+ER
+
+PT J
+AU Shono, Yusuke
+TI Gut microbiota and graft-versus-host disease: broad-spectrum antibiotic
+   use increases post-allogeneic hematopoietic stem cell transplant
+   graft-versus-host disease-related mortality.
+SO [Rinsho ketsueki] The Japanese journal of clinical hematology
+VL 58
+IS 7
+BP 835
+EP 842
+DI 10.11406/rinketsu.58.835
+DT Journal Article
+PD 2017
+PY 2017
+ZA 0
+TC 5
+ZR 0
+ZB 3
+Z8 0
+ZS 0
+Z9 5
+SN 0485-1439
+DA 2018-01-08
+UT MEDLINE:28781282
+PM 28781282
+ER
+
+PT J
+AU Miltiadous, Oriana
+   Waters, Nicholas R.
+   Andrlova, Hana
+   Dai, Anqi
+   Nguyen, Chi L.
+   da Silva, Marina Burgos
+   Lindner, Sarah
+   Slingerland, John
+   Giardina, Paul
+   Clurman, Annelie
+   Armijo, Gabriel K.
+   Gomes, Antonio L. C.
+   Lakkaraja, Madhavi
+   Maslak, Peter
+   Scordo, Michael
+   Shouval, Roni
+   Staffas, Anna
+   O'Reilly, Richard
+   Taur, Ying
+   Prockop, Susan
+   Boelens, Jaap Jan
+   Giralt, Sergio
+   Perales, Miguel-Angel
+   Devlin, Sean M.
+   Peled, Jonathan U.
+   Markey, Kate A.
+   van den Brink, Marcel R. M.
+TI Early intestinal microbial features are associated with CD4 T-cell
+   recovery after allogeneic hematopoietic transplant
+SO BLOOD
+VL 139
+IS 18
+BP 2758
+EP 2769
+DI 10.1182/blood.2021014255
+EA MAY 2022
+DT Article
+PD MAY 5 2022
+PY 2022
+RI Miltiadous, Oriana/KVX-9930-2024; Waters, Nicholas/; Dai, Anqi/; Gomes, Antonio LC/; Peled, Jonathan/; Burgos da Silva, Marina/C-3026-2012; Markey, Kate/C-9443-2014; Perales, Miguel-Angel/LTD-4324-2024; van den Brink, Marcel R. M./HGB-9434-2022
+OI Miltiadous, Oriana/0000-0002-1571-3893; Waters,
+   Nicholas/0000-0002-9035-2143; Dai, Anqi/0000-0003-3106-4624; Gomes,
+   Antonio LC/0000-0003-3790-3724; Peled, Jonathan/0000-0002-4029-7625;
+   Burgos da Silva, Marina/0000-0001-8630-7211; Markey,
+   Kate/0000-0002-7064-2362; 
+ZS 0
+ZR 0
+TC 33
+ZB 19
+Z8 0
+ZA 0
+Z9 35
+SN 0006-4971
+EI 1528-0020
+DA 2022-08-09
+UT WOS:000830859000008
+PM 35061893
+ER
+
+PT J
+AU Whangbo, J.
+   Ritz, J.
+   Bhatt, A.
+TI Antibiotic-mediated modification of the intestinal microbiome in
+   allogeneic hematopoietic stem cell transplantation
+SO BONE MARROW TRANSPLANTATION
+VL 52
+IS 2
+BP 183
+EP 190
+DI 10.1038/bmt.2016.206
+DT Review
+PD FEB 2017
+PY 2017
+RI Bhatt, Ami/; Ritz, Jerome/C-7929-2009
+OI Bhatt, Ami/0000-0001-8099-2975; Ritz, Jerome/0000-0001-5526-4669
+ZA 0
+ZR 0
+ZB 23
+Z8 1
+TC 50
+ZS 0
+Z9 54
+SN 0268-3369
+EI 1476-5365
+DA 2017-02-01
+UT WOS:000394134300003
+PM 27526283
+ER
+
+PT J
+AU Beckman, M F
+   Morton, D S
+   Bahrani Mougeot, F
+   Mougeot, J-L C
+TI Allogenic stem cell transplant-associated acute graft versus host
+   disease: a computational drug discovery text mining approach using oral
+   and gut microbiome signatures.
+SO Supportive care in cancer : official journal of the Multinational
+   Association of Supportive Care in Cancer
+VL 29
+IS 4
+BP 1765
+EP 1779
+DI 10.1007/s00520-020-05821-2
+DT Journal Article; Review
+PD 2021-Apr
+PY 2021
+ZR 0
+Z8 0
+ZA 0
+TC 11
+ZB 8
+ZS 0
+Z9 12
+EI 1433-7339
+DA 2020-10-26
+UT MEDLINE:33094358
+PM 33094358
+ER
+
+PT J
+AU Metafuni, Elisabetta
+   Di Marino, Luca
+   Giammarco, Sabrina
+   Bellesi, Silvia
+   Limongiello, Maria Assunta
+   Sora, Federica
+   Frioni, Filippo
+   Maggi, Roberto
+   Chiusolo, Patrizia
+   Sica, Simona
+TI The Role of Fecal Microbiota Transplantation in the Allogeneic Stem Cell
+   Transplant Setting
+SO MICROORGANISMS
+VL 11
+IS 9
+AR 2182
+DI 10.3390/microorganisms11092182
+DT Review
+PD SEP 2023
+PY 2023
+RI GIAMMARCO, SABRINA/J-5107-2018; Di Marino, Luca/; Chiusolo, Patrizia/J-3003-2018; Bellesi, Silvia/LQL-2558-2024; Maggi, Roberto/F-3747-2010
+OI GIAMMARCO, SABRINA/0000-0002-1382-5496; Di Marino,
+   Luca/0009-0007-7101-7423; Chiusolo, Patrizia/0000-0002-1355-1587;
+   Bellesi, Silvia/0000-0001-7400-1215; 
+TC 9
+ZA 0
+ZR 0
+ZS 0
+ZB 2
+Z8 1
+Z9 10
+EI 2076-2607
+DA 2023-10-05
+UT WOS:001072050300001
+PM 37764025
+ER
+
+PT J
+AU Doki, Noriko
+   Suyama, Masahiro
+   Sasajima, Satoshi
+   Ota, Junko
+   Igarashi, Aiko
+   Mimura, Iyo
+   Morita, Hidetoshi
+   Fujioka, Yuki
+   Sugiyama, Daisuke
+   Nishikawa, Hiroyoshi
+   Shimazu, Yutaka
+   Suda, Wataru
+   Takeshita, Kozue
+   Atarashi, Koji
+   Hattori, Masahira
+   Sato, Eiichi
+   Watakabe-Inamoto, Kyoko
+   Yoshioka, Kosuke
+   Najima, Yuho
+   Kobayashi, Takeshi
+   Kakihana, Kazuhiko
+   Takahashi, Naoto
+   Sakamaki, Hisashi
+   Honda, Kenya
+   Ohashi, Kazuteru
+TI Clinical impact of pre-transplant gut microbial diversity on outcomes of
+   allogeneic hematopoietic stem cell transplantation
+SO ANNALS OF HEMATOLOGY
+VL 96
+IS 9
+BP 1517
+EP 1523
+DI 10.1007/s00277-017-3069-8
+DT Article
+PD SEP 2017
+PY 2017
+RI Shimazu, Yutaka/AFD-2512-2022; Honda, Kenya/N-5297-2015; Sugiyama, Daisuke/; Hattori, Masahira/AAD-3785-2019; Suyama, Masahiro/; Najima, Yuho/W-3858-2019; Atarashi, Koji/I-5363-2014; Kakihana, Kazuhiko/AAY-9584-2021; Suda, Wataru/AAF-4469-2019; Nishikawa, Hiroyoshi/AAI-7044-2020
+OI Shimazu, Yutaka/0000-0002-1604-7220; Honda, Kenya/0000-0001-8937-9835;
+   Sugiyama, Daisuke/0000-0003-1490-3211; Suyama,
+   Masahiro/0000-0001-8191-4864; Najima, Yuho/0000-0001-8910-0021; 
+ZB 30
+TC 47
+ZR 0
+ZA 0
+ZS 0
+Z8 3
+Z9 54
+SN 0939-5555
+EI 1432-0584
+DA 2017-08-22
+UT WOS:000406779400013
+PM 28733895
+ER
+
+PT J
+AU Malard, Florent
+   Gasc, Cyrielle
+   Levast, Benoit
+   Plantamura, Emilie
+   Dore, Joel
+TI High gastrointestinal microbial diversity and clinical outcome in
+   graft-versus-host disease patients
+SO HEMATOLOGIE
+VL 24
+IS 6
+BP 376
+EP 383
+DI 10.1684/hma.2019.1402
+DT Review
+PD NOV-DEC 2018
+PY 2018
+RI Malard, Florent/L-6829-2017; Dore, Joel/ABA-8921-2020
+OI Dore, Joel/0000-0002-8756-0718
+Z8 0
+ZA 0
+ZB 1
+ZS 0
+ZR 0
+TC 1
+Z9 1
+SN 1264-7527
+EI 1950-6368
+DA 2019-04-18
+UT WOS:000463869500013
+ER
+
+PT J
+AU Fujiwara, Hideaki
+TI Crosstalk Between Intestinal Microbiota Derived Metabolites and Tissues
+   in Allogeneic Hematopoietic Cell Transplantation
+SO FRONTIERS IN IMMUNOLOGY
+VL 12
+AR 703298
+DI 10.3389/fimmu.2021.703298
+DT Review
+PD AUG 27 2021
+PY 2021
+ZB 6
+ZS 0
+ZA 0
+TC 13
+Z8 1
+ZR 0
+Z9 16
+SN 1664-3224
+DA 2021-12-10
+UT WOS:000726373500001
+PM 34512627
+ER
+
+PT J
+AU Holler, E.
+   Zhu, W.
+   Landfried, K.
+   Peter, K.
+   Kreutz, M.
+   Ammer, J.
+   Holler, B.
+   Wolff, D.
+   Edinger, M.
+   Andreesen, R.
+   Oefner, P.
+TI Indoxyl sulfate as a marker of intestinal bacterial diversity in
+   patients receiving allogeneic stem cell transplantation: Impact of
+   antibiotic treatment and intestinal GvHD
+SO ONKOLOGIE
+VL 35
+BP 158
+EP 158
+SU 6
+DT Meeting Abstract
+PD OCT 2012
+PY 2012
+TC 0
+Z8 0
+ZA 0
+ZS 0
+ZR 0
+ZB 0
+Z9 0
+SN 0378-584X
+DA 2012-12-19
+UT WOS:000310766700411
+ER
+
+PT J
+AU Toubai, Tomomi
+   Fujiwara, Hideaki
+   Rossi, Corinne
+   Riwes, Mary
+   Tamaki, Hiroya
+   Zajac, Cynthia
+   Liu, Chen
+   Mathew, Anna, V
+   Byun, Jaeman
+   Oravecz-Wilson, Katherine
+   Matsuda, Ikuo
+   Sun, Yaping
+   Peltier, Daniel
+   Wu, Julia
+   Chen, Jiachen
+   Seregin, Sergey
+   Henig, Israel
+   Kim, Stephanie
+   Brabbs, Stuart
+   Pennathur, Subramaniam
+   Chen, Grace
+   Reddy, Pavan
+TI Host NLRP6 exacerbates graft-versus-host disease independent of gut
+   microbial composition
+SO NATURE MICROBIOLOGY
+VL 4
+IS 5
+BP 800
+EP 812
+DI 10.1038/s41564-019-0373-1
+DT Article
+PD MAY 2019
+PY 2019
+RI Fujiwara, Hideaki/ABI-6034-2020; Mathew, Anna/IZE-4291-2023; Riwes, Mary/; Lin, Chen/PCS-1863-2025; Pennathur, Subramaniam/O-7032-2017; Toubai, Tomomi/AGM-2228-2022
+OI Mathew, Anna/0000-0002-7043-4221; Riwes, Mary/0000-0001-5764-0410;
+   Pennathur, Subramaniam/0000-0003-3628-6883; Toubai,
+   Tomomi/0000-0001-6658-7543
+ZR 0
+TC 40
+ZS 0
+ZB 29
+ZA 0
+Z8 3
+Z9 44
+SN 2058-5276
+DA 2019-05-08
+UT WOS:000465477000013
+PM 30858572
+ER
+
+PT J
+AU van Lier, Yannouck F.
+   Rolling, Thierry
+   Armijo, Gabriel K.
+   Zhai, Bing
+   Haverkate, Nienke J. E.
+   Meijer, Ellen
+   Nur, Erfan
+   Blom, Bianca
+   Peled, Jonathan U.
+   van den Brink, Marcel R. M.
+   Hohl, Tobias M.
+   Hazenberg, Mette D.
+   Markey, Kate A.
+TI Profiling the Fungal Microbiome after Fecal Microbiota Transplantation
+   for Graft-versus-Host Disease: Insights from a Phase 1 Interventional
+   Study
+SO TRANSPLANTATION AND CELLULAR THERAPY
+VL 29
+IS 1
+DI 10.1016/j.jtct.2022.10.011
+EA JAN 2023
+DT Article
+PD JAN 2023
+PY 2023
+RI Peled, Jonathan/; van den Brink, Marcel R. M./HGB-9434-2022; Markey, Kate/C-9443-2014; Hohl, Tobias M/HTO-1911-2023; Van Lier, Yannouck/AAB-9199-2021; Haverkate, Nienke/
+OI Peled, Jonathan/0000-0002-4029-7625; Markey, Kate/0000-0002-7064-2362;
+   Hohl, Tobias M/0000-0002-9097-5412; Van Lier,
+   Yannouck/0000-0002-9159-2093; Haverkate, Nienke/0000-0002-3701-4735
+ZB 2
+Z8 0
+ZS 0
+ZR 0
+TC 5
+ZA 0
+Z9 4
+SN 2666-6375
+EI 2666-6367
+DA 2023-05-25
+UT WOS:000971813700001
+PM 36280104
+ER
+
+PT R
+AU Ingham, Anna
+   Kielsen, Katrine
+   Cilieborg, Malene
+   Lund, Ole
+   Holmes, Susan
+   Aarestrup, Frank
+   Muller, Klaus
+   Pamp, Sunje
+TI Additional file 15: of Specific gut microbiome members are associated
+   with distinct immune markers in pediatric allogeneic hematopoietic stem
+   cell transplantation
+SO Figshare
+DI http://dx.doi.org/10.6084/m9.figshare.9830000.v1
+DT Data set
+PD 2019-11-20
+PY 2019
+ZB 0
+ZS 0
+Z8 0
+ZR 0
+TC 0
+ZA 0
+Z9 0
+DA 2024-12-11
+UT DRCI:DATA2020030017722509
+ER
+
+PT J
+AU Levine, John E.
+TI Less (bacterial diversity) is more (deaths)
+SO BLOOD
+VL 124
+IS 7
+BP 995
+EP 996
+DI 10.1182/blood-2014-07-583906
+DT Editorial Material
+PD AUG 14 2014
+PY 2014
+OI Levine, John/0000-0002-5611-7828
+TC 2
+ZR 0
+ZA 0
+Z8 1
+ZS 0
+ZB 0
+Z9 3
+SN 0006-4971
+EI 1528-0020
+DA 2014-08-14
+UT WOS:000342621100008
+PM 25124784
+ER
+
+PT J
+AU Henig, Israel
+   Yehudai-Ofir, Dana
+   Zuckerman, Tsila
+TI The clinical role of the gut microbiome and fecal microbiota
+   transplantation in allogeneic stem cell transplantation
+SO HAEMATOLOGICA
+VL 106
+IS 4
+BP 933
+EP 946
+DI 10.3324/haematol.2020.247395
+DT Review
+PD APR 2021
+PY 2021
+ZS 0
+ZB 12
+ZR 0
+TC 25
+ZA 0
+Z8 2
+Z9 30
+SN 0390-6078
+DA 2021-05-20
+UT CCC:000643697800006
+PM 33241674
+ER
+
+PT J
+AU Ji, Hao
+   Feng, Shuai
+   Liu, Yuan
+   Cao, Yue
+   Lou, Huiquan
+   Li, Zengzheng
+TI Effect of GVHD on the gut and intestinal microflora
+SO TRANSPLANT IMMUNOLOGY
+VL 82
+AR 101977
+DI 10.1016/j.trim.2023.101977
+EA JAN 2024
+DT Review
+PD FEB 2024
+PY 2024
+RI CAO, YUE/OZE-5936-2025
+ZR 0
+ZB 2
+Z8 0
+ZS 0
+TC 4
+ZA 0
+Z9 5
+SN 0966-3274
+EI 1878-5492
+DA 2024-02-25
+UT WOS:001163495800001
+PM 38184214
+ER
+
+PT J
+AU Jenq, Robert R.
+   Taur, Ying
+   Devlin, Sean M.
+   Ponce, Doris M.
+   Goldberg, Jenna D.
+   Ahr, Katya F.
+   Littmann, Eric R.
+   Ling, Lilan
+   Gobourne, Asia C.
+   Miller, Liza C.
+   Docampo, Melissa D.
+   Peled, Jonathan U.
+   Arpaia, Nicholas
+   Cross, Justin R.
+   Peets, Tatanisha K.
+   Lumish, Melissa A.
+   Shono, Yusuke
+   Dudakov, Jarrod A.
+   Poeck, Hendrik
+   Hanash, Alan M.
+   Barker, Juliet N.
+   Perales, Miguel-Angel
+   Giralt, Sergio A.
+   Pamer, Eric G.
+   van den Brink, Marcel R. M.
+TI Intestinal Blautia Is Associated with Reduced Death from
+   Graft-versus-Host Disease
+SO BIOLOGY OF BLOOD AND MARROW TRANSPLANTATION
+VL 21
+IS 8
+BP 1373
+EP 1383
+DI 10.1016/j.bbmt.2015.04.016
+DT Article
+PD AUG 2015
+PY 2015
+RI Dudakov, Jarrod/; Ponce, Daniela/M-8271-2015; Shono, Yusuke/; Lumish, Melissa/MYR-3629-2025; van den Brink, Marcel R. M./HGB-9434-2022; Jenq, Robert/; Arpaia, Nicholas/R-2549-2018; Cross, Justin/; Peled, Jonathan/; Ling, Lilan/; Perales, Miguel-Angel/LTD-4324-2024
+OI Dudakov, Jarrod/0000-0001-6220-5632; Shono, Yusuke/0000-0002-0459-1659;
+   Jenq, Robert/0000-0002-5434-439X; Arpaia, Nicholas/0000-0002-0657-0528;
+   Cross, Justin/0000-0002-6356-057X; Peled, Jonathan/0000-0002-4029-7625;
+   Ling, Lilan/0000-0001-6961-7787; 
+ZR 0
+ZS 2
+ZA 0
+TC 599
+Z8 21
+ZB 365
+Z9 716
+SN 1083-8791
+EI 1523-6536
+DA 2015-08-01
+UT WOS:000358557700006
+PM 25977230
+ER
+
+PT J
+AU Burgos da Silva, Marina
+   Ponce, Doris M
+   Dai, Anqi
+   M Devlin, Sean
+   Gomes, Antonio L C
+   Moore, Gillian
+   Slingerland, John
+   Shouval, Roni
+   Armijo, Gabriel K
+   DeWolf, Susan
+   Fei, Teng
+   Clurman, Annelie
+   Fontana, Emily
+   Amoretti, Luigi A
+   Wright, Roberta J
+   Andrlova, Hana
+   Miltiadous, Oriana
+   Perales, Miguel-Angel
+   Taur, Ying
+   Peled, Jonathan U
+   van den Brink, Marcel R M
+TI Preservation of the fecal microbiome is associated withreduced severity
+   of graft-versus-host disease.
+SO Blood
+VL 140
+IS 22
+BP 2385
+EP 2397
+DI 10.1182/blood.2021015352
+DT Journal Article; Research Support, N.I.H., Extramural; Research Support,
+   Non-U.S. Gov't
+PD 2022-12-01
+PY 2022
+ZS 0
+TC 65
+ZB 39
+ZR 0
+Z8 1
+ZA 0
+Z9 67
+EI 1528-0020
+DA 2022-12-02
+UT MEDLINE:35969834
+PM 35969834
+ER
+
+PT J
+AU Yue, XiaoYan
+   Zhou, Hongyu
+   Wang, ShuFen
+   Chen, Xu
+   Xiao, HaoWen
+TI Gut microbiota, microbiota-derived metabolites, and graft-versus-host
+   disease
+SO CANCER MEDICINE
+VL 13
+IS 3
+DI 10.1002/cam4.6799
+EA JAN 2024
+DT Review
+PD FEB 2024
+PY 2024
+RI Wang, Shufen/HJO-8271-2023
+ZS 0
+ZA 0
+Z8 0
+TC 28
+ZR 0
+ZB 19
+Z9 31
+SN 2045-7634
+DA 2024-01-29
+UT WOS:001144431600001
+PM 38239049
+ER
+
+PT J
+AU Ciernikova, Sona
+   Kasperova, Barbora
+   Drgona, Lubos
+   Smolkova, Bozena
+   Stevurkova, Viola
+   Mego, Michal
+TI Targeting the gut microbiome: An emerging trend in hematopoietic stem
+   cell transplantation
+SO BLOOD REVIEWS
+VL 48
+AR 100790
+DI 10.1016/j.blre.2020.100790
+DT Review
+PD JUL 2021
+PY 2021
+RI Smolkova, Bozena/B-3889-2018; Ciernikova, Sona/ABB-3569-2021
+OI Smolkova, Bozena/0000-0002-4906-5652; Ciernikova,
+   Sona/0000-0002-8139-6945
+ZR 0
+ZA 0
+Z8 2
+ZB 23
+TC 38
+ZS 0
+Z9 40
+SN 0268-960X
+EI 1532-1681
+DA 2021-07-01
+UT WOS:000661248400005
+PM 33573867
+ER
+
+PT J
+AU Wang, Q
+   Fu, Y W
+   Wang, Y Q
+   Ai, H
+   Yuan, F F
+   Wei, X D
+   Song, Y P
+TI [Fecal microbiota transplantation for patients with refractory diarrhea
+   after allogeneic hematopoietic stem cell transplantation].
+SO Zhonghua xue ye xue za zhi = Zhonghua xueyexue zazhi
+VL 40
+IS 10
+BP 853
+EP 855
+DI 10.3760/cma.j.issn.0253-2727.2019.10.011
+DT Journal Article
+PD 2019-Oct-14
+PY 2019
+TC 5
+ZS 0
+ZR 0
+ZA 0
+ZB 3
+Z8 3
+Z9 8
+SN 0253-2727
+DA 2019-11-29
+UT MEDLINE:31775486
+PM 31775486
+ER
+
+PT J
+AU Youngster, Ilan
+   Eshel, Adi
+   Geva, Mika
+   Danylesko, Ivetta
+   Henig, Israel
+   Zuckerman, Tsila
+   Fried, Shalev
+   Yerushalmi, Ronit
+   Shem-Tov, Noga
+   Fein, Joshua A.
+   Bomze, David
+   Shimoni, Avichai
+   Koren, Omry
+   Shouval, Roni
+   Nagler, Arnon
+TI Fecal microbiota transplantation in capsules for the treatment of
+   steroid refractory and steroid dependent acute graft vs. host disease: a
+   pilot study
+SO BONE MARROW TRANSPLANTATION
+VL 59
+IS 3
+BP 409
+EP 416
+DI 10.1038/s41409-024-02198-2
+DT Article
+PD MAR 2024
+PY 2024
+RI Koren, Omry/A-5222-2016; Youngster, Ilan/AAZ-1225-2020; Fried, Shalev/; Fein, Joshua/GXZ-7089-2022; Geva, Mika/
+OI Koren, Omry/0000-0002-7738-1337; Fried, Shalev/0000-0003-1306-222X;
+   Fein, Joshua/0000-0001-5441-1516; Geva, Mika/0000-0003-3473-3272
+Z8 1
+ZS 0
+ZA 0
+TC 11
+ZR 0
+ZB 7
+Z9 12
+SN 0268-3369
+DA 2024-05-17
+UT CCC:001180567100019
+PM 38212672
+ER
+
+PT J
+AU Pession, Andrea
+   Zama, Daniele
+   Muratore, Edoardo
+   Leardini, Davide
+   Gori, Davide
+   Guaraldi, Federica
+   Prete, Arcangelo
+   Turroni, Silvia
+   Brigidi, Patrizia
+   Masetti, Riccardo
+TI Fecal Microbiota Transplantation in Allogeneic Hematopoietic Stem Cell
+   Transplantation Recipients: A Systematic Review
+SO JOURNAL OF PERSONALIZED MEDICINE
+VL 11
+IS 2
+BP 100
+EP 100
+AR 100
+DI 10.3390/jpm11020100
+DT Review
+PD FEB 2021
+PY 2021
+RI Turroni, Silvia/J-7195-2016; Prete, Arcangelo/; Zama, Daniele/B-7055-2013; Leardini, Davide/AAZ-7944-2020; Gori, Davide/AAC-3486-2022; Pession, Anea/O-3200-2013; Muratore, Edoardo/ABD-8803-2021; Guaraldi, Federica/AAG-5075-2019; Masetti, Riccardo/G-6837-2011
+OI Turroni, Silvia/0000-0003-2345-9482; Prete,
+   Arcangelo/0000-0002-6823-3797; Zama, Daniele/0000-0002-9895-5942;
+   Leardini, Davide/0000-0002-4673-5876; Gori, Davide/0000-0003-4954-9419;
+   Pession, Anea/0000-0002-0379-9562; Muratore,
+   Edoardo/0000-0001-6954-3140; 
+TC 30
+ZB 14
+Z8 0
+ZA 0
+ZS 0
+ZR 0
+Z9 31
+DA 2021-03-19
+UT CCC:000622694700001
+PM 33557125
+ER
+
+PT J
+AU Tamura, Shinichi
+   Ishida, Hiroyuki
+   Shimizu, Tsunehiro
+   Imaeda, Hirotsugu
+   Nishida, Atsushi
+   Bamba, Shigeki
+   Andoh, Akira
+   Iwasa, Yoko
+   Kuroda, Hiroshi
+TI [Fecal microbiota transplantation for refractory Clostridioides
+   difficile infection with Crohn's disease in an allogeneic bone marrow
+   transplant recipient].
+SO [Rinsho ketsueki] The Japanese journal of clinical hematology
+VL 63
+IS 3
+BP 217
+EP 223
+DI 10.11406/rinketsu.63.217
+DT Case Reports; Journal Article
+PD 2022
+PY 2022
+TC 3
+ZR 0
+Z8 0
+ZA 0
+ZB 3
+ZS 0
+Z9 4
+SN 0485-1439
+DA 2022-04-08
+UT MEDLINE:35387936
+PM 35387936
+ER
+
+PT J
+AU Douge, Aurore
+   Bay, Jacques-Olivier
+   Ravinet, Aurelie
+   Scanzi, Julien
+TI Intestinal microbiota and allogeneic stem cell transplantation
+SO BULLETIN DU CANCER
+VL 107
+IS 1
+BP 72
+EP 83
+DI 10.1016/j.bulcan.2019.08.014
+DT Review
+PD JAN 2020
+PY 2020
+RI Dougé, Aurore/IQX-1273-2023; scanzi, julien/Y-2346-2019
+Z8 0
+ZB 3
+ZR 0
+ZS 0
+TC 4
+ZA 0
+Z9 4
+SN 0007-4551
+EI 1769-6917
+DA 2020-03-03
+UT WOS:000513776100011
+PM 31582175
+ER
+
+PT J
+AU Trenschel, R.
+   Ottinger, H.
+   Elmaagacli, A.
+   Beelen, D. W.
+TI Influence of intestinal bacterial decontamination using ciprofloxacin
+   plus metronidazole or moxifloxacin alone on the incidence of acute GvHD
+   and blood stream infections after allogeneic HSCT
+SO BONE MARROW TRANSPLANTATION
+VL 45
+BP S395
+EP S395
+SU 2
+DT Meeting Abstract
+PD MAR 2010
+PY 2010
+CT 36th Annual Meeting of the
+   European-Group-for-Blood-and-Marrow-Transplantat/9th Meeting of the EBMT
+   Data-Management-Group/26th Meeting of the EBMT Nurses Group/2nd EBMT
+   Qual Management Meeting
+CY MAR 21-24, 2010
+CL Vienna, AUSTRIA
+SP European Grp Blood & Marrow Transplantat; EBMT Data Management Grp; EBMT
+   Nurses Grp
+Z8 0
+ZS 0
+TC 0
+ZA 0
+ZR 0
+ZB 0
+Z9 0
+SN 0268-3369
+DA 2010-03-01
+UT WOS:000277611301477
+ER
+
+PT J
+AU Runaas, Lyndsey
+   Fank, Salena
+   Palen, Katie
+   Szabo, Aniko
+   Rein, Lisa E
+   Ying, Grace
+   Salzman, Nita
+   Samanas, Lisa
+   Abedin, Sameem
+   Chhabra, Saurabh
+   Hamadani, Mehdi
+   Longo, Walter
+   Shah, Nirav N
+   Haber, Jennifer
+   Gradissimo, Ana
+   Waters, Nicholas
+   Peled, Jonathan U
+   Johnson, Bryon
+   Kearl, Tyce
+   Drobyski, William R
+TI Tildrakizumab for the prophylaxis of graft-versus-host disease after
+   allogeneic hematopoietic stem cell transplantation.
+SO Blood advances
+VL 10
+IS 8
+BP 2698
+EP 2710
+DI 10.1182/bloodadvances.2025019065
+DT Journal Article; Clinical Trial, Phase II; Clinical Trial, Phase I
+PD 2026-Apr-28
+PY 2026
+ZS 0
+TC 0
+ZR 0
+ZB 0
+Z8 0
+ZA 0
+Z9 0
+EI 2473-9537
+DA 2026-02-06
+UT MEDLINE:41632629
+PM 41632629
+ER
+
+PT J
+AU Masetti, Riccardo
+   Zama, Daniele
+   Leardini, Davide
+   Muratore, Edoardo
+   Turroni, Silvia
+   Prete, Arcangelo
+   Brigidi, Patrizia
+   Pession, Andrea
+TI The gut microbiome in pediatric patients undergoing allogeneic
+   hematopoietic stem cell transplantation
+SO PEDIATRIC BLOOD & CANCER
+VL 67
+IS 12
+AR e28711
+DI 10.1002/pbc.28711
+EA SEP 2020
+DT Review
+PD DEC 2020
+PY 2020
+RI Pession, Andrea/O-3200-2013; Prete, Arcangelo/; Muratore, Edoardo/ABD-8803-2021; Turroni, Silvia/J-7195-2016; Zama, Daniele/B-7055-2013; Leardini, Davide/AAZ-7944-2020; Masetti, Riccardo/G-6837-2011
+OI Prete, Arcangelo/0000-0002-6823-3797; Muratore,
+   Edoardo/0000-0001-6954-3140; Zama, Daniele/0000-0002-9895-5942;
+   Leardini, Davide/0000-0002-4673-5876; 
+Z8 2
+ZB 11
+ZA 0
+ZS 0
+TC 27
+ZR 0
+Z9 33
+SN 1545-5009
+EI 1545-5017
+DA 2020-09-17
+UT WOS:000569838200001
+PM 32939928
+ER
+
+PT J
+AU Battipaglia, Giorgia
+   Malard, Florent
+   Rubio, Marie Therese
+   Ruggeri, Annalisa
+   Mamez, Anne Claire
+   Brissot, Eolia
+   Giannotti, Federica
+   Dulery, Remy
+   Joly, Anne Christine
+   Baylatry, Minh Tam
+   Kossmann, Marie Jeanne
+   Tankovic, Jacques
+   Beaugerie, Laurent
+   Sokol, Harry
+   Mohty, Mohamad
+TI Fecal microbiota transplantation before or after allogeneic
+   hematopoietic transplantation in patients with hematologic malignancies
+   carrying multidrug-resistance bacteria
+SO HAEMATOLOGICA
+VL 104
+IS 8
+BP 1682
+EP 1688
+DI 10.3324/haematol.2018.198549
+DT Article
+PD JUL 31 2019
+PY 2019
+RI Battipaglia, Giorgia/P-2141-2019; ruggeri, annalisa/K-5203-2018; Mamez, Anne-Claire/HJP-5234-2023; Duléry, Rémy/CAI-8966-2022; sokol, harry/E-2290-2019; Beaugerie, Laurent/; Mohty, Mohamad/LSL-2073-2024; Malard, Florent/L-6829-2017
+OI Duléry, Rémy/0000-0002-5024-1713; sokol, harry/0000-0002-2914-1822;
+   Beaugerie, Laurent/0000-0002-5012-4146; Mohty,
+   Mohamad/0000-0002-7264-808X; Malard, Florent/0000-0002-3474-0002
+Z8 2
+ZA 0
+ZS 0
+TC 98
+ZR 0
+ZB 51
+Z9 109
+SN 0390-6078
+DA 2019-09-09
+UT WOS:000482660400038
+PM 30733264
+ER
+
+PT J
+AU Shono, Yusuke
+   Docampo, Melissa D.
+   Peled, Jonathan U.
+   Perobelli, Suelen M.
+   Velardi, Enrico
+   Tsai, Jennifer J.
+   Slingerland, Ann E.
+   Smith, Odette M.
+   Young, Lauren F.
+   Gupta, Jyotsna
+   Lieberman, Sophia R.
+   Jay, Hillary V.
+   Ahr, Katya F.
+   Rodriguez, Kori A. Porosnicu
+   Xu, Ke
+   Calarfiore, Marco
+   Poeck, Hendrik
+   Caballero, Silvia
+   Devlin, Sean M.
+   Rapaport, Franck
+   Dudakov, Jarrod A.
+   Hanash, Alan M.
+   Gyurkocza, Boglarka
+   Murphy, George F.
+   Gomes, Camilla
+   Liu, Chen
+   Moss, Eli L.
+   Falconer, Shannon B.
+   Bhatt, Ami S.
+   Taur, Ying
+   Pamer, Eric G.
+   van den Brink, Marcel R. M.
+   Jenq, Robert R.
+TI Increased GVHD-related mortality with broad-spectrum antibiotic use
+   after allogeneic hematopoietic stem cell transplantation in human
+   patients and mice
+SO SCIENCE TRANSLATIONAL MEDICINE
+VL 8
+IS 339
+AR 339ra71
+DI 10.1126/scitranslmed.aaf2311
+DT Article
+PD MAY 18 2016
+PY 2016
+RI Velardi, Enrico/AAB-7443-2019; Jenq, Robert/; Xu, Ke/; Gyurkocza, Boglarka/LKJ-1107-2024; Bhatt, Ami/; Porosnicu Roiguez, Kori/; Peled, Jonathan/; Shono, Yusuke/; van den Brink, Marcel R. M./HGB-9434-2022; Lin, Chen/PCS-1863-2025; Rapaport, Franck/
+OI Velardi, Enrico/0000-0001-8383-0453; Jenq, Robert/0000-0002-5434-439X;
+   Xu, Ke/0000-0002-6707-1052; Bhatt, Ami/0000-0001-8099-2975; Porosnicu
+   Roiguez, Kori/0000-0003-3770-1479; Peled, Jonathan/0000-0002-4029-7625;
+   Shono, Yusuke/0000-0002-0459-1659; Rapaport, Franck/0000-0001-6553-2110
+ZA 0
+ZR 0
+Z8 10
+ZS 2
+ZB 272
+TC 477
+Z9 517
+SN 1946-6234
+EI 1946-6242
+DA 2016-05-18
+UT WOS:000376468300004
+PM 27194729
+ER
+
+PT J
+AU Samarkhazan, Hamed Soleimani
+   Nouri, Sina
+   Maleknia, Mohsen
+   Aghaei, Mojtaba
+TI "The microbiome in graft-versus-host disease: a tale of two ecosystems"
+SO JOURNAL OF TRANSLATIONAL MEDICINE
+VL 23
+IS 1
+AR 832
+DI 10.1186/s12967-025-06797-5
+DT Review
+PD JUL 25 2025
+PY 2025
+RI Soleimani, Hamed/KVB-6147-2024; Aghaei, Mojtaba/KTU-5618-2024; Nouri, Sina/LNP-8331-2024; Maleknia, Mohsen/AAC-1837-2021
+OI Aghaei, Mojtaba/0000-0002-6382-6657; Nouri, Sina/0000-0003-4863-2595;
+   Maleknia, Mohsen/0000-0003-4559-6525
+ZR 0
+Z8 0
+ZB 6
+ZS 0
+TC 13
+ZA 0
+Z9 13
+EI 1479-5876
+DA 2025-08-03
+UT WOS:001537371100007
+PM 40713799
+ER
+
+PT J
+AU Hino, Akihisa
+   Fukushima, Kentaro
+   Kusakabe, Shinsuke
+   Ueda, Tomoaki
+   Sudo, Takao
+   Fujita, Jiro
+   Motooka, Daisuke
+   Takeda, Aya K. K.
+   Shinozaki, Natsuko O. O.
+   Watanabe, Satoshi
+   Yokota, Takafumi
+   Shibayama, Hirohiko
+   Nakamura, Shota
+   Hosen, Naoki
+TI Prolonged gut microbial alterations in post-transplant survivors of
+   allogeneic haematopoietic stem cell transplantation
+SO BRITISH JOURNAL OF HAEMATOLOGY
+VL 201
+IS 4
+BP 725
+EP 737
+DI 10.1111/bjh.18574
+EA DEC 2022
+DT Article
+PD MAY 2023
+PY 2023
+RI Hino, Akihisa/; Kusakabe, Shinsuke/; Kentaro, Fukushima/; Nakamura, Shota/E-3033-2010
+OI Hino, Akihisa/0000-0002-7331-2713; Kusakabe,
+   Shinsuke/0000-0002-9814-7611; Kentaro, Fukushima/0000-0002-8003-2584; 
+ZB 7
+Z8 0
+ZA 0
+ZS 0
+TC 11
+ZR 0
+Z9 12
+SN 0007-1048
+EI 1365-2141
+DA 2022-12-27
+UT WOS:000896968400001
+PM 36468273
+ER
+
+PT J
+AU Yeon, Sang Hoon
+   Lee, Myung-Won
+   Jo, Deog-Yeon
+   Heo, Bu-Yeon
+   Kwon, Jaeyul
+   Song, Ik-Chan
+TI Fecal Microbiota Transplantation for Treating Steroid-Refractory Acute
+   Graft-versus-Host Disease of the Gut
+Z1 장의 급성 이식편대숙주병에서 대변미생물무리이식을 시행한 2예
+SO The Korean Journal of Medicine
+S1 대한내과학회지
+VL 96
+IS 4
+BP 358
+EP 362
+DI 10.3904/kjm.2021.96.4.358
+DT research-article
+PD 2021
+PY 2021
+ZR 0
+Z8 0
+ZS 0
+ZA 0
+ZB 0
+TC 1
+Z9 1
+SN 1738-9364
+DA 2021-11-25
+UT KJD:ART002774669
+ER
+
+PT J
+AU Moses, Adonai Blessington
+   Yeh, Albert C.
+TI The gut microbiome in graft-versus-host disease: mechanisms of immune
+   modulation and therapeutic approaches
+SO GUT MICROBES
+VL 18
+IS 1
+AR 2631224
+DI 10.1080/19490976.2026.2631224
+DT Review
+PD DEC 31 2026
+PY 2026
+OI Yeh, Albert/0000-0003-3455-7360; Moses, Adonai
+   Blessington/0009-0008-4792-2383
+ZA 0
+ZB 0
+ZS 0
+ZR 0
+TC 0
+Z8 0
+Z9 0
+SN 1949-0976
+EI 1949-0984
+DA 2026-02-25
+UT WOS:001694462900001
+PM 41708595
+ER
+
+PT J
+AU Ilett, Emma E.
+   Jorgensen, Mette
+   Noguera-Julian, Marc
+   Norgaard, Jens Christian
+   Daugaard, Gedske
+   Helleberg, Marie
+   Paredes, Roger
+   Murray, Daniel D.
+   Lundgren, Jens
+   MacPherson, Cameron
+   Reekie, Joanne
+   Sengelov, Henrik
+TI Associations of the gut microbiome and clinical factors with acute GVHD
+   in allogeneic HSCT recipients
+SO BLOOD ADVANCES
+VL 4
+IS 22
+BP 5797
+EP 5809
+DI 10.1182/bloodadvances.2020002677
+DT Article
+PD NOV 24 2020
+PY 2020
+RI Jørgensen, Mette/; Murray, Daniel/; Noguera-Julian, Marc/F-8651-2016; MacPherson, Cameron/; Lundgren, Jens/AAE-6876-2019; HELLEBERG, MARIE/ABC-8199-2020; Daugaard, Gedske/GYD-8913-2022; Ilett, Emma Elizabeth/KMX-9729-2024; Reekie, Joanne/IVV-0776-2023; Paredes, Roger/AGR-4803-2022; Sengelov, Henrik/
+OI Jørgensen, Mette/0000-0002-2804-0560; Murray,
+   Daniel/0000-0001-8501-8661; Noguera-Julian, Marc/0000-0002-6194-1395;
+   MacPherson, Cameron/0000-0002-8945-9736; Lundgren,
+   Jens/0000-0001-8901-7850; HELLEBERG, MARIE/0000-0002-2370-1657;
+   Daugaard, Gedske/0000-0002-9618-9180; Ilett, Emma
+   Elizabeth/0000-0002-4450-0010; Reekie, Joanne/0000-0001-8529-3559;
+   Paredes, Roger/0000-0002-6553-691X; Sengelov, Henrik/0000-0002-5991-2958
+ZS 0
+ZB 37
+Z8 3
+ZR 0
+ZA 0
+TC 65
+Z9 70
+SN 2473-9529
+EI 2473-9537
+DA 2020-12-29
+UT WOS:000593144300023
+PM 33232475
+ER
+
+PT J
+AU Jorgensen, Mette
+   Norgaard, Jens C.
+   Ilett, Emma E.
+   Marandi, Ramtin Z.
+   Noguera-Julian, Marc
+   Paredes, Roger
+   Murray, Daniel D.
+   Lundgren, Jens
+   MacPherson, Cameron Ross
+   Sengelov, Henrik
+TI Metabolic Potential of the Gut Microbiome Is Significantly Impacted by
+   Conditioning Regimen in Allogeneic Hematopoietic Stem Cell
+   Transplantation Recipients
+SO INTERNATIONAL JOURNAL OF MOLECULAR SCIENCES
+VL 23
+IS 19
+AR 11115
+DI 10.3390/ijms231911115
+DT Article
+PD OCT 2022
+PY 2022
+RI Lundgren, Jens/AAE-6876-2019; Paredes, Roger/AGR-4803-2022; Zargari Marandi, Ramtin/J-6868-2019; Jørgensen, Mette/; Ilett, Emma Elizabeth/KMX-9729-2024; Noguera-Julian, Marc/F-8651-2016
+OI Lundgren, Jens/0000-0001-8901-7850; Paredes, Roger/0000-0002-6553-691X;
+   Zargari Marandi, Ramtin/0000-0001-9233-1656; Jørgensen,
+   Mette/0000-0002-2804-0560; Ilett, Emma Elizabeth/0000-0002-4450-0010;
+   Noguera-Julian, Marc/0000-0002-6194-1395
+Z8 0
+TC 12
+ZA 0
+ZB 9
+ZS 0
+ZR 0
+Z9 12
+SN 1661-6596
+EI 1422-0067
+DA 2022-10-21
+UT WOS:000867823400001
+PM 36232416
+ER
+
+PT J
+AU Goloshchapov, Oleg
+   Kucher, Maksim
+   Klementeva, Ruslana
+   Shcherbakov, Aleksandr
+   Shvetcov, Aleksandr
+   Chukhlovin, Alexei
+   Afanasyev, Boris
+TI Small intestinal bacterial overgrowth evaluation in patients after
+   allogeneic hematopoietic stem cell transplantation
+SO BONE MARROW TRANSPLANTATION
+VL 54
+MA P432
+BP 422
+EP 423
+SU 1
+DT Meeting Abstract
+PD JUL 2019
+PY 2019
+CT 45th Annual Meeting of the
+   European-Society-for-Blood-and-Marrow-Transplantation (EBMT)
+CY MAR 24-27, 2019
+CL Frankfurt, GERMANY
+SP European Soc Blood & Marrow Transplantat
+RI Goloshchapov, Oleg/AAE-3825-2019; Shcherbakov, Aleksandr/AAL-2589-2021; Chukhlovin, Alexey/T-1285-2018
+Z8 0
+ZR 0
+TC 0
+ZS 0
+ZB 0
+ZA 0
+Z9 0
+SN 0268-3369
+EI 1476-5365
+DA 2019-10-09
+UT WOS:000487707800527
+ER
+
+PT J
+AU Biernat, Monika Maria
+   Urbaniak-Kujda, Donata
+   Dybko, Jaroslaw
+   Kapelko-Slowik, Katarzyna
+   Prajs, Iwona
+   Wrobel, Tomasz
+TI Fecal microbiota transplantation in the treatment of intestinal
+   steroid-resistant graft-versus-host disease: two case reports and a
+   review of the literature
+SO JOURNAL OF INTERNATIONAL MEDICAL RESEARCH
+VL 48
+IS 6
+AR 0300060520925693
+DI 10.1177/0300060520925693
+DT Article
+PD JUN 2020
+PY 2020
+RI Biernat, Monika/; Prajs, Iwona/; Dybko, Jaroslaw/JVE-1799-2024; Urbaniak-Kujda, Donata/; Wrobel, Tomasz/
+OI Biernat, Monika/0000-0003-3161-3398; Prajs, Iwona/0000-0002-7770-6242;
+   Dybko, Jaroslaw/0000-0003-3555-2887; Urbaniak-Kujda,
+   Donata/0000-0003-2599-3021; Wrobel, Tomasz/0000-0002-6612-3535
+ZA 0
+ZB 14
+ZR 0
+Z8 0
+ZS 0
+TC 28
+Z9 33
+SN 0300-0605
+EI 1473-2300
+DA 2020-07-02
+UT WOS:000542215300001
+PM 32527171
+ER
+
+PT J
+AU Malard, Florent
+   Jenq, Robert R.
+TI The Microbiome and Its Impact on Allogeneic Hematopoietic Cell
+   Transplantation
+SO CANCER JOURNAL
+VL 29
+IS 2
+BP 75
+EP 83
+DI 10.1097/PPO.0000000000000645
+DT Review
+PD MAR-APR 2023
+PY 2023
+RI Malard, Florent/L-6829-2017; Jenq, Robert/
+OI Jenq, Robert/0000-0002-5434-439X
+ZR 0
+Z8 0
+ZA 0
+TC 10
+ZS 0
+ZB 3
+Z9 10
+SN 1528-9117
+EI 1540-336X
+DA 2023-04-18
+UT WOS:000957938000006
+PM 36957977
+ER
+
+PT J
+AU Gjaerde, Lars K.
+   Schmidt, Mette
+   Sengelov, Henrik
+TI Gut decontamination during allogeneic hematopoietic stem cell
+   transplantation and the risk of acute graft-versus-host disease
+SO BONE MARROW TRANSPLANTATION
+VL 53
+IS 8
+BP 1061
+EP 1064
+DI 10.1038/s41409-018-0131-7
+DT Letter
+PD AUG 2018
+PY 2018
+RI Sengelov, Henrik/; Gjærde, Lars Klingen/AAE-3247-2019
+OI Sengelov, Henrik/0000-0002-5991-2958; Gjærde, Lars
+   Klingen/0000-0002-5496-9955
+ZA 0
+ZR 0
+Z8 0
+TC 9
+ZS 0
+ZB 5
+Z9 9
+SN 0268-3369
+DA 2018-08-15
+UT CCC:000439989700017
+PM 29491465
+ER
+
+PT J
+AU Lee, Seung Bum
+TI Expanding Role of Gastroenterologists in Acute Gastrointestinal
+   Graft-versus-Host Disease: From Diagnosis and Management to
+   Microbiome-Based Strategies
+SO KOREAN JOURNAL OF GASTROENTEROLOGY
+VL 85
+IS 3
+BP 268
+EP 273
+DI 10.4166/kjg.2025.049
+DT Review
+PD JUL 2025
+PY 2025
+OI Lee, Seung Bum/0000-0002-5880-5659
+Z8 0
+ZB 0
+ZA 0
+ZS 0
+ZR 0
+TC 0
+Z9 0
+SN 1598-9992
+EI 2233-6869
+DA 2025-08-28
+UT WOS:001552144700006
+PM 40709417
+ER
+
+PT J
+AU Qayed, Muna
+   Horan, John T.
+TI The Role of Intestinal Microbiota in Graft versus Host Disease
+SO MINI-REVIEWS IN MEDICINAL CHEMISTRY
+VL 16
+IS 3
+BP 193
+EP 199
+DI 10.2174/1389557515666150722110547
+DT Review
+PD 2016
+PY 2016
+ZS 0
+Z8 1
+ZA 0
+ZR 0
+ZB 4
+TC 6
+Z9 8
+SN 1389-5575
+EI 1875-5607
+DA 2015-12-25
+UT WOS:000365468700004
+PM 26202191
+ER
+
+PT J
+AU Trenschel, R
+   Peceny, R
+   Runde, V
+   Elmaagacli, A
+   Dermoumi, H
+   von Heinegg, EH
+   Müller, KD
+   Schaefer, UW
+   Beelen, DW
+TI Fungal colonization and invasive fungal infections following allogeneic
+   BMT using metronidazole, ciprofloxacin and fluconazole or ciprofloxacin
+   and fluconazole as intestinal decontamination
+SO BONE MARROW TRANSPLANTATION
+VL 26
+IS 9
+BP 993
+EP 997
+DI 10.1038/sj.bmt.1702655
+DT Article
+PD NOV 2000
+PY 2000
+ZA 0
+TC 16
+Z8 0
+ZS 0
+ZB 8
+ZR 0
+Z9 18
+SN 0268-3369
+EI 1476-5365
+DA 2000-11-01
+UT WOS:000165098900009
+PM 11100279
+ER
+
+PT J
+AU Lakshmanan, Arun Prasath
+   Deola, Sara
+   Terranegra, Annalisa
+TI The Promise of Precision Nutrition for Modulation of the Gut Microbiota
+   as a Novel Therapeutic Approach to Acute Graft-versus-host Disease
+SO TRANSPLANTATION
+VL 107
+IS 12
+BP 2497
+EP 2509
+DI 10.1097/TP.0000000000004629
+DT Review
+PD DEC 2023
+PY 2023
+RI Lakshmanan, ArunPrasath/PGF-1909-2026; Deola, Sara/AFT-5954-2022; Terranegra, Annalisa/P-2738-2019
+OI Deola, Sara/0000-0002-3178-1271; Terranegra,
+   Annalisa/0000-0001-9274-5373
+ZR 0
+Z8 0
+ZA 0
+ZS 0
+TC 5
+ZB 2
+Z9 6
+SN 0041-1337
+EI 1534-6080
+DA 2024-02-04
+UT WOS:001140639700020
+PM 37189240
+ER
+
+PT J
+AU Rayes, Ahmad
+   Morrow, Ardythe L.
+   Payton, Leslie R.
+   Lake, Kelly E.
+   Lane, Adam
+   Davies, Stella M.
+TI A Genetic Modifier of the Gut Microbiome Influences the Risk of
+   Graft-versus-Host Disease and Bacteremia After Hematopoietic Stem Cell
+   Transplantation
+SO BIOLOGY OF BLOOD AND MARROW TRANSPLANTATION
+VL 22
+IS 3
+BP 418
+EP 422
+DI 10.1016/j.bbmt.2015.11.017
+DT Article
+PD MAR 2016
+PY 2016
+RI Morrow, Ardythe/GQO-8482-2022; Rayes, Ahmad/; Lane, Adam/
+OI Rayes, Ahmad/0000-0002-6352-9740; Lane, Adam/0000-0002-5522-8112
+ZS 0
+ZA 0
+Z8 1
+ZR 0
+ZB 15
+TC 24
+Z9 31
+SN 1083-8791
+EI 1523-6536
+DA 2016-03-16
+UT WOS:000370910200005
+PM 26643031
+ER
+
+PT J
+AU Skaarud, Kristin J.
+   Hov, Johannes R.
+   Hansen, Simen H.
+   Kummen, Martin
+   Valeur, Jorgen
+   Seljeflot, Ingebjorg
+   Bye, Asta
+   Paulsen, Vemund
+   Lundin, Knut E. A.
+   Troseid, Marius
+   Tjonnfjord, Geir E.
+   Iversen, Per Ole
+TI Mortality and microbial diversity after allogeneic hematopoietic stem
+   cell transplantation: secondary analysis of a randomized nutritional
+   intervention trial
+SO SCIENTIFIC REPORTS
+VL 11
+IS 1
+AR 11593
+DI 10.1038/s41598-021-90976-z
+DT Article
+PD JUN 2 2021
+PY 2021
+RI Valeur, Jørgen/AFU-6716-2022; Lundin, Knut/AAW-9519-2021; Bye, Asta/H-8939-2019; Kummen, Martin/I-6663-2019; Hov, Johannes/; Hyll Hansen, Simen/
+OI Valeur, Jørgen/0000-0001-7193-7069; Hov, Johannes/0000-0002-5900-8096;
+   Hyll Hansen, Simen/0000-0003-0156-9875
+ZB 7
+TC 13
+Z8 0
+ZR 0
+ZA 0
+ZS 0
+Z9 13
+SN 2045-2322
+DA 2021-10-29
+UT WOS:000687322500052
+PM 34078971
+ER
+
+PT J
+AU Finotto, Thomas
+   Chevenet, Carole
+   Fayard, Amandine
+TI Fecal Microbiota Transplantation as a Salvage Therapy for Concomitant
+   Resistant Digestive Graft Versus Host Disease and Cryptosporidiosis in a
+   Patient Post Hematopoietic Stem Cell Transplant: about a Case
+SO MEDITERRANEAN JOURNAL OF HEMATOLOGY AND INFECTIOUS DISEASES
+VL 17
+IS 1
+AR e2025035
+DI 10.4084/MJHID.2025.035
+DT Letter
+PD APR 30 2025
+PY 2025
+ZB 0
+Z8 0
+TC 0
+ZS 0
+ZA 0
+ZR 0
+Z9 0
+EI 2035-3006
+DA 2026-01-18
+UT WOS:001654779800001
+PM 40375906
+ER
+
+PT J
+AU Ince, M. Nedim
+   Blazar, Bruce R.
+   Edmond, Michael B.
+   Tricot, Guido
+   Wannemuehler, Michael J.
+TI Understanding Luminal Microorganisms and Their Potential Effectiveness
+   in Treating Intestinal Inflammation
+SO INFLAMMATORY BOWEL DISEASES
+VL 22
+IS 1
+BP 194
+EP 201
+DI 10.1097/MIB.0000000000000599
+DT Review
+PD JAN 2016
+PY 2016
+RI Ince, Nedim/; Edmond, Michael/; Blazar, Bruce/LPP-2269-2024
+OI Ince, Nedim/0000-0003-3451-3421; Edmond, Michael/0000-0002-4144-8974; 
+TC 8
+ZR 0
+ZA 0
+ZB 5
+ZS 0
+Z8 1
+Z9 11
+SN 1078-0998
+EI 1536-4844
+DA 2016-01-01
+UT WOS:000377721800027
+PM 26457381
+ER
+
+EF

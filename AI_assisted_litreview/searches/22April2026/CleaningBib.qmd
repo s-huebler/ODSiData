@@ -1,0 +1,1225 @@
+---
+title: "Bib"
+format: html
+editor: visual
+---
+
+# Post Query
+
+-   Imported bibliographies from Web of science and pubmed and hand curated into papers.
+
+    -   993 + 330 + 37
+
+-   Made a single list of all entries with papers native deduplicate function on.
+
+    -   1037
+
+-   Used papers native update metadata.
+
+-   Exported a .bib.
+
+# Libraries
+
+```{r}
+install.packages("bib2df", "synthesisr")
+library(tidyverse)
+library(bib2df)
+library(rcrossref)
+library(synthesisr)
+library(stringdist)
+```
+
+# Deduplicate
+
+```{r}
+original <- bib2df("~/Documents/ODSi/ODSiData/AI_assisted_litreview/searches/22April2026/Updated_Library.bib", separate_names = T)
+```
+
+```{r}
+duplicates <- find_duplicates(original$TITLE, method = "string_osa", threshold = 5, rm_punctuation = T)
+clean_refs <- extract_unique_references(original, duplicates)
+bib2df::df2bib(clean_refs, file = "~/Documents/ODSi/ODSiData/AI_assisted_litreview/searches/22April2026/deduplicated.bib")
+```
+
+Now imported back into papers for a nested 839 papers.
+
+```{r}
+rm(list=ls())
+```
+
+# Cross reference
+
+```{r}
+deduplicated <- bib2df("~/Documents/ODSi/ODSiData/AI_assisted_litreview/searches/22April2026/deduplicated.bib")
+```
+
+## Get DOI
+
+```{r}
+# Robust Crossref DOI lookup for incomplete bibliographic records
+# Requires: rcrossref, stringdist, dplyr, purrr
+ 
+library(rcrossref)
+library(stringdist)
+library(dplyr)
+library(purrr)
+ 
+ 
+# ---- helpers ----------------------------------------------------------------
+ 
+# Strip HTML/markup tags and collapse whitespace so comparisons aren't broken
+# by things like "<em>Escherichia coli</em>".
+clean_text <- function(x) {
+  if (is.null(x) || length(x) == 0) return(NA_character_)
+  x <- as.character(x)[1]
+  if (is.na(x)) return(NA_character_)
+  x <- gsub("<[^>]+>", " ", x)            # remove HTML tags
+#  x <- gsub("[\\[\\]{}]", " ", x)         # remove brackets often added to translated titles
+  x <- gsub("\\s+", " ", x)
+  trimws(x)
+}
+ 
+# Pull a usable last name out of whatever AUTHOR contains (list, "Last, First",
+# "First Last", "A and B and C", "A; B", etc.). Returns NA when nothing usable.
+first_author_lastname <- function(authors) {
+  if (is.null(authors) || length(authors) == 0) return(NA_character_)
+  if (is.list(authors)) authors <- unlist(authors, use.names = FALSE)
+  s <- as.character(authors)[1]
+  if (is.na(s) || !nzchar(s)) return(NA_character_)
+ 
+  # Split on common multi-author separators and take the first author
+  first <- strsplit(s, "\\s+and\\s+|\\s*;\\s*|\\s*&\\s*")[[1]][1]
+  first <- trimws(first)
+ 
+  # "Last, First" -> "Last"
+  if (grepl(",", first)) {
+    return(trimws(strsplit(first, ",")[[1]][1]))
+  }
+  # "First Middle Last" -> "Last"
+  parts <- strsplit(first, "\\s+")[[1]]
+  if (length(parts) == 0) return(NA_character_)
+  tail(parts, 1)
+}
+ 
+# Score how well a Crossref candidate matches the local record.
+# Returns a value in [0, 1]; only fields that are present on BOTH sides count
+# toward the weighted average, so missing data doesn't drag the score down.
+score_candidate <- function(candidate,
+                            title, author_last, journal, year, volume, pages) {
+  w <- c(title = 0.45, author = 0.20, year = 0.15,
+         journal = 0.15, volume = 0.025, pages = 0.025)
+  acc <- 0; tot <- 0
+ 
+  # title (Jaro-Winkler is robust to small edits)
+  ct <- clean_text(candidate$title)
+  if (!is.na(title) && nzchar(title) && !is.na(ct)) {
+    sim <- stringdist::stringsim(tolower(title), tolower(ct), method = "jw")
+    acc <- acc + w[["title"]] * sim; tot <- tot + w[["title"]]
+  }
+ 
+  # author last name appears anywhere in the candidate's author list
+  if (!is.na(author_last) && nzchar(author_last) && !is.null(candidate$author)) {
+    a <- candidate$author
+    if (is.list(a)) a <- a[[1]]
+    fams <- if (is.data.frame(a) && "family" %in% names(a)) a$family else a
+    hit <- any(tolower(fams) == tolower(author_last), na.rm = TRUE)
+    acc <- acc + w[["author"]] * as.numeric(isTRUE(hit)); tot <- tot + w[["author"]]
+  }
+ 
+  # year (exact = 1, off-by-one = 0.5, else 0 — handles online vs print year drift)
+  if (!is.na(year) && nzchar(as.character(year))) {
+    ty <- suppressWarnings(as.integer(year))
+    cy_str <- as.character(candidate$issued %||% candidate$created %||% NA)
+    cy <- suppressWarnings(as.integer(substr(cy_str, 1, 4)))
+    if (!is.na(ty) && !is.na(cy)) {
+      ym <- if (ty == cy) 1 else if (abs(ty - cy) == 1) 0.5 else 0
+      acc <- acc + w[["year"]] * ym; tot <- tot + w[["year"]]
+    }
+  }
+ 
+  # journal name
+  cj <- candidate$container.title %||% candidate$`container-title`
+  if (is.list(cj)) cj <- cj[[1]]
+  cj <- clean_text(cj)
+  if (!is.na(journal) && nzchar(journal) && !is.na(cj)) {
+    sim <- stringdist::stringsim(tolower(journal), tolower(cj), method = "jw")
+    acc <- acc + w[["journal"]] * sim; tot <- tot + w[["journal"]]
+  }
+ 
+  # volume
+  cv <- as.character(candidate$volume %||% NA)
+  if (!is.na(volume) && nzchar(as.character(volume)) && !is.na(cv) && nzchar(cv)) {
+    acc <- acc + w[["volume"]] * as.numeric(as.character(volume) == cv)
+    tot <- tot + w[["volume"]]
+  }
+ 
+  # first page
+  cp <- as.character(candidate$page %||% NA)
+  if (!is.na(pages) && nzchar(as.character(pages)) && !is.na(cp) && nzchar(cp)) {
+    tp <- strsplit(as.character(pages), "[-–]")[[1]][1]
+    cp1 <- strsplit(cp, "[-–]")[[1]][1]
+    acc <- acc + w[["pages"]] * as.numeric(trimws(tp) == trimws(cp1))
+    tot <- tot + w[["pages"]]
+  }
+ 
+  if (tot == 0) 0 else acc / tot
+}
+ 
+# tiny null-coalesce helper
+`%||%` <- function(a, b) if (is.null(a) || length(a) == 0 || all(is.na(a))) b else a
+ 
+ 
+# ---- main function ----------------------------------------------------------
+ 
+fetch_and_verify_doi <- function(title = NA, authors = NA, journal = NA,
+                                 year = NA, volume = NA, issue = NA,
+                                 pages = NA, issn = NA,
+                                 threshold = 0.80,
+                                 limit = 5,
+                                 verbose = TRUE) {
+ 
+  title  <- clean_text(title)
+  journal <- clean_text(journal)
+  author_last <- first_author_lastname(authors)
+ 
+  # Need *something* to search on
+  if ((is.na(title) || !nzchar(title)) &&
+      (is.na(author_last) || !nzchar(author_last))) {
+    return(NA_character_)
+  }
+ 
+  Sys.sleep(0.3)  # be polite to Crossref
+ 
+  # Build query: prefer field-specific queries when possible; they're far more
+  # selective than free-text and dramatically reduce the "everything matches
+  # Soziale Innovation" failure mode.
+  args <- list(
+    limit  = limit,
+    select = c("title", "DOI", "author", "issued",
+               "container-title", "issue", "page", "ISSN")
+  )
+  if (!is.na(title)        && nzchar(title))        args$query.title            <- title
+  if (!is.na(author_last)  && nzchar(author_last))  args$query.author           <- author_last
+  if (!is.na(journal)      && nzchar(journal))      args$query.container_title  <- journal
+ 
+  # Year and ISSN as filters narrow the search index, not just the ranking
+  filt <- character()
+  yr <- suppressWarnings(as.integer(year))
+  if (!is.na(yr)) {
+    filt <- c(filt,
+              sprintf("from-pub-date:%d", yr - 1),
+              sprintf("until-pub-date:%d", yr + 1))
+  }
+  if (!is.na(issn) && nzchar(as.character(issn))) {
+    # Crossref accepts ISSN with or without hyphen
+    filt <- c(filt, sprintf("issn:%s", as.character(issn)))
+  }
+  if (length(filt) > 0) args$filter <- filt
+ 
+  # Run the query (handle network errors gracefully)
+  res <- tryCatch(do.call(rcrossref::cr_works, args)$data,
+                  error = function(e) {
+                    if (verbose) message("API error: ", conditionMessage(e))
+                    NULL
+                  })
+  if (is.null(res) || nrow(res) == 0) return(NA_character_)
+ 
+  # Score every candidate, pick the best
+  scores <- vapply(seq_len(nrow(res)), function(i) {
+    score_candidate(res[i, ], title, author_last, journal, year, volume, pages)
+  }, numeric(1))
+ 
+  best <- which.max(scores)
+  best_score <- scores[best]
+ 
+  if (is.na(best_score) || best_score < threshold) {
+    if (verbose) {
+      message(sprintf("No confident match (best=%.2f) for: '%s' -- top candidate: '%s'",
+                      best_score,
+                      substr(title %||% "", 1, 70),
+                      substr(clean_text(res$title[best]) %||% "", 1, 70)))
+    }
+    return(NA_character_)
+  }
+  as.character(res$doi[best])
+}
+ 
+ 
+```
+
+```{r}
+fetch_and_verify_doi("A novel and effective oral antibiotics treatment to the graft-versus-host disease model mouse.")
+
+fetch_and_verify_doi("A Novel Small Molecule Therapeutic for Acute Graft Versus Host Disease")
+```
+
+```{r}
+deduplicated[c(16,17),]%>%
+  # Create a logical flag for missing DOIs (bib2df usually imports them as NA if missing)
+  mutate(needs_doi = is.na(DOI)) %>%
+  # Map the function over the titles, but only for those missing DOIs
+  mutate(
+    new_doi = if_else(needs_doi, 
+                      map_chr(TITLE, fetch_and_verify_doi), NA_character_),
+    # Coalesce merges the original DOI column with the newly found DOIs
+    DOI = coalesce(DOI, new_doi)
+  ) %>% View()
+```
+
+```{r}
+doi_searched <- deduplicated%>%
+  # Create a logical flag for missing DOIs (bib2df usually imports them as NA if missing)
+  mutate(needs_doi = is.na(DOI)) %>%
+  # Map the function over the titles, but only for those missing DOIs
+  mutate(
+    new_doi = if_else(needs_doi, 
+                      map_chr(TITLE, fetch_and_verify_doi), NA_character_),
+    # Coalesce merges the original DOI column with the newly found DOIs
+    DOI = coalesce(DOI, new_doi)
+  ) 
+```
+
+No new dois
+
+## Get full metadata
+
+```{r}
+generate_merged_bib <- function(df,
+                                output_file = "final_merged_library.bib",
+                                sleep = 0.5,
+                                verbose = TRUE) {
+  
+  stopifnot(is.data.frame(df))
+  
+  if (!requireNamespace("rcrossref", quietly = TRUE)) {
+    stop("Package 'rcrossref' is required. Install it with install.packages('rcrossref').")
+  }
+  
+  # ---------- small utilities ----------
+  
+  scalar <- function(x, collapse = " ") {
+    if (is.null(x) || length(x) == 0) return(NA_character_)
+    if (is.list(x)) x <- unlist(x, use.names = FALSE)
+    
+    x <- as.character(x)
+    x <- x[!is.na(x)]
+    x <- trimws(x)
+    x <- x[nzchar(x)]
+    x <- x[!toupper(x) %in% c("NA", "N/A", "NULL", "NONE")]
+    
+    if (length(x) == 0) NA_character_ else paste(x, collapse = collapse)
+  }
+  
+  has_value <- function(x) {
+    !is.na(scalar(x))
+  }
+  
+  get_cell <- function(row, candidates) {
+    idx <- match(tolower(candidates), tolower(names(row)))
+    idx <- idx[!is.na(idx)]
+    
+    if (length(idx) == 0) return(NA_character_)
+    
+    collapse <- if (any(tolower(candidates) %in% c("author", "editor"))) {
+      " and "
+    } else {
+      " "
+    }
+    
+    scalar(row[[idx[1]]][[1]], collapse = collapse)
+  }
+  
+  choose_value <- function(...) {
+    vals <- list(...)
+    for (x in vals) {
+      sx <- scalar(x)
+      if (!is.na(sx)) return(sx)
+    }
+    NA_character_
+  }
+  
+ clean_text_for_bibtex <- function(x) {
+  x <- scalar(x)
+  if (is.na(x)) return(NA_character_)
+  
+  x <- gsub("[\r\n\t]+", " ", x)
+  
+  # Decode common HTML entities that appear in Crossref/PubMed titles.
+  html_entities <- c(
+    "&lt;"    = "<",
+    "&gt;"    = ">",
+    "&amp;"   = "&",
+    "&quot;"  = "\"",
+    "&apos;"  = "'",
+    "&#39;"   = "'",
+    "&nbsp;"  = " ",
+    "&ndash;" = "-",
+    "&mdash;" = "-",
+    "&le;"    = "<=",
+    "&ge;"    = ">="
+  )
+  
+  for (pat in names(html_entities)) {
+    x <- gsub(pat, html_entities[[pat]], x, fixed = TRUE)
+  }
+  
+  # Numeric dash variants.
+  x <- gsub("&#8211;|&#x2013;", "-", x, perl = TRUE, ignore.case = TRUE)
+  x <- gsub("&#8212;|&#x2014;", "-", x, perl = TRUE, ignore.case = TRUE)
+  
+  # Strip real HTML tags like <em>, </em>, <i>, etc.
+  # This avoids accidentally deleting things like "P < 0.05".
+  x <- gsub("</?[A-Za-z][A-Za-z0-9]*(\\s+[^<>]*)?>", "", x, perl = TRUE)
+  
+  x <- gsub("\\s+", " ", x)
+  trimws(x)
+}
+
+escape_bibtex <- function(x) {
+  x <- clean_text_for_bibtex(x)
+  if (is.na(x)) return(NA_character_)
+  
+  # Escape curly braces so BibTeX does not break.
+  x <- gsub("{", "\\\\{", x, fixed = TRUE)
+  x <- gsub("}", "\\\\}", x, fixed = TRUE)
+  
+  trimws(x)
+}
+  
+  sanitize_key <- function(x) {
+    x <- scalar(x)
+    if (is.na(x)) return(NA_character_)
+    
+    x <- gsub("\\s+", "_", x)
+    x <- gsub("[^A-Za-z0-9_:+./-]", "", x)
+    
+    if (nzchar(x)) x else NA_character_
+  }
+  
+  extract_year <- function(x) {
+    x <- scalar(x)
+    if (is.na(x)) return(NA_character_)
+    
+    m <- regexpr("\\b[12][0-9]{3}\\b", x, perl = TRUE)
+    if (m[1] < 0) NA_character_ else regmatches(x, m)
+  }
+  
+  make_key <- function(row = NULL, i = NA_integer_, fields = list()) {
+    if (!is.null(row)) {
+      key <- sanitize_key(get_cell(row, c("BIBTEXKEY", "bibtexkey")))
+      if (!is.na(key)) return(key)
+    }
+    
+    author <- choose_value(
+      fields$author,
+      if (!is.null(row)) get_cell(row, c("AUTHOR", "author")) else NA_character_
+    )
+    
+    year <- choose_value(
+      fields$year,
+      if (!is.null(row)) get_cell(row, c("YEAR", "year")) else NA_character_
+    )
+    
+    title <- choose_value(
+      fields$title,
+      if (!is.null(row)) get_cell(row, c("TITLE", "title")) else NA_character_
+    )
+    
+    surname <- "ref"
+    if (!is.na(author)) {
+      first_author <- sub("\\s+and\\s+.*$", "", author, ignore.case = TRUE)
+      
+      if (grepl(",", first_author)) {
+        surname <- sub(",.*$", "", first_author)
+      } else {
+        parts <- strsplit(trimws(first_author), "\\s+")[[1]]
+        parts <- parts[nzchar(parts)]
+        if (length(parts) > 0) surname <- parts[length(parts)]
+      }
+    }
+    
+    title_word <- ""
+    if (!is.na(title)) {
+      words <- strsplit(gsub("[^A-Za-z0-9]+", " ", title), "\\s+")[[1]]
+      words <- words[nzchar(words)]
+      if (length(words) > 0) title_word <- words[1]
+    }
+    
+    key <- paste0(surname, if (!is.na(year)) year else "", title_word)
+    key <- sanitize_key(key)
+    
+    if (!is.na(key)) key else paste0("ref", i)
+  }
+  
+  
+  
+  build_bibtex <- function(fields, entry_type = "article", key = "ref") {
+    entry_type <- scalar(entry_type)
+    if (is.na(entry_type)) entry_type <- "article"
+    
+    entry_type <- tolower(gsub("^@", "", entry_type))
+    entry_type <- gsub("[^a-z]", "", entry_type)
+    if (!nzchar(entry_type)) entry_type <- "article"
+    
+    key <- sanitize_key(key)
+    if (is.na(key)) key <- "ref"
+    
+    field_order <- c(
+      "author", "editor", "title", "journal", "booktitle",
+      "year", "month", "volume", "number", "pages",
+      "publisher", "address", "doi", "pmid", "pmcid",
+      "url", "abstract"
+    )
+    
+    ordered_names <- unique(c(
+      field_order[field_order %in% names(fields)],
+      setdiff(names(fields), field_order)
+    ))
+    
+    lines <- character(0)
+    
+    for (nm in ordered_names) {
+      val <- escape_bibtex(fields[[nm]])
+      if (!is.na(val)) {
+        lines <- c(lines, sprintf("\t%s = {%s}", nm, val))
+      }
+    }
+    
+    if (length(lines) == 0) {
+      return(sprintf("@%s{%s\n}", entry_type, key))
+    }
+    
+    paste0(
+      "@", entry_type, "{", key, ",\n",
+      paste(lines, collapse = ",\n"),
+      "\n}"
+    )
+  }
+  
+  add_field_if_absent <- function(bib, field, value) {
+    if (!has_value(bib) || !has_value(value)) return(bib)
+    
+    field <- tolower(field)
+    value <- escape_bibtex(value)
+    
+    if (grepl(paste0("(?im)^\\s*", field, "\\s*="), bib, perl = TRUE)) {
+      return(bib)
+    }
+    
+    sub(
+      "\\s*,?\\s*}\\s*$",
+      sprintf(",\n\t%s = {%s}\n}", field, value),
+      bib,
+      perl = TRUE
+    )
+  }
+  
+  normalize_pmid <- function(x) {
+    x <- scalar(x)
+    if (is.na(x)) return(NA_character_)
+    
+    m <- regexpr("[0-9]+", x, perl = TRUE)
+    if (m[1] < 0) NA_character_ else regmatches(x, m)
+  }
+  
+  normalize_pmcid <- function(x) {
+    x <- scalar(x)
+    if (is.na(x)) return(NA_character_)
+    
+    x <- toupper(gsub("\\s+", "", x))
+    x <- sub("^PMCID:?", "", x)
+    
+    m <- regexpr("PMC[0-9]+|[0-9]+", x, perl = TRUE)
+    if (m[1] < 0) return(NA_character_)
+    
+    y <- regmatches(x, m)
+    if (grepl("^[0-9]+$", y)) y <- paste0("PMC", y)
+    
+    y
+  }
+  
+  normalize_author_field <- function(x) {
+  x <- clean_text_for_bibtex(x)
+  if (!has_value(x)) return(NA_character_)
+  
+  # Already valid BibTeX author format.
+  if (grepl("\\s+and\\s+", x, ignore.case = TRUE)) {
+    return(x)
+  }
+  
+  # bib2df often prints authors as:
+  # "Levine, Max Z, Gregorio, Nicole E, Jewett, Michael C"
+  # Convert this back to:
+  # "Levine, Max Z and Gregorio, Nicole E and Jewett, Michael C"
+  parts <- trimws(strsplit(x, ",", fixed = TRUE)[[1]])
+  parts <- parts[nzchar(parts)]
+  
+  if (length(parts) >= 2 && length(parts) %% 2 == 0) {
+    last_names <- parts[seq(1, length(parts), by = 2)]
+    given_names <- parts[seq(2, length(parts), by = 2)]
+    return(paste(paste(last_names, given_names, sep = ", "), collapse = " and "))
+  }
+  
+  x
+}
+
+parse_bibtex <- function(bib) {
+  empty <- list(
+    entry_type = "article",
+    key = NA_character_,
+    fields = list()
+  )
+  
+  bib <- scalar(bib, collapse = "\n")
+  if (!has_value(bib) || !grepl("^\\s*@", bib)) return(empty)
+  
+  open_pos <- regexpr("\\{", bib, perl = TRUE)[1]
+  if (open_pos < 0) return(empty)
+  
+  entry_type <- trimws(sub("^\\s*@", "", substr(bib, 1, open_pos - 1)))
+  
+  body <- substr(bib, open_pos + 1, nchar(bib))
+  body <- sub("\\s*}\\s*$", "", body, perl = TRUE)
+  
+  first_comma <- regexpr(",", body, fixed = TRUE)[1]
+  if (first_comma < 0) return(empty)
+  
+  key <- trimws(substr(body, 1, first_comma - 1))
+  content <- substr(body, first_comma + 1, nchar(body))
+  
+  chars <- strsplit(content, "", fixed = TRUE)[[1]]
+  n <- length(chars)
+  
+  if (n == 0) {
+    return(list(entry_type = entry_type, key = key, fields = list()))
+  }
+  
+  collapse_range <- function(a, b) {
+    if (a > b || a > n || b < 1) return("")
+    paste(chars[a:b], collapse = "")
+  }
+  
+  fields <- list()
+  pos <- 1L
+  
+  while (pos <= n) {
+    
+    # Skip whitespace and commas.
+    while (
+      pos <= n &&
+      chars[pos] %in% c(" ", "\n", "\r", "\t", ",")
+    ) {
+      pos <- pos + 1L
+    }
+    
+    if (pos > n) break
+    
+    # Field name.
+    name_start <- pos
+    
+    while (
+      pos <= n &&
+      grepl("[A-Za-z0-9_:-]", chars[pos], perl = TRUE)
+    ) {
+      pos <- pos + 1L
+    }
+    
+    if (name_start == pos) {
+      pos <- pos + 1L
+      next
+    }
+    
+    name <- tolower(paste(chars[name_start:(pos - 1L)], collapse = ""))
+    
+    # Skip whitespace before equals.
+    while (pos <= n && grepl("\\s", chars[pos], perl = TRUE)) {
+      pos <- pos + 1L
+    }
+    
+    if (pos > n || chars[pos] != "=") next
+    
+    pos <- pos + 1L
+    
+    # Skip whitespace after equals.
+    while (pos <= n && grepl("\\s", chars[pos], perl = TRUE)) {
+      pos <- pos + 1L
+    }
+    
+    if (pos > n) break
+    
+    # Braced value: field = {...}
+    if (chars[pos] == "{") {
+      pos <- pos + 1L
+      value_start <- pos
+      depth <- 1L
+      
+      while (pos <= n && depth > 0) {
+        ch <- chars[pos]
+        
+        # Ignore escaped braces while finding the matching closing brace.
+        if (ch == "\\") {
+          pos <- pos + 2L
+          next
+        }
+        
+        if (ch == "{") depth <- depth + 1L
+        if (ch == "}") depth <- depth - 1L
+        
+        pos <- pos + 1L
+      }
+      
+      value_end <- pos - 2L
+      value <- collapse_range(value_start, value_end)
+      
+    # Quoted value: field = "..."
+    } else if (chars[pos] == "\"") {
+      pos <- pos + 1L
+      value_start <- pos
+      
+      while (pos <= n) {
+        ch <- chars[pos]
+        
+        if (ch == "\\") {
+          pos <- pos + 2L
+          next
+        }
+        
+        if (ch == "\"") break
+        
+        pos <- pos + 1L
+      }
+      
+      value_end <- pos - 1L
+      value <- collapse_range(value_start, value_end)
+      pos <- pos + 1L
+      
+    # Bare value: month = Feb
+    } else {
+      value_start <- pos
+      
+      while (pos <= n && chars[pos] != ",") {
+        pos <- pos + 1L
+      }
+      
+      value_end <- pos - 1L
+      value <- collapse_range(value_start, value_end)
+    }
+    
+    # If this came from a BibTeX string we already built earlier,
+    # turn escaped literal braces back into real braces before rebuilding.
+    value <- gsub("\\\\([{}])", "\\1", value, perl = TRUE)
+    value <- clean_text_for_bibtex(value)
+    
+    if (has_value(value)) {
+      fields[[name]] <- value
+    }
+  }
+  
+  list(
+    entry_type = entry_type,
+    key = key,
+    fields = fields
+  )
+}
+
+row_fields_for_merge <- function(row) {
+  out <- list()
+  
+  # Fields from the original tibble that should be preserved when present.
+  field_map <- c(
+    "ADDRESS"       = "address",
+    "ANNOTE"        = "annote",
+    "BOOKTITLE"     = "booktitle",
+    "CHAPTER"       = "chapter",
+    "CROSSREF"      = "crossref",
+    "EDITION"       = "edition",
+    "EDITOR"        = "editor",
+    "HOWPUBLISHED"  = "howpublished",
+    "INSTITUTION"   = "institution",
+    "JOURNAL"       = "journal",
+    "KEY"           = "key",
+    "MONTH"         = "month",
+    "NOTE"          = "note",
+    "NUMBER"        = "number",
+    "ORGANIZATION"  = "organization",
+    "PAGES"         = "pages",
+    "PUBLISHER"     = "publisher",
+    "SCHOOL"        = "school",
+    "SERIES"        = "series",
+    "TITLE"         = "title",
+    "TYPE"          = "type",
+    "VOLUME"        = "volume",
+    "YEAR"          = "year",
+    "ISSN"          = "issn",
+    "DOI"           = "doi",
+    "PMID"          = "pmid",
+    "PMCID"         = "pmcid",
+    "ABSTRACT"      = "abstract",
+    "LANGUAGE"      = "language",
+    "KEYWORDS"      = "keywords",
+    "URL"           = "url"
+  )
+  
+  for (col in names(field_map)) {
+    val <- get_cell(row, col)
+    if (has_value(val)) {
+      out[[field_map[[col]]]] <- val
+    }
+  }
+  
+  author <- normalize_author_field(get_cell(row, c("AUTHOR", "author")))
+  if (has_value(author)) {
+    out$author <- author
+  }
+  
+  if (has_value(out$pmid)) {
+    out$pmid <- normalize_pmid(out$pmid)
+  }
+  
+  if (has_value(out$pmcid)) {
+    out$pmcid <- normalize_pmcid(out$pmcid)
+  }
+  
+  out
+}
+
+merge_row_into_bib <- function(bib, row, i, prefer_df_author = FALSE) {
+  
+  parsed <- parse_bibtex(bib)
+  fields <- parsed$fields
+  
+  row_fields <- row_fields_for_merge(row)
+  
+  # Prefer the original dataframe for almost everything because it is your
+  # curated source. Author is handled more cautiously because Crossref/PubMed
+  # often formats it better than the flat bib2df character string.
+  df_preferred_fields <- names(row_fields)
+  
+  if (!prefer_df_author) {
+    df_preferred_fields <- setdiff(df_preferred_fields, "author")
+  }
+  
+  for (nm in names(row_fields)) {
+    if (nm %in% df_preferred_fields || !has_value(fields[[nm]])) {
+      fields[[nm]] <- row_fields[[nm]]
+    }
+  }
+  
+  # Always preserve your original bib2df citation key when available.
+  key <- get_cell(row, c("BIBTEXKEY", "bibtexkey"))
+  if (!has_value(key)) key <- parsed$key
+  if (!has_value(key)) key <- make_key(row = row, i = i, fields = fields)
+  
+  # Preserve the original entry category when available.
+  entry_type <- get_cell(row, c("CATEGORY", "ENTRYTYPE", "entrytype"))
+  if (!has_value(entry_type)) entry_type <- parsed$entry_type
+  if (!has_value(entry_type)) entry_type <- "article"
+  
+  build_bibtex(
+    fields = fields,
+    entry_type = entry_type,
+    key = key
+  )
+}
+  
+  # ---------- DOI lookup ----------
+  
+  fetch_bibtex_by_doi <- function(doi) {
+    doi <- scalar(doi)
+    if (is.na(doi)) return(NA_character_)
+    
+    tryCatch({
+      out <- rcrossref::cr_cn(dois = doi, format = "bibtex")
+      
+      if (is.null(out) || length(out) == 0 || all(is.na(out))) {
+        stop("No BibTeX returned")
+      }
+      
+      out <- paste(as.character(out[!is.na(out)]), collapse = "\n")
+      out <- trimws(out)
+      
+      if (!nzchar(out) || !grepl("^\\s*@", out)) {
+        stop("No valid BibTeX returned")
+      }
+      
+      out
+      
+    }, warning = function(w) {
+      # This is the important part:
+      # warnings such as "agency not found" or "404 DOI Not Found"
+      # are treated as failed DOI lookups.
+      NA_character_
+    }, error = function(e) {
+      NA_character_
+    })
+  }
+  
+  # ---------- PMID lookup through PubMed MEDLINE ----------
+  
+  parse_medline <- function(txt) {
+    out <- list()
+    current_tag <- NULL
+    
+    for (ln in txt) {
+      if (grepl("^[A-Z0-9]{2,4}\\s*-", ln)) {
+        tag <- trimws(substr(ln, 1, 4))
+        val <- sub("^[A-Z0-9]{2,4}\\s*-\\s*", "", ln)
+        
+        out[[tag]] <- c(out[[tag]], val)
+        current_tag <- tag
+        
+      } else if (!is.null(current_tag) && grepl("^\\s+", ln)) {
+        out[[current_tag]][length(out[[current_tag]])] <- paste(
+          out[[current_tag]][length(out[[current_tag]])],
+          trimws(ln)
+        )
+      }
+    }
+    
+    out
+  }
+  
+  first_or_na <- function(x) {
+    if (is.null(x) || length(x) == 0) NA_character_ else scalar(x[1])
+  }
+  
+  medline_doi <- function(med) {
+    candidates <- c(med$AID, med$LID)
+    candidates <- candidates[!is.na(candidates)]
+    candidates <- candidates[grepl("\\[doi\\]", candidates, ignore.case = TRUE)]
+    
+    if (length(candidates) == 0) return(NA_character_)
+    
+    trimws(sub("\\s*\\[doi\\]\\s*$", "", candidates[1], ignore.case = TRUE))
+  }
+  
+  fetch_bibtex_by_pmid <- function(pmid, row, i) {
+    pmid <- normalize_pmid(pmid)
+    if (is.na(pmid)) return(NA_character_)
+    
+    tryCatch({
+      url <- paste0(
+        "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?",
+        "db=pubmed",
+        "&id=", utils::URLencode(pmid, reserved = TRUE),
+        "&rettype=medline",
+        "&retmode=text"
+      )
+      
+      txt <- readLines(url, warn = FALSE)
+      
+      if (length(txt) == 0) stop("No PubMed record returned")
+      
+      med <- parse_medline(txt)
+      
+      if (!has_value(med$PMID)) stop("No PMID found in PubMed record")
+      
+      authors <- if (!is.null(med$FAU)) med$FAU else med$AU
+      
+      fields <- list(
+        author   = if (!is.null(authors)) paste(authors, collapse = " and ") else NA_character_,
+        title    = first_or_na(med$TI),
+        journal  = choose_value(first_or_na(med$JT), first_or_na(med$TA)),
+        year     = extract_year(first_or_na(med$DP)),
+        volume   = first_or_na(med$VI),
+        number   = first_or_na(med$IP),
+        pages    = first_or_na(med$PG),
+        doi      = medline_doi(med),
+        pmid     = pmid,
+        pmcid    = first_or_na(med$PMC),
+        abstract = if (!is.null(med$AB)) paste(med$AB, collapse = " ") else NA_character_
+      )
+      
+      key <- make_key(row = row, i = i, fields = fields)
+      
+      build_bibtex(fields, entry_type = "article", key = key)
+      
+    }, warning = function(w) {
+      NA_character_
+    }, error = function(e) {
+      NA_character_
+    })
+  }
+  
+  # ---------- PMCID lookup through NCBI PMC ID Converter ----------
+  
+  json_string <- function(raw, name) {
+    m <- regexec(
+      paste0('"', name, '"\\s*:\\s*"([^"]*)"'),
+      raw,
+      perl = TRUE
+    )
+    
+    hit <- regmatches(raw, m)[[1]]
+    
+    if (length(hit) >= 2) hit[2] else NA_character_
+  }
+  
+  fetch_bibtex_by_pmcid <- function(pmcid, row, i) {
+    pmcid <- normalize_pmcid(pmcid)
+    if (is.na(pmcid)) return(NA_character_)
+    
+    tryCatch({
+      url <- paste0(
+        "https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/?",
+        "ids=", utils::URLencode(pmcid, reserved = TRUE),
+        "&format=json"
+      )
+      
+      raw <- paste(readLines(url, warn = FALSE), collapse = "")
+      
+      if (!nzchar(raw)) stop("No PMCID conversion record returned")
+      
+      converted_doi <- json_string(raw, "doi")
+      converted_pmid <- json_string(raw, "pmid")
+      
+      converted_doi <- gsub("\\\\/", "/", converted_doi)
+      
+      # PMCID can point us to a DOI or PMID.
+      # Try DOI first, then PMID.
+      bib <- fetch_bibtex_by_doi(converted_doi)
+      
+      if (!has_value(bib)) {
+        bib <- fetch_bibtex_by_pmid(converted_pmid, row = row, i = i)
+      }
+      
+      bib
+      
+    }, warning = function(w) {
+      NA_character_
+    }, error = function(e) {
+      NA_character_
+    })
+  }
+  
+  # ---------- final fallback: use current tibble row ----------
+  
+  row_to_bibtex <- function(row, i) {
+    entry_type <- get_cell(row, c("CATEGORY", "ENTRYTYPE", "entrytype"))
+    if (!has_value(entry_type)) entry_type <- "article"
+    
+    fields <- list()
+    
+    skip <- c("category", "entrytype", "bibtexkey")
+    
+    for (nm in names(row)) {
+      if (tolower(nm) %in% skip) next
+      
+      val <- get_cell(row, nm)
+      if (!has_value(val)) next
+      
+      field_name <- tolower(gsub("[^A-Za-z0-9_:-]", "", nm))
+      
+      # Normalize a few common non-BibTeX-ish variants
+      if (field_name %in% c("pubmed", "pubmedid", "pubmed_id")) {
+        field_name <- "pmid"
+      }
+      
+      if (field_name %in% c("pmc", "pmc_id")) {
+        field_name <- "pmcid"
+      }
+      
+      fields[[field_name]] <- val
+    }
+    
+    key <- make_key(row = row, i = i, fields = fields)
+    
+    build_bibtex(fields, entry_type = entry_type, key = key)
+  }
+  
+  # ---------- main loop ----------
+  
+  bib_entries <- list()
+  
+  cat("Starting processing for", nrow(df), "entries...\n")
+  
+  for (i in seq_len(nrow(df))) {
+    
+    row <- df[i, , drop = FALSE]
+    
+    current_doi <- get_cell(row, c("DOI", "doi"))
+    current_pmid <- get_cell(row, c("PMID", "pmid", "PUBMED", "PUBMEDID", "PUBMED_ID"))
+    current_pmcid <- get_cell(row, c("PMCID", "pmcid", "PMC", "pmc", "PMC_ID"))
+    current_abstract <- get_cell(row, c("ABSTRACT", "abstract", "AB"))
+    
+    if (verbose) {
+      cat(sprintf("Processing [%s/%s]: ", i, nrow(df)))
+    }
+    
+    bib <- NA_character_
+    source_used <- "current tibble row"
+    
+    # 1. Try DOI first
+    if (has_value(current_doi)) {
+      if (verbose) cat("trying DOI... ")
+      Sys.sleep(sleep)
+      
+      bib <- fetch_bibtex_by_doi(current_doi)
+      
+      if (has_value(bib)) {
+        source_used <- "DOI"
+      }
+    }
+    
+    # 2. If DOI is missing, warns, errors, or returns no usable BibTeX, try PMID
+    if (!has_value(bib) && has_value(current_pmid)) {
+      if (verbose) cat("trying PMID... ")
+      Sys.sleep(sleep)
+      
+      bib <- fetch_bibtex_by_pmid(current_pmid, row = row, i = i)
+      
+      if (has_value(bib)) {
+        source_used <- "PMID"
+      }
+    }
+    
+    # 3. If PMID is missing or fails, try PMCID
+    if (!has_value(bib) && has_value(current_pmcid)) {
+      if (verbose) cat("trying PMCID... ")
+      Sys.sleep(sleep)
+      
+      bib <- fetch_bibtex_by_pmcid(current_pmcid, row = row, i = i)
+      
+      if (has_value(bib)) {
+        source_used <- "PMCID"
+      }
+    }
+    
+ # 4. If all external lookups fail, we still build from the current tibble row.
+external_found <- has_value(bib)
+
+if (!external_found) {
+  source_used <- "current tibble row"
+}
+
+# Critical fix:
+# Merge the original tibble row back into whatever was fetched.
+# This preserves your BIBTEXKEY, title, pages, ISSN, PMID, PMCID,
+# abstract, keywords, language, etc.
+bib <- merge_row_into_bib(
+  bib = bib,
+  row = row,
+  i = i,
+  prefer_df_author = !external_found
+)
+
+bib_entries[[length(bib_entries) + 1]] <- bib
+
+    if (verbose) {
+      cat("used", source_used, "\n")
+    }
+  }
+  
+  valid_entries <- unlist(bib_entries, use.names = FALSE)
+  
+  writeLines(
+    paste(valid_entries, collapse = "\n\n"),
+    con = output_file,
+    useBytes = TRUE
+  )
+  
+  cat(
+    "\nDone! Successfully wrote",
+    length(valid_entries),
+    "entries to",
+    output_file,
+    "\n"
+  )
+  
+  invisible(valid_entries)
+}
+```
+
+```{r}
+test_set <- bind_rows(doi_searched %>% head(6), doi_searched %>% filter(is.na(ABSTRACT))%>% head())
+
+```
+
+```{r}
+generate_merged_bib(test_set, "new_test.bib")
+```
+
+```{r}
+test_read <- bib2df("~/Documents/ODSi/ODSiData/AI_assisted_litreview/searches/22April2026/new_test.bib")
+```
+
+```{r}
+filled <- generate_merged_bib(doi_searched, "filled.bib")
+```
+
+```{r}
+filled <- bib2df("~/Documents/ODSi/ODSiData/AI_assisted_litreview/searches/22April2026/filled.bib")
+```
+
+# Filter
+
+Remove ref where journal is missing
+
+```{r}
+cleaned <- filled %>%
+  filter(!is.na(JOURNAL))
+```
+
+```{r}
+df2bib(cleaned, "~/Documents/ODSi/ODSiData/AI_assisted_litreview/searches/22April2026/cleaned.bib")
+```
+
+# After first pass
+
+```{r}
+first_pass <- readxl::read_xlsx("~/Documents/ODSi/ODSiData/AI_assisted_litreview/Screening1_AI/InitialList657_classified.xlsx")
+
+linking_cleaned <- read_csv("~/Documents/ODSi/ODSiData/AI_assisted_litreview/Screening1_AI/InitialList657.csv")
+
+first_pass <- linking_cleaned %>%
+  left_join(first_pass,
+            by = c("Title", "Abstract"))
+```
+
+```{r}
+table(first_pass$Decision)
+```
+
+```{r}
+table(first_pass %>% 
+  filter(Decision == "Discard")%>%
+  pull(Reasoning))
+```
+
+```{r}
+discarded <- first_pass %>% 
+  filter(Decision == "Discard")%>%
+  pull(Title)
+```
+
+```{r}
+# returns names of columns that are unique IDs
+names(first_pass)[sapply(first_pass, function(x) length(unique(x)) == nrow(first_pass))]
+
+```
+
+```{r}
+names(cleaned)[sapply(cleaned, function(x) length(unique(x)) == nrow(cleaned))]
+```
+
+```{r}
+length(intersect(cleaned$BIBTEXKEY, first_pass$Citekey))
+length(intersect(cleaned$TITLE, first_pass$Title))
+```
+
+```{r}
+first_pass_included <- first_pass %>%
+  filter(Decision == "Include")%>%
+  select(-c(Decision, Reasoning))
+```
+
+```{r}
+save(first_pass_included, file = "~/Documents/ODSi/ODSiData/AI_assisted_litreview/Screening1_AI/screened481.csv" )
+```
+
+```{r}
+generate_merged_bib(first_pass_included,
+                                output_file = "~/Documents/ODSi/ODSiData/AI_assisted_litreview/Screening1_AI/screened.bib",
+                                sleep = 0.5,
+                                verbose = TRUE)
+```
