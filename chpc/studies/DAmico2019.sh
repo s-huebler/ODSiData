@@ -31,18 +31,30 @@ SPLIT_R1_LEN=250     # forward-read length = split point. VERIFY per demux plot:
                      # forward quality stays high to ~250 then collapses at 251.
 SPLIT_MIN_R2=20      # drop pairs whose reverse tail is shorter than this.
 
+# --- Primer removal (cutadapt trim-paired, run inside 03_dada2.slurm) --------
+# Paper §2.3: V3-V4 amplified with the 341F / 785R primers (Klindworth et al.
+# 2013), Illumina MiSeq 2x250. Confirmed against the reads themselves: R1 starts
+# with 341F; revcomp(R2) starts with 785R. Removing primers BY SEQUENCE (not a
+# fixed trim-left) is more robust given the degenerate IUPAC bases.
+PRIMER_F="CCTACGGGNGGCWGCAG"        # 341F (17 nt)
+PRIMER_R="GACTACHVGGGTATCTAATCC"    # 785R (21 nt)
+# cutadapt defaults in the job are fine (error-rate 0.1, discard-untrimmed=true).
+
 # --- DADA2 denoise-paired parameters ----------------------------------------
-# 5' primer trim: 341F = 17 nt, 805R = 21 nt (Klindworth V3-V4 primers).
-TRIM_LEFT_F=17
-TRIM_LEFT_R=21
+# TRIM_LEFT = 0 because cutadapt already strips the primers by sequence above;
+# setting these would double-trim the (already short) reverse reads.
+TRIM_LEFT_F=0
+TRIM_LEFT_R=0
 # 3' truncation = read length minus low-quality tail. 0 = unset; the denoise job
-# will refuse to run until set. Choose from demux_viz.qzv: forward reads are a
-# clean 250 bp; reverse reads are variable (~205-215 bp, some shorter) — pick a
-# TRUNC_LEN_R that keeps enough length for a ~30+ bp overlap with the forward
-# read across the ~465 bp V3-V4 amplicon while dropping the low-quality tail.
-# !! VERIFY both against demux_viz.qzv before trusting the run.
-TRUNC_LEN_F=0
-TRUNC_LEN_R=0
+# will refuse to run until set. Set MANUALLY from demux_viz.qzv.
+# Overlap budget is TIGHT: the 341F/785R amplicon is ~464 bp, so DADA2 merging
+# needs TRUNC_LEN_F + TRUNC_LEN_R >= ~476. Forward reads are a clean 250; the
+# recovered reverse reads are short (median ~215, variable), so truncate the
+# forward lightly and the reverse as little as quality allows. Check the "merged"
+# column in stats.qza — if retention is poor, fall back to forward-only
+# (denoise-single on R1).
+TRUNC_LEN_F=249
+TRUNC_LEN_R=220
 
 # CPU threads for DADA2 (match --cpus-per-task in 03_dada2.slurm).
 DADA2_THREADS=16
@@ -54,6 +66,6 @@ DADA2_THREADS=16
 METADATA="$REPO_ROOT/$STUDY/Metadata/damico_meta_qiime.tsv"
 
 # Walltime hints (edit per dataset size). Used by submit.sh. 104 runs.
-FETCH_TIME="12:00:00"
-IMPORT_TIME="04:00:00"
-DADA2_TIME="24:00:00"
+FETCH_TIME="1:00:00"
+IMPORT_TIME="1:00:00"
+DADA2_TIME="6:00:00"

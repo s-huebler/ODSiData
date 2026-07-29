@@ -30,4 +30,8 @@ editor: visual
 
 # Fetching data
 
-Fetched data using chpc pipeline.
+Fetched data using chpc pipeline. Required split at 251. Took about 15 minutes to run import.
+
+![](images/clipboard-2724494614.png)
+
+![](images/clipboard-981986237.png)
