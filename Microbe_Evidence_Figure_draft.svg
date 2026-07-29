@@ -1,0 +1,153 @@
+<svg viewBox="0 0 860 1050" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" role="img">
+<title>GVHD microbe evidence-depth radial figure (reference batch)</title>
+<desc>Microbes as taxonomic arcs (width = evidence weight), colored by GVHD direction, with mechanism dots, metabolite brackets and a sparse therapeutic ring.</desc>
+<path d="M430.0,221.0 A209.0,209.0 0 1 1 221.3,419.6 L336.1,425.3 A94.0,94.0 0 1 0 430.0,336.0 Z" fill="#eef1ec"/>
+<path d="M431.1,221.0 A209.0,209.0 0 1 1 221.2,420.7" fill="none" stroke="#6f8a63" stroke-width="3"/>
+<path d="M221.3,419.6 A209.0,209.0 0 0 1 248.3,326.7 L348.3,383.5 A94.0,94.0 0 0 0 336.1,425.3 Z" fill="#f3eef4"/>
+<path d="M221.3,418.6 A209.0,209.0 0 0 1 247.8,327.6" fill="none" stroke="#8f6f9c" stroke-width="3"/>
+<path d="M248.3,326.7 A209.0,209.0 0 0 1 298.9,267.3 L371.0,356.8 A94.0,94.0 0 0 0 348.3,383.5 Z" fill="#eaf1f2"/>
+<path d="M248.9,325.7 A209.0,209.0 0 0 1 298.0,268.0" fill="none" stroke="#548791" stroke-width="3"/>
+<path d="M298.9,267.3 A209.0,209.0 0 0 1 430.0,221.0 L430.0,336.0 A94.0,94.0 0 0 0 371.0,356.8 Z" fill="#f6efe6"/>
+<path d="M299.7,266.6 A209.0,209.0 0 0 1 428.9,221.0" fill="none" stroke="#ad7f4c" stroke-width="3"/>
+<path d="M431.9,286.0 A144.0,144.0 0 0 1 489.8,299.0 L470.7,340.9 A98.0,98.0 0 0 0 431.3,332.0 Z" fill="#3b7fc4"/>
+<circle cx="465.7" cy="271.0" r="5.6" fill="#4a9d6a"/>
+<text x="477.1" y="220.2" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(-77.4 477.1 220.2)">Clostridia</text>
+<path d="M493.2,300.6 A144.0,144.0 0 0 1 521.1,318.5 L492.0,354.1 A98.0,98.0 0 0 0 473.0,341.9 Z" fill="#3b7fc4"/>
+<circle cx="517.9" cy="292.8" r="5.6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<text x="546.0" y="249.0" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(-57.4 546.0 249.0)">Clostridiales</text>
+<path d="M524.0,320.9 A144.0,144.0 0 0 1 538.2,334.9 L503.6,365.3 A98.0,98.0 0 0 0 494.0,355.8 Z" fill="#3b7fc4"/>
+<circle cx="544.7" cy="314.2" r="5.6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<path d="M562.9,277.9 A202.0,202.0 0 0 1 580.8,295.6 L573.3,302.2 A192.0,192.0 0 0 0 556.4,285.4 Z" fill="#c9862b"/>
+<text x="581.3" y="277.2" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(-45.3 581.3 277.2)">C. butyricum</text>
+<path d="M540.6,337.8 A144.0,144.0 0 0 1 558.8,365.5 L517.6,386.1 A98.0,98.0 0 0 0 505.3,367.3 Z" fill="#3b7fc4"/>
+<circle cx="566.4" cy="340.7" r="5.6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<text x="609.9" y="312.3" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(-33.2 609.9 312.3)">Lachnospiraceae</text>
+<path d="M560.4,368.9 A144.0,144.0 0 0 1 567.6,387.5 L523.6,401.1 A98.0,98.0 0 0 0 518.7,388.4 Z" fill="#3b7fc4"/>
+<circle cx="582.0" cy="371.2" r="5.6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<text x="630.5" y="352.5" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(-21.1 630.5 352.5)">Anaerostipes</text>
+<path d="M568.7,391.1 A144.0,144.0 0 0 1 571.5,456.9 L526.3,448.3 A98.0,98.0 0 0 0 524.4,403.5 Z" fill="#3b7fc4"/>
+<circle cx="592.9" cy="423.0" r="5.6" fill="#4a9d6a"/>
+<text x="644.8" y="420.8" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(-2.4 644.8 420.8)">Blautia</text>
+<path d="M570.7,460.6 A144.0,144.0 0 0 1 562.7,485.9 L520.3,468.0 A98.0,98.0 0 0 0 525.8,450.8 Z" fill="#3b7fc4"/>
+<circle cx="585.4" cy="479.2" r="5.6" fill="#d99a3c"/>
+<text x="635.0" y="494.9" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(17.6 635.0 494.9)">C. scindens</text>
+<path d="M561.2,489.4 A144.0,144.0 0 0 1 548.1,512.4 L510.4,486.1 A98.0,98.0 0 0 0 519.3,470.4 Z" fill="#3b7fc4"/>
+<circle cx="571.7" cy="510.6" r="5.6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<text x="616.9" y="536.3" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(29.6 616.9 536.3)">Lachnoclostridium</text>
+<path d="M545.9,515.5 A144.0,144.0 0 0 1 518.1,543.9 L490.0,507.5 A98.0,98.0 0 0 0 508.9,488.2 Z" fill="#3b7fc4"/>
+<circle cx="546.6" cy="543.9" r="5.6" fill="#fff" stroke="#3fa3a3" stroke-width="2.1"/>
+<text x="583.7" y="580.3" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(44.3 583.7 580.3)">Ruminococcaceae</text>
+<path d="M515.1,546.2 A144.0,144.0 0 0 1 492.3,559.8 L472.4,518.3 A98.0,98.0 0 0 0 487.9,509.1 Z" fill="#3b7fc4"/>
+<circle cx="513.8" cy="569.8" r="5.6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<text x="540.5" y="614.4" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(59.1 540.5 614.4)">Faecalibacterium</text>
+<path d="M488.9,561.4 A144.0,144.0 0 0 1 437.5,573.8 L435.1,527.9 A98.0,98.0 0 0 0 470.1,519.4 Z" fill="#3b7fc4"/>
+<circle cx="468.3" cy="588.4" r="5.6" fill="#4a9d6a"/>
+<path d="M511.3,614.9 A202.0,202.0 0 0 1 442.0,631.6 L441.4,621.7 A192.0,192.0 0 0 0 507.3,605.7 Z" fill="#c9862b"/>
+<text x="480.5" y="639.0" font-size="8.2" fill="#33312e" text-anchor="start" font-weight="normal" transform="rotate(76.4 480.5 639.0)">F. duncaniae</text>
+<path d="M433.8,574.0 A144.0,144.0 0 0 1 400.8,571.0 L410.1,526.0 A98.0,98.0 0 0 0 432.6,528.0 Z" fill="#3b7fc4"/>
+<circle cx="415.5" cy="592.4" r="5.6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<text x="410.9" y="644.1" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(-84.9 410.9 644.1)">F. prausnitzii</text>
+<path d="M397.1,570.2 A144.0,144.0 0 0 1 371.9,561.8 L390.5,519.7 A98.0,98.0 0 0 0 407.6,525.4 Z" fill="#3b7fc4"/>
+<circle cx="378.3" cy="584.6" r="5.6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<text x="361.8" y="633.9" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(-71.5 361.8 633.9)">Veillonella</text>
+<path d="M368.5,560.2 A144.0,144.0 0 0 1 351.1,550.5 L376.3,512.0 A98.0,98.0 0 0 0 388.1,518.6 Z" fill="#3b7fc4"/>
+<circle cx="350.3" cy="572.2" r="5.6" fill="#fff" stroke="#b0a58f" stroke-width="2.1"/>
+<text x="324.9" y="617.6" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(-60.7 324.9 617.6)">Bacillus</text>
+<path d="M348.0,548.4 A144.0,144.0 0 0 1 332.4,535.9 L363.6,502.1 A98.0,98.0 0 0 0 374.2,510.5 Z" fill="#d1656a"/>
+<circle cx="328.1" cy="557.2" r="4.6" fill="none" stroke="#c4c0b8" stroke-dasharray="2 2"/>
+<text x="295.6" y="597.8" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(-51.3 295.6 597.8)">Lactobacillales</text>
+<path d="M329.7,533.3 A144.0,144.0 0 0 1 296.5,484.1 L339.2,466.8 A98.0,98.0 0 0 0 361.7,500.3 Z" fill="#d1656a"/>
+<circle cx="294.8" cy="521.0" r="4.6" fill="none" stroke="#c4c0b8" stroke-dasharray="2 2"/>
+<text x="251.7" y="550.1" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(-34.0 251.7 550.1)">Enterococcus</text>
+<path d="M295.2,480.6 A144.0,144.0 0 0 1 290.2,464.7 L334.9,453.6 A98.0,98.0 0 0 0 338.2,464.4 Z" fill="#3b7fc4"/>
+<path d="M290.2,464.7 A144.0,144.0 0 0 1 287.2,448.4 L332.8,442.5 A98.0,98.0 0 0 0 334.9,453.6 Z" fill="#d1656a"/>
+<circle cx="295.1" cy="463.5" r="2.4" fill="#2b2013"/>
+<circle cx="271.8" cy="469.3" r="5.6" fill="#fff" stroke="#6a8fbf" stroke-width="2.1"/>
+<text x="221.3" y="481.8" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(-13.9 221.3 481.8)">Lactobacillus</text>
+<path d="M286.7,444.7 A144.0,144.0 0 0 1 286.1,424.7 L332.1,426.4 A98.0,98.0 0 0 0 332.5,440.0 Z" fill="#d1656a"/>
+<circle cx="267.1" cy="435.3" r="4.6" fill="none" stroke="#c4c0b8" stroke-dasharray="2 2"/>
+<text x="215.1" y="437.0" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(-1.9 215.1 437.0)">Streptococcus</text>
+<path d="M286.3,421.0 A144.0,144.0 0 0 1 294.2,382.0 L337.6,397.4 A98.0,98.0 0 0 0 332.2,423.9 Z" fill="#3b7fc4"/>
+<circle cx="270.3" cy="397.4" r="5.6" fill="#fff" stroke="#d99a3c" stroke-width="2.1"/>
+<text x="219.3" y="387.1" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(11.5 219.3 387.1)">Bifidobacterium</text>
+<path d="M295.5,378.5 A144.0,144.0 0 0 1 303.9,360.4 L344.2,382.7 A98.0,98.0 0 0 0 338.5,395.0 Z" fill="#3b7fc4"/>
+<circle cx="282.2" cy="361.3" r="5.6" fill="#fff" stroke="#b0a58f" stroke-width="2.1"/>
+<text x="235.0" y="339.4" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(24.9 235.0 339.4)">Coriobacteriaceae</text>
+<path d="M305.8,357.2 A144.0,144.0 0 0 1 313.0,346.0 L350.4,372.9 A98.0,98.0 0 0 0 345.5,380.4 Z" fill="#3b7fc4"/>
+<path d="M313.0,346.0 A144.0,144.0 0 0 1 321.2,335.6 L356.0,365.8 A98.0,98.0 0 0 0 350.4,372.9 Z" fill="#d1656a"/>
+<circle cx="317.1" cy="349.0" r="2.4" fill="#2b2013"/>
+<circle cx="297.6" cy="335.0" r="5.6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<text x="255.3" y="304.6" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(35.7 255.3 304.6)">Akkermansia</text>
+<path d="M323.8,332.8 A144.0,144.0 0 0 1 338.2,319.1 L367.5,354.5 A98.0,98.0 0 0 0 357.7,363.8 Z" fill="#3b7fc4"/>
+<circle cx="317.6" cy="311.9" r="5.6" fill="#4a9d6a"/>
+<text x="281.8" y="274.3" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(46.4 281.8 274.3)">A. muciniphila</text>
+<path d="M341.1,316.7 A144.0,144.0 0 0 1 381.7,294.4 L397.1,337.7 A98.0,98.0 0 0 0 369.5,352.9 Z" fill="#3b7fc4"/>
+<circle cx="351.3" cy="287.2" r="5.6" fill="#7d57a8"/>
+<text x="326.2" y="241.7" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(61.1 326.2 241.7)">B. fragilis</text>
+<path d="M385.2,293.1 A144.0,144.0 0 0 1 404.5,288.3 L412.7,333.5 A98.0,98.0 0 0 0 399.5,336.9 Z" fill="#3b7fc4"/>
+<circle cx="390.2" cy="271.9" r="5.6" fill="#b0a58f"/>
+<path d="M368.5,237.6 A202.0,202.0 0 0 1 392.9,231.4 L394.7,241.3 A192.0,192.0 0 0 0 371.6,247.1 Z" fill="#c9862b"/>
+<text x="377.5" y="221.5" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(75.9 377.5 221.5)">B. ovatus</text>
+<path d="M408.3,287.6 A144.0,144.0 0 0 1 428.1,286.0 L428.7,332.0 A98.0,98.0 0 0 0 415.2,333.1 Z" fill="#d1656a"/>
+<circle cx="416.6" cy="267.6" r="5.6" fill="#fff" stroke="#b0a58f" stroke-width="2.1"/>
+<text x="412.3" y="215.7" font-size="8.2" fill="#33312e" text-anchor="end" font-weight="normal" transform="rotate(85.3 412.3 215.7)">B. thetaiotaomicron</text>
+<path d="M433.6,251.0 A179.0,179.0 0 0 1 606.1,462.2" fill="none" stroke="#4a9d6a" stroke-width="3" stroke-linecap="round"/>
+<path d="M534.8,575.1 A179.0,179.0 0 0 1 358.9,594.3" fill="none" stroke="#4a9d6a" stroke-width="3" stroke-linecap="round"/>
+<path d="M276.2,338.4 A179.0,179.0 0 0 1 314.9,292.9" fill="none" stroke="#4a9d6a" stroke-width="3" stroke-linecap="round"/>
+<path d="M453.9,729.0 Q449.8,677.7 477.6,627.3" fill="none" stroke="#c9862b" stroke-width="1.3" opacity="0.75"/>
+<circle cx="453.9" cy="729.0" r="29" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="453.9" y="727.0" font-size="7.8" fill="#8a5d16" text-anchor="middle" font-weight="bold">F. duncaniae</text>
+<text x="453.9" y="737.0" font-size="7.8" fill="#8a5d16" text-anchor="middle" font-weight="normal">live-biother.</text>
+<path d="M683.6,269.8 Q640.1,297.3 572.8,285.8" fill="none" stroke="#c9862b" stroke-width="1.3" opacity="0.75"/>
+<circle cx="683.6" cy="269.8" r="29" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="683.6" y="267.8" font-size="7.8" fill="#8a5d16" text-anchor="middle" font-weight="bold">C. butyricum</text>
+<text x="683.6" y="277.8" font-size="7.8" fill="#8a5d16" text-anchor="middle" font-weight="normal">probiotic</text>
+<path d="M302.5,158.4 Q324.4,205.0 380.4,233.2" fill="none" stroke="#c9862b" stroke-width="1.3" opacity="0.75"/>
+<circle cx="302.5" cy="158.4" r="29" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="302.5" y="156.4" font-size="7.8" fill="#8a5d16" text-anchor="middle" font-weight="bold">B. ovatus</text>
+<text x="302.5" y="166.4" font-size="7.8" fill="#8a5d16" text-anchor="middle" font-weight="normal">xylose (eng.)</text>
+<circle cx="430" cy="430" r="92" fill="#fff" stroke="#e3ded6"/>
+<text x="430.0" y="422.0" font-size="25" fill="#33312e" text-anchor="middle" font-weight="bold">GVHD</text>
+<text x="430.0" y="441.0" font-size="9.5" fill="#8a8172" text-anchor="middle" font-weight="normal">microbe evidence map</text>
+<text x="430.0" y="457.0" font-size="8" fill="#a39a8a" text-anchor="middle" font-weight="normal">25 taxa · reference batch</text>
+<text x="430.0" y="473.0" font-size="7.5" fill="#a39a8a" text-anchor="middle" font-weight="normal">rings: ① assoc → ② mech → ③ ther</text>
+<text x="34.0" y="898.0" font-size="11" fill="#33312e" text-anchor="start" font-weight="bold">GVHD direction</text>
+<rect x="150" y="888" width="12" height="12" rx="2" fill="#3b7fc4"/>
+<text x="167.0" y="898.0" font-size="10" fill="#33312e" text-anchor="start" font-weight="normal">favourable (decreases)</text>
+<rect x="325" y="888" width="12" height="12" rx="2" fill="#d1656a"/>
+<text x="342.0" y="898.0" font-size="10" fill="#33312e" text-anchor="start" font-weight="normal">unfavourable (increases)</text>
+<path d="M510,888 h6 v12 h-6 Z" fill="#3b7fc4"/><path d="M516,888 h6 v12 h-6 Z" fill="#d1656a"/>
+<text x="528.0" y="898.0" font-size="10" fill="#33312e" text-anchor="start" font-weight="normal">contradictory</text>
+<text x="34.0" y="926.0" font-size="11" fill="#33312e" text-anchor="start" font-weight="bold">Mechanism (② dot)</text>
+<circle cx="186" cy="922" r="6" fill="#4a9d6a"/>
+<text x="197.0" y="926.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">SCFA</text>
+<circle cx="276" cy="922" r="6" fill="#d99a3c"/>
+<text x="287.0" y="926.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">bile acid</text>
+<circle cx="366" cy="922" r="6" fill="#3fa3a3"/>
+<text x="377.0" y="926.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">indole/Trp</text>
+<circle cx="456" cy="922" r="6" fill="#7d57a8"/>
+<text x="467.0" y="926.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">PSA</text>
+<circle cx="546" cy="922" r="6" fill="#6a8fbf"/>
+<text x="557.0" y="926.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">lactate</text>
+<circle cx="636" cy="922" r="6" fill="#b0a58f"/>
+<text x="647.0" y="926.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">other</text>
+<circle cx="40" cy="948" r="6" fill="#4a9d6a"/>
+<text x="51.0" y="952.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">demonstrated</text>
+<circle cx="158" cy="948" r="6" fill="#fff" stroke="#4a9d6a" stroke-width="2.1"/>
+<text x="169.0" y="952.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">proposed</text>
+<circle cx="250" cy="948" r="5" fill="none" stroke="#c4c0b8" stroke-dasharray="2 2"/>
+<text x="261.0" y="952.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">none</text>
+<path d="M314,948 a3,3 0 0 1 6,0 l0,0" fill="none"/>
+<rect x="314" y="944" width="16" height="7" fill="#c9862b"/>
+<text x="334.0" y="952.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">③ therapeutic tested</text>
+<text x="34.0" y="980.0" font-size="11" fill="#33312e" text-anchor="start" font-weight="bold">Phylum</text>
+<rect x="110" y="970" width="12" height="12" rx="2" fill="#eef1ec" stroke="#6f8a63"/>
+<text x="127.0" y="980.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">Firmicutes</text>
+<rect x="208" y="970" width="12" height="12" rx="2" fill="#f3eef4" stroke="#8f6f9c"/>
+<text x="225.0" y="980.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">Actinobacteria</text>
+<rect x="331" y="970" width="12" height="12" rx="2" fill="#eaf1f2" stroke="#548791"/>
+<text x="348.6" y="980.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">Verrucomicrobia</text>
+<rect x="461" y="970" width="12" height="12" rx="2" fill="#f6efe6" stroke="#ad7f4c"/>
+<text x="478.6" y="980.0" font-size="9.5" fill="#33312e" text-anchor="start" font-weight="normal">Bacteroidetes</text>
+<text x="34.0" y="1006.0" font-size="9" fill="#8a8172" text-anchor="start" font-weight="normal">Arc width ∝ evidence weight (supporting papers).  Split arc + tick = contradictory across papers.  ③ ring is intentionally sparse pending a therapeutics-focused extraction.</text>
+</svg>

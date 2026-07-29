@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GVHD Translational Radial (proof of concept)</title>
+<style>
+:root{--ink:#2c2a27;--muted:#8a8172;--line:#e3ded6;--bg:#ffffff;}
+*{box-sizing:border-box} html,body{margin:0;height:100%;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
+#app{display:flex;flex-direction:column;height:100vh}
+header{padding:9px 16px;border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+header h1{font-size:15px;margin:0;font-weight:600} header .sub{font-size:11.5px;color:var(--muted)}
+.toggles{margin-left:auto;display:flex;gap:12px;flex-wrap:wrap;font-size:12px}
+.toggles label{display:flex;gap:5px;align-items:center;cursor:pointer;user-select:none}
+#wrap{flex:1;position:relative;overflow:hidden;min-height:0}
+#svg{position:absolute;inset:0;width:100%;height:100%;cursor:grab}
+#svg.drag{cursor:grabbing}
+#legend{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:11px;max-width:340px}
+#legend .row{margin:4px 0;display:flex;flex-wrap:wrap;gap:4px 10px} .lg{display:inline-flex;gap:4px;align-items:center} .lg i{width:11px;height:11px;border-radius:50%;display:inline-block}
+#legend h4{margin:2px 0 3px;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+#tip{position:absolute;pointer-events:none;background:#22303a;color:#fff;font-size:11.5px;padding:6px 9px;border-radius:6px;max-width:330px;display:none;line-height:1.35;box-shadow:0 3px 12px rgba(0,0,0,.2)}
+#hint{position:absolute;right:12px;top:10px;font-size:11px;color:var(--muted)}
+</style></head><body><div id="app">
+<header><div><h1>GVHD Microbiome — Translational Radial <span style="font-weight:400;color:var(--muted)">(proof of concept)</span></h1>
+<div class="sub">center: primary papers → taxa (green protective / red exacerbative) · inner ring: taxa by lineage · mid arc: mechanism · outer: translational stage hub &amp; spoke</div></div>
+<div class="toggles">
+<label><input type="checkbox" id="t-paper" checked>Paper links</label>
+<label><input type="checkbox" id="t-tax" checked>Taxonomy</label>
+<label><input type="checkbox" id="t-mech" checked>Mechanism</label>
+<label><input type="checkbox" id="t-stage" checked>Stage hubs</label>
+</div></header>
+<div id="wrap">
+<svg id="svg" viewBox="-40 -30 1200 1260"><g id="scene"><g id="lyr-paper">
+<line x1="491.1" y1="547.8" x2="693.7" y2="828.5" stroke="#d1656a" stroke-width="0.8" opacity="0.16"/>
+<line x1="506.6" y1="569.4" x2="693.7" y2="828.5" stroke="#d1656a" stroke-width="0.8" opacity="0.16"/>
+<line x1="583.9" y1="625.8" x2="379.2" y2="320.6" stroke="#d1656a" stroke-width="0.8" opacity="0.16"/>
+<line x1="593.3" y1="579.2" x2="587.7" y2="261.3" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="605.0" y1="506.4" x2="587.7" y2="261.3" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="594.9" y1="601.6" x2="587.7" y2="261.3" stroke="#d1656a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="579.2" x2="587.7" y2="261.3" stroke="#d1656a" stroke-width="0.8" opacity="0.16"/>
+<line x1="613.4" y1="550.6" x2="260.0" y2="560.0" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="605.0" y1="506.4" x2="477.9" y2="848.5" stroke="#c7c1b5" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="854.9" y2="615.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="426.3" y2="828.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="781.7" y2="762.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="560.0" y1="521.5" x2="854.9" y2="615.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="560.0" y1="521.5" x2="815.1" y2="717.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="560.0" y1="521.5" x2="854.9" y2="504.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="854.9" y2="615.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="815.1" y2="717.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="854.9" y2="504.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="541.4" y1="611.0" x2="854.9" y2="615.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="541.4" y1="611.0" x2="815.1" y2="717.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="541.4" y1="611.0" x2="854.9" y2="504.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="515.0" y1="613.6" x2="265.1" y2="504.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="515.0" y1="613.6" x2="338.3" y2="762.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="560.0" y1="598.5" x2="265.1" y2="504.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="560.0" y1="598.5" x2="338.3" y2="762.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="593.3" y1="540.8" x2="642.1" y2="271.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="593.3" y1="540.8" x2="280.3" y2="668.4" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="560.0" y1="598.5" x2="740.8" y2="320.6" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="560.0" y1="598.5" x2="740.8" y2="799.4" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="560.0" y1="598.5" x2="815.1" y2="402.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="578.6" y1="509.0" x2="740.8" y2="320.6" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="578.6" y1="509.0" x2="740.8" y2="799.4" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="578.6" y1="509.0" x2="815.1" y2="402.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="578.6" y1="509.0" x2="642.1" y2="271.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="578.6" y1="509.0" x2="280.3" y2="668.4" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="583.9" y1="625.8" x2="642.1" y2="271.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="583.9" y1="625.8" x2="280.3" y2="668.4" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="583.9" y1="625.8" x2="426.3" y2="291.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="583.9" y1="625.8" x2="532.3" y2="261.3" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="583.9" y1="625.8" x2="477.9" y2="271.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="525.1" y1="518.4" x2="265.1" y2="615.1" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="525.1" y1="518.4" x2="781.7" y2="357.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="525.1" y1="518.4" x2="839.7" y2="451.6" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="525.1" y1="518.4" x2="781.7" y2="357.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="536.1" y1="494.2" x2="532.3" y2="858.7" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="536.1" y1="494.2" x2="587.7" y2="858.7" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="280.3" y2="668.4" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="280.3" y2="451.6" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="642.1" y2="848.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="426.3" y2="828.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="642.1" y2="848.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="526.7" y1="540.8" x2="426.3" y2="828.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="628.9" y1="572.2" x2="642.1" y2="848.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="628.9" y1="572.2" x2="426.3" y2="828.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="515.0" y1="613.6" x2="304.9" y2="717.9" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="515.0" y1="613.6" x2="379.2" y2="799.4" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="593.3" y1="540.8" x2="642.1" y2="271.5" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="593.3" y1="540.8" x2="280.3" y2="668.4" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+<line x1="593.3" y1="540.8" x2="280.3" y2="668.4" stroke="#4a9d6a" stroke-width="0.8" opacity="0.16"/>
+</g>
+<g id="lyr-tax" stroke="#b9b2a6" stroke-dasharray="3 3" fill="none" opacity="0.55">
+<path d="M693.7,291.5 Q654.6,315.7 642.1,271.5" stroke-width="1"/>
+<path d="M740.8,320.6 Q676.8,325.5 642.1,271.5" stroke-width="1"/>
+<path d="M781.7,357.9 Q697.9,337.2 642.1,271.5" stroke-width="1"/>
+<path d="M839.7,451.6 Q794.5,443.2 815.1,402.1" stroke-width="1"/>
+<path d="M854.9,504.9 Q804.3,465.4 815.1,402.1" stroke-width="1"/>
+<path d="M854.9,615.1 Q820.9,584.2 860.0,560.0" stroke-width="1"/>
+<path d="M815.1,717.9 Q794.5,676.8 839.7,668.4" stroke-width="1"/>
+<path d="M740.8,799.4 Q736.5,753.6 781.7,762.1" stroke-width="1"/>
+<path d="M587.7,858.7 Q608.1,817.5 642.1,848.5" stroke-width="1"/>
+<path d="M532.3,858.7 Q584.2,820.9 642.1,848.5" stroke-width="1"/>
+<path d="M477.9,848.5 Q560.0,822.0 642.1,848.5" stroke-width="1"/>
+<path d="M265.1,615.1 Q308.0,631.7 280.3,668.4" stroke-width="1"/>
+<path d="M260.0,560.0 Q302.5,608.1 280.3,668.4" stroke-width="1"/>
+<path d="M265.1,504.9 Q299.1,584.2 280.3,668.4" stroke-width="1"/>
+</g>
+<g id="lyr-mech">
+<path d="M763.9,670.6 A232,232 0 0 1 722.2,725.9" fill="none" stroke="#4a9d6a" stroke-width="3.4" stroke-linecap="round" opacity="0.85"/>
+<path d="M594.6,789.4 A232,232 0 0 1 525.4,789.4" fill="none" stroke="#3fa3a3" stroke-width="3.4" stroke-linecap="round" opacity="0.85"/>
+<path d="M409.8,383.2 A232,232 0 0 1 551.9,328.1" fill="none" stroke="#d99a3c" stroke-width="3.4" stroke-linecap="round" opacity="0.85"/>
+<circle cx="581.4" cy="329.0" r="4.6" fill="#4a9d6a"/>
+<circle cx="623.5" cy="336.9" r="4.6" fill="#d99a3c"/>
+<circle cx="663.4" cy="352.3" r="4.6" fill="#c56b8a"/>
+<circle cx="699.8" cy="374.9" r="4.6" fill="#d99a3c"/>
+<circle cx="731.5" cy="403.7" r="4.6" fill="#3fa3a3"/>
+<circle cx="757.3" cy="437.9" r="4.6" fill="#d99a3c"/>
+<circle cx="776.3" cy="476.2" r="4.6" fill="#3fa3a3"/>
+<circle cx="788.0" cy="517.4" r="4.6" fill="#4a9d6a"/>
+<circle cx="792.0" cy="560.0" r="4.6" fill="#c56b8a"/>
+<circle cx="788.0" cy="602.6" r="4.6" fill="#4a9d6a"/>
+<circle cx="776.3" cy="643.8" r="4.6" fill="#c56b8a"/>
+<circle cx="757.3" cy="682.1" r="4.6" fill="#4a9d6a"/>
+<circle cx="731.5" cy="716.3" r="4.6" fill="#4a9d6a"/>
+<circle cx="699.8" cy="745.1" r="4.6" fill="#d99a3c"/>
+<circle cx="663.4" cy="767.7" r="4.6" fill="#b07d3f"/>
+<circle cx="623.5" cy="783.1" r="4.6" fill="#6a8fbf"/>
+<circle cx="581.4" cy="791.0" r="4.6" fill="#3fa3a3"/>
+<circle cx="538.6" cy="791.0" r="4.6" fill="#3fa3a3"/>
+<circle cx="496.5" cy="783.1" r="4.6" fill="#7a8ab0"/>
+<circle cx="456.6" cy="767.7" r="4.6" fill="#4a9d6a"/>
+<circle cx="420.2" cy="745.1" r="4.6" fill="#b0a58f"/>
+<circle cx="388.5" cy="716.3" r="4.6" fill="#4a9d6a"/>
+<circle cx="362.7" cy="682.1" r="4.6" fill="#b0a58f"/>
+<circle cx="343.7" cy="643.8" r="4.6" fill="#d99a3c"/>
+<circle cx="332.0" cy="602.6" r="4.6" fill="#3fa3a3"/>
+<circle cx="328.0" cy="560.0" r="4.6" fill="#b0a58f"/>
+<circle cx="332.0" cy="517.4" r="4.6" fill="#4a9d6a"/>
+<circle cx="343.7" cy="476.2" r="4.6" fill="#b0a58f"/>
+<circle cx="362.7" cy="437.9" r="4.6" fill="#9c5f5f"/>
+<circle cx="388.5" cy="403.7" r="4.6" fill="#c56b8a"/>
+<circle cx="420.2" cy="374.9" r="4.6" fill="#d99a3c"/>
+<circle cx="456.6" cy="352.3" r="4.6" fill="#d99a3c"/>
+<circle cx="496.5" cy="336.9" r="4.6" fill="#d99a3c"/>
+<circle cx="538.6" cy="329.0" r="4.6" fill="#d99a3c"/>
+</g>
+<g id="lyr-stage">
+<line x1="1012.7" y1="441.5" x2="860.0" y2="560.0" stroke="#c9c2b4" stroke-width="0.9" opacity="0.20"/>
+<line x1="1012.7" y1="441.5" x2="839.7" y2="668.4" stroke="#c9c2b4" stroke-width="0.9" opacity="0.20"/>
+<line x1="1012.7" y1="441.5" x2="338.3" y2="357.9" stroke="#c9c2b4" stroke-width="0.9" opacity="0.20"/>
+<line x1="141.1" y1="351.4" x2="260.0" y2="560.0" stroke="#9db9d4" stroke-width="0.9" opacity="0.20"/>
+<line x1="141.1" y1="351.4" x2="379.2" y2="320.6" stroke="#9db9d4" stroke-width="0.9" opacity="0.20"/>
+<line x1="688.1" y1="109.9" x2="587.7" y2="261.3" stroke="#7aa88f" stroke-width="0.9" opacity="0.20"/>
+<line x1="688.1" y1="109.9" x2="693.7" y2="291.5" stroke="#7aa88f" stroke-width="0.9" opacity="0.20"/>
+<line x1="688.1" y1="109.9" x2="477.9" y2="848.5" stroke="#7aa88f" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="642.1" y2="271.5" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="740.8" y2="320.6" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="781.7" y2="357.9" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="815.1" y2="402.1" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="839.7" y2="451.6" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="854.9" y2="504.9" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="854.9" y2="615.1" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="815.1" y2="717.9" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="781.7" y2="762.1" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="740.8" y2="799.4" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="693.7" y2="828.5" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="642.1" y2="848.5" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="587.7" y2="858.7" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="532.3" y2="858.7" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="426.3" y2="828.5" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="379.2" y2="799.4" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="338.3" y2="762.1" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="304.9" y2="717.9" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="280.3" y2="668.4" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="265.1" y2="615.1" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="265.1" y2="504.9" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="280.3" y2="451.6" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="304.9" y2="402.1" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="426.3" y2="291.5" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="477.9" y2="271.5" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<line x1="593.1" y1="1026.8" x2="532.3" y2="261.3" stroke="#d0a24e" stroke-width="0.9" opacity="0.20"/>
+<circle cx="1012.7" cy="441.5" r="18.8" fill="#c9c2b4" opacity="0.92" stroke="#fff" stroke-width="2"/>
+<text x="1012.7" y="440.5" font-size="11" fill="#22303a" text-anchor="middle" font-weight="bold">Hypothesis</text>
+<text x="1012.7" y="453.5" font-size="9" fill="#3a4650" text-anchor="middle">3 taxa</text>
+<circle cx="141.1" cy="351.4" r="18.1" fill="#9db9d4" opacity="0.92" stroke="#fff" stroke-width="2"/>
+<text x="141.1" y="350.4" font-size="11" fill="#22303a" text-anchor="middle" font-weight="bold">Association</text>
+<text x="141.1" y="363.4" font-size="9" fill="#3a4650" text-anchor="middle">2 taxa</text>
+<circle cx="688.1" cy="109.9" r="18.8" fill="#7aa88f" opacity="0.92" stroke="#fff" stroke-width="2"/>
+<text x="688.1" y="108.9" font-size="11" fill="#22303a" text-anchor="middle" font-weight="bold">Mechanism</text>
+<text x="688.1" y="121.9" font-size="9" fill="#3a4650" text-anchor="middle">3 taxa</text>
+<circle cx="593.1" cy="1026.8" r="26.2" fill="#d0a24e" opacity="0.92" stroke="#fff" stroke-width="2"/>
+<text x="593.1" y="1025.8" font-size="11" fill="#22303a" text-anchor="middle" font-weight="bold">Therapeutic</text>
+<text x="593.1" y="1038.8" font-size="9" fill="#3a4650" text-anchor="middle">26 taxa</text>
+<line x1="593.1" y1="1026.8" x2="523.1" y2="1096.8" stroke="#d0a24e" stroke-width="0.8" opacity="0.4"/>
+<circle cx="523.1" cy="1096.8" r="18.0" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="523.1" y="1095.8" font-size="7.6" fill="#8a5d16" text-anchor="middle" font-weight="bold">FMT</text>
+<text x="523.1" y="1104.8" font-size="7.2" fill="#8a5d16" text-anchor="middle">16 studies</text>
+<line x1="593.1" y1="1026.8" x2="593.1" y2="1096.8" stroke="#d0a24e" stroke-width="0.8" opacity="0.4"/>
+<circle cx="593.1" cy="1096.8" r="15.7" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="593.1" y="1095.8" font-size="7.6" fill="#8a5d16" text-anchor="middle" font-weight="bold">Prebiotic/fiber</text>
+<text x="593.1" y="1104.8" font-size="7.2" fill="#8a5d16" text-anchor="middle">8 studies</text>
+<line x1="593.1" y1="1026.8" x2="663.1" y2="1096.8" stroke="#d0a24e" stroke-width="0.8" opacity="0.4"/>
+<circle cx="663.1" cy="1096.8" r="13.5" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="663.1" y="1095.8" font-size="7.6" fill="#8a5d16" text-anchor="middle" font-weight="bold">Probiotic</text>
+<text x="663.1" y="1104.8" font-size="7.2" fill="#8a5d16" text-anchor="middle">3 studies</text>
+<line x1="593.1" y1="1026.8" x2="523.1" y2="1140.8" stroke="#d0a24e" stroke-width="0.8" opacity="0.4"/>
+<circle cx="523.1" cy="1140.8" r="13.5" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="523.1" y="1139.8" font-size="7.6" fill="#8a5d16" text-anchor="middle" font-weight="bold">Defined consortia</text>
+<text x="523.1" y="1148.8" font-size="7.2" fill="#8a5d16" text-anchor="middle">3 studies</text>
+<line x1="593.1" y1="1026.8" x2="593.1" y2="1140.8" stroke="#d0a24e" stroke-width="0.8" opacity="0.4"/>
+<circle cx="593.1" cy="1140.8" r="13.5" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="593.1" y="1139.8" font-size="7.6" fill="#8a5d16" text-anchor="middle" font-weight="bold">Other/supportive</text>
+<text x="593.1" y="1148.8" font-size="7.2" fill="#8a5d16" text-anchor="middle">3 studies</text>
+<line x1="593.1" y1="1026.8" x2="663.1" y2="1140.8" stroke="#d0a24e" stroke-width="0.8" opacity="0.4"/>
+<circle cx="663.1" cy="1140.8" r="12.8" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="663.1" y="1139.8" font-size="7.6" fill="#8a5d16" text-anchor="middle" font-weight="bold">Antibiotic mod.</text>
+<text x="663.1" y="1148.8" font-size="7.2" fill="#8a5d16" text-anchor="middle">2 studies</text>
+<line x1="593.1" y1="1026.8" x2="523.1" y2="1184.8" stroke="#d0a24e" stroke-width="0.8" opacity="0.4"/>
+<circle cx="523.1" cy="1184.8" r="12.8" fill="#fbf3e0" stroke="#c9862b"/>
+<text x="523.1" y="1183.8" font-size="7.6" fill="#8a5d16" text-anchor="middle" font-weight="bold">Pooled FMT</text>
+<text x="523.1" y="1192.8" font-size="7.2" fill="#8a5d16" text-anchor="middle">2 studies</text>
+</g>
+<g id="lyr-taxa">
+<circle class="taxon" data-tip="Clostridia — conflicting | claims 4, papers 4 | stage: mechanism | mech: SCFA/butyrate" cx="587.7" cy="261.3" r="9.8" fill="#8e6bb0" stroke="#fff" stroke-width="1.4"/>
+<text x="589.0" y="246.5" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(-84.7 589.0 246.5)">Clostridia</text>
+<circle class="taxon" data-tip="Clostridium — conflicting | claims 7, papers 5 | stage: therapeutic | mech: Bile acids, Immune/antigen, Other metabolite" cx="642.1" cy="271.5" r="11.3" fill="#8e6bb0" stroke="#fff" stroke-width="1.4"/>
+<text x="646.6" y="255.7" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(-74.1 646.6 255.7)">Clostridium</text>
+<circle class="taxon" data-tip="Clostridium savagella — exacerbative | claims 2, papers 2 | stage: mechanism | mech: Immune/antigen" cx="693.7" cy="291.5" r="8.4" fill="#d1656a" stroke="#fff" stroke-width="1.4"/>
+<text x="699.7" y="279.5" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(-63.5 699.7 279.5)">Clostridium savagella</text>
+<circle class="taxon" data-tip="Clostridium scindens — protective | claims 2, papers 2 | stage: therapeutic | mech: Bile acids" cx="740.8" cy="320.6" r="8.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="748.9" y="309.9" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(-52.9 748.9 309.9)">Clostridium scindens</text>
+<circle class="taxon" data-tip="Clostridium sporogenes — protective | claims 2, papers 1 | stage: therapeutic | mech: Tryptophan/indole" cx="781.7" cy="357.9" r="8.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="791.6" y="348.9" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(-42.4 791.6 348.9)">Clostridium sporogenes</text>
+<circle class="taxon" data-tip="Eubacterium — protective | claims 2, papers 2 | stage: therapeutic | mech: Bile acids" cx="815.1" cy="402.1" r="8.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="826.5" y="395.0" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(-31.8 826.5 395.0)">Eubacterium</text>
+<circle class="taxon" data-tip="Eubacterium hallii — protective | claims 1, papers 1 | stage: therapeutic | mech: Tryptophan/indole" cx="839.7" cy="451.6" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="851.3" y="447.1" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(-21.2 851.3 447.1)">Eubacterium hallii</text>
+<circle class="taxon" data-tip="Eubacterium rectale — protective | claims 3, papers 3 | stage: therapeutic | mech: SCFA/butyrate" cx="854.9" cy="504.9" r="9.2" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="868.8" y="502.3" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(-10.6 868.8 502.3)">Eubacterium rectale</text>
+<circle class="taxon" data-tip="Faecalibacterium — exacerbative | claims 2, papers 2 | stage: hypothesis | mech: Immune/antigen" cx="860.0" cy="560.0" r="8.4" fill="#d1656a" stroke="#fff" stroke-width="1.4"/>
+<text x="873.4" y="560.0" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(0.0 873.4 560.0)">Faecalibacterium</text>
+<circle class="taxon" data-tip="Faecalibacterium prausnitzii — protective | claims 5, papers 3 | stage: therapeutic | mech: SCFA/butyrate" cx="854.9" cy="615.1" r="10.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="870.0" y="617.9" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(10.6 870.0 617.9)">Faecalibacterium prau.</text>
+<circle class="taxon" data-tip="Roseburia — exacerbative | claims 2, papers 2 | stage: hypothesis | mech: Immune/antigen" cx="839.7" cy="668.4" r="8.4" fill="#d1656a" stroke="#fff" stroke-width="1.4"/>
+<text x="852.2" y="673.2" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(21.2 852.2 673.2)">Roseburia</text>
+<circle class="taxon" data-tip="Roseburia hominis — protective | claims 3, papers 3 | stage: therapeutic | mech: SCFA/butyrate" cx="815.1" cy="717.9" r="9.2" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="827.1" y="725.4" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(31.8 827.1 725.4)">Roseburia hominis</text>
+<circle class="taxon" data-tip="Ruminococcus — conflicting | claims 3, papers 3 | stage: therapeutic | mech: Immune/antigen, SCFA/butyrate" cx="781.7" cy="762.1" r="9.2" fill="#8e6bb0" stroke="#fff" stroke-width="1.4"/>
+<text x="792.2" y="771.6" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(42.4 792.2 771.6)">Ruminococcus</text>
+<circle class="taxon" data-tip="Ruminococcus gnavus — protective | claims 2, papers 2 | stage: therapeutic | mech: Bile acids" cx="740.8" cy="799.4" r="8.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="748.9" y="810.1" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(52.9 748.9 810.1)">Ruminococcus gnavus</text>
+<circle class="taxon" data-tip="Enterococcus — exacerbative | claims 3, papers 3 | stage: therapeutic | mech: Mucus/barrier, Pathobiont" cx="693.7" cy="828.5" r="9.2" fill="#d1656a" stroke="#fff" stroke-width="1.4"/>
+<text x="700.0" y="841.2" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(63.5 700.0 841.2)">Enterococcus</text>
+<circle class="taxon" data-tip="Lactobacillus — conflicting | claims 5, papers 4 | stage: therapeutic | mech: Immune/antigen, Lactate, Other metabolite" cx="642.1" cy="848.5" r="10.4" fill="#8e6bb0" stroke="#fff" stroke-width="1.4"/>
+<text x="646.3" y="863.3" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(74.1 646.3 863.3)">Lactobacillus</text>
+<circle class="taxon" data-tip="Lactobacillus plantarum — protective | claims 1, papers 1 | stage: therapeutic | mech: Tryptophan/indole" cx="587.7" cy="858.7" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="588.8" y="871.1" font-size="8.4" fill="#2c2a27" text-anchor="start" transform="rotate(84.7 588.8 871.1)">Lactobacillus plantar.</text>
+<circle class="taxon" data-tip="Lactobacillus reuteri — protective | claims 1, papers 1 | stage: therapeutic | mech: Tryptophan/indole" cx="532.3" cy="858.7" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="531.2" y="871.1" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(-84.7 531.2 871.1)">Lactobacillus reuteri</text>
+<circle class="taxon" data-tip="Lactobacillus rhamnosus — protective | claims 2, papers 2 | stage: mechanism | mech: Translocation" cx="477.9" cy="848.5" r="8.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="474.2" y="861.4" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(-74.1 474.2 861.4)">Lactobacillus rhamnos.</text>
+<circle class="taxon" data-tip="Bifidobacterium — conflicting | claims 6, papers 4 | stage: therapeutic | mech: Immune/antigen, Lactate, Other metabolite, SCFA/butyrate" cx="426.3" cy="828.5" r="10.9" fill="#8e6bb0" stroke="#fff" stroke-width="1.4"/>
+<text x="419.2" y="842.8" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(-63.5 419.2 842.8)">Bifidobacterium</text>
+<circle class="taxon" data-tip="Eggerthella — protective | claims 1, papers 1 | stage: therapeutic | mech: Other metabolite" cx="379.2" cy="799.4" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="371.7" y="809.3" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(-52.9 371.7 809.3)">Eggerthella</text>
+<circle class="taxon" data-tip="Propionibacterium freudenreichii — protective | claims 2, papers 2 | stage: therapeutic | mech: SCFA/butyrate" cx="338.3" cy="762.1" r="8.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="328.4" y="771.1" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(-42.4 328.4 771.1)">Propionibacterium fre.</text>
+<circle class="taxon" data-tip="Akkermansia muciniphila — conflicting | claims 2, papers 2 | stage: therapeutic | mech: Mucus/barrier, Other metabolite" cx="304.9" cy="717.9" r="8.4" fill="#8e6bb0" stroke="#fff" stroke-width="1.4"/>
+<text x="293.5" y="725.0" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(-31.8 293.5 725.0)">Akkermansia muciniphi.</text>
+<circle class="taxon" data-tip="Bacteroides — conflicting | claims 8, papers 6 | stage: therapeutic | mech: Bile acids, Immune/antigen, Other metabolite" cx="280.3" cy="668.4" r="11.8" fill="#8e6bb0" stroke="#fff" stroke-width="1.4"/>
+<text x="264.6" y="674.4" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(-21.2 264.6 674.4)">Bacteroides</text>
+<circle class="taxon" data-tip="Bacteroides fragilis — protective | claims 1, papers 1 | stage: therapeutic | mech: Tryptophan/indole" cx="265.1" cy="615.1" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="252.9" y="617.4" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(-10.6 252.9 617.4)">Bacteroides fragilis</text>
+<circle class="taxon" data-tip="Bacteroides ovatus — protective | claims 1, papers 1 | stage: association | mech: Other metabolite" cx="260.0" cy="560.0" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="247.6" y="560.0" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(0.0 247.6 560.0)">Bacteroides ovatus</text>
+<circle class="taxon" data-tip="Bacteroides thetaiotaomicron — conflicting | claims 4, papers 4 | stage: therapeutic | mech: Immune/antigen, Mucus/barrier, SCFA/butyrate" cx="265.1" cy="504.9" r="9.8" fill="#8e6bb0" stroke="#fff" stroke-width="1.4"/>
+<text x="250.6" y="502.2" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(10.6 250.6 502.2)">Bacteroides thetaiota.</text>
+<circle class="taxon" data-tip="Prevotella — protective | claims 1, papers 1 | stage: therapeutic | mech: Other metabolite" cx="280.3" cy="451.6" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="268.7" y="447.1" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(21.2 268.7 447.1)">Prevotella</text>
+<circle class="taxon" data-tip="Escherichia — exacerbative | claims 3, papers 3 | stage: therapeutic | mech: Immune/antigen, Pathobiont" cx="304.9" cy="402.1" r="9.2" fill="#d1656a" stroke="#fff" stroke-width="1.4"/>
+<text x="292.9" y="394.6" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(31.8 292.9 394.6)">Escherichia</text>
+<circle class="taxon" data-tip="Salmonella — exacerbative | claims 2, papers 2 | stage: hypothesis | mech: Immune/antigen" cx="338.3" cy="357.9" r="8.4" fill="#d1656a" stroke="#fff" stroke-width="1.4"/>
+<text x="328.4" y="348.9" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(42.4 328.4 348.9)">Salmonella</text>
+<circle class="taxon" data-tip="Bile-acid producers (nonspecific) — exacerbative | claims 1, papers 1 | stage: association | mech: Bile acids" cx="379.2" cy="320.6" r="7.4" fill="#d1656a" stroke="#fff" stroke-width="1.4"/>
+<text x="371.7" y="310.7" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(52.9 371.7 310.7)">Bile-acid producers (.</text>
+<circle class="taxon" data-tip="Clostridium cluster XIVa (for example — protective | claims 1, papers 1 | stage: therapeutic | mech: Bile acids" cx="426.3" cy="291.5" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="420.8" y="280.4" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(63.5 420.8 280.4)">Clostridium cluster X.</text>
+<circle class="taxon" data-tip="Clostridium coccoides) — protective | claims 1, papers 1 | stage: therapeutic | mech: Bile acids" cx="477.9" cy="271.5" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="474.5" y="259.5" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(74.1 474.5 259.5)">Clostridium coccoides)</text>
+<circle class="taxon" data-tip="Clostridium leptum — protective | claims 1, papers 1 | stage: therapeutic | mech: Bile acids" cx="532.3" cy="261.3" r="7.4" fill="#3b7fc4" stroke="#fff" stroke-width="1.4"/>
+<text x="531.2" y="248.9" font-size="8.4" fill="#2c2a27" text-anchor="end" transform="rotate(84.7 531.2 248.9)">Clostridium leptum</text>
+</g>
+<g id="lyr-center">
+<circle cx="560" cy="560" r="80" fill="#faf9f6" stroke="#e6e1d8"/>
+<circle class="paper" data-tip="primary paper: BurgosDaSilva_2022" cx="560.0" cy="521.5" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: EileenHaring_2020" cx="578.6" cy="509.0" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Gorshein_2017" cx="605.0" cy="506.4" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Han_2024" cx="593.3" cy="540.8" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Hayase_2024" cx="613.4" cy="550.6" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Jarosch_2023" cx="628.9" cy="572.2" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Jenq_2015" cx="593.3" cy="579.2" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Landfried_2011" cx="594.9" cy="601.6" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Lindner_2024" cx="583.9" cy="625.8" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Michonneau_2019" cx="560.0" cy="598.5" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Payen_2020" cx="541.4" cy="611.0" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Schwabkey_2022" cx="515.0" cy="613.6" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Shono_2016" cx="526.7" cy="579.2" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Steck_2011" cx="506.6" cy="569.4" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Stein-Thoeringer_2019" cx="491.1" cy="547.8" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: ThieleOrberg_2024" cx="526.7" cy="540.8" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Weber_2015" cx="525.1" cy="518.4" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<circle class="paper" data-tip="primary paper: Zelante_2013" cx="536.1" cy="494.2" r="3.4" fill="#7d7566" stroke="#fff" stroke-width="0.8"/>
+<text x="560" y="558.0" font-size="10" fill="#8a8172" text-anchor="middle" font-weight="bold">18 primary</text>
+<text x="560" y="570.0" font-size="9" fill="#a39a8a" text-anchor="middle">source papers</text>
+</g></g></svg>
+<div id="hint">scroll = zoom · drag = pan</div>
+<div id="tip"></div>
+<div id="legend">
+<h4>Taxon direction</h4><div class="row"><span class="lg"><i style="background:#3b7fc4"></i>protective (↓GVHD)</span><span class="lg"><i style="background:#d1656a"></i>exacerbative (↑GVHD)</span><span class="lg"><i style="background:#8e6bb0"></i>conflicting</span></div>
+<h4>Mechanism</h4><div class="row"><span class="lg"><i style="background:#4a9d6a"></i>SCFA/butyrate</span><span class="lg"><i style="background:#d99a3c"></i>Bile acids</span><span class="lg"><i style="background:#3fa3a3"></i>Tryptophan/indole</span><span class="lg"><i style="background:#6a8fbf"></i>Lactate</span><span class="lg"><i style="background:#c56b8a"></i>Immune/antigen</span><span class="lg"><i style="background:#b07d3f"></i>Mucus/barrier</span><span class="lg"><i style="background:#9c5f5f"></i>Pathobiont</span></div>
+<h4>Reading</h4><div class="row" style="color:var(--muted)">node size ∝ # claims · outer bubbles size ∝ # taxa/studies · dashed = taxonomy link</div>
+</div></div></div>
+<script>
+const svg=document.getElementById('svg'),scene=document.getElementById('scene'),tip=document.getElementById('tip');
+let vb={x:-40,y:-30,w:1200,h:1260}, drag=null;
+function apply(){svg.setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`);}
+svg.addEventListener('wheel',e=>{e.preventDefault();const r=svg.getBoundingClientRect();
+ const mx=vb.x+(e.clientX-r.left)/r.width*vb.w, my=vb.y+(e.clientY-r.top)/r.height*vb.h;
+ const f=e.deltaY<0?0.87:1.15; vb.w=Math.min(2200,Math.max(240,vb.w*f)); vb.h=vb.w;
+ vb.x=mx-(e.clientX-r.left)/r.width*vb.w; vb.y=my-(e.clientY-r.top)/r.height*vb.h; apply();},{passive:false});
+svg.addEventListener('mousedown',e=>{drag={x:e.clientX,y:e.clientY};svg.classList.add('drag');});
+window.addEventListener('mouseup',()=>{drag=null;svg.classList.remove('drag');});
+window.addEventListener('mousemove',e=>{
+ if(drag){const r=svg.getBoundingClientRect();vb.x-=(e.clientX-drag.x)/r.width*vb.w;vb.y-=(e.clientY-drag.y)/r.height*vb.h;drag={x:e.clientX,y:e.clientY};apply();}
+});
+scene.addEventListener('mousemove',e=>{const t=e.target.getAttribute&&e.target.getAttribute('data-tip');
+ if(t){tip.style.display='block';tip.textContent=t;tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY+12)+'px';}else{tip.style.display='none';}});
+scene.addEventListener('mouseleave',()=>tip.style.display='none');
+for(const[id,lyr] of [['t-paper','lyr-paper'],['t-tax','lyr-tax'],['t-mech','lyr-mech'],['t-stage','lyr-stage']]){
+ document.getElementById(id).addEventListener('change',e=>{document.getElementById(lyr).style.display=e.target.checked?'':'none';});}
+</script></body></html>

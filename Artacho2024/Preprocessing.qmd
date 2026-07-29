@@ -1,0 +1,25 @@
+---
+title: "Preprocessing Artacho2024"
+format: html
+editor: visual
+---
+
+# Reference
+
+-   Full citation: Artacho, A., Gonz√°lez-Torres, C., G√≥mez-Cebri√°n, N., Moles-Poveda, P., Pons, J., Jim√©nez, N., Casanova, M.J., Montoro, J., Balaguer, A., Villalba, M., Chor√£o, P., Puchades-Carrasco, L., Sanz, J., Ubeda, C., 2024. Multimodal analysis identifies microbiome changes linked to stem cell transplantation-associated diseases. Microbiome 12, 229. https://doi.org/10.1186/s40168-024-01948-0
+
+-   Bioproject: PRJNA1088414
+
+# Relevant methods
+
+-   The V3-V4 region of the 16s [rRNA gene](https://www.sciencedirect.com/topics/immunology-and-microbiology/rna-gene) was amplified (Kapa HiFi HotStart Ready Mix), indexed with Nextera® XT Index Kit (96 indexes, 384 samples) and sequenced as described in the manual for “16S [Metagenomic](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/metagenomics) Sequencing Library Preparation” of the MiSeq platform (Illumina) using Miseq Reagent Kit V3.
+
+    [16S rRNA](https://www.sciencedirect.com/topics/pharmacology-toxicology-and-pharmaceutical-science/rna-16s) sequences were denoised and processed with DADA2 v1.8 ([Callahan et al., 2016](https://www.sciencedirect.com/science/article/pii/S2211124722003096?via%3Dihub#bib8)). Prior to denoising, as recommended in the DADA2 pipeline tutorial, the 3′ ends of the forward and reverse pair-end sequences (35 and 75 nucleotides, respectively), which contained lower quality nucleotides, were removed from each sequence. The first nucleotides (17 in the forward read and 21 in the reverse read) were also trimmed to remove the v3-v4 primers. Sequences containing undetermined nucleotides (N) were discarded. After denoising, the forward and reverse pair-end sequences were merged together, with a minimum overlapping region of 15 bases and a maximum of 1 mismatch. DADA2 and the command removeBimeraDenovo were subsequently applied to remove chimeras. Taxonomy was assigned for each [amplicon](https://www.sciencedirect.com/topics/neuroscience/amplicon) sequence variant (ASV) using the Silva 138 database ([eQuast et al., 2013](https://www.sciencedirect.com/science/article/pii/S2211124722003096?via%3Dihub#bib76)) as reference and the naive Bayesian classifier implemented in DADA2.
+
+# Software versions
+
+# Data access
+
+-   meta_samples downloaded from bioproject (July 29, 2026)
+
+-   meta_clinical downloaded from manuscript website (July 29, 2026)

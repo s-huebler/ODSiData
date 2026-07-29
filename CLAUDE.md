@@ -56,17 +56,6 @@ Application of bhCRR to the harmonized ODSiData cohort.
 - Project 2 commits: "feat/fix/docs/test: brief description"
 - Always run devtools::check() before pushing bhCRR
 
-## Logging Confirmation
-Never auto-write a log (session log, lab notebook entry, AI-assisted lit review log,
-or any similar record). Instead, when a log would normally be written:
-1. Propose a recommended logging status (e.g., "FULL log recommended — screening batch",
-   "BRIEF log recommended", or "No log needed") with a one-line justification.
-2. Ask the user to accept, reject, or defer the recommendation before writing anything.
-3. Accept user-supplied notes that indicate the log should not be written until a
-   specific decision is finalized (e.g., "defer until eligibility criteria are locked").
-   Record the deferral reason in the scratch stub rather than the log file.
-4. Only write the log file after explicit user acceptance.
-
 ## LaTeX Compilation — Overfull Errors
 When compiling manuscripts (Overleaf sync, local `pdflatex`/`latexmk`, etc.):
 - On the **first compile**, do not iteratively chase overfull hbox/vbox warnings.

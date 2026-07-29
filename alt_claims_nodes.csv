@@ -1,0 +1,112 @@
+Id,Label,node_type,valence,subject,subject_rank,subject_group,paper_role,doi,n_primary_cited,n_claims_supported,n_primaries_supporting,in_degree,out_degree
+CLAIM_1,Polysaccharide A reduces GVHD,claim,favourable,Polysaccharide A (Bacteroides fragilis),metabolite,bacterial_product,,,,,5,5,0
+CLAIM_2,SCFAs reduce GVHD,claim,favourable,SCFAs,metabolite,SCFA,,,,,9,9,0
+CLAIM_3,Clostridia reduce GVHD,claim,favourable,Clostridia,class,Clostridia,,,,,7,7,0
+CLAIM_4,Faecalibacterium prausnitzii reduces GVHD,claim,favourable,Faecalibacterium prausnitzii,species,Faecalibacterium,,,,,3,3,0
+CLAIM_5,Bifidobacterium reduces GVHD,claim,favourable,Bifidobacterium,genus,Bifidobacterium,,,,,4,4,0
+CLAIM_6,Lactobacillus reduces GVHD,claim,favourable,Lactobacillus,genus,Lactobacillus,,,,,2,2,0
+CLAIM_7,Indole-3-aldehyde reduces GVHD,claim,favourable,Indole-3-aldehyde (IAld),metabolite,tryptophan,,,,,1,1,0
+CLAIM_8,Bacteroides thetaiotaomicron exacerbates GVHD,claim,unfavourable,Bacteroides thetaiotaomicron,species,Bacteroides,,,,,1,1,0
+CLAIM_9,Clostridium scindens reduces GVHD,claim,favourable,Clostridium scindens,species,Clostridia,,,,,2,2,0
+CLAIM_10,Enterococcus exacerbates GVHD,claim,unfavourable,Enterococcus,genus,Enterococcus,,,,,6,6,0
+CLAIM_11,Clostridiales reduce GVHD,claim,favourable,Clostridiales,order,Clostridia,,,,,3,3,0
+CLAIM_12,Lactobacillus exacerbates GVHD,claim,unfavourable,Lactobacillus,genus,Lactobacillus,,,,,1,1,0
+CLAIM_13,Akkermansia reduces GVHD,claim,favourable,Akkermansia,genus,Akkermansia,,,,,2,2,0
+CLAIM_14,Akkermansia muciniphila reduces GVHD,claim,favourable,Akkermansia muciniphila,species,Akkermansia,,,,,1,1,0
+CLAIM_15,Bacillus reduces GVHD,claim,favourable,Bacillus,genus,Bacillus,,,,,1,1,0
+CLAIM_16,Bacteroides fragilis reduces GVHD,claim,favourable,Bacteroides fragilis,species,Bacteroides,,,,,5,5,0
+CLAIM_17,Bacteroides ovatus reduces GVHD,claim,favourable,Bacteroides ovatus,species,Bacteroides,,,,,1,1,0
+CLAIM_18,Blautia reduces GVHD,claim,favourable,Blautia,genus,Blautia,,,,,8,8,0
+CLAIM_19,Clostridium butyricum reduces GVHD,claim,favourable,Clostridium butyricum,species,Clostridia,,,,,1,1,0
+CLAIM_20,Coriobacteriaceae reduce GVHD,claim,favourable,Coriobacteriaceae,family,Coriobacteriaceae,,,,,1,1,0
+CLAIM_21,Faecalibacterium duncaniae reduces GVHD,claim,favourable,Faecalibacterium duncaniae,species,Faecalibacterium,,,,,6,6,0
+CLAIM_22,Faecalibacterium reduces GVHD,claim,favourable,Faecalibacterium,genus,Faecalibacterium,,,,,2,2,0
+CLAIM_23,Lachnospiraceae reduce GVHD,claim,favourable,Lachnospiraceae,family,Lachnospiraceae,,,,,3,3,0
+CLAIM_24,Ruminococcaceae reduce GVHD,claim,favourable,Ruminococcaceae,family,Ruminococcaceae,,,,,4,4,0
+CLAIM_25,Veillonella reduces GVHD,claim,favourable,Veillonella,genus,Veillonella,,,,,2,2,0
+CLAIM_26,Lactate-producing bacteria reduce GVHD,claim,favourable,Lactate-producing bacteria,community,functional_group,,,,,2,2,0
+CLAIM_27,Gentamicin-resistant bacteria reduce GVHD,claim,favourable,Gentamicin-resistant bacteria,community,functional_group,,,,,1,1,0
+CLAIM_28,Vancomycin-resistant bacteria reduce GVHD,claim,favourable,Vancomycin-resistant bacteria,community,functional_group,,,,,1,1,0
+CLAIM_29,Higher gut microbiome diversity reduces GVHD,claim,favourable,Higher gut microbiome diversity,community,diversity,,,,,8,8,0
+CLAIM_30,Higher pre-HSCT beta-diversity is associated with intestinal GVHD,claim,context,Higher pre-HSCT beta-diversity,community,diversity,,,,,1,1,0
+CLAIM_31,Anaerostipes reduces GVHD,claim,favourable,Anaerostipes,genus,Lachnospiraceae,,,,,1,1,0
+CLAIM_32,Lachnoclostridium reduces GVHD,claim,favourable,Lachnoclostridium,genus,Lachnospiraceae,,,,,2,2,0
+CLAIM_33,Butyrate-producing bacteria reduce GVHD,claim,favourable,Butyrate-producing bacteria,community,functional_group,,,,,1,1,0
+CLAIM_34,Akkermansia exacerbates GVHD,claim,unfavourable,Akkermansia,genus,Akkermansia,,,,,1,1,0
+CLAIM_35,Lactobacillales exacerbates GVHD,claim,unfavourable,Lactobacillales,order,Lactobacillales,,,,,1,1,0
+CLAIM_36,Tryptophan-derived metabolites reduce GVHD,claim,favourable,Tryptophan-derived metabolites,metabolite,tryptophan,,,,,1,1,0
+CLAIM_37,Phenylacetic acid reduces GVHD,claim,favourable,Phenylacetic acid,metabolite,other_metabolite,,,,,1,1,0
+CLAIM_38,Secondary bile acids reduce GVHD,claim,favourable,Secondary bile acids,metabolite,bile_acid,,,,,3,3,0
+CLAIM_39,Dysbiosis exacerbates GVHD,claim,unfavourable,Dysbiosis,community,community,,,,,3,3,0
+CLAIM_40,Streptococcus exacerbates GVHD,claim,unfavourable,Streptococcus,genus,Streptococcus,,,,,1,1,0
+Alameddine_2019,Alameddine_2019,paper,,,,,primary,10.3389/fimmu.2019.00143,,1,,1,1
+Andrlová_2022,Andrlová_2022,paper,,,,,primary,10.1126/scitranslmed.abj2829,,1,,3,1
+Artacho_2024,Artacho_2024,paper,,,,,primary,10.1186/s40168-024-01948-0,,1,,3,1
+Atarashi_2011,Atarashi_2011,paper,,,,,primary,10.1126/science.1198469,,4,,7,4
+Beckman_2021,Beckman_2021,paper,,,,,primary,10.1007/s00520-020-05821-2,,1,,1,1
+Biagi_2019,Biagi_2019,paper,,,,,primary,10.1186/s12920-019-0494-7,,1,,1,1
+Biennier_2024,Biennier_2024,paper,,,,,primary,10.3390/microorganisms12112256,,2,,4,2
+Biliński_2022,Biliński_2022,paper,,,,,primary,10.3390/biomedicines10040837,,2,,4,2
+BurgosdaSilva_2022,BurgosdaSilva_2022,paper,,,,,primary,10.1182/blood.2021015352,,1,,3,1
+Chi_2023,Chi_2023,paper,,,,,primary,10.1155/2023/3532756,,2,,4,2
+Devaux_2020,Devaux_2020,paper,,,,,primary,10.3389/fmicb.2020.01642,,5,,9,5
+Duncan_2002,Duncan_2002,paper,,,,,primary,10.1128/AEM.68.10.5186-5190.2002,,1,,1,1
+Eriguchi_2012,Eriguchi_2012,paper,,,,,primary,10.1182/blood-2011-12-401166,,2,,4,2
+Faraci_2024,Faraci_2024,paper,,,,,primary,10.1038/s41598-024-55690-6,,2,,4,2
+Farhadfar_2021,Farhadfar_2021,paper,,,,,primary,10.1016/j.hemonc.2021.03.004,,1,,1,1
+Fujiwara_2021,Fujiwara_2021,paper,,,,,primary,10.3389/fimmu.2021.703298,,1,,1,1
+Fukushima_2024,Fukushima_2024,paper,,,,,primary,10.1038/s41409-024-02250-1,,1,,1,1
+Galloway-Peña_2019,Galloway-Peña_2019,paper,,,,,primary,10.1093/ofid/ofz173,,1,,2,1
+Gavriilaki_2024,Gavriilaki_2024,paper,,,,,primary,10.3390/ijms25115789,,2,,4,2
+Godefroy_2024,Godefroy_2024,paper,,,,,primary,10.1172/jci.insight.179458,,1,,1,1
+Godefroy_2025,Godefroy_2025,paper,,,,,review,,33,,,0,50
+Golob_2017,Golob_2017,paper,,,,,primary,10.1093/cid/cix699,,2,,3,2
+Golob_2019,Golob_2019,paper,,,,,primary,10.1182/bloodadvances.2019000362,,1,,3,1
+Han_2018,Han_2018,paper,,,,,primary,10.3389/fimmu.2018.00669,,1,,3,1
+Han_2024,Han_2024,paper,,,,,primary,10.1186/s12967-024-05577-x,,1,,1,1
+Hayase_2024,Hayase_2024,paper,,,,,primary,10.1016/j.chom.2024.08.004,,1,,2,1
+Heimesaat_2010,Heimesaat_2010,paper,,,,,primary,10.1136/gut.2009.197434,,2,,3,2
+Henig_2021,Henig_2021,paper,,,,,primary,10.3324/haematol.2020.247395,,1,,2,1
+Henrick_2021,Henrick_2021,paper,,,,,primary,10.1016/j.cell.2021.05.030,,1,,2,1
+Hsu_2026,Hsu_2026,paper,,,,,review,,9,,,0,9
+Ilett_2020,Ilett_2020,paper,,,,,primary,10.1182/bloodadvances.2020002677,,2,,4,2
+Jarosch_20,Jarosch_20,paper,,,,,primary,10.1016/j.xcrm.2023.101125,,4,,7,4
+Jenq_2012,Jenq_2012,paper,,,,,primary,10.1084/jem.20112408,,1,,2,1
+Jenq_2015,Jenq_2015,paper,,,,,primary,10.1016/j.bbmt.2015.04.016,,2,,5,2
+Junior_2025,Junior_2025,paper,,,,,review,,30,,,0,38
+Kaźmierczak-Siedlecka_2021,Kaźmierczak-Siedlecka_2021,paper,,,,,primary,10.3390/cancers13184665,,1,,1,1
+Khuat_2021,Khuat_2021,paper,,,,,primary,10.1080/19490976.2021.1966262,,1,,4,1
+Kimura_2020,Kimura_2020,paper,,,,,primary,10.1126/science.aaw8429,,1,,1,1
+Kiriyama&Nochi_2023,Kiriyama&Nochi_2023,paper,,,,,primary,10.3390/microorganisms11112730,,1,,1,1
+Kouidhi_2021,Kouidhi_2021,paper,,,,,primary,10.3390/microorganisms9091845,,6,,10,6
+Koyama_2023,Koyama_2023,paper,,,,,primary,10.1016/j.immuni.2023.06.024,,2,,2,2
+Kreisman&Cobb_2011,Kreisman&Cobb_2011,paper,,,,,primary,10.1074/jbc.M110.206011,,1,,2,1
+Laursen_2021,Laursen_2021,paper,,,,,primary,10.1038/s41564-021-00970-4,,1,,2,1
+Mancini_2017,Mancini_2017,paper,,,,,primary,10.1093/ofid/ofx215,,1,,2,1
+Masetti_2023,Masetti_2023,paper,,,,,primary,10.1182/blood.2023020026,,1,,2,1
+Mathewson_2016,Mathewson_2016,paper,,,,,primary,10.1038/ni.3400,,1,,3,1
+Meedt_2022,Meedt_2022,paper,,,,,primary,10.1093/cid/ciab500,,1,,1,1
+Michonneau_2019,Michonneau_2019,paper,,,,,primary,10.1038/s41467-019-13498-3,,1,,2,1
+Paredes_2026,Paredes_2026,paper,,,,,review,,28,,,0,32
+Payen_2020,Payen_2020,paper,,,,,primary,10.1182/bloodadvances.2020001531,,6,,13,6
+Peled_2020,Peled_2020,paper,,,,,primary,10.1056/NEJMoa1900623,,3,,7,3
+Portincasa_2022,Portincasa_2022,paper,,,,,primary,10.3390/ijms23031105,,2,,4,2
+Quévrain_2016,Quévrain_2016,paper,,,,,primary,10.1136/gutjnl-2014-307649,,1,,1,1
+Raoufi_2025,Raoufi_2025,paper,,,,,primary,10.1007/s10238-025-01588-0,,1,,1,1
+Romick-Rosendale_2018,Romick-Rosendale_2018,paper,,,,,primary,10.1016/j.bbmt.2018.07.030,,1,,3,1
+Rooks&Garrett_2016,Rooks&Garrett_2016,paper,,,,,primary,10.1038/nri.2016.42,,2,,4,2
+Samarkhazan_2025,Samarkhazan_2025,paper,,,,,review,,35,,,0,44
+Shono_2016,Shono_2016,paper,,,,,primary,10.1126/scitranslmed.aaf2311,,2,,2,2
+Sofi_2021,Sofi_2021,paper,,,,,primary,10.1172/jci.insight.136841,,1,,2,1
+Stein-Thoeringer_2019,Stein-Thoeringer_2019,paper,,,,,primary,10.1126/science.aax3760,,1,,4,1
+SteinThoeringer_2019,SteinThoeringer_2019,paper,,,,,primary,10.1126/science.aax3760,,1,,4,1
+Takahashi_2020,Takahashi_2020,paper,,,,,primary,10.1016/j.ebiom.2020.102913,,2,,4,2
+Taur_2012,Taur_2012,paper,,,,,primary,10.1093/cid/cis580,,1,,4,1
+Taur_2014,Taur_2014,paper,,,,,primary,10.1182/blood-2014-02-554725,,1,,2,1
+Telesford_2015,Telesford_2015,paper,,,,,primary,10.1080/19490976.2015.1056973,,4,,7,4
+ThieleOrberg_2024,ThieleOrberg_2024,paper,,,,,primary,10.1038/s43018-023-00669-x,,1,,2,1
+Ubeda_2010,Ubeda_2010,paper,,,,,primary,10.1172/JCI43918,,1,,4,1
+Vital_2014,Vital_2014,paper,,,,,primary,10.1128/mBio.00889-14,,4,,5,4
+Weber_2015,Weber_2015,paper,,,,,primary,10.1182/blood-2015-04-638858,,2,,3,2
+Weber_2026,Weber_2026,paper,,,,,review,,22,,,0,33
+Yue_2024,Yue_2024,paper,,,,,primary,10.1002/cam4.6799,,1,,1,1

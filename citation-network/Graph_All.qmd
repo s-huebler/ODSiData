@@ -1,0 +1,167 @@
+---
+title: "Graph"
+format: html
+editor: visual
+---
+
+# Set Up
+
+```{r}
+library(tidyverse)
+library(ggraph)
+```
+
+```{r}
+load("~/Documents/ODSi/ODSiData/citation-network/Full_Network/ref_dictionary.Rdata")
+load("~/Documents/ODSi/ODSiData/citation-network/Full_Network/citing_dictionary.Rdata")
+```
+
+# Graphing
+
+```{r}
+
+plot_citation_network <- function(citing_dictionary, 
+                                  min_cited_indegree = 5, 
+                                  min_citing_indegree = 1) {
+  
+  # 1. Filter out missing DOIs
+  df_filtered <- citing_dictionary %>% filter(!is.na(ref_id))
+  
+  # 2. Extract ALL edges and classify them
+  citing_ids <- unique(df_filtered$citing_id)
+  
+  edges <- df_filtered %>%
+    select(from = citing_id, to = ref_id) %>%
+    mutate(edge_type = if_else(to %in% citing_ids, "internal", "bipartite"))
+  
+  # 3. Calculate how many citations each cited DOI receives
+  citation_counts <- edges %>%
+    count(to, name = "in_degree")
+  
+  # 4. Build the node list
+  all_nodes <- unique(c(edges$from, edges$to))
+  
+  label_dict <- df_filtered %>%
+    select(id = citing_id, label = citing_bibtex) %>%
+    bind_rows(
+      df_filtered %>% select(id = ref_id, label = ref_bibtex)
+    ) %>%
+    distinct(id, .keep_all = TRUE)
+  
+  # Local seed to ensure consistent layouts without altering the global environment
+  withr::local_seed(42) 
+  
+  nodes <- tibble(name = all_nodes) %>%
+    left_join(label_dict, by = c("name" = "id")) %>%
+    left_join(citation_counts, by = c("name" = "to")) %>%
+    mutate(
+      in_degree = replace_na(in_degree, 0),
+      node_type = if_else(name %in% citing_ids, "citing", "cited"),
+      
+      # Opacity logic
+      node_alpha = case_when(
+        node_type == "citing" ~ 1.0,
+        in_degree >= min_cited_indegree ~ 0.85,
+        TRUE ~ 0.2
+      ),
+      
+      x = if_else(
+        node_type == "citing", 
+        0, 
+        2.0 + (in_degree / max(in_degree)) * 0.6 + runif(n(), -0.03, 0.03)
+      ),
+      
+      year = as.numeric(str_extract(label, "\\d{4}"))
+    ) %>%
+    mutate(year = replace_na(year, median(year, na.rm = TRUE))) %>%
+    group_by(node_type) %>%
+    arrange(desc(year), label) %>%
+    mutate(
+      y_raw = row_number() / n(),
+      y = if_else(node_type == "citing", y_raw, y_raw + runif(n(), -0.02, 0.02))
+    ) %>%
+    ungroup()
+  
+  # 5. Build the tidygraph object
+  citation_graph <- tbl_graph(nodes = nodes, edges = edges, directed = TRUE)
+  
+  # 6. Plot the graph
+  p <- ggraph(citation_graph, layout = "manual", x = x, y = y) +
+    
+    # A. Bipartite edges (Made much thinner)
+    geom_edge_link(
+      aes(filter = edge_type == "bipartite"),
+      alpha = 0.15, 
+      color = "gray70",
+      edge_width = 0.1, # <--- Reduced thickness for less overlap
+      arrow = arrow(length = unit(1.0, 'mm'), type = "closed"), # <--- Slightly smaller arrowhead
+      end_cap = circle(2, 'mm')
+    ) +
+    
+    # B. Internal edges 
+    geom_edge_arc(
+      aes(filter = edge_type == "internal"),
+      color = "darkorchid", 
+      edge_width = 0.8,
+      alpha = 0.8,
+      strength = 0.7, 
+      arrow = arrow(length = unit(2, 'mm'), type = "closed"),
+      start_cap = circle(4, 'mm'), 
+      end_cap = circle(5, 'mm')    
+    ) +
+    
+    # C. Cited DOIs (Right side) - Points & Labels
+    geom_node_point(
+      aes(filter = node_type == "cited", size = in_degree, color = in_degree, alpha = node_alpha)
+    ) +
+    geom_node_text(
+      aes(filter = node_type == "cited" & in_degree >= min_cited_indegree, label = label),
+      repel = TRUE,
+      size = 3.5,
+      color = "black",
+      bg.color = "white",
+      bg.r = 0.15
+    ) +
+    
+    # D. Citing DOIs (Left side) - Points & Labels
+    geom_node_point(
+      aes(filter = node_type == "citing"),
+      size = 2,
+      color = "black"
+    ) +
+    geom_node_text(
+      aes(filter = node_type == "citing" & in_degree >= min_citing_indegree, label = label),
+      repel = TRUE, # Applies the same clean avoidance algorithm as the right side
+      size = 3,
+      color = "black",
+      bg.color = "white",
+      bg.r = 0.15
+    ) +
+    
+    scale_color_gradientn(colors = c("dodgerblue", "cyan", "gold", "firebrick")) +
+    scale_alpha_identity() +
+    scale_size_continuous(range = c(2, 10)) +
+    
+    # Expanded left margin slightly to accommodate the new repelled labels on the citing side
+    scale_x_continuous(expand = expansion(mult = c(0.4, 0.4))) +
+    
+    theme_void() +
+    theme(legend.position = "none")
+  
+  return(p)
+}
+```
+
+```{r}
+plot_citation_network(citing_dictionary = citing_dictionary,
+                      min_cited_indegree = 25,
+                      min_citing_indegree = 5)
+```
+
+```{r}
+plot_citation_network(citing_dictionary = citing_dictionary%>%
+                        filter(citing_id %in% claims_reduced$citing_id &
+                                 ref_id %in% claims_reduced$ref_id),
+                      min_cited_indegree = 2,
+                      min_citing_indegree = 0)
+```

@@ -1,0 +1,7 @@
+pdfs/*.pdf
+grobid_out/*.xml
+db/*.sqlite
+db/*.sqlite-journal
+claims_review.xlsx
+__pycache__/
+*.pyc

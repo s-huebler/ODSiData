@@ -1,0 +1,168 @@
+Source,Target,Type,edge_type,valence,weight,claim_id,claim_label
+Samarkhazan_2025,CLAIM_1,Directed,ASSERTS,favourable,5,1,Polysaccharide A reduces GVHD
+Samarkhazan_2025,CLAIM_2,Directed,ASSERTS,favourable,5,2,SCFAs reduce GVHD
+Samarkhazan_2025,CLAIM_3,Directed,ASSERTS,favourable,3,3,Clostridia reduce GVHD
+Samarkhazan_2025,CLAIM_4,Directed,ASSERTS,favourable,3,4,Faecalibacterium prausnitzii reduces GVHD
+Samarkhazan_2025,CLAIM_5,Directed,ASSERTS,favourable,3,5,Bifidobacterium reduces GVHD
+Samarkhazan_2025,CLAIM_6,Directed,ASSERTS,favourable,1,6,Lactobacillus reduces GVHD
+Samarkhazan_2025,CLAIM_7,Directed,ASSERTS,favourable,1,7,Indole-3-aldehyde reduces GVHD
+Samarkhazan_2025,CLAIM_8,Directed,ASSERTS,unfavourable,1,8,Bacteroides thetaiotaomicron exacerbates GVHD
+Samarkhazan_2025,CLAIM_9,Directed,ASSERTS,favourable,2,9,Clostridium scindens reduces GVHD
+Samarkhazan_2025,CLAIM_10,Directed,ASSERTS,unfavourable,1,10,Enterococcus exacerbates GVHD
+Samarkhazan_2025,CLAIM_11,Directed,ASSERTS,favourable,1,11,Clostridiales reduce GVHD
+Samarkhazan_2025,CLAIM_12,Directed,ASSERTS,unfavourable,1,12,Lactobacillus exacerbates GVHD
+Godefroy_2025,CLAIM_13,Directed,ASSERTS,favourable,2,13,Akkermansia reduces GVHD
+Godefroy_2025,CLAIM_14,Directed,ASSERTS,favourable,1,14,Akkermansia muciniphila reduces GVHD
+Godefroy_2025,CLAIM_15,Directed,ASSERTS,favourable,1,15,Bacillus reduces GVHD
+Godefroy_2025,CLAIM_16,Directed,ASSERTS,favourable,2,16,Bacteroides fragilis reduces GVHD
+Godefroy_2025,CLAIM_17,Directed,ASSERTS,favourable,1,17,Bacteroides ovatus reduces GVHD
+Godefroy_2025,CLAIM_5,Directed,ASSERTS,favourable,1,5,Bifidobacterium reduces GVHD
+Godefroy_2025,CLAIM_18,Directed,ASSERTS,favourable,6,18,Blautia reduces GVHD
+Godefroy_2025,CLAIM_11,Directed,ASSERTS,favourable,2,11,Clostridiales reduce GVHD
+Godefroy_2025,CLAIM_19,Directed,ASSERTS,favourable,1,19,Clostridium butyricum reduces GVHD
+Godefroy_2025,CLAIM_20,Directed,ASSERTS,favourable,1,20,Coriobacteriaceae reduce GVHD
+Godefroy_2025,CLAIM_21,Directed,ASSERTS,favourable,6,21,Faecalibacterium duncaniae reduces GVHD
+Godefroy_2025,CLAIM_22,Directed,ASSERTS,favourable,1,22,Faecalibacterium reduces GVHD
+Godefroy_2025,CLAIM_23,Directed,ASSERTS,favourable,3,23,Lachnospiraceae reduce GVHD
+Godefroy_2025,CLAIM_6,Directed,ASSERTS,favourable,1,6,Lactobacillus reduces GVHD
+Godefroy_2025,CLAIM_24,Directed,ASSERTS,favourable,3,24,Ruminococcaceae reduce GVHD
+Godefroy_2025,CLAIM_25,Directed,ASSERTS,favourable,2,25,Veillonella reduces GVHD
+Godefroy_2025,CLAIM_26,Directed,ASSERTS,favourable,2,26,Lactate-producing bacteria reduce GVHD
+Godefroy_2025,CLAIM_27,Directed,ASSERTS,favourable,1,27,Gentamicin-resistant bacteria reduce GVHD
+Godefroy_2025,CLAIM_28,Directed,ASSERTS,favourable,1,28,Vancomycin-resistant bacteria reduce GVHD
+Junior_2025,CLAIM_29,Directed,ASSERTS,favourable,7,29,Higher gut microbiome diversity reduces GVHD
+Junior_2025,CLAIM_30,Directed,ASSERTS,context,1,30,Higher pre-HSCT beta-diversity is associated with intestinal GVHD
+Junior_2025,CLAIM_18,Directed,ASSERTS,favourable,2,18,Blautia reduces GVHD
+Junior_2025,CLAIM_31,Directed,ASSERTS,favourable,1,31,Anaerostipes reduces GVHD
+Junior_2025,CLAIM_22,Directed,ASSERTS,favourable,1,22,Faecalibacterium reduces GVHD
+Junior_2025,CLAIM_32,Directed,ASSERTS,favourable,1,32,Lachnoclostridium reduces GVHD
+Junior_2025,CLAIM_2,Directed,ASSERTS,favourable,3,2,SCFAs reduce GVHD
+Junior_2025,CLAIM_33,Directed,ASSERTS,favourable,1,33,Butyrate-producing bacteria reduce GVHD
+Junior_2025,CLAIM_10,Directed,ASSERTS,unfavourable,1,10,Enterococcus exacerbates GVHD
+Paredes_2026,CLAIM_17,Directed,ASSERTS,favourable,1,17,Bacteroides ovatus reduces GVHD
+Paredes_2026,CLAIM_34,Directed,ASSERTS,unfavourable,1,34,Akkermansia exacerbates GVHD
+Paredes_2026,CLAIM_35,Directed,ASSERTS,unfavourable,1,35,Lactobacillales exacerbates GVHD
+Paredes_2026,CLAIM_10,Directed,ASSERTS,unfavourable,4,10,Enterococcus exacerbates GVHD
+Paredes_2026,CLAIM_18,Directed,ASSERTS,favourable,2,18,Blautia reduces GVHD
+Paredes_2026,CLAIM_32,Directed,ASSERTS,favourable,1,32,Lachnoclostridium reduces GVHD
+Paredes_2026,CLAIM_24,Directed,ASSERTS,favourable,1,24,Ruminococcaceae reduce GVHD
+Paredes_2026,CLAIM_3,Directed,ASSERTS,favourable,1,3,Clostridia reduce GVHD
+Paredes_2026,CLAIM_36,Directed,ASSERTS,favourable,1,36,Tryptophan-derived metabolites reduce GVHD
+Paredes_2026,CLAIM_37,Directed,ASSERTS,favourable,1,37,Phenylacetic acid reduces GVHD
+Hsu_2026,CLAIM_2,Directed,ASSERTS,favourable,1,2,SCFAs reduce GVHD
+Weber_2026,CLAIM_3,Directed,ASSERTS,favourable,3,3,Clostridia reduce GVHD
+Weber_2026,CLAIM_16,Directed,ASSERTS,favourable,3,16,Bacteroides fragilis reduces GVHD
+Weber_2026,CLAIM_38,Directed,ASSERTS,favourable,3,38,Secondary bile acids reduce GVHD
+Weber_2026,CLAIM_39,Directed,ASSERTS,unfavourable,3,39,Dysbiosis exacerbates GVHD
+Weber_2026,CLAIM_29,Directed,ASSERTS,favourable,1,29,Higher gut microbiome diversity reduces GVHD
+Weber_2026,CLAIM_10,Directed,ASSERTS,unfavourable,1,10,Enterococcus exacerbates GVHD
+Weber_2026,CLAIM_40,Directed,ASSERTS,unfavourable,1,40,Streptococcus exacerbates GVHD
+CLAIM_1,Biennier_2024,Directed,EVIDENCE_FROM,favourable,1,1,Polysaccharide A reduces GVHD
+CLAIM_1,Faraci_2024,Directed,EVIDENCE_FROM,favourable,1,1,Polysaccharide A reduces GVHD
+CLAIM_1,Portincasa_2022,Directed,EVIDENCE_FROM,favourable,1,1,Polysaccharide A reduces GVHD
+CLAIM_1,Chi_2023,Directed,EVIDENCE_FROM,favourable,1,1,Polysaccharide A reduces GVHD
+CLAIM_1,Rooks&Garrett_2016,Directed,EVIDENCE_FROM,favourable,1,1,Polysaccharide A reduces GVHD
+CLAIM_2,Biennier_2024,Directed,EVIDENCE_FROM,favourable,1,2,SCFAs reduce GVHD
+CLAIM_2,Faraci_2024,Directed,EVIDENCE_FROM,favourable,1,2,SCFAs reduce GVHD
+CLAIM_2,Portincasa_2022,Directed,EVIDENCE_FROM,favourable,1,2,SCFAs reduce GVHD
+CLAIM_2,Chi_2023,Directed,EVIDENCE_FROM,favourable,1,2,SCFAs reduce GVHD
+CLAIM_2,Rooks&Garrett_2016,Directed,EVIDENCE_FROM,favourable,1,2,SCFAs reduce GVHD
+CLAIM_3,Takahashi_2020,Directed,EVIDENCE_FROM,favourable,1,3,Clostridia reduce GVHD
+CLAIM_3,Biliński_2022,Directed,EVIDENCE_FROM,favourable,1,3,Clostridia reduce GVHD
+CLAIM_3,Gavriilaki_2024,Directed,EVIDENCE_FROM,favourable,1,3,Clostridia reduce GVHD
+CLAIM_4,Takahashi_2020,Directed,EVIDENCE_FROM,favourable,1,4,Faecalibacterium prausnitzii reduces GVHD
+CLAIM_4,Biliński_2022,Directed,EVIDENCE_FROM,favourable,1,4,Faecalibacterium prausnitzii reduces GVHD
+CLAIM_4,Gavriilaki_2024,Directed,EVIDENCE_FROM,favourable,1,4,Faecalibacterium prausnitzii reduces GVHD
+CLAIM_5,Eriguchi_2012,Directed,EVIDENCE_FROM,favourable,1,5,Bifidobacterium reduces GVHD
+CLAIM_6,Eriguchi_2012,Directed,EVIDENCE_FROM,favourable,1,6,Lactobacillus reduces GVHD
+CLAIM_7,Yue_2024,Directed,EVIDENCE_FROM,favourable,1,7,Indole-3-aldehyde reduces GVHD
+CLAIM_8,Kimura_2020,Directed,EVIDENCE_FROM,unfavourable,1,8,Bacteroides thetaiotaomicron exacerbates GVHD
+CLAIM_9,Fujiwara_2021,Directed,EVIDENCE_FROM,favourable,1,9,Clostridium scindens reduces GVHD
+CLAIM_9,Kiriyama&Nochi_2023,Directed,EVIDENCE_FROM,favourable,1,9,Clostridium scindens reduces GVHD
+CLAIM_10,Khuat_2021,Directed,EVIDENCE_FROM,unfavourable,1,10,Enterococcus exacerbates GVHD
+CLAIM_11,Henig_2021,Directed,EVIDENCE_FROM,favourable,1,11,Clostridiales reduce GVHD
+CLAIM_12,Kaźmierczak-Siedlecka_2021,Directed,EVIDENCE_FROM,unfavourable,1,12,Lactobacillus exacerbates GVHD
+CLAIM_5,Henrick_2021,Directed,EVIDENCE_FROM,favourable,1,5,Bifidobacterium reduces GVHD
+CLAIM_5,Laursen_2021,Directed,EVIDENCE_FROM,favourable,1,5,Bifidobacterium reduces GVHD
+CLAIM_13,Shono_2016,Directed,EVIDENCE_FROM,favourable,1,13,Akkermansia reduces GVHD
+CLAIM_13,Kouidhi_2021,Directed,EVIDENCE_FROM,favourable,1,13,Akkermansia reduces GVHD
+CLAIM_14,Ilett_2020,Directed,EVIDENCE_FROM,favourable,1,14,Akkermansia muciniphila reduces GVHD
+CLAIM_15,Heimesaat_2010,Directed,EVIDENCE_FROM,favourable,1,15,Bacillus reduces GVHD
+CLAIM_16,Sofi_2021,Directed,EVIDENCE_FROM,favourable,1,16,Bacteroides fragilis reduces GVHD
+CLAIM_16,Kreisman&Cobb_2011,Directed,EVIDENCE_FROM,favourable,1,16,Bacteroides fragilis reduces GVHD
+CLAIM_17,Hayase_2024,Directed,EVIDENCE_FROM,favourable,2,17,Bacteroides ovatus reduces GVHD
+CLAIM_5,Michonneau_2019,Directed,EVIDENCE_FROM,favourable,1,5,Bifidobacterium reduces GVHD
+CLAIM_18,Kouidhi_2021,Directed,EVIDENCE_FROM,favourable,1,18,Blautia reduces GVHD
+CLAIM_18,Ilett_2020,Directed,EVIDENCE_FROM,favourable,1,18,Blautia reduces GVHD
+CLAIM_18,Jenq_2015,Directed,EVIDENCE_FROM,favourable,3,18,Blautia reduces GVHD
+CLAIM_18,Han_2018,Directed,EVIDENCE_FROM,favourable,1,18,Blautia reduces GVHD
+CLAIM_18,Golob_2019,Directed,EVIDENCE_FROM,favourable,1,18,Blautia reduces GVHD
+CLAIM_18,Devaux_2020,Directed,EVIDENCE_FROM,favourable,1,18,Blautia reduces GVHD
+CLAIM_11,Heimesaat_2010,Directed,EVIDENCE_FROM,favourable,1,11,Clostridiales reduce GVHD
+CLAIM_11,Jenq_2012,Directed,EVIDENCE_FROM,favourable,1,11,Clostridiales reduce GVHD
+CLAIM_19,Fukushima_2024,Directed,EVIDENCE_FROM,favourable,1,19,Clostridium butyricum reduces GVHD
+CLAIM_20,Beckman_2021,Directed,EVIDENCE_FROM,favourable,1,20,Coriobacteriaceae reduce GVHD
+CLAIM_21,Alameddine_2019,Directed,EVIDENCE_FROM,favourable,1,21,Faecalibacterium duncaniae reduces GVHD
+CLAIM_21,Godefroy_2024,Directed,EVIDENCE_FROM,favourable,1,21,Faecalibacterium duncaniae reduces GVHD
+CLAIM_21,Vital_2014,Directed,EVIDENCE_FROM,favourable,1,21,Faecalibacterium duncaniae reduces GVHD
+CLAIM_21,Quévrain_2016,Directed,EVIDENCE_FROM,favourable,1,21,Faecalibacterium duncaniae reduces GVHD
+CLAIM_21,Farhadfar_2021,Directed,EVIDENCE_FROM,favourable,1,21,Faecalibacterium duncaniae reduces GVHD
+CLAIM_21,Duncan_2002,Directed,EVIDENCE_FROM,favourable,1,21,Faecalibacterium duncaniae reduces GVHD
+CLAIM_22,Kouidhi_2021,Directed,EVIDENCE_FROM,favourable,1,22,Faecalibacterium reduces GVHD
+CLAIM_23,Kouidhi_2021,Directed,EVIDENCE_FROM,favourable,1,23,Lachnospiraceae reduce GVHD
+CLAIM_23,Devaux_2020,Directed,EVIDENCE_FROM,favourable,1,23,Lachnospiraceae reduce GVHD
+CLAIM_23,Vital_2014,Directed,EVIDENCE_FROM,favourable,1,23,Lachnospiraceae reduce GVHD
+CLAIM_6,Devaux_2020,Directed,EVIDENCE_FROM,favourable,1,6,Lactobacillus reduces GVHD
+CLAIM_24,Kouidhi_2021,Directed,EVIDENCE_FROM,favourable,1,24,Ruminococcaceae reduce GVHD
+CLAIM_24,Devaux_2020,Directed,EVIDENCE_FROM,favourable,1,24,Ruminococcaceae reduce GVHD
+CLAIM_24,Vital_2014,Directed,EVIDENCE_FROM,favourable,1,24,Ruminococcaceae reduce GVHD
+CLAIM_25,Kouidhi_2021,Directed,EVIDENCE_FROM,favourable,1,25,Veillonella reduces GVHD
+CLAIM_25,Vital_2014,Directed,EVIDENCE_FROM,favourable,1,25,Veillonella reduces GVHD
+CLAIM_26,Devaux_2020,Directed,EVIDENCE_FROM,favourable,1,26,Lactate-producing bacteria reduce GVHD
+CLAIM_26,Raoufi_2025,Directed,EVIDENCE_FROM,favourable,1,26,Lactate-producing bacteria reduce GVHD
+CLAIM_27,Koyama_2023,Directed,EVIDENCE_FROM,favourable,1,27,Gentamicin-resistant bacteria reduce GVHD
+CLAIM_28,Koyama_2023,Directed,EVIDENCE_FROM,favourable,1,28,Vancomycin-resistant bacteria reduce GVHD
+CLAIM_29,Masetti_2023,Directed,EVIDENCE_FROM,favourable,1,29,Higher gut microbiome diversity reduces GVHD
+CLAIM_30,Biagi_2019,Directed,EVIDENCE_FROM,context,1,30,Higher pre-HSCT beta-diversity is associated with intestinal GVHD
+CLAIM_29,Jenq_2015,Directed,EVIDENCE_FROM,favourable,1,29,Higher gut microbiome diversity reduces GVHD
+CLAIM_29,Mancini_2017,Directed,EVIDENCE_FROM,favourable,1,29,Higher gut microbiome diversity reduces GVHD
+CLAIM_29,Taur_2014,Directed,EVIDENCE_FROM,favourable,1,29,Higher gut microbiome diversity reduces GVHD
+CLAIM_29,Payen_2020,Directed,EVIDENCE_FROM,favourable,1,29,Higher gut microbiome diversity reduces GVHD
+CLAIM_29,Golob_2017,Directed,EVIDENCE_FROM,favourable,1,29,Higher gut microbiome diversity reduces GVHD
+CLAIM_29,Galloway-Peña_2019,Directed,EVIDENCE_FROM,favourable,1,29,Higher gut microbiome diversity reduces GVHD
+CLAIM_18,Payen_2020,Directed,EVIDENCE_FROM,favourable,1,18,Blautia reduces GVHD
+CLAIM_31,Payen_2020,Directed,EVIDENCE_FROM,favourable,1,31,Anaerostipes reduces GVHD
+CLAIM_22,Payen_2020,Directed,EVIDENCE_FROM,favourable,1,22,Faecalibacterium reduces GVHD
+CLAIM_32,Payen_2020,Directed,EVIDENCE_FROM,favourable,1,32,Lachnoclostridium reduces GVHD
+CLAIM_2,Payen_2020,Directed,EVIDENCE_FROM,favourable,1,2,SCFAs reduce GVHD
+CLAIM_2,Romick-Rosendale_2018,Directed,EVIDENCE_FROM,favourable,1,2,SCFAs reduce GVHD
+CLAIM_33,Meedt_2022,Directed,EVIDENCE_FROM,favourable,1,33,Butyrate-producing bacteria reduce GVHD
+CLAIM_2,Artacho_2024,Directed,EVIDENCE_FROM,favourable,1,2,SCFAs reduce GVHD
+CLAIM_10,Stein-Thoeringer_2019,Directed,EVIDENCE_FROM,unfavourable,1,10,Enterococcus exacerbates GVHD
+CLAIM_34,Shono_2016,Directed,EVIDENCE_FROM,unfavourable,1,34,Akkermansia exacerbates GVHD
+CLAIM_35,Golob_2017,Directed,EVIDENCE_FROM,unfavourable,1,35,Lactobacillales exacerbates GVHD
+CLAIM_10,Taur_2012,Directed,EVIDENCE_FROM,unfavourable,1,10,Enterococcus exacerbates GVHD
+CLAIM_10,Peled_2020,Directed,EVIDENCE_FROM,unfavourable,2,10,Enterococcus exacerbates GVHD
+CLAIM_10,SteinThoeringer_2019,Directed,EVIDENCE_FROM,unfavourable,1,10,Enterococcus exacerbates GVHD
+CLAIM_10,Ubeda_2010,Directed,EVIDENCE_FROM,unfavourable,1,10,Enterococcus exacerbates GVHD
+CLAIM_18,Andrlová_2022,Directed,EVIDENCE_FROM,favourable,1,18,Blautia reduces GVHD
+CLAIM_32,ThieleOrberg_2024,Directed,EVIDENCE_FROM,favourable,1,32,Lachnoclostridium reduces GVHD
+CLAIM_24,Weber_2015,Directed,EVIDENCE_FROM,favourable,1,24,Ruminococcaceae reduce GVHD
+CLAIM_3,BurgosdaSilva_2022,Directed,EVIDENCE_FROM,favourable,1,3,Clostridia reduce GVHD
+CLAIM_36,Weber_2015,Directed,EVIDENCE_FROM,favourable,1,36,Tryptophan-derived metabolites reduce GVHD
+CLAIM_37,Han_2024,Directed,EVIDENCE_FROM,favourable,1,37,Phenylacetic acid reduces GVHD
+CLAIM_2,Mathewson_2016,Directed,EVIDENCE_FROM,favourable,1,2,SCFAs reduce GVHD
+CLAIM_3,Telesford_2015,Directed,EVIDENCE_FROM,favourable,1,3,Clostridia reduce GVHD
+CLAIM_3,Jarosch_20,Directed,EVIDENCE_FROM,favourable,1,3,Clostridia reduce GVHD
+CLAIM_3,Atarashi_2011,Directed,EVIDENCE_FROM,favourable,1,3,Clostridia reduce GVHD
+CLAIM_16,Telesford_2015,Directed,EVIDENCE_FROM,favourable,1,16,Bacteroides fragilis reduces GVHD
+CLAIM_16,Jarosch_20,Directed,EVIDENCE_FROM,favourable,1,16,Bacteroides fragilis reduces GVHD
+CLAIM_16,Atarashi_2011,Directed,EVIDENCE_FROM,favourable,1,16,Bacteroides fragilis reduces GVHD
+CLAIM_38,Telesford_2015,Directed,EVIDENCE_FROM,favourable,1,38,Secondary bile acids reduce GVHD
+CLAIM_38,Jarosch_20,Directed,EVIDENCE_FROM,favourable,1,38,Secondary bile acids reduce GVHD
+CLAIM_38,Atarashi_2011,Directed,EVIDENCE_FROM,favourable,1,38,Secondary bile acids reduce GVHD
+CLAIM_39,Telesford_2015,Directed,EVIDENCE_FROM,unfavourable,1,39,Dysbiosis exacerbates GVHD
+CLAIM_39,Jarosch_20,Directed,EVIDENCE_FROM,unfavourable,1,39,Dysbiosis exacerbates GVHD
+CLAIM_39,Atarashi_2011,Directed,EVIDENCE_FROM,unfavourable,1,39,Dysbiosis exacerbates GVHD
+CLAIM_29,Peled_2020,Directed,EVIDENCE_FROM,favourable,1,29,Higher gut microbiome diversity reduces GVHD
+CLAIM_40,Peled_2020,Directed,EVIDENCE_FROM,unfavourable,1,40,Streptococcus exacerbates GVHD

@@ -1,0 +1,2518 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-06-01">
+    <creator>NetworkX 3.6.1</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="1" title="kind" type="string" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="kind" type="string" />
+    </attributes>
+    <nodes>
+      <node id="C42" label="Acute GVHD remains a serious complication of allo-HSCT, occu">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Brehm_2025_Transplant. Cell. Ther." label="Brehm_2025_Transplant. Cell. Ther.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C5" label="We aimed to identify candidate biomarkers that could be vali">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C9" label="Following de-noising and chimera calling using the unoise3 c">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C41" label="Allo-HSCT is a potentially curative treatment for both benig">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Chang_2021_Expert Opin. Biol. Ther." label="Chang_2021_Expert Opin. Biol. Ther.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C95" label="Prospective studies of allo-HSCT patients showed that the gu">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C109" label="The composition of the gut microbiome has been an important ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C39" label="We evaluated for effects on the microbiota by performing 16S">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C102" label="The study found that higher gut microbiome diversity was sig">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C93" label="Another study showed that an increase in gut bacterial diver">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C54" label="The human gut harbors an estimated ~10 14 individual bacteri">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C87" label="Another study of the prophylactic use of the broad-spectrum ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C71" label="The study showed that treatment of neutropenic fever with pi">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C86" label="IL-23 signaling has been identified as an important mediator">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C70" label="One study found the addition of metronidazole to ciprofloxac">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C63" label="Choosing less intense conditioning regimens may also help pa">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C98" label="In a retrospective singlecenter study of patients who underw">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C92" label="The cytokine IL-6, which acts upstream to induce Th17 differ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C45" label="As reported recently, urinary levels of 3-IS correlate with ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C106" label="The administration of Lactobacillus alleviates GVHD in mouse">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C36" label="Prebiotics are non-digestible food ingredients that stimulat">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C81" label="Dietary changes including in particular fiber supplementatio">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C58" label="FMT has been studied in allo-HSCT patients primarily in four">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C3" label="These findings have since been confirmed in large multi-cent">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C30" label="In a pilot study, 13 patients who underwent allo-SCT receive">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C26" label="Our group has recently reported a detailed analysis of patie">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C24" label="These mandatory guidelines were reinforced after a report of">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C78" label="Microbiotaderived metabolites can directly or indirectly aff">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C96" label="These SCFAs can induce Tregs through upregulation of gut-hom">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C40" label="The recently recognized population of lymphocytes known as i">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C68" label="3-indoxyl sulfate, a tryptophan metabolite, was reported to ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C66" label="A pattern of loss of members of Clostridiales, including Ros">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="DeFilipp_2018_Blood Adv." label="DeFilipp_2018_Blood Adv.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C61" label="Genomic 16S ribosomal sequencing was performed on stool spec">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C57" label="The V4 region of the 16S rRNA gene was amplified by PCR from">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C23" label="Sequence data were demultiplexed using QIIME and their quali">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C1" label="No complete claim was available to paraphrase.">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C101" label="Increased bacterial diversity early after allo-HCT has been ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C103" label="One mouse study showed that ileal neutrophil infiltration po">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C56" label="A prospective phase IIa clinical trial evaluated FMT in 24 p">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C43" label="The investigators found that, in this study of 25 patients, ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="DeFilipp_2019_Biol. Blood Marrow Transplant." label="DeFilipp_2019_Biol. Blood Marrow Transplant.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C83" label="IL-22 producing ILCs have been found to be extremely diminis">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C89" label="The administration of butyrate, one of the SCFAs, can reduce">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C28" label="Sequencing of bacterial 16S rRNA gene was developed in the 1">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Docampo_2015_Biol. Blood Marrow Transplant." label="Docampo_2015_Biol. Blood Marrow Transplant.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C50" label="The gut epithelium, IECs connected by tight junctions, creat">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C48" label="Goblet cells secrete mucins into the gut lumen to form a muc">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C80" label="Regenerating islet-derived 3-a is another antimicrobial prot">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C38" label="A subpopulation of IECs called microfold cells mediate sampl">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C52" label="These cytokines promote the development of tolerogenic DCs a">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C33" label="Dendritic cells from mesenteric lymph nodes can induce T-cel">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C99" label="Commensal Clostridiales have been identified as important pr">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C49" label="In an antigen-specific manner, B cells mature into plasma ce">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C75" label="In allo-SCT, total body irradiation and chemotherapy cause g">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C47" label="Strategies in murine models of GVHD to support epithelial ce">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C84" label="RegIIIα, a human homolog of mouse RegIIIγ, is found to be si">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C55" label="Reduced IgA levels in the gut lumen of mice can be seen afte">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C82" label="Paneth cells are markedly reduced in the setting of GVHD in ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C105" label="In the early studies, mice transplanted in germ-free conditi">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C7" label="Later clinical studies demonstrated no clear benefit.">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C73" label="The bacterial product, lipopolysaccharide, which signals thr">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C76" label="NOD2, which functions to recognize bacterial peptidoglycan, ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C97" label="The study found that members of Enterobacteriales and Entero">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C110" label="Certain classes of antibiotics including carbapenems are par">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Fan_2026_Blood Adv." label="Fan_2026_Blood Adv.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C90" label="The study reported that xylose supplementation or the introd">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C12" label="Acute GVHD was diagnosed by clinical and/or pathological fin">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C6" label="We determined systemic glucocorticoid steroid response as pr">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C13" label="Differentially abundant genes were identified using the DESe">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C8" label="Sequences of interest were further identified using diamond ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C2" label="P-values were calculated with the lmerTest package.">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C91" label="This highlights the complex role of SCFAs in GVHD as this fi">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Gorshein_2017_Clin. Transplant." label="Gorshein_2017_Clin. Transplant.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C65" label="Clinical strategies to intervene when microbiota injury occu">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Hayase_2022_Cell" label="Hayase_2022_Cell">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C53" label="In the lower gut tract, commensal microbes are dependent on ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C85" label="Studies of allogeneic BMT using mouse models have characteri">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C100" label="Studies in the pediatric allo-HSCT population and in mice ha">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C32" label="We found that meropenem treatment led to significantly highe">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C16" label="ORFs of BT (MDA-JAX BT001) were identified using the Sequenc">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C15" label="Both ambient carbohydrates as well as metabolic byproducts h">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C31" label="HSCT-Mice received transplants as previously described.">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C22" label="Survival after HSCT was monitored daily and the degree of cl">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C10" label="Weighted UniFrac distances were determined using QIIME visua">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C62" label="qPCR was performed as previously described.">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C11" label="PUL deletions were made by allelic exchange using the counte">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C21" label="Mucin degradation assay-Levels of mucin glycans in culture s">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C17" label="The genome of B. ovatus and open reading frames were depicte">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C19" label="About half of aGI-GVHD cases do not respond to first-line st">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Hayase_2024_Cell Host Microbe" label="Hayase_2024_Cell Host Microbe">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C108" label="Indeed, exposure to broad-spectrum antibiotics such as carba">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C72" label="Some previous studies have reported that B. ovatus can media">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C4" label="To visualize the data, we reduced dimensionality by applying">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Jenq_2012_J. Exp. Med." label="Jenq_2012_J. Exp. Med.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C88" label="Besides causing infections, experimental studies in gnotobio">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C25" label="Sequence data were compiled and processed using mothur versi">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C46" label="Small intestine, large intestine, and liver samples were eva">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Jenq_2015_Biol. Blood Marrow Transplant." label="Jenq_2015_Biol. Blood Marrow Transplant.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C104" label="An experimental consortium of gut bacteria from the order Cl">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C14" label="As per our institutional practice, patients received ciprofl">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C20" label="For each stool specimen, DNA was purified using a phenol-chl">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C64" label="Taxonomic abundance comparisons were performed to identify b">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Jenq_2015_Blood" label="Jenq_2015_Blood">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="Jenq_2023_Res. Sq." label="Jenq_2023_Res. Sq.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C18" label="Novel immune suppression strategies to treat steroid-refract">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Malard_2023_ Cancer J." label="Malard_2023_ Cancer J.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C79" label="The gut microbiota consists of hundreds of distinct bacteria">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Paredes_2026_Nat. Rev. Cancer" label="Paredes_2026_Nat. Rev. Cancer">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C74" label="Indoles are derived from tryptophan catabolism performed by ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C59" label="Secondary bile acids and their myriad derivatives are regula">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C37" label="It is worth mentioning that ursodeoxycholic acid, another SB">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C60" label="The study showed that supplementation with UDCA in patients ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C67" label="Paneth cells contain large numbers of secretory granules tha">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" label="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C44" label="Restoration of this IL-22 signal may also be relevant clinic">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C77" label="Patients with reduced number of Paneth cells at onset of GI ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C107" label="Neutrophil infiltration in the small intestine in response t">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C94" label="Th17 cells are an important player in gut GVHD, as was revea">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C69" label="Compared with ciprofloxacin and metronidazole, prophylaxis w">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C35" label="Fungal wall components, such as a-mannan recognition by C-ty">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Peled_2017_J. Clin. Oncol." label="Peled_2017_J. Clin. Oncol.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="Peled_2020_N. Engl. J. Med." label="Peled_2020_N. Engl. J. Med.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="Rafei_2020_Blood" label="Rafei_2020_Blood">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C27" label="Ther types of PRRs include sialic acid-binding Ig-like lecti">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Rashidi_2020_Br. J. Haematol." label="Rashidi_2020_Br. J. Haematol.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C34" label="So far, we have shown an association between rs4415345 G all">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="C29" label="O. splanchnicus presence is also correlated with the host's ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+      <node id="Shono_2015_Int. J. Hematol." label="Shono_2015_Int. J. Hematol.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="Shono_2016_Sci. Transl. Med." label="Shono_2016_Sci. Transl. Med.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="Stein-Thoeringer_2019_Science" label="Stein-Thoeringer_2019_Science">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="Taur_2014_Blood" label="Taur_2014_Blood">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="Taur_2018_Sci. Transl. Med." label="Taur_2018_Sci. Transl. Med.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="Weber_2017_Biol. Blood Marrow Transplant." label="Weber_2017_Biol. Blood Marrow Transplant.">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="Wirbel_2026_bioRxiv" label="Wirbel_2026_bioRxiv">
+        <attvalues>
+          <attvalue for="0" value="paper" />
+        </attvalues>
+      </node>
+      <node id="C51" label="Part of the absolute microbial load data was predicted with ">
+        <attvalues>
+          <attvalue for="0" value="concept" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="Brehm_2025_Transplant. Cell. Ther." target="C42" id="0">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Brehm_2025_Transplant. Cell. Ther." target="C5" id="1">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Brehm_2025_Transplant. Cell. Ther." target="C9" id="2">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C41" id="3">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C42" id="4">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C95" id="5">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C109" id="6">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C39" id="7">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C102" id="8">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C93" id="9">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C54" id="10">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C87" id="11">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C71" id="12">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C86" id="13">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C70" id="14">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C63" id="15">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C98" id="16">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C92" id="17">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C45" id="18">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C106" id="19">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C36" id="20">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C81" id="21">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C58" id="22">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C3" id="23">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C30" id="24">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C26" id="25">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C24" id="26">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C78" id="27">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C96" id="28">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C40" id="29">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C68" id="30">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Chang_2021_Expert Opin. Biol. Ther." target="C66" id="31">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C58" id="32">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C68" id="33">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C61" id="34">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C57" id="35">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C23" id="36">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C39" id="37">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C1" id="38">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C101" id="39">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C103" id="40">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C98" id="41">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C24" id="42">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C56" id="43">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2018_Blood Adv." target="C43" id="44">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2019_Biol. Blood Marrow Transplant." target="C109" id="45">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2019_Biol. Blood Marrow Transplant." target="C101" id="46">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2019_Biol. Blood Marrow Transplant." target="C98" id="47">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2019_Biol. Blood Marrow Transplant." target="C83" id="48">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2019_Biol. Blood Marrow Transplant." target="C89" id="49">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="DeFilipp_2019_Biol. Blood Marrow Transplant." target="C56" id="50">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C28" id="51">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C54" id="52">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C50" id="53">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C48" id="54">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C80" id="55">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C38" id="56">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C52" id="57">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C33" id="58">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C96" id="59">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C99" id="60">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C49" id="61">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C40" id="62">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C75" id="63">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C47" id="64">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C84" id="65">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C55" id="66">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C83" id="67">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C82" id="68">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C109" id="69">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C66" id="70">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C105" id="71">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C7" id="72">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C73" id="73">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C76" id="74">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C97" id="75">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C106" id="76">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Docampo_2015_Biol. Blood Marrow Transplant." target="C26" id="77">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C110" id="78">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C90" id="79">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C12" id="80">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C6" id="81">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C13" id="82">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C8" id="83">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C2" id="84">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C87" id="85">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C89" id="86">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C91" id="87">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Fan_2026_Blood Adv." target="C102" id="88">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Gorshein_2017_Clin. Transplant." target="C109" id="89">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Gorshein_2017_Clin. Transplant." target="C65" id="90">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Gorshein_2017_Clin. Transplant." target="C36" id="91">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Gorshein_2017_Clin. Transplant." target="C106" id="92">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C109" id="93">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C53" id="94">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C85" id="95">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C95" id="96">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C110" id="97">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C100" id="98">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C99" id="99">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C32" id="100">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C16" id="101">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C15" id="102">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C90" id="103">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C87" id="104">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C86" id="105">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C12" id="106">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C31" id="107">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C22" id="108">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C57" id="109">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C23" id="110">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C9" id="111">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C10" id="112">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C62" id="113">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C11" id="114">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C21" id="115">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C1" id="116">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C17" id="117">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2022_Cell" target="C8" id="118">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C19" id="119">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C6" id="120">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C108" id="121">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C90" id="122">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C100" id="123">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C16" id="124">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C72" id="125">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C109" id="126">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C89" id="127">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C12" id="128">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C31" id="129">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C22" id="130">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C57" id="131">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C23" id="132">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C9" id="133">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C10" id="134">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C62" id="135">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C11" id="136">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C21" id="137">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C17" id="138">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C4" id="139">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Hayase_2024_Cell Host Microbe" target="C8" id="140">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C39" id="141">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C10" id="142">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C105" id="143">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C7" id="144">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C85" id="145">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C97" id="146">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C88" id="147">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C31" id="148">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C25" id="149">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C22" id="150">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2012_J. Exp. Med." target="C46" id="151">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C42" id="152">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C105" id="153">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C7" id="154">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C70" id="155">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C104" id="156">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C12" id="157">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C14" id="158">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C20" id="159">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C25" id="160">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C39" id="161">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C64" id="162">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C61" id="163">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C101" id="164">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C97" id="165">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C66" id="166">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Biol. Blood Marrow Transplant." target="C63" id="167">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2015_Blood" target="C65" id="168">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C19" id="169">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C18" id="170">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C109" id="171">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C108" id="172">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C12" id="173">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C6" id="174">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C90" id="175">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C72" id="176">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C31" id="177">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C22" id="178">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Jenq_2023_Res. Sq." target="C21" id="179">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C18" id="180">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C19" id="181">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C3" id="182">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C109" id="183">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C70" id="184">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C93" id="185">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C43" id="186">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C102" id="187">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C36" id="188">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C81" id="189">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C79" id="190">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C24" id="191">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C56" id="192">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Malard_2023_ Cancer J." target="C30" id="193">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C18" id="194">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C12" id="195">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C53" id="196">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C98" id="197">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C58" id="198">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C75" id="199">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C109" id="200">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C90" id="201">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C86" id="202">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C103" id="203">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C99" id="204">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C89" id="205">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C91" id="206">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C74" id="207">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C47" id="208">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C59" id="209">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C37" id="210">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C78" id="211">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C60" id="212">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C93" id="213">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C7" id="214">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C106" id="215">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C3" id="216">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Paredes_2026_Nat. Rev. Cancer" target="C24" id="217">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C67" id="218">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C54" id="219">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C53" id="220">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C49" id="221">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C48" id="222">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C82" id="223">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C38" id="224">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C40" id="225">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C50" id="226">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C47" id="227">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C83" id="228">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C44" id="229">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C80" id="230">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C77" id="231">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C107" id="232">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C94" id="233">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C33" id="234">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C92" id="235">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C55" id="236">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C97" id="237">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C99" id="238">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C69" id="239">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C71" id="240">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C109" id="241">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2016_Hematol. Am. Soc. Hematol. Educ. Program" target="C35" id="242">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2017_J. Clin. Oncol." target="C41" id="243">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2017_J. Clin. Oncol." target="C61" id="244">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2017_J. Clin. Oncol." target="C57" id="245">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2017_J. Clin. Oncol." target="C98" id="246">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2020_N. Engl. J. Med." target="C2" id="247">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2020_N. Engl. J. Med." target="C3" id="248">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2020_N. Engl. J. Med." target="C102" id="249">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Peled_2020_N. Engl. J. Med." target="C65" id="250">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C109" id="251">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C50" id="252">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C75" id="253">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C67" id="254">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C46" id="255">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C80" id="256">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C102" id="257">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C35" id="258">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C27" id="259">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C69" id="260">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C63" id="261">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C77" id="262">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C76" id="263">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C99" id="264">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C107" id="265">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C33" id="266">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C94" id="267">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C40" id="268">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C92" id="269">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C49" id="270">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C36" id="271">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C106" id="272">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C74" id="273">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C30" id="274">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C43" id="275">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C24" id="276">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C98" id="277">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rafei_2020_Blood" target="C78" id="278">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rashidi_2020_Br. J. Haematol." target="C80" id="279">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rashidi_2020_Br. J. Haematol." target="C34" id="280">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rashidi_2020_Br. J. Haematol." target="C29" id="281">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Rashidi_2020_Br. J. Haematol." target="C99" id="282">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C54" id="283">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C28" id="284">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C52" id="285">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C33" id="286">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C49" id="287">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C53" id="288">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C96" id="289">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C99" id="290">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C40" id="291">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C50" id="292">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C1" id="293">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C48" id="294">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C80" id="295">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C38" id="296">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C47" id="297">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C83" id="298">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C82" id="299">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C77" id="300">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C31" id="301">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C55" id="302">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C84" id="303">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C109" id="304">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C66" id="305">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C100" id="306">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C105" id="307">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C87" id="308">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C26" id="309">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C73" id="310">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C75" id="311">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C76" id="312">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C106" id="313">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2015_Int. J. Hematol." target="C97" id="314">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C79" id="315">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C104" id="316">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C109" id="317">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C14" id="318">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C71" id="319">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C86" id="320">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C107" id="321">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C99" id="322">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C73" id="323">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C16" id="324">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C70" id="325">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C49" id="326">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C12" id="327">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C20" id="328">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C25" id="329">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C31" id="330">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C22" id="331">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Shono_2016_Sci. Transl. Med." target="C46" id="332">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Stein-Thoeringer_2019_Science" target="C41" id="333">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Stein-Thoeringer_2019_Science" target="C88" id="334">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Stein-Thoeringer_2019_Science" target="C80" id="335">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Stein-Thoeringer_2019_Science" target="C84" id="336">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Stein-Thoeringer_2019_Science" target="C99" id="337">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2014_Blood" target="C95" id="338">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2014_Blood" target="C25" id="339">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2014_Blood" target="C64" id="340">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2014_Blood" target="C79" id="341">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2014_Blood" target="C75" id="342">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2018_Sci. Transl. Med." target="C95" id="343">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2018_Sci. Transl. Med." target="C102" id="344">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2018_Sci. Transl. Med." target="C53" id="345">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2018_Sci. Transl. Med." target="C4" id="346">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Taur_2018_Sci. Transl. Med." target="C25" id="347">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Weber_2017_Biol. Blood Marrow Transplant." target="C41" id="348">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Weber_2017_Biol. Blood Marrow Transplant." target="C68" id="349">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Weber_2017_Biol. Blood Marrow Transplant." target="C20" id="350">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Weber_2017_Biol. Blood Marrow Transplant." target="C25" id="351">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Weber_2017_Biol. Blood Marrow Transplant." target="C45" id="352">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Weber_2017_Biol. Blood Marrow Transplant." target="C69" id="353">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Weber_2017_Biol. Blood Marrow Transplant." target="C71" id="354">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Weber_2017_Biol. Blood Marrow Transplant." target="C99" id="355">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Wirbel_2026_bioRxiv" target="C18" id="356">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Wirbel_2026_bioRxiv" target="C109" id="357">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Wirbel_2026_bioRxiv" target="C38" id="358">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Wirbel_2026_bioRxiv" target="C59" id="359">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Wirbel_2026_bioRxiv" target="C51" id="360">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Wirbel_2026_bioRxiv" target="C62" id="361">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+      <edge source="Wirbel_2026_bioRxiv" target="C2" id="362">
+        <attvalues>
+          <attvalue for="1" value="AUTHORED_BY" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
