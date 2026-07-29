@@ -1,0 +1,9 @@
+---
+title: "Parsing Metadata for Artacho2024"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```

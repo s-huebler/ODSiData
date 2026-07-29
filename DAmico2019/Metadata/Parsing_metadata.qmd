@@ -1,0 +1,67 @@
+---
+title: "Parsing metadata for DAmico2019"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+clinical <- read_csv(file = "~/Documents/ODSi/ODSiData/DAmico2019/Metadata/Raw_metadata/meta_clinical.csv")
+samples <- read_csv(file = "~/Documents/ODSi/ODSiData/DAmico2019/Metadata/Raw_metadata/meta_samples.csv")
+```
+
+```{r}
+
+pre_hsct_estimates <- tibble(
+  Patient = c("E10", "E9", "E8", "E7", "E6", "E5", "E4", "E3", "E2", "E1",
+              "P10", "P9", "P8", "P7", "P6", "P5", "P4", "P3", "P2", "P1"),
+  estimated_pre_day = c(-12, -7, -8, -8, -12, -7, -9, -7, -7, -7,
+                        -8, -9, -12, -1.5, -8, -9, -8, -18, -7, -7)
+)
+
+samples2 <- samples %>%
+  mutate(
+    Patient = str_extract(HostID, "(?<=^.)[A-Za-z]\\d+"),
+    
+    second_num = sapply(str_extract_all(HostID, "\\d+"), function(x) as.numeric(x[2])),
+    
+    Timepoint = ifelse(str_detect(HostID, "PRE"), -1, second_num)
+  ) %>%
+  mutate(`sample-id` = Run)%>%
+  select(`sample-id`, Run, 
+         Experiment,
+         HostID,
+         Patient,
+         Timepoint
+         )%>%
+  left_join(pre_hsct_estimates, by = "Patient") %>%
+  mutate(
+    # If timepoint is -1, use the estimate; otherwise, keep the original timepoint
+    Timepoint = if_else(Timepoint == -1, estimated_pre_day, Timepoint)
+  ) %>%
+  # Drop the temporary lookup column to keep your dataframe clean
+  select(-estimated_pre_day)
+  
+```
+
+```{r}
+damico_meta_qiime <- samples2 %>%
+  left_join(clinical %>%
+              select(Subject,
+                     Sex, Age, Diagnosis, Donor_Type,
+                     Stem_cell_source,
+                     skin_gvhd_grade = Skin_gvhd_grade,
+                     gut_gvhd_grade,
+                     liver_gvhd_grade,
+                     gvhd_day,
+                     gvhd_steroid_resistant,
+                     outcome_day100 = Outcome_at_100), 
+            by = c("Patient" = "Subject"))
+```
+
+```{r}
+write_tsv(damico_meta_qiime, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/DAmico2019/Metadata/damico_meta_qiime.tsv")
+```

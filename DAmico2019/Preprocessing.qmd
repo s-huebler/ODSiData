@@ -1,0 +1,29 @@
+---
+title: "Preprocessing DAmico2019"
+format: html
+editor: visual
+---
+
+# Reference
+
+-   D’Amico, F., Biagi, E., Rampelli, S., Fiori, J., Zama, D., Soverini, M., Barone, M., Leardini, D., Muratore, E., Prete, A., Gotti, R., Pession, A., Masetti, R., Brigidi, P., Turroni, S., Candela, M., 2019. Enteral Nutrition in Pediatric Patients Undergoing Hematopoietic SCT Promotes the Recovery of Gut Microbiome Homeostasis. Nutrients 11, 2958. https://doi.org/10.3390/nu11122958
+
+-   PRJNA592853
+
+# Relevant Methods
+
+-   Total microbial DNA was extracted from 250 mg of stool sample using the repeated bead-beatingplus column method, as previously described with few modifications \[25\]. Briefly, all the sampleswere suspended in 1 mL of lysis buffer (500 mM NaCl, 50 mM Tris-HCl, pH 8, 50 mM EDTA, and4% sodium dodecyl sulfate) and bead-beaten three times in a FastPrep instrument (MP Biomedicals,Irvine, CA, USA) at 5.5 movements/s for 1 min, in the presence of four 3 mm glass beads and 0.5 g of0.1 mm zirconia beads (BioSpec Products, Bartlesville, OK, USA). After an incubation step at 95 ◦Cfor 15 min, samples were centrifuged at 13,000 rpm for 5 min. Two hundred and sixty microliters of10 M ammonium acetate was added to the supernatant, followed by a 5 min incubation in ice anda 10 min centrifugation at 13,000 rpm. Each sample was incubated with one volume of isopropanol,followed by an incubation in ice for 30 min. Precipitated nucleic acids were washed with 70% ethanol,re-suspended in 100 μL of TE (10 mM Tris-HCl, 1 mM EDTA pH 8.0) buffer, and treated with 2 μL of10 mg/mL DNase-free RNase at 37 ◦C for 15 min. DNA purification was performed using the DNeasyBlood and Tissue Kit (QIAGEN, Hilden, Germany) following the manufacturer’s instructions. DNAconcentration and quality were evaluated using NanoDrop ND-1000 spectrophotometer (NanoDropTechnologies, Wilmington, DE, USA).
+
+-   The 16S rRNA gene sequencing and SCFA determination were performed in a total of 104 and99 samples, respectively, for twenty pediatric patients sampled before, during and after HSCT. Patientswere divided into two groups of ten subjects depending on the type of feeding procedure received rightafter the transplant, EN or PN. Clinical and transplant characteristics are summarized in SupplementaryTable S2. Samples were grouped as “pre” (i.e., samples taken before HSCT), “HSCT” (i.e., the firstsamples taken after HSCT for all subjects, ranging from 8 to 30 days post-transplant), and “post”(i.e., all other samples taken after HSCT). In order to better visualize the trajectory of GM recovery,post-HSCT samples were further divided into three groups: “post40” (i.e., all samples taken from 31to 40 days post-HSCT), “post60” (i.e., samples taken from 41 to 60 days post-HSCT) and “post120”(i.e., samples taken from 61 to 120 days after the transplant) (Figure 1).
+
+-   The V3–V4 hypervariable region of the 16S rRNA gene was amplified by using the 341Fand 785R primers with linked Illumina adapter overhang sequences, as previously described inKlindworth et al. \[26\]. Fragment amplification was performed by using KAPA HiFi HotStart ReadyMix(Roche, Basel, CH, USA), setting the thermal cycle as follows: 3 min at 95 ◦C, 25 cycles of 30 s at95 ◦C, 30 s at 55 ◦C, and 30 s at 72 ◦C, and a final 5 min step at 72 ◦C. Library preparation followeda first purification with a magnetic bead-based clean-up system (Agencourt AMPure XP, BeckmanCoulter, Brea, CA, USA) and a limited-cycle PCR was performed to obtain the indexed library usingNextera technology, followed by a second AMPure XP magnetic beads clean-up step. Final librarieswere prepared by pooling all samples to an equimolar concentration of 4nM; the denaturation anddilution to 5 pmol was carried out before performing the sequencing on an Illumina MiSeq platformwith a 2 × 250 bp paired-end protocol according to manufacturer’s instructions (Illumina, San Diego,CA, USA). Raw sequence reads were deposited in the National Center for Biotechnology InformationSequence Read Archive (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA592853).
+
+-   Looks like the paired end reads were
+
+# Software Versions
+
+# Data Access
+
+-   meta_samples downloaded from bioproject (July 29, 2026)
+
+-   meta_clinical downloaded from manuscript website (July 29, 2026)
