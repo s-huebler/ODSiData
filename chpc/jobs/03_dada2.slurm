@@ -1,13 +1,13 @@
 #!/bin/bash
 # =============================================================================
-# 02_import_dada2.slurm — import FASTQs, DADA2 denoise, summarize, export.
-# Runs everything from the Fujimoto Preprocessing.qmd up to (not including) the
-# BLAST Analysis section. Reads FASTQs from scratch, writes QIIME artifacts to
-# scratch, then copies the small final artifacts back into the repo.
+# 03_dada2.slurm — DADA2 denoise, summaries, export rep-seqs FASTA.
+# Reads demux.qza produced by 02_import.slurm (on scratch). Run AFTER you've
+# inspected demux_viz.qzv and set TRUNC_LEN_F/R in the study file. Covers
+# everything up to (not including) the local BLAST Analysis section.
 #
 # Submit via chpc/submit.sh. Standalone:
 #   sbatch -A <acct> -p notchpeak \
-#          --export=ALL,STUDY_FILE=studies/Artacho2024.sh chpc/jobs/02_import_dada2.slurm
+#          --export=ALL,STUDY_FILE=studies/Artacho2024.sh chpc/jobs/03_dada2.slurm
 # =============================================================================
 #SBATCH --job-name=qiime-dada2
 #SBATCH --nodes=1
@@ -29,9 +29,8 @@ load_qiime2_env
 
 # --- Node-local temp for QIIME2/DADA2/vsearch intermediates ------------------
 # QIIME2 writes large temp files to $TMPDIR during DADA2, summaries, and export.
-# Point it at fast node-local disk instead of the network filesystem. Cleaned up
-# on exit. If node-local disk is too small for your dataset, drop this block and
-# fall back to a dir under $WORK_BASE (network, slower but larger).
+# If node-local disk is too small for your dataset, drop this block to fall back
+# to a dir under $WORK_BASE (network, slower but larger).
 if [[ -d /scratch/local ]]; then
     export TMPDIR="/scratch/local/$USER/${SLURM_JOB_ID:-$$}"
 else
@@ -40,32 +39,22 @@ fi
 mkdir -p "$TMPDIR"
 trap 'rm -rf "$TMPDIR"' EXIT
 
-RAW_DIR="$WORK_BASE/$STUDY/RawData"
 QD="$WORK_BASE/$STUDY/QiimeData"          # working artifacts (scratch)
 mkdir -p "$QD/exported-seqs"
 
 THREADS="${SLURM_CPUS_PER_TASK:-$DADA2_THREADS}"
 
-echo "==== Import -> DADA2 for $STUDY ===="
-echo "RawData : $RAW_DIR"
+# --- Precondition: demux.qza from the import step must exist -----------------
+if [[ ! -f "$QD/demux.qza" ]]; then
+    echo "ERROR: $QD/demux.qza not found. Run 02_import.slurm first." >&2
+    exit 1
+fi
+
+echo "==== DADA2 for $STUDY ===="
 echo "Work    : $QD"
-echo "trim  L f/r = $TRIM_LEFT_F/$TRIM_LEFT_R ; trunc f/r = $TRUNC_LEN_F/$TRUNC_LEN_R ; threads=$THREADS"
+echo "trim L f/r = $TRIM_LEFT_F/$TRIM_LEFT_R ; trunc f/r = $TRUNC_LEN_F/$TRUNC_LEN_R ; threads=$THREADS"
 
-# --- 1. Manifest ------------------------------------------------------------
-bash chpc/lib/make_manifest_paired.sh "$RAW_DIR" "$QD/manifest.tsv"
-
-# --- 2. Import to QIIME2 ----------------------------------------------------
-qiime tools import \
-    --type 'SampleData[PairedEndSequencesWithQuality]' \
-    --input-path "$QD/manifest.tsv" \
-    --output-path "$QD/demux.qza" \
-    --input-format PairedEndFastqManifestPhred33V2
-
-qiime demux summarize \
-    --i-data "$QD/demux.qza" \
-    --o-visualization "$QD/demux_viz.qzv"
-
-# --- 3. DADA2 denoise-paired ------------------------------------------------
+# --- 1. DADA2 denoise-paired ------------------------------------------------
 qiime dada2 denoise-paired \
     --i-demultiplexed-seqs "$QD/demux.qza" \
     --p-trim-left-f "$TRIM_LEFT_F" \
@@ -77,7 +66,7 @@ qiime dada2 denoise-paired \
     --o-representative-sequences "$QD/rep-seqs.qza" \
     --o-denoising-stats "$QD/stats.qza"
 
-# --- 4. Summaries -----------------------------------------------------------
+# --- 2. Summaries -----------------------------------------------------------
 qiime metadata tabulate \
     --m-input-file "$QD/stats.qza" \
     --o-visualization "$QD/stats_viz.qzv"
@@ -97,20 +86,17 @@ qiime feature-table tabulate-seqs \
     --i-data "$QD/rep-seqs.qza" \
     --o-visualization "$QD/rep-seqs_viz.qzv"
 
-# --- 5. Export rep-seqs FASTA (input for the local BLAST step) ---------------
+# --- 3. Export rep-seqs FASTA (input for the local BLAST step) ---------------
 qiime tools export \
     --input-path "$QD/rep-seqs.qza" \
     --output-path "$QD/exported-seqs"
 # -> $QD/exported-seqs/dna-sequences.fasta
 
-# --- 6. Copy small final artifacts back into the repo -----------------------
-# FASTQ and demux.qza stay on scratch (gitignored / too large). We keep the
-# denoised table, rep-seqs, stats, the exported FASTA, and the .qzv summaries.
+# --- 4. Copy small final artifacts back into the repo -----------------------
 DEST="$REPO_ROOT/$STUDY/QiimeData"
 mkdir -p "$DEST/exported-seqs"
 cp -f "$QD"/table.qza "$QD"/rep-seqs.qza "$QD"/stats.qza "$DEST"/
 cp -f "$QD"/*.qzv "$DEST"/ 2>/dev/null || true
-cp -f "$QD"/manifest.tsv "$DEST"/
 cp -f "$QD"/exported-seqs/dna-sequences.fasta "$DEST/exported-seqs/"
 
 echo "==== Done. Final artifacts in $DEST ===="

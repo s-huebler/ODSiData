@@ -14,12 +14,15 @@ Mac). QIIME2 is loaded via `module load` on CHPC.
 | Stage | Where | Script |
 |-------|-------|--------|
 | Fetch SRA runs (`prefetch` + `fasterq-dump`) | CHPC (job array) | `jobs/01_fetch.slurm` |
-| Build manifest | CHPC | `lib/make_manifest_paired.sh` |
-| Import → demux → **DADA2** → summaries → export FASTA | CHPC | `jobs/02_import_dada2.slurm` |
+| Build manifest + import + demux summary | CHPC | `jobs/02_import.slurm` |
+| *(inspect `demux_viz.qzv`, set trunc lengths)* | local | — |
+| **DADA2** denoise → summaries → export FASTA | CHPC | `jobs/03_dada2.slurm` |
 | **BLAST** human decontam + 16S classification | **local Mac** | `<Study>/Preprocessing.qmd` |
 | Filtering, Greengenes2, trees, taxonomy | local Mac | `<Study>/Preprocessing.qmd` |
 
-The DADA2 job exports `rep-seqs.qza` to `dna-sequences.fasta` and copies it plus
+Import and DADA2 are split on purpose: `02_import` stops at `demux_viz.qzv` so you
+can read the quality plots and choose `--p-trunc-len` before denoising. The DADA2
+job then exports `rep-seqs.qza` to `dna-sequences.fasta` and copies it plus
 `table.qza` / `rep-seqs.qza` / `stats.qza` and the `.qzv` summaries back into
 `<Study>/QiimeData/`. That FASTA is exactly the input the BLAST chunk expects.
 
@@ -36,11 +39,15 @@ git push
 ssh <uid>@notchpeak.chpc.utah.edu
 cd ~/Documents/ODSi/ODSiData          # your checkout
 git pull
-./chpc/submit.sh Artacho2024          # submits fetch array + DADA2 (chained)
+./chpc/submit.sh Artacho2024          # fetch array -> import (chained), then STOPS
 squeue -u $USER                       # watch progress; logs in chpc/logs/
 
-# when the DADA2 job finishes it has copied artifacts into Artacho2024/QiimeData/
-git add Artacho2024/QiimeData
+# import copies demux_viz.qzv into Artacho2024/QiimeData/. Inspect it (view.qiime2.org
+# or 'qiime tools view'), then set TRUNC_LEN_F/TRUNC_LEN_R in chpc/studies/Artacho2024.sh.
+./chpc/submit.sh Artacho2024 dada2    # denoise with your chosen trunc lengths
+
+# when DADA2 finishes it has copied artifacts into Artacho2024/QiimeData/
+git add Artacho2024/QiimeData chpc/studies/Artacho2024.sh
 git commit -m "[Artacho2024] DADA2 table/rep-seqs from CHPC"
 git push
 

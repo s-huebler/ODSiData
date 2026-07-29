@@ -31,4 +31,5 @@ METADATA=""
 
 # Walltime hints (edit per dataset size). Used by submit.sh.
 FETCH_TIME="12:00:00"
+IMPORT_TIME="04:00:00"
 DADA2_TIME="24:00:00"
