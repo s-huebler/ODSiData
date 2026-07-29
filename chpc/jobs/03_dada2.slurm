@@ -1,9 +1,16 @@
 #!/bin/bash
 # =============================================================================
-# 03_dada2.slurm — DADA2 denoise, summaries, export rep-seqs FASTA.
+# 03_dada2.slurm — (optional cutadapt primer removal) DADA2 denoise, summaries,
+# export rep-seqs FASTA.
 # Reads demux.qza produced by 02_import.slurm (on scratch). Run AFTER you've
 # inspected demux_viz.qzv and set TRUNC_LEN_F/R in the study file. Covers
 # everything up to (not including) the local BLAST Analysis section.
+#
+# If PRIMER_F/PRIMER_R are set in the study file, primers are stripped by
+# SEQUENCE with `qiime cutadapt trim-paired` before denoising (more robust than
+# positional --p-trim-left when read lengths vary). In that case set
+# TRIM_LEFT_F/R = 0 in the study file so primers aren't double-trimmed. Leave
+# PRIMER_F/PRIMER_R empty to skip cutadapt entirely.
 #
 # Submit via chpc/submit.sh. Standalone:
 #   sbatch -A <acct> -p notchpeak \
@@ -54,9 +61,60 @@ echo "==== DADA2 for $STUDY ===="
 echo "Work    : $QD"
 echo "trim L f/r = $TRIM_LEFT_F/$TRIM_LEFT_R ; trunc f/r = $TRUNC_LEN_F/$TRUNC_LEN_R ; threads=$THREADS"
 
+# --- 0. Optional primer removal with cutadapt -------------------------------
+# Runs only when PRIMER_F and PRIMER_R are both set in the study file. Primers
+# are treated as 5' "front" adapters on each read; degenerate IUPAC bases
+# (N/W/H/V ...) are matched by default (--p-match-adapter-wildcards is on).
+# Produces demux_trimmed.qza + a fresh quality plot (demux_trimmed_viz.qzv) so
+# you can re-pick TRUNC_LEN_F/R on the primer-free reads.
+DENOISE_INPUT="$QD/demux.qza"
+if [[ -n "${PRIMER_F:-}" && -n "${PRIMER_R:-}" ]]; then
+    echo "---- cutadapt trim-paired: removing primers by sequence ----"
+    echo "  front-f (fwd primer) = $PRIMER_F"
+    echo "  front-r (rev primer) = $PRIMER_R"
+    echo "  error-rate=${CUTADAPT_ERROR_RATE:-0.1} overlap=${CUTADAPT_OVERLAP:-3}" \
+         "min-length=${CUTADAPT_MIN_LENGTH:-1} discard-untrimmed=${CUTADAPT_DISCARD_UNTRIMMED:-true}"
+
+    CUTADAPT_ARGS=(
+        --i-demultiplexed-sequences "$QD/demux.qza"
+        --p-front-f "$PRIMER_F"
+        --p-front-r "$PRIMER_R"
+        --p-error-rate "${CUTADAPT_ERROR_RATE:-0.1}"
+        --p-overlap "${CUTADAPT_OVERLAP:-3}"
+        --p-minimum-length "${CUTADAPT_MIN_LENGTH:-1}"
+        --p-cores "$THREADS"
+        --o-trimmed-sequences "$QD/demux_trimmed.qza"
+        --verbose
+    )
+    # Drop read pairs where a primer wasn't found (recommended for amplicon data).
+    if [[ "${CUTADAPT_DISCARD_UNTRIMMED:-true}" == "true" ]]; then
+        CUTADAPT_ARGS+=(--p-discard-untrimmed)
+    else
+        CUTADAPT_ARGS+=(--p-no-discard-untrimmed)
+    fi
+    # Escape hatch: any extra raw flags from the study file (space-separated),
+    # e.g. CUTADAPT_EXTRA="--p-indels --p-times 2".
+    if [[ -n "${CUTADAPT_EXTRA:-}" ]]; then
+        # shellcheck disable=SC2206
+        CUTADAPT_ARGS+=(${CUTADAPT_EXTRA})
+    fi
+
+    qiime cutadapt trim-paired "${CUTADAPT_ARGS[@]}"
+
+    # Post-trim quality plot — inspect before trusting TRUNC_LEN_F/R.
+    qiime demux summarize \
+        --i-data "$QD/demux_trimmed.qza" \
+        --o-visualization "$QD/demux_trimmed_viz.qzv"
+
+    DENOISE_INPUT="$QD/demux_trimmed.qza"
+    echo "  -> primer-trimmed reads: $DENOISE_INPUT"
+else
+    echo "---- cutadapt skipped (PRIMER_F/PRIMER_R not set); using raw demux ----"
+fi
+
 # --- 1. DADA2 denoise-paired ------------------------------------------------
 qiime dada2 denoise-paired \
-    --i-demultiplexed-seqs "$QD/demux.qza" \
+    --i-demultiplexed-seqs "$DENOISE_INPUT" \
     --p-trim-left-f "$TRIM_LEFT_F" \
     --p-trim-left-r "$TRIM_LEFT_R" \
     --p-trunc-len-f "$TRUNC_LEN_F" \

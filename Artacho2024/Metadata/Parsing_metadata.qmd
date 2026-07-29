@@ -17,15 +17,45 @@ samples <- read_csv("~/Documents/ODSi/ODSiData/Artacho2024/Metadata/Raw_metadata
 ```{r}
 samples2 <- samples %>%
   mutate(
-    Patient = str_extract(`Library Name`, "^\\d+"),
-    Timepoint = str_extract(`Library Name`, "(?<=_)[^_]+(?=_)")
+    Patient = as.numeric(str_extract(`Library Name`, "^\\d+")),
+    Timepoint_Class = str_extract(`Library Name`, "(?<=_)[^_]+(?=_)")
   ) %>%
   mutate(`sample-id` = Run)%>%
   select(`sample-id`, Run, 
          Experiment,
          `Library Name`,
          Patient,
-         Timepoint
+         Timepoint_Class
          )
   
+```
+
+```{r}
+artacho_meta_qiime <- samples2 %>%
+  left_join(clinical %>%
+              mutate(Donor_Type = recode(Type.of.tranplant,
+                             `2` = "Family, HLA identical",
+                             `4` = "Family, Haplo identical",
+                             `5` = "Unrelated, HLA compatible",
+                             `6` = "Unrelated, HLA incompatible"),
+                     Tranplant_Type = recode(Transplant.source,
+                                             `1` = "BM",
+                                             `2` = "UC",
+                                             `3` = "PBSC"))%>%
+              select(Patient.ID,
+                     Age, Gender,
+                     Disease = `Haematological malignency`,
+                     Donor_Type,
+                     sample.pre, sample.post,
+                     GVHD_grade,
+                     gut_gvhd_grade = LGI_GVHD_grade,
+                     skin_gvhd_grade = Skin_GVHD_grade,
+                     liver_GVHD_grade = Liver_GVHD_grade),
+            by = c("Patient" = "Patient.ID"))%>%
+  mutate(Timepoint = case_when(Timepoint_Class == "pre" ~ as.numeric(sample.pre),
+                               Timepoint_Class == "post" ~ as.numeric(sample.post)))
+```
+
+```{r}
+write_tsv(artacho_meta_qiime, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Artacho2024/Metadata/artacho_meta_qiime.tsv")
 ```
