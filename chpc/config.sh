@@ -15,8 +15,8 @@
 # --- SLURM allocation --------------------------------------------------------
 # Set these to your CHPC allocation. Override at submit time with env vars, e.g.
 #   CHPC_ACCOUNT=my-alloc CHPC_PARTITION=notchpeak ./submit.sh Artacho2024
-export CHPC_ACCOUNT="${CHPC_ACCOUNT:-CHANGE_ME}"          # sbatch -A / --account
-export CHPC_PARTITION="${CHPC_PARTITION:-notchpeak}"      # sbatch -p / --partition
+export CHPC_ACCOUNT="${CHPC_ACCOUNT:qiaox}"          # sbatch -A / --account
+export CHPC_PARTITION="${CHPC_PARTITION:-kingspeak}"      # sbatch -p / --partition
 
 # --- Scratch workspace -------------------------------------------------------
 # Large files (FASTQ, demux.qza, intermediate artifacts) live on scratch, never
