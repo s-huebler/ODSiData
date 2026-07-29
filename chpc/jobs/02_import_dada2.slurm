@@ -27,6 +27,19 @@ source "chpc/$STUDY_FILE"
 
 load_qiime2_env
 
+# --- Node-local temp for QIIME2/DADA2/vsearch intermediates ------------------
+# QIIME2 writes large temp files to $TMPDIR during DADA2, summaries, and export.
+# Point it at fast node-local disk instead of the network filesystem. Cleaned up
+# on exit. If node-local disk is too small for your dataset, drop this block and
+# fall back to a dir under $WORK_BASE (network, slower but larger).
+if [[ -d /scratch/local ]]; then
+    export TMPDIR="/scratch/local/$USER/${SLURM_JOB_ID:-$$}"
+else
+    export TMPDIR="${TMPDIR:-/tmp}/odsi-${SLURM_JOB_ID:-$$}"
+fi
+mkdir -p "$TMPDIR"
+trap 'rm -rf "$TMPDIR"' EXIT
+
 RAW_DIR="$WORK_BASE/$STUDY/RawData"
 QD="$WORK_BASE/$STUDY/QiimeData"          # working artifacts (scratch)
 mkdir -p "$QD/exported-seqs"

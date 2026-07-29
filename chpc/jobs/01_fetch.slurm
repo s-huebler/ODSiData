@@ -27,6 +27,17 @@ source "chpc/$STUDY_FILE"
 
 load_sra_env
 
+# --- Node-local temp for fasterq-dump's heavy random I/O --------------------
+# Keep temp OFF the network filesystem (/scratch/general/vast). Use fast
+# node-local disk instead. Per-task dir, cleaned up on exit.
+if [[ -d /scratch/local ]]; then
+    export TMPDIR="/scratch/local/$USER/${SLURM_JOB_ID:-$$}"
+else
+    export TMPDIR="${TMPDIR:-/tmp}/odsi-${SLURM_JOB_ID:-$$}"
+fi
+mkdir -p "$TMPDIR"
+trap 'rm -rf "$TMPDIR"' EXIT
+
 RAW_DIR="$WORK_BASE/$STUDY/RawData"
 mkdir -p "$RAW_DIR"
 cd "$RAW_DIR"
@@ -50,7 +61,9 @@ attempt=1
 while (( attempt <= MAX_RETRIES )); do
     echo "Attempt $attempt/$MAX_RETRIES..."
     if prefetch "$SRR" --output-directory . \
-       && fasterq-dump --split-files --threads "${SLURM_CPUS_PER_TASK:-4}" "$SRR"; then
+       && fasterq-dump --split-files \
+              --threads "${SLURM_CPUS_PER_TASK:-4}" \
+              --temp "$TMPDIR" "$SRR"; then
         rm -rf "$SRR"          # drop the raw .sra dir to save scratch
         echo "OK: $SRR"
         exit 0
