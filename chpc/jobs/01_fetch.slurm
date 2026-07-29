@@ -49,8 +49,34 @@ SRR="$(sed -n "${IDX}p" "$ACCESSIONS" | tr -d '[:space:]')"
 
 echo "==== [$IDX] $SRR ===="
 
-# Checkpoint: skip if already extracted.
-if [[ -f "${SRR}_1.fastq" || -f "${SRR}.fastq" ]]; then
+# --- Concatenated-read split helper -----------------------------------------
+# Studies whose SRA records store forward+revcomp(reverse) joined in a single
+# read (e.g. DAmico2019) set SPLIT_CONCAT=1 in their study file. After download
+# this turns the single ${SRR}.fastq into proper ${SRR}_1.fastq / ${SRR}_2.fastq
+# so the standard paired import + DADA2 path applies. No-op when SPLIT_CONCAT!=1.
+split_concat() {
+    [[ "${SPLIT_CONCAT:-0}" == "1" ]] || return 0
+    [[ -f "${SRR}.fastq" && ! -f "${SRR}_1.fastq" ]] || return 0
+    echo "Splitting concatenated reads for $SRR (r1-len=${SPLIT_R1_LEN:-250})..."
+    python3 "$REPO_ROOT/chpc/lib/split_concat_16s.py" \
+        "${SRR}.fastq" . \
+        --r1-len "${SPLIT_R1_LEN:-250}" --min-r2 "${SPLIT_MIN_R2:-20}" \
+        || { echo "ERROR: split failed for $SRR" >&2; return 1; }
+    rm -f "${SRR}.fastq"          # drop the concatenated original
+}
+
+# Checkpoint: skip only when the FINAL outputs for this layout already exist.
+if [[ "${SPLIT_CONCAT:-0}" == "1" ]]; then
+    if [[ -f "${SRR}_1.fastq" && -f "${SRR}_2.fastq" ]]; then
+        echo "Split FASTQs for $SRR already present — skipping."
+        exit 0
+    fi
+    # Resume: a concatenated file survived a previous run — split it, don't re-download.
+    if [[ -f "${SRR}.fastq" ]]; then
+        split_concat && { echo "OK (resumed split): $SRR"; exit 0; }
+        exit 1
+    fi
+elif [[ -f "${SRR}_1.fastq" || -f "${SRR}.fastq" ]]; then
     echo "FASTQ for $SRR already present — skipping."
     exit 0
 fi
@@ -65,6 +91,7 @@ while (( attempt <= MAX_RETRIES )); do
               --threads "${SLURM_CPUS_PER_TASK:-4}" \
               --temp "$TMPDIR" "$SRR"; then
         rm -rf "$SRR"          # drop the raw .sra dir to save scratch
+        split_concat || exit 1  # no-op unless SPLIT_CONCAT=1
         echo "OK: $SRR"
         exit 0
     fi

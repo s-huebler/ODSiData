@@ -6,4 +6,26 @@ editor: visual
 
 ```{r}
 library(tidyverse)
+library(readxl)
+```
+
+```{r}
+clinical <- readxl::read_xlsx("~/Documents/ODSi/ODSiData/Artacho2024/Metadata/Raw_metadata/meta_clinical.xlsx")
+samples <- read_csv("~/Documents/ODSi/ODSiData/Artacho2024/Metadata/Raw_metadata/meta_samples.csv")
+```
+
+```{r}
+samples2 <- samples %>%
+  mutate(
+    Patient = str_extract(`Library Name`, "^\\d+"),
+    Timepoint = str_extract(`Library Name`, "(?<=_)[^_]+(?=_)")
+  ) %>%
+  mutate(`sample-id` = Run)%>%
+  select(`sample-id`, Run, 
+         Experiment,
+         `Library Name`,
+         Patient,
+         Timepoint
+         )
+  
 ```
