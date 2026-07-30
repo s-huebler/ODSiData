@@ -24,7 +24,7 @@ editor: visual
 
 -   meta_clinical downloaded from manuscript website (July 29, 2026)
 
-# Fetch and import 
+# Fetch and import
 
 Import took about 3 hours
 

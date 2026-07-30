@@ -329,7 +329,7 @@ refs_anomaly <- import_stage4 %>%
 #10841
 ```
 
-## Stage 5: Adding in Wang&Zhou_2025 and Qayad&Horan and removing duplicated Chen_2015 and Zhou&Feng 
+## Stage 5: Adding in Wang&Zhou_2025 and Qayad&Horan and removing duplicated Chen_2015 and Zhou&Feng
 
 ```{r}
 refs_stage5 <- rbind(
