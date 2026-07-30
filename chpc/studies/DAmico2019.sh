@@ -53,8 +53,8 @@ TRIM_LEFT_R=0
 # forward lightly and the reverse as little as quality allows. Check the "merged"
 # column in stats.qza — if retention is poor, fall back to forward-only
 # (denoise-single on R1).
-TRUNC_LEN_F=249
-TRUNC_LEN_R=220
+TRUNC_LEN_F=220
+TRUNC_LEN_R=215
 
 # CPU threads for DADA2 (match --cpus-per-task in 03_dada2.slurm).
 DADA2_THREADS=16

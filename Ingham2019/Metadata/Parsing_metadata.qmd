@@ -1,0 +1,18 @@
+---
+title: "Parsing metadata for Ingham 2019"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+# Import the text file into a dataframe
+pats37 <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/Data_matrix_37_patients.txt", header = TRUE, stringsAsFactors = FALSE)
+
+pats30_extra <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/Data_matrix_30_patients_additional.txt", header = TRUE, stringsAsFactors = FALSE)
+
+samples <- read_csv("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/meta_samples.csv")
+```
