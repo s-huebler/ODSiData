@@ -14,5 +14,9 @@ pats37 <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata
 
 pats30_extra <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/Data_matrix_30_patients_additional.txt", header = TRUE, stringsAsFactors = FALSE)
 
+mapping_forward <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Figshare_Linking/mapping_file_Forward.txt", header = TRUE, stringsAsFactors = FALSE)
+
+mapping_rev <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Figshare_Linking/mapping_file_Reverse.txt", header = TRUE, stringsAsFactors = FALSE)
+
 samples <- read_csv("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/meta_samples.csv")
 ```
