@@ -40,6 +40,41 @@ TRUNC_LEN_R=0
 # CPU threads for DADA2 (match --cpus-per-task in 02_import_dada2.slurm).
 DADA2_THREADS=16
 
+# =============================================================================
+# SINGLE-END route (uncomment + set LAYOUT="single" for un-paired data)
+# =============================================================================
+# Leave LAYOUT unset/"paired" for standard Illumina R1/R2 (block above). For
+# single-end data, set LAYOUT="single" and pick a denoiser with DENOISER:
+#   "deblur"       -> 03_deblur_single.slurm : PRE-MERGED / joined reads
+#                     (fwd+rev already joined). Uses TRIM_LENGTH / LEFT_TRIM_LEN
+#                     / MIN_QUALITY / DEBLUR_THREADS.
+#   "pyro"         -> 03_denoise_pyro.slurm  : 454 / Ion Torrent variable-length
+#                     reads. Uses the PYRO_* parameters.
+#   "dada2-single" -> 03_dada2_single.slurm  : TRUE single-end, UN-MERGED
+#                     Illumina reads (standard DADA2 error model). Uses the
+#                     DADA2S_* parameters below.
+# Primers for the single-end route are stripped by cutadapt trim-single inside
+# the denoise job — set FWD_PRIMER / REV_PRIMER_RC (revcomp of the reverse
+# primer) instead of PRIMER_F/PRIMER_R above; leave both "" if already removed.
+#
+# LAYOUT="single"
+# DENOISER="dada2-single"
+# FWD_PRIMER=""                     # e.g. 341F CCTACGGGNGGCWGCAG
+# REV_PRIMER_RC=""                  # e.g. revcomp(805R) GGATTAGATACCCBDGTAGTC
+#
+# --- DADA2 denoise-single parameters (used when DENOISER="dada2-single") -----
+# DADA2S_TRUNC_LEN is REQUIRED (no default): truncate every read here and
+# DISCARD shorter reads. Set from demux_viz.qzv; 0 = no truncation; leaving it
+# unset makes the job abort so you inspect the quality plot first.
+# DADA2S_TRUNC_LEN=""
+# DADA2S_TRIM_LEFT=0               # 5' trim; 0 when cutadapt/primers handled it
+# DADA2S_MAX_EE=2.0               # max expected errors (DADA2 default 2.0)
+# DADA2S_TRUNC_Q=2               # truncate at first base <= this quality
+# DADA2S_CHIMERA="consensus"      # consensus | pooled | none
+# DADA2S_THREADS=16               # match --cpus-per-task in the denoise job
+# DADA2S_TIME="24:00:00"          # walltime for the denoise job
+# =============================================================================
+
 # Optional QIIME sample-metadata TSV for feature-table summarize. Leave "" to
 # skip the metadata-annotated summary (import + DADA2 don't need it).
 METADATA=""

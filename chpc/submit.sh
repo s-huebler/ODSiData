@@ -13,8 +13,15 @@
 # The denoise stage is layout-aware, driven by LAYOUT in the study file:
 #   LAYOUT="paired" (default) -> 02_import.slurm        + 03_dada2.slurm
 #   LAYOUT="single"           -> 02_import_single.slurm + 03_deblur_single.slurm
-# The denoise stage accepts 'dada2', 'deblur', or the generic 'denoise' — all
-# route to whichever job matches the study's layout.
+# Within LAYOUT="single", the denoiser is selectable via DENOISER in the study
+# file (default "deblur"):
+#   DENOISER="deblur"       -> 03_deblur_single.slurm (Deblur; pre-merged reads)
+#   DENOISER="pyro"         -> 03_denoise_pyro.slurm  (DADA2 denoise-pyro; 454/IonT)
+#   DENOISER="dada2-single" -> 03_dada2_single.slurm  (DADA2 denoise-single;
+#                              true single-end / un-merged Illumina)
+# The denoise stage accepts 'dada2', 'dada2-single', 'deblur', 'pyro', or the
+# generic 'denoise' — all route to whichever job matches the study's layout +
+# denoiser.
 #
 # 'all' intentionally stops after import so you can inspect the read-quality plot
 # and choose truncation / trim lengths before denoising. Run the denoise stage
@@ -32,8 +39,8 @@ STAGE="${2:-all}"
 ARRAY_THROTTLE="${ARRAY_THROTTLE:-20}"
 
 case "$STAGE" in
-    all|fetch|import|dada2|deblur|denoise) ;;
-    *) echo "Unknown stage '$STAGE' (expected: all|fetch|import|dada2|deblur|denoise)"; exit 1 ;;
+    all|fetch|import|dada2|dada2-single|deblur|pyro|denoise) ;;
+    *) echo "Unknown stage '$STAGE' (expected: all|fetch|import|dada2|dada2-single|deblur|pyro|denoise)"; exit 1 ;;
 esac
 
 # Resolve repo root as the parent of this script's dir; run from there.
@@ -60,15 +67,33 @@ case "$LAYOUT" in
         ;;
     single)
         IMPORT_JOB="chpc/jobs/02_import_single.slurm"
-        DENOISE_JOB="chpc/jobs/03_deblur_single.slurm"
-        DENOISE_TIME="${DEBLUR_TIME:?set DEBLUR_TIME in the study file}"
-        DENOISE_THREADS="${DEBLUR_THREADS:?set DEBLUR_THREADS in the study file}"
-        DENOISE_LABEL="Deblur"
+        # Denoiser is selectable within the single layout (default deblur).
+        case "${DENOISER:-deblur}" in
+            deblur)
+                DENOISE_JOB="chpc/jobs/03_deblur_single.slurm"
+                DENOISE_TIME="${DEBLUR_TIME:?set DEBLUR_TIME in the study file}"
+                DENOISE_THREADS="${DEBLUR_THREADS:?set DEBLUR_THREADS in the study file}"
+                DENOISE_LABEL="Deblur"
+                ;;
+            pyro)
+                DENOISE_JOB="chpc/jobs/03_denoise_pyro.slurm"
+                DENOISE_TIME="${PYRO_TIME:-${DEBLUR_TIME:?set PYRO_TIME or DEBLUR_TIME in the study file}}"
+                DENOISE_THREADS="${PYRO_THREADS:-${DEBLUR_THREADS:?set PYRO_THREADS or DEBLUR_THREADS in the study file}}"
+                DENOISE_LABEL="DADA2-pyro"
+                ;;
+            dada2-single)
+                DENOISE_JOB="chpc/jobs/03_dada2_single.slurm"
+                DENOISE_TIME="${DADA2S_TIME:-${DADA2_TIME:?set DADA2S_TIME or DADA2_TIME in the study file}}"
+                DENOISE_THREADS="${DADA2S_THREADS:-${DADA2_THREADS:?set DADA2S_THREADS or DADA2_THREADS in the study file}}"
+                DENOISE_LABEL="DADA2-single"
+                ;;
+            *) echo "Unknown DENOISER '${DENOISER}' in study file (expected: deblur|pyro|dada2-single)"; exit 1 ;;
+        esac
         ;;
     *) echo "Unknown LAYOUT '$LAYOUT' in study file (expected: paired|single)"; exit 1 ;;
 esac
 # Normalize the denoise stage aliases to a single internal trigger.
-[[ "$STAGE" == "dada2" || "$STAGE" == "deblur" || "$STAGE" == "denoise" ]] && STAGE="denoise"
+[[ "$STAGE" == "dada2" || "$STAGE" == "dada2-single" || "$STAGE" == "deblur" || "$STAGE" == "pyro" || "$STAGE" == "denoise" ]] && STAGE="denoise"
 
 N=$(grep -cve '^[[:space:]]*$' "$ACCESSIONS")   # non-blank accession lines
 echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  accessions=$N  account=$CHPC_ACCOUNT  partition=$CHPC_PARTITION"
@@ -100,8 +125,16 @@ if [[ "$STAGE" == "all" || "$STAGE" == "import" ]]; then
     echo
     echo "NEXT: when import finishes, inspect $STUDY_NAME/QiimeData/demux_viz.qzv,"
     if [[ "$LAYOUT" == "single" ]]; then
-        echo "      set TRIM_LENGTH in chpc/$STUDY_FILE, then:"
-        echo "      ./chpc/submit.sh $STUDY_NAME deblur"
+        if [[ "${DENOISER:-deblur}" == "pyro" ]]; then
+            echo "      set PYRO_TRUNC_LEN in chpc/$STUDY_FILE, then:"
+            echo "      ./chpc/submit.sh $STUDY_NAME pyro"
+        elif [[ "${DENOISER:-deblur}" == "dada2-single" ]]; then
+            echo "      set DADA2S_TRUNC_LEN in chpc/$STUDY_FILE, then:"
+            echo "      ./chpc/submit.sh $STUDY_NAME dada2-single"
+        else
+            echo "      set TRIM_LENGTH in chpc/$STUDY_FILE, then:"
+            echo "      ./chpc/submit.sh $STUDY_NAME deblur"
+        fi
     else
         echo "      set TRUNC_LEN_F/TRUNC_LEN_R in chpc/$STUDY_FILE, then:"
         echo "      ./chpc/submit.sh $STUDY_NAME dada2"

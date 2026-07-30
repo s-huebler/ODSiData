@@ -41,7 +41,14 @@ REV_PRIMER_RC="GGATTAGATACCCBDGTAGTC"   # revcomp of 785R (3' adapter, 21 nt)
 # read shorter than it. Reads are ~458 bp but variable. Set MANUALLY from
 # demux_viz.qzv (length/quality plot) to retain most reads while cutting the
 # low-quality 3' tail. 0 = unset (job refuses to run); -1 disables trimming.
-TRIM_LENGTH=0
+#
+# Set to 400 (2026-07-30). demux_viz.qzv length summary (PRE-cutadapt):
+# 2%=439, 9%=440, 25%=441, 50%=460, 75%=465, 98%=466 nts. Deblur applies
+# --p-trim-length AFTER the in-job cutadapt strips 341F (17 nt) + revcomp(785R)
+# (up to 21 nt, ~38 nt total), so reads entering Deblur are shorter than the
+# table above. 400 is deliberately conservative to absorb that primer loss and
+# retain reads (a table-derived 439 would discard nearly everything post-cutadapt).
+TRIM_LENGTH=400
 
 # LEFT_TRIM_LEN: 5' bases Deblur removes before denoising. Leave 0 — cutadapt
 # above already removes the 341F primer by sequence.

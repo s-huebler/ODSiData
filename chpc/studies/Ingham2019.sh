@@ -35,22 +35,22 @@
 #      There are no Illumina R1/R2 pairs here — 454 reads are single fragments,
 #      and DADA2 has no paired 454 mode.
 #   2. The strictly-correct QIIME2 denoiser for 454 is `qiime dada2 denoise-pyro`
-#      (single-end, 454/Ion Torrent error model). That job does NOT exist in
-#      this repo yet (only 03_dada2.slurm = denoise-paired and
-#      03_deblur_single.slurm = Deblur). Options:
-#        (a) add a denoise-pyro job (best fidelity to the platform), or
-#        (b) route through the existing single-end / Deblur path below as an
-#            approximation (Deblur trims every read to one fixed length and
-#            drops shorter ones — lossy on 200-1000 bp variable 454 reads), or
-#        (c) EXCLUDE this study from the ASV meta-analysis and, if needed, fold
-#            in the authors' published OTU table from figshare instead.
-#   3. RAW-DATA AVAILABILITY: the paper deposits datasets on figshare
-#      (OTU/taxonomy tables: 10.6084/m9.figshare.6508187; sequence + clinical
-#      data: 10.6084/m9.figshare.6508232), NOT necessarily as SRA fastq.
-#      VERIFY that run_accessions.txt actually resolves to fetchable reads
-#      before scheduling 01_fetch — there may be no SRA project for this study,
-#      in which case the SFF/FASTA must be pulled from figshare and imported
-#      manually.
+#      (single-end, 454/Ion Torrent error model), now implemented as
+#      03_denoise_pyro.slurm and selected below via DENOISER="pyro" (best
+#      fidelity to the platform: tolerates variable length + homopolymer indels).
+#      Alternatives: DENOISER="deblur" (03_deblur_single.slurm; fixed-length
+#      trim, lossy on 200-1000 bp variable 454 reads), or EXCLUDE this study from
+#      the ASV meta-analysis and fold in the authors' published OTU table
+#      (figshare 6508187) instead. denoise-paired (03_dada2.slurm) still CANNOT
+#      be used (see #1).
+#   3. RAW-DATA AVAILABILITY (RESOLVED): per-sample demultiplexed FASTQ ARE on
+#      ENA under PRJEB25221 (the figshare SFF record 6508250 points to it), so
+#      01_fetch works. NOTE: `fasterq-dump --split-files` emits 3 files per run
+#      (${RUN}_1, ${RUN}_2, ${RUN}) where _1 and _2 are BYTE-IDENTICAL dups and
+#      orientation is mixed — do NOT treat the 3 files as coverage. This is
+#      cleaned up by the mandatory prep_ingham_454.sh pre-step (see below).
+#      (figshare also has OTU/taxonomy tables 6508187 and clinical data 6508232
+#      if you ever prefer the authors' published OTU table over re-processing.)
 #   4. PLATFORM CONFOUND (dissertation note): mixing a single 454 dataset into
 #      an otherwise Illumina MiSeq meta-analysis introduces a platform batch
 #      effect on ASV/OTU calls and read lengths. Worth flagging in the
@@ -70,32 +70,78 @@ LAYOUT="single"
 # Concatenated-read split does not apply to 454 single fragments.
 SPLIT_CONCAT=0
 
+# --- MANDATORY PRE-STEP: run chpc/lib/prep_ingham_454.sh after 01_fetch -------
+# `fasterq-dump --split-files` produces THREE files per run with 454/ENA quirks
+# (verified on ERR2666851 = sample P01.w1):
+#   * ${RUN}_1.fastq and ${RUN}_2.fastq are BYTE-IDENTICAL (fasterq-dump dup,
+#     NOT two directions) -> keep one, drop _2.
+#   * The 5' forward/linker primer is ALREADY REMOVED by the depositor
+#     (split_libraries.py output) -> no read starts with 519F/926R.
+#   * Reads are MIXED orientation, tagged in the read NAME (.R1_ = forward
+#     519F->926R, .R2_ = reverse 926R->519F).
+#   * The 3' REVERSE primer + a ~50 bp 454 tail is RETAINED and must be trimmed.
+# prep_ingham_454.sh normalizes all of this: drops _2, pools _1+bare, trims the
+# 3' reverse primer + tail (cutadapt, both revcomp primers) in native
+# orientation, reverse-complements the R2 reads to a single forward orientation,
+# dedups by read ID, writes ONE clean ${RUN}.fastq per run, and MOVES the raw
+# inputs into RawData/_raw454/ so 02_import_single's manifest glob only sees the
+# cleaned files. RUN IT BEFORE 02_import_single:
+#   source chpc/config.sh && load_qiime2_env      # provides cutadapt
+#   bash chpc/lib/prep_ingham_454.sh "$WORK_BASE/Ingham2019/RawData"
+#
 # --- Primers: 16S V4-V5, 519F / 926R (Ingham 2019, Methods) ------------------
-# Amplicons were sequenced BIDIRECTIONALLY, so BOTH primers can appear at the 5'
-# end depending on read orientation, and the opposite primer's reverse-complement
-# can appear at the 3' end. Reads MUST be orientation-normalized before denoising
-# (the paper did this with adjust_seq_orientation.py). For cutadapt, strip the
-# forward primer at 5' and the revcomp of the reverse primer at 3' AFTER
-# orienting all reads 519F -> 926R.
+# Kept here for provenance only. All primer/tail removal AND orientation
+# normalization happen in prep_ingham_454.sh above, NOT in the QIIME2 pipeline.
 #   519F (fwd): CAGCAGCCGCGGTAATAC        (18 nt)
 #   926R (rev): CCGTCAATTCCTTTGAGTTT      (20 nt)
-#   revcomp(519F): GTATTACCGCGGCTGCTG     (5' primer if a read is reverse-oriented)
-#   revcomp(926R): AAACTCAAAGGAATTGACGG   (3' adapter on a forward-oriented read)
-# For the single-end / Deblur cutadapt step (03_deblur_single.slurm):
-FWD_PRIMER="CAGCAGCCGCGGTAATAC"          # 519F (5' front, 18 nt)
-REV_PRIMER_RC="AAACTCAAAGGAATTGACGG"     # revcomp of 926R (3' adapter, 20 nt)
+#   revcomp(519F): GTATTACCGCGGCTGCTG     (3' adapter on a reverse/R2 read)
+#   revcomp(926R): AAACTCAAAGGAATTGACGG   (3' adapter on a forward/R1 read)
+#
+# >>> LEAVE THESE EMPTY <<< The cleaned reads are already primer-free and
+# single-orientation, so the cutadapt step in 03_deblur_single is a NO-OP for
+# this study. Setting either of these would DOUBLE-TRIM real 16S bases.
+FWD_PRIMER=""            # already stripped by depositor + prep_ingham_454.sh
+REV_PRIMER_RC=""         # already stripped by prep_ingham_454.sh
 
-# --- Deblur denoise-16S parameters (single-end route) -----------------------
+# --- Denoiser selection (single-end route) ----------------------------------
+# "pyro"   -> 03_denoise_pyro.slurm : DADA2 denoise-pyro, the 454/Ion Torrent
+#             error model. Preferred here: it tolerates variable read length and
+#             454 homopolymer indels instead of trimming everything to one fixed
+#             length. Uses the PYRO_* parameters below.
+# "deblur" -> 03_deblur_single.slurm : Deblur (fixed-length trim; lossy on the
+#             200-1000 bp variable 454 reads). Uses the Deblur parameters below.
+# Both read the same demux.qza from 02_import_single; switch freely by changing
+# this one line.
+DENOISER="pyro"
+
+# --- DADA2 denoise-pyro parameters (used when DENOISER="pyro") ---------------
+# PYRO_TRUNC_LEN: truncate every read at this position and DISCARD shorter reads
+# (DADA2 requires all reads the same length). Set from demux_viz.qzv — pick a
+# length that keeps most reads while cutting the low-quality 3' tail. Cleaned
+# ERR2666851 ran min=60 mean=369 max=610 bp, so a value around 250-300 is a
+# reasonable starting point; 0 = NO truncation (keep full length, rely on max-ee
+# /trunc-q). Empty = unset -> the job ABORTS (forces you to inspect the plot
+# first, like Deblur's TRIM_LENGTH guard). Set a positive length, or an explicit
+# 0 if you deliberately want NO truncation.
+PYRO_TRUNC_LEN=""
+PYRO_TRIM_LEFT=0          # 5' trim; 0 — primers already removed by prep_ingham_454.sh
+PYRO_MAX_LEN=0            # drop reads longer than this pre-trim; 0 = off
+PYRO_MAX_EE=2.0          # max expected errors (DADA2 default 2.0)
+PYRO_TRUNC_Q=2          # truncate at first base <= this quality (default 2)
+PYRO_THREADS=16          # match 03_denoise_pyro --cpus-per-task
+PYRO_TIME="12:00:00"     # walltime for the pyro denoise job
+
+# --- Deblur denoise-16S parameters (used when DENOISER="deblur") -------------
 # TRIM_LENGTH: Deblur trims EVERY read to this fixed length and DISCARDS reads
 # shorter than it. 454 reads are 200-1000 bp and highly variable, so this is
 # lossy — set MANUALLY and conservatively from demux_viz.qzv (length/quality
 # plot) to keep most reads while cutting the low-quality 3' tail. 0 = unset
-# (job refuses to run). Prefer a denoise-pyro job (consequence #2) if fidelity
-# matters more than reusing existing infrastructure.
+# (job refuses to run).
 TRIM_LENGTH=0
 
-# LEFT_TRIM_LEN: 5' bases Deblur removes before denoising. Leave 0 — cutadapt
-# above already strips the 519F primer by sequence.
+# LEFT_TRIM_LEN: 5' bases Deblur removes before denoising. Leave 0 — the 5'
+# primer was already removed upstream (depositor + prep_ingham_454.sh), and the
+# reads are forward-oriented, so there is nothing more to strip at the 5' end.
 LEFT_TRIM_LEN=0
 
 # Quality-filter q-score minimum (Deblur tutorial default = 4). The paper kept
