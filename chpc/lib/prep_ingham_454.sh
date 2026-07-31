@@ -48,12 +48,28 @@
 # cutadapt — `source chpc/config.sh && load_qiime2_env` before calling, or run
 # inside any env that provides cutadapt.
 #
-# Usage:
-#   source chpc/config.sh          # for $WORK_BASE / $STUDY (optional)
+# Usage (on CHPC — no manual module load needed, the script does it):
 #   bash chpc/lib/prep_ingham_454.sh [raw_dir]
 # Defaults: raw_dir = $WORK_BASE/${STUDY:-Ingham2019}/RawData
+# The script sources chpc/config.sh for $WORK_BASE and, if cutadapt isn't
+# already on PATH, calls load_qiime2_env (the QIIME2 module ships cutadapt).
+# Override the raw dir by passing it as $1; override WORK_BASE/STUDY via env.
 # =============================================================================
 set -euo pipefail
+
+# --- Pull in CHPC site config (paths + module loaders) ----------------------
+# config.sh lives one level up from this lib/ dir. It defines WORK_BASE and the
+# load_qiime2_env() helper. Sourcing is safe: it only sets vars (with :- so any
+# values you already exported win) and defines functions — it loads no modules.
+_PREP_LIB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+_PREP_CHPC_DIR="$(dirname "$_PREP_LIB_DIR")"
+if [[ -f "$_PREP_CHPC_DIR/config.sh" ]]; then
+    # shellcheck source=/dev/null
+    source "$_PREP_CHPC_DIR/config.sh"
+else
+    echo "WARNING: $_PREP_CHPC_DIR/config.sh not found — WORK_BASE and the QIIME2" >&2
+    echo "         module auto-load are unavailable; ensure cutadapt is on PATH." >&2
+fi
 
 # --- Primers (revcomp forms are the 3' adapters to strip) --------------------
 REVCOMP_926R="${REVCOMP_926R:-AAACTCAAAGGAATTGACGG}"   # 3' adapter on forward (R1) reads
@@ -72,7 +88,22 @@ RAW_DIR="$(cd "$RAW_DIR" && pwd)"
 ARCHIVE="$RAW_DIR/_raw454"
 mkdir -p "$ARCHIVE"
 
-command -v cutadapt >/dev/null || { echo "ERROR: cutadapt not on PATH (load the QIIME2 module first)." >&2; exit 1; }
+# --- Ensure cutadapt is available (auto-load the QIIME2 module if needed) -----
+# The QIIME2 module ships the cutadapt binary. If it's not already on PATH (e.g.
+# you're running the script standalone on a login node), load it via config.sh's
+# load_qiime2_env. `|| true` so a module-load failure falls through to the clean
+# error below rather than aborting under `set -e`.
+if ! command -v cutadapt >/dev/null 2>&1; then
+    if declare -F load_qiime2_env >/dev/null 2>&1; then
+        echo "cutadapt not on PATH — loading the QIIME2 module (load_qiime2_env)..."
+        load_qiime2_env || true
+    fi
+fi
+command -v cutadapt >/dev/null || {
+    echo "ERROR: cutadapt still not on PATH after attempting to load the QIIME2 module." >&2
+    echo "       Check 'module spider qiime2' and the module name in chpc/config.sh" >&2
+    echo "       (load_qiime2_env), or load an env that provides cutadapt, then retry." >&2
+    exit 1; }
 command -v python3  >/dev/null || { echo "ERROR: python3 not on PATH." >&2; exit 1; }
 
 TMP="$(mktemp -d "${TMPDIR:-/tmp}/prep454.XXXXXX")"
