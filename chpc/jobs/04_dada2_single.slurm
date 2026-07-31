@@ -1,30 +1,34 @@
 #!/bin/bash
 # =============================================================================
-# 03_dada2_single.slurm — SINGLE-END / un-merged Illumina denoising via
+# 04_dada2_single.slurm — SINGLE-END / un-merged Illumina denoising via
 # `qiime dada2 denoise-single` (DADA2's standard Illumina error model).
 #
-# The single-end analogue of 03_dada2.slurm, and the DADA2 counterpart to
-# 03_deblur_single.slurm. Reads demux.qza from 02_import_single.slurm (on
-# scratch). Run AFTER inspecting demux_viz.qzv and setting DADA2S_TRUNC_LEN in
-# the study file.
+# The single-end analogue of 04_dada2_paired.slurm, and the DADA2 counterpart to
+# 04_deblur.slurm. Reads primer-trimmed reads from the trim stage if present,
+# otherwise demux.qza from 02_import_single.slurm (both on scratch). Run AFTER
+# inspecting the quality plot and setting DADA2S_TRUNC_LEN in the study file.
 #
 # WHICH single-end denoiser to use:
 #   * denoise-single (THIS job) — true single-end, UN-MERGED Illumina reads
 #     (single-direction runs, or forward-only reads). Learns the standard DADA2
 #     Illumina error model. DADA2 does its own quality filtering, so — unlike
-#     03_deblur_single — there is NO separate quality-filter q-score step.
-#   * 03_deblur_single (Deblur) — PRE-MERGED / joined reads (fwd+rev already
-#     joined). denoise-single's error model assumes un-merged reads, so use
-#     Deblur for that layout instead.
-#   * 03_denoise_pyro (denoise-pyro) — 454 / Ion Torrent variable-length reads.
+#     04_deblur — there is NO separate quality-filter q-score step.
+#   * 04_deblur (Deblur) — PRE-MERGED / joined reads (fwd+rev already joined).
+#     denoise-single's error model assumes un-merged reads, so use Deblur for
+#     that layout instead.
+#   * 04_dada2_pyro (denoise-pyro) — 454 / Ion Torrent variable-length reads.
 #
-# Pipeline: [optional cutadapt trim-single primer removal] -> dada2
-#           denoise-single -> summaries -> export rep-seqs FASTA.
+# Primer removal is now a SEPARATE stage (chpc/jobs/03_trim_single.slurm, run
+# via `chpc/submit.sh <Study> trim`). When FWD_PRIMER is set in the study file
+# this job REQUIRES the trimmed reads it produced (demux_trimmed.qza) and aborts
+# if they're missing; only when no primer is set does it read the raw demux.qza.
+#
+# Pipeline: dada2 denoise-single -> summaries -> export rep-seqs FASTA.
 #
 # Selected by the study file setting LAYOUT="single" + DENOISER="dada2-single";
 # submit via chpc/submit.sh. Standalone:
 #   sbatch -A <acct> -p notchpeak \
-#          --export=ALL,STUDY_FILE=studies/<Study>.sh chpc/jobs/03_dada2_single.slurm
+#          --export=ALL,STUDY_FILE=studies/<Study>.sh chpc/jobs/04_dada2_single.slurm
 # =============================================================================
 #SBATCH --job-name=qiime-dada2-single
 #SBATCH --nodes=1
@@ -69,8 +73,6 @@ DADA2S_TRIM_LEFT="${DADA2S_TRIM_LEFT:-0}"   # --p-trim-left (5' trim; 0 = primer
 DADA2S_MAX_EE="${DADA2S_MAX_EE:-2.0}"       # --p-max-ee (max expected errors; DADA2 default 2.0)
 DADA2S_TRUNC_Q="${DADA2S_TRUNC_Q:-2}"       # --p-trunc-q (truncate at first base <= this q; default 2)
 DADA2S_CHIMERA="${DADA2S_CHIMERA:-consensus}" # --p-chimera-method (consensus|pooled|none)
-FWD_PRIMER="${FWD_PRIMER:-}"                # optional 5' primer for cutadapt trim-single
-REV_PRIMER_RC="${REV_PRIMER_RC:-}"          # optional 3' adapter = revcomp of reverse primer
 
 # --- Precondition: demux.qza from the single-end import step must exist ------
 if [[ ! -f "$QD/demux.qza" ]]; then
@@ -88,25 +90,24 @@ echo "==== DADA2 denoise-single for $STUDY ===="
 echo "Work        : $QD"
 echo "trunc-len=$DADA2S_TRUNC_LEN trim-left=$DADA2S_TRIM_LEFT max-ee=$DADA2S_MAX_EE" \
      "trunc-q=$DADA2S_TRUNC_Q chimera=$DADA2S_CHIMERA threads=$THREADS"
-echo "primers     : fwd='${FWD_PRIMER:-none}' rev_rc='${REV_PRIMER_RC:-none}'"
 
-# --- 1. Optional primer removal with cutadapt (skipped when FWD_PRIMER empty)-
-# Strip a 5' forward primer (and optionally the 3' revcomp of the reverse
-# primer) before denoising. Skip when primers were already removed upstream.
-DENOISE_INPUT="$QD/demux.qza"
-if [[ -n "$FWD_PRIMER" ]]; then
-    CUTADAPT_ARGS=(--i-demultiplexed-sequences "$QD/demux.qza"
-                   --p-front "$FWD_PRIMER"
-                   --p-cores "$THREADS"
-                   --p-discard-untrimmed
-                   --o-trimmed-sequences "$QD/demux-trimmed.qza"
-                   --verbose)
-    [[ -n "$REV_PRIMER_RC" ]] && CUTADAPT_ARGS+=(--p-adapter "$REV_PRIMER_RC")
-    qiime cutadapt trim-single "${CUTADAPT_ARGS[@]}"
-    qiime demux summarize \
-        --i-data "$QD/demux-trimmed.qza" \
-        --o-visualization "$QD/demux_trimmed_viz.qzv"
-    DENOISE_INPUT="$QD/demux-trimmed.qza"
+# --- 1. Input selection: use the primer-trimmed reads -----------------------
+# Primer removal is a separate stage (03_trim_single.slurm, `submit.sh <Study>
+# trim`). When FWD_PRIMER is configured we denoise the reads that stage produced
+# (demux_trimmed.qza) and REFUSE to fall back to the primer-containing raw
+# demux — a missing trimmed file means the trim stage wasn't run. Only when no
+# primer is set (nothing to trim) do we read the raw demux.qza.
+if [[ -n "${FWD_PRIMER:-}" ]]; then
+    if [[ ! -f "$QD/demux_trimmed.qza" ]]; then
+        echo "ERROR: FWD_PRIMER is set but $QD/demux_trimmed.qza is missing." >&2
+        echo "       Run the trim stage first:  ./chpc/submit.sh $STUDY trim" >&2
+        exit 1
+    fi
+    DENOISE_INPUT="$QD/demux_trimmed.qza"
+    echo "using primer-trimmed reads from the trim stage: $DENOISE_INPUT"
+else
+    DENOISE_INPUT="$QD/demux.qza"
+    echo "no primer set; using raw demux: $DENOISE_INPUT"
 fi
 
 # --- 2. DADA2 denoise-single ------------------------------------------------

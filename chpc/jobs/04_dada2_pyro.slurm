@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# 03_denoise_pyro.slurm — SINGLE-END 454 / Ion Torrent denoising via
+# 04_dada2_pyro.slurm — SINGLE-END 454 / Ion Torrent denoising via
 # `qiime dada2 denoise-pyro` (DADA2's pyrosequencing error model).
 #
 # This is the highest-fidelity denoiser for 454 data: unlike Deblur (which trims
@@ -9,15 +9,23 @@
 # 454-specific error model that tolerates homopolymer indels and variable read
 # length. It is the QIIME2 successor to the paper's flowgram denoise_wrapper.py.
 #
-# Reads demux.qza from 02_import_single.slurm (single-end import; on scratch).
-# Run AFTER inspecting demux_viz.qzv and setting PYRO_TRUNC_LEN in the study
-# file. DADA2 does its own quality filtering, so — unlike 03_deblur_single —
-# there is NO separate quality-filter step here.
+# Reads primer-trimmed reads from the trim stage if present, otherwise demux.qza
+# from 02_import_single.slurm (single-end import; on scratch). Run AFTER
+# inspecting the quality plot and setting PYRO_TRUNC_LEN in the study file.
+# DADA2 does its own quality filtering, so — unlike 04_deblur — there is NO
+# separate quality-filter step here.
+#
+# Primer removal is now a SEPARATE stage (chpc/jobs/03_trim_single.slurm, run
+# via `chpc/submit.sh <Study> trim`). When FWD_PRIMER is set in the study file
+# this job REQUIRES the trimmed reads it produced (demux_trimmed.qza) and aborts
+# if they're missing; only when no primer is set does it read the raw demux.qza.
+# (Ingham2019 leaves FWD_PRIMER empty — primers are already stripped upstream by
+# prep_ingham_454.sh — so it correctly denoises the raw demux.qza.)
 #
 # Selected by the study file setting LAYOUT="single" + DENOISER="pyro"; submit
 # via chpc/submit.sh. Standalone:
 #   sbatch -A <acct> -p notchpeak \
-#          --export=ALL,STUDY_FILE=studies/Ingham2019.sh chpc/jobs/03_denoise_pyro.slurm
+#          --export=ALL,STUDY_FILE=studies/Ingham2019.sh chpc/jobs/04_dada2_pyro.slurm
 # =============================================================================
 #SBATCH --job-name=qiime-pyro
 #SBATCH --nodes=1
@@ -64,8 +72,6 @@ PYRO_MAX_LEN="${PYRO_MAX_LEN:-0}"         # --p-max-len (drop reads longer than 
 PYRO_MAX_EE="${PYRO_MAX_EE:-2.0}"         # --p-max-ee (max expected errors; DADA2 default 2.0)
 PYRO_TRUNC_Q="${PYRO_TRUNC_Q:-2}"         # --p-trunc-q (truncate at first base <= this q; default 2)
 PYRO_CHIMERA="${PYRO_CHIMERA:-consensus}" # --p-chimera-method (consensus|pooled|none)
-FWD_PRIMER="${FWD_PRIMER:-}"              # optional 5' primer for cutadapt (no-op for Ingham2019)
-REV_PRIMER_RC="${REV_PRIMER_RC:-}"        # optional 3' adapter = revcomp of reverse primer
 
 # --- Precondition: demux.qza from the single-end import step must exist ------
 if [[ ! -f "$QD/demux.qza" ]]; then
@@ -83,26 +89,24 @@ echo "==== DADA2 denoise-pyro for $STUDY ===="
 echo "Work        : $QD"
 echo "trunc-len=$PYRO_TRUNC_LEN trim-left=$PYRO_TRIM_LEFT max-len=$PYRO_MAX_LEN" \
      "max-ee=$PYRO_MAX_EE trunc-q=$PYRO_TRUNC_Q chimera=$PYRO_CHIMERA threads=$THREADS"
-echo "primers     : fwd='${FWD_PRIMER:-none}' rev_rc='${REV_PRIMER_RC:-none}'"
 
-# --- 1. Optional primer removal with cutadapt (skipped when FWD_PRIMER empty)-
-# NO-OP for Ingham2019: primers are already stripped upstream by
-# prep_ingham_454.sh, so FWD_PRIMER/REV_PRIMER_RC are empty in that study file.
-# Kept for reuse by other single-end 454/Ion Torrent studies.
-DENOISE_INPUT="$QD/demux.qza"
-if [[ -n "$FWD_PRIMER" ]]; then
-    CUTADAPT_ARGS=(--i-demultiplexed-sequences "$QD/demux.qza"
-                   --p-front "$FWD_PRIMER"
-                   --p-cores "$THREADS"
-                   --p-discard-untrimmed
-                   --o-trimmed-sequences "$QD/demux-trimmed.qza"
-                   --verbose)
-    [[ -n "$REV_PRIMER_RC" ]] && CUTADAPT_ARGS+=(--p-adapter "$REV_PRIMER_RC")
-    qiime cutadapt trim-single "${CUTADAPT_ARGS[@]}"
-    qiime demux summarize \
-        --i-data "$QD/demux-trimmed.qza" \
-        --o-visualization "$QD/demux_trimmed_viz.qzv"
-    DENOISE_INPUT="$QD/demux-trimmed.qza"
+# --- 1. Input selection: use the primer-trimmed reads -----------------------
+# Primer removal is a separate stage (03_trim_single.slurm, `submit.sh <Study>
+# trim`). When FWD_PRIMER is configured we denoise the reads that stage produced
+# (demux_trimmed.qza) and REFUSE to fall back to the primer-containing raw
+# demux. Only when no primer is set do we read the raw demux.qza — which is the
+# Ingham2019 path (primers already stripped upstream by prep_ingham_454.sh).
+if [[ -n "${FWD_PRIMER:-}" ]]; then
+    if [[ ! -f "$QD/demux_trimmed.qza" ]]; then
+        echo "ERROR: FWD_PRIMER is set but $QD/demux_trimmed.qza is missing." >&2
+        echo "       Run the trim stage first:  ./chpc/submit.sh $STUDY trim" >&2
+        exit 1
+    fi
+    DENOISE_INPUT="$QD/demux_trimmed.qza"
+    echo "using primer-trimmed reads from the trim stage: $DENOISE_INPUT"
+else
+    DENOISE_INPUT="$QD/demux.qza"
+    echo "no primer set; using raw demux: $DENOISE_INPUT"
 fi
 
 # --- 2. DADA2 denoise-pyro --------------------------------------------------

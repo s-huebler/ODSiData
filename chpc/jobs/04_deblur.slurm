@@ -1,24 +1,30 @@
 #!/bin/bash
 # =============================================================================
-# 03_deblur_single.slurm — SINGLE-END / pre-merged layout denoising via Deblur.
-# The single-end analogue of 03_dada2.slurm. Reads demux.qza from
-# 02_import_single.slurm (on scratch). Run AFTER inspecting demux_viz.qzv and
-# setting TRIM_LENGTH in the study file.
+# 04_deblur.slurm — SINGLE-END / pre-merged layout denoising via Deblur.
+# The single-end analogue of 04_dada2_paired.slurm. Reads primer-trimmed reads
+# from the trim stage if present, otherwise demux.qza from 02_import_single.slurm
+# (both on scratch). Run AFTER inspecting the quality plot and setting
+# TRIM_LENGTH in the study file.
 #
 # Why Deblur (not DADA2) for this layout: these reads are already merged
 # (forward+reverse joined), so DADA2's paired error model does not apply and
 # denoise-single's error model assumes un-merged reads. Deblur denoises against
 # a positive 16S reference and takes pre-joined reads cleanly.
 #
-# Pipeline: [optional cutadapt primer removal] -> quality-filter q-score
-#           -> deblur denoise-16S -> visualize-stats -> export rep-seqs FASTA.
-# Exports dna-sequences.fasta (input for the local BLAST Analysis section) plus
-# table.qza / rep-seqs.qza / stats.qza and the .qzv summaries.
+# Primer removal is now a SEPARATE stage (chpc/jobs/03_trim_single.slurm, run
+# via `chpc/submit.sh <Study> trim`). When FWD_PRIMER is set in the study file
+# this job REQUIRES the trimmed reads it produced (demux_trimmed.qza) and aborts
+# if they're missing; only when no primer is set does it read the raw demux.qza.
+#
+# Pipeline: quality-filter q-score -> deblur denoise-16S -> visualize-stats
+#           -> export rep-seqs FASTA. Exports dna-sequences.fasta (input for the
+# local BLAST Analysis section) plus table.qza / rep-seqs.qza / stats.qza and
+# the .qzv summaries.
 #
 # Submit via chpc/submit.sh (routes here when the study sets LAYOUT="single").
 # Standalone:
 #   sbatch -A <acct> -p notchpeak \
-#          --export=ALL,STUDY_FILE=studies/DAmico2019.sh chpc/jobs/03_deblur_single.slurm
+#          --export=ALL,STUDY_FILE=studies/DAmico2019.sh chpc/jobs/04_deblur.slurm
 # =============================================================================
 #SBATCH --job-name=qiime-deblur
 #SBATCH --nodes=1
@@ -56,8 +62,6 @@ THREADS="${SLURM_CPUS_PER_TASK:-${DEBLUR_THREADS:-16}}"
 TRIM_LENGTH="${TRIM_LENGTH:-0}"           # deblur --p-trim-length; MUST be set (>0 or -1)
 LEFT_TRIM_LEN="${LEFT_TRIM_LEN:-0}"       # deblur --p-left-trim-len (5' trim, e.g. primer len)
 MIN_QUALITY="${MIN_QUALITY:-4}"           # quality-filter q-score min (Deblur default = 4)
-FWD_PRIMER="${FWD_PRIMER:-}"              # optional: 5' primer for cutadapt trim-single
-REV_PRIMER_RC="${REV_PRIMER_RC:-}"        # optional: 3' adapter = revcomp of reverse primer
 
 # --- Precondition: demux.qza from the import step must exist -----------------
 if [[ ! -f "$QD/demux.qza" ]]; then
@@ -73,23 +77,24 @@ fi
 echo "==== Deblur for $STUDY ===="
 echo "Work        : $QD"
 echo "trim-length : $TRIM_LENGTH ; left-trim : $LEFT_TRIM_LEN ; min-quality : $MIN_QUALITY ; threads : $THREADS"
-echo "primers     : fwd='${FWD_PRIMER:-none}' rev_rc='${REV_PRIMER_RC:-none}'"
 
-# --- 1. Optional primer removal with cutadapt -------------------------------
-# Merged V3-V4 reads still carry the forward primer at the 5' end and the
-# reverse-complement of the reverse primer at the 3' end. If FWD_PRIMER is set,
-# strip primers here; otherwise skip and rely on LEFT_TRIM_LEN / TRIM_LENGTH.
-DENOISE_INPUT="$QD/demux.qza"
-if [[ -n "$FWD_PRIMER" ]]; then
-    CUTADAPT_ARGS=(--i-demultiplexed-sequences "$QD/demux.qza"
-                   --p-front "$FWD_PRIMER"
-                   --p-cores "$THREADS"
-                   --p-discard-untrimmed
-                   --o-trimmed-sequences "$QD/demux-trimmed.qza"
-                   --verbose)
-    [[ -n "$REV_PRIMER_RC" ]] && CUTADAPT_ARGS+=(--p-adapter "$REV_PRIMER_RC")
-    qiime cutadapt trim-single "${CUTADAPT_ARGS[@]}"
-    DENOISE_INPUT="$QD/demux-trimmed.qza"
+# --- 1. Input selection: use the primer-trimmed reads -----------------------
+# Primer removal is a separate stage (03_trim_single.slurm, `submit.sh <Study>
+# trim`). When FWD_PRIMER is configured we denoise the reads that stage produced
+# (demux_trimmed.qza) and REFUSE to fall back to the primer-containing raw
+# demux — a missing trimmed file means the trim stage wasn't run. Only when no
+# primer is set (nothing to trim) do we read the raw demux.qza.
+if [[ -n "${FWD_PRIMER:-}" ]]; then
+    if [[ ! -f "$QD/demux_trimmed.qza" ]]; then
+        echo "ERROR: FWD_PRIMER is set but $QD/demux_trimmed.qza is missing." >&2
+        echo "       Run the trim stage first:  ./chpc/submit.sh $STUDY trim" >&2
+        exit 1
+    fi
+    DENOISE_INPUT="$QD/demux_trimmed.qza"
+    echo "using primer-trimmed reads from the trim stage: $DENOISE_INPUT"
+else
+    DENOISE_INPUT="$QD/demux.qza"
+    echo "no primer set; using raw demux: $DENOISE_INPUT"
 fi
 
 # --- 2. Quality filter (Deblur expects q-score-filtered input) --------------
