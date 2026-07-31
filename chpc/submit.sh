@@ -67,6 +67,10 @@ source "chpc/$STUDY_FILE"
 check_allocation
 
 # --- Resolve layout -> import/trim/denoise jobs and their resources ---------
+# Walltimes are set per STAGE in the study file: FETCH_TIME, IMPORT_TIME,
+# TRIM_TIME, DENOISE_TIME (one denoise walltime regardless of which denoiser the
+# study selects). Thread counts stay per-denoiser (DADA2_THREADS / DEBLUR_THREADS
+# / PYRO_THREADS / DADA2S_THREADS) since they scale with the denoiser.
 LAYOUT="${LAYOUT:-paired}"
 # Trim (cutadapt) resources are shared across denoisers; light + quick.
 TRIM_TIME="${TRIM_TIME:-04:00:00}"
@@ -76,7 +80,6 @@ case "$LAYOUT" in
         IMPORT_JOB="chpc/jobs/02_import.slurm"
         TRIM_JOB="chpc/jobs/03_trim_paired.slurm"
         DENOISE_JOB="chpc/jobs/04_dada2_paired.slurm"
-        DENOISE_TIME="${DADA2_TIME:?set DADA2_TIME in the study file}"
         DENOISE_THREADS="${DADA2_THREADS:?set DADA2_THREADS in the study file}"
         DENOISE_LABEL="DADA2"
         ;;
@@ -87,19 +90,16 @@ case "$LAYOUT" in
         case "${DENOISER:-deblur}" in
             deblur)
                 DENOISE_JOB="chpc/jobs/04_deblur.slurm"
-                DENOISE_TIME="${DEBLUR_TIME:?set DEBLUR_TIME in the study file}"
                 DENOISE_THREADS="${DEBLUR_THREADS:?set DEBLUR_THREADS in the study file}"
                 DENOISE_LABEL="Deblur"
                 ;;
             pyro)
                 DENOISE_JOB="chpc/jobs/04_dada2_pyro.slurm"
-                DENOISE_TIME="${PYRO_TIME:-${DEBLUR_TIME:?set PYRO_TIME or DEBLUR_TIME in the study file}}"
                 DENOISE_THREADS="${PYRO_THREADS:-${DEBLUR_THREADS:?set PYRO_THREADS or DEBLUR_THREADS in the study file}}"
                 DENOISE_LABEL="DADA2-pyro"
                 ;;
             dada2-single)
                 DENOISE_JOB="chpc/jobs/04_dada2_single.slurm"
-                DENOISE_TIME="${DADA2S_TIME:-${DADA2_TIME:?set DADA2S_TIME or DADA2_TIME in the study file}}"
                 DENOISE_THREADS="${DADA2S_THREADS:-${DADA2_THREADS:?set DADA2S_THREADS or DADA2_THREADS in the study file}}"
                 DENOISE_LABEL="DADA2-single"
                 ;;
@@ -108,6 +108,8 @@ case "$LAYOUT" in
         ;;
     *) echo "Unknown LAYOUT '$LAYOUT' in study file (expected: paired|single)"; exit 1 ;;
 esac
+# Single denoise walltime, independent of the selected denoiser.
+DENOISE_TIME="${DENOISE_TIME:?set DENOISE_TIME in the study file}"
 # Normalize the denoise stage aliases to a single internal trigger.
 [[ "$STAGE" == "dada2" || "$STAGE" == "dada2-single" || "$STAGE" == "deblur" || "$STAGE" == "pyro" || "$STAGE" == "denoise" ]] && STAGE="denoise"
 

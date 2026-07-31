@@ -123,13 +123,13 @@ DENOISER="pyro"
 # /trunc-q). Empty = unset -> the job ABORTS (forces you to inspect the plot
 # first, like Deblur's TRIM_LENGTH guard). Set a positive length, or an explicit
 # 0 if you deliberately want NO truncation.
-PYRO_TRUNC_LEN=""
+PYRO_TRUNC_LEN=368
 PYRO_TRIM_LEFT=0          # 5' trim; 0 — primers already removed by prep_ingham_454.sh
 PYRO_MAX_LEN=0            # drop reads longer than this pre-trim; 0 = off
 PYRO_MAX_EE=2.0          # max expected errors (DADA2 default 2.0)
 PYRO_TRUNC_Q=2          # truncate at first base <= this quality (default 2)
 PYRO_THREADS=16          # match 04_dada2_pyro --cpus-per-task
-PYRO_TIME="12:00:00"     # walltime for the pyro denoise job
+# (denoise walltime is the shared DENOISE_TIME at the bottom of this file)
 
 # --- Deblur denoise-16S parameters (used when DENOISER="deblur") -------------
 # TRIM_LENGTH: Deblur trims EVERY read to this fixed length and DISCARDS reads
@@ -153,9 +153,11 @@ DEBLUR_THREADS=16
 
 # Optional QIIME sample-metadata TSV for feature-table summarize. Leave "" to
 # skip. (Clinical + sample metadata: figshare 10.6084/m9.figshare.6508232.)
-METADATA=""
+METADATA="$REPO_ROOT/$STUDY/Metadata/ingham_meta_qiime.tsv"
 
-# Walltime hints (edit per dataset size). 97 fecal samples, 30 patients.
+# Walltime hints per stage (edit per dataset size). 97 fecal samples, 30 patients.
+# DENOISE_TIME covers the selected denoiser (pyro or deblur).
 FETCH_TIME="00:30:00"
 IMPORT_TIME="04:00:00"
-DEBLUR_TIME="12:00:00"
+TRIM_TIME="04:00:00"
+DENOISE_TIME="12:00:00"

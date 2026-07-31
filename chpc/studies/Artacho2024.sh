@@ -42,6 +42,8 @@ DADA2_THREADS=16
 
 METADATA="$REPO_ROOT/$STUDY/Metadata/artacho_meta_qiime.tsv"
 
+# Walltimes per stage (used by submit.sh). DENOISE_TIME covers the DADA2 job.
 FETCH_TIME="1:00:00"
 IMPORT_TIME="5:00:00"
-DADA2_TIME="12:00:00"
+TRIM_TIME="2:00:00"
+DENOISE_TIME="12:00:00"

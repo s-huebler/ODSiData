@@ -68,7 +68,9 @@ DEBLUR_THREADS=16
 # set METADATA="") if feature-table summarize errors on the ID column.
 METADATA="$REPO_ROOT/$STUDY/Metadata/damico_meta_qiime.tsv"
 
-# Walltime hints (edit per dataset size). Used by submit.sh. 104 runs.
+# Walltime hints per stage (edit per dataset size). Used by submit.sh. 104 runs.
+# DENOISE_TIME covers the Deblur job.
 FETCH_TIME="12:00:00"
 IMPORT_TIME="04:00:00"
-DEBLUR_TIME="24:00:00"
+TRIM_TIME="04:00:00"
+DENOISE_TIME="24:00:00"

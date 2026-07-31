@@ -75,14 +75,17 @@ DADA2_THREADS=16
 # DADA2S_TRUNC_Q=2               # truncate at first base <= this quality
 # DADA2S_CHIMERA="consensus"      # consensus | pooled | none
 # DADA2S_THREADS=16               # match --cpus-per-task in the denoise job
-# DADA2S_TIME="24:00:00"          # walltime for the denoise job
+# (denoise walltime is the shared DENOISE_TIME at the bottom of this file)
 # =============================================================================
 
 # Optional QIIME sample-metadata TSV for feature-table summarize. Leave "" to
 # skip the metadata-annotated summary (import + DADA2 don't need it).
 METADATA=""
 
-# Walltime hints (edit per dataset size). Used by submit.sh.
+# Walltime hints (edit per dataset size). Used by submit.sh — one per stage.
+# DENOISE_TIME covers whichever denoiser this study selects (DADA2 / Deblur /
+# pyro / dada2-single). TRIM_TIME is the cutadapt primer-removal stage.
 FETCH_TIME="12:00:00"
 IMPORT_TIME="04:00:00"
-DADA2_TIME="24:00:00"
+TRIM_TIME="04:00:00"
+DENOISE_TIME="24:00:00"

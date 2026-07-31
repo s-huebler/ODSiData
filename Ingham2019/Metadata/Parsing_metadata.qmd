@@ -12,6 +12,10 @@ library(tidyverse)
 # Import the text file into a dataframe
 pats37 <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/Data_matrix_37_patients.txt", header = TRUE, stringsAsFactors = FALSE)
 
+pats37_daily <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/Data_matrix_37_patients_per_day.txt", header = TRUE, stringsAsFactors = FALSE)
+
+pats30 <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/Data_matrix_30_patients.txt", header = TRUE, stringsAsFactors = FALSE)
+
 pats30_extra <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/Data_matrix_30_patients_additional.txt", header = TRUE, stringsAsFactors = FALSE)
 
 mapping_forward <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Figshare_Linking/mapping_file_Forward.txt", header = TRUE, stringsAsFactors = FALSE)
@@ -19,4 +23,150 @@ mapping_forward <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Figshare_Lin
 mapping_rev <- read.delim("~/Documents/ODSi/ODSiData/Ingham2019/Figshare_Linking/mapping_file_Reverse.txt", header = TRUE, stringsAsFactors = FALSE)
 
 samples <- read_csv("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/Raw_metadata/meta_samples.csv")
+```
+
+```{r}
+patterns <- c(
+  run_ERR     = "ERR[0-9]{6,}",
+  run_SRR     = "SRR[0-9]{6,}",
+  run_DRR     = "DRR[0-9]{6,}",
+  biosample   = "SAM[END][A-Z]?[0-9]+",
+  sra_sample  = "[EDS]RS[0-9]{6,}",
+  experiment  = "[EDS]RX[0-9]{6,}",
+  bioproject  = "PRJ[EDN][A-Z][0-9]+"
+)
+
+hits <- lapply(names(pats30_extra), function(col) {
+  vals <- as.character(pats30_extra[[col]])
+  found <- sapply(patterns, function(p) any(str_detect(vals, p), na.rm = TRUE))
+  if (any(found)) data.frame(column = col, matched = paste(names(patterns)[found], collapse = ", "))
+}) %>% bind_rows()
+
+if (nrow(hits) == 0) message("No accession-like values found in any column.") else print(hits)
+
+# --- (b) Look at the likely join keys ---
+head(pats30_extra$feces_sample, 20)
+head(pats30_extra[, c("Patient_ID", "days_posttransplant", "timepoint", "sampling_date")], 20)
+
+# unique counts help tell you the granularity (sample-level vs patient-level)
+sapply(pats30_extra[, c("feces_sample", "Patient_ID", "timepoint")], function(x) length(unique(x)))
+```
+
+```{r}
+url <- paste0("https://www.ebi.ac.uk/ena/portal/api/filereport",
+              "?accession=PRJEB25221&result=read_run",
+              "&fields=run_accession,sample_accession,secondary_sample_accession,",
+              "sample_title,sample_alias,library_name&format=tsv")
+ena <- read.delim(url, stringsAsFactors = FALSE)
+head(ena)  # inspect sample_title / sample_alias — that's what feces_sample likely matches
+```
+
+```{r}
+samples2 <- samples %>%
+  left_join(ena, by = c("Library Name" = "sample_alias" ))
+```
+
+```{r}
+samples3 <- samples2 %>%
+  left_join(pats30_extra,
+            by = c("sample_title" = "feces_sample"))%>%
+  mutate(`sample-id` = Run)%>%
+  select(
+    `sample-id`,
+    Run,
+    run_accession,
+    sample_accession,
+    Experiment,
+    secondary_sample_accession,
+    external_id,
+    `Library Name`,
+    sample_title,
+    Patient_ID,
+    days_posttransplant, 
+    timepoint, 
+    sampling_date,
+    Date.of.BMT..dd.mm.yyyy.,
+    BMT.No, 
+    DX, 
+    DiseaseNameIBMTR, 
+    Date.of.diagnosis..dd.mm.yyyy., 
+    Sex, 
+    Donor.sex,
+    Rec.age.in.y, 
+    Weight,
+    Donor.age.in.y,
+    Bone.marrow, 
+    Peripheral.blood, 
+    Ubilical.cord, 
+    DonorMatch, 
+    Donor, GVHD.Prophylaxis,
+    GvHD_onset, Was.graft.manipulated.for.GVHD.prophylaxis, CMVab,
+    X541GVHDoccur, X542MaxAGVHD, X549Date, X593ChGVHD, Alive...1.yes..0.no., Primary.cause.of.death, X.Alle..Survival.all.patients..to.death._Surv, Sens.death.0., X.Alle..Death.in.remiss_Surv, Sens.1.rel..now.0.death_remiss., X.Alle..Relapse_Surv, Sens.0.relapse.1.death.Now., Surv.to.now,
+    Cell.dose.kg,
+    Expr1018,
+    Myeloabl, 
+    Irrad, 
+    TBI, 
+    Total.dose.of.TBI.in.cGy, 
+    FracTBI, Dose.frac, X197ATGmm, X233Bu,
+    Total.dose.Busulfan..mg., X270Cyclo, Total.dose.cyclophosphamide..mg., 
+    Total.dose.VP16..mg., Total.dose.melphalan..mg., Total.dose.thiotepa..mg.,
+    X284.2Fludarab, X284.3TotalDose,  X10Ab, Karnofsky.bef.condt, Karnofsky.d100, Engraphment, 
+    
+  )
+```
+
+```{r}
+ingham_meta_qiime <- samples3 %>%
+  select(-timepoint)%>%
+  mutate(transplant_type = case_when(
+    `sample-id` == "ERR2666891" ~ "BM_UC",
+    Bone.marrow == 1 ~ "BM",
+    Peripheral.blood ==1 ~ "PBSC",
+    Ubilical.cord == 1 ~ "UC"
+  ))%>%
+mutate(gvhd_prophylaxis = case_match(GVHD.Prophylaxis,
+                                     1 ~ "Cyclosporine A",
+                                     2 ~ "Cyclosporine + Corticosteroids",
+                                     7 ~ "Cyclosporine A + Methotrexate"))%>%
+  mutate(sex = case_when(Sex == 1 ~ "male",
+                         Sex == 2 ~ "female",
+                         TRUE ~ NA))%>%
+  mutate(death = 1- Alive...1.yes..0.no.,
+         tx_death  = 1- Sens.1.rel..now.0.death_remiss.,
+         relapse  = 1- Sens.0.relapse.1.death.Now.)%>%
+  select(`sample-id`,
+         library_name = `Library Name`,
+         sample_title,
+         patient = Patient_ID,
+         diagnosis_date = Date.of.diagnosis..dd.mm.yyyy.,
+         transplant_date = Date.of.BMT..dd.mm.yyyy.,
+         sampling_date, 
+         timepoint = days_posttransplant,
+         sex = Sex,
+         age = Rec.age.in.y,
+         weight = Weight,
+         transplant_type, 
+         donor = Donor,
+         match = DonorMatch,
+         disease = DiseaseNameIBMTR,
+         gvhd_prophylaxis,
+         agvhd = X541GVHDoccur,
+         agvhd_grade = X542MaxAGVHD,
+         agvhd_date = X549Date,
+         cgvhd = X593ChGVHD,
+         death,
+         tte_death = X.Alle..Survival.all.patients..to.death._Surv,
+         cause_of_death = Primary.cause.of.death,
+         tx_death,
+         tte_tx_death = X.Alle..Death.in.remiss_Surv,
+         relapse,
+         tte_relapse = X.Alle..Relapse_Surv,
+         censor = Surv.to.now
+         )
+```
+
+```{r}
+save(ingham_meta_qiime, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Ingham2019/Metadata/ingham_meta_qiime.Rdata")
+write_tsv(ingham_meta_qiime, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Ingham2019/Metadata/ingham_meta_qiime.tsv")
 ```
