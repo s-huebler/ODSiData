@@ -1,8 +1,9 @@
 #!/bin/bash
 # =============================================================================
 # 02_import.slurm — build manifest, import FASTQs to QIIME2, summarize demux.
-# Stops at the point where you inspect read quality (demux_viz.qzv) to choose
-# DADA2 truncation lengths. Then run 03_dada2.slurm.
+# Stops at the point where you inspect read quality (demux_viz.qzv). Then run
+# the trim stage (03_trim_paired.slurm) and the denoise stage
+# (04_dada2_paired.slurm).
 #
 # Submit via chpc/submit.sh. Standalone:
 #   sbatch -A <acct> -p notchpeak \
@@ -67,5 +68,6 @@ cp -f "$QD/manifest.tsv" "$DEST/"
 cp -f "$QD/demux_viz.qzv" "$DEST/"
 
 echo "==== Import done. ===="
-echo "Inspect $DEST/demux_viz.qzv (view.qiime2.org or 'qiime tools view'),"
-echo "set TRUNC_LEN_F / TRUNC_LEN_R in chpc/$STUDY_FILE, then submit 03_dada2."
+echo "Inspect $DEST/demux_viz.qzv (view.qiime2.org or 'qiime tools view'), then run"
+echo "the trim stage ('submit.sh $STUDY trim'; skip if no primers set), set"
+echo "TRUNC_LEN_F / TRUNC_LEN_R in chpc/$STUDY_FILE, then 'submit.sh $STUDY denoise'."

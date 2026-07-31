@@ -14,10 +14,12 @@ STUDY="ChangeMe2024"
 # Accession list — one SRR per line (already committed under <Study>/RawData/).
 ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
 
-# --- Primer removal (optional; cutadapt in 03_dada2.slurm) -------------------
-# Set both to strip primers BY SEQUENCE before DADA2 (preferred over positional
-# trim-left when read lengths vary). If set, use TRIM_LEFT_F/R=0 below. Leave
-# empty to skip cutadapt. IUPAC/degenerate bases are matched automatically.
+# --- Primer removal (optional; cutadapt in the 'trim' stage) -----------------
+# Handled by 03_trim_paired.slurm (`./chpc/submit.sh <Study> trim`), which runs
+# AFTER import and BEFORE denoise. Set both to strip primers BY SEQUENCE
+# (preferred over positional trim-left when read lengths vary). If set, use
+# TRIM_LEFT_F/R=0 below. Leave empty to skip the trim stage entirely (denoise
+# then uses the raw demux). IUPAC/degenerate bases are matched automatically.
 PRIMER_F=""                        # e.g. 341F CCTACGGGNGGCWGCAG
 PRIMER_R=""                        # e.g. 805R GACTACHVGGGTATCTAATCC
 # Optional cutadapt knobs (defaults shown; only needed if you set primers):
@@ -28,16 +30,16 @@ PRIMER_R=""                        # e.g. 805R GACTACHVGGGTATCTAATCC
 # CUTADAPT_EXTRA=""                # raw passthrough flags, e.g. "--p-indels"
 
 # --- DADA2 denoise-paired parameters ----------------------------------------
-# 5' primer trim: use paper's primer lengths IF not using cutadapt above;
-# set to 0 when PRIMER_F/PRIMER_R are set (cutadapt already removed primers).
+# 5' primer trim: use paper's primer lengths IF not using the trim stage above;
+# set to 0 when PRIMER_F/PRIMER_R are set (the trim stage already removed them).
 TRIM_LEFT_F=17
 TRIM_LEFT_R=21
 # 3' truncation = read length minus low-quality tail. VERIFY against demux plot
-# (demux_trimmed_viz.qzv if cutadapt ran, else demux_viz.qzv).
+# (demux_trimmed_viz.qzv if the trim stage ran, else demux_viz.qzv).
 TRUNC_LEN_F=0
 TRUNC_LEN_R=0
 
-# CPU threads for DADA2 (match --cpus-per-task in 02_import_dada2.slurm).
+# CPU threads for DADA2 (match --cpus-per-task in 04_dada2_paired.slurm).
 DADA2_THREADS=16
 
 # =============================================================================
@@ -45,17 +47,18 @@ DADA2_THREADS=16
 # =============================================================================
 # Leave LAYOUT unset/"paired" for standard Illumina R1/R2 (block above). For
 # single-end data, set LAYOUT="single" and pick a denoiser with DENOISER:
-#   "deblur"       -> 03_deblur_single.slurm : PRE-MERGED / joined reads
+#   "deblur"       -> 04_deblur.slurm        : PRE-MERGED / joined reads
 #                     (fwd+rev already joined). Uses TRIM_LENGTH / LEFT_TRIM_LEN
 #                     / MIN_QUALITY / DEBLUR_THREADS.
-#   "pyro"         -> 03_denoise_pyro.slurm  : 454 / Ion Torrent variable-length
+#   "pyro"         -> 04_dada2_pyro.slurm    : 454 / Ion Torrent variable-length
 #                     reads. Uses the PYRO_* parameters.
-#   "dada2-single" -> 03_dada2_single.slurm  : TRUE single-end, UN-MERGED
+#   "dada2-single" -> 04_dada2_single.slurm  : TRUE single-end, UN-MERGED
 #                     Illumina reads (standard DADA2 error model). Uses the
 #                     DADA2S_* parameters below.
-# Primers for the single-end route are stripped by cutadapt trim-single inside
-# the denoise job — set FWD_PRIMER / REV_PRIMER_RC (revcomp of the reverse
-# primer) instead of PRIMER_F/PRIMER_R above; leave both "" if already removed.
+# Primers for the single-end route are stripped by cutadapt trim-single in the
+# 'trim' stage (03_trim_single.slurm, `./chpc/submit.sh <Study> trim`) — set
+# FWD_PRIMER / REV_PRIMER_RC (revcomp of the reverse primer) instead of
+# PRIMER_F/PRIMER_R above; leave both "" if already removed.
 #
 # LAYOUT="single"
 # DENOISER="dada2-single"

@@ -31,17 +31,17 @@
 # part hard platform requirement.
 #
 # CONSEQUENCES FOR OUR PIPELINE — READ BEFORE RUNNING:
-#   1. DADA2 denoise-paired (LAYOUT="paired", 03_dada2.slurm) CANNOT be used.
+#   1. DADA2 denoise-paired (LAYOUT="paired", 04_dada2_paired.slurm) CANNOT be used.
 #      There are no Illumina R1/R2 pairs here — 454 reads are single fragments,
 #      and DADA2 has no paired 454 mode.
 #   2. The strictly-correct QIIME2 denoiser for 454 is `qiime dada2 denoise-pyro`
 #      (single-end, 454/Ion Torrent error model), now implemented as
-#      03_denoise_pyro.slurm and selected below via DENOISER="pyro" (best
+#      04_dada2_pyro.slurm and selected below via DENOISER="pyro" (best
 #      fidelity to the platform: tolerates variable length + homopolymer indels).
-#      Alternatives: DENOISER="deblur" (03_deblur_single.slurm; fixed-length
+#      Alternatives: DENOISER="deblur" (04_deblur.slurm; fixed-length
 #      trim, lossy on 200-1000 bp variable 454 reads), or EXCLUDE this study from
 #      the ASV meta-analysis and fold in the authors' published OTU table
-#      (figshare 6508187) instead. denoise-paired (03_dada2.slurm) still CANNOT
+#      (figshare 6508187) instead. denoise-paired (04_dada2_paired.slurm) still CANNOT
 #      be used (see #1).
 #   3. RAW-DATA AVAILABILITY (RESOLVED): per-sample demultiplexed FASTQ ARE on
 #      ENA under PRJEB25221 (the figshare SFF record 6508250 points to it), so
@@ -63,7 +63,7 @@ ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
 
 # --- Layout: 454 single-fragment reads -> single-end route ------------------
 # NOT paired. If/when a denoise-pyro job is added, point LAYOUT/DENOISE at it;
-# until then "single" routes to 02_import_single.slurm + 03_deblur_single.slurm
+# until then "single" routes to 02_import_single.slurm + 04_deblur.slurm
 # (Deblur) as the closest available approximation. See consequence #2 above.
 LAYOUT="single"
 
@@ -98,17 +98,17 @@ SPLIT_CONCAT=0
 #   revcomp(926R): AAACTCAAAGGAATTGACGG   (3' adapter on a forward/R1 read)
 #
 # >>> LEAVE THESE EMPTY <<< The cleaned reads are already primer-free and
-# single-orientation, so the cutadapt step in 03_deblur_single is a NO-OP for
+# single-orientation, so the cutadapt step in 04_deblur is a NO-OP for
 # this study. Setting either of these would DOUBLE-TRIM real 16S bases.
 FWD_PRIMER=""            # already stripped by depositor + prep_ingham_454.sh
 REV_PRIMER_RC=""         # already stripped by prep_ingham_454.sh
 
 # --- Denoiser selection (single-end route) ----------------------------------
-# "pyro"   -> 03_denoise_pyro.slurm : DADA2 denoise-pyro, the 454/Ion Torrent
+# "pyro"   -> 04_dada2_pyro.slurm : DADA2 denoise-pyro, the 454/Ion Torrent
 #             error model. Preferred here: it tolerates variable read length and
 #             454 homopolymer indels instead of trimming everything to one fixed
 #             length. Uses the PYRO_* parameters below.
-# "deblur" -> 03_deblur_single.slurm : Deblur (fixed-length trim; lossy on the
+# "deblur" -> 04_deblur.slurm : Deblur (fixed-length trim; lossy on the
 #             200-1000 bp variable 454 reads). Uses the Deblur parameters below.
 # Both read the same demux.qza from 02_import_single; switch freely by changing
 # this one line.
@@ -128,7 +128,7 @@ PYRO_TRIM_LEFT=0          # 5' trim; 0 — primers already removed by prep_ingha
 PYRO_MAX_LEN=0            # drop reads longer than this pre-trim; 0 = off
 PYRO_MAX_EE=2.0          # max expected errors (DADA2 default 2.0)
 PYRO_TRUNC_Q=2          # truncate at first base <= this quality (default 2)
-PYRO_THREADS=16          # match 03_denoise_pyro --cpus-per-task
+PYRO_THREADS=16          # match 04_dada2_pyro --cpus-per-task
 PYRO_TIME="12:00:00"     # walltime for the pyro denoise job
 
 # --- Deblur denoise-16S parameters (used when DENOISER="deblur") -------------
@@ -148,7 +148,7 @@ LEFT_TRIM_LEN=0
 # reads with min quality score 25 in QIIME1; that is not directly comparable.
 MIN_QUALITY=4
 
-# CPU threads for Deblur (match --cpus-per-task in 03_deblur_single.slurm).
+# CPU threads for Deblur (match --cpus-per-task in 04_deblur.slurm).
 DEBLUR_THREADS=16
 
 # Optional QIIME sample-metadata TSV for feature-table summarize. Leave "" to

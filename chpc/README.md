@@ -15,16 +15,34 @@ Mac). QIIME2 is loaded via `module load` on CHPC.
 |-------|-------|--------|
 | Fetch SRA runs (`prefetch` + `fasterq-dump`) | CHPC (job array) | `jobs/01_fetch.slurm` |
 | Build manifest + import + demux summary | CHPC | `jobs/02_import.slurm` |
-| *(inspect `demux_viz.qzv`, set trunc lengths)* | local | — |
-| **DADA2** denoise → summaries → export FASTA | CHPC | `jobs/03_dada2.slurm` |
+| *(inspect `demux_viz.qzv`)* | local | — |
+| **Trim** primers with cutadapt → demux_trimmed summary | CHPC | `jobs/03_trim_paired.slurm` |
+| *(inspect `demux_trimmed_viz.qzv`, set trunc lengths)* | local | — |
+| **Denoise** (DADA2/Deblur) → summaries → export FASTA | CHPC | `jobs/04_dada2_paired.slurm` |
 | **BLAST** human decontam + 16S classification | **local Mac** | `<Study>/Preprocessing.qmd` |
 | Filtering, Greengenes2, trees, taxonomy | local Mac | `<Study>/Preprocessing.qmd` |
 
-Import and DADA2 are split on purpose: `02_import` stops at `demux_viz.qzv` so you
-can read the quality plots and choose `--p-trunc-len` before denoising. The DADA2
-job then exports `rep-seqs.qza` to `dna-sequences.fasta` and copies it plus
-`table.qza` / `rep-seqs.qza` / `stats.qza` and the `.qzv` summaries back into
-`<Study>/QiimeData/`. That FASTA is exactly the input the BLAST chunk expects.
+The stages after import are **layout-aware** — the study file's `LAYOUT`
+(`paired`/`single`) and `DENOISER` (`deblur`/`pyro`/`dada2-single`) pick the
+matching jobs, so you always call the generic `trim` and `denoise` stages:
+
+| Layout | Import | Trim | Denoise |
+|--------|--------|------|---------|
+| `paired` | `02_import.slurm` | `03_trim_paired.slurm` | `04_dada2_paired.slurm` |
+| `single` + `deblur` | `02_import_single.slurm` | `03_trim_single.slurm` | `04_deblur.slurm` |
+| `single` + `pyro` | `02_import_single.slurm` | `03_trim_single.slurm` | `04_dada2_pyro.slurm` |
+| `single` + `dada2-single` | `02_import_single.slurm` | `03_trim_single.slurm` | `04_dada2_single.slurm` |
+
+Import, trim, and denoise are split on purpose. `02_import` stops at
+`demux_viz.qzv` so you can read the quality plots. **Trim** (cutadapt) then
+strips primers by sequence into `demux_trimmed.qza` and writes a fresh
+`demux_trimmed_viz.qzv` so you can choose `--p-trunc-len` on the primer-free
+reads. If no primers are set in the study file the trim stage is a no-op and
+denoise falls back to the raw `demux.qza`. The **denoise** job auto-detects
+`demux_trimmed.qza` (prefers it, else raw demux), exports `rep-seqs.qza` to
+`dna-sequences.fasta`, and copies it plus `table.qza` / `rep-seqs.qza` /
+`stats.qza` and the `.qzv` summaries back into `<Study>/QiimeData/`. That FASTA
+is exactly the input the BLAST chunk expects.
 
 ## The loop (develop local → push → pull → submit → retrieve)
 
@@ -43,8 +61,12 @@ git pull
 squeue -u $USER                       # watch progress; logs in chpc/logs/
 
 # import copies demux_viz.qzv into Artacho2024/QiimeData/. Inspect it (view.qiime2.org
-# or 'qiime tools view'), then set TRUNC_LEN_F/TRUNC_LEN_R in chpc/studies/Artacho2024.sh.
-./chpc/submit.sh Artacho2024 dada2    # denoise with your chosen trunc lengths
+# or 'qiime tools view').
+./chpc/submit.sh Artacho2024 trim     # cutadapt primer removal (skip if no primers set)
+
+# trim copies demux_trimmed_viz.qzv into Artacho2024/QiimeData/. Inspect it, then set
+# TRUNC_LEN_F/TRUNC_LEN_R in chpc/studies/Artacho2024.sh.
+./chpc/submit.sh Artacho2024 denoise  # denoise with your chosen trunc lengths
 
 # when DADA2 finishes it has copied artifacts into Artacho2024/QiimeData/
 git add Artacho2024/QiimeData chpc/studies/Artacho2024.sh
@@ -80,10 +102,12 @@ cp chpc/studies/_template.sh chpc/studies/Liu2017.sh
 ## Notes / gotchas
 
 - **Verify DADA2 truncation.** Trim/trunc values come from each paper's methods
-  but should be checked against `demux_viz.qzv` (interactive quality plot) before
-  you trust the run. For a first pass you can submit `fetch` only, inspect the
-  quality plot, set the numbers, then submit `dada2`.
-- **Partial submissions:** `./chpc/submit.sh <Study> fetch` or `... dada2`.
+  but should be checked against the quality plot before you trust the run — use
+  `demux_trimmed_viz.qzv` (post-primer, from the trim stage) if primers were set,
+  else `demux_viz.qzv`. For a first pass you can submit `fetch`/`import` only,
+  inspect the plot, run `trim`, re-inspect, set the numbers, then submit `denoise`.
+- **Partial submissions:** `./chpc/submit.sh <Study> {fetch|import|trim|denoise}`.
+  The `trim` and `denoise` stages route by the study file's `LAYOUT`/`DENOISER`.
 - **Re-runs are cheap:** the fetch array skips SRRs whose FASTQs already exist;
   failed downloads are logged to `<scratch>/<Study>/failed_downloads.txt`.
 - **Throttle downloads** with `ARRAY_THROTTLE=10 ./chpc/submit.sh ...` if NCBI

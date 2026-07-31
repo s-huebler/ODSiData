@@ -26,10 +26,24 @@ editor: visual
 
 # Fetch and import
 
-Import took about 3 hours
+Import took about 3 hours. Imported as paired sequences.
 
 ![](images/clipboard-672327983.png)
 
-![](images/clipboard-3566976256.png)
+![](images/clipboard-3566976256.png){width="792"}
+
+## Trimming primers
+
+Primers given in the manuscript
+
+-   341F (fwd): CCTACGGGNGGCWGCAG (17 nt)
+
+-    805R (rev): GACTACHVGGGTATCTAATCC (21 nt)
 
 # Dada2
+
+-   Didn't trim the front because cutadapt found exact primers
+
+-   Truncated at 265 forward and 225 reverse
+
+![](images/clipboard-3556608875.png)

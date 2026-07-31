@@ -8,7 +8,7 @@
 STUDY="Artacho2024"
 ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
 
-# --- Primer removal (cutadapt, runs in 03_dada2.slurm before DADA2) ----------
+# --- Primer removal (cutadapt 'trim' stage: 03_trim_paired.slurm) ------------
 # V3-V4 amplified with the Illumina "16S Metagenomic Sequencing Library Prep"
 # protocol (Kapa HiFi + Nextera XT). That protocol's locus primers are the
 # Klindworth (2013) 341F / 805R pair — their lengths (17 and 21 nt) match the

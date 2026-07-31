@@ -2,30 +2,41 @@
 # =============================================================================
 # chpc/submit.sh — submit a study's preprocessing stages.
 # Stages: fetch (SRA download array) -> import (QIIME2 import + demux summary)
-#         -> [INSPECT demux_viz.qzv, set trunc lengths] -> dada2 (denoise+export)
+#         -> [INSPECT demux_viz.qzv] -> trim (cutadapt primer removal)
+#         -> [INSPECT demux_trimmed_viz.qzv, set trunc lengths]
+#         -> denoise (denoise + export)
 #
 # Usage (run from the repo root on CHPC):
 #   ./chpc/submit.sh Artacho2024              # 'all' = fetch -> import, then STOP
 #   ./chpc/submit.sh Artacho2024 fetch        # download only
 #   ./chpc/submit.sh Artacho2024 import       # import + demux summary only
-#   ./chpc/submit.sh Artacho2024 dada2        # denoise (after you set trunc lens)
+#   ./chpc/submit.sh Artacho2024 trim         # cutadapt primer removal only
+#   ./chpc/submit.sh Artacho2024 denoise      # denoise (after you set trunc lens)
 #
-# The denoise stage is layout-aware, driven by LAYOUT in the study file:
-#   LAYOUT="paired" (default) -> 02_import.slurm        + 03_dada2.slurm
-#   LAYOUT="single"           -> 02_import_single.slurm + 03_deblur_single.slurm
+# Both the trim and denoise stages are layout-aware, driven by LAYOUT in the
+# study file:
+#   LAYOUT="paired" (default) -> 02_import.slurm        + 03_trim_paired.slurm
+#                                + 04_dada2_paired.slurm
+#   LAYOUT="single"           -> 02_import_single.slurm + 03_trim_single.slurm
+#                                + 04_<denoiser>.slurm
 # Within LAYOUT="single", the denoiser is selectable via DENOISER in the study
 # file (default "deblur"):
-#   DENOISER="deblur"       -> 03_deblur_single.slurm (Deblur; pre-merged reads)
-#   DENOISER="pyro"         -> 03_denoise_pyro.slurm  (DADA2 denoise-pyro; 454/IonT)
-#   DENOISER="dada2-single" -> 03_dada2_single.slurm  (DADA2 denoise-single;
+#   DENOISER="deblur"       -> 04_deblur.slurm       (Deblur; pre-merged reads)
+#   DENOISER="pyro"         -> 04_dada2_pyro.slurm   (DADA2 denoise-pyro; 454/IonT)
+#   DENOISER="dada2-single" -> 04_dada2_single.slurm (DADA2 denoise-single;
 #                              true single-end / un-merged Illumina)
-# The denoise stage accepts 'dada2', 'dada2-single', 'deblur', 'pyro', or the
-# generic 'denoise' — all route to whichever job matches the study's layout +
-# denoiser.
+# The study file therefore declares WHICH denoise job to run; just call the
+# generic 'denoise' stage. Legacy aliases 'dada2', 'dada2-single', 'deblur',
+# 'pyro' are still accepted and route to the study's configured denoise job.
+#
+# The trim stage strips primers by sequence (paired: PRIMER_F/PRIMER_R;
+# single: FWD_PRIMER/REV_PRIMER_RC) into demux_trimmed.qza; the denoise job
+# auto-detects and prefers it. If no primers are set the trim stage is a no-op
+# and denoise falls back to the raw demux.qza — so studies whose primers are
+# already stripped upstream (e.g. Ingham2019) can skip 'trim' entirely.
 #
 # 'all' intentionally stops after import so you can inspect the read-quality plot
-# and choose truncation / trim lengths before denoising. Run the denoise stage
-# separately.
+# before trimming/denoising. Run the trim and denoise stages separately.
 #
 # Override allocation on the fly:
 #   CHPC_ACCOUNT=my-alloc CHPC_PARTITION=notchpeak ./chpc/submit.sh Artacho2024
@@ -34,13 +45,13 @@
 # =============================================================================
 set -euo pipefail
 
-STUDY_NAME="${1:?usage: submit.sh <StudyName> [all|fetch|import|dada2]}"
+STUDY_NAME="${1:?usage: submit.sh <StudyName> [all|fetch|import|trim|denoise]}"
 STAGE="${2:-all}"
 ARRAY_THROTTLE="${ARRAY_THROTTLE:-20}"
 
 case "$STAGE" in
-    all|fetch|import|dada2|dada2-single|deblur|pyro|denoise) ;;
-    *) echo "Unknown stage '$STAGE' (expected: all|fetch|import|dada2|dada2-single|deblur|pyro|denoise)"; exit 1 ;;
+    all|fetch|import|trim|denoise|dada2|dada2-single|deblur|pyro) ;;
+    *) echo "Unknown stage '$STAGE' (expected: all|fetch|import|trim|denoise)"; exit 1 ;;
 esac
 
 # Resolve repo root as the parent of this script's dir; run from there.
@@ -55,34 +66,39 @@ source chpc/config.sh
 source "chpc/$STUDY_FILE"
 check_allocation
 
-# --- Resolve layout -> import/denoise jobs and their resources --------------
+# --- Resolve layout -> import/trim/denoise jobs and their resources ---------
 LAYOUT="${LAYOUT:-paired}"
+# Trim (cutadapt) resources are shared across denoisers; light + quick.
+TRIM_TIME="${TRIM_TIME:-04:00:00}"
+TRIM_THREADS="${TRIM_THREADS:-${CUTADAPT_THREADS:-8}}"
 case "$LAYOUT" in
     paired)
         IMPORT_JOB="chpc/jobs/02_import.slurm"
-        DENOISE_JOB="chpc/jobs/03_dada2.slurm"
+        TRIM_JOB="chpc/jobs/03_trim_paired.slurm"
+        DENOISE_JOB="chpc/jobs/04_dada2_paired.slurm"
         DENOISE_TIME="${DADA2_TIME:?set DADA2_TIME in the study file}"
         DENOISE_THREADS="${DADA2_THREADS:?set DADA2_THREADS in the study file}"
         DENOISE_LABEL="DADA2"
         ;;
     single)
         IMPORT_JOB="chpc/jobs/02_import_single.slurm"
+        TRIM_JOB="chpc/jobs/03_trim_single.slurm"
         # Denoiser is selectable within the single layout (default deblur).
         case "${DENOISER:-deblur}" in
             deblur)
-                DENOISE_JOB="chpc/jobs/03_deblur_single.slurm"
+                DENOISE_JOB="chpc/jobs/04_deblur.slurm"
                 DENOISE_TIME="${DEBLUR_TIME:?set DEBLUR_TIME in the study file}"
                 DENOISE_THREADS="${DEBLUR_THREADS:?set DEBLUR_THREADS in the study file}"
                 DENOISE_LABEL="Deblur"
                 ;;
             pyro)
-                DENOISE_JOB="chpc/jobs/03_denoise_pyro.slurm"
+                DENOISE_JOB="chpc/jobs/04_dada2_pyro.slurm"
                 DENOISE_TIME="${PYRO_TIME:-${DEBLUR_TIME:?set PYRO_TIME or DEBLUR_TIME in the study file}}"
                 DENOISE_THREADS="${PYRO_THREADS:-${DEBLUR_THREADS:?set PYRO_THREADS or DEBLUR_THREADS in the study file}}"
                 DENOISE_LABEL="DADA2-pyro"
                 ;;
             dada2-single)
-                DENOISE_JOB="chpc/jobs/03_dada2_single.slurm"
+                DENOISE_JOB="chpc/jobs/04_dada2_single.slurm"
                 DENOISE_TIME="${DADA2S_TIME:-${DADA2_TIME:?set DADA2S_TIME or DADA2_TIME in the study file}}"
                 DENOISE_THREADS="${DADA2S_THREADS:-${DADA2_THREADS:?set DADA2S_THREADS or DADA2_THREADS in the study file}}"
                 DENOISE_LABEL="DADA2-single"
@@ -115,30 +131,44 @@ if [[ "$STAGE" == "all" || "$STAGE" == "import" ]]; then
     echo "Submitted import: job $import_id ${fetch_id:+(after $fetch_id)}  [$IMPORT_JOB]"
 fi
 
-# --- denoise (run manually AFTER inspecting demux_viz.qzv + setting lengths) --
+# --- trim (cutadapt primer removal; run AFTER import) ------------------------
+if [[ "$STAGE" == "trim" ]]; then
+    trim_id=$("${SB[@]}" --time="$TRIM_TIME" --cpus-per-task="$TRIM_THREADS" "$TRIM_JOB")
+    echo "Submitted trim (cutadapt): job $trim_id  [$TRIM_JOB]"
+fi
+
+# --- denoise (run manually AFTER trim + inspecting the quality plot) ---------
 if [[ "$STAGE" == "denoise" ]]; then
     denoise_id=$("${SB[@]}" --time="$DENOISE_TIME" --cpus-per-task="$DENOISE_THREADS" "$DENOISE_JOB")
     echo "Submitted $DENOISE_LABEL: job $denoise_id  [$DENOISE_JOB]"
 fi
 
+# Length variable(s) the denoise stage needs, per layout/denoiser.
+case "$LAYOUT" in
+    paired) LEN_VAR="TRUNC_LEN_F/TRUNC_LEN_R" ;;
+    single)
+        case "${DENOISER:-deblur}" in
+            pyro)         LEN_VAR="PYRO_TRUNC_LEN" ;;
+            dada2-single) LEN_VAR="DADA2S_TRUNC_LEN" ;;
+            *)            LEN_VAR="TRIM_LENGTH" ;;
+        esac
+        ;;
+esac
+
 if [[ "$STAGE" == "all" || "$STAGE" == "import" ]]; then
     echo
-    echo "NEXT: when import finishes, inspect $STUDY_NAME/QiimeData/demux_viz.qzv,"
-    if [[ "$LAYOUT" == "single" ]]; then
-        if [[ "${DENOISER:-deblur}" == "pyro" ]]; then
-            echo "      set PYRO_TRUNC_LEN in chpc/$STUDY_FILE, then:"
-            echo "      ./chpc/submit.sh $STUDY_NAME pyro"
-        elif [[ "${DENOISER:-deblur}" == "dada2-single" ]]; then
-            echo "      set DADA2S_TRUNC_LEN in chpc/$STUDY_FILE, then:"
-            echo "      ./chpc/submit.sh $STUDY_NAME dada2-single"
-        else
-            echo "      set TRIM_LENGTH in chpc/$STUDY_FILE, then:"
-            echo "      ./chpc/submit.sh $STUDY_NAME deblur"
-        fi
-    else
-        echo "      set TRUNC_LEN_F/TRUNC_LEN_R in chpc/$STUDY_FILE, then:"
-        echo "      ./chpc/submit.sh $STUDY_NAME dada2"
-    fi
+    echo "NEXT: when import finishes, inspect $STUDY_NAME/QiimeData/demux_viz.qzv, then"
+    echo "      strip primers:   ./chpc/submit.sh $STUDY_NAME trim"
+    echo "      (no-op if no primers set in chpc/$STUDY_FILE — go straight to denoise)"
+    echo "      then set $LEN_VAR in chpc/$STUDY_FILE and:"
+    echo "                       ./chpc/submit.sh $STUDY_NAME denoise"
+fi
+
+if [[ "$STAGE" == "trim" ]]; then
+    echo
+    echo "NEXT: when trim finishes, inspect $STUDY_NAME/QiimeData/demux_trimmed_viz.qzv,"
+    echo "      set $LEN_VAR in chpc/$STUDY_FILE, then:"
+    echo "                       ./chpc/submit.sh $STUDY_NAME denoise"
 fi
 
 echo "Track with: squeue -u \$USER   |   logs in chpc/logs/"

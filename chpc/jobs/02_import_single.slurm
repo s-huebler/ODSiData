@@ -3,8 +3,9 @@
 # 02_import_single.slurm — SINGLE-END / pre-merged layout.
 # Build manifest, import FASTQs to QIIME2 as single-end reads, summarize demux.
 # Stops at demux_viz.qzv so you can inspect read-quality and length and choose
-# the Deblur --p-trim-length (TRIM_LENGTH) before denoising. Then run
-# 03_deblur_single.slurm.
+# the Deblur --p-trim-length (TRIM_LENGTH) before denoising. Then run the trim
+# stage (03_trim_single.slurm) and the denoise stage (04_deblur.slurm, or
+# 04_dada2_pyro.slurm / 04_dada2_single.slurm per the study's DENOISER).
 #
 # Use this instead of 02_import.slurm when the SRA library layout is SINGLE, OR
 # when reads are already merged and deposited as a single FASTQ per run (e.g.
@@ -75,6 +76,7 @@ cp -f "$QD/demux_viz.qzv" "$DEST/"
 
 echo "==== Import done. ===="
 echo "Inspect $DEST/demux_viz.qzv (view.qiime2.org or 'qiime tools view')."
+echo "Next: run the trim stage ('submit.sh $STUDY trim'; skip if no primers set)."
 echo "Deblur trims every read to a single length and DISCARDS shorter reads, so"
 echo "pick TRIM_LENGTH from the length/quality plot to retain most reads, set it"
-echo "in chpc/$STUDY_FILE, then submit 03_deblur_single."
+echo "in chpc/$STUDY_FILE, then 'submit.sh $STUDY denoise'."

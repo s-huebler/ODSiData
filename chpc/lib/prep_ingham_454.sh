@@ -39,8 +39,8 @@
 #            top-level glob) only ever sees the cleaned file.
 #
 # After this runs, the reads are already primer-free and single-orientation, so
-# the cutadapt step in 03_deblur_single is a NO-OP for this study (primers are
-# left empty in Ingham2019.sh).
+# the 'trim' stage (03_trim_single.slurm) is a NO-OP for this study (primers are
+# left empty in Ingham2019.sh) — you can skip 'trim' and go straight to denoise.
 #
 # Idempotent: a run whose raw inputs already sit in _raw454/ is skipped.
 #
@@ -229,6 +229,6 @@ echo "==== done. cleaned ${#RUNS[@]} run(s). ===="
 echo "Cleaned reads : $RAW_DIR/<RUN>.fastq   (one per run, forward, primer-free)"
 echo "Raw archived  : $ARCHIVE/"
 echo "Summary       : $RAW_DIR/prep454_summary.tsv"
-echo "Next: submit 02_import_single (LAYOUT=single). cutadapt in 03_deblur_single"
-echo "      is a no-op for this study — primers are already gone."
+echo "Next: submit 02_import_single (LAYOUT=single), then the denoise stage. The"
+echo "      'trim' stage is a no-op for this study — primers are already gone."
 exit $rc_any
