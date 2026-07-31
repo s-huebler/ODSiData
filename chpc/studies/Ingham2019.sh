@@ -158,6 +158,6 @@ METADATA="$REPO_ROOT/$STUDY/Metadata/ingham_meta_qiime.tsv"
 # Walltime hints per stage (edit per dataset size). 97 fecal samples, 30 patients.
 # DENOISE_TIME covers the selected denoiser (pyro or deblur).
 FETCH_TIME="00:30:00"
-IMPORT_TIME="04:00:00"
-TRIM_TIME="04:00:00"
-DENOISE_TIME="12:00:00"
+IMPORT_TIME="01:00:00"
+TRIM_TIME="01:00:00"
+DENOISE_TIME="6:00:00"
