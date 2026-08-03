@@ -69,11 +69,11 @@ DADA2_THREADS=16
 # IDs) from Fujimoto2024/Metadata/ and point METADATA at it, e.g.
 # "$REPO_ROOT/$STUDY/Metadata/fujimoto_meta_qiime.tsv". Leave "" to skip the
 # metadata-annotated summary (import + denoise don't need it).
-METADATA=""                # TODO: build fujimoto_meta_qiime.tsv from Metadata/
+METADATA="$REPO_ROOT/$STUDY/Metadata/fuji_meta_qiime.tsv"                
 
 # Walltime hints per stage (edit per dataset size). Used by submit.sh — dense
 # longitudinal cohort, expect many runs; DENOISE_TIME covers the DADA2 job.
-FETCH_TIME="12:00:00"
+FETCH_TIME="00:10:00"
 IMPORT_TIME="04:00:00"
-TRIM_TIME="04:00:00"
-DENOISE_TIME="24:00:00"
+TRIM_TIME="01:00:00"
+DENOISE_TIME="7:00:00"
