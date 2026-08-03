@@ -65,7 +65,7 @@ METADATA="$REPO_ROOT/$STUDY/Metadata/liu_meta_qiime.tsv"
 
 # Walltime hints per stage (edit per dataset size). Used by submit.sh.
 # FETCH_TIME here covers the single (non-array) pairing job over 79 samples.
-FETCH_TIME="24:00:00"
+FETCH_TIME="4:00:00"
 IMPORT_TIME="04:00:00"
 TRIM_TIME="04:00:00"
 DENOISE_TIME="24:00:00"
