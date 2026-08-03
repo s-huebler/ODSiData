@@ -4,9 +4,15 @@ format: html
 editor: visual
 ---
 
+# Allozithro
+
+-   V3-V4
+
 # Reference
 
--   Full citation: Bergeron, A., Chevret, S., Granata, A., Chevallier, P., Vincent, L., Huynh, A., Tabrizi, R., Labussiere-Wallet, H., Bernard, M., Chantepie, S., Bay, J.-O., Thiebaut-Bertrand, A., Thepot, S., Contentin, N., Fornecker, L.-M., Maillard, N., Risso, K., Berceanu, A., Blaise, D., Tour, R.P. de L., Chien, J.W., Coiteux, V., Socié, G., Investigators, A.S., 2017. Effect of Azithromycin on Airflow Decline–Free Survival After Allogeneic Hematopoietic Stem Cell Transplant: The ALLOZITHRO Randomized Clinical Trial. JAMA 318, 557–566. <https://doi.org/10.1001/jama.2017.9938>
+-   Initial study: Bergeron, A., Chevret, S., Granata, A., Chevallier, P., Vincent, L., Huynh, A., Tabrizi, R., Labussiere-Wallet, H., Bernard, M., Chantepie, S., Bay, J.-O., Thiebaut-Bertrand, A., Thepot, S., Contentin, N., Fornecker, L.-M., Maillard, N., Risso, K., Berceanu, A., Blaise, D., Tour, R.P. de L., Chien, J.W., Coiteux, V., Socié, G., Investigators, A.S., 2017. Effect of Azithromycin on Airflow Decline–Free Survival After Allogeneic Hematopoietic Stem Cell Transplant: The ALLOZITHRO Randomized Clinical Trial. JAMA 318, 557–566. <https://doi.org/10.1001/jama.2017.9938>
+
+-   Follow up: Vallet, N., Salmona, M., Malet-Villemagne, J., Bredel, M., Bondeelle, L., Tournier, S., Mercier-Delarue, S., Cassonnet, S., Ingram, B., Latour, R.P. de, Bergeron, A., Socié, G., Goff, J.L., Lepage, P., Michonneau, D., 2023. Circulating T cell profiles associate with enterotype signatures underlying hematological malignancy relapses. Cell Host Microbe 31, 1386-1403.e6. https://doi.org/10.1016/j.chom.2023.06.009
 
 -   Associated github: <https://gitlab.com/nivall/azimutfeces>
 

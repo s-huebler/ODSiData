@@ -4,6 +4,10 @@ format: html
 editor: visual
 ---
 
+# Fujimoto
+
+-   V3-V4 region
+
 # Reference
 
 -   Full citation: Fujimoto, K., Hayashi, T., Yamamoto, M., Sato, N., Shimohigoshi, M., Miyaoka, D., Yokota, C., Watanabe, M., Hisaki, Y., Kamei, Y., Yokoyama, Y., Yabuno, T., Hirose, A., Nakamae, M., Nakamae, H., Uematsu, M., Sato, S., Yamaguchi, K., Furukawa, Y., Akeda, Y., Hino, M., Imoto, S., Uematsu, S., 2024. An enterococcal phage-derived enzyme suppresses graft-versus-host disease. Nature 632, 174–181. https://doi.org/10.1038/s41586-024-07667-8

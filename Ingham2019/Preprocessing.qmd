@@ -71,3 +71,9 @@ After this they were imported as single reads.
 ![](images/clipboard-3998920440.png)
 
 # Denoise
+
+Ran DADA2 pyro denoising
+
+![](images/clipboard-3058602327.png)
+
+![](images/clipboard-2792028718.png)
