@@ -28,8 +28,52 @@ editor: visual
 
 -   Patients’ fecal samples were frozen-aliquoted (150 mg), homogenized and lysed using both mechanical (bead beating for 10 minutes) and chemical techniques as previously described,^[87](https://www.sciencedirect.com/science/article/pii/S1931312823002603?via%3Dihub#bib87)^ and total DNA was extracted using the MoBio Power Fecal [DNA isolation](https://www.sciencedirect.com/topics/immunology-and-microbiology/dna-isolation) kit following the manufacturer’s recommendations. DNA quality and quantity were evaluated using a spectrophotometer (Nanodrop 1000, Thermoscientific). Sequencing was then performed at GeT-PlaGe platform of the Génopole (Toulouse Midi-Pyrénées, France) using [Illumina MiSeq](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/illumina-miseq) technology targeting the V3-V4 region of the 16SrRNA gene with the following primers: V3fwd-TACGGRAGGCAGCAG and V4rev- TACCAGGGTATCTAAT.
 
+    -   !!!This forward primer as reported actually has a typo!!!!! Should be ACGGRAGGCAGCAG
+
 # Fetch and Import
 
 -   Fetch normal from accessions (took \~5 min)
 
 -   Import normal from 01_fetch.slurm (took \~40 min)
+
+# Trimming
+
+Checked whether the primers are still in the sequences before trimming
+
+```         
+source chpc/config.sh                 # defines $WORK_BASE
+cd "$WORK_BASE/Vallet2023/RawData"
+f=$(ls *_1.fastq | head -1); r=${f/_1.fastq/_2.fastq}
+echo "sampling $f / $r"
+
+# eyeball the first 20 bp of a few R1 reads
+awk 'NR%4==2{print substr($0,1,20)}' "$f" | head
+
+# fwd primer TACGGRAGGCAGCAG (R=A/G); rev primer TACCAGGGTATCTAAT
+awk 'NR%4==2{c++; s=substr($0,1,25);
+     if(s ~ /^TACGG[AG]AGGCAGCAG/)a++; if(s ~ /TACGG[AG]AGGCAGCAG/)b++}
+     END{printf "FWD: at-start %.0f%%  within-25bp %.0f%%  (n=%d)\n",100*a/c,100*b/c,c}' "$f"
+awk 'NR%4==2{c++; s=substr($0,1,25);
+     if(s ~ /^TACCAGGGTATCTAAT/)a++; if(s ~ /TACCAGGGTATCTAAT/)b++}
+     END{printf "REV: at-start %.0f%%  within-25bp %.0f%%  (n=%d)\n",100*a/c,100*b/c,c}' "$r"
+```
+
+Found 0% forward primer but 81% reverse primer.
+
+Turns out there is a typo in the reported forward primer. The leading T should not have been included.
+
+```         
+cd "$WORK_BASE/Vallet2023/RawData"
+f=$(ls *_1.fastq | head -1)
+
+# what dominates the 5' end of R1? the primer (up to its degenerate base) should win
+awk 'NR%4==2{print substr($0,1,18)}' "$f" | sort | uniq -c | sort -rn | head
+
+# sanity: make sure _1/_2 aren't swapped (R1 should NOT carry the reverse primer)
+awk 'NR%4==2{c++; if(substr($0,1,25) ~ /TACCAGGGTATCTAAT/)m++} END{printf "R1 has REV primer: %.0f%%\n",100*m/c}' "$f"
+
+# likely candidate: FROGS 343F core is ACGGRAGGCAGCAG — no leading T
+awk 'NR%4==2{c++; if($0 ~ /ACGG[AG]AGGCAGCAG/)m++} END{printf "ACGGRAGGCAGCAG match: %.0f%%\n",100*m/c}' "$f"
+```
+
+![](images/clipboard-1286674404.png){width="545"}

@@ -27,17 +27,19 @@ ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
 # --- Primer removal (cutadapt 'trim' stage: 03_trim_paired.slurm) ------------
 # Paper (Method Details, "Sample processing and 16S rRNA sequencing"): V3-V4 of
 # 16S amplified and sequenced on Illumina MiSeq at GeT-PlaGe (Genopole,
-# Toulouse) with the primers printed below. Key-resources table lists
-# "Primers V3-V4 / Eurofins". These are the gene-specific cores of the standard
-# GeT-PlaGe/FROGS V3-V4 pair (343F / 784R) with NO Illumina overhang; the
-# forward carries a degenerate R (A/G), which cutadapt matches automatically.
-#   V3 fwd: TACGGRAGGCAGCAG      (15 nt)
-#   V4 rev: TACCAGGGTATCTAAT     (16 nt)
-# Strip by sequence (more robust than positional trim-left on variable-length
-# reads). VERIFY against the SRA/ENA records if possible — the paper prints the
-# core sequences only, and the reverse may be the truncated form of the FROGS
-# 784R (TACCAGGGTATCTAATCCT); confirm the reads actually begin with these.
-PRIMER_F="TACGGRAGGCAGCAG"
+# Toulouse). Key-resources table lists "Primers V3-V4 / Eurofins". These are the
+# gene-specific cores of the standard GeT-PlaGe/FROGS V3-V4 pair (343F / 784R)
+# with NO Illumina overhang; the forward carries a degenerate R (A/G), which
+# cutadapt matches automatically.
+#   V3 fwd: ACGGRAGGCAGCAG       (14 nt)  343F
+#   V4 rev: TACCAGGGTATCTAAT     (16 nt)  784R core
+# VERIFIED against the deposited reads (2026-08-03): R1 reads begin with
+# ACGGRAGGCAGCAG (89% of a sampled run; dominant 5' prefixes ACGGGAGGCAGCAG /
+# ACGGAAGGCAGCAG) and R2 reads begin with TACCAGGGTATCTAAT (81%), so primers are
+# still ON the reads and are NOT pre-trimmed — keep DISCARD_UNTRIMMED=true below.
+# NOTE: the paper's text prints the forward as "TACGGRAGGCAGCAG"; that leading T
+# is spurious (the reads carry no such base), so we use the true 343F core here.
+PRIMER_F="ACGGRAGGCAGCAG"
 PRIMER_R="TACCAGGGTATCTAAT"
 CUTADAPT_ERROR_RATE=0.1        # allowed mismatch fraction vs primer
 CUTADAPT_OVERLAP=3            # min overlap read<->primer to call a match
