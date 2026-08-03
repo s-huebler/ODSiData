@@ -95,3 +95,39 @@ Multi-step / complex tasks:
   (e.g., explore → plan → implement → test → commit).
 - Explicitly note any handoffs between prompts (files produced, state changed) so
   Sophie knows what to check before pasting the next one.
+
+## CHPC Sparse-Checkout — Adding a Study
+
+The CHPC clone of this repo uses **non-cone** sparse-checkout (`core.sparseCheckoutCone
+= false`) so root-level files stay hidden on the cluster. Patterns live in
+`.git/info/sparse-checkout`.
+
+When Sophie says she wants to add a study to the CHPC checkout — e.g. "add Liu2017 to
+the chpc", "track Fujimoto2024 on chpc", or any similar phrasing — respond with the
+full sparse-checkout rewrite prompt for her to copy-paste, as a single plain-text
+fenced code block with no surrounding commentary inside the block. The block rewrites
+`.git/info/sparse-checkout` with the entire canonical pattern list **plus the new
+study's folder**, then reapplies:
+
+```
+cat > .git/info/sparse-checkout <<'EOF'
+/CLAUDE.md
+/Artacho2024/
+/DAmico2019/
+/Ingham2019/
+/chpc/
+/Vallet2023/
+/Liu2017/
+EOF
+git sparse-checkout reapply
+```
+
+Rules for this prompt:
+- Use a trailing slash on every study folder (e.g. `/NewStudy/`) so the whole tree
+  is included; keep `/CLAUDE.md` as a bare file entry.
+- Append the new study to the END of the list, preserving the existing order.
+- **Update this canonical list in CLAUDE.md every time** a study is added, so the block
+  above always reflects the current CHPC checkout. The list currently tracks:
+  CLAUDE.md, Artacho2024, DAmico2019, Ingham2019, chpc, Vallet2023, Liu2017.
+- The study folder must already be committed and pushed to the branch CHPC tracks, or
+  `reapply` will materialize nothing — flag this if the study is new to the repo.
