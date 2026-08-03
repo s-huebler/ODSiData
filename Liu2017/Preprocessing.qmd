@@ -37,3 +37,5 @@ Sequences stored as single library layout but sequences were actually paired.
 -   The accessions are numbered arbitrarily. In order to figure out which fastq is forward and which is reverse we need to do a primer orientation search using the forward and reverse primers.
 
     -   Found that there are some bp (variable length) before primers. Checks for presence of primer within the first 50bp.
+
+-   Fetching took about an hour (throttled on array 20 with limited chpc, no pair took longer than 10 minutes)
