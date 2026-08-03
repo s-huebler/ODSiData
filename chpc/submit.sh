@@ -72,6 +72,12 @@ check_allocation
 # study selects). Thread counts stay per-denoiser (DADA2_THREADS / DEBLUR_THREADS
 # / PYRO_THREADS / DADA2S_THREADS) since they scale with the denoiser.
 LAYOUT="${LAYOUT:-paired}"
+# Fetch job is study-configurable: default is the per-run SRA array
+# (01_fetch.slurm). Studies deposited as split single-end runs per sample set
+# FETCH_JOB=chpc/jobs/01_fetch_ena_and_pair.slurm and FETCH_ARRAY="false" in
+# their study file, so fetch runs as ONE job (no --array) that pairs the mates.
+FETCH_JOB="${FETCH_JOB:-chpc/jobs/01_fetch.slurm}"
+FETCH_ARRAY="${FETCH_ARRAY:-true}"
 # Trim (cutadapt) resources are shared across denoisers; light + quick.
 TRIM_TIME="${TRIM_TIME:-04:00:00}"
 TRIM_THREADS="${TRIM_THREADS:-${CUTADAPT_THREADS:-8}}"
@@ -118,11 +124,16 @@ echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  accessions=$N  account=$C
 
 SB=(sbatch -A "$CHPC_ACCOUNT" -p "$CHPC_PARTITION" --parsable --export=ALL,STUDY_FILE="$STUDY_FILE")
 
-# --- fetch (job array over accessions) --------------------------------------
+# --- fetch (array over accessions, or a single pairing job) -----------------
 fetch_id=""
 if [[ "$STAGE" == "all" || "$STAGE" == "fetch" ]]; then
-    fetch_id=$("${SB[@]}" --array="1-${N}%${ARRAY_THROTTLE}" --time="$FETCH_TIME" chpc/jobs/01_fetch.slurm)
-    echo "Submitted fetch array: job $fetch_id (1-$N, throttle $ARRAY_THROTTLE)"
+    if [[ "$FETCH_ARRAY" == "true" ]]; then
+        fetch_id=$("${SB[@]}" --array="1-${N}%${ARRAY_THROTTLE}" --time="$FETCH_TIME" "$FETCH_JOB")
+        echo "Submitted fetch array: job $fetch_id (1-$N, throttle $ARRAY_THROTTLE)  [$FETCH_JOB]"
+    else
+        fetch_id=$("${SB[@]}" --time="$FETCH_TIME" "$FETCH_JOB")
+        echo "Submitted fetch (single job): job $fetch_id  [$FETCH_JOB]"
+    fi
 fi
 
 # --- import (chains after fetch in 'all'); STOP here to inspect demux_viz -----

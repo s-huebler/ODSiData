@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-# Liu
+# Liu (New)
 
 -   V4
 
@@ -15,3 +15,23 @@ editor: visual
 -   Bioproject: PRJEB16057
 
 -   qiita pipeline: **Baseline Fecal Samples of Hemapoetic Stem Cell Transplant Recipients and Donors - ID 10564**
+
+# Relevant methods
+
+# Fetching and Importing
+
+Sequences stored as single library layout but sequences were actually paired.
+
+-   Requires RawData/ENA_samples.tsv which links run accessions (single, 1 per 158) to sample accessions (paired, 1 per 79)
+
+-   Need to use 01_fetch_ena_and_pair rather than fetch based on 01_fetch default
+
+    -   Groups by the pair key (sample_accession)
+
+    -   Downloads the mates
+
+    -   Determines orientation of each pair by primer and renames files
+
+    -   Cleans the headers to make mates clear
+
+-   The accessions are numbered arbitrarily. In order to figure out which fastq is forward and which is reverse we need to do a primer orientation search using the forward and reverse primers.

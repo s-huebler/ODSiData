@@ -14,6 +14,19 @@ STUDY="ChangeMe2024"
 # Accession list — one SRR per line (already committed under <Study>/RawData/).
 ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
 
+# --- Fetch job selection (default = per-run SRA array) ------------------------
+# Standard studies leave these unset. Set them ONLY for "split-run" paired-end
+# data: studies deposited as TWO separate single-end runs per sample (one = R1,
+# one = R2, both library_layout=SINGLE), which the per-run array cannot pair.
+# See chpc/studies/Liu2017.sh for a worked example. The pairing job groups the
+# two runs, orients them BY PRIMER (PRIMER_F/PRIMER_R below), and repairs them
+# into paired _1/_2 for the standard import/trim/denoise path.
+# FETCH_JOB="chpc/jobs/01_fetch_ena_and_pair.slurm"
+# FETCH_ARRAY="false"                                  # submit as one job, no --array
+# ENA_REPORT="$REPO_ROOT/$STUDY/RawData/ENA_samples.tsv"  # filereport TSV
+# PAIR_KEY="sample_accession"      # column identical for the two mates
+# FTP_COL="submitted_ftp"          # download-URL column in the report
+
 # --- Primer removal (optional; cutadapt in the 'trim' stage) -----------------
 # Handled by 03_trim_paired.slurm (`./chpc/submit.sh <Study> trim`), which runs
 # AFTER import and BEFORE denoise. Set both to strip primers BY SEQUENCE

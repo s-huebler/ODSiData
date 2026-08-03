@@ -50,6 +50,16 @@ load_qiime2_env() {
     command -v qiime >/dev/null || { echo "ERROR: 'qiime' not on PATH after module load." >&2; return 1; }
 }
 
+load_bbmap_env() {
+    # BBTools provides repair.sh, used by 01_fetch_ena_and_pair.slurm to re-sync
+    # split-run paired-end mates. On CHPC (frisco/kingspeak) the module is
+    # 'bbtools/38.86' (there is no 'bbmap' module). Check 'module spider bbtools'.
+    module purge 2>/dev/null || true
+    module load bbtools/38.86 \
+        || { echo "ERROR: could not load bbtools/38.86. Check 'module spider bbtools' (or add BBTools to PATH)." >&2; return 1; }
+    command -v repair.sh >/dev/null || { echo "ERROR: 'repair.sh' not on PATH after loading bbtools/38.86." >&2; return 1; }
+}
+
 # Fail fast if the allocation was left unset.
 check_allocation() {
     if [[ "$CHPC_ACCOUNT" == "CHANGE_ME" ]]; then
