@@ -40,4 +40,8 @@ editor: visual
 
 ![](images/clipboard-2971744794.png){width="636"}
 
-![](images/clipboard-3017838630.png)
+# Denoise
+
+-   Trim left at 15 (big spike downward at 14 even after trimming) plus that's what authors indicate.
+
+-   No right truncation, let pyro max ee handle errors
