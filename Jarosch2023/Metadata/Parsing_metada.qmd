@@ -1,0 +1,14 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+clinical <- read_csv(file = "~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/Raw_metadata/meta_clinical.csv")
+samples <- read_csv(file = "~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/Raw_metadata/meta_samples.csv")
+```

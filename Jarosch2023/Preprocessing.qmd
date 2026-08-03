@@ -1,0 +1,23 @@
+---
+title: "Preprocessing Jarosch2023"
+format: html
+editor: visual
+---
+
+# Jarosch
+
+-   V1-V3
+
+# References
+
+-   Jarosch, S., K√∂hlen, J., Ghimire, S., Orberg, E.T., Hammel, M., Gaag, D., Evert, M., Janssen, K.-P., Hiergeist, A., Gessner, A., Weber, D., Meedt, E., Poeck, H., D‚ÄôIppolito, E., Holler, E., Busch, D.H., 2023. Multimodal immune cell phenotyping in GI biopsies reveals microbiome-related T cell modulations in human GvHD. Cell Rep. Med. 4, 101125. https://doi.org/10.1016/j.xcrm.2023.101125
+
+-   PRJEB60178
+
+# Relevant Methods
+
+-   Nucleic acids were extracted from 50 mg patient stool collected and stabilized in maGix microbiome preservation buffer (microBIOMix). Lysis of microbial cells was enhanced by repeated beat-beating of stool suspensions on a Tissue Lyser II instrument (Qiagen) using Lysing Matrix Y beads (MP Biomedicals) followed by freezing and thawing. Total nucleic acids were purified from crude lysates with the MagNA Pure 96 system (Roche). Bacterial 16S rRNA gene copies were quantified by qPCR.82 V1-3 hypervariable regions of bacterial 16S rRNA genes were amplified from 1x107 16S copies with the Platinum II Taq Hot-Start DNA-Polymerase and primers S-D-Bact-0008-c-S-20 and S-D-Bact-0517-a-A-18.83 Amplicon libraries were purified with MagSi-NGSPREP Plus beads (Magtivio), quantified with the KAPA Library Quantification Kit (Roche) before normalization and pooling. Final library pools were sequenced on a GeneStudio S5 Plus instrument (Thermo Fisher Scientific) with the 600 bp protocol after isothermal amplification on an IonChef instrument.
+
+-   Ion Torrent (use single pyro denoiser)
+
+-   S-D-Bact-0008-c-S-20 = AGRGTTYGATYMTGGCTCAG (27F)

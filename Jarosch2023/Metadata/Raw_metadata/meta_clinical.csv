@@ -1,0 +1,84 @@
+Patient,Dataset,Biopsy,GvHD (Lerner),GvHD,d after aHSCT,Origin,Type,clinical GvHD total,clinical GvHD GI,steroid treatment,steroid refractory,ABX,16S data,Indoxylsulfate [µmol/mmol creatinine],Richness,Simpson,Shannon,Biopsy ST2 [pg/ml],Biopsy Reg3a [ng/ml],Biopsy MAP,age of patient,gender,Diagnosis,Donor type,HLA,Donor age,Donor gender,Conditioning,Intensity,GvHD prophylaxis,Stem cell source,Bx Timepoint
+Patient 01,ChipCytometry,biopsy_c01,1,1,115,Sigmoid,FFPE,4,4,yes,yes,yes,yes,81.2,103,0.8677527,2.7097513,,,,55-60,m,B-NHL,unrelated,mismatch,25-30,m,Thio/Treo/Flud,RIC,CyA/MTX,PBSC,Course
+Patient 02,ChipCytometry,biopsy_c08,3,1,248,Sigmoid,FFPE,4,3,yes,yes,no,yes,14.6,90,0.864635,2.8369634,79258,39,0.2362524,40-44,f,AML,unrelated,ident,55-60,m,FBM,RIC,CyA/MTX,PBSC,Course
+Patient 03,ChipCytometry,biopsy_c12,0,0,76,Sigmoid,FFPE,0,0,no,no,no,yes,,97,0.9036373,2.6678665,,,,65-70,m,MPN,unrelated,ident,45-50,m,FTM,RIC,CyA/MTX,PBSC,Screening
+Patient 04,ChipCytometry,biopsy_c13,0,0,39,Colon 60 cm,FFPE,2,1,yes,no,no,yes,1.19,70,0.5434547,1.1706946,85484,56,0.2691285,45-50,m,B-NHL,unrelated,ident,15-20,m,FTM,RIC,CyA/MTX,PBSC,Sceening
+Patient 05,ChipCytometry,biopsy_c22,0,0,33,Colon 30 cm,FFPE,2,1,no,no,yes,yes,0.08,40,0.1455527,0.3644036,50197,29,0.1593457,50-54,m,AML,unrelated,ident,20-24,m,FTM,RIC,CyA/MTX,PBSC,Screening
+Patient 06,ChipCytometry,biopsy_c25,0,0,27,Sigmoid,FFPE,2,1,no,no,yes,yes,0.146,22,0.911352,2.7553655,26249,26,0.0956041,55-60,f,AML,unrelated,ident,40-44,m,FBM,RIC,CyA/MTX,PBSC,Screening
+Patient 07,ChipCytometry,biopsy_c26,1,1,21,Colon 20 cm,FFPE,2,1,yes,no,yes,yes,0,39,0.8294896,2.5412523,6521,34,0.0346206,55-60,m,MDS,haplo,haplo,30-34,m,FBM,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 08,ChipCytometry,biopsy_c27,3,1,211,Sigmoid,FFPE,2,2,yes,yes,yes,yes,0,60,0.831885,2.0915954,,,,65-70,f,MDS,haplo,haplo,40-44,f,FBM,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 09,ChipCytometry,biopsy_c28,3,1,231,Sigmoid,FFPE,3,2,yes,yes,yes,yes,0,38,0.5131068,0.9499633,102515,294,0.422722,60-64,f,B-NHL,unrelated,ident,40-44,m,Treo/Flud,RIC,CyA/MTX,PBSC,Onset
+Patient 10,ChipCytometry,biopsy_c02,0,0,32,Colon 30 cm,FFPE,0,0,no,no,no,yes,7.01,123,0.8873417,2.8714633,,,,55-60,m,MDS/MPN,haplo,haplo,15-20,f,FBM,RIC,PTCy/Tacro/MMF,BM,Screening
+Patient 11,ChipCytometry,biopsy_c03,3,1,15,Sigmoid 30 cm,FFPE,2,1,yes,yes,yes,yes,0.025,23,0.8518151,2.3294823,27107,8,0.0738706,45-50,f,T-NHL,unrelated,ident,35-40,m,TBI/VP16,Standard,CyA/MMF,PBSC,Onset
+Patient 12,ChipCytometry,biopsy_c04,0,0,20,Colon 30 cm,FFPE,0,0,yes,no,yes,yes,48.5,35,0.7861175,1.9657442,,,,55-60,m,B-NHL,sibling,ident,55-60,f,FTM,RIC,CyA/MTX,PBSC,Screening
+Patient 13,ChipCytometry,biopsy_c05,1,1,18,Duodenum,FFPE,0,0,no,no,no,yes,0,55,0.6781073,1.8255593,,,,50-54,m,MPN,unrelated,ident,50-54,m,FTM,RIC,CyA/MTX,PBSC,Course
+Patient 14,ChipCytometry,biopsy_c06,3,1,76,Colon 30 cm,FFPE,1,0,yes,no,no,yes,22.6,101,0.8393082,2.4119171,92878,291,0.3973161,60-64,m,MDS,unrelated,mismatch,35-40,m,FLAMSA/Treo/Flud,RIC,CyA/MTX,PBSC,Onset
+Patient 15,ChipCytometry,biopsy_c07,1,1,34,Colon,FFPE,3,3,yes,yes,yes,yes,0,56,0.3834882,0.9216528,,,,55-60,m,MPN,sibling,ident,60-65,m,FTM,RIC,CyA/MTX,PBSC,Course
+Patient 16,scRNAseq,biopsy_02,1,0,15,Sigmoid,SCS,0,0,yes,no,yes,yes,,72,0.8388071,2.496326,,,,45-50,m,B-NHL,sibling,ident,45-50,m,Thio/Treo/Flud,RIC,CyA/MTX,PBSC,Screening
+Patient 17,scRNAseq,biopsy_10,1,1,188,Sigmoid,SCS,2,1,no,no,no,yes,,84,0.7707595,1.96209,243011,151,0.6046885,15-20,m,Hodgkin,unrelated,haplo,55-60,f,Thio/Treo/Flud,RIC,PTCy/Tacro/MMF,BM,Course
+Patient 18,scRNAseq,biopsy_03,1,0,17,Sigmoid,SCS,0,0,no,no,yes,yes,,53,0.1364688,0.3690012,,,,65-70,f,MDS,unrelated,mismatch,30-34,f,FBM,RIC,CyA/MMF,PBSC,Screening
+Patient 19,scRNAseq+SP,biopsy_47,0,1,801,Duodenum,SCS,2,1,no,no,yes,no,,,,,,,,70-74,f,AML,unrelated,ident,55-60,m,FTM,RIC,CyA/MTX,PBSC,Course
+Patient 20,ChipCytometry,biopsy_c09,0,0,57,Colon 30 cm,FFPE,3,3,yes,no,yes,yes,2.75,39,0.8523522,2.2284087,331714,279,0.7506125,65-70,m,B-NHL,unrelated,mismatch,25-30,m,Thio/Treo/Flud,RIC,PTCy/Tacro/MMF,PBSC,Screening
+Patient 21,ChipCytometry,biopsy_c10,0,0,62,Colon 40cm,FFPE,0,0,no,no,no,yes,0.69,25,0.5385675,1.0631298,,,,40-44,f,B-NHL,unrelated,mismatch,20-24,m,Treo/Flud,RIC,PTCy/Tacro/MMF,PBSC,Screening
+Patient 22,ChipCytometry,biopsy_c11,1,1,45,Sigmoid,FFPE,3,3,yes,yes,yes,yes,9.13,48,0.8689105,2.3257524,240514,1147,0.7834389,65-70,m,MDS/MPN,unrelated,mismatch,30-34,m,FBM,RIC,CyA/MTX,PBSC,Onset
+Patient 23,scRNAseq+SP,biopsy_31,1,1,357,Colon,SCS,2,1,yes,no,yes,no,,,,,,,,65-70,m,MPN,unrelated,mismatch,20-25,m,FBM,RIC,CyA/MTX,PBSC,Onset
+Patient 24,scRNAseq+SP,biopsy_29,0,1,18,Sigmoid,SCS,2,1,yes,no,yes,yes,,35,0.590812,1.1109869,46917,8,0.1122606,55-60,f,Hodgkin,unrelated,mismatch,40-44,m,TBI (8 Gy)/Flud,Standard,PTCy/Tacro/MMF,PBSC,Onset
+Patient 26,scRNAseq,biopsy_24,1,1,23,Colon,SCS,2,1,no,no,yes,yes,,27,0.7816501,1.9019282,62328,54,0.2143375,50-54,m,ALL,unrelated,mismatch,40-44,m,TBI (8 Gy)/Flud,Standard,CyA/MTX,PBSC,Onset
+Patient 27,scRNAseq+SP,biopsy_33,3,1,176,Colon,SCS,3,2,yes,yes,no,yes,,86,0.6575569,2.0960813,59979,90,0.23,50-54,f,AML,sibling,ident,55-60,m,Thio/Bu/Flu,RIC,CyA/MTX,PBSC,Onset
+Patient 28,scRNAseq+SP,biopsy_28,2,1,54,Colon,SCS,3,2,yes,yes,no,yes,,90,0.9180458,2.8749232,,,,55-60,m,MDS,sibling,ident,50-55,m,FTM,RIC,CyA/MTX,PBSC,Course
+Patient 30,scRNAseq+SP,biopsy_36,4,1,112,Sigmoid,SCS,3,3,yes,yes,yes,no,,,,,143057,166,0.463,65-70,m,MDS,haplo,haplo,35-40,m,Thio/Bu/Flu,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 31,scRNAseq+SP,biopsy_40,0,1,64,Duodenum,SCS,2,1,yes,no,yes,no,,,,,43004,80,0.179,65-70,f,AML,unrelated,mismatch,30-34,m,Thio/Bu/Flu,RIC,CyA/MTX,PBSC,Onset
+Patient 33,scRNAseq+SP,biopsy_38,0,1,62,Duodenum,SCS,2,1,yes,no,yes,no,,,,,,,,55-60,m,AML,unrelated,mismatch,30-34,m,Thio/Bu/Flu,RIC,CyA/MTX,PBSC,Course
+Patient 34,scRNAseq+SP,biopsy_39,0,1,20,Duodenum,SCS,2,1,no,no,yes,no,,,,,,,,30-34,m,T-ALL,sibling,ident,25-30,m,TBI/VP16,Standard,CyA/MTX,PBSC,Course
+Patient 35,scRNAseq+SP,biopsy_37,0,0,22,Duodenum,SCS,0,0,no,no,yes,no,,,,,21081,35,0.087,60-64,f,AML,haplo,haplo,35-40,f,Thio/Bu/Flu,RIC,PTCy/Tacro/MMF,BM,Screening
+Patient 36,scRNAseq+SP,biopsy_42,1,1,28,Sigmoid,SCS,2,1,yes,no,yes,no,,,,,,,,60-64,m,MDS,haplo,haplo,25-30,m,FBM,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 37,scRNAseq+SP,biopsy_41,1,1,20,Sigmoid,SCS,2,1,yes,yes,yes,yes,,47,0.3693404,1.042444,,,,35-40,m,Hdogkin,unrelated,mismatch,40-44,m,TBI (12 Gy)/Flud,Standard,PTCy/Tacro/MMF,PBSC,Onset
+Patient 38,scRNAseq+SP,biopsy_43,1,1,17,Sigmoid,SCS,2,1,yes,no,yes,no,,,,,,,,25-30,m,AML,unrelated,mismatch,20-24,m,FBM,RIC,Tacro/MMF,PBSC,Onset
+Patient 39,scRNAseq+SP,biopsy_50,4,1,44,Sigmoid,SCS,3,2,yes,yes,no,no,,,,,,,,60-64,m,AML,unrelated,ident,30-34,m,FBM,RIC,CyA/MTX,PBSC,Course
+Patient 40,ChipCytometry,biopsy_c14,3,1,479,Colon,FFPE,3,3,yes,yes,no,yes,11.9,189,0.9525639,3.8001475,,,,30-34,m,ALL,unrelated,ident,15-20,f,TBI/CY2,Standard,CyA/MTX,PBSC,Course
+Patient 41,ChipCytometry,biopsy_c15,2,1,327,Colon 50 cm,FFPE,4,3,yes,yes,yes,no,,,,,,,,50-54,f,AML,unrelated,ident,30-34,m,FBM,RIC,CyA/MTX,PBSC,Course
+Patient 42,ChipCytometry,biopsy_c16,2,1,22,Sigmoid,FFPE,3,3,yes,yes,yes,no,,,,,,,,60-64,m,AML,unrelated,ident,30-34,m,FBM,RIC,CyA/MTX,PBSC,Onset
+Patient 43,ChipCytometry,biopsy_c17,3.5,1,64,Sigmoid,FFPE,3,2,yes,yes,no,no,51.5,,,,,,,65-70,f,CLL,unrelated,ident,45-50,m,FBM,RIC,CyA/MTX,PBSC,Onset
+Patient 44,ChipCytometry,biopsy_c18,2,1,107,Colon,FFPE,3,3,yes,yes,no,no,0,,,,69974,441,0.3610571,45-50,f,MDS,unrelated,ident,30-34,m,Bu/Flu,RIC,CyA/MTX,PBSC,Onset
+Patient 45,ChipCytometry,biopsy_c19,3,1,159,Colon 30 cm,FFPE,3,3,yes,yes,no,no,7.49,,,,812907,527,0.9645191,55-60,f,AML,unrelated,ident,35-40,f,FTM,RIC,CyA/MTX,PBSC,Course
+Patient 46,ChipCytometry,biopsy_c20,2,1,150,Sigmoid,FFPE,1,0,no,no,no,yes,,95,0.8030273,2.1099094,75594,217,0.3289723,55-60,f,B-NHL,unrelated,ident,25-30,m,TBI (8 Gy)/Flud,Standard,CyA/MTX,PBSC,Course
+Patient 47,scRNAseq,biopsy_01,0,0,16,Sigmoid,SCS,0,0,yes,no,yes,yes,,63,0.8007367,2.1436294,,,,45-50,f,AML,unrelated,ident,30-34,m,FBM,RIC,CyA/MTX,PBSC,Screening
+Patient 48,ChipCytometry,biopsy_c21,1,1,160,Pars descendens,FFPE,2,0,yes,yes,no,no,,,,,,,,55-60,f,AML,unrelated,ident,25-30,m,FTM,RIC,CyA/MTX,PBSC,Onset
+Patient 52,ChipCytometry,biopsy_c23,0,0,20,Sigmoid,FFPE,0,0,yes,no,yes,no,,,,,,,,35-40,f,ALL,unrelated,mismatch,25-30,m,TBI/Cy2,Standard,CyA/MMF,PBSC,Screening
+Patient 53,ChipCytometry,biopsy_c24,0,0,1320,Sigmoid,FFPE,0,0,no,no,no,no,,,,,,,,45-50,m,AML,sibling,ident,30-34,m,Mel/Treo/Flud,RIC,CyA/MTX,PBSC,Screening
+Patient 54,scRNAseq+SP,biopsy_46D,0,1,215,Duodenum,SCS,3,2,no,yes,no,no,,,,,,,,20-24,f,AA,unrelated,mismatch,30-34,m,TBI (2 Gy)/Cyclo/Flud,RIC,CyA/MTX,BM,Course
+Patient 54,scRNAseq+SP,biopsy_46S,2,1,216,Sigmoid,SCS,3,2,no,yes,no,no,,,,,,,,20-24,f,AA,unrelated,mismatch,30-34,m,TBI (2 Gy)/Cyclo/Flud,RIC,CyA/MTX,BM,Course
+Patient 55,scRNAseq,biopsy_23,1,1,21,Duodenum,SCS,4,4,yes,yes,yes,yes,,24,0.7254844,2.0195581,33285,37,0.1243354,45-50,f,AML,unrelated,mismatch,15-20,f,Thio/Bu/Flu,RIC,CyA/MTX,PBSC,Onset
+Patient 55,scRNAseq,biopsy_25,1,1,56,Duodenum,SCS,4,4,yes,yes,no,yes,,101,0.9397428,3.1298987,80202,43,0.2433276,45-50,f,AML,unrelated,mismatch,15-20,f,Thio/Bu/Flu,RIC,CyA/MTX,PBSC,Onset
+Patient 55,scRNAseq+SP,biopsy_30,3,1,157,Duodenum,SCS,4,4,yes,yes,yes,yes,,104,0.8959567,2.7569419,34020,324,0.2076286,45-50,f,AML,unrelated,mismatch,15-20,f,Thio/Bu/Flu,RIC,CyA/MTX,PBSC,Course
+Patient 55,scRNAseq+SP,biopsy_34,3,1,238,Duodenum,SCS,4,4,yes,yes,yes,no,,,,,,,,45-50,f,AML,unrelated,mismatch,15-20,f,Thio/Bu/Flu,RIC,CyA/MTX,PBSC,Course
+Patient 56,scRNAseq,biopsy_17,2,1,154,Sigmoid,SCS,3,2,yes,no,no,yes,,342,0.9310839,3.3862059,,,,55-60,m,AML,sibling,ident,60-65,f,FBM,RIC,CyA/MTX,PBSC,Onset
+Patient 56,scRNAseq+SP,biopsy_27,1,1,350,Duodenum,SCS,3,2,yes,yes,no,no,,,,,,,,55-60,m,AML,sibling,ident,60-65,f,FBM,RIC,CyA/MTX,PBSC,Course
+Patient 56,ChipCytometry,biopsy_c29,1,1,350,Sigmoid,FFPE,3,2,yes,yes,no,yes,76.2,189,0.9498659,3.6065,,,,50-54,m,AML,sibling,ident,60-65,f,FBM,RIC,CyA/MTX,PBSC,Course
+Patient 56,ChipCytometry,biopsy_c30,1.5,1,154,Pars descendens,FFPE,3,2,no,yes,no,yes,28.2,177,0.9502812,3.5653349,,,,50-54,m,AML,sibling,ident,60-65,f,FBM,RIC,CyA/MTX,PBSC,Course
+Patient 57,scRNAseq,biopsy_13,2,1,21,Sigmoid,SCS,4,4,yes,yes,yes,yes,,6,0.12123,0.27017,224376,183,0.5989212,55-60,f,MDS/MPN,haplo,haplo,30-34,m,FBM,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 57,ChipCytometry,biopsy_c31,2,1,22,Sigmoid,FFPE,3,3,yes,yes,yes,yes,0.05,134,0.9466617,3.5128742,224376,183,0.5989212,55-60,f,MDS/MPN,haplo,haplo,30-34,m,FBM,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 58,scRNAseq,biopsy_20,0,1,246,Duodenum,SCS,4,4,yes,yes,yes,no,,,,,273796,112,0.6122699,55-60,m,MDS,sibling,ident,45-50,m,FTM,RIC,CyA/MTX,PBSC,Course
+Patient 58,ChipCytometry,biopsy_c32,0,0,264,Pars descendens,FFPE,4,4,yes,yes,yes,yes,28.3,74,0.8717069,2.5208254,273796,112,0.6122699,55-60,m,MDS,sibling,ident,45-50,m,FTM,RIC,CyA/MTX,PBSC,Screening
+Patient 58,ChipCytometry,biopsy_c33,2,1,220,Pars descendens,FFPE,2,2,yes,yes,yes,no,28.3,,,,,,,55-60,m,MDS,sibling,ident,45-50,m,FTM,RIC,CyA/MTX,PBSC,Onset
+Patient 59,scRNAseq,biopsy_12,3,1,50,Sigmoid,SCS,4,4,yes,yes,yes,no,,,,,258485,134,0.6118496,55-60,m,MDS/MPN,unrelated,mismatch,35-40,m,FBM,RIC,CyA/MMF,PBSC,Course
+Patient 59,ChipCytometry,biopsy_c34,2.5,1,33,Caecum,FFPE,3,3,yes,yes,yes,yes,9.61,24,0.7168226,1.5855129,49178,48,0.1761183,50-54,m,MDS/MPN,unrelated,mismatch,35-40,m,FBM,RIC,CyA/MMF,PBSC,Onset
+Patient 59,ChipCytometry,biopsy_c35,2.5,1,33,Colon asc,FFPE,3,3,yes,yes,yes,yes,9.61,24,0.7168226,1.5855129,49178,48,0.1761183,50-54,m,MDS/MPN,unrelated,mismatch,35-40,m,FBM,RIC,CyA/MMF,PBSC,Onset
+Patient 59,ChipCytometry,biopsy_c36,2.5,1,33,Sigmoid,FFPE,3,3,yes,yes,yes,yes,9.61,24,0.7168226,1.5855129,49178,48,0.1761183,50-54,m,MDS/MPN,unrelated,mismatch,35-40,m,FBM,RIC,CyA/MMF,PBSC,Onset
+Patient 59,ChipCytometry,biopsy_c37,3,1,49,Sigmoid,FFPE,3,3,yes,yes,yes,yes,0,56,0.8417565,2.206743,292899,493,0.7653742,50-54,m,MDS/MPN,unrelated,mismatch,35-40,m,FBM,RIC,CyA/MMF,PBSC,Course
+Patient 60,scRNAseq,biopsy_09,0,1,14,Sigmoid,SCS,2,0,yes,no,yes,yes,,44,0.7372137,1.8002371,23362,8,0.066,30-34,f,ALL,unrelated,mismatch,25-30,f,TBI/CY2,Standard,CyA/MTX,PBSC,Onset
+Patient 60,ChipCytometry,biopsy_c38,0,0,14,Sigmoid,FFPE,2,0,yes,no,yes,yes,0.41,5,0.3087934,0.5065828,,,,30-34,f,ALL,unrelated,mismatch,25-30,f,TBI/CY2,Standard,CyA/MTX,PBSC,Screening
+Patient 61,ChipCytometry,biopsy_c39,3,1,27,Colon 50 cm,FFPE,3,3,no,yes,yes,yes,0.06,22,0.283611,0.6534987,38584,129,0.184834,55-60,m,B-NHL,haplo,haplo,30-34,m,Treo/Flud,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 61,ChipCytometry,biopsy_c40,3,1,27,Colon 40 cm,FFPE,3,3,no,yes,yes,yes,0.06,22,0.283611,0.6534987,38584,129,0.184834,55-60,m,B-NHL,haplo,haplo,30-34,m,Treo/Flud,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 61,ChipCytometry,biopsy_c41,3,1,27,Colon 30 cm,FFPE,3,3,no,yes,yes,yes,0.06,22,0.283611,0.6534987,38584,129,0.184834,55-60,m,B-NHL,haplo,haplo,30-34,m,Treo/Flud,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 61,ChipCytometry,biopsy_c42,3,1,27,Colon 20 cm,FFPE,3,3,no,yes,yes,yes,0.06,22,0.283611,0.6534987,38584,129,0.184834,55-60,m,B-NHL,haplo,haplo,30-34,m,Treo/Flud,RIC,PTCy/Tacro/MMF,BM,Onset
+Patient 62,ChipCytometry,biopsy_c43,1,1,350,Colon 60 cm,FFPE,3,2,yes,yes,no,no,,,,,24885,35,0.0985314,40-44,m,MPN,unrelated,mismatch,40-44,m,Thio/Bu/Flud,RIC,CyA/MTX,PBSC,Onset
+Patient 62,ChipCytometry,biopsy_c44,1,1,350,Colon 30 cm,FFPE,3,2,yes,yes,no,no,,,,,24885,35,0.0985314,40-44,m,MPN,unrelated,mismatch,40-44,m,Thio/Bu/Flud,RIC,CyA/MTX,PBSC,Onset
+Patient 63,ChipCytometry,biopsy_c45,3,1,181,Colon 40 cm,FFPE,4,3,yes,yes,yes,yes,0.13,65,0.5427247,1.351965,340002,276,0.7564991,45-50,m,B-NHL,sibling,ident,55-60,m,Thio/Treo/Flud,RIC,CyA/Bortezomib,PBSC,Course
+Patient 63,ChipCytometry,biopsy_c46,3,1,303,Sigmoid,FFPE,4,3,yes,yes,no,no,,,,,98816,157,0.3661162,45-50,m,B-NHL,sibling,ident,55-60,m,Thio/Treo/Flud,RIC,CyA/Bortezomib,PBSC,Course
+Patient 64,ChipCytometry,biopsy_c47,0,0,210,Sigmoid,FFPE,4,4,yes,yes,no,no,120,,,,257858,30,0.4775022,65-70,m,MDS,sibling,ident,65-70,m,FBM,RIC,CyA/MTX,PBSC,Screening
+Patient 64,ChipCytometry,biopsy_c48,3,1,210,Duodenum,FFPE,4,4,yes,yes,no,yes,120,82,0.5015125,1.3814794,257858,30,0.4775022,65-70,m,MDS,sibling,ident,65-70,m,FBM,RIC,CyA/MTX,PBSC,Onset
+Patient 65,ChipCytometry,biopsy_c49,0,0,160,Colon 60cm,FFPE,3,2,yes,no,no,yes,22,115,0.8867062,2.7940032,131360,95,0.3964302,60-64,m,AML,sibling,ident,45-50,f,FTM,RIC,CyA/MTX,PBSC,Screening
+Patient 65,ChipCytometry,biopsy_c50,0,0,160,Colon 25 cm,FFPE,3,2,yes,no,no,yes,22,115,0.8867062,2.7940032,131360,95,0.3964302,60-64,m,AML,sibling,ident,45-50,f,FTM,RIC,CyA/MTX,PBSC,Screening
+Patient 66,ChipCytometry,biopsy_c51,3,1,405,Sigmoid 25 cm,FFPE,4,4,yes,yes,yes,no,,,,,,,,20-24,f,AML,unrelated,ident,25-30,m,FBM,RIC,CyA/MTX,PBSC,Course
+Patient 66,ChipCytometry,biopsy_c52,4,1,405,Colonresektat mit Duo,FFPE,4,4,yes,yes,yes,no,,,,,,,,20-24,f,AML,unrelated,ident,25-30,m,FBM,RIC,CyA/MTX,PBSC,Course
