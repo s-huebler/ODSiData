@@ -27,11 +27,12 @@ ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
 LAYOUT="paired"
 
 # --- Non-standard fetch: route submit.sh to the ENA split-run pairing job -----
-# submit.sh reads FETCH_JOB (default 01_fetch.slurm) and, when FETCH_ARRAY=false,
-# submits it as ONE job with no --array (the pairing logic needs both mates of a
-# sample together). These four vars fully drive that job.
+# submit.sh reads FETCH_JOB (default 01_fetch.slurm) and submits it as a job
+# ARRAY sized by FETCH_ITEMS="pairs" — one task per unique PAIR_KEY (79 samples),
+# so mates download/orient/repair in parallel. These vars fully drive that job.
 FETCH_JOB="chpc/jobs/01_fetch_ena_and_pair.slurm"
-FETCH_ARRAY="false"
+FETCH_ARRAY="true"               # array over pairs (throttled by submit.sh)
+FETCH_ITEMS="pairs"              # size the array by unique PAIR_KEY, not run count
 ENA_REPORT="$REPO_ROOT/$STUDY/RawData/ENA_samples.tsv"   # committed filereport
 PAIR_KEY="sample_accession"      # identical for the two mates of a sample
 FTP_COL="submitted_ftp"          # download URL column in ENA_samples.tsv
@@ -64,8 +65,9 @@ DADA2_THREADS=16
 METADATA="$REPO_ROOT/$STUDY/Metadata/liu_meta_qiime.tsv"
 
 # Walltime hints per stage (edit per dataset size). Used by submit.sh.
-# FETCH_TIME here covers the single (non-array) pairing job over 79 samples.
-FETCH_TIME="4:00:00"
+# FETCH_TIME is PER ARRAY TASK (one sample = 2 downloads + repair, a couple min);
+# 4h is generous headroom for a slow mirror.
+FETCH_TIME="00:15:00"
 IMPORT_TIME="04:00:00"
 TRIM_TIME="04:00:00"
 DENOISE_TIME="24:00:00"

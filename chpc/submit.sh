@@ -78,6 +78,10 @@ LAYOUT="${LAYOUT:-paired}"
 # their study file, so fetch runs as ONE job (no --array) that pairs the mates.
 FETCH_JOB="${FETCH_JOB:-chpc/jobs/01_fetch.slurm}"
 FETCH_ARRAY="${FETCH_ARRAY:-true}"
+# What the fetch array indexes over: "runs" (one task per accession, default) or
+# "pairs" (one task per unique PAIR_KEY in ENA_REPORT — used by the split-run
+# pairing job so each task handles one sample's two mates).
+FETCH_ITEMS="${FETCH_ITEMS:-runs}"
 # Trim (cutadapt) resources are shared across denoisers; light + quick.
 TRIM_TIME="${TRIM_TIME:-04:00:00}"
 TRIM_THREADS="${TRIM_THREADS:-${CUTADAPT_THREADS:-8}}"
@@ -119,8 +123,21 @@ DENOISE_TIME="${DENOISE_TIME:?set DENOISE_TIME in the study file}"
 # Normalize the denoise stage aliases to a single internal trigger.
 [[ "$STAGE" == "dada2" || "$STAGE" == "dada2-single" || "$STAGE" == "deblur" || "$STAGE" == "pyro" || "$STAGE" == "denoise" ]] && STAGE="denoise"
 
-N=$(grep -cve '^[[:space:]]*$' "$ACCESSIONS")   # non-blank accession lines
-echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  accessions=$N  account=$CHPC_ACCOUNT  partition=$CHPC_PARTITION"
+# Size the fetch array: count runs (accession lines) or pairs (unique PAIR_KEY).
+case "$FETCH_ITEMS" in
+    runs)
+        N=$(grep -cve '^[[:space:]]*$' "$ACCESSIONS") ;;   # non-blank accession lines
+    pairs)
+        : "${ENA_REPORT:?FETCH_ITEMS=pairs requires ENA_REPORT in the study file}"
+        [[ -f "$ENA_REPORT" ]] || { echo "ENA_REPORT not found: $ENA_REPORT"; exit 1; }
+        PAIR_KEY="${PAIR_KEY:-sample_accession}"
+        N=$(awk -F'\t' -v key="$PAIR_KEY" '
+            NR==1 { for(i=1;i<=NF;i++) if($i==key) k=i;
+                    if(!k){ print "NO_KEY_COLUMN" > "/dev/stderr"; exit 3 } next }
+            $k!="" { print $k }' "$ENA_REPORT" | sort -u | wc -l) ;;
+    *) echo "Unknown FETCH_ITEMS '$FETCH_ITEMS' (expected: runs|pairs)"; exit 1 ;;
+esac
+echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  fetch_items=$FETCH_ITEMS($N)  account=$CHPC_ACCOUNT  partition=$CHPC_PARTITION"
 
 SB=(sbatch -A "$CHPC_ACCOUNT" -p "$CHPC_PARTITION" --parsable --export=ALL,STUDY_FILE="$STUDY_FILE")
 

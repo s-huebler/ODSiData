@@ -11,7 +11,9 @@
 #   1. group runs by a pair key (default sample_accession) from an ENA report,
 #   2. download both mates of each sample,
 #   3. decide which mate is forward vs reverse BY PRIMER SEQUENCE (deterministic;
-#      no quality guessing) — the mate whose reads start with $PRIMER_F is R1,
+#      no quality guessing) — the mate carrying $PRIMER_F near its 5' end is R1
+#      (the primer sits behind a ~12 bp heterogeneity spacer, so the match is
+#      searched within the first $ORIENT_WINDOW bp, not anchored at position 1),
 #   4. clean the injected @ACCESSION.spot header prefix (record-safe), rewrite
 #      the reverse mate's trailing /1 -> /2 so mates are distinguishable,
 #   5. repair.sh (BBTools) re-syncs the pair and drops orphans,
@@ -22,15 +24,27 @@
 # report path) comes from the study file, so a future split-run dataset only
 # needs its own primers and report.
 #
-# Run via chpc/submit.sh (which sets FETCH_JOB + submits WITHOUT --array).
-# Standalone:
+# PARALLELISM: this is a job ARRAY over pair keys — one array task = one sample
+# (its two runs + orient + repair), so samples process concurrently (throttled by
+# submit.sh). submit.sh sizes the array to the number of unique pair keys via
+# FETCH_ITEMS="pairs". If run WITHOUT an array (no SLURM_ARRAY_TASK_ID), it falls
+# back to processing every key serially, so it still works standalone.
+#
+# Run via chpc/submit.sh (sets FETCH_JOB, FETCH_ITEMS="pairs", and --array).
+# Standalone (all samples, serial):
 #   sbatch -A <acct> -p notchpeak \
 #          --export=ALL,STUDY_FILE=studies/Liu2017.sh chpc/jobs/01_fetch_ena_and_pair.slurm
+# Standalone (one sample, e.g. array index 7):
+#   sbatch ... --array=7 chpc/jobs/01_fetch_ena_and_pair.slurm
 #
-# NOTE ON HEADERS (verify once per new study): the prefix-strip and /1->/2 steps
-# assume the mates share a common original read name that ends in /1. This holds
-# for the ENA fastqs of ERP017899. For a NEW study, inspect the first sample's
-# two files (zcat | head) and confirm before trusting the whole run.
+# NOTE ON HEADERS (verify once per new study): mates must share a common read
+# name so repair.sh can pair them. Two cases are handled: (a) ENA-normalized
+# fastqs prefixed @ERR<acc>.<spot> ... /1 on BOTH mates — the prefix is stripped
+# and the reverse /1 is rewritten to /2; (b) ERP017899's submitted fastqs, whose
+# names are already identical (@10564.XXXX_N ...) with NO /1 suffix — both edits
+# are then harmless no-ops and repair pairs by the shared name. For a NEW study,
+# inspect the first sample's two files (zcat | head) and confirm before trusting
+# the whole run.
 # =============================================================================
 #SBATCH --job-name=ena-pair-fetch
 #SBATCH --nodes=1
@@ -38,8 +52,8 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G
 #SBATCH --time=24:00:00
-#SBATCH --output=chpc/logs/fetch_pair_%j.out
-#SBATCH --error=chpc/logs/fetch_pair_%j.err
+#SBATCH --output=chpc/logs/fetch_pair_%A_%a.out
+#SBATCH --error=chpc/logs/fetch_pair_%A_%a.err
 
 set -euo pipefail
 
@@ -61,6 +75,12 @@ ENA_REPORT="${ENA_REPORT:-$REPO_ROOT/$STUDY/RawData/ENA_samples.tsv}"
 PAIR_KEY="${PAIR_KEY:-sample_accession}"   # column that is identical for the two mates
 FTP_COL="${FTP_COL:-submitted_ftp}"        # column holding the download URL(s)
 ORIENT_READS="${ORIENT_READS:-2000}"       # reads scanned per file to call orientation
+ORIENT_WINDOW="${ORIENT_WINDOW:-50}"       # search the primer within the first N bp of
+                                           # each read, NOT anchored at position 1: these
+                                           # libraries carry a ~12 bp heterogeneity spacer
+                                           # before the primer. 50 clears the spacer+primer
+                                           # with margin, yet stays far from the 3' end so a
+                                           # read-through of the opposite primer can't score.
 MAX_RETRIES="${FETCH_MAX_RETRIES:-3}"
 RETRY_DELAY="${FETCH_RETRY_DELAY:-60}"
 
@@ -97,11 +117,12 @@ iupac_regex() {
 RE_F="$(iupac_regex "$PRIMER_F")"
 RE_R="$(iupac_regex "$PRIMER_R")"
 
-# Count reads (of the first $ORIENT_READS) whose sequence starts with $2 (regex).
+# Count reads (of the first $ORIENT_READS) whose sequence carries primer $2 (regex)
+# within the first $ORIENT_WINDOW bp. toupper() guards against lower-case bases.
 count_primer_hits() {
     local file="$1" pat="$2"
-    awk -v pat="^$pat" -v max="$ORIENT_READS" '
-        NR%4==2 { c++; if ($0 ~ pat) m++; if (c>=max) exit }
+    awk -v pat="$pat" -v max="$ORIENT_READS" -v w="$ORIENT_WINDOW" '
+        NR%4==2 { c++; if (toupper(substr($0,1,w)) ~ pat) m++; if (c>=max) exit }
         END { print m+0 }' "$file"
 }
 
@@ -147,36 +168,37 @@ NR==1 {
 ' "$ENA_REPORT" | sort -k1,1 -k2,2 > "$PLAN"
 
 n_rows=$(wc -l < "$PLAN")
-n_keys=$(cut -f1 "$PLAN" | sort -u | wc -l)
+# Canonical, deterministic (sorted) list of pair keys — every array task rebuilds
+# the SAME ordering, so SLURM_ARRAY_TASK_ID maps to a stable sample.
+mapfile -t KEYS < <(cut -f1 "$PLAN" | sort -u)
+n_keys="${#KEYS[@]}"
 echo "Report parsed: $n_rows runs across $n_keys pair keys."
 
-# --- Process each pair key --------------------------------------------------
-processed=0; skipped=0; failed=0
-mapfile -t KEYS < <(cut -f1 "$PLAN" | sort -u)
-
-for key in "${KEYS[@]}"; do
-    out1="$RAW_DIR/${key}_1.fastq"
-    out2="$RAW_DIR/${key}_2.fastq"
+# --- Process ONE pair key: 0=paired  3=skipped(existing)  1=failed -----------
+process_key() {
+    local key="$1"
+    local out1="$RAW_DIR/${key}_1.fastq"
+    local out2="$RAW_DIR/${key}_2.fastq"
 
     # Checkpoint: both final mates already present.
     if [[ -s "$out1" && -s "$out2" ]]; then
         echo "[$key] already paired — skipping."
-        skipped=$((skipped+1)); continue
+        return 3
     fi
 
     # Gather this key's runs (expect exactly 2).
+    local runs=()
     mapfile -t runs < <(awk -F'\t' -v k="$key" '$1==k{print $2"\t"$3}' "$PLAN")
     if [[ "${#runs[@]}" -ne 2 ]]; then
-        echo "[$key] expected 2 runs, found ${#runs[@]} — skipping (logged)."
+        echo "[$key] expected 2 runs, found ${#runs[@]} — skipping (logged)." >&2
         echo "$key: ${#runs[@]} runs (expected 2)" >> "$FAILED_LOG"
-        failed=$((failed+1)); continue
+        return 1
     fi
 
     echo "--------------------------------------------------"
     echo "[$key] runs: $(echo "${runs[0]}" | cut -f1) , $(echo "${runs[1]}" | cut -f1)"
 
-    ok=1
-    declare -a raw=()
+    local raw=() idx run ftp dst
     for idx in 0 1; do
         run="$(echo "${runs[$idx]}" | cut -f1)"
         ftp="$(echo "${runs[$idx]}" | cut -f2)"
@@ -185,38 +207,40 @@ for key in "${KEYS[@]}"; do
         if ! download_run "$ftp" "$dst"; then
             echo "  ERROR: download failed for $run" >&2
             echo "$key/$run: download failed" >> "$FAILED_LOG"
-            ok=0; break
+            return 1
         fi
         # Strip any @ACCESSION.spot prefix so the common read name is exposed.
         strip_accession_prefix "$dst" > "$dst.clean" && mv "$dst.clean" "$dst"
         raw[$idx]="$dst"
     done
-    [[ "$ok" -eq 1 ]] || { failed=$((failed+1)); continue; }
 
     # --- Orientation by primer ---------------------------------------------
+    local f0 f1 r0 r1
     f0=$(count_primer_hits "${raw[0]}" "$RE_F")
     f1=$(count_primer_hits "${raw[1]}" "$RE_F")
     r0=$(count_primer_hits "${raw[0]}" "$RE_R")
     r1=$(count_primer_hits "${raw[1]}" "$RE_R")
-    echo "  primer hits (of first $ORIENT_READS reads): run0 F=$f0 R=$r0 | run1 F=$f1 R=$r1"
+    echo "  primer hits (first $ORIENT_READS reads, within ${ORIENT_WINDOW}bp): run0 F=$f0 R=$r0 | run1 F=$f1 R=$r1"
 
+    if (( f0 == 0 && f1 == 0 )); then
+        echo "  ERROR: [$key] neither mate matches PRIMER_F within ${ORIENT_WINDOW}bp; check primers/window for this study." >&2
+        echo "$key: no forward-primer hits in either mate" >> "$FAILED_LOG"
+        return 1
+    fi
+
+    local fwd rev
     if (( f0 >= f1 )); then
         fwd="${raw[0]}"; rev="${raw[1]}"
     else
         fwd="${raw[1]}"; rev="${raw[0]}"
     fi
-    # Sanity check: the file we called reverse should carry the reverse primer.
+    # Sanity check: the mate we called reverse should carry the reverse primer.
     if { [[ "$fwd" == "${raw[0]}" ]] && (( r1 < r0 )); } || \
        { [[ "$fwd" == "${raw[1]}" ]] && (( r0 < r1 )); }; then
         echo "  WARNING: [$key] reverse-primer counts disagree with the forward call — inspect this sample." >&2
     fi
-    if (( f0 == 0 && f1 == 0 )); then
-        echo "  ERROR: [$key] neither mate matches PRIMER_F; check primers/orientation for this study." >&2
-        echo "$key: no forward-primer hits in either mate" >> "$FAILED_LOG"
-        failed=$((failed+1)); continue
-    fi
 
-    # Reverse mate: make its header end in /2 so the pair is distinguishable.
+    # Reverse mate: rewrite a trailing /1 -> /2 (no-op if names already differ).
     rewrite_slash1_to_slash2 "$rev" > "$rev.r2" && mv "$rev.r2" "$rev"
 
     # --- Re-sync the pair (drops orphans) ----------------------------------
@@ -225,15 +249,41 @@ for key in "${KEYS[@]}"; do
             out="$out1" out2="$out2" \
             outs="$RAW_DIR/${key}_orphans.fastq" \
             overwrite=t repair 2>>"$WORK_BASE/$STUDY/repair.log"; then
-        processed=$((processed+1))
         echo "  OK: $key -> ${key}_1.fastq / ${key}_2.fastq"
+        return 0
     else
         echo "  ERROR: repair.sh failed for $key" >&2
         echo "$key: repair failed" >> "$FAILED_LOG"
         rm -f "$out1" "$out2"
-        failed=$((failed+1))
+        return 1
     fi
-    unset raw
+}
+
+# --- Dispatch: one array task = one sample; no array = all samples serially ---
+if [[ -n "${SLURM_ARRAY_TASK_ID:-}" ]]; then
+    IDX="$SLURM_ARRAY_TASK_ID"
+    if (( IDX < 1 || IDX > n_keys )); then
+        echo "ERROR: array index $IDX out of range 1-$n_keys." >&2; exit 1
+    fi
+    key="${KEYS[$((IDX-1))]}"
+    echo "Array task $IDX/$n_keys -> pair key $key"
+    process_key "$key"; rc=$?
+    case "$rc" in
+        0) echo "Task $IDX done (paired)."; exit 0 ;;
+        3) echo "Task $IDX done (already present)."; exit 0 ;;
+        *) echo "Task $IDX FAILED for $key — see $FAILED_LOG" >&2; exit 1 ;;
+    esac
+fi
+
+# Fallback: no array — process every key serially.
+processed=0; skipped=0; failed=0
+for key in "${KEYS[@]}"; do
+    process_key "$key"; rc=$?
+    case "$rc" in
+        0) processed=$((processed+1)) ;;
+        3) skipped=$((skipped+1)) ;;
+        *) failed=$((failed+1)) ;;
+    esac
 done
 
 echo "=================================================="

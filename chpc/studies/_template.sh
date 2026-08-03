@@ -22,7 +22,8 @@ ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
 # two runs, orients them BY PRIMER (PRIMER_F/PRIMER_R below), and repairs them
 # into paired _1/_2 for the standard import/trim/denoise path.
 # FETCH_JOB="chpc/jobs/01_fetch_ena_and_pair.slurm"
-# FETCH_ARRAY="false"                                  # submit as one job, no --array
+# FETCH_ARRAY="true"               # array over samples (throttled by submit.sh)
+# FETCH_ITEMS="pairs"              # size the array by unique PAIR_KEY, not run count
 # ENA_REPORT="$REPO_ROOT/$STUDY/RawData/ENA_samples.tsv"  # filereport TSV
 # PAIR_KEY="sample_accession"      # column identical for the two mates
 # FTP_COL="submitted_ftp"          # download-URL column in the report
