@@ -1,0 +1,29 @@
+---
+title: "Preprocessing Vallet2023"
+format: html
+editor: visual
+---
+
+# Vallet
+
+-   Previously processed as allozithro. This is the published microbiome followup of the subcohort.
+
+-   V3-V4 Region
+
+# Reference
+
+-   Vallet, N., Salmona, M., Malet-Villemagne, J., Bredel, M., Bondeelle, L., Tournier, S., Mercier-Delarue, S., Cassonnet, S., Ingram, B., Latour, R.P. de, Bergeron, A., Socié, G., Goff, J.L., Lepage, P., Michonneau, D., 2023. Circulating T cell profiles associate with enterotype signatures underlying hematological malignancy relapses. Cell Host Microbe 31, 1386-1403.e6. https://doi.org/10.1016/j.chom.2023.06.009
+
+-   Bioproject: PRJNA902819
+
+-   Associated github: <https://gitlab.com/nivall/azimutfeces>
+
+-   Raw data are available on a public repository: (i) metabolomic, Metabolights: MTBLS406; (ii) bacteriome, Bioproject: PRJNA902819; (iii) virome, Bioproject: PRJNA898682. Source codes, data and CSV files of interim analyses are available on the following Git repositories: <https://gitlab.com/nivall/azimutfeces>. Git repositories version at submission time are archived on Software Heritage: <https://archive.softwareheritage.org/swh:1:dir:9a24ab367cbe9519007f0dd407423fe47def5cfa>. Unless otherwise specified, data analyses were computed using R environment. Raw figures were made with the “ggplot2” R package. Computational environment may be reproduced using GNU Guix with the files “manifest.scm” and “channels.scm” in “guixconfig” directory of the git repository.^[86](https://www.sciencedirect.com/science/article/pii/S1931312823002603?via%3Dihub#bib86)^ Manuscript figures were created from R outputs and combined with Inkscape (version 1.2.1) on macOS (version 12.5).
+
+# Relevant Methods
+
+![](images/clipboard-2587672459.png){width="410"}
+
+-   This study was conducted with samples from patients included in the multicenter, randomized, double-blind, placebo-controlled phase three superiority trial ALLOZITHRO (NCT01959100).^[11](https://www.sciencedirect.com/science/article/pii/S1931312823002603?via%3Dihub#bib11)^ This study was approved by the local ethics committee and Institutional Review Board (CPP Île de France IV, IRB number 00003835, reference number 2013-000499-14). Fecal samples were gathered from the cohort MICROBIOTE-T3 (IRB 00003835, CNIL 104706). Blood samples were retrieved from the CRYOSTEM Consortium (project number CS-1801, IRB Sud-Méditerranée 1, reference AC-2011-1420) and the Commission National Informatique et Liberté for data protection (reference nz70243374i no. 912120). All patients gave written consent for [clinical research](https://www.sciencedirect.com/topics/pharmacology-toxicology-and-pharmaceutical-science/clinical-research). No additional clinical procedure was carried out in this non-interventional research study in accordance with the Declaration of Helsinki. Data analyses were performed using a database without patients’ identifiers. Patients’ characteristics are described in [Tables 1](https://www.sciencedirect.com/science/article/pii/S1931312823002603?via%3Dihub#tbl1) and [S1](https://www.sciencedirect.com/science/article/pii/S1931312823002603?via%3Dihub#mmc1). Feces and blood samples collection times are shown in [Figure S8](https://www.sciencedirect.com/science/article/pii/S1931312823002603?via%3Dihub#mmc1)A.
+
+-   Patients’ fecal samples were frozen-aliquoted (150 mg), homogenized and lysed using both mechanical (bead beating for 10 minutes) and chemical techniques as previously described,^[87](https://www.sciencedirect.com/science/article/pii/S1931312823002603?via%3Dihub#bib87)^ and total DNA was extracted using the MoBio Power Fecal [DNA isolation](https://www.sciencedirect.com/topics/immunology-and-microbiology/dna-isolation) kit following the manufacturer’s recommendations. DNA quality and quantity were evaluated using a spectrophotometer (Nanodrop 1000, Thermoscientific). Sequencing was then performed at GeT-PlaGe platform of the Génopole (Toulouse Midi-Pyrénées, France) using [Illumina MiSeq](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/illumina-miseq) technology targeting the V3-V4 region of the 16SrRNA gene with the following primers: V3fwd-TACGGRAGGCAGCAG and V4rev- TACCAGGGTATCTAAT.
