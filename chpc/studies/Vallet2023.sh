@@ -58,8 +58,8 @@ CUTADAPT_DISCARD_UNTRIMMED="true"   # keep only pairs where the primer was found
 #    exceed the ~V3-V4 insert (~465 nt) + 12 to still merge in DADA2.
 TRIM_LEFT_F=0
 TRIM_LEFT_R=0
-TRUNC_LEN_F=0
-TRUNC_LEN_R=0
+TRUNC_LEN_F=230
+TRUNC_LEN_R=225
 
 DADA2_THREADS=16
 
@@ -67,7 +67,7 @@ METADATA="$REPO_ROOT/$STUDY/Metadata/vallet_meta_qiime.tsv"
 
 # Walltimes per stage (used by submit.sh). DENOISE_TIME covers the DADA2 job.
 # 118 runs; average ~14,677 reads/sample (range 3,056-24,545) per the paper.
-FETCH_TIME="12:00:00"
-IMPORT_TIME="04:00:00"
-TRIM_TIME="04:00:00"
-DENOISE_TIME="24:00:00"
+FETCH_TIME="00:05:00"
+IMPORT_TIME="01:00:00"
+TRIM_TIME="01:00:00"
+DENOISE_TIME="5:00:00"

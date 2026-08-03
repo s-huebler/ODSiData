@@ -77,3 +77,15 @@ awk 'NR%4==2{c++; if($0 ~ /ACGG[AG]AGGCAGCAG/)m++} END{printf "ACGGRAGGCAGCAG ma
 ```
 
 ![](images/clipboard-1286674404.png){width="545"}
+
+Trimming took about 7 minutes
+
+![](images/clipboard-1751991132.png)
+
+![](images/clipboard-2279820552.png)
+
+![](images/clipboard-3297717526.png){width="742"}
+
+# Denoise
+
+DADA2 paired denoiser

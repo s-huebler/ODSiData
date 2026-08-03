@@ -27,3 +27,11 @@ editor: visual
 -   S-D-Bact-0008-c-S-20 = AGRGTTYGATYMTGGCTCAG (27F)
 
 -   revcomp of S-D-Bact-0517-a-A-18 = GCCAGCMGCCGCGGTAAT (18 nt)
+
+# Fetch and import
+
+-   Import went very quickly
+
+-   ![](images/clipboard-3793795367.png)![](images/clipboard-3793795367.png){width="314"}
+
+# Trim
