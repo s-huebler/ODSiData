@@ -86,7 +86,7 @@ REV_PRIMER_RC="GCCAGCMGCCGCGGTAAT"     # revcomp of S-D-Bact-0517-a-A-18 (18 nt)
 PYRO_TRUNC_LEN=""          # TODO: set from demux_trimmed_viz.qzv (0 = none)
 PYRO_TRIM_LEFT=0           # 5' trim; 0 — primers removed by the trim stage above
 PYRO_MAX_LEN=0             # drop reads longer than this pre-trim; 0 = off
-PYRO_MAX_EE=2.0            # max expected errors (DADA2 default 2.0)
+PYRO_MAX_EE=5.0            # max expected errors (paper's maxEE=5; default is 2.0)
 PYRO_TRUNC_Q=2             # truncate at first base <= this quality (default 2)
 PYRO_THREADS=16            # match --cpus-per-task in 04_dada2_pyro.slurm
 # (denoise walltime is the shared DENOISE_TIME at the bottom of this file)

@@ -18,6 +18,12 @@ editor: visual
 
 -   Nucleic acids were extracted from 50 mg patient stool collected and stabilized in maGix microbiome preservation buffer (microBIOMix). Lysis of microbial cells was enhanced by repeated beat-beating of stool suspensions on a Tissue Lyser II instrument (Qiagen) using Lysing Matrix Y beads (MP Biomedicals) followed by freezing and thawing. Total nucleic acids were purified from crude lysates with the MagNA Pure 96 system (Roche). Bacterial 16S rRNA gene copies were quantified by qPCR.82 V1-3 hypervariable regions of bacterial 16S rRNA genes were amplified from 1x107 16S copies with the Platinum II Taq Hot-Start DNA-Polymerase and primers S-D-Bact-0008-c-S-20 and S-D-Bact-0517-a-A-18.83 Amplicon libraries were purified with MagSi-NGSPREP Plus beads (Magtivio), quantified with the KAPA Library Quantification Kit (Roche) before normalization and pooling. Final library pools were sequenced on a GeneStudio S5 Plus instrument (Thermo Fisher Scientific) with the 600 bp protocol after isothermal amplification on an IonChef instrument.
 
--   Ion Torrent (use single pyro denoiser)
+-   Raw sequencing reads were retrieved from TorrentSuite (5.16.1) followed by quality trimming with Trimmomatic (0.9). Sequencing adapters and 16S primer sequences were removed and demultiplexed using cutadapt (3.5). Amplicon sequence variants (ASV) were retrieved from processed reads in R (4.1.1) using the dada2 (1.16) package. Here, 15 bp were trimmed from 5’-ends of each read, and the dada2 command was executed while a minEE value of 5, a HOMOPOLYMER_GAP_PENALTY of -1 and a BAND_SIZE of 32 were applied. Taxonomy was assigned to resulting ASVs with the IDTAXA classifier of the DECIPHER package (2.19) and the All-Species Living Tree (LTP) database (12.2021) applying a 50% confidence threshold. Correlation analysis was performed based on the abundance of assigned taxonomic features.
+
+    -   Ion Torrent (use single pyro denoiser)
+
+    -   Changed the max error from 2 to 5 to match original authors
 
 -   S-D-Bact-0008-c-S-20 = AGRGTTYGATYMTGGCTCAG (27F)
+
+-   revcomp of S-D-Bact-0517-a-A-18 = GCCAGCMGCCGCGGTAAT (18 nt)
