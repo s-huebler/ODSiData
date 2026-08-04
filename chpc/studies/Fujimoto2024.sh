@@ -74,7 +74,7 @@ TRIM_LEFT_R=0
 # merge overlap on the ~427 bp primer-free V3-V4 insert. VERIFY against
 # demux_trimmed_viz.qzv (the POST-trim quality plot) before denoise — set from
 # the plot if the quality profile disagrees.
-TRUNC_LEN_F=258
+TRUNC_LEN_F=265
 TRUNC_LEN_R=194
 
 # CPU threads for DADA2 (match --cpus-per-task in 04_dada2_paired.slurm).
