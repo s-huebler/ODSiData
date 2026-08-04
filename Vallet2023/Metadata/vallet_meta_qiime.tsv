@@ -1,4 +1,4 @@
-id	run	experiment	sample_name	bio_sample	library_name	individual	sample_date	dat.hsct	baseline	sex	age	diagnosis2	agvhd	death	relapse
+sample-id	run	experiment	patient_sample_name	bio_sample	library_name	individual	sample_date	dat.hsct	baseline	sex	age	diagnosis2	agvhd	death	relapse
 SRR22325885	SRR22325885	SRX18299030	RC298_42060	SAMN31776454	RC298_42060_lib	RC298	2015-02-25	2015-02-12	0	female	54.6195718	NHL	1	0	0
 SRR22325886	SRR22325886	SRX18299029	PJ233_41890	SAMN31776453	PJ233_41890_lib	PJ233	2014-09-08	2014-08-27	0	male	66.731723682	AML	1	0	0
 SRR22325887	SRR22325887	SRX18299028	PJ233_41876	SAMN31776452	PJ233_41876_lib	PJ233	2014-08-25	2014-08-27	0	male	66.731623682	AML	1	0	0

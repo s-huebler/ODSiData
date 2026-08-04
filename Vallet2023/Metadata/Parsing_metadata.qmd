@@ -409,6 +409,8 @@ allo_meta_qiime <- allo_samples %>%
 
 ```{r}
 vallet_meta_qiime <- allo_meta_qiime
+
+names(vallet_meta_qiime)<- c("sample-id", "run", "experiment", "patient_sample_name", "bio_sample", "library_name", "individual", "sample_date", "dat.hsct", "baseline", "sex", "age", "diagnosis2", "agvhd", "death", "relapse")
 ```
 
 ## Exporting
