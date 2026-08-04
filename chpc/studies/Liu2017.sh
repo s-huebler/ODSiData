@@ -55,8 +55,8 @@ TRIM_LEFT_R=0
 # leaving these at 0 lets the job run untruncated, which is NOT what you want for
 # 2x300 V4 — inspect the plot and set both to trim the low-quality 3' tails while
 # preserving enough overlap to merge (~253 bp V4 amplicon).
-TRUNC_LEN_F=0    # TODO: set from demux_trimmed_viz.qzv
-TRUNC_LEN_R=0    # TODO: set from demux_trimmed_viz.qzv
+TRUNC_LEN_F=266    # TODO: set from demux_trimmed_viz.qzv
+TRUNC_LEN_R=230    # TODO: set from demux_trimmed_viz.qzv
 
 # CPU threads for DADA2 (match --cpus-per-task in 04_dada2_paired.slurm).
 DADA2_THREADS=16
@@ -70,4 +70,4 @@ METADATA="$REPO_ROOT/$STUDY/Metadata/liu_meta_qiime.tsv"
 FETCH_TIME="00:15:00"
 IMPORT_TIME="04:00:00"
 TRIM_TIME="04:00:00"
-DENOISE_TIME="24:00:00"
+DENOISE_TIME="7:00:00"

@@ -39,3 +39,11 @@ Sequences stored as single library layout but sequences were actually paired.
     -   Found that there are some bp (variable length) before primers. Checks for presence of primer within the first 50bp.
 
 -   Fetching took about an hour (throttled on array 20 with limited chpc, no pair took longer than 10 minutes)
+
+# Trimming
+
+![](images/clipboard-3541092967.png)
+
+![](images/clipboard-1032367716.png)
+
+![](images/clipboard-3450227273.png)
