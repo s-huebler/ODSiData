@@ -17,15 +17,29 @@
 #   CHPC_ACCOUNT=my-alloc CHPC_PARTITION=notchpeak ./submit.sh Artacho2024
 export CHPC_ACCOUNT="${CHPC_ACCOUNT:-qiaox}"          # sbatch -A / --account
 # Default to a SHARED partition, not a whole-node one. These jobs need a few
-# cores + tens of GB, not a full node — on a whole-node partition (plain
-# 'kingspeak') Slurm makes the job wait for an entire free node, which is the
-# main cause of long queue waits (see CHPC's slurm-priority-scores page).
-# 'kingspeak-shared' shares a node and runs on the same scheduler/account you
-# already submit to. For a whole node, override: CHPC_PARTITION=kingspeak.
-# NOTE: 'notchpeak-shared-short' lives on the *notchpeak* scheduler — you can't
-# reach it from a kingspeak context without `sbatch -M notchpeak` + notchpeak
-# access, so it's not a safe default here.
-export CHPC_PARTITION="${CHPC_PARTITION:-kingspeak-shared}"  # sbatch -p / --partition
+# cores + tens of GB, not a full node — a whole-node partition makes the job
+# wait for an entire free node, the main cause of long queue waits (see CHPC's
+# slurm-priority-scores page).
+#
+# We default to LONEPEAK, not kingspeak: as of this writing kingspeak general is
+# saturated (all nodes allocated) and 'kingspeak-shared' is drained, so jobs
+# there just sit. 'lonepeak-shared' (qiaox allocation) is shared, has generous
+# walltime, and usually has free nodes. It lives on the lonepeak scheduler, so
+# CHPC_CLUSTER below routes sbatch there.
+#
+# Common overrides (set on the command line):
+#   whole node:        CHPC_CLUSTER=lonepeak  CHPC_PARTITION=lonepeak
+#   back to kingspeak: CHPC_CLUSTER=""        CHPC_PARTITION=kingspeak-shared
+#   free short (<=8h): CHPC_CLUSTER=notchpeak CHPC_ACCOUNT=notchpeak-shared-short \
+#                      CHPC_PARTITION=notchpeak-shared-short
+export CHPC_PARTITION="${CHPC_PARTITION:-lonepeak-shared}"  # sbatch -p / --partition
+# Cluster/scheduler to submit to. Each CHPC cluster runs its OWN Slurm
+# controller, so a partition is only valid on its own cluster — submitting a
+# notchpeak/lonepeak partition from a kingspeak context fails with "invalid
+# partition specified". Empty = your login cluster's scheduler; set this
+# (paired with a matching CHPC_ACCOUNT/CHPC_PARTITION) to reach another cluster.
+# submit.sh turns this into `sbatch --clusters=$CHPC_CLUSTER`.
+export CHPC_CLUSTER="${CHPC_CLUSTER:-lonepeak}"      # sbatch -M / --clusters ("" = login cluster)
 
 # --- Scratch workspace -------------------------------------------------------
 # Large files (FASTQ, demux.qza, intermediate artifacts) live on scratch, never

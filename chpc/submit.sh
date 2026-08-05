@@ -149,15 +149,22 @@ esac
 echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  fetch_items=$FETCH_ITEMS($N)  account=$CHPC_ACCOUNT  partition=$CHPC_PARTITION"
 
 SB=(sbatch -A "$CHPC_ACCOUNT" -p "$CHPC_PARTITION" --parsable --export=ALL,STUDY_FILE="$STUDY_FILE")
+# Route to another cluster's scheduler when CHPC_CLUSTER is set (required for
+# partitions off your login cluster, e.g. lonepeak-shared / notchpeak-shared-short).
+[[ -n "${CHPC_CLUSTER:-}" ]] && SB+=(--clusters="$CHPC_CLUSTER")
+
+# With --clusters, `sbatch --parsable` returns "jobid;cluster" — strip the
+# suffix so job IDs stay usable for dependencies and echoes.
+jid() { printf '%s' "${1%%;*}"; }
 
 # --- fetch (array over accessions, or a single pairing job) -----------------
 fetch_id=""
 if [[ "$STAGE" == "all" || "$STAGE" == "fetch" ]]; then
     if [[ "$FETCH_ARRAY" == "true" ]]; then
-        fetch_id=$("${SB[@]}" --array="1-${N}%${ARRAY_THROTTLE}" --time="$FETCH_TIME" "$FETCH_JOB")
+        fetch_id=$(jid "$("${SB[@]}" --array="1-${N}%${ARRAY_THROTTLE}" --time="$FETCH_TIME" "$FETCH_JOB")")
         echo "Submitted fetch array: job $fetch_id (1-$N, throttle $ARRAY_THROTTLE)  [$FETCH_JOB]"
     else
-        fetch_id=$("${SB[@]}" --time="$FETCH_TIME" "$FETCH_JOB")
+        fetch_id=$(jid "$("${SB[@]}" --time="$FETCH_TIME" "$FETCH_JOB")")
         echo "Submitted fetch (single job): job $fetch_id  [$FETCH_JOB]"
     fi
 fi
@@ -166,19 +173,19 @@ fi
 if [[ "$STAGE" == "all" || "$STAGE" == "import" ]]; then
     DEP=()
     [[ -n "$fetch_id" ]] && DEP=(--dependency="afterok:${fetch_id}")
-    import_id=$("${SB[@]}" "${DEP[@]}" --time="${IMPORT_TIME:-04:00:00}" --mem="$IMPORT_MEM" "$IMPORT_JOB")
+    import_id=$(jid "$("${SB[@]}" "${DEP[@]}" --time="${IMPORT_TIME:-04:00:00}" --mem="$IMPORT_MEM" "$IMPORT_JOB")")
     echo "Submitted import: job $import_id ${fetch_id:+(after $fetch_id)}  [$IMPORT_JOB]"
 fi
 
 # --- trim (cutadapt primer removal; run AFTER import) ------------------------
 if [[ "$STAGE" == "trim" ]]; then
-    trim_id=$("${SB[@]}" --time="$TRIM_TIME" --cpus-per-task="$TRIM_THREADS" --mem="$TRIM_MEM" "$TRIM_JOB")
+    trim_id=$(jid "$("${SB[@]}" --time="$TRIM_TIME" --cpus-per-task="$TRIM_THREADS" --mem="$TRIM_MEM" "$TRIM_JOB")")
     echo "Submitted trim (cutadapt): job $trim_id  [$TRIM_JOB]"
 fi
 
 # --- denoise (run manually AFTER trim + inspecting the quality plot) ---------
 if [[ "$STAGE" == "denoise" ]]; then
-    denoise_id=$("${SB[@]}" --time="$DENOISE_TIME" --cpus-per-task="$DENOISE_THREADS" --mem="$DENOISE_MEM" "$DENOISE_JOB")
+    denoise_id=$(jid "$("${SB[@]}" --time="$DENOISE_TIME" --cpus-per-task="$DENOISE_THREADS" --mem="$DENOISE_MEM" "$DENOISE_JOB")")
     echo "Submitted $DENOISE_LABEL: job $denoise_id  [$DENOISE_JOB]"
 fi
 
