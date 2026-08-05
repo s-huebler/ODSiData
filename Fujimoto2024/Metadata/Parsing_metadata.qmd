@@ -119,6 +119,8 @@ fuji_meta_qiime <- fuji_samples %>%
                      Donor, Graft_Type,
                      AGVHD),
             by = "Patient")
+
+names(fuji_meta_qiime)[1]<- "sample-id"
 ```
 
 # Exporting
@@ -132,25 +134,25 @@ write_tsv(fuji_meta_qiime, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/
 One of the samples got removed in the importing to qiime or dada processing. So need to remove from the metadata.
 
 ```{r}
-original_meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
-
-
-filtered_meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/post_filtering.tsv", col_names = T)%>%
-  filter(`sample-id` != "#q2:types") %>%
-  type.convert(as.is = TRUE)
+# original_meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
+# 
+# 
+# filtered_meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/post_filtering.tsv", col_names = T)%>%
+#   filter(`sample-id` != "#q2:types") %>%
+#   type.convert(as.is = TRUE)
 ```
 
 ```{r}
-setdiff(original_meta$id, filtered_meta$`sample-id`)
+#setdiff(original_meta$id, filtered_meta$`sample-id`)
 ```
 
 ```{r}
-fixed_meta <- original_meta %>%
-  filter(id != "SRR28984726")
-
-names(fixed_meta)[1]<- "sample-id"
+# fixed_meta <- original_meta %>%
+#   filter(id != "SRR28984726")
+# 
+# names(fixed_meta)[1]<- "sample-id"
 ```
 
 ```{r}
-write_tsv(fixed_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
+#write_tsv(fixed_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
 ```
