@@ -49,3 +49,5 @@ Sequences stored as single library layout but sequences were actually paired.
 ![](images/clipboard-3450227273.png)
 
 # Denoising
+
+![Percent input non-chimeric 3-94%. 29 samples below 50% then jump up to 75%. ](images/clipboard-3084653885.png)

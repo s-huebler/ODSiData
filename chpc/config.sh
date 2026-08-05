@@ -97,6 +97,12 @@ load_qiime2_env() {
     module load anaconda3/2023.03 && module load qiime2/2023.5 \
         || { echo "ERROR: could not load qiime2/2023.5 (needs anaconda3/2023.03 first). Check 'module spider qiime2'." >&2; return 1; }
     command -v qiime >/dev/null || { echo "ERROR: 'qiime' not on PATH after module load." >&2; return 1; }
+    # The qiime2/2023.5 module's bundled vsearch is compiled with SIMD instructions
+    # that crash ("Illegal instruction") on older lonepeak cores. Prepend a generic
+    # bioconda vsearch (runtime SIMD dispatch) so classify-consensus-vsearch runs on
+    # any node. QIIME2 shells out to whatever `vsearch` is first on PATH.
+    export PATH="$HOME/software/envs/vsearch-2.28/bin:$PATH"
+    command -v vsearch >/dev/null || { echo "ERROR: 'vsearch' not on PATH after override." >&2; return 1; }
 }
 
 load_bbmap_env() {
