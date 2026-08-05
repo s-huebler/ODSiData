@@ -108,11 +108,11 @@ DENOISE_MEM="${DENOISE_MEM:-32G}"
 # memory more than CPU. Right-size per study in chpc/studies/<Study>.sh.
 QC_JOB="chpc/jobs/05_qc.slurm"
 MAP_JOB="chpc/jobs/06_gg2_map.slurm"
-QC_TIME="${QC_TIME:-12:00:00}"
-QC_MEM="${QC_MEM:-32G}"
+QC_TIME="${QC_TIME:-04:00:00}"
+QC_MEM="${QC_MEM:-16G}"
 QC_THREADS="${QC_THREADS:-8}"
-MAP_TIME="${MAP_TIME:-12:00:00}"
-MAP_MEM="${MAP_MEM:-64G}"
+MAP_TIME="${MAP_TIME:-04:00:00}"
+MAP_MEM="${MAP_MEM:-24G}"
 MAP_THREADS="${MAP_THREADS:-8}"
 case "$LAYOUT" in
     paired)

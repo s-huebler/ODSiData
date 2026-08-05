@@ -120,6 +120,7 @@ cat > .git/info/sparse-checkout <<'EOF'
 /Liu2017/
 /Jarosch2023/
 /Fujimoto2024/
+/Greengenes2/
 EOF
 git sparse-checkout reapply
 ```
@@ -131,6 +132,6 @@ Rules for this prompt:
 - **Update this canonical list in CLAUDE.md every time** a study is added, so the block
   above always reflects the current CHPC checkout. The list currently tracks:
   CLAUDE.md, Artacho2024, DAmico2019, Ingham2019, chpc, Vallet2023, Liu2017,
-  Jarosch2023, Fujimoto2024.
+  Jarosch2023, Fujimoto2024, Greengenes2.
 - The study folder must already be committed and pushed to the branch CHPC tracks, or
   `reapply` will materialize nothing — flag this if the study is new to the repo.

@@ -31,8 +31,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=32G
-#SBATCH --time=12:00:00
+#SBATCH --mem=16G
+#SBATCH --time=04:00:00
 #SBATCH --output=chpc/logs/qc_%j.out
 #SBATCH --error=chpc/logs/qc_%j.err
 

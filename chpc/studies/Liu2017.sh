@@ -111,6 +111,6 @@ DENOISE_MEM="32G"
 # MAP_INPUT_SEQS="$REPO_ROOT/$STUDY/Mapped/qc-seqs.qza"
 #
 # --- Resources (override chpc/submit.sh defaults) ----------------------------
-# QC_TIME="12:00:00";  QC_MEM="32G";  QC_THREADS=8
-# MAP_TIME="12:00:00"; MAP_MEM="64G"; MAP_THREADS=8
+# QC_TIME="04:00:00";  QC_MEM="16G";  QC_THREADS=8
+# MAP_TIME="04:00:00"; MAP_MEM="24G"; MAP_THREADS=8
 # =============================================================================

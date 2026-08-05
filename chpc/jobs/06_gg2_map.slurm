@@ -33,8 +33,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=64G
-#SBATCH --time=12:00:00
+#SBATCH --mem=24G
+#SBATCH --time=04:00:00
 #SBATCH --output=chpc/logs/gg2map_%j.out
 #SBATCH --error=chpc/logs/gg2map_%j.err
 
