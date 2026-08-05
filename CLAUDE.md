@@ -51,6 +51,30 @@ Application of bhCRR to the harmonized ODSiData cohort.
 - Workflow: develop locally → push to GitHub → pull on CHPC → submit SLURM jobs
 - Job scripts live in each project's chpc/ folder
 
+## CHPC Login-Node Policy — DO NOT run compute on interactive nodes
+CHPC login/interactive nodes (lonepeak1/2, kingspeak1/2, notchpeak1/2, granite1/2)
+are shared front-ends for editing, staging, and submitting jobs ONLY. Running
+computationally intensive or long-running work on them violates CHPC Policy 2.1.1
+(https://www.chpc.utah.edu/documentation/policies/2.1GeneralHPCClusterPolicies.php#Pol2.1.1)
+and triggers automatic penalties (temporary CPU/memory caps across all login nodes).
+This already happened once (conda env solve on lonepeak2, 2026-08-05).
+
+- **Never instruct Sophie to run heavy work directly on a login node.** This includes,
+  but is not limited to: `conda`/`mamba` env creation or solves, `pip install` of
+  compiled packages, compiling from source (`make`, `./configure && make`), QIIME2
+  commands, vsearch/DADA2/BLAST or any bioinformatics binary, large file
+  decompression, and anything that runs more than a minute or two or uses real CPU/RAM.
+- **Route all such work through Slurm**: either a batch job (`sbatch`) or an
+  interactive allocation (`salloc`/`srun`) on a compute node. Only then run the
+  intensive command.
+- **Fine on a login node**: `git` operations, editing files, small `wget`/`curl`
+  downloads + `tar` extraction of modest archives, `module load`/`module spider`,
+  writing/inspecting job scripts, and quick `--version`/`--help` checks.
+- When a task needs a package installed or built (e.g. the generic bioconda vsearch
+  in `load_qiime2_env`), wrap the install in an `salloc`/`srun` on a compute node,
+  or add it as a one-off `sbatch` step — do NOT hand Sophie a bare `conda create`
+  to paste on the login node.
+
 ## Git Conventions
 - Project 1 commits: "[Study] brief description" e.g. "[Liu2017] fix DADA2 params"
 - Project 2 commits: "feat/fix/docs/test: brief description"

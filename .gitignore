@@ -15,4 +15,6 @@
 **/QiimeData/*.qza
 **/QiimeData/*.qzv
 **/QiimeData/*.fasta
-
+**/Mapped/*.qza
+**/Mapped/*.qzv
+**/Mapped/*.fasta
