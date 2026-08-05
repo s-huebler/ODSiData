@@ -46,6 +46,10 @@ editor: visual
 
 -   No right truncation, let pyro max ee handle errors
 
+![](images/clipboard-4059065977.png)
+
+54-92% non-chimeric
+
 # BLAST
 
 ```{r}
@@ -145,3 +149,7 @@ writeXStringSet(bact_seqs, "~/Documents/ODSi/ODSiData/Jarosch2023/FilteredData/b
 
 cat("\nAnalysis Complete. Results saved to '16s_blast_results.tsv'.\n")
 ```
+
+# METADATA INTERLUDE
+
+Only able to match clinical data to samples on the reported alpha diversity metrics included in clinical samples.

@@ -55,8 +55,8 @@ TRIM_LEFT_R=0
 # leaving these at 0 lets the job run untruncated, which is NOT what you want for
 # 2x300 V4 — inspect the plot and set both to trim the low-quality 3' tails while
 # preserving enough overlap to merge (~253 bp V4 amplicon).
-TRUNC_LEN_F=266    # TODO: set from demux_trimmed_viz.qzv
-TRUNC_LEN_R=230    # TODO: set from demux_trimmed_viz.qzv
+TRUNC_LEN_F=220    # TODO: set from demux_trimmed_viz.qzv
+TRUNC_LEN_R=200    # TODO: set from demux_trimmed_viz.qzv
 
 # CPU threads for DADA2 (match --cpus-per-task in 04_dada2_paired.slurm).
 DADA2_THREADS=16

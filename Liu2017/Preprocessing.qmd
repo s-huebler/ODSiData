@@ -47,3 +47,5 @@ Sequences stored as single library layout but sequences were actually paired.
 ![](images/clipboard-1032367716.png)
 
 ![](images/clipboard-3450227273.png)
+
+# Denoising

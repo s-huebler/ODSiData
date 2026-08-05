@@ -11,6 +11,19 @@ library(tidyverse)
 ```{r}
 clinical <- read_csv(file = "~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/Raw_metadata/meta_clinical.csv")
 samples <- read_csv(file = "~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/Raw_metadata/meta_samples.csv")
+
+clinical16S <- clinical %>%
+  filter(`16S data` == "yes")
+
+
 ```
 
 No way to link, requires calculating alpha diversity to try to match to meta_clinical.
+
+```{r}
+alpha_import <- clinical16S %>% select(Patient, Richness, Simpson, Shannon)%>%distinct()
+```
+
+```{r}
+alpha_calc <- read_tsv(file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Jarosch2023/Metadata/jarosch_alpha_diversity.tsv")
+```
