@@ -12,6 +12,15 @@
 #   ./chpc/submit.sh Artacho2024 import       # import + demux summary only
 #   ./chpc/submit.sh Artacho2024 trim         # cutadapt primer removal only
 #   ./chpc/submit.sh Artacho2024 denoise      # denoise (after you set trunc lens)
+#   ./chpc/submit.sh Artacho2024 qc           # GG2 assignment gate (consensus-vsearch)
+#   ./chpc/submit.sh Artacho2024 map          # map ASVs onto GG2 backbone (non-v4-16s)
+#
+# The qc + map stages form the Greengenes2 mapping pipeline that runs AFTER
+# denoise (and your local BLAST step): qc drops ASVs that don't confidently
+# assign to the GG2 backbone; map (non-v4-16s) re-expresses the survivors in the
+# GG2 backbone namespace so tables are comparable across primer regions. Both
+# read their parameters from the GG2 section in chpc/studies/<Study>.sh, and
+# write to <Study>/Mapped/. Run per study: qc first, then map.
 #
 # Both the trim and denoise stages are layout-aware, driven by LAYOUT in the
 # study file:
@@ -50,8 +59,8 @@ STAGE="${2:-all}"
 ARRAY_THROTTLE="${ARRAY_THROTTLE:-20}"
 
 case "$STAGE" in
-    all|fetch|import|trim|denoise|dada2|dada2-single|deblur|pyro) ;;
-    *) echo "Unknown stage '$STAGE' (expected: all|fetch|import|trim|denoise)"; exit 1 ;;
+    all|fetch|import|trim|denoise|dada2|dada2-single|deblur|pyro|qc|map) ;;
+    *) echo "Unknown stage '$STAGE' (expected: all|fetch|import|trim|denoise|qc|map)"; exit 1 ;;
 esac
 
 # Resolve repo root as the parent of this script's dir; run from there.
@@ -94,6 +103,17 @@ TRIM_THREADS="${TRIM_THREADS:-${CUTADAPT_THREADS:-8}}"
 IMPORT_MEM="${IMPORT_MEM:-8G}"
 TRIM_MEM="${TRIM_MEM:-8G}"
 DENOISE_MEM="${DENOISE_MEM:-32G}"
+# --- Greengenes2 mapping stages (qc / map) — resources ----------------------
+# Both stages scan the ASVs against the (large) GG2 backbone, so they lean on
+# memory more than CPU. Right-size per study in chpc/studies/<Study>.sh.
+QC_JOB="chpc/jobs/05_qc.slurm"
+MAP_JOB="chpc/jobs/06_gg2_map.slurm"
+QC_TIME="${QC_TIME:-12:00:00}"
+QC_MEM="${QC_MEM:-32G}"
+QC_THREADS="${QC_THREADS:-8}"
+MAP_TIME="${MAP_TIME:-12:00:00}"
+MAP_MEM="${MAP_MEM:-64G}"
+MAP_THREADS="${MAP_THREADS:-8}"
 case "$LAYOUT" in
     paired)
         IMPORT_JOB="chpc/jobs/02_import.slurm"
@@ -189,6 +209,18 @@ if [[ "$STAGE" == "denoise" ]]; then
     echo "Submitted $DENOISE_LABEL: job $denoise_id  [$DENOISE_JOB]"
 fi
 
+# --- qc (GG2 assignment gate; run AFTER denoise + local BLAST) ---------------
+if [[ "$STAGE" == "qc" ]]; then
+    qc_id=$(jid "$("${SB[@]}" --time="$QC_TIME" --cpus-per-task="$QC_THREADS" --mem="$QC_MEM" "$QC_JOB")")
+    echo "Submitted QC gate (classify-consensus-vsearch): job $qc_id  [$QC_JOB]"
+fi
+
+# --- map (non-v4-16s backbone mapping; run AFTER qc) ------------------------
+if [[ "$STAGE" == "map" ]]; then
+    map_id=$(jid "$("${SB[@]}" --time="$MAP_TIME" --cpus-per-task="$MAP_THREADS" --mem="$MAP_MEM" "$MAP_JOB")")
+    echo "Submitted GG2 map (non-v4-16s): job $map_id  [$MAP_JOB]"
+fi
+
 # Length variable(s) the denoise stage needs, per layout/denoiser.
 case "$LAYOUT" in
     paired) LEN_VAR="TRUNC_LEN_F/TRUNC_LEN_R" ;;
@@ -217,4 +249,18 @@ if [[ "$STAGE" == "trim" ]]; then
     echo "                       ./chpc/submit.sh $STUDY_NAME denoise"
 fi
 
-echo "Track with: squeue -u \$USER   |   logs in chpc/logs/"
+if [[ "$STAGE" == "qc" ]]; then
+    echo
+    echo "NEXT: when qc finishes, inspect $STUDY_NAME/Mapped/qc-taxonomy_viz.qzv and"
+    echo "      qc-table_viz.qzv (how many features survived the gate), then:"
+    echo "                       ./chpc/submit.sh $STUDY_NAME map"
+fi
+
+if [[ "$STAGE" == "map" ]]; then
+    echo
+    echo "NEXT: when map finishes, $STUDY_NAME/Mapped/ holds mapped-table.qza +"
+    echo "      mapped-seqs.qza (GG2 backbone namespace). Once ALL studies are mapped,"
+    echo "      merge across studies for the harmonized cohort."
+fi
+
+echo "Track with: squeue -M all -u \$USER   |   logs in chpc/logs/"

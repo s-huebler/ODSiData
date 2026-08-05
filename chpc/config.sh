@@ -54,6 +54,32 @@ _CHPC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export CHPC_DIR="$_CHPC_DIR"
 export REPO_ROOT="${REPO_ROOT:-$(dirname "$_CHPC_DIR")}"
 
+# --- Greengenes2 reference artifacts (qc + map stages) -----------------------
+# Shared across studies, so they live here (not per-study). Used by
+# 05_qc.slurm (classify-consensus-vsearch) and 06_gg2_map.slurm (non-v4-16s).
+# GG2_REF_SEQS / GG2_REF_TAX / GG2_BACKBONE are the backbone reference artifacts.
+# Two of them (backbone.full-length.fna.qza, backbone.tax.qza) are NOT tracked in
+# git — download the release into $GG2_REF_DIR before running the qc/map stages:
+#   ftp.microbio.me/greengenes_release/<version>/  (e.g. 2024.09)
+export GG2_REF_DIR="${GG2_REF_DIR:-$REPO_ROOT/Greengenes2}"
+export GG2_VERSION="${GG2_VERSION:-2024.09}"
+export GG2_REF_SEQS="${GG2_REF_SEQS:-$GG2_REF_DIR/$GG2_VERSION.backbone.full-length.fna.qza}"
+export GG2_REF_TAX="${GG2_REF_TAX:-$GG2_REF_DIR/$GG2_VERSION.backbone.tax.qza}"
+export GG2_BACKBONE="${GG2_BACKBONE:-$GG2_REF_SEQS}"   # non-v4-16s backbone = same seqs
+
+# --- QC gate (classify-consensus-vsearch) default thresholds -----------------
+# Keep only ASVs with a confident hit to the GG2 backbone; the rest are dropped
+# as Unassigned. Override any of these per study in chpc/studies/<Study>.sh.
+export QC_PERC_IDENTITY="${QC_PERC_IDENTITY:-0.97}"    # min % identity to a reference
+export QC_QUERY_COV="${QC_QUERY_COV:-0.90}"            # min query coverage
+export QC_MAXACCEPTS="${QC_MAXACCEPTS:-10}"            # hits considered per query
+export QC_MIN_CONSENSUS="${QC_MIN_CONSENSUS:-0.51}"    # consensus fraction for a call
+export QC_TOP_HITS_ONLY="${QC_TOP_HITS_ONLY:-false}"   # only best-identity hits
+export QC_EXCLUDE="${QC_EXCLUDE:-Unassigned}"          # taxonomy label(s) to drop
+
+# --- non-v4-16s closed-reference mapping default -----------------------------
+export GG2_MAP_PERC_IDENTITY="${GG2_MAP_PERC_IDENTITY:-0.99}"  # clustering identity
+
 # --- Environment modules -----------------------------------------------------
 # Wrapped in functions so the job scripts stay clean. EDIT the module names to
 # match what `module spider` reports on CHPC.
@@ -81,6 +107,18 @@ load_bbmap_env() {
     module load bbtools/38.86 \
         || { echo "ERROR: could not load bbtools/38.86. Check 'module spider bbtools' (or add BBTools to PATH)." >&2; return 1; }
     command -v repair.sh >/dev/null || { echo "ERROR: 'repair.sh' not on PATH after loading bbtools/38.86." >&2; return 1; }
+}
+
+# Verify the q2-greengenes2 plugin is installed in the loaded QIIME2 env (needed
+# by 06_gg2_map.slurm's `qiime greengenes2 non-v4-16s`). CHPC's qiime2 module may
+# not ship it — if missing, pip-install it into the active env.
+check_gg2_plugin() {
+    if ! qiime greengenes2 --help >/dev/null 2>&1; then
+        echo "ERROR: q2-greengenes2 plugin not available in the loaded QIIME2 env." >&2
+        echo "       Install it into the active env, e.g.:  pip install q2-greengenes2" >&2
+        echo "       (then re-run 'qiime greengenes2 --help' to confirm)." >&2
+        return 1
+    fi
 }
 
 # Fail fast if the allocation was left unset.

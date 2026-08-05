@@ -161,3 +161,40 @@ FETCH_TIME="00:30:00"
 IMPORT_TIME="01:00:00"
 TRIM_TIME="01:00:00"
 DENOISE_TIME="6:00:00"
+
+# =============================================================================
+# Greengenes2 mapping — qc + map stages (05_qc.slurm / 06_gg2_map.slurm)
+# =============================================================================
+# Runs AFTER denoise (and your local BLAST step). Two stages:
+#   ./chpc/submit.sh $STUDY qc    -> classify-consensus-vsearch gate: keep only
+#                                    ASVs that confidently assign to the GG2
+#                                    backbone (drops the rare/novel tail).
+#   ./chpc/submit.sh $STUDY map   -> qiime greengenes2 non-v4-16s: closed-ref
+#                                    map the survivors onto the GG2 backbone
+#                                    namespace (run uniformly on every study).
+# Outputs land in $STUDY/Mapped/. Defaults come from chpc/config.sh (references +
+# thresholds) and chpc/submit.sh (walltime/mem/threads). UNCOMMENT to override.
+#
+# --- Inputs to the qc stage (default: this study's DADA2 outputs) ------------
+# QC_INPUT_TABLE="$REPO_ROOT/$STUDY/QiimeData/table.qza"
+# QC_INPUT_SEQS="$REPO_ROOT/$STUDY/QiimeData/rep-seqs.qza"
+#
+# --- QC gate thresholds (classify-consensus-vsearch) -------------------------
+# QC_PERC_IDENTITY=0.97       # min % identity to a GG2 reference sequence
+# QC_QUERY_COV=0.90           # min fraction of the query that must align
+# QC_MIN_CONSENSUS=0.51       # consensus fraction across accepted hits
+# QC_MAXACCEPTS=10            # candidate hits considered per ASV
+# QC_TOP_HITS_ONLY=false      # true = keep only best-identity hits
+# QC_EXCLUDE="Unassigned"     # taxonomy label(s) filtered out after classifying
+#
+# --- non-v4-16s mapping identity --------------------------------------------
+# GG2_MAP_PERC_IDENTITY=0.99  # closed-ref clustering identity vs the backbone
+#
+# --- Inputs to the map stage (default: the qc stage outputs) -----------------
+# MAP_INPUT_TABLE="$REPO_ROOT/$STUDY/Mapped/qc-table.qza"
+# MAP_INPUT_SEQS="$REPO_ROOT/$STUDY/Mapped/qc-seqs.qza"
+#
+# --- Resources (override chpc/submit.sh defaults) ----------------------------
+# QC_TIME="12:00:00";  QC_MEM="32G";  QC_THREADS=8
+# MAP_TIME="12:00:00"; MAP_MEM="64G"; MAP_THREADS=8
+# =============================================================================
