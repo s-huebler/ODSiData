@@ -173,18 +173,20 @@ SB=(sbatch -A "$CHPC_ACCOUNT" -p "$CHPC_PARTITION" --parsable --export=ALL,STUDY
 # partitions off your login cluster, e.g. lonepeak-shared / notchpeak-shared-short).
 [[ -n "${CHPC_CLUSTER:-}" ]] && SB+=(--clusters="$CHPC_CLUSTER")
 
-# With --clusters, `sbatch --parsable` returns "jobid;cluster" — strip the
-# suffix so job IDs stay usable for dependencies and echoes.
-jid() { printf '%s' "${1%%;*}"; }
+# With --clusters, `sbatch --parsable` returns "jobid;cluster"; we strip the
+# ";cluster" suffix on the line after each submit. Each sbatch is its OWN
+# assignment (not wrapped in a helper) so a FAILED submission trips `set -e` and
+# aborts — otherwise a rejected job still prints "Submitted ... job" (empty id)
+# and the script marches on to the NEXT-steps message.
 
 # --- fetch (array over accessions, or a single pairing job) -----------------
 fetch_id=""
 if [[ "$STAGE" == "all" || "$STAGE" == "fetch" ]]; then
     if [[ "$FETCH_ARRAY" == "true" ]]; then
-        fetch_id=$(jid "$("${SB[@]}" --array="1-${N}%${ARRAY_THROTTLE}" --time="$FETCH_TIME" "$FETCH_JOB")")
+        fetch_id=$("${SB[@]}" --array="1-${N}%${ARRAY_THROTTLE}" --time="$FETCH_TIME" "$FETCH_JOB"); fetch_id=${fetch_id%%;*}
         echo "Submitted fetch array: job $fetch_id (1-$N, throttle $ARRAY_THROTTLE)  [$FETCH_JOB]"
     else
-        fetch_id=$(jid "$("${SB[@]}" --time="$FETCH_TIME" "$FETCH_JOB")")
+        fetch_id=$("${SB[@]}" --time="$FETCH_TIME" "$FETCH_JOB"); fetch_id=${fetch_id%%;*}
         echo "Submitted fetch (single job): job $fetch_id  [$FETCH_JOB]"
     fi
 fi
@@ -193,31 +195,31 @@ fi
 if [[ "$STAGE" == "all" || "$STAGE" == "import" ]]; then
     DEP=()
     [[ -n "$fetch_id" ]] && DEP=(--dependency="afterok:${fetch_id}")
-    import_id=$(jid "$("${SB[@]}" "${DEP[@]}" --time="${IMPORT_TIME:-04:00:00}" --mem="$IMPORT_MEM" "$IMPORT_JOB")")
+    import_id=$("${SB[@]}" "${DEP[@]}" --time="${IMPORT_TIME:-04:00:00}" --mem="$IMPORT_MEM" "$IMPORT_JOB"); import_id=${import_id%%;*}
     echo "Submitted import: job $import_id ${fetch_id:+(after $fetch_id)}  [$IMPORT_JOB]"
 fi
 
 # --- trim (cutadapt primer removal; run AFTER import) ------------------------
 if [[ "$STAGE" == "trim" ]]; then
-    trim_id=$(jid "$("${SB[@]}" --time="$TRIM_TIME" --cpus-per-task="$TRIM_THREADS" --mem="$TRIM_MEM" "$TRIM_JOB")")
+    trim_id=$("${SB[@]}" --time="$TRIM_TIME" --cpus-per-task="$TRIM_THREADS" --mem="$TRIM_MEM" "$TRIM_JOB"); trim_id=${trim_id%%;*}
     echo "Submitted trim (cutadapt): job $trim_id  [$TRIM_JOB]"
 fi
 
 # --- denoise (run manually AFTER trim + inspecting the quality plot) ---------
 if [[ "$STAGE" == "denoise" ]]; then
-    denoise_id=$(jid "$("${SB[@]}" --time="$DENOISE_TIME" --cpus-per-task="$DENOISE_THREADS" --mem="$DENOISE_MEM" "$DENOISE_JOB")")
+    denoise_id=$("${SB[@]}" --time="$DENOISE_TIME" --cpus-per-task="$DENOISE_THREADS" --mem="$DENOISE_MEM" "$DENOISE_JOB"); denoise_id=${denoise_id%%;*}
     echo "Submitted $DENOISE_LABEL: job $denoise_id  [$DENOISE_JOB]"
 fi
 
 # --- qc (GG2 assignment gate; run AFTER denoise + local BLAST) ---------------
 if [[ "$STAGE" == "qc" ]]; then
-    qc_id=$(jid "$("${SB[@]}" --time="$QC_TIME" --cpus-per-task="$QC_THREADS" --mem="$QC_MEM" "$QC_JOB")")
+    qc_id=$("${SB[@]}" --time="$QC_TIME" --cpus-per-task="$QC_THREADS" --mem="$QC_MEM" "$QC_JOB"); qc_id=${qc_id%%;*}
     echo "Submitted QC gate (classify-consensus-vsearch): job $qc_id  [$QC_JOB]"
 fi
 
 # --- map (non-v4-16s backbone mapping; run AFTER qc) ------------------------
 if [[ "$STAGE" == "map" ]]; then
-    map_id=$(jid "$("${SB[@]}" --time="$MAP_TIME" --cpus-per-task="$MAP_THREADS" --mem="$MAP_MEM" "$MAP_JOB")")
+    map_id=$("${SB[@]}" --time="$MAP_TIME" --cpus-per-task="$MAP_THREADS" --mem="$MAP_MEM" "$MAP_JOB"); map_id=${map_id%%;*}
     echo "Submitted GG2 map (non-v4-16s): job $map_id  [$MAP_JOB]"
 fi
 
