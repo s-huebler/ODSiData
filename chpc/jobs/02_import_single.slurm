@@ -20,7 +20,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
-#SBATCH --mem=16G
+#SBATCH --mem=8G
 #SBATCH --time=04:00:00
 #SBATCH --output=chpc/logs/import_single_%j.out
 #SBATCH --error=chpc/logs/import_single_%j.err

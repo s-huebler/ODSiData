@@ -85,6 +85,15 @@ FETCH_ITEMS="${FETCH_ITEMS:-runs}"
 # Trim (cutadapt) resources are shared across denoisers; light + quick.
 TRIM_TIME="${TRIM_TIME:-04:00:00}"
 TRIM_THREADS="${TRIM_THREADS:-${CUTADAPT_THREADS:-8}}"
+# --- Per-stage memory (right-size to cut queue wait) -------------------------
+# Requested memory is passed straight to sbatch --mem, overriding the #SBATCH
+# --mem default baked into each job script. Set IMPORT_MEM / TRIM_MEM /
+# DENOISE_MEM in the study file to match the dataset; the defaults below are
+# sized for a typical ~100-sample 16S run. Over-asking memory inflates queue
+# wait (and can force a larger allocation), so trim these down where you can.
+IMPORT_MEM="${IMPORT_MEM:-8G}"
+TRIM_MEM="${TRIM_MEM:-8G}"
+DENOISE_MEM="${DENOISE_MEM:-32G}"
 case "$LAYOUT" in
     paired)
         IMPORT_JOB="chpc/jobs/02_import.slurm"
@@ -157,19 +166,19 @@ fi
 if [[ "$STAGE" == "all" || "$STAGE" == "import" ]]; then
     DEP=()
     [[ -n "$fetch_id" ]] && DEP=(--dependency="afterok:${fetch_id}")
-    import_id=$("${SB[@]}" "${DEP[@]}" --time="${IMPORT_TIME:-04:00:00}" "$IMPORT_JOB")
+    import_id=$("${SB[@]}" "${DEP[@]}" --time="${IMPORT_TIME:-04:00:00}" --mem="$IMPORT_MEM" "$IMPORT_JOB")
     echo "Submitted import: job $import_id ${fetch_id:+(after $fetch_id)}  [$IMPORT_JOB]"
 fi
 
 # --- trim (cutadapt primer removal; run AFTER import) ------------------------
 if [[ "$STAGE" == "trim" ]]; then
-    trim_id=$("${SB[@]}" --time="$TRIM_TIME" --cpus-per-task="$TRIM_THREADS" "$TRIM_JOB")
+    trim_id=$("${SB[@]}" --time="$TRIM_TIME" --cpus-per-task="$TRIM_THREADS" --mem="$TRIM_MEM" "$TRIM_JOB")
     echo "Submitted trim (cutadapt): job $trim_id  [$TRIM_JOB]"
 fi
 
 # --- denoise (run manually AFTER trim + inspecting the quality plot) ---------
 if [[ "$STAGE" == "denoise" ]]; then
-    denoise_id=$("${SB[@]}" --time="$DENOISE_TIME" --cpus-per-task="$DENOISE_THREADS" "$DENOISE_JOB")
+    denoise_id=$("${SB[@]}" --time="$DENOISE_TIME" --cpus-per-task="$DENOISE_THREADS" --mem="$DENOISE_MEM" "$DENOISE_JOB")
     echo "Submitted $DENOISE_LABEL: job $denoise_id  [$DENOISE_JOB]"
 fi
 

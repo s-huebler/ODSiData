@@ -70,4 +70,10 @@ METADATA="$REPO_ROOT/$STUDY/Metadata/liu_meta_qiime.tsv"
 FETCH_TIME="00:15:00"
 IMPORT_TIME="04:00:00"
 TRIM_TIME="04:00:00"
-DENOISE_TIME="1:00:00"
+DENOISE_TIME="2:00:00"
+
+# Memory per stage (sbatch --mem; overrides the job-script #SBATCH default).
+# 79 samples of 2x300 V4 — 32G is comfortable headroom for DADA2 denoise-paired.
+IMPORT_MEM="8G"
+TRIM_MEM="8G"
+DENOISE_MEM="32G"

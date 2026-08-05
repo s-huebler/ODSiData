@@ -103,3 +103,11 @@ FETCH_TIME="12:00:00"
 IMPORT_TIME="04:00:00"
 TRIM_TIME="04:00:00"
 DENOISE_TIME="24:00:00"
+
+# Memory per stage — passed to sbatch --mem, overriding each job script's
+# #SBATCH --mem default (import 8G, denoise 32G). Right-size to the dataset:
+# over-asking memory lengthens your Slurm queue wait. Defaults if unset:
+# IMPORT_MEM=8G, TRIM_MEM=8G, DENOISE_MEM=32G.
+IMPORT_MEM="8G"
+TRIM_MEM="8G"
+DENOISE_MEM="32G"

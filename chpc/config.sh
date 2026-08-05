@@ -16,7 +16,16 @@
 # Set these to your CHPC allocation. Override at submit time with env vars, e.g.
 #   CHPC_ACCOUNT=my-alloc CHPC_PARTITION=notchpeak ./submit.sh Artacho2024
 export CHPC_ACCOUNT="${CHPC_ACCOUNT:-qiaox}"          # sbatch -A / --account
-export CHPC_PARTITION="${CHPC_PARTITION:-kingspeak}"      # sbatch -p / --partition
+# Default to a SHARED partition, not a whole-node one. These jobs need a few
+# cores + tens of GB, not a full node — on a whole-node partition (plain
+# 'kingspeak') Slurm makes the job wait for an entire free node, which is the
+# main cause of long queue waits (see CHPC's slurm-priority-scores page).
+# 'kingspeak-shared' shares a node and runs on the same scheduler/account you
+# already submit to. For a whole node, override: CHPC_PARTITION=kingspeak.
+# NOTE: 'notchpeak-shared-short' lives on the *notchpeak* scheduler — you can't
+# reach it from a kingspeak context without `sbatch -M notchpeak` + notchpeak
+# access, so it's not a safe default here.
+export CHPC_PARTITION="${CHPC_PARTITION:-kingspeak-shared}"  # sbatch -p / --partition
 
 # --- Scratch workspace -------------------------------------------------------
 # Large files (FASTQ, demux.qza, intermediate artifacts) live on scratch, never
