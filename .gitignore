@@ -12,3 +12,7 @@
 *.fastq
 *.sra
 **/demux-trimmed.qza
+**/QiimeData/*.qza
+**/QiimeData/*.qzv
+**/QiimeData/*.fasta
+
