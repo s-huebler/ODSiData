@@ -32,7 +32,7 @@ export CHPC_ACCOUNT="${CHPC_ACCOUNT:-qiaox}"          # sbatch -A / --account
 #   back to kingspeak: CHPC_CLUSTER=""        CHPC_PARTITION=kingspeak-shared
 #   free short (<=8h): CHPC_CLUSTER=notchpeak CHPC_ACCOUNT=notchpeak-shared-short \
 #                      CHPC_PARTITION=notchpeak-shared-short
-export CHPC_PARTITION="${CHPC_PARTITION:-lonepeak-shared}"  # sbatch -p / --partition
+export CHPC_PARTITION="${CHPC_PARTITION:-lonepeak}"  # sbatch -p / --partition
 # Cluster/scheduler to submit to. Each CHPC cluster runs its OWN Slurm
 # controller, so a partition is only valid on its own cluster — submitting a
 # notchpeak/lonepeak partition from a kingspeak context fails with "invalid
