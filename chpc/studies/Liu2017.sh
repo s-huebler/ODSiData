@@ -59,7 +59,7 @@ TRUNC_LEN_F=220    # TODO: set from demux_trimmed_viz.qzv
 TRUNC_LEN_R=200    # TODO: set from demux_trimmed_viz.qzv
 
 # CPU threads for DADA2 (match --cpus-per-task in 04_dada2_paired.slurm).
-DADA2_THREADS=16
+DADA2_THREADS=5
 
 # QIIME sample-metadata TSV for feature-table summarize.
 METADATA="$REPO_ROOT/$STUDY/Metadata/liu_meta_qiime.tsv"
@@ -70,4 +70,4 @@ METADATA="$REPO_ROOT/$STUDY/Metadata/liu_meta_qiime.tsv"
 FETCH_TIME="00:15:00"
 IMPORT_TIME="04:00:00"
 TRIM_TIME="04:00:00"
-DENOISE_TIME="7:00:00"
+DENOISE_TIME="1:00:00"
