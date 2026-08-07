@@ -131,6 +131,10 @@ SIMD_PARTITION="${SIMD_PARTITION:-notchpeak-shared-short}"
 #   SIMD_CLUSTER=lonepeak SIMD_ACCOUNT=lonepeak-gpu SIMD_PARTITION=lonepeak-gpu \
 #   SIMD_GRES=gpu:1 ./chpc/submit.sh <Study> qc
 SIMD_GRES="${SIMD_GRES:-}"
+# Extra sbatch args appended to qc/map only (word-split). Handy for pinning to a
+# specific known-good node on heterogeneous lonepeak, e.g. SIMD_EXTRA="--nodelist=lp037",
+# or a feature constraint on a cluster that exposes one.
+SIMD_EXTRA="${SIMD_EXTRA:-}"
 case "$LAYOUT" in
     paired)
         IMPORT_JOB="chpc/jobs/02_import.slurm"
@@ -200,6 +204,10 @@ SB=(sbatch -A "$EFF_ACCOUNT" -p "$EFF_PARTITION" --parsable --export=ALL,STUDY_F
 [[ -n "${EFF_CLUSTER:-}" ]] && SB+=(--clusters="$EFF_CLUSTER")
 # Attach a GPU request when qc/map are routed to a GPU partition (see SIMD_GRES).
 [[ ( "$STAGE" == "qc" || "$STAGE" == "map" ) && -n "$SIMD_GRES" ]] && SB+=(--gres="$SIMD_GRES")
+# Append any extra sbatch args for qc/map (e.g. --nodelist=lp037); word-split.
+if [[ ( "$STAGE" == "qc" || "$STAGE" == "map" ) && -n "$SIMD_EXTRA" ]]; then
+    read -ra _simd_extra <<< "$SIMD_EXTRA"; SB+=("${_simd_extra[@]}")
+fi
 # Secondary safety net: if CHPC_CPU_CONSTRAINT is set AND the target cluster
 # actually exposes matching CPU-arch features, pass only those (Slurm rejects the
 # whole job if ANY listed feature is undefined, and codes are per-cluster). On
