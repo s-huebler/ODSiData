@@ -35,6 +35,12 @@
 #SBATCH --time=04:00:00
 #SBATCH --output=chpc/logs/qc_%j.out
 #SBATCH --error=chpc/logs/qc_%j.err
+# Pin to AVX2-capable nodes: the qiime2 module's vsearch (and qiime's own numpy/
+# scikit-bio extensions) are AVX2 builds that SIGILL ("Illegal instruction") on
+# lonepeak's old Nehalem cores. This default applies to STANDALONE `sbatch` runs;
+# when submitting via chpc/submit.sh, its --constraint from CHPC_CPU_CONSTRAINT
+# (config.sh) takes precedence over this line. Set to nodes that have AVX2.
+#SBATCH --constraint=bwk|skl|csl|icl|npl|rom|mil
 
 set -euo pipefail
 
@@ -52,7 +58,10 @@ else
     export TMPDIR="${TMPDIR:-/tmp}/odsi-${SLURM_JOB_ID:-$$}"
 fi
 mkdir -p "$TMPDIR"
-trap 'rm -rf "$TMPDIR"' EXIT
+# Best-effort cleanup. On node-local /scratch the job dir can be owned/locked such
+# that rm can't remove the top dir (Slurm's epilog scrubs it anyway) — swallow that
+# harmless "Permission denied" instead of letting it litter the .err log.
+trap 'rm -rf "$TMPDIR" 2>/dev/null || true' EXIT
 
 THREADS="${SLURM_CPUS_PER_TASK:-${QC_THREADS:-8}}"
 
@@ -90,6 +99,21 @@ echo "seqs    : $QC_INPUT_SEQS"
 echo "ref     : $GG2_REF_SEQS  (+ $GG2_REF_TAX)"
 echo "thresh  : perc_identity=$QC_PERC_IDENTITY query_cov=$QC_QUERY_COV min_consensus=$QC_MIN_CONSENSUS maxaccepts=$QC_MAXACCEPTS top_hits_only=$QC_TOP_HITS_ONLY"
 echo "exclude : $QC_EXCLUDE   threads=$THREADS"
+
+# --- 0. SIGILL pre-flight ----------------------------------------------------
+# The classify step below has crashed with "Illegal instruction (core dumped)" on
+# lonepeak's old Nehalem nodes. Prove the node + binaries survive their SIMD paths
+# BEFORE the long classify run, so a bad node fails here (fast, obvious) instead of
+# mid-classification. If either line SIGILLs, this node lacks the instructions the
+# build needs — resubmit with a tighter --constraint (see CHPC_CPU_CONSTRAINT).
+echo "==== SIGILL pre-flight on $(hostname) ===="
+echo "CPU flags (avx/avx2): $(grep -o -m1 -E 'avx2?|sse4_2' /proc/cpuinfo | sort -u | paste -sd, -)"
+echo -n "[preflight] vsearch : "; vsearch --version 2>&1 | head -1 \
+    || { echo "vsearch SIGILL/failed on this node — needs an AVX2 node (--constraint)"; exit 1; }
+echo "[preflight] qiime numpy/scikit-bio import ..."
+python -c "import numpy, skbio; print('[preflight] numpy', numpy.__version__, '| scikit-bio', skbio.__version__)" \
+    || { echo "qiime Python stack SIGILL/failed on this node — needs an AVX2 node (--constraint)"; exit 1; }
+echo "==== pre-flight OK ===="
 
 # --- 1. Classify ASVs against the GG2 backbone ------------------------------
 TOP_HITS_FLAG="--p-no-top-hits-only"

@@ -41,6 +41,23 @@ export CHPC_PARTITION="${CHPC_PARTITION:-lonepeak}"  # sbatch -p / --partition
 # submit.sh turns this into `sbatch --clusters=$CHPC_CLUSTER`.
 export CHPC_CLUSTER="${CHPC_CLUSTER:-lonepeak}"      # sbatch -M / --clusters ("" = login cluster)
 
+# --- CPU microarchitecture constraint (avoid "Illegal instruction" SIGILL) ----
+# lonepeak's GENERAL nodes are Intel Nehalem — no AVX at all. The qiime2 module's
+# vsearch (and qiime's own numpy/scikit-bio C extensions) are built with AVX2, so
+# they crash with SIGILL ("Illegal instruction (core dumped)") on those old cores.
+# Swapping in a "generic" vsearch does NOT reliably help: vsearch has no runtime
+# SIMD dispatch, and if the crash is in qiime's Python stack the vsearch swap is
+# irrelevant. The robust fix is to let Slurm skip the old nodes entirely.
+#
+# This is an OR-list of AVX2-capable CHPC microarchitecture codes: bwk=Broadwell,
+# skl=Skylake, csl=Cascade Lake, icl=Icelake, npl=AMD Naples, rom=AMD Rome,
+# mil=AMD Milan. It excludes ONLY the ancient Nehalem lonepeak nodes (exactly the
+# ones that SIGILL). submit.sh passes this to `sbatch --constraint`.
+# Confirm/adjust the codes for your allocation with the `si`/`si2` aliases or:
+#   sinfo -M lonepeak -N -o "%n %f" | sort -u
+# Set CHPC_CPU_CONSTRAINT="" to disable the constraint (revert to old behavior).
+export CHPC_CPU_CONSTRAINT="${CHPC_CPU_CONSTRAINT:-bwk|skl|csl|icl|npl|rom|mil}"  # sbatch -C / --constraint
+
 # --- Scratch workspace -------------------------------------------------------
 # Large files (FASTQ, demux.qza, intermediate artifacts) live on scratch, never
 # in the git repo. Scratch is auto-scrubbed after ~60 days of no access.
@@ -98,11 +115,35 @@ load_qiime2_env() {
         || { echo "ERROR: could not load qiime2/2023.5 (needs anaconda3/2023.03 first). Check 'module spider qiime2'." >&2; return 1; }
     command -v qiime >/dev/null || { echo "ERROR: 'qiime' not on PATH after module load." >&2; return 1; }
     # The qiime2/2023.5 module's bundled vsearch is compiled with SIMD instructions
-    # that crash ("Illegal instruction") on older lonepeak cores. Prepend a generic
-    # bioconda vsearch (runtime SIMD dispatch) so classify-consensus-vsearch runs on
-    # any node. QIIME2 shells out to whatever `vsearch` is first on PATH.
-    export PATH="$HOME/software/envs/vsearch-2.28/bin:$PATH"
-    command -v vsearch >/dev/null || { echo "ERROR: 'vsearch' not on PATH after override." >&2; return 1; }
+    # that crash ("Illegal instruction") on older lonepeak Nehalem cores. Prepend a
+    # locally-built vsearch so classify-consensus-vsearch uses it instead — QIIME2
+    # shells out to whatever `vsearch` is first on PATH.
+    #
+    # NOTE: this is a best-effort mitigation, NOT a guaranteed fix. vsearch has no
+    # runtime SIMD dispatch, so even this build can SIGILL on Nehalem, and if the
+    # crash is in qiime's own numpy/scikit-bio extensions the swap does nothing.
+    # The reliable fix is CHPC_CPU_CONSTRAINT (see above) pinning the job to
+    # AVX2-capable nodes. Keep both.
+    local _vs_override="$HOME/software/envs/vsearch-2.28/bin"
+    export PATH="$_vs_override:$PATH"
+    # Hard-verify the override actually took effect. `command -v vsearch` alone is
+    # not enough: it succeeds even if the override dir is missing, silently falling
+    # back to the module's crashing vsearch. Require the resolved binary to live
+    # under $_vs_override.
+    local _vs_path; _vs_path="$(command -v vsearch || true)"
+    if [[ -z "$_vs_path" ]]; then
+        echo "ERROR: 'vsearch' not on PATH after override." >&2; return 1
+    fi
+    if [[ "$_vs_path" != "$_vs_override/"* ]]; then
+        echo "WARNING: vsearch override did NOT take effect." >&2
+        echo "         expected under: $_vs_override" >&2
+        echo "         actually using: $_vs_path  (likely the module's AVX2 build — may SIGILL)" >&2
+        echo "         Build/locate the local vsearch, or rely on CHPC_CPU_CONSTRAINT." >&2
+    fi
+    # Log what's actually in use so crashes are diagnosable from the job log.
+    echo "[env] vsearch -> $_vs_path"
+    vsearch --version 2>&1 | head -1 | sed 's/^/[env] /' || true
+    echo "[env] qiime   -> $(command -v qiime)"
 }
 
 load_bbmap_env() {

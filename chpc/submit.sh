@@ -166,12 +166,15 @@ case "$FETCH_ITEMS" in
             $k!="" { print $k }' "$ENA_REPORT" | sort -u | wc -l) ;;
     *) echo "Unknown FETCH_ITEMS '$FETCH_ITEMS' (expected: runs|pairs)"; exit 1 ;;
 esac
-echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  fetch_items=$FETCH_ITEMS($N)  account=$CHPC_ACCOUNT  partition=$CHPC_PARTITION"
+echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  fetch_items=$FETCH_ITEMS($N)  account=$CHPC_ACCOUNT  partition=$CHPC_PARTITION  constraint=${CHPC_CPU_CONSTRAINT:-<none>}"
 
 SB=(sbatch -A "$CHPC_ACCOUNT" -p "$CHPC_PARTITION" --parsable --export=ALL,STUDY_FILE="$STUDY_FILE")
 # Route to another cluster's scheduler when CHPC_CLUSTER is set (required for
 # partitions off your login cluster, e.g. lonepeak-shared / notchpeak-shared-short).
 [[ -n "${CHPC_CLUSTER:-}" ]] && SB+=(--clusters="$CHPC_CLUSTER")
+# Pin to AVX2-capable nodes so vsearch/qiime don't SIGILL on lonepeak's old
+# Nehalem cores (see CHPC_CPU_CONSTRAINT in config.sh). Empty = no constraint.
+[[ -n "${CHPC_CPU_CONSTRAINT:-}" ]] && SB+=(--constraint="$CHPC_CPU_CONSTRAINT")
 
 # With --clusters, `sbatch --parsable` returns "jobid;cluster"; we strip the
 # ";cluster" suffix on the line after each submit. Each sbatch is its OWN
