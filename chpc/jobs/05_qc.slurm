@@ -35,12 +35,14 @@
 #SBATCH --time=04:00:00
 #SBATCH --output=chpc/logs/qc_%j.out
 #SBATCH --error=chpc/logs/qc_%j.err
-# Pin to AVX2-capable nodes: the qiime2 module's vsearch (and qiime's own numpy/
-# scikit-bio extensions) are AVX2 builds that SIGILL ("Illegal instruction") on
-# lonepeak's old Nehalem cores. This default applies to STANDALONE `sbatch` runs;
-# when submitting via chpc/submit.sh, its --constraint from CHPC_CPU_CONSTRAINT
-# (config.sh) takes precedence over this line. Set to nodes that have AVX2.
-#SBATCH --constraint=bwk|skl|csl|icl|npl|rom|mil
+# NOTE on the SIGILL fix: the qiime2 module's vsearch (and qiime's own numpy/
+# scikit-bio extensions) are AVX2 builds that crash ("Illegal instruction") on
+# lonepeak's old Nehalem cores. The fix is a CPU-feature --constraint, but we do
+# NOT hardcode one here: feature codes are per-cluster and Slurm rejects the whole
+# job if any is undefined ("Invalid feature specification"). chpc/submit.sh sets
+# --constraint dynamically (intersecting CHPC_CPU_CONSTRAINT with the target
+# cluster's real features). If you bypass submit.sh and run `sbatch` directly, add
+# the constraint yourself, e.g. on lonepeak:  sbatch -C bwk ... chpc/jobs/05_qc.slurm
 
 set -euo pipefail
 

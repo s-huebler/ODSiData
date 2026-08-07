@@ -114,6 +114,17 @@ QC_THREADS="${QC_THREADS:-8}"
 MAP_TIME="${MAP_TIME:-04:00:00}"
 MAP_MEM="${MAP_MEM:-24G}"
 MAP_THREADS="${MAP_THREADS:-8}"
+# --- SIMD-safe target for qc + map ------------------------------------------
+# qc (classify-consensus-vsearch) and map (non-v4-16s) exercise AVX2 code paths
+# in vsearch and qiime's own C-extensions that SIGILL ("Illegal instruction") on
+# lonepeak's older pre-AVX2 nodes. lonepeak exposes NO CPU-arch feature, so we
+# can't constrain to AVX2 nodes there — instead route these two stages to a
+# uniformly-modern partition. notchpeak-shared-short is all-AVX2, free, and caps
+# at 8h walltime (fine for these jobs). Override to force elsewhere, e.g.:
+#   SIMD_CLUSTER=lonepeak SIMD_ACCOUNT=qiaox SIMD_PARTITION=lonepeak ./chpc/submit.sh <Study> qc
+SIMD_CLUSTER="${SIMD_CLUSTER:-notchpeak}"
+SIMD_ACCOUNT="${SIMD_ACCOUNT:-notchpeak-shared-short}"
+SIMD_PARTITION="${SIMD_PARTITION:-notchpeak-shared-short}"
 case "$LAYOUT" in
     paired)
         IMPORT_JOB="chpc/jobs/02_import.slurm"
@@ -166,15 +177,41 @@ case "$FETCH_ITEMS" in
             $k!="" { print $k }' "$ENA_REPORT" | sort -u | wc -l) ;;
     *) echo "Unknown FETCH_ITEMS '$FETCH_ITEMS' (expected: runs|pairs)"; exit 1 ;;
 esac
-echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  fetch_items=$FETCH_ITEMS($N)  account=$CHPC_ACCOUNT  partition=$CHPC_PARTITION  constraint=${CHPC_CPU_CONSTRAINT:-<none>}"
+# --- Effective submit target -------------------------------------------------
+# qc + map default to the SIMD-safe target (notchpeak-shared-short; see above) so
+# they don't SIGILL on lonepeak's pre-AVX2 nodes. Every other stage uses the
+# configured CHPC_* target.
+EFF_ACCOUNT="$CHPC_ACCOUNT"; EFF_PARTITION="$CHPC_PARTITION"; EFF_CLUSTER="$CHPC_CLUSTER"
+if [[ "$STAGE" == "qc" || "$STAGE" == "map" ]]; then
+    EFF_ACCOUNT="$SIMD_ACCOUNT"; EFF_PARTITION="$SIMD_PARTITION"; EFF_CLUSTER="$SIMD_CLUSTER"
+fi
 
-SB=(sbatch -A "$CHPC_ACCOUNT" -p "$CHPC_PARTITION" --parsable --export=ALL,STUDY_FILE="$STUDY_FILE")
-# Route to another cluster's scheduler when CHPC_CLUSTER is set (required for
+echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  fetch_items=$FETCH_ITEMS($N)  account=$EFF_ACCOUNT  partition=$EFF_PARTITION  cluster=${EFF_CLUSTER:-<login>}"
+
+SB=(sbatch -A "$EFF_ACCOUNT" -p "$EFF_PARTITION" --parsable --export=ALL,STUDY_FILE="$STUDY_FILE")
+# Route to another cluster's scheduler when EFF_CLUSTER is set (required for
 # partitions off your login cluster, e.g. lonepeak-shared / notchpeak-shared-short).
-[[ -n "${CHPC_CLUSTER:-}" ]] && SB+=(--clusters="$CHPC_CLUSTER")
-# Pin to AVX2-capable nodes so vsearch/qiime don't SIGILL on lonepeak's old
-# Nehalem cores (see CHPC_CPU_CONSTRAINT in config.sh). Empty = no constraint.
-[[ -n "${CHPC_CPU_CONSTRAINT:-}" ]] && SB+=(--constraint="$CHPC_CPU_CONSTRAINT")
+[[ -n "${EFF_CLUSTER:-}" ]] && SB+=(--clusters="$EFF_CLUSTER")
+# Secondary safety net: if CHPC_CPU_CONSTRAINT is set AND the target cluster
+# actually exposes matching CPU-arch features, pass only those (Slurm rejects the
+# whole job if ANY listed feature is undefined, and codes are per-cluster). On
+# clusters that expose NO arch feature — e.g. lonepeak, which only tags core/mem —
+# this quietly no-ops; that's exactly why qc/map are routed to a uniformly-modern
+# partition above instead of relying on a constraint. (sinfo is login-node-safe.)
+if [[ -n "${CHPC_CPU_CONSTRAINT:-}" ]]; then
+    avail_feats=$(sinfo ${EFF_CLUSTER:+-M "$EFF_CLUSTER"} -h -o '%f' 2>/dev/null \
+        | tr ',' '\n' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' | sort -u)
+    keep_feats=""
+    IFS='|' read -ra want_feats <<< "$CHPC_CPU_CONSTRAINT"
+    for f in "${want_feats[@]}"; do
+        grep -qxF "$f" <<< "$avail_feats" && keep_feats="${keep_feats:+$keep_feats|}$f"
+    done
+    if [[ -n "$keep_feats" ]]; then
+        SB+=(--constraint="$keep_feats")
+        [[ "$keep_feats" != "$CHPC_CPU_CONSTRAINT" ]] \
+            && echo "note: CPU constraint narrowed to features present on ${EFF_CLUSTER:-login cluster}: $keep_feats"
+    fi
+fi
 
 # With --clusters, `sbatch --parsable` returns "jobid;cluster"; we strip the
 # ";cluster" suffix on the line after each submit. Each sbatch is its OWN

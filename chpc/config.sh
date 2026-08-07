@@ -49,13 +49,19 @@ export CHPC_CLUSTER="${CHPC_CLUSTER:-lonepeak}"      # sbatch -M / --clusters ("
 # SIMD dispatch, and if the crash is in qiime's Python stack the vsearch swap is
 # irrelevant. The robust fix is to let Slurm skip the old nodes entirely.
 #
-# This is an OR-list of AVX2-capable CHPC microarchitecture codes: bwk=Broadwell,
-# skl=Skylake, csl=Cascade Lake, icl=Icelake, npl=AMD Naples, rom=AMD Rome,
-# mil=AMD Milan. It excludes ONLY the ancient Nehalem lonepeak nodes (exactly the
-# ones that SIGILL). submit.sh passes this to `sbatch --constraint`.
-# Confirm/adjust the codes for your allocation with the `si`/`si2` aliases or:
-#   sinfo -M lonepeak -N -o "%n %f" | sort -u
-# Set CHPC_CPU_CONSTRAINT="" to disable the constraint (revert to old behavior).
+# NOTE: this is a SECONDARY, best-effort safety net. It only works on clusters
+# that actually expose CPU-arch features — and lonepeak does NOT (its nodes are
+# tagged only by owner/core-count/memory, e.g. "chpc,c24,m256"), so there is no
+# feature to select an AVX2 node there. The PRIMARY fix for the SIMD-sensitive
+# stages (qc, map) is submit.sh routing them to a uniformly-modern partition
+# (SIMD_* -> notchpeak-shared-short). Keep this list for clusters that DO expose
+# arch features (e.g. notchpeak owner nodes); submit.sh intersects it with the
+# target cluster's real features and drops the rest, so a bad code can't cause an
+# "Invalid feature specification" rejection.
+# Codes: bwk=Broadwell, skl=Skylake, csl=Cascade Lake, icl=Icelake, npl=AMD
+# Naples, rom=AMD Rome, mil=AMD Milan. Inspect a cluster's features with:
+#   sinfo -M <cluster> -N -o "%n %f" | sort -u
+# Set CHPC_CPU_CONSTRAINT="" to disable this net entirely.
 export CHPC_CPU_CONSTRAINT="${CHPC_CPU_CONSTRAINT:-bwk|skl|csl|icl|npl|rom|mil}"  # sbatch -C / --constraint
 
 # --- Scratch workspace -------------------------------------------------------
