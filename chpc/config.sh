@@ -147,8 +147,15 @@ load_qiime2_env() {
         echo "         Build/locate the local vsearch, or rely on CHPC_CPU_CONSTRAINT." >&2
     fi
     # Log what's actually in use so crashes are diagnosable from the job log.
+    # Capture (don't pipe to head): a pipe to head + `set -o pipefail` makes vsearch
+    # die of SIGPIPE (141), which would mask its real exit status here.
     echo "[env] vsearch -> $_vs_path"
-    vsearch --version 2>&1 | head -1 | sed 's/^/[env] /' || true
+    local _vsv
+    if _vsv=$(vsearch --version 2>&1); then
+        echo "[env] $(printf '%s\n' "$_vsv" | head -1)"
+    else
+        echo "[env] WARNING: 'vsearch --version' exited nonzero — it may SIGILL on this node." >&2
+    fi
     echo "[env] qiime   -> $(command -v qiime)"
 }
 

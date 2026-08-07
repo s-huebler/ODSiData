@@ -109,12 +109,21 @@ echo "exclude : $QC_EXCLUDE   threads=$THREADS"
 # mid-classification. If either line SIGILLs, this node lacks the instructions the
 # build needs — resubmit with a tighter --constraint (see CHPC_CPU_CONSTRAINT).
 echo "==== SIGILL pre-flight on $(hostname) ===="
-echo "CPU flags (avx/avx2): $(grep -o -m1 -E 'avx2?|sse4_2' /proc/cpuinfo | sort -u | paste -sd, -)"
-echo -n "[preflight] vsearch : "; vsearch --version 2>&1 | head -1 \
-    || { echo "vsearch SIGILL/failed on this node — needs an AVX2 node (--constraint)"; exit 1; }
-echo "[preflight] qiime numpy/scikit-bio import ..."
-python -c "import numpy, skbio; print('[preflight] numpy', numpy.__version__, '| scikit-bio', skbio.__version__)" \
-    || { echo "qiime Python stack SIGILL/failed on this node — needs an AVX2 node (--constraint)"; exit 1; }
+echo "CPU flags (avx/avx2): $(grep -o -m1 -E 'avx512[a-z]*|avx2|avx|sse4_2' /proc/cpuinfo | sort -u | paste -sd, -)"
+# Capture in $(...) rather than piping to head: under `set -o pipefail`, a pipe to
+# head closes early and vsearch dies of SIGPIPE (141), which would FALSELY trip
+# this guard on a perfectly healthy AVX2 node. Command substitution makes the exit
+# status reflect vsearch's OWN result (132 = 128+SIGILL only if it truly crashes).
+if vs_ver=$(vsearch --version 2>&1); then
+    echo "[preflight] vsearch : $(printf '%s\n' "$vs_ver" | head -1)"
+else
+    rc=$?; echo "[preflight] vsearch failed on this node (exit $rc) — if SIGILL, this node lacks the needed instructions; resubmit elsewhere"; exit 1
+fi
+if py_ver=$(python -c "import numpy, skbio; print('numpy', numpy.__version__, '| scikit-bio', skbio.__version__)" 2>&1); then
+    echo "[preflight] $py_ver"
+else
+    rc=$?; echo "[preflight] qiime Python stack failed on this node (exit $rc): $py_ver"; exit 1
+fi
 echo "==== pre-flight OK ===="
 
 # --- 1. Classify ASVs against the GG2 backbone ------------------------------
