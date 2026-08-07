@@ -125,6 +125,12 @@ MAP_THREADS="${MAP_THREADS:-8}"
 SIMD_CLUSTER="${SIMD_CLUSTER:-notchpeak}"
 SIMD_ACCOUNT="${SIMD_ACCOUNT:-notchpeak-shared-short}"
 SIMD_PARTITION="${SIMD_PARTITION:-notchpeak-shared-short}"
+# GRES to attach to qc/map only. Empty by default (notchpeak-shared-short is a CPU
+# partition). If you route these stages to a GPU partition that rejects CPU-only
+# jobs (e.g. lonepeak-gpu), set SIMD_GRES=gpu:1 so the job requests a GPU:
+#   SIMD_CLUSTER=lonepeak SIMD_ACCOUNT=lonepeak-gpu SIMD_PARTITION=lonepeak-gpu \
+#   SIMD_GRES=gpu:1 ./chpc/submit.sh <Study> qc
+SIMD_GRES="${SIMD_GRES:-}"
 case "$LAYOUT" in
     paired)
         IMPORT_JOB="chpc/jobs/02_import.slurm"
@@ -192,6 +198,8 @@ SB=(sbatch -A "$EFF_ACCOUNT" -p "$EFF_PARTITION" --parsable --export=ALL,STUDY_F
 # Route to another cluster's scheduler when EFF_CLUSTER is set (required for
 # partitions off your login cluster, e.g. lonepeak-shared / notchpeak-shared-short).
 [[ -n "${EFF_CLUSTER:-}" ]] && SB+=(--clusters="$EFF_CLUSTER")
+# Attach a GPU request when qc/map are routed to a GPU partition (see SIMD_GRES).
+[[ ( "$STAGE" == "qc" || "$STAGE" == "map" ) && -n "$SIMD_GRES" ]] && SB+=(--gres="$SIMD_GRES")
 # Secondary safety net: if CHPC_CPU_CONSTRAINT is set AND the target cluster
 # actually exposes matching CPU-arch features, pass only those (Slurm rejects the
 # whole job if ANY listed feature is undefined, and codes are per-cluster). On
