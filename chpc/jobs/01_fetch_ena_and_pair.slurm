@@ -84,6 +84,21 @@ ORIENT_WINDOW="${ORIENT_WINDOW:-50}"       # search the primer within the first 
 MAX_RETRIES="${FETCH_MAX_RETRIES:-3}"
 RETRY_DELAY="${FETCH_RETRY_DELAY:-60}"
 
+# Output mode. Orientation-by-primer runs either way; only the final write differs:
+#   "paired" (default)      -> repair.sh re-syncs the two mates into <key>_1.fastq
+#                              + <key>_2.fastq (standard paired downstream).
+#   "forward_single"        -> keep ONLY the primer-oriented FORWARD run as
+#                              <key>_1.fastq and DISCARD the reverse; no repair.
+#                              Use when name-based re-pairing is unreliable but the
+#                              forward read alone spans the amplicon. Pair this with
+#                              LAYOUT="single" in the study file so downstream uses
+#                              the single-end import/trim/denoise path.
+SPLIT_OUTPUT="${SPLIT_OUTPUT:-paired}"
+case "$SPLIT_OUTPUT" in
+    paired|forward_single) ;;
+    *) echo "ERROR: SPLIT_OUTPUT='$SPLIT_OUTPUT' (expected: paired|forward_single)" >&2; exit 1 ;;
+esac
+
 [[ -f "$ENA_REPORT" ]] || { echo "ERROR: ENA report not found: $ENA_REPORT" >&2; exit 1; }
 
 # --- Node-local temp --------------------------------------------------------
@@ -103,7 +118,8 @@ echo "==== ENA fetch + re-pair for $STUDY ===="
 echo "Report   : $ENA_REPORT"
 echo "Pair key : $PAIR_KEY   FTP col: $FTP_COL"
 echo "Primers  : F=$PRIMER_F   R=$PRIMER_R"
-echo "Output   : $RAW_DIR/<key>_1.fastq , <key>_2.fastq"
+echo "Mode     : $SPLIT_OUTPUT (paired -> _1 + _2 ; forward_single -> _1 only)"
+echo "Output   : $RAW_DIR/<key>_1.fastq${SPLIT_OUTPUT:+$([[ $SPLIT_OUTPUT == paired ]] && echo ' , <key>_2.fastq')}"
 
 # --- IUPAC primer -> POSIX ERE ----------------------------------------------
 # Degenerate bases become bracket classes. Inserted brackets contain only
@@ -180,8 +196,14 @@ process_key() {
     local out1="$RAW_DIR/${key}_1.fastq"
     local out2="$RAW_DIR/${key}_2.fastq"
 
-    # Checkpoint: both final mates already present.
-    if [[ -s "$out1" && -s "$out2" ]]; then
+    # Checkpoint: final output(s) already present. paired needs both mates;
+    # forward_single needs only the forward file.
+    if [[ "$SPLIT_OUTPUT" == "forward_single" ]]; then
+        if [[ -s "$out1" ]]; then
+            echo "[$key] forward already present — skipping."
+            return 3
+        fi
+    elif [[ -s "$out1" && -s "$out2" ]]; then
         echo "[$key] already paired — skipping."
         return 3
     fi
@@ -238,6 +260,22 @@ process_key() {
     if { [[ "$fwd" == "${raw[0]}" ]] && (( r1 < r0 )); } || \
        { [[ "$fwd" == "${raw[1]}" ]] && (( r0 < r1 )); }; then
         echo "  WARNING: [$key] reverse-primer counts disagree with the forward call — inspect this sample." >&2
+    fi
+
+    # --- forward_single: keep ONLY the oriented FORWARD run -------------------
+    # No pairing/repair — the forward read alone spans the amplicon. Emit the
+    # forward run as the single-end input (<key>_1.fastq); make_manifest_single.sh
+    # strips the _1 suffix to recover the sample id. The reverse run is discarded.
+    if [[ "$SPLIT_OUTPUT" == "forward_single" ]]; then
+        if mv -f "$fwd" "$out1"; then
+            echo "  OK: $key -> ${key}_1.fastq (forward-only, single-end)"
+            return 0
+        else
+            echo "  ERROR: could not write forward read for $key" >&2
+            echo "$key: forward-single write failed" >> "$FAILED_LOG"
+            rm -f "$out1"
+            return 1
+        fi
     fi
 
     # Reverse mate: rewrite a trailing /1 -> /2 (no-op if names already differ).
