@@ -159,6 +159,38 @@ load_qiime2_env() {
     echo "[env] qiime   -> $(command -v qiime)"
 }
 
+# q2-greengenes2 personal conda env -------------------------------------------
+# The CHPC qiime2/2023.5 MODULE does NOT ship q2-greengenes2, so the map stage
+# (06_gg2_map.slurm) can't use it. Instead we activate a personal conda env that
+# clones qiime2 2023.5 and adds the plugin (built once, verified on a compute node:
+# `qiime greengenes2 non-v4-16s --help` loads). Its compiled deps (scikit-bio /
+# biom / iow) use AVX2 and SIGILL on old cores — which is fine because submit.sh
+# routes the map stage to notchpeak-shared-short (SIMD_* target), same as qc.
+# Override GG2_ENV if you rebuild the env elsewhere.
+export GG2_ENV="${GG2_ENV:-$HOME/software/envs/qiime2-2023.5-gg2}"
+
+load_qiime2_gg2_env() {
+    module purge 2>/dev/null || true
+    # We activate a conda env by PATH (not the qiime2 module), so we only need
+    # anaconda3 to get `conda` + its shell hook.
+    module load anaconda3/2023.03 \
+        || { echo "ERROR: could not load anaconda3/2023.03 (needed to activate conda envs). Check 'module spider anaconda3'." >&2; return 1; }
+    local _conda_base; _conda_base="$(conda info --base 2>/dev/null)"
+    # shellcheck disable=SC1091
+    source "$_conda_base/etc/profile.d/conda.sh" \
+        || { echo "ERROR: could not source conda.sh from $_conda_base." >&2; return 1; }
+    [[ -d "$GG2_ENV" ]] \
+        || { echo "ERROR: q2-greengenes2 env not found at GG2_ENV=$GG2_ENV." >&2;
+             echo "       Build it (qiime2 2023.5 clone + pip install q2-greengenes2) or set GG2_ENV." >&2; return 1; }
+    conda activate "$GG2_ENV" \
+        || { echo "ERROR: could not 'conda activate $GG2_ENV'." >&2; return 1; }
+    command -v qiime >/dev/null \
+        || { echo "ERROR: 'qiime' not on PATH after activating $GG2_ENV." >&2; return 1; }
+    echo "[env] conda env -> $GG2_ENV"
+    echo "[env] qiime     -> $(command -v qiime)"
+    echo "[env] vsearch   -> $(command -v vsearch)"
+}
+
 load_bbmap_env() {
     # BBTools provides repair.sh, used by 01_fetch_ena_and_pair.slurm to re-sync
     # split-run paired-end mates. On CHPC (frisco/kingspeak) the module is
@@ -169,14 +201,17 @@ load_bbmap_env() {
     command -v repair.sh >/dev/null || { echo "ERROR: 'repair.sh' not on PATH after loading bbtools/38.86." >&2; return 1; }
 }
 
-# Verify the q2-greengenes2 plugin is installed in the loaded QIIME2 env (needed
-# by 06_gg2_map.slurm's `qiime greengenes2 non-v4-16s`). CHPC's qiime2 module may
-# not ship it — if missing, pip-install it into the active env.
+# Verify the q2-greengenes2 plugin is loadable in the active env (needed by
+# 06_gg2_map.slurm's `qiime greengenes2 non-v4-16s`). With load_qiime2_gg2_env
+# this should pass; a failure here on a compute node most likely means either the
+# GG2_ENV activation didn't happen, or the node is too old and the plugin's
+# compiled deps SIGILL'd (map should run on notchpeak-shared-short — see submit.sh).
 check_gg2_plugin() {
     if ! qiime greengenes2 --help >/dev/null 2>&1; then
-        echo "ERROR: q2-greengenes2 plugin not available in the loaded QIIME2 env." >&2
-        echo "       Install it into the active env, e.g.:  pip install q2-greengenes2" >&2
-        echo "       (then re-run 'qiime greengenes2 --help' to confirm)." >&2
+        echo "ERROR: 'qiime greengenes2' not available / failed to load in the active env." >&2
+        echo "       Expected env: GG2_ENV=$GG2_ENV (activated by load_qiime2_gg2_env)." >&2
+        echo "       If this ran on an old node, it may be an 'Illegal instruction' crash in the" >&2
+        echo "       plugin's compiled deps — resubmit map to notchpeak-shared-short." >&2
         return 1
     fi
 }

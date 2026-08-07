@@ -45,7 +45,11 @@ cd "${SLURM_SUBMIT_DIR:-.}"
 source chpc/config.sh
 source "chpc/$STUDY_FILE"
 
-load_qiime2_env
+# Use the personal conda env that carries q2-greengenes2 (the CHPC qiime2 module
+# doesn't ship the plugin). See load_qiime2_gg2_env / GG2_ENV in config.sh. This
+# stage is routed to notchpeak-shared-short by submit.sh, so the env's AVX2 deps
+# are safe here.
+load_qiime2_gg2_env
 check_gg2_plugin
 
 # --- Node-local temp for non-v4-16s intermediates ---------------------------
