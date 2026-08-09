@@ -161,6 +161,8 @@ Still required the ENA for fetching all 158 samples then figuring out the forwar
 
 Used DADA2 single. Non-chimeric 77-96%.
 
+![](images/clipboard-235042543.png)
+
 # Metadata
 
 ```{r}

@@ -108,28 +108,41 @@ DENOISE_MEM="${DENOISE_MEM:-32G}"
 # memory more than CPU. Right-size per study in chpc/studies/<Study>.sh.
 QC_JOB="chpc/jobs/05_qc.slurm"
 MAP_JOB="chpc/jobs/06_gg2_map.slurm"
-QC_TIME="${QC_TIME:-04:00:00}"
 QC_MEM="${QC_MEM:-16G}"
 QC_THREADS="${QC_THREADS:-8}"
-MAP_TIME="${MAP_TIME:-04:00:00}"
 MAP_MEM="${MAP_MEM:-24G}"
 MAP_THREADS="${MAP_THREADS:-8}"
+# Walltime: qc/map now default to lonepeak (3-day cap) rather than
+# notchpeak-shared-short (8h cap), because jobs were timing out at the 8h wall.
+# Default to 24h so they don't die prematurely; right-size per study to keep queue
+# priority high (over-requesting walltime lowers priority).
+QC_TIME="${QC_TIME:-1-00:00:00}"
+MAP_TIME="${MAP_TIME:-1-00:00:00}"
 # --- SIMD-safe target for qc + map ------------------------------------------
-# qc (classify-consensus-vsearch) and map (non-v4-16s) exercise AVX2 code paths
-# in vsearch and qiime's own C-extensions that SIGILL ("Illegal instruction") on
-# lonepeak's older pre-AVX2 nodes. lonepeak exposes NO CPU-arch feature, so we
-# can't constrain to AVX2 nodes there — instead route these two stages to a
-# uniformly-modern partition. notchpeak-shared-short is all-AVX2, free, and caps
-# at 8h walltime (fine for these jobs). Override to force elsewhere, e.g.:
-#   SIMD_CLUSTER=lonepeak SIMD_ACCOUNT=qiaox SIMD_PARTITION=lonepeak ./chpc/submit.sh <Study> qc
-SIMD_CLUSTER="${SIMD_CLUSTER:-notchpeak}"
-SIMD_ACCOUNT="${SIMD_ACCOUNT:-notchpeak-shared-short}"
-SIMD_PARTITION="${SIMD_PARTITION:-notchpeak-shared-short}"
-# GRES to attach to qc/map only. Empty by default (notchpeak-shared-short is a CPU
+# qc (classify-consensus-vsearch) and map (non-v4-16s) exercise AVX2/AVX-512 code
+# paths in vsearch and qiime's C-extensions that SIGILL ("Illegal instruction") on
+# lonepeak's older nodes. lonepeak exposes NO CPU-arch feature, but the confirmed-
+# good node lp037 is a "chpc,c24,m256" node, and CHPC buys nodes in homogeneous
+# batches — so the whole c24/m256 cohort (lp018-074) is almost certainly the same
+# silicon and safe. We select it with the feature constraint "c24&m256" (both tags
+# ARE valid lonepeak features, unlike arch codes), which pools the whole cohort
+# with fallback rather than pinning one node.
+#
+# PROVISIONAL: this assumes the c24&m256 cohort all works; the node probe
+# (chpc/lib/probe_lonepeak_avx2.sh) will confirm. If the probe finds failures in
+# that cohort, narrow SIMD_CONSTRAINT / SIMD_EXTRA to the verified-good list.
+#
+# To revert to the always-safe (but 8h-capped) partition:
+#   SIMD_CLUSTER=notchpeak SIMD_ACCOUNT=notchpeak-shared-short \
+#   SIMD_PARTITION=notchpeak-shared-short SIMD_CONSTRAINT= ./chpc/submit.sh <Study> qc
+SIMD_CLUSTER="${SIMD_CLUSTER:-lonepeak}"
+SIMD_ACCOUNT="${SIMD_ACCOUNT:-qiaox}"
+SIMD_PARTITION="${SIMD_PARTITION:-lonepeak}"
+# Feature constraint applied to qc/map (AND-joined tags -> lp037's cohort). Empty disables.
+SIMD_CONSTRAINT="${SIMD_CONSTRAINT:-c24&m256}"
+# GRES to attach to qc/map only. Empty by default (lonepeak general is a CPU
 # partition). If you route these stages to a GPU partition that rejects CPU-only
-# jobs (e.g. lonepeak-gpu), set SIMD_GRES=gpu:1 so the job requests a GPU:
-#   SIMD_CLUSTER=lonepeak SIMD_ACCOUNT=lonepeak-gpu SIMD_PARTITION=lonepeak-gpu \
-#   SIMD_GRES=gpu:1 ./chpc/submit.sh <Study> qc
+# jobs (e.g. lonepeak-gpu), set SIMD_GRES=gpu:1 so the job requests a GPU.
 SIMD_GRES="${SIMD_GRES:-}"
 # Extra sbatch args appended to qc/map only (word-split). Handy for pinning to a
 # specific known-good node on heterogeneous lonepeak, e.g. SIMD_EXTRA="--nodelist=lp037",
@@ -188,15 +201,17 @@ case "$FETCH_ITEMS" in
     *) echo "Unknown FETCH_ITEMS '$FETCH_ITEMS' (expected: runs|pairs)"; exit 1 ;;
 esac
 # --- Effective submit target -------------------------------------------------
-# qc + map default to the SIMD-safe target (notchpeak-shared-short; see above) so
-# they don't SIGILL on lonepeak's pre-AVX2 nodes. Every other stage uses the
-# configured CHPC_* target.
+# qc + map default to the SIMD-safe target (lonepeak, constrained to the c24&m256
+# cohort; see above) so they don't SIGILL on lonepeak's older nodes. Every other
+# stage uses the configured CHPC_* target.
 EFF_ACCOUNT="$CHPC_ACCOUNT"; EFF_PARTITION="$CHPC_PARTITION"; EFF_CLUSTER="$CHPC_CLUSTER"
+EFF_CONSTRAINT=""
 if [[ "$STAGE" == "qc" || "$STAGE" == "map" ]]; then
     EFF_ACCOUNT="$SIMD_ACCOUNT"; EFF_PARTITION="$SIMD_PARTITION"; EFF_CLUSTER="$SIMD_CLUSTER"
+    EFF_CONSTRAINT="$SIMD_CONSTRAINT"
 fi
 
-echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  fetch_items=$FETCH_ITEMS($N)  account=$EFF_ACCOUNT  partition=$EFF_PARTITION  cluster=${EFF_CLUSTER:-<login>}"
+echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  fetch_items=$FETCH_ITEMS($N)  account=$EFF_ACCOUNT  partition=$EFF_PARTITION  cluster=${EFF_CLUSTER:-<login>}  constraint=${EFF_CONSTRAINT:-<none>}"
 
 SB=(sbatch -A "$EFF_ACCOUNT" -p "$EFF_PARTITION" --parsable --export=ALL,STUDY_FILE="$STUDY_FILE")
 # Route to another cluster's scheduler when EFF_CLUSTER is set (required for
@@ -204,17 +219,19 @@ SB=(sbatch -A "$EFF_ACCOUNT" -p "$EFF_PARTITION" --parsable --export=ALL,STUDY_F
 [[ -n "${EFF_CLUSTER:-}" ]] && SB+=(--clusters="$EFF_CLUSTER")
 # Attach a GPU request when qc/map are routed to a GPU partition (see SIMD_GRES).
 [[ ( "$STAGE" == "qc" || "$STAGE" == "map" ) && -n "$SIMD_GRES" ]] && SB+=(--gres="$SIMD_GRES")
+# Feature constraint pinning qc/map to lp037's cohort (SIMD_CONSTRAINT, e.g. c24&m256).
+[[ ( "$STAGE" == "qc" || "$STAGE" == "map" ) && -n "$EFF_CONSTRAINT" ]] && SB+=(--constraint="$EFF_CONSTRAINT")
 # Append any extra sbatch args for qc/map (e.g. --nodelist=lp037); word-split.
 if [[ ( "$STAGE" == "qc" || "$STAGE" == "map" ) && -n "$SIMD_EXTRA" ]]; then
     read -ra _simd_extra <<< "$SIMD_EXTRA"; SB+=("${_simd_extra[@]}")
 fi
-# Secondary safety net: if CHPC_CPU_CONSTRAINT is set AND the target cluster
-# actually exposes matching CPU-arch features, pass only those (Slurm rejects the
-# whole job if ANY listed feature is undefined, and codes are per-cluster). On
+# Secondary safety net for OTHER stages: if CHPC_CPU_CONSTRAINT is set AND the target
+# cluster actually exposes matching CPU-arch features, pass only those (Slurm rejects
+# the whole job if ANY listed feature is undefined, and codes are per-cluster). Skip
+# it for qc/map when EFF_CONSTRAINT already set one (avoid two --constraint flags). On
 # clusters that expose NO arch feature — e.g. lonepeak, which only tags core/mem —
-# this quietly no-ops; that's exactly why qc/map are routed to a uniformly-modern
-# partition above instead of relying on a constraint. (sinfo is login-node-safe.)
-if [[ -n "${CHPC_CPU_CONSTRAINT:-}" ]]; then
+# this quietly no-ops. (sinfo is login-node-safe.)
+if [[ -n "${CHPC_CPU_CONSTRAINT:-}" && -z "$EFF_CONSTRAINT" ]]; then
     avail_feats=$(sinfo ${EFF_CLUSTER:+-M "$EFF_CLUSTER"} -h -o '%f' 2>/dev/null \
         | tr ',' '\n' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' | sort -u)
     keep_feats=""
