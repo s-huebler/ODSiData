@@ -18,7 +18,7 @@ editor: visual
 
 # Relevant methods
 
-# Fetching and Importing
+# Previous attempts to use paired end
 
 Sequences stored as single library layout but sequences were actually paired.
 
@@ -39,8 +39,6 @@ Sequences stored as single library layout but sequences were actually paired.
     -   Found that there are some bp (variable length) before primers. Checks for presence of primer within the first 50bp.
 
 -   Fetching took about an hour (throttled on array 20 with limited chpc, no pair took longer than 10 minutes)
-
-# Repairing
 
 Trimming and denoising showed a clear split in terms of merging. There were samples with low merge rates that indicated that within a run the forward and backward indexing did not align.
 
@@ -121,7 +119,7 @@ Result: diff_index — 20/20, same_index — 0, absent — 0
 SUMMARY (N=20): same_index=0 diff_index=20 absent=0
 
 |  |
-|----|
+|------------------------------------------------------------------------|
 | What the analysis did |
 | 1\. Primer trim. The 515F anchor GCCGCGGTAA was found at position 22 in every R1 read (spacer + primer = 22 bp). After trimming, each amplicon was 269 bp. The last 100 bp of each amplicon was taken and reverse-complemented → this is what a genuine R2 mate must contain near its 5' end (after the 806Rb primer prefix). 2. K-mer index. All 4.7 M unique 40-mers in R2 (335,072 reads × \~261 positions) were indexed. 3. K-mer voting. For each R1 query's 61 possible 40-mers, every R2 read that shared k-mers was scored. A genuine mate scores 37–61/61. Unrelated reads score far lower. 4. Sliding-window identity. The best-hit R2 read was aligned against the R1 RC-tail with a 100 bp sliding window. All 20 best hits scored ≥97% identity over 100 bp, well above the 95% threshold. |
 
@@ -151,4 +149,12 @@ Write a script (python3 is available; seqkit and bbtools modules load) that, for
 Then VALIDATE: run bbmerge.sh loose=t on KEY_1.repaired.fastq / KEY_2.repaired.fastq and report joined%. Baseline for this sample was ~2%; a correct re-pairing should jump to ~85-92% (matching the good samples). If recovery or join% is low, try a shorter/more-central key window or fall back to k-mer voting (index R2 amplicon k-mers, assign each R1 its best-vote R2 one-to-one). Do not overwrite the original KEY_1.fastq/_2.fastq. Report the method that works and its join%.
 ```
 
-# Denoising
+# Redoing as forward reads only
+
+# Fetch and import and trim
+
+Still required the ENA for fetching all 158 samples then figuring out the forward orientation of both. Then imported as single reads. Only kept reads where the primer was present.
+
+# Denoise
+
+Used DADA2 single. Non-chimeric 77-96%.
