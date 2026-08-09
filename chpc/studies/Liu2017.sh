@@ -68,13 +68,22 @@ REV_PRIMER_RC="ATTAGAWACCCBDGTAGTCC"  # revcomp(806R) — single-end trim, 3' ad
 # --- DADA2 denoise-single parameters -----------------------------------------
 # Primers are removed by the single-end trim stage, so no 5' trim here.
 DADA2S_TRIM_LEFT=0
-# 3' truncation — PLACEHOLDER. Set from the POST-trim quality plot
-# (QiimeData/demux_trimmed_viz.qzv) before running denoise. denoise-single
-# truncates every read at this length and DISCARDS shorter reads. The forward
-# read stays high-quality to ~250-260 bp and the V4 amplicon (post-primer) is
-# ~253 bp, so pick a length that keeps as much of the amplicon as possible while
-# dropping the degraded 3' tail. 0 = no truncation (rely on trunc-q).
-DADA2S_TRUNC_LEN=230    # TODO: set from demux_trimmed_viz.qzv
+# 3' truncation — VERIFIED against QiimeData/demux_trimmed_viz.qzv (2026-08-09).
+# denoise-single truncates every read at this length and DISCARDS shorter reads.
+# The trimmed forward reads are 284 bp (2x300 MiSeq, 515F already trimmed) and
+# the run is excellent: median Q37-38 the full length, 25th pct >=34 to ~228 bp,
+# then choppy; adapter read-through decays the tail past ~250 bp. The V4 insert
+# (post-primer, between 515F/806R) is only ~214 bp, so there is no biology to
+# recover past the amplicon. 230 covers the full insert incl. longer-variant
+# taxa and drops the degraded 806R/adapter read-through tail.
+DADA2S_TRUNC_LEN=230
+
+# Remaining denoise-single knobs — set explicitly so the run is fully specified
+# (the job otherwise falls back to these same defaults). Run quality easily
+# supports max-ee 2.0; trunc-q 2 and consensus chimera removal are DADA2 stock.
+DADA2S_MAX_EE=2.0                 # --p-max-ee (max expected errors)
+DADA2S_TRUNC_Q=2                 # --p-trunc-q (truncate at first base <= this q)
+DADA2S_CHIMERA="consensus"       # --p-chimera-method (consensus|pooled|none)
 
 # CPU threads for DADA2 denoise-single (--cpus-per-task in 04_dada2_single.slurm).
 DADA2S_THREADS=8
@@ -129,6 +138,6 @@ DENOISE_MEM="32G"
 # MAP_INPUT_SEQS="$REPO_ROOT/$STUDY/Mapped/qc-seqs.qza"
 #
 # --- Resources (override chpc/submit.sh defaults) ----------------------------
-QC_TIME="07:00:00";  QC_MEM="16G";  QC_THREADS=8
-MAP_TIME="04:00:00"; MAP_MEM="24G"; MAP_THREADS=8
+QC_TIME="10:00:00";  QC_MEM="16G";  QC_THREADS=8
+MAP_TIME="01:00:00"; MAP_MEM="24G"; MAP_THREADS=8
 # =============================================================================
