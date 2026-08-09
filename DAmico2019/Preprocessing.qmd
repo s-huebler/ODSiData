@@ -169,3 +169,18 @@ writeXStringSet(bact_seqs, "~/Documents/ODSi/ODSiData/DAmico2019/FilteredData/bl
 
 cat("\nAnalysis Complete. Results saved to '16s_blast_results.tsv'.\n")
 ```
+
+# Metadata
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+damico_meta_qiime <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/DAmico2019/Metadata/damico_meta_qiime.tsv")
+```
+
+# Qc and Mapped
+
+![](images/clipboard-3195674226.png)

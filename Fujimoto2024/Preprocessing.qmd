@@ -7,6 +7,8 @@ editor: visual
 # Fujimoto (New)
 
 -   V3-V4 region
+-   46 patients
+-   315 samples
 
 # Reference
 
@@ -153,3 +155,11 @@ writeXStringSet(bact_seqs, "~/Documents/ODSi/ODSiData/Fujimoto2024/FilteredData/
 
 cat("\nAnalysis Complete. Results saved to '16s_blast_results.tsv'.\n")
 ```
+
+# Metadata
+
+```{r}
+fuji_meta_qiime <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
+```
+
+# Mapped

@@ -6,9 +6,9 @@ editor: visual
 
 # Artacho
 
--   xx adult patients
+-   105 adult patients
 
--   xx samples
+-   172 samples
 
 -   V3-V4 region
 
@@ -46,7 +46,7 @@ Primers given in the manuscript
 
 -   341F (fwd): CCTACGGGNGGCWGCAG (17 nt)
 
--    805R (rev): GACTACHVGGGTATCTAATCC (21 nt)
+-   805R (rev): GACTACHVGGGTATCTAATCC (21 nt)
 
 Only kept sequences where the primers were found
 
@@ -163,3 +163,16 @@ writeXStringSet(bact_seqs, "~/Documents/ODSi/ODSiData/Artacho2024/FilteredData/b
 
 cat("\nAnalysis Complete. Results saved to '16s_blast_results.tsv'.\n")
 ```
+
+# Metadata
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+artacho_meta_qiime <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Artacho2024/Metadata/artacho_meta_qiime.tsv")
+```
+
+# Mapped

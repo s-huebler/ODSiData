@@ -7,6 +7,8 @@ editor: visual
 # Liu (New)
 
 -   V4
+-   79 samples
+-   22 donors and 57 patients
 
 # References
 
@@ -158,3 +160,11 @@ Still required the ENA for fetching all 158 samples then figuring out the forwar
 # Denoise
 
 Used DADA2 single. Non-chimeric 77-96%.
+
+# Metadata
+
+```{r}
+liu_meta_qiime <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv")
+```
+
+# Mapped
