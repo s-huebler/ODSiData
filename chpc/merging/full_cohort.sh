@@ -34,7 +34,8 @@ METADATA="$REPO_ROOT/Merging/merged_metadata.tsv"
 CLASSIFIER_CONFIDENCE="0.9"
 
 # --- Per-stage resources: use merge.sh defaults (uncomment to override) -------
+# 08 phylogeny is a light bp "shear" (~2-4 GB) now, so PHYLO_MEM is small.
 # MERGE_TIME="02:00:00"; MERGE_MEM="16G"
-# PHYLO_TIME="02:00:00"; PHYLO_MEM="16G"
+# PHYLO_TIME="01:00:00"; PHYLO_MEM="16G"
 # TAXGG_TIME="04:00:00"; TAXGG_MEM="24G"
 # TAXCL_TIME="08:00:00"; TAXCL_MEM="32G"; TAXCL_THREADS=8

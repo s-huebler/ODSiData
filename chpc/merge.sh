@@ -61,25 +61,15 @@ MERGE_PARTITION="${MERGE_PARTITION:-notchpeak-shared-short}"
 MERGE_CLUSTER="${MERGE_CLUSTER:-notchpeak}"
 
 # --- Per-stage resources (cohort file may override; else these defaults) ------
+# 08 phylogeny is now a bp/iow "shear" (chpc/lib/prune_gg2_tree.py), not
+# `qiime phylogeny filter-tree`: it holds the GG2 tree in ~2-4 GB instead of
+# ~80-150 GB, so PHYLO_MEM drops from 240G to a light value and the stage runs
+# in minutes. That also means it no longer needs a special big-memory target —
+# it goes through the standard shared submission (SB) like every other stage.
 MERGE_TIME="${MERGE_TIME:-02:00:00}"; MERGE_MEM="${MERGE_MEM:-16G}"
-PHYLO_TIME="${PHYLO_TIME:-02:00:00}"; PHYLO_MEM="${PHYLO_MEM:-240G}"
+PHYLO_TIME="${PHYLO_TIME:-01:00:00}"; PHYLO_MEM="${PHYLO_MEM:-16G}"
 TAXGG_TIME="${TAXGG_TIME:-04:00:00}"; TAXGG_MEM="${TAXGG_MEM:-24G}"
 TAXCL_TIME="${TAXCL_TIME:-08:00:00}"; TAXCL_MEM="${TAXCL_MEM:-32G}"; TAXCL_THREADS="${TAXCL_THREADS:-8}"
-
-# --- phylogeny submit target (SIMD-safe lonepeak c24&m256 cohort) ------------
-# 08 filter-tree needs a big-memory node AND exercises qiime's AVX2 C-extensions,
-# so it can't run on notchpeak-shared-short (per-user memory QOS cap rejects the
-# request: QOSMaxMemoryPerUser) and must avoid lonepeak's older SIGILL-prone
-# nodes. Route it to the SAME confirmed-good lp037 cohort that submit.sh's qc
-# stage uses -- feature "c24&m256" = 24-core / 256GB nodes (account qiaox). This
-# clears both the memory cap and the SIGILL risk in one target. Override per run
-# with PHYLO_ACCOUNT / PHYLO_PARTITION / PHYLO_CLUSTER / PHYLO_CONSTRAINT /
-# PHYLO_EXTRA (e.g. PHYLO_EXTRA="--nodelist=lp037" to pin the known-good node).
-PHYLO_ACCOUNT="${PHYLO_ACCOUNT:-qiaox}"
-PHYLO_PARTITION="${PHYLO_PARTITION:-lonepeak}"
-PHYLO_CLUSTER="${PHYLO_CLUSTER:-lonepeak}"
-PHYLO_CONSTRAINT="${PHYLO_CONSTRAINT:-c24&m256}"
-PHYLO_EXTRA="${PHYLO_EXTRA:-}"
 
 MERGE_JOB="chpc/jobs/07_merge.slurm"
 PHYLO_JOB="chpc/jobs/08_phylogeny.slurm"
@@ -103,16 +93,11 @@ if [[ "$STAGE" == "all" || "$STAGE" == "merge" ]]; then
 fi
 
 # --- phylogeny (08); chains after merge in 'all' ----------------------------
-# Submitted to its OWN target (SIMD-safe lonepeak c24&m256), NOT the shared SB
-# (notchpeak-shared-short), whose per-user memory QOS cap rejects the request.
+# Now a light bp "shear" (~2-4 GB), so it rides the SAME shared target (SB) as
+# every other stage — no more special big-memory lonepeak routing.
 if [[ "$STAGE" == "all" || "$STAGE" == "phylogeny" ]]; then
     DEP=(); [[ -n "$merge_id" ]] && DEP=(--dependency="afterok:${merge_id}")
-    PHYLO_SB=(sbatch -A "$PHYLO_ACCOUNT" -p "$PHYLO_PARTITION" --parsable --export=ALL,COHORT_FILE="$COHORT_FILE")
-    [[ -n "${PHYLO_CLUSTER:-}" ]] && PHYLO_SB+=(--clusters="$PHYLO_CLUSTER")
-    [[ -n "$PHYLO_CONSTRAINT" ]] && PHYLO_SB+=(--constraint="$PHYLO_CONSTRAINT")
-    if [[ -n "$PHYLO_EXTRA" ]]; then read -ra _phylo_extra <<< "$PHYLO_EXTRA"; PHYLO_SB+=("${_phylo_extra[@]}"); fi
-    echo "  phylogeny target -> account=$PHYLO_ACCOUNT partition=$PHYLO_PARTITION cluster=${PHYLO_CLUSTER:-<login>} constraint=${PHYLO_CONSTRAINT:-<none>} mem=$PHYLO_MEM"
-    phylo_id=$("${PHYLO_SB[@]}" "${DEP[@]}" --time="$PHYLO_TIME" --mem="$PHYLO_MEM" "$PHYLO_JOB"); phylo_id=${phylo_id%%;*}
+    phylo_id=$("${SB[@]}" "${DEP[@]}" --time="$PHYLO_TIME" --mem="$PHYLO_MEM" "$PHYLO_JOB"); phylo_id=${phylo_id%%;*}
     echo "Submitted phylogeny (08): job $phylo_id ${merge_id:+(after $merge_id)}  [$PHYLO_JOB]"
 fi
 

@@ -40,15 +40,18 @@ CLASSIFIER_CONFIDENCE="0.9"
 # GG2 references (phylogeny / taxonomy tree / classifier) come from config.sh.
 
 # --- Per-stage resources (override merge.sh defaults) ------------------------
+# 08 phylogeny is a light bp "shear" (chpc/lib/prune_gg2_tree.py), ~2-4 GB RAM,
+# so PHYLO_MEM is small now — no big-memory node needed.
 # MERGE_TIME="02:00:00"; MERGE_MEM="16G"
-# PHYLO_TIME="02:00:00"; PHYLO_MEM="16G"
+# PHYLO_TIME="01:00:00"; PHYLO_MEM="16G"
 # TAXGG_TIME="04:00:00"; TAXGG_MEM="24G"
 # TAXCL_TIME="08:00:00"; TAXCL_MEM="32G"; TAXCL_THREADS=8
 
 # --- Compute target (override merge.sh defaults) -----------------------------
-# merge.sh defaults every stage to notchpeak-shared-short (modern AVX2 nodes,
-# free, <=8h) to dodge the lonepeak SIGILL issue that hit qc/map. Override here
-# or via the environment if you need a different allocation.
+# merge.sh defaults every stage (including 08 phylogeny now) to
+# notchpeak-shared-short (modern AVX2 nodes, free, <=8h) to dodge the lonepeak
+# SIGILL issue that hit qc/map. Override here or via the environment if you need
+# a different allocation.
 # MERGE_ACCOUNT="notchpeak-shared-short"
 # MERGE_PARTITION="notchpeak-shared-short"
 # MERGE_CLUSTER="notchpeak"

@@ -205,7 +205,7 @@ reruns and alternate subsets never collide.
 | Stage | Script | Produces |
 |-------|--------|----------|
 | `merge` | `jobs/07_merge.slurm` | `merged-table.qza`, `merged-seqs.qza` |
-| `phylogeny` | `jobs/08_phylogeny.slurm` | `merged-tree.qza` (GG2 tree filtered to the cohort) |
+| `phylogeny` | `jobs/08_phylogeny.slurm` | `merged-tree.nwk` + `merged-tree.qza` (GG2 tree pruned to the cohort via `lib/prune_gg2_tree.py`) |
 | `tax-gg` | `jobs/09_taxonomy_gg.slurm` | `taxonomy-gg.qza` (tree-based; needs the gg2 env) |
 | `tax-classifier` | `jobs/09_taxonomy_classifier.slurm` | `taxonomy-classifier.qza` (full-length sklearn) |
 
