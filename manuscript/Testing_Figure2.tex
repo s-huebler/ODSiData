@@ -65,101 +65,132 @@
     notebox/.style={rectangle, draw=violet!50, dashed, rounded corners=3pt,
                     text width=4.5cm, align=center, font=\footnotesize,
                     fill=violet!5},
+    % Study-design category boxes
+    catbox/.style={rectangle, draw=black!70, thick, rounded corners=3pt,
+                   text width=1.8cm, minimum height=1.2cm, align=center,
+                   font=\footnotesize, fill=green!12},
+    % Downstream result boxes
+    resultbox/.style={rectangle, draw=black!70, thick, rounded corners=3pt,
+                      minimum height=1.2cm, align=center, font=\small,
+                      fill=green!30},
     arrow/.style={-{Stealth[length=2.8mm]}, thick, black!70},
     aiarrow/.style={-{Stealth[length=2.8mm]}, thick, violet!70},
     node distance=1.3cm
 ]
 
 %-------- IDENTIFICATION --------
-\node[box, fill=blue!8] (id) {Records from database search\\(PubMed, Web of Science)\\(n~=~\textcolor{red}{330 (Pubmed)+ 993 (Web of Science})};
-\node[box, fill=blue!8, right=2.2cm of id] (other) {Additional records\\(reference list hand-search)\\(n~=~\textcolor{red}{37})};
-\node[box, below=1.2cm of $(id)!0.5!(other)$] (dedup) {Records after \\
+\node[box, fill=blue!8] (id) {Records from database search\\(PubMed, Web of Science)\\(n~=~\textcolor{red}{330 (PubMed) + 993 (Web of Science)})};
+\node[box, fill=blue!8, right=2.4cm of id] (other) {Additional records\\(reference list hand-search)\\(n~=~\textcolor{red}{37})};
+\node[box, below=1.3cm of $(id)!0.5!(other)$] (dedup) {Records after \\
 automated deduplication \\(n~=~\textcolor{red}{837}) \\ and cleaning manually \\ (n~=~\textcolor{red}{657})};
 
 %-------- SCREENING: AI STAGE --------
-\node[aibox, below=of dedup] (aiscreen)
+\node[aibox, below=1.6cm of dedup] (aiscreen)
     {\textbf{[AI]} Title/abstract screening\\
      Claude [version], prompt v1\\
      (n~=~\textcolor{red}{481})};
-\node[aiexcbox, right=2.2cm of aiscreen] (aiexcl)
+\node[aiexcbox, right=2.6cm of aiscreen] (aiexcl)
     {\textbf{[AI] Excluded}\\
      (n~=~\textcolor{red}{176})\\
      {\footnotesize Does not meet eligibility\\criteria per AI assessment}};
-\node[notebox, below=0.4cm of aiexcl] (aiperf)
+\node[notebox, below=0.55cm of aiexcl] (aiperf)
     {\textbf{AI validation} (10\% sample):\\
      Sensitivity~=~\textcolor{red}{0.875}\\
      Specificity~=~\textcolor{red}{1}\\
      $\kappa$~=~\textcolor{red}{0.737}};
 
-%-------- SCREENING: HUMAN VERIFICATION --------
-\node[box, fill=violet!8, below=of aiscreen] (humanscreen)
+%-------- SCREENING: FULL-TEXT REVIEW (AI) --------
+% Placed well below aiscreen so the (tall) exclusion box clears the AI-validation note.
+\node[box, fill=violet!8, below=4.7cm of aiscreen] (humanscreen)
     {\textbf{[AI]} Review of Fulltext includes\\
      + uncertain cases\\
      (n~=~\textcolor{red}{247 + 78})};
-\node[excbox, right=2.2cm of aiperf] (humanexcl)
+% Top-aligned to its source so the tall box grows downward (no overlap with aiperf).
+\node[excbox, anchor=north west] (humanexcl) at ($(humanscreen.north east)+(0.7,0)$)
     {\textbf{[AI] Excluded}\\
      (n~=~\textcolor{red}{156})\\
-     No full text/\\Conference Abstract/\\Correction Notice\\
-     (n~=~\textcolor{red}{13})\\
-     Wrong cohort \\
-     (n~=~\textcolor{red}{3})\\
-    No GVHD outcome or passing mention \\
-     (n~=~\textcolor{red}{40})\\
-    Non-Human\\
-     (n~=~\textcolor{red}{49})\\
-    Unmeasured gut microbiome\\
-     (n~=~\textcolor{red}{102})};
+     {\footnotesize No full text / Conference Abstract / Correction Notice (n~=~\textcolor{red}{13})\\
+     Wrong cohort (n~=~\textcolor{red}{3})\\
+     No GVHD outcome or passing mention (n~=~\textcolor{red}{40})\\
+     Non-Human (n~=~\textcolor{red}{49})\\
+     Unmeasured gut microbiome (n~=~\textcolor{red}{102})}};
 
 %-------- ELIGIBILITY: FULL-TEXT --------
-\node[box, fill=blue!5, below=of humanscreen] (elig)
+\node[box, fill=blue!5, below=5.2cm of humanscreen] (elig)
     {\textbf{[Human]} Full-text assessed\\
      for eligibility\\
-     (n~=~\textcolor{red}{268})};
-\node[excbox, right=2.2cm of elig] (excl2)
+     (n~=~\textcolor{red}{267})};
+\node[excbox, anchor=north west] (excl2) at ($(elig.north east)+(0.7,0)$)
     {\textbf{[Human] Excluded}\\
-     (n~=~\textcolor{red}{57})\\
-     {\footnotesize Extended Abstracts\\
-     (n~=~\textcolor{red}{22})\\
-     No microbiome measured\\
-     (n~=~\textcolor{red}{15})\\
-     Study Protocol\\
-     (n~=~\textcolor{red}{2})\\
-     No GVHD Outcome\\
-     (n~=~\textcolor{red}{1})\\
-     Not English\\
-     (n~=~\textcolor{red}{17})\\
-     }};
+     (n~=~\textcolor{red}{58})\\
+     {\footnotesize Extended Abstracts (n~=~\textcolor{red}{23})\\
+     No microbiome measured (n~=~\textcolor{red}{15})\\
+     Study Protocol (n~=~\textcolor{red}{2})\\
+     No GVHD Outcome (n~=~\textcolor{red}{1})\\
+     Not English (n~=~\textcolor{red}{17})}};
 
 %-------- INCLUDED --------
-\node[box, fill=green!10, below=1.4cm of elig] (incl)
-    {Studies included in scoping review\\(n~=~\textcolor{red}{268})};
+\node[box, fill=green!10, below=1.6cm of elig] (incl)
+    {Studies included in scoping review\\(n~=~\textcolor{red}{267})};
 
-%-------- TIERS --------
-\node[box, fill=green!20, below left=1.1cm and 0.6cm of incl, text width=3.8cm]
-    (t13) {Tiers 1--3\\Primary studies\\(n~=~\textcolor{red}{??})};
-\node[box, fill=yellow!20, below right=1.1cm and 0.6cm of incl, text width=3.8cm]
-    (t4)  {Tier 4\\Reviews/narratives\\(n~=~\textcolor{red}{??})};
+%-------- STUDY-DESIGN CATEGORY BOXES --------
+% Seven categories branching from the included pool.
+\node[catbox] (cc)   at ($(incl.south)+(-7.2,-2.1)$) {Case\\Control\\
+     (n~=~\textcolor{red}{8})\\};
+\node[catbox] (cs)   at ($(incl.south)+(-4.8,-2.1)$) {Case\\Series\\
+     (n~=~\textcolor{red}{5})\\};
+\node[catbox] (coh)  at ($(incl.south)+(-2.4,-2.1)$) {Cohort\\
+     (n~=~\textcolor{red}{128})\\};
+\node[catbox] (rct)  at ($(incl.south)+(0,-2.1)$)    {RCT\\
+     (n~=~\textcolor{red}{14})\\};
+\node[catbox] (meta) at ($(incl.south)+(2.4,-2.1)$)  {Meta-\\analysis\\
+     (n~=~\textcolor{red}{6})\\};
+\node[catbox] (oth)  at ($(incl.south)+(4.8,-2.1)$)  {Other\\
+     (n~=~\textcolor{red}{5})\\};
+\node[catbox] (rev)  at ($(incl.south)+(7.2,-2.1)$)  {Reviews\\
+     (n~=~\textcolor{red}{100})\\};
 
-%-------- ANALYTIC SUB-COHORT --------
-\node[box, fill=green!35, below=1.1cm of t13, text width=3.8cm]
-    (sub) {Analytic sub-cohort\\(n~=~\textcolor{red}{??} studies,\\\textcolor{red}{??} patients)};
+%-------- DOWNSTREAM RESULT BOXES --------
+% Wide collector under the six primary-study designs.
+\node[resultbox, text width=13cm] (sub)
+    at ($(incl.south)+(-1.2,-4.8)$) {Analytic sub-cohort\\(n~=~\textcolor{red}{??} studies, \textcolor{red}{??} patients)};
+% Citation network sits under Reviews only.
+\node[resultbox, text width=1.8cm] (cite)
+    at ($(incl.south)+(7.2,-4.8)$) {Citation\\network};
 
 %-------- ARROWS: main flow --------
-\draw[arrow] (id)          -- (dedup);
-\draw[arrow] (other)       -- (dedup);
-\draw[arrow] (dedup)       -- (aiscreen);
-\draw[aiarrow] (aiscreen)  -- (humanscreen);
-\draw[arrow]  (humanscreen)-- (elig);
-\draw[arrow]  (elig)       -- (incl);
-\draw[arrow]  (incl)       -- (t13);
-\draw[arrow]  (incl)       -- (t4);
-\draw[arrow]  (t13)        -- (sub);
+\draw[arrow]   (id)          -- (dedup);
+\draw[arrow]   (other)       -- (dedup);
+\draw[arrow]   (dedup)       -- (aiscreen);
+\draw[aiarrow] (aiscreen)    -- (humanscreen);
+\draw[arrow]   (humanscreen) -- (elig);
+\draw[arrow]   (elig)        -- (incl);
 
 %-------- ARROWS: exclusions --------
-\draw[aiarrow] (aiscreen)    -- (aiexcl);
-\draw[arrow]   (aiexcl)      -- (aiperf);
-\draw[arrow]   (humanscreen) -- (humanexcl);
-\draw[arrow]   (elig)        -- (excl2);
+% Horizontal '-|' routing keeps the arrows level with their source node, so none
+% cuts through the AI-validation note or any neighbouring box.
+\draw[aiarrow] (aiscreen.east)    -- (aiscreen.east -| aiexcl.west);
+\draw[arrow]   (aiexcl)           -- (aiperf);
+\draw[arrow]   (humanscreen.east) -- (humanscreen.east -| humanexcl.west);
+\draw[arrow]   (elig.east)        -- (elig.east -| excl2.west);
+
+%-------- ARROWS: included -> categories --------
+\draw[arrow] (incl.south) -- (cc.north);
+\draw[arrow] (incl.south) -- (cs.north);
+\draw[arrow] (incl.south) -- (coh.north);
+\draw[arrow] (incl.south) -- (rct.north);
+\draw[arrow] (incl.south) -- (meta.north);
+\draw[arrow] (incl.south) -- (oth.north);
+\draw[arrow] (incl.south) -- (rev.north);
+
+%-------- ARROWS: categories -> downstream --------
+\draw[arrow] (cc.south)   -- (cc.south   |- sub.north);
+\draw[arrow] (cs.south)   -- (cs.south   |- sub.north);
+\draw[arrow] (coh.south)  -- (coh.south  |- sub.north);
+\draw[arrow] (rct.south)  -- (rct.south  |- sub.north);
+\draw[arrow] (meta.south) -- (meta.south |- sub.north);
+\draw[arrow] (oth.south)  -- (oth.south  |- sub.north);
+\draw[arrow] (rev.south)  -- (cite.north);
 
 %-------- PHASE LABELS --------
 \node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60]
@@ -174,13 +205,14 @@ automated deduplication \\(n~=~\textcolor{red}{837}) \\ and cleaning manually \\
     at ($(incl.west)+(-1.5,0)$)        {Included};
 
 %-------- LEGEND --------
+% Moved to the clear space at the top-right of the diagram.
 \node[box, fill=violet!8, draw=violet!80, text width=3.2cm, minimum height=0.7cm,
-      font=\footnotesize, anchor=north west]
-    at ($(id.south west)+(-0.5,-0.3)$) (leg_ai)
+      font=\footnotesize, anchor=north west] (leg_ai)
+    at ($(other.north east)+(1.0,0)$)
     {\textcolor{violet}{$\blacksquare$} AI-performed step};
 \node[box, fill=blue!5, draw=black!70, text width=3.2cm, minimum height=0.7cm,
       font=\footnotesize, anchor=north west]
-    at ($(leg_ai.south west)+(0,-0.1)$)
+    at ($(leg_ai.south west)+(0,-0.15)$)
     {$\square$ Human-performed step};
 
 \end{tikzpicture}
@@ -191,14 +223,13 @@ Violet nodes represent steps performed by AI (Claude); blue nodes represent huma
 The screening stage is split per PRISMA-trAIce requirements: AI exclusions and human exclusions are tracked separately.
 The AI validation box reports screening performance on a random 10\% human gold-standard subsample.
 Numbers to be filled after search and screening are complete.
-Studies are categorized into Tiers 1--4; the analytic sub-cohort additionally requires time-to-GVHD outcomes and publicly available 16S data.}
+Included studies are categorized by design (case--control, case series, cohort, RCT, meta-analysis, other) and reviews; the primary-study designs feed the analytic sub-cohort, which additionally requires time-to-GVHD outcomes and publicly available 16S data, while reviews feed a separate citation-network analysis.}
 \label{fig:prisma}
 \end{figure}
 
 
 \todoitem{Report total records identified, deduplicated, screened, included.}
-\todoitem{Breakdown by tier.}
+\todoitem{Breakdown by study design.}
 \todoitem{Common exclusion reasons.}
 
 \end{document}
-
