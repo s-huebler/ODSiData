@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Preserve executable bits an editor's save may have stripped.
+#
+# Problem: some editors (and file-rewriting tools) save by writing a new file
+# with the default umask (0644), which drops the +x bit. With core.filemode=true
+# git records that as a mode change; if such a script is pushed and pulled on
+# CHPC it comes down non-executable and `./script.sh` fails with "Permission
+# denied". This hook re-asserts +x in the index for any staged file that is
+# tracked executable in HEAD but staged as non-executable, so commits/pushes
+# always carry the correct mode without manual `git update-index --chmod=+x`.
+set -euo pipefail
+
+while IFS= read -r path; do
+    [ -n "$path" ] || continue
+    head_mode=$(git ls-tree HEAD -- "$path" 2>/dev/null | awk '{print $1}')
+    idx_mode=$(git ls-files -s -- "$path" | awk '{print $1}')
+    if [ "$head_mode" = "100755" ] && [ "$idx_mode" = "100644" ]; then
+        git update-index --chmod=+x "$path"
+        echo "pre-commit: restored +x on $path"
+    fi
+done < <(git diff --cached --name-only --diff-filter=ACMR)
+
+exit 0
