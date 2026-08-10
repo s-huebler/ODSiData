@@ -175,4 +175,6 @@ library(readxl)
 artacho_meta_qiime <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Artacho2024/Metadata/artacho_meta_qiime.tsv")
 ```
 
-# Mapped
+# Qc and Mapped
+
+![](images/clipboard-3671404969.png)

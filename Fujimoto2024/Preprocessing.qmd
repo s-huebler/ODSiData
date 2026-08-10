@@ -162,4 +162,6 @@ cat("\nAnalysis Complete. Results saved to '16s_blast_results.tsv'.\n")
 fuji_meta_qiime <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
 ```
 
-# Mapped
+# Qc and Mapped
+
+![](images/clipboard-399706647.png)
