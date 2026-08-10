@@ -108,7 +108,7 @@ export GG2_MAP_PERC_IDENTITY="${GG2_MAP_PERC_IDENTITY:-0.99}"  # clustering iden
 # Greengenes2/; GG2_TAXONOMY_TREE (the .taxonomy.asv.nwk.qza) must be downloaded
 # into $GG2_REF_DIR from ftp.microbio.me/greengenes_release/<version>/ before the
 # tax-gg stage. taxonomy-from-table takes the .nwk taxonomy artifact as input.
-export GG2_PHYLOGENY="${GG2_PHYLOGENY:-$GG2_REF_DIR/$GG2_VERSION.phylogeny.asv.nwk.qza}"          # 08_phylogeny filter-tree
+export GG2_PHYLOGENY="${GG2_PHYLOGENY:-$GG2_REF_DIR/$GG2_VERSION.phylogeny.id.nwk.qza}"          # 08_phylogeny filter-tree
 export GG2_TAXONOMY_TREE="${GG2_TAXONOMY_TREE:-$GG2_REF_DIR/$GG2_VERSION.taxonomy.asv.nwk.qza}"   # 09_taxonomy_gg taxonomy-from-table
 export GG2_CLASSIFIER="${GG2_CLASSIFIER:-$GG2_REF_DIR/$GG2_VERSION.backbone.full-length.nb.sklearn-1.4.2.qza}"  # 09_taxonomy_classifier
 

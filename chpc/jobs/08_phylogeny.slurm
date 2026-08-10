@@ -22,7 +22,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
-#SBATCH --mem=16G
+#SBATCH --mem=256G
 #SBATCH --time=02:00:00
 #SBATCH --output=chpc/logs/phylo_%j.out
 #SBATCH --error=chpc/logs/phylo_%j.err
