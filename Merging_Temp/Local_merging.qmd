@@ -1,0 +1,136 @@
+---
+title: "Merging"
+format: html
+editor: visual
+---
+
+# Libraries
+
+```{r}
+library(phyloseq)
+library(qiime2R)
+library(biomformat)
+library(readr)
+library(tidyverse)
+library(ape)
+library(Biostrings)
+library(ggtree)
+```
+
+# Files
+
+```{r}
+table_qza <- "~/Documents/ODSi/ODSiData/Merging_Temp/merged-table.qza"
+taxonomy_qza  <- "~/Documents/ODSi/ODSiData/Merging_Temp/taxonomy-gg.qza"
+repseqs_qza   <- "~/Documents/ODSi/ODSiData/Merging_Temp/merged-seqs.qza"      
+tree_nwk     <- "~/Documents/ODSi/ODSiData/Merging_Temp/local-merged-tree.nwk"
+```
+
+```{r}
+qt_orig <- read_qza(table_qza)$data
+tax_q  <- read_qza(taxonomy_qza)$data
+tree    <- ape::read.tree(tree_nwk)
+rep_seqs <- tryCatch(read_qza(repseqs_qza)$data, error = function(e) NULL)
+```
+
+# Phyloseq
+
+## OTU
+
+```{r}
+otu_mat <- otu_table(qt_orig, taxa_are_rows = TRUE)
+```
+
+## Taxonomy
+
+```{r}
+parse_taxonomy <- function(tax_df) {
+  # tax_df expected to have columns: Feature.ID (or similar) and Taxon (string "k__; p__; ...")
+  cnames <- colnames(tax_df)
+  idcol <- cnames[1]    # usually "Feature.ID"
+  taxcol <- cnames[2]   # usually "Taxon"
+  tax_df2 <- as.data.frame(tax_df, stringsAsFactors = FALSE)
+  colnames(tax_df2)[1:2] <- c("FeatureID","Taxon")
+  tax_df2$Taxon <- as.character(tax_df2$Taxon)
+  ranks <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
+  tax_sep <- tidyr::separate(tax_df2, Taxon, into = ranks, sep = ";\\s*", fill = "right", remove = FALSE)
+  clean_rank <- function(x) {
+    x <- ifelse(is.na(x) | x == "" , NA, x)
+    x <- gsub("^[dkpcofgs]__|^__", "", x)   # remove prefixes like 'k__'
+    trimws(x)
+  }
+  tax_mat <- tax_sep %>%
+    dplyr::select(all_of(ranks)) %>%
+    mutate_all(clean_rank) %>%
+    as.matrix()
+  rownames(tax_mat) <- tax_sep$FeatureID
+  tax_mat
+}
+
+```
+
+```{r}
+tax_mat <- parse_taxonomy(tax_q)
+tax_mat <- tax_table(tax_mat)
+```
+
+## Seqs
+
+```{r}
+seqs <- Biostrings::DNAStringSet(rep_seqs)
+names(seqs) <- names(rep_seqs)
+```
+
+## Meta
+
+```{r}
+meta <- as.data.frame(read_tsv(file = "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv"))
+setdiff(meta$`sample-id`, colnames(otu_mat))->excluded
+meta_df <- sample_data(meta %>%
+                         filter(!(`sample-id` %in% excluded)))
+rownames(meta_df)<- meta_df$`sample-id`
+```
+
+## Combining
+
+```{r}
+print("Matching otu rownames and tree tip labels:")
+all(rownames(otu_mat) %in% tree$tip.label)
+
+print(sprintf("OTU features: %d ; tree tips: %d", ntaxa(otu_mat), length(tree$tip.label)))
+print(sprintf("Intersection: %d", sum(rownames(otu_mat) %in% tree$tip.label)))
+
+
+print(sprintf("OTU sample: %d ; meta samples: %d", ncol(otu_mat), nrow(meta_df)))
+print(sprintf("Intersection: %d", sum(colnames(otu_mat) %in% rownames(meta_df))))
+```
+
+```{r}
+ps <- phyloseq(otu_mat, tax_mat, meta_df, phy_tree(tree), refseq(seqs))
+print(ps)
+```
+
+# Visualizing
+
+```{r}
+source("/Users/sophiehuebler/Documents/ODSi/ODSiData/Functions/color_tips.R")
+```
+
+```{r}
+circular_tree <- ggtree(ps@phy_tree, layout = "circular", branch.length = "none") +
+  geom_tippoint( size = 1.6, alpha = 0.9)
+
+circular_tree
+```
+
+```{r}
+vizualize_collapse(ps, "ASV")
+```
+
+```{r}
+vizualize_collapse(ps, "Species")
+```
+
+```{r}
+vizualize_collapse(ps, "Genus")
+```
