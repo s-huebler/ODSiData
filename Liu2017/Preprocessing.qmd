@@ -169,4 +169,6 @@ Used DADA2 single. Non-chimeric 77-96%.
 liu_meta_qiime <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv")
 ```
 
-# Mapped
+# Qc and Mapped
+
+![](images/clipboard-1542259105.png)
