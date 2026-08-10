@@ -45,7 +45,7 @@ else
     export TMPDIR="${TMPDIR:-/tmp}/odsi-${SLURM_JOB_ID:-$$}"
 fi
 mkdir -p "$TMPDIR"
-trap 'rm -rf "$TMPDIR"' EXIT
+trap 'rm -rf "$TMPDIR" 2>/dev/null || true' EXIT
 
 : "${COHORT:?set COHORT in the cohort file}"
 : "${STUDIES:?set STUDIES=(...) in the cohort file}"

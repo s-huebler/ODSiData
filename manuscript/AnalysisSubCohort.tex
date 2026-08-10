@@ -19,9 +19,17 @@
 \DeclareSIUnit{\dBm}{dBm}
 \DeclareSIUnit[per-mode=reciprocal]\WN{\per\centi\meter}
 
+\usepackage{xcolor}
 \usepackage{tabularray}
 \newcommand{\up}{\ensuremath{\uparrow}}
 \newcommand{\down}{\ensuremath{\downarrow}}
+
+% --- Scaffolding helpers (to be filled in paper-by-paper) ---
+% Placeholder for content still to be completed from the source paper.
+\newcommand{\tbd}{\textcolor{gray}{\emph{[TBD]}}}
+% Stacked reference cell: cohort name + linked citation, BioProject ID underneath.
+% Usage: \refcell{CohortName}{bibkey}{PRJ...}
+\newcommand{\refcell}[3]{\shortstack[l]{#1~\cite{#2}\\[2pt]{\scriptsize #3}}}
 
 
 \usepackage[backend=biber, style=numeric, sorting=none, autocite = superscript, maxnames = 10]{biblatex}
@@ -74,60 +82,161 @@
 %
 \section{Studies}
 
+% =====================================================================
+% TABLE 1 — Study-level summary
+% Columns: Year | Patients | Study design | Main results | Reference
+% Reference cell (rightmost) stacks: cohort name + \cite, BioProject underneath.
+% Data cells left as \tbd — fill in paper-by-paper.
+% =====================================================================
 \begin{table}[h]
 \centering
-\caption{Human studies investigating the association between the microbiota and GVHD with available 16S sequencing and clinical metadata}
-%\caption*{\textbf{TABLE 3 |} Summary of human studies investigating the association between the microbiota and GVHD in the past 10 years.}
+\caption{Human studies of the association between the gut microbiota and GVHD with
+publicly available 16S sequencing and clinical metadata included in the analytic sub-cohort.}
 \begin{tblr}{
   width = \linewidth,
-  colspec = {Q[l,m,0.08\linewidth] Q[l,m,0.10\linewidth] Q[l,m,0.18\linewidth] Q[l,m,0.45\linewidth] Q[r,m,0.15\linewidth]},
+  colspec = {Q[l,m,0.07\linewidth] Q[l,m,0.12\linewidth] Q[l,m,0.16\linewidth] Q[l,m,0.42\linewidth] Q[l,m,0.17\linewidth]},
   row{1} = {font=\bfseries}, % Bold header row
-  hline{1,2,Z} = {0.8pt},    % Horizontal lines at top, below header, and bottom
-  cells = {font=\small},     % Set font size for the table
+  hline{1,2,Z} = {0.8pt},    % Rules at top, below header, and bottom
+  cells = {font=\small},
   column{5} = {font=\footnotesize}, % Reference column smaller
 }
 
-Year & Patients* & Study design & Outcomes & Ref \\
-2017 & 49 adults 1 child & Longitudinal randomized control trial & \begin{itemize}
-    \item aGVHD (Occurrence, Severity, Time)
-    \item cGVHD (Occurrence, Severity, Time)
-    \item Relapse (Occurrence, Time)
-    \item Death (Occurrence, Time)
-    \item End of study (Planned or LTFU, Time)
-\end{itemize} & Allozithro \cite{Bergeron2017} PRJNA902819\\
-2017 & 57 adults & Prospective & \begin{itemize}
-    \item aGVHD (Occurrence, Severity, Organ, Time)
-    \item cGVHD (Occurrence, Severity, Time)
-    \item Relapse (Occurrence, Time)
-    \item Death (Occurrence, Time)
-    \item Engrafment (Occurrence, Time)
-    \item End of study (Right censor)
-\end{itemize} & Liu2017 \cite{Liu2017} PRJEB16057\\
-2024 & 46? & Retrospective + mouse models? & \begin{itemize}
-    \item aGVHD
-\end{itemize} & Fujimoto2024 \cite{Fujimoto2024} PRJNA1109929
+Year & Patients* & Study design & Main results & Reference \\
+\tbd & \tbd & \tbd & \tbd & \refcell{Liu2017}{Liu2017}{PRJEB16057} \\
+\tbd & \tbd & \tbd & \tbd & \refcell{Fujimoto2024}{Fujimoto2024}{PRJNA1109929} \\
+\tbd & \tbd & \tbd & \tbd & \refcell{Artacho2024}{artacho2024multimodal-9e5}{PRJNA1088414} \\
+\tbd & \tbd & \tbd & \tbd & \refcell{Ingham2019}{ingham2019specific-2d2}{PRJEB25221} \\
+\tbd & \tbd & \tbd & \tbd & \refcell{Vallet2023}{Vallet2023}{PRJNA902819} \\ % TODO: add Vallet2023 to references.bib
+\tbd & \tbd & \tbd & \tbd & \refcell{DAmico2019}{DAmico2019}{PRJNA592853} \\ % TODO: add DAmico2019 to references.bib
+\tbd & \tbd & \tbd & \tbd & \refcell{Jarosch2023}{jarosch2023multimodal-0f7}{PRJEB60178} \\
 \end{tblr}
 \vspace{2pt}
 \begin{flushleft}
-\footnotesize \textit{Patients refers to the number of patients with 16S microbiome measurements.}
+\footnotesize \textit{*Patients refers to the number of patients with 16S microbiome
+measurements included here. Main results give a brief description of the primary
+findings of the original study.}
 \end{flushleft}
 \end{table}
 
-\section{Allozithro}
-\begin{itemize}
-    \item RCT for preventative medication (conditioning)
-    \item 465 patients enrolled
-    \item 50 patients with microbiome data available
-    \item Longitudinal, so 118 samples across the 50 patients
-\end{itemize}
+% =====================================================================
+% TABLE 2 — Sample generation / sequencing characteristics
+% Columns: Reference | Platform | Region | Primers | Reads | Avg. depth
+% (Platform = Illumina/454 pyro/etc.; Region = V4, V3-V4, etc.;
+%  Reads = paired / single-end; Avg. depth = mean reads per sample.)
+% Data cells left as \tbd — fill in paper-by-paper.
+% =====================================================================
+\begin{table}[h]
+\centering
+\caption{Sample generation and 16S sequencing characteristics for each cohort.}
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[l,m,0.16\linewidth] Q[l,m,0.14\linewidth] Q[l,m,0.10\linewidth] Q[l,m,0.22\linewidth] Q[l,m,0.12\linewidth] Q[l,m,0.12\linewidth]},
+  row{1} = {font=\bfseries},
+  hline{1,2,Z} = {0.8pt},
+  cells = {font=\small},
+  column{1} = {font=\footnotesize},
+}
+
+Reference & Platform & Region & Primers & Reads & Avg. depth \\
+Liu2017 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+Fujimoto2024 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+Artacho2024 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+Ingham2019 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+Vallet2023 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+DAmico2019 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+Jarosch2023 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+\end{tblr}
+\vspace{2pt}
+\begin{flushleft}
+\footnotesize \textit{Platform: sequencing platform (e.g.\ Illumina MiSeq, 454
+pyrosequencing). Region: 16S hypervariable region targeted (e.g.\ V4, V3--V4).
+Reads: paired-end or single-end. Avg.\ depth: mean reads per sample after
+demultiplexing.}
+\end{flushleft}
+\end{table}
+
+\FloatBarrier
+\newpage
+
+% =====================================================================
+% Per-study sections. Each has three subsections:
+%   1. Summary            — short summary of the paper
+%   2. Identified species — microbial species discussed in the original paper
+%   3. Processing          — pipeline steps applied, primer sequences, layout, etc.
+% Fill in paper-by-paper.
+% =====================================================================
+
+\section{Liu2017}
+\subsection{Summary}
+\tbd
+
+\subsection{Identified microbial species}
+\tbd
+
+\subsection{Processing}
+% Pipeline steps hit (single/paired-end, forward-read-only rescue, etc.),
+% primer sequences, trimming/DADA2 parameters, reference DB.
+\tbd
 
 \section{Fujimoto2024}
-This study was investigating whether a newly developed anti-\textit{Enterococcus faecalis} enzyme could be used to target a specific type of pathogenic \textit{Enterococcus faecalis} to reduce the chance of GVHD. This study motivates our work, showcasing the downstream scientific pipeline of therapeutics once microbiome targets are identified.  \\
-Important scientific background:
-\begin{itemize}
-    \item \textit{Enterococcus faecalis} dysbiosis is a GVHD risk factor 
-    \item \textit{E. faecalis}
-\end{itemize}
+\subsection{Summary}
+\tbd
+
+\subsection{Identified microbial species}
+\tbd
+
+\subsection{Processing}
+\tbd
+
+\section{Artacho2024}
+\subsection{Summary}
+\tbd
+
+\subsection{Identified microbial species}
+\tbd
+
+\subsection{Processing}
+\tbd
+
+\section{Ingham2019}
+\subsection{Summary}
+\tbd
+
+\subsection{Identified microbial species}
+\tbd
+
+\subsection{Processing}
+\tbd
+
+\section{Vallet2023}
+\subsection{Summary}
+\tbd
+
+\subsection{Identified microbial species}
+\tbd
+
+\subsection{Processing}
+\tbd
+
+\section{DAmico2019}
+\subsection{Summary}
+\tbd
+
+\subsection{Identified microbial species}
+\tbd
+
+\subsection{Processing}
+\tbd
+
+\section{Jarosch2023}
+\subsection{Summary}
+\tbd
+
+\subsection{Identified microbial species}
+\tbd
+
+\subsection{Processing}
+\tbd
 
 
 \newpage
