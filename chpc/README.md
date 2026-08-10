@@ -191,3 +191,41 @@ what each stage needs — over-asking memory or walltime inflates your queue wai
   failed downloads are logged to `<scratch>/<Study>/failed_downloads.txt`.
 - **Throttle downloads** with `ARRAY_THROTTLE=10 ./chpc/submit.sh ...` if NCBI
   rate-limits.
+
+## Merge phase — cohort assembly (`merge.sh`)
+
+After every study has finished `map` (`06_gg2_map.slurm`), the merge phase
+assembles a cohort. It is driven by **`chpc/merge.sh`** (a sibling of
+`submit.sh`, not an extension of it): `submit.sh` is per-study, `merge.sh` is
+per-cohort. A "cohort" — which studies, which artifact per study, resources — is
+defined in **`chpc/merging/<cohort>.sh`** (see `_template.sh`; `full_cohort.sh`
+is the 7-study set). Outputs are namespaced under **`Merging/<cohort>/`**, so
+reruns and alternate subsets never collide.
+
+| Stage | Script | Produces |
+|-------|--------|----------|
+| `merge` | `jobs/07_merge.slurm` | `merged-table.qza`, `merged-seqs.qza` |
+| `phylogeny` | `jobs/08_phylogeny.slurm` | `merged-tree.qza` (GG2 tree filtered to the cohort) |
+| `tax-gg` | `jobs/09_taxonomy_gg.slurm` | `taxonomy-gg.qza` (tree-based; needs the gg2 env) |
+| `tax-classifier` | `jobs/09_taxonomy_classifier.slurm` | `taxonomy-classifier.qza` (full-length sklearn) |
+
+```
+# on CHPC, from the repo root
+./chpc/merge.sh full_cohort            # all four, chained (afterok): 07 -> 08 -> 09gg -> 09cl
+./chpc/merge.sh full_cohort merge      # or run one stage at a time
+./chpc/merge.sh full_cohort tax-classifier   # e.g. re-run just this after changing CLASSIFIER_CONFIDENCE
+```
+
+`all` chains the stages sequentially with `--dependency=afterok`, so each starts
+only if the previous succeeds. The stages are kept sequential for clarity even
+though phylogeny and the two taxonomies don't strictly depend on each other.
+
+Notes:
+- **Compute target:** `merge.sh` defaults every stage to `notchpeak-shared-short`
+  (modern AVX2 nodes, free, <=8h) to avoid the lonepeak Nehalem SIGILL that hit
+  qc/map. Override with `MERGE_PARTITION`/`MERGE_CLUSTER`/`MERGE_ACCOUNT`.
+- **References** (`config.sh`): `tax-gg` needs `<version>.taxonomy.asv.nwk.qza`
+  in `Greengenes2/` (download from the GG2 FTP); `phylogeny` and `tax-classifier`
+  use artifacts already present.
+- **Sparse-checkout:** `Merging/` is a new top-level tree — add `/Merging/` to the
+  CHPC sparse-checkout (see the root `CLAUDE.md`) so the outputs materialize/pull.

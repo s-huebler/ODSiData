@@ -103,6 +103,15 @@ export QC_EXCLUDE="${QC_EXCLUDE:-Unassigned}"          # taxonomy label(s) to dr
 # --- non-v4-16s closed-reference mapping default -----------------------------
 export GG2_MAP_PERC_IDENTITY="${GG2_MAP_PERC_IDENTITY:-0.99}"  # clustering identity
 
+# --- Merge-phase references (07_merge / 08_phylogeny / 09_taxonomy_*) ---------
+# Shared across cohorts. GG2_PHYLOGENY and GG2_CLASSIFIER are already in
+# Greengenes2/; GG2_TAXONOMY_TREE (the .taxonomy.asv.nwk.qza) must be downloaded
+# into $GG2_REF_DIR from ftp.microbio.me/greengenes_release/<version>/ before the
+# tax-gg stage. taxonomy-from-table takes the .nwk taxonomy artifact as input.
+export GG2_PHYLOGENY="${GG2_PHYLOGENY:-$GG2_REF_DIR/$GG2_VERSION.phylogeny.asv.nwk.qza}"          # 08_phylogeny filter-tree
+export GG2_TAXONOMY_TREE="${GG2_TAXONOMY_TREE:-$GG2_REF_DIR/$GG2_VERSION.taxonomy.asv.nwk.qza}"   # 09_taxonomy_gg taxonomy-from-table
+export GG2_CLASSIFIER="${GG2_CLASSIFIER:-$GG2_REF_DIR/$GG2_VERSION.backbone.full-length.nb.sklearn-1.4.2.qza}"  # 09_taxonomy_classifier
+
 # --- Environment modules -----------------------------------------------------
 # Wrapped in functions so the job scripts stay clean. EDIT the module names to
 # match what `module spider` reports on CHPC.

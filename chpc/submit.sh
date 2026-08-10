@@ -112,12 +112,12 @@ QC_MEM="${QC_MEM:-16G}"
 QC_THREADS="${QC_THREADS:-8}"
 MAP_MEM="${MAP_MEM:-24G}"
 MAP_THREADS="${MAP_THREADS:-8}"
-# Walltime: qc/map now default to lonepeak (3-day cap) rather than
-# notchpeak-shared-short (8h cap), because jobs were timing out at the 8h wall.
-# Default to 24h so they don't die prematurely; right-size per study to keep queue
-# priority high (over-requesting walltime lowers priority).
+# Walltime: qc defaults to lonepeak (3-day cap). map is routed to
+# notchpeak-shared-short (see MAP_* block below), which caps wall at 8h — so
+# MAP_TIME must be <= 08:00:00 or the job is rejected. Right-size per study to
+# keep queue priority high (over-requesting walltime lowers priority).
 QC_TIME="${QC_TIME:-1-00:00:00}"
-MAP_TIME="${MAP_TIME:-1-00:00:00}"
+MAP_TIME="${MAP_TIME:-08:00:00}"
 # --- SIMD-safe target for qc + map ------------------------------------------
 # qc (classify-consensus-vsearch) and map (non-v4-16s) exercise AVX2/AVX-512 code
 # paths in vsearch and qiime's C-extensions that SIGILL ("Illegal instruction") on
@@ -148,6 +148,15 @@ SIMD_GRES="${SIMD_GRES:-}"
 # specific known-good node on heterogeneous lonepeak, e.g. SIMD_EXTRA="--nodelist=lp037",
 # or a feature constraint on a cluster that exposes one.
 SIMD_EXTRA="${SIMD_EXTRA:-}"
+# --- map stage submit target ------------------------------------------------
+# map (non-v4-16s) is routed to notchpeak-shared-short by default: cluster
+# "notchpeak", partition + account "notchpeak-shared-short". This is a separate
+# target from qc (which stays on the SIMD-safe lonepeak cohort above). No lonepeak
+# c24&m256 feature constraint applies here, and the 8h wall cap means MAP_TIME must
+# be <= 08:00:00. Override per study/run with MAP_CLUSTER/MAP_ACCOUNT/MAP_PARTITION.
+MAP_CLUSTER="${MAP_CLUSTER:-notchpeak}"
+MAP_ACCOUNT="${MAP_ACCOUNT:-notchpeak-shared-short}"
+MAP_PARTITION="${MAP_PARTITION:-notchpeak-shared-short}"
 case "$LAYOUT" in
     paired)
         IMPORT_JOB="chpc/jobs/02_import.slurm"
@@ -201,14 +210,18 @@ case "$FETCH_ITEMS" in
     *) echo "Unknown FETCH_ITEMS '$FETCH_ITEMS' (expected: runs|pairs)"; exit 1 ;;
 esac
 # --- Effective submit target -------------------------------------------------
-# qc + map default to the SIMD-safe target (lonepeak, constrained to the c24&m256
-# cohort; see above) so they don't SIGILL on lonepeak's older nodes. Every other
-# stage uses the configured CHPC_* target.
+# qc defaults to the SIMD-safe target (lonepeak, constrained to the c24&m256
+# cohort; see above) so it doesn't SIGILL on lonepeak's older nodes. map is routed
+# to notchpeak-shared-short (see MAP_* block; no feature constraint, 8h wall).
+# Every other stage uses the configured CHPC_* target.
 EFF_ACCOUNT="$CHPC_ACCOUNT"; EFF_PARTITION="$CHPC_PARTITION"; EFF_CLUSTER="$CHPC_CLUSTER"
 EFF_CONSTRAINT=""
-if [[ "$STAGE" == "qc" || "$STAGE" == "map" ]]; then
+if [[ "$STAGE" == "qc" ]]; then
     EFF_ACCOUNT="$SIMD_ACCOUNT"; EFF_PARTITION="$SIMD_PARTITION"; EFF_CLUSTER="$SIMD_CLUSTER"
     EFF_CONSTRAINT="$SIMD_CONSTRAINT"
+elif [[ "$STAGE" == "map" ]]; then
+    EFF_ACCOUNT="$MAP_ACCOUNT"; EFF_PARTITION="$MAP_PARTITION"; EFF_CLUSTER="$MAP_CLUSTER"
+    EFF_CONSTRAINT=""
 fi
 
 echo "Study=$STUDY_NAME  stage=$STAGE  layout=$LAYOUT  fetch_items=$FETCH_ITEMS($N)  account=$EFF_ACCOUNT  partition=$EFF_PARTITION  cluster=${EFF_CLUSTER:-<login>}  constraint=${EFF_CONSTRAINT:-<none>}"
@@ -217,12 +230,13 @@ SB=(sbatch -A "$EFF_ACCOUNT" -p "$EFF_PARTITION" --parsable --export=ALL,STUDY_F
 # Route to another cluster's scheduler when EFF_CLUSTER is set (required for
 # partitions off your login cluster, e.g. lonepeak-shared / notchpeak-shared-short).
 [[ -n "${EFF_CLUSTER:-}" ]] && SB+=(--clusters="$EFF_CLUSTER")
-# Attach a GPU request when qc/map are routed to a GPU partition (see SIMD_GRES).
-[[ ( "$STAGE" == "qc" || "$STAGE" == "map" ) && -n "$SIMD_GRES" ]] && SB+=(--gres="$SIMD_GRES")
-# Feature constraint pinning qc/map to lp037's cohort (SIMD_CONSTRAINT, e.g. c24&m256).
-[[ ( "$STAGE" == "qc" || "$STAGE" == "map" ) && -n "$EFF_CONSTRAINT" ]] && SB+=(--constraint="$EFF_CONSTRAINT")
-# Append any extra sbatch args for qc/map (e.g. --nodelist=lp037); word-split.
-if [[ ( "$STAGE" == "qc" || "$STAGE" == "map" ) && -n "$SIMD_EXTRA" ]]; then
+# Attach a GPU request when qc is routed to a GPU partition (see SIMD_GRES).
+[[ "$STAGE" == "qc" && -n "$SIMD_GRES" ]] && SB+=(--gres="$SIMD_GRES")
+# Feature constraint pinning qc to lp037's cohort (SIMD_CONSTRAINT, e.g. c24&m256).
+# (map runs on notchpeak-shared-short with no feature constraint.)
+[[ "$STAGE" == "qc" && -n "$EFF_CONSTRAINT" ]] && SB+=(--constraint="$EFF_CONSTRAINT")
+# Append any extra sbatch args for qc (e.g. --nodelist=lp037); word-split.
+if [[ "$STAGE" == "qc" && -n "$SIMD_EXTRA" ]]; then
     read -ra _simd_extra <<< "$SIMD_EXTRA"; SB+=("${_simd_extra[@]}")
 fi
 # Secondary safety net for OTHER stages: if CHPC_CPU_CONSTRAINT is set AND the target
