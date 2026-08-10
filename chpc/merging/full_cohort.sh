@@ -30,7 +30,7 @@ declare -A TABLE_OVERRIDE=()
 declare -A SEQS_OVERRIDE=()
 
 # --- Merge / taxonomy parameters ---------------------------------------------
-METADATA="$REPO_ROOT/merged_metadata.tsv"
+METADATA="$REPO_ROOT/Merging/merged_metadata.tsv"
 CLASSIFIER_CONFIDENCE="0.9"
 
 # --- Per-stage resources: use merge.sh defaults (uncomment to override) -------
