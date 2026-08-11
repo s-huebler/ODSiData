@@ -84,6 +84,6 @@ Ran DADA2 pyro denoising
 ingham_meta_qiime <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Ingham2019/Metadata/ingham_meta_qiime.tsv")
 ```
 
-# Qc and Mapped 
+# Qc and Mapped
 
 ![](images/clipboard-1899110555.png)
