@@ -28,6 +28,8 @@ SPLIT_CONCAT=0
 # then uses the raw demux). IUPAC/degenerate bases are matched automatically.
 PRIMER_F="TGCCAGCAGCCGCGGTAA"                        # 16s_515_S3_fwd 
 PRIMER_R="GGACTACCAGGGTATCTAAT"                        # 16s_806_S2_rev 
+FWD_PRIMER="TGCCAGCAGCCGCGGTAA" 
+REV_PRIMER_RC="ATTAGATACCCTGGTAGTCC"
 # Optional cutadapt knobs (defaults shown; only needed if you set primers):
 # CUTADAPT_ERROR_RATE=0.1
 # CUTADAPT_OVERLAP=3
