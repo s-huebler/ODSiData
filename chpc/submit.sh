@@ -157,6 +157,17 @@ SIMD_EXTRA="${SIMD_EXTRA:-}"
 MAP_CLUSTER="${MAP_CLUSTER:-notchpeak}"
 MAP_ACCOUNT="${MAP_ACCOUNT:-notchpeak-shared-short}"
 MAP_PARTITION="${MAP_PARTITION:-notchpeak-shared-short}"
+# --- qc stage submit target -------------------------------------------------
+# qc's target defaults to the SIMD-safe lonepeak cohort above, but is overridable
+# with QC_CLUSTER/QC_ACCOUNT/QC_PARTITION (parallel to the MAP_* block) so you can
+# send qc straight to notchpeak-shared-short too, e.g.
+#   QC_CLUSTER=notchpeak QC_ACCOUNT=notchpeak-shared-short \
+#   QC_PARTITION=notchpeak-shared-short QC_TIME=07:30:00 ./chpc/submit.sh <Study> qc
+# The lonepeak c24&m256 feature constraint is auto-dropped when qc isn't on lonepeak
+# (that feature tag only exists on lonepeak; notchpeak nodes support AVX2 natively).
+QC_CLUSTER="${QC_CLUSTER:-$SIMD_CLUSTER}"
+QC_ACCOUNT="${QC_ACCOUNT:-$SIMD_ACCOUNT}"
+QC_PARTITION="${QC_PARTITION:-$SIMD_PARTITION}"
 case "$LAYOUT" in
     paired)
         IMPORT_JOB="chpc/jobs/02_import.slurm"
@@ -217,8 +228,9 @@ esac
 EFF_ACCOUNT="$CHPC_ACCOUNT"; EFF_PARTITION="$CHPC_PARTITION"; EFF_CLUSTER="$CHPC_CLUSTER"
 EFF_CONSTRAINT=""
 if [[ "$STAGE" == "qc" ]]; then
-    EFF_ACCOUNT="$SIMD_ACCOUNT"; EFF_PARTITION="$SIMD_PARTITION"; EFF_CLUSTER="$SIMD_CLUSTER"
-    EFF_CONSTRAINT="$SIMD_CONSTRAINT"
+    EFF_ACCOUNT="$QC_ACCOUNT"; EFF_PARTITION="$QC_PARTITION"; EFF_CLUSTER="$QC_CLUSTER"
+    # SIMD feature constraint (c24&m256) only exists on lonepeak; drop it elsewhere.
+    [[ "$EFF_CLUSTER" == "lonepeak" ]] && EFF_CONSTRAINT="$SIMD_CONSTRAINT"
 elif [[ "$STAGE" == "map" ]]; then
     EFF_ACCOUNT="$MAP_ACCOUNT"; EFF_PARTITION="$MAP_PARTITION"; EFF_CLUSTER="$MAP_CLUSTER"
     EFF_CONSTRAINT=""
