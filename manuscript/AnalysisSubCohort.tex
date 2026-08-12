@@ -84,7 +84,7 @@
 
 % =====================================================================
 % TABLE 1 — Study-level summary
-% Columns: Year | Patients | Study design | Main results | Reference
+% Columns: Reference | Microbiome Cohort | Study design | Main results
 % Reference cell (rightmost) stacks: cohort name + \cite, BioProject underneath.
 % Data cells left as \tbd — fill in paper-by-paper.
 % =====================================================================
@@ -94,21 +94,22 @@
 publicly available 16S sequencing and clinical metadata included in the analytic sub-cohort.}
 \begin{tblr}{
   width = \linewidth,
-  colspec = {Q[l,m,0.07\linewidth] Q[l,m,0.12\linewidth] Q[l,m,0.16\linewidth] Q[l,m,0.42\linewidth] Q[l,m,0.17\linewidth]},
+  colspec = {Q[l,m,0.17\linewidth] Q[l,m,0.15\linewidth] Q[l,m,0.30\linewidth] Q[l,m,0.32\linewidth] },
   row{1} = {font=\bfseries}, % Bold header row
   hline{1,2,Z} = {0.8pt},    % Rules at top, below header, and bottom
   cells = {font=\small},
-  column{5} = {font=\footnotesize}, % Reference column smaller
+  column{4} = {font=\footnotesize}, % Results column smaller
 }
 
-Year & Patients* & Study design & Main results & Reference \\
-\tbd & \tbd & \tbd & \tbd & \refcell{Liu2017}{Liu2017}{PRJEB16057} \\
-\tbd & \tbd & \tbd & \tbd & \refcell{Fujimoto2024}{Fujimoto2024}{PRJNA1109929} \\
-\tbd & \tbd & \tbd & \tbd & \refcell{Artacho2024}{artacho2024multimodal-9e5}{PRJNA1088414} \\
-\tbd & \tbd & \tbd & \tbd & \refcell{Ingham2019}{ingham2019specific-2d2}{PRJEB25221} \\
-\tbd & \tbd & \tbd & \tbd & \refcell{Vallet2023}{Vallet2023}{PRJNA902819} \\ % TODO: add Vallet2023 to references.bib
-\tbd & \tbd & \tbd & \tbd & \refcell{DAmico2019}{DAmico2019}{PRJNA592853} \\ % TODO: add DAmico2019 to references.bib
-\tbd & \tbd & \tbd & \tbd & \refcell{Jarosch2023}{jarosch2023multimodal-0f7}{PRJEB60178} \\
+Reference & Microbiome Cohort & Study design & Main results  \\
+\refcell{Liu2017}{Liu2017}{PRJEB16057} & 57 adults undergoing allo-SCT; 22 healthy SCT donors & Prospective cohort examining allo-SCT recipient and paired sibling-donor gut microbiota, at the time of pre-conditioning, in relation to GI-GVHD and mortality. & Recipients had lower baseline diversity and different composition than healthy donors. Lower recipient diversity was associated with higher overall mortality but not GI-GVHD. Donor-recipient dissimilarity was not associated with GI-GVHD, whereas higher donor diversity was associated with lower GI-GVHD odds.  \\
+\refcell{Fujimoto2024}{Fujimoto2024}{PRJNA1109929} & 45 adults undergoing allo-SCT & Prospective longitudinal observational cohort with serial stool 16S profiling, enterococcal culture, and isolate whole-genome and prophage analysis, followed by recombinant production and in vitro and gnotobiotic mouse testing of an \textit{E. faecalis}-specific phage-derived endolysin.  & \textit{Enterococcus} domination was common during allo-HCT, and fecal cytolysin positivity among Enterococcus-dominated cases was associated with aGVHD. A phage-derived endolysin selectively targeted biofilm-forming \textit{E. faecalis} and improved survival in preclinical aGVHD mouse models. \\\\
+\refcell{Artacho2024}{artacho2024multimodal-9e5}{PRJNA1088414} & \tbd & \tbd & \tbd  \\
+ \refcell{Ingham2019}{ingham2019specific-2d2}{PRJEB25221} & \tbd & \tbd & \tbd  \\
+\refcell{Vallet2023}{.}{PRJNA902819}  & 55 adults undergoing allo-SCT  & Longidudinal multi-omics substudy of an RCT where stool samples were used to form bacterial enterotypes which interacted with viral and metabolic pathways and were investigated for association with receipt of the drug and allo-SCT outcomes.   & One specific enterotype was associated with greater odds of remission, and changing enterotypes generally was associated with greater odds of remission. Enterotype distribution was not associated with acute or chronic GVHD. \\ % TODO: add Vallet2023 to references.bib
+\refcell{DAmico2019}{.}{PRJNA592853} & \tbd & \tbd & \tbd  \\ % TODO: add DAmico2019 to references.bib
+\refcell{Jarosch2023}{jarosch2023multimodal-0f7}{PRJEB60178} & \tbd & \tbd & \tbd  \\
+\refcell{Spindelboek2021}{.}{ PRJEB39834} & 10 adults with GI-GVHD after allo-SCT, 14 healthy FMT donors & Prospective cohort of adults undergoing repeated colonoscopic FMT for severe treatment-refractory GI-GVHD after allo-SCT. &  Patients who responded to FMT with full or partial GI-GVHD remission at 90 days had longer overall and GI-GVHD-related survival. Responders developed a more donor-like microbiota, with restored diversity and enrichment of anaerobic butyrate-producing taxa. Ongoing broad-spectrum antibiotics were associated with persistent dysbiosis, failed engraftment, and non-response to FMT.  \\
 \end{tblr}
 \vspace{2pt}
 \begin{flushleft}
@@ -138,13 +139,14 @@ findings of the original study.}
 }
 
 Reference & Platform & Region & Primers & Reads & Avg. depth \\
-Liu2017 & \tbd & \tbd & \tbd & \tbd & \tbd \\
-Fujimoto2024 & \tbd & \tbd & \tbd & \tbd & \tbd \\
-Artacho2024 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+Liu2017 & Illumina MiSeq & V4 & 534 F; 806 R & Single-end & \tbd \\
+Fujimoto2024 & Illumina MiSeq & V3-V4 & 341 F; 785 R & Paired-end & \tbd \\
+Artacho2024 & Illumina MiSeq & V1-V3 & \tbd & Paired-end & \tbd \\
 Ingham2019 & \tbd & \tbd & \tbd & \tbd & \tbd \\
-Vallet2023 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+Vallet2023 & Illumina MiSeq & V3-V4 & 343 F; 800R & Paired-end & \tbd \\
 DAmico2019 & \tbd & \tbd & \tbd & \tbd & \tbd \\
 Jarosch2023 & \tbd & \tbd & \tbd & \tbd & \tbd \\
+Spindelboek2021 & Ion Torrent  & V4 & 515-S3 F; 806-S2 R & Single-end pyro & \tbd \\
 \end{tblr}
 \vspace{2pt}
 \begin{flushleft}
@@ -168,75 +170,251 @@ demultiplexing.}
 
 \section{Liu2017}
 \subsection{Summary}
-\tbd
 
-\subsection{Identified microbial species}
-\tbd
+This prospective single-center study asked whether gut microbiota features present before conditioning in allo-HSCT recipients, microbiota dissimilarity between recipients and their HLA-matched sibling donors, or the donors' own microbiota were associated with subsequent acute gastrointestinal GVHD (GI-GVHD). The authors also evaluated baseline recipient microbiota in relation to overall mortality. Compared with healthy sibling donors, recipients had lower phylogenetic diversity, different community membership, and frequent disturbance-associated domination by facultative anaerobes compared to obligate anaerobes. Greater recipient baseline diversity was associated with lower overall mortality, but recipient diversity and donor-recipient dissimilarity were not significantly associated with GI-GVHD. In the paired-donor subcohort, greater donor diversity was associated with lower odds of GI-GVHD in the recipient. No individual recipient or donor taxon remained significantly associated with GI-GVHD after multiple-testing correction, making the taxa-level findings exploratory.
+\par
+
+The cohort comprised 57 allo-HSCT recipients, 22 of whom had a paired HLA-matched sibling donor sample. Recipient ``baseline'' was defined as a fecal sample collected 0--7 days before preparative conditioning; donor baseline was collected 0--7 days before hematopoietic growth-factor administration. The full recipient cohort was used to compare recipient and donor community features, to model recipient baseline diversity and species-level relative abundances against GI-GVHD, and to test baseline diversity against overall mortality. The 22 paired donor-recipient samples were additionally used to test whether donor-recipient UniFrac dissimilarity, donor diversity, or donor taxa predicted GI-GVHD.
+\par
+
+
+\subsection{Identified microbial taxa}
+
+The manuscript reported 58 species-level differences between recipients and donors in a supplementary table. The list below is restricted to taxa explicitly emphasized by the authors in the main text as differing between recipients who did or did not develop GI-GHVD, although the associations, which were found by multiple logistic regression, did not persist after false discovery rate correction. 
+\begin{itemize}
+\item \textit{Parabacteroides distasonis} and Barnesiellaceae spp.: Higher baseline (pre-conditioning) relative abundance was associated with lower odds of subsequent GI-GVHD.
+\item \textit{Lachnobacterium} spp. and \textit{Haemophilus parainfluenzae}: Higher baseline (pre-conditioning) relative abundance was associated with higher odds of subsequent GI-GVHD 
+
+
+\end{itemize}
+
 
 \subsection{Processing}
-% Pipeline steps hit (single/paired-end, forward-read-only rescue, etc.),
-% primer sequences, trimming/DADA2 parameters, reference DB.
-\tbd
+\begin{itemize}
+\item \textbf{Fetch:} ENA reads were fetched from European Nucleotide Archive ERP017899
+\begin{itemize}
+    \item R1 and R2 reads were uploaded separately. Preprocessing was done to determine which read was which orientation. As only the V4 region was sampled, foreward reads carried the full length of the sample, and only forward reads were kept. 
+\end{itemize}
+\item \textbf{Import:} Reads were imported into QIIME 2 as demultiplexed single-end sequences. 
+\item \textbf{Trim:} QIIME 2 cutadapt was used to remove the amplification primers
+  \begin{itemize}
+  \item Forward primer (534F/515F Fwd): GTGCCAGCMGCCGCGGTAA
+  \item Reverse primer (806R Rev): GGACTACHVGGGTWTCTAAT
+  \end{itemize}
+\item \textbf{Denoise:} QIIME 2 DADA2 \texttt{denoise-single} was used.  
+  \begin{itemize}
+  \item \texttt{--p-trunc-len}: 230
+  \item \texttt{--p-max-ee}: 2
+  \end{itemize}
+\end{itemize}
 
 \section{Fujimoto2024}
 \subsection{Summary}
-\tbd
+This prospective translational study investigated why intestinal \textit{Enterococcus faecalis} persists during allo-HCT and whether an E. faecalis-specific phage-derived endolysin could reduce E. faecalis-associated acute GVHD. Longitudinal microbiome profiling showed frequent Enterococcus domination in patients, and cytolysin-poitive  E. faecalis was associated with the development of aGVHD. Whole-genome and prophage analysis of the patient isolates identified an E. faecalis-specific endolysin that lysed patient-derived E. faecalis and its biofilms but did not lyse E. faecium or other tested intestinal isolates. In gnotobiotic GVHD mouse models, the endolysin reduced intestinal E. faecalis or cytolysin abundance and improved survival without consistently altering the broader bacterial community. The endolysin was not administered to patients.
 
-\subsection{Identified microbial species}
-\tbd
+The human 16S cohort comprised 46 transplant episodes from 45 adults because one patient was enrolled during two separate allo-HCT procedures. Each included transplant episode contributed at least two sequential fecal samples, for a total of 317 samples, of which 315 were viable. The pre-transplant sample was collected within 14 days before conditioning began. Subsequent samples were scheduled weekly around stem-cell infusion, defined as day 0, through approximately day 98 or hospital discharge. The authors used 16S sequencing to describe longitudinal community composition and defined Enterococcus domination as greater than 25\% genus-level relative abundance, then modeled time to the first dominated sample. They subsequently cultured dominated samples to isolate E. faecalis and E. faecium, assessed antimicrobial susceptibility, cytolysin genes and haemolysis, and performed isolate whole-genome and prophage analyses. Selected isolates and patient-derived fecal communities were then used for the in vitro and gnotobiotic mouse experiments.
+
+\subsection{Identified microbial taxa}
+The 16S analysis established genus-level Enterococcus domination. Species identification, cytolysin status, antimicrobial susceptibility, and biofilm-related functional findings came from cultured isolates, PCR assays, and isolate whole-genome sequencing rather than from 16S classification alone.
+
+\begin{itemize}
+    \item  \textit{Enterococcus}: Study-defined intestinal domination developed commonly during the longitudinal allo-HCT sampling period. 
+    \item \textit{Enterococcus faecalis}: Patient isolates carried cytolysin-associated genes, exhibited functional haemolytic activity, and showed greater representation of biofilm-associated functions than E. faecium, despite remaining susceptible to the tested anti-enterococcal agents. Among transplant cases with Enterococcus-dominated microbiota, fecal cytolysin positivity was associated with aGVHD. 
+    \item \textit{Enterococcus faecium}: Patient isolates lacked the cytolysin-associated genes detected in E. faecalis and were also susceptible to the tested anti-enterococcal agents. 
+\end{itemize}
 
 \subsection{Processing}
-\tbd
+\begin{itemize}
+\item \textbf{Fetch:} SRA reads were fetched from BioProject \texttt{PRJNA1109929}
+\item \textbf{Import:} Reads were imported into QIIME 2 ad demultiplexed paired-end sequences.
+\item \textbf{Trim:} QIIME 2 cutadapt was used to remove the amplification primers. The primers are preceded by the TruSeq illumina overhang left over from the second-stage indexing PCR.
+  \begin{itemize}
+  \item Forward primer (341 F): ACACGACGCTCTTCCGATCT CCTACGGGNGGCWGCAG
+  \item Reverse primer (785 R): GACGTGTGCTCTTCCGATCT GACTACHVGGGTATCTAATCC
+  \end{itemize}
+\item \textbf{Denoise:} QIIME 2 DADA \texttt{denois-paired} was used.
+  \begin{itemize}
+    \item \texttt{--p-trim-left-f}: 0
+  \item \texttt{--p-trim-left-r}: 0
+  \item \texttt{--p-trunc-len-f}: 265
+  \item \texttt{--p-trunc-len-r}: 194
+  \end{itemize}
+\end{itemize}
 
 \section{Artacho2024}
 \subsection{Summary}
 \tbd
 
-\subsection{Identified microbial species}
+\subsection{Identified microbial taxa}
 \tbd
 
 \subsection{Processing}
-\tbd
+\begin{itemize}
+\item \textbf{Fetch:} \tbd
+\item \textbf{Import:} \tbd
+\item \textbf{Trim:} \tbd
+  \begin{itemize}
+  \item \tbd
+  \end{itemize}
+\item \textbf{Denoise:} \tbd
+  \begin{itemize}
+  \item \tbd
+  \end{itemize}
+\end{itemize}
 
 \section{Ingham2019}
 \subsection{Summary}
 \tbd
 
-\subsection{Identified microbial species}
+\subsection{Identified microbial taxa}
 \tbd
 
 \subsection{Processing}
-\tbd
+\begin{itemize}
+\item \textbf{Fetch:} \tbd
+\item \textbf{Import:} \tbd
+\item \textbf{Trim:} \tbd
+  \begin{itemize}
+  \item \tbd
+  \end{itemize}
+\item \textbf{Denoise:} \tbd
+  \begin{itemize}
+  \item \tbd
+  \end{itemize}
+\end{itemize}
 
 \section{Vallet2023}
 \subsection{Summary}
-\tbd
+This longitudinal multi-omic substudy of the multicenter, randomized, double-blind, placebo-controlled ALLOZITHRO trial (\cite{Bergeron2017}) examined whether early azithromycin exposure was associated with changes in the post-allo-HSCT gut bacteriome, virome, and metabolome and whether those changes were associated with hematologic relapse. The ALLOZITHRO trial itself was canceled early due to safety reasons, with the arm receiving azithromycin experiencing a higher risk or relapse and death. In this substudy, the authors identified four bacterial enterotypes with distinct diversity and taxonomic profiles. Enterotype 1 was overrepresented among samples from the azithromycin arm, whereas enterotype 2 was overrepresented among placebo samples and was strongly associated with complete remission at 12 months. Enterotypes 1, 3, and 4 contained larger proportions of samples from patients who relapsed. Patients whose enterotype changed during the early transplant period were more often in complete remission at 12 months than patients whose enterotype remained stable. A phylotype related to Bacteroides fragilis was associated with greater relapse risk, whereas phylotypes related to Bacteroides sp. DJF\_B097 and Prevotella sp. DJF\_RP53 were associated with lower relapse risk. Enterotypes were also associated with fecal and plasma metabolite profiles and circulating T-cell states, including an association between the B. fragilis-related phylotype and exhausted T-cell phenotypes. The gut virome as a whole was not significantly associated with treatment arm, relapse, or bacterial enterotype, although individual bacteriophages correlated with specific bacterial phylotypes. Enterotype distribution was not associated with acute or chronic GVHD.
 
-\subsection{Identified microbial species}
-\tbd
+The human microbiome cohort comprised 55 allo-HSCT recipients, including 27 assigned to azithromycin and 28 assigned to placebo. The study included 148 longitudinal fecal samples—73 from the azithromycin arm and 75 from the placebo arm—with the sampling window beginning during the week before allo-HSCT and continuing through six weeks after transplantation. Of these, 16S sequencing data was available for 118 samples. The authors clustered sample-level 16S profiles into enterotypes, tested their associations with treatment arm and relapse or complete remission at 12 months, and used PERMANOVA and longitudinal microbial-signature analyses to identify contributing phylotypes. Relapse risk for individual phylotypes was subsequently tested with Fine-Gray competing-risk models using the mean OTU abundance for each patient. Cross-omic correlation networks connected leading bacterial phylotypes with fecal metabolites and viral species, and selected enterotypes and outcome-associated phylotypes were compared with plasma metabolomic and circulating T-cell-state data.
+
+\subsection{Identified microbial taxa}
+The main results of the paper were presented by bacterial Enterotypes.
+\begin{itemize}
+    \item Enterotype 1: Characterized primarily by \textit{Clostridium XIVa} and \textit{Parabacteroides}. Had the second-highest alpha diversity of the four clusters. 32\% of samples with this enterotype relapsed. Was not associated with greater remission after 12 months.
+    \item Enterotype 2: Characterized by \textit{Bacteroides}, \textit{Fusobacterium}, and \textit{Faecalibacterium}. Had the highest alpha diversity. Compared with the other Bacteroides-rich enterotype, enterotype 3, it was enriched in phylotypes related to \textit{Bacteroides uniformis}, \textit{Bacteroides sp. Smarlab BioMol-2301151}, \textit{Bacteroides ovatus}, and \textit{Bacteroides massiliensis}. Associated with greater remission after 12 months. 
+    \item Enterotype 3: Also enriched in \textit{Bacteroides}, but it had significantly lower richness and diversity than enterotype 2. Relative to enterotype 2, enterotype 3 was enriched in phylotypes related to \textit{Bacteroides vulgatus} and \textit{Bacteroides fragilis}. Was not associated with greater remission after 12 months.
+    \item Enterotype 4: Driven primarily by \textit{Enterococcus} and \textit{Enterobacter} and had the lowest alpha diversity. Was not associated with greater remission after 12 months.
+\end{itemize}
+
+There were additional results relating to specific phylotypes.
+\begin{itemize}
+    \item Phylotype related to \textit{Bacteroides fragilis}: Associated with greater relapse risk. 
+    \begin{itemize}
+        \item Cross-omic module was associated with branched-chain amino-acid metabolism, one Larmunavirus, and two Ceduovirus species. 
+        \item Its Higher abundance was also associated with exhausted central-memory CD4 Th1, CD4 Th2, and CD8 T-cell states co-expressing TIGIT, PD-1, and TOX.
+    \end{itemize}
+    \item Phylotype related to \textit{Prevotella sp. DJF\_RP53}: Associated with lower relapse risk.
+    \begin{itemize}
+        \item Cross-omic module was associated with pentose metabolism, one Sandinevirus, and one Pepyhexavirus.
+    \end{itemize} 
+    \item Phylotype related to \textit{Bacteroides sp. DJF\_B097}: Associated with lower relapse risk.
+    \begin{itemize}
+        \item Cross-omic module was associated with phospholipid and lysophospholipid metabolism and one unclassified Siphoviridae species.
+        \item  Higher abundance was associated with KLRG1+2B4+activated effector-memory CD4 Th0 cells and TIGIT+central-memory CD4 Th1 cells.
+    \end{itemize}
+\end{itemize}
 
 \subsection{Processing}
-\tbd
+\begin{itemize}
+\item \textbf{Fetch:} SRA reads were fetched from BioProject \texttt{PRJNA902819}
+\item \textbf{Import:} Reads were imported into QIIME 2 as demultiplexed paired-end sequences.
+\item \textbf{Trim:} QIIME 2 cutadapt was used to remove the amplification primers. We note here that a typo appears in the original text with a leading T mis-added to the forward primer. We print the correct reversion here. 
+  \begin{itemize}
+  \item Forward primer (): ACGGRAGGCAGCAG
+  \item Reverse primer (): TACCAGGGTATCTAAT
+  \end{itemize}
+\item \textbf{Denoise:} QIIME 2 DADA2 \texttt{denoise-paired} was used.
+  \begin{itemize}
+  \item \texttt{--p-trim-left-f}: 0
+  \item \texttt{--p-trim-left-r}: 0
+  \item \texttt{--p-trunc-len-f}: 230
+  \item \texttt{--p-trunc-len-r}: 225
+  \end{itemize}
+\end{itemize}
 
 \section{DAmico2019}
 \subsection{Summary}
 \tbd
 
-\subsection{Identified microbial species}
+\subsection{Identified microbial taxa}
 \tbd
 
 \subsection{Processing}
-\tbd
+\begin{itemize}
+\item \textbf{Fetch:} \tbd
+\item \textbf{Import:} \tbd
+\item \textbf{Trim:} \tbd
+  \begin{itemize}
+  \item \tbd
+  \end{itemize}
+\item \textbf{Denoise:} \tbd
+  \begin{itemize}
+  \item \tbd
+  \end{itemize}
+\end{itemize}
 
 \section{Jarosch2023}
 \subsection{Summary}
 \tbd
 
-\subsection{Identified microbial species}
+\subsection{Identified microbial taxa}
 \tbd
 
 \subsection{Processing}
-\tbd
+\begin{itemize}
+\item \textbf{Fetch:} \tbd
+\item \textbf{Import:} \tbd
+\item \textbf{Trim:} \tbd
+  \begin{itemize}
+  \item \tbd
+  \end{itemize}
+\item \textbf{Denoise:} \tbd
+  \begin{itemize}
+  \item \tbd
+  \end{itemize}
+\end{itemize}
+
+\section{Spindelboek2021}
+\subsection{Summary}
+
+This prospective single-center study evaluated repeated colonoscopically delivered fecal microbiota transplantation (FMT) as salvage therapy for severe, treatment-refractory lower gastrointestinal acute graft-versus-host disease (GI-GVHD) after allo-SCT. The authors sought to determine clinical response, identify factors associated with response, and relate microbiota restoration to changes in ileocolonic mucosal immune cells. The primary endpoint was sustained remission of GI-GVHD 90 days after FMT. Of the 10 patients, four reached the endpoint and were labeled 'responders', five did not reach the endpoint and were labeled 'non-responders', and one patient died before the 90 days. Responders had significantly longer overall and GI-GVHD-related survival. Response occurred only among patients in whom broad-spectrum antibiotics could be withheld for substantial periods. Responders developed donor-like $\alpha$- and $\beta$-diversity, stronger genus-level similarity to donors, and markedly greater predicted donor-microbiota engraftment, whereas nonresponders retained low-diversity dysbiosis. Responders were enriched for anaerobic, predominantly butyrate-producing taxa. At baseline all patients had similar mucosal immune profiles, but post-FMT responders shifted toward fewer CD8+ and Th17 cells and more regulatory T cells and type 3 innate lymphoid cells.
+\par
+
+The human 16S cohort comprised all 10 adults with severe treatment-refractory GI-GVHD who received FMT as well as 14 donor samples that were taken prior to donation. For patients, stool microbiota were profiled before the first FMT (baseline), during the weekly series of up to six FMTs, and after treatment. For cross-sectional $\alpha$- and $\beta$-diversity analyses, the authors used 10 baseline patient samples, the last available post-last-FMT sample from each patient (four responders and six nonresponders/other), and 14 donor samples. The authors compared observed-species $\alpha$-diversity, weighted UniFrac $\beta$-diversity, genus-level correlations, LEfSe-discriminatory taxa, SourceTracker-estimated donor contribution, and samples collected with versus without antibiotic exposure during the preceding seven days to test whether clinical response tracked with donor microbiota engraftment and whether antibiotic use impeded microbiome recovery.
+\par
+
+\subsection{Identified microbial taxa}
+Differences in microbial taxa were analyzed by relative abundance pre-FMT in patients compared to health donors, differential abundance in final post-FMT samples between resonders and non-responders, and identification as a discriminator of non-response by LEfSe. 
+\begin{itemize}
+\item \textit{Enterococcus}: Overabundant in patients before FMT relative to healthy donors. Post-FMT, the two patients had enterococcus domination were in the non-responder group.
+\item \textit{Lactobacillus}: Overabundant in patients before FMT relative to healthy donors. Significantly more abundant in nonresponders than compared to responders. LEfSe identified it as a discriminator of nonresponse.
+\item \textit{Oscillibacter}, \textit{Subdoligranulum}, and \textit{Butyricicoccus} (belonging to family \textit{Ruminococcaceae}), \textit{Blautia}, \textit{Lachnoclostridium}, \textit{Coprobacter}, \textit{Parabacteroides}, \textit{Clostridium} (innocuum group), and \textit{Alistipes}: Responder-associated genera in the LEfSe analysis.
+\begin{itemize}
+    \item The authors describe these responder enriched genera as anaerobes, and point out that Blautia and Ruminococcaceae are butyrate-producing. 
+\end{itemize}
+\item \textit{Campylobacter} and \textit{Staphylococcus}: overabundant in patients before FMT relative to healthy donors in the baseline LEfSe analysis.
+\end{itemize}
+
+\subsection{Processing}
+\begin{itemize}
+
+\item \textbf{Fetch:} SRA reads were fetched from BioProject \texttt{PRJEB39834}.
+\item \textbf{Import:} Reads were imported into QIIME 2 as demultiplexed single-end sequences.
+\item \textbf{Trim:} QIIME 2 cutadapt was used to remove the amplification primers.
+  \begin{itemize}
+  \item Forward primer (515-S3 Fwd): \texttt{TGCCAGCAGCCGCGGTAA}
+  \item Reverse primer (806-S2 Rev): \texttt{GGACTACCAGGGTATCTAAT}
+  \end{itemize}
+\item \textbf{Denoise:} QIIME 2 DADA2 \texttt{denoise-pyro} was used.
+  \begin{itemize}
+  \item \texttt{--p-trunc-len}: 257
+  \item \texttt{--p-trim-left}: 0
+  \item \texttt{--p-max-ee}: 2
+  \item \texttt{--p-trunc-q}: 2
+  \end{itemize}
+\end{itemize}
 
 
 \newpage
