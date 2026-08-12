@@ -1,0 +1,26 @@
+{
+  "research_question": "Does enteral nutrition, compared with parenteral nutrition, support a faster compositional and functional recovery of the gut microbiome in pediatric patients after hematopoietic stem cell transplantation?",
+  "background": "HSCT conditioning and associated treatments can disrupt the intestinal barrier and gut microbiome. Persistent dysbiosis and loss of microbial short-chain fatty acid production may contribute to infection and acute graft-versus-host disease risk. Parenteral nutrition remains common after HSCT but has been associated with infections, metabolic complications, mucosal atrophy, and microbiome alteration; enteral nutrition was evaluated as an alternative that continues to deliver nutrients through the gastrointestinal tract.",
+  "study_design": "Single-center longitudinal observational study with two matched nutritional-regimen groups. Twenty pediatric HSCT recipients were followed from before transplantation through as late as 120 days after HSCT. Ten patients received enteral nutrition for more than 7 days; ten matched patients received total parenteral nutrition or enteral nutrition for fewer than 7 days.",
+  "population": "Twenty pediatric HSCT recipients (supplementary-table ages 1–18 years) with heterogeneous hematologic, immunologic, and genetic diagnoses. Mean age was 9.3 years in the enteral-nutrition group and 10.1 years in the parenteral-nutrition group.",
+  "methods": "A total of 104 fecal samples underwent 16S rRNA V3–V4 amplicon sequencing and 99 samples underwent GC–MS measurement of acetate, propionate, and butyrate. Sequence data were processed with PANDASeq, QIIME2, DADA2, VSEARCH, and Greengenes. Alpha diversity, UniFrac-based PCoA, taxonomic relative abundance, and fecal SCFA concentrations were compared across pre-HSCT, early post-HSCT, and later post-HSCT time windows using nonparametric tests and permutation testing.",
+  "main_findings": [
+    "Both groups lost gut microbiome diversity immediately after HSCT, but the enteral-nutrition group recovered diversity to levels comparable with baseline while the parenteral-nutrition group remained depleted.",
+    "Unweighted UniFrac profiles changed significantly over time in the parenteral-nutrition group (Adonis p=0.001) but did not show a statistically significant dysbiotic shift in the enteral-nutrition group (p=0.063).",
+    "After HSCT, enteral nutrition was associated with preservation or recovery of Lachnospiraceae, Blautia, Dorea, Parabacteroides, Oscillospira, Faecalibacterium, Bacteroidaceae, and Bacteroides, whereas Streptococcus increased in the parenteral-nutrition group.",
+    "No enteral-nutrition patient had a documented bloodstream infection; seven parenteral-nutrition patients had eleven documented bloodstream infections, primarily during days 5–30 after HSCT.",
+    "Total fecal SCFAs fell from 44.0 ± 6.2 to 16.2 ± 2.9 µmol/g in the parenteral-nutrition group (p=0.006), whereas levels were similar before and after HSCT in the enteral-nutrition group (35.0 ± 7.4 vs. 31.9 ± 3.1 µmol/g; p=0.78).",
+    "Post-HSCT butyrate, acetate, and propionate were significantly higher in enteral- than parenteral-nutrition samples.",
+    "Acute graft-versus-host disease occurred in five of ten patients in each nutritional group, although severity differed among individuals."
+  ],
+  "limitations": [
+    "[Extractor appraisal] The cohort was small (20 patients; 10 per group), limiting precision and generalizability.",
+    "[Extractor appraisal] Nutritional regimen was not randomized. Matching reduced but did not eliminate potential confounding by clinical status, tolerance of enteral feeding, diagnosis, treatment, antibiotics, or other factors.",
+    "[Extractor appraisal] This was a single-center pediatric cohort with heterogeneous diagnoses, donor types, stem-cell sources, conditioning regimens, and sample timing.",
+    "[Extractor appraisal] The methods describe Wilcoxon, Kruskal–Wallis, and permutation tests but do not describe a longitudinal mixed-effects model to account explicitly for repeated samples from the same patient.",
+    "[Source caveat] The discussion’s statement about reduced aGvHD severity and fewer local/systemic infections in enteral-nutrition patients cites unpublished observations; the article reports aGvHD occurrence in five of ten patients in each group.",
+    "[Author-noted context] The authors state that some adult studies report conflicting clinical outcomes for enteral nutrition after HSCT."
+  ],
+  "author_conclusion": "The authors conclude that enteral nutrition was associated with prompt structural and functional gut microbiome recovery beginning about 30 days after HSCT, including restoration of health-promoting, SCFA-producing microorganisms and immunomodulatory metabolites, and may reduce local and systemic infection and aGvHD risk.",
+  "practical_takeaway": "In this small nonrandomized pediatric cohort, maintaining nutrition through the gastrointestinal tract was associated with more rapid recovery of microbiome diversity, community structure, and fecal SCFAs than parenteral nutrition. The findings support enteral nutrition as a microbiome-preserving strategy when clinically feasible, but they do not establish causality or prove a reduction in aGvHD incidence."
+}

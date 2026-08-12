@@ -1,0 +1,28 @@
+{
+  "requested_artifacts": [
+    "paper.md",
+    "metadata.json",
+    "paper_summary.json",
+    "figures.json",
+    "tables.json",
+    "claims.json",
+    "entities.json",
+    "citations.json"
+  ],
+  "supporting_files": [
+    "figure_1.png",
+    "figure_2.png",
+    "figure_3.png",
+    "figure_4.png",
+    "figure_s1.png",
+    "supplementary_material.pdf"
+  ],
+  "counts": {
+    "figures": 5,
+    "tables": 2,
+    "claims": 35,
+    "citations": 53,
+    "authors": 16,
+    "participants": 20
+  }
+}

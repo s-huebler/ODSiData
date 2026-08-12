@@ -121,7 +121,7 @@ Result: diff_index — 20/20, same_index — 0, absent — 0
 SUMMARY (N=20): same_index=0 diff_index=20 absent=0
 
 |  |
-|------------------------------------------------------------------------|
+|----|
 | What the analysis did |
 | 1\. Primer trim. The 515F anchor GCCGCGGTAA was found at position 22 in every R1 read (spacer + primer = 22 bp). After trimming, each amplicon was 269 bp. The last 100 bp of each amplicon was taken and reverse-complemented → this is what a genuine R2 mate must contain near its 5' end (after the 806Rb primer prefix). 2. K-mer index. All 4.7 M unique 40-mers in R2 (335,072 reads × \~261 positions) were indexed. 3. K-mer voting. For each R1 query's 61 possible 40-mers, every R2 read that shared k-mers was scored. A genuine mate scores 37–61/61. Unrelated reads score far lower. 4. Sliding-window identity. The best-hit R2 read was aligned against the R1 RC-tail with a 100 bp sliding window. All 20 best hits scored ≥97% identity over 100 bp, well above the 95% threshold. |
 

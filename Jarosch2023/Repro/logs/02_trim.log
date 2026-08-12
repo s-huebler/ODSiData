@@ -1,0 +1,383 @@
+=== Step 2: trim ===
+Wed 12 Aug 2026 05:35:35 PM MDT
+Trimmomatic args : LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Forward primer   : AGRGTTYGATYMTGGCTCAG
+Reverse primer RC: GCCAGCMGCCGCGGTAAT
+Threads          : 4
+
+Found 53 input files.
+
+--- ERR16879144 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879144.fastq.gz /work/data/trimmed/ERR16879144.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 85913 Surviving: 52362 (60.95%) Dropped: 33551 (39.05%)
+TrimmomaticSE: Completed successfully
+raw=85913 trimmomatic=52362 cutadapt=50365
+
+--- ERR16879145 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879145.fastq.gz /work/data/trimmed/ERR16879145.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 104017 Surviving: 72383 (69.59%) Dropped: 31634 (30.41%)
+TrimmomaticSE: Completed successfully
+raw=104017 trimmomatic=72383 cutadapt=70688
+
+--- ERR16879146 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879146.fastq.gz /work/data/trimmed/ERR16879146.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 97338 Surviving: 60601 (62.26%) Dropped: 36737 (37.74%)
+TrimmomaticSE: Completed successfully
+raw=97338 trimmomatic=60601 cutadapt=57022
+
+--- ERR16879147 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879147.fastq.gz /work/data/trimmed/ERR16879147.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 90518 Surviving: 64751 (71.53%) Dropped: 25767 (28.47%)
+TrimmomaticSE: Completed successfully
+raw=90518 trimmomatic=64751 cutadapt=57634
+
+--- ERR16879148 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879148.fastq.gz /work/data/trimmed/ERR16879148.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 33078 Surviving: 22449 (67.87%) Dropped: 10629 (32.13%)
+TrimmomaticSE: Completed successfully
+raw=33078 trimmomatic=22449 cutadapt=20289
+
+--- ERR16879149 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879149.fastq.gz /work/data/trimmed/ERR16879149.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 77757 Surviving: 41322 (53.14%) Dropped: 36435 (46.86%)
+TrimmomaticSE: Completed successfully
+raw=77757 trimmomatic=41322 cutadapt=39146
+
+--- ERR16879150 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879150.fastq.gz /work/data/trimmed/ERR16879150.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 128458 Surviving: 78392 (61.03%) Dropped: 50066 (38.97%)
+TrimmomaticSE: Completed successfully
+raw=128458 trimmomatic=78392 cutadapt=72763
+
+--- ERR16879151 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879151.fastq.gz /work/data/trimmed/ERR16879151.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 68734 Surviving: 34524 (50.23%) Dropped: 34210 (49.77%)
+TrimmomaticSE: Completed successfully
+raw=68734 trimmomatic=34524 cutadapt=33554
+
+--- ERR16879152 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879152.fastq.gz /work/data/trimmed/ERR16879152.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 27874 Surviving: 17695 (63.48%) Dropped: 10179 (36.52%)
+TrimmomaticSE: Completed successfully
+raw=27874 trimmomatic=17695 cutadapt=16440
+
+--- ERR16879153 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879153.fastq.gz /work/data/trimmed/ERR16879153.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 42599 Surviving: 30243 (70.99%) Dropped: 12356 (29.01%)
+TrimmomaticSE: Completed successfully
+raw=42599 trimmomatic=30243 cutadapt=27818
+
+--- ERR16879155 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879155.fastq.gz /work/data/trimmed/ERR16879155.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 26268 Surviving: 14884 (56.66%) Dropped: 11384 (43.34%)
+TrimmomaticSE: Completed successfully
+raw=26268 trimmomatic=14884 cutadapt=14410
+
+--- ERR16879156 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879156.fastq.gz /work/data/trimmed/ERR16879156.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 74578 Surviving: 44640 (59.86%) Dropped: 29938 (40.14%)
+TrimmomaticSE: Completed successfully
+raw=74578 trimmomatic=44640 cutadapt=42791
+
+--- ERR16879157 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879157.fastq.gz /work/data/trimmed/ERR16879157.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 43727 Surviving: 25423 (58.14%) Dropped: 18304 (41.86%)
+TrimmomaticSE: Completed successfully
+raw=43727 trimmomatic=25423 cutadapt=23852
+
+--- ERR16879158 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879158.fastq.gz /work/data/trimmed/ERR16879158.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 79999 Surviving: 57568 (71.96%) Dropped: 22431 (28.04%)
+TrimmomaticSE: Completed successfully
+raw=79999 trimmomatic=57568 cutadapt=53329
+
+--- ERR16879159 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879159.fastq.gz /work/data/trimmed/ERR16879159.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 79473 Surviving: 64233 (80.82%) Dropped: 15240 (19.18%)
+TrimmomaticSE: Completed successfully
+raw=79473 trimmomatic=64233 cutadapt=61739
+
+--- ERR16879160 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879160.fastq.gz /work/data/trimmed/ERR16879160.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 74958 Surviving: 58110 (77.52%) Dropped: 16848 (22.48%)
+TrimmomaticSE: Completed successfully
+raw=74958 trimmomatic=58110 cutadapt=56963
+
+--- ERR16879161 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879161.fastq.gz /work/data/trimmed/ERR16879161.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 90893 Surviving: 55109 (60.63%) Dropped: 35784 (39.37%)
+TrimmomaticSE: Completed successfully
+raw=90893 trimmomatic=55109 cutadapt=51898
+
+--- ERR16879162 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879162.fastq.gz /work/data/trimmed/ERR16879162.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 37154 Surviving: 23976 (64.53%) Dropped: 13178 (35.47%)
+TrimmomaticSE: Completed successfully
+raw=37154 trimmomatic=23976 cutadapt=21722
+
+--- ERR16879164 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879164.fastq.gz /work/data/trimmed/ERR16879164.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 62145 Surviving: 32388 (52.12%) Dropped: 29757 (47.88%)
+TrimmomaticSE: Completed successfully
+raw=62145 trimmomatic=32388 cutadapt=31352
+
+--- ERR16879165 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879165.fastq.gz /work/data/trimmed/ERR16879165.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 69132 Surviving: 37685 (54.51%) Dropped: 31447 (45.49%)
+TrimmomaticSE: Completed successfully
+raw=69132 trimmomatic=37685 cutadapt=35027
+
+--- ERR16879166 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879166.fastq.gz /work/data/trimmed/ERR16879166.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 39981 Surviving: 14686 (36.73%) Dropped: 25295 (63.27%)
+TrimmomaticSE: Completed successfully
+raw=39981 trimmomatic=14686 cutadapt=14252
+
+--- ERR16879167 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879167.fastq.gz /work/data/trimmed/ERR16879167.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 78671 Surviving: 59721 (75.91%) Dropped: 18950 (24.09%)
+TrimmomaticSE: Completed successfully
+raw=78671 trimmomatic=59721 cutadapt=55025
+
+--- ERR16879168 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879168.fastq.gz /work/data/trimmed/ERR16879168.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 66440 Surviving: 49041 (73.81%) Dropped: 17399 (26.19%)
+TrimmomaticSE: Completed successfully
+raw=66440 trimmomatic=49041 cutadapt=47712
+
+--- ERR16879169 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879169.fastq.gz /work/data/trimmed/ERR16879169.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 94979 Surviving: 58474 (61.57%) Dropped: 36505 (38.43%)
+TrimmomaticSE: Completed successfully
+raw=94979 trimmomatic=58474 cutadapt=56214
+
+--- ERR16879171 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879171.fastq.gz /work/data/trimmed/ERR16879171.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 80865 Surviving: 53772 (66.50%) Dropped: 27093 (33.50%)
+TrimmomaticSE: Completed successfully
+raw=80865 trimmomatic=53772 cutadapt=49529
+
+--- ERR16879172 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879172.fastq.gz /work/data/trimmed/ERR16879172.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 75251 Surviving: 47963 (63.74%) Dropped: 27288 (36.26%)
+TrimmomaticSE: Completed successfully
+raw=75251 trimmomatic=47963 cutadapt=43924
+
+--- ERR16879173 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879173.fastq.gz /work/data/trimmed/ERR16879173.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 39571 Surviving: 27418 (69.29%) Dropped: 12153 (30.71%)
+TrimmomaticSE: Completed successfully
+raw=39571 trimmomatic=27418 cutadapt=26164
+
+--- ERR16879174 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879174.fastq.gz /work/data/trimmed/ERR16879174.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 37833 Surviving: 27046 (71.49%) Dropped: 10787 (28.51%)
+TrimmomaticSE: Completed successfully
+raw=37833 trimmomatic=27046 cutadapt=24073
+
+--- ERR16879175 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879175.fastq.gz /work/data/trimmed/ERR16879175.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 66922 Surviving: 46868 (70.03%) Dropped: 20054 (29.97%)
+TrimmomaticSE: Completed successfully
+raw=66922 trimmomatic=46868 cutadapt=43217
+
+--- ERR16879176 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879176.fastq.gz /work/data/trimmed/ERR16879176.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 104524 Surviving: 84288 (80.64%) Dropped: 20236 (19.36%)
+TrimmomaticSE: Completed successfully
+raw=104524 trimmomatic=84288 cutadapt=81660
+
+--- ERR16879177 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879177.fastq.gz /work/data/trimmed/ERR16879177.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 46646 Surviving: 30295 (64.95%) Dropped: 16351 (35.05%)
+TrimmomaticSE: Completed successfully
+raw=46646 trimmomatic=30295 cutadapt=28959
+
+--- ERR16879178 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879178.fastq.gz /work/data/trimmed/ERR16879178.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 51066 Surviving: 35562 (69.64%) Dropped: 15504 (30.36%)
+TrimmomaticSE: Completed successfully
+raw=51066 trimmomatic=35562 cutadapt=33598
+
+--- ERR16879179 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879179.fastq.gz /work/data/trimmed/ERR16879179.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 64402 Surviving: 36028 (55.94%) Dropped: 28374 (44.06%)
+TrimmomaticSE: Completed successfully
+raw=64402 trimmomatic=36028 cutadapt=35370
+
+--- ERR16879180 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879180.fastq.gz /work/data/trimmed/ERR16879180.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 26255 Surviving: 16569 (63.11%) Dropped: 9686 (36.89%)
+TrimmomaticSE: Completed successfully
+raw=26255 trimmomatic=16569 cutadapt=15144
+
+--- ERR16879181 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879181.fastq.gz /work/data/trimmed/ERR16879181.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 41819 Surviving: 26796 (64.08%) Dropped: 15023 (35.92%)
+TrimmomaticSE: Completed successfully
+raw=41819 trimmomatic=26796 cutadapt=24751
+
+--- ERR16879182 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879182.fastq.gz /work/data/trimmed/ERR16879182.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 51467 Surviving: 25722 (49.98%) Dropped: 25745 (50.02%)
+TrimmomaticSE: Completed successfully
+raw=51467 trimmomatic=25722 cutadapt=25205
+
+--- ERR16879183 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879183.fastq.gz /work/data/trimmed/ERR16879183.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 60638 Surviving: 37872 (62.46%) Dropped: 22766 (37.54%)
+TrimmomaticSE: Completed successfully
+raw=60638 trimmomatic=37872 cutadapt=37145
+
+--- ERR16879184 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879184.fastq.gz /work/data/trimmed/ERR16879184.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 58569 Surviving: 26902 (45.93%) Dropped: 31667 (54.07%)
+TrimmomaticSE: Completed successfully
+raw=58569 trimmomatic=26902 cutadapt=26424
+
+--- ERR16879185 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879185.fastq.gz /work/data/trimmed/ERR16879185.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 71366 Surviving: 42958 (60.19%) Dropped: 28408 (39.81%)
+TrimmomaticSE: Completed successfully
+raw=71366 trimmomatic=42958 cutadapt=40947
+
+--- ERR16879187 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879187.fastq.gz /work/data/trimmed/ERR16879187.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 21960 Surviving: 14874 (67.73%) Dropped: 7086 (32.27%)
+TrimmomaticSE: Completed successfully
+raw=21960 trimmomatic=14874 cutadapt=12734
+
+--- ERR16879188 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879188.fastq.gz /work/data/trimmed/ERR16879188.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 171970 Surviving: 93527 (54.39%) Dropped: 78443 (45.61%)
+TrimmomaticSE: Completed successfully
+raw=171970 trimmomatic=93527 cutadapt=91770
+
+--- ERR16879189 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879189.fastq.gz /work/data/trimmed/ERR16879189.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 18946 Surviving: 11116 (58.67%) Dropped: 7830 (41.33%)
+TrimmomaticSE: Completed successfully
+raw=18946 trimmomatic=11116 cutadapt=10329
+
+--- ERR16879190 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879190.fastq.gz /work/data/trimmed/ERR16879190.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 36865 Surviving: 21579 (58.54%) Dropped: 15286 (41.46%)
+TrimmomaticSE: Completed successfully
+raw=36865 trimmomatic=21579 cutadapt=20021
+
+--- ERR16879191 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879191.fastq.gz /work/data/trimmed/ERR16879191.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 46238 Surviving: 29388 (63.56%) Dropped: 16850 (36.44%)
+TrimmomaticSE: Completed successfully
+raw=46238 trimmomatic=29388 cutadapt=29016
+
+--- ERR16879192 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879192.fastq.gz /work/data/trimmed/ERR16879192.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 53898 Surviving: 33102 (61.42%) Dropped: 20796 (38.58%)
+TrimmomaticSE: Completed successfully
+raw=53898 trimmomatic=33102 cutadapt=31992
+
+--- ERR16879193 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879193.fastq.gz /work/data/trimmed/ERR16879193.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 27022 Surviving: 11248 (41.63%) Dropped: 15774 (58.37%)
+TrimmomaticSE: Completed successfully
+raw=27022 trimmomatic=11248 cutadapt=10980
+
+--- ERR16879194 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879194.fastq.gz /work/data/trimmed/ERR16879194.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 58040 Surviving: 34780 (59.92%) Dropped: 23260 (40.08%)
+TrimmomaticSE: Completed successfully
+raw=58040 trimmomatic=34780 cutadapt=33270
+
+--- ERR16879195 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879195.fastq.gz /work/data/trimmed/ERR16879195.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 47420 Surviving: 31304 (66.01%) Dropped: 16116 (33.99%)
+TrimmomaticSE: Completed successfully
+raw=47420 trimmomatic=31304 cutadapt=30806
+
+--- ERR16879196 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879196.fastq.gz /work/data/trimmed/ERR16879196.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 43664 Surviving: 29582 (67.75%) Dropped: 14082 (32.25%)
+TrimmomaticSE: Completed successfully
+raw=43664 trimmomatic=29582 cutadapt=29151
+
+--- ERR16879197 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879197.fastq.gz /work/data/trimmed/ERR16879197.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 43098 Surviving: 27349 (63.46%) Dropped: 15749 (36.54%)
+TrimmomaticSE: Completed successfully
+raw=43098 trimmomatic=27349 cutadapt=26901
+
+--- ERR16879198 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879198.fastq.gz /work/data/trimmed/ERR16879198.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 42107 Surviving: 26403 (62.70%) Dropped: 15704 (37.30%)
+TrimmomaticSE: Completed successfully
+raw=42107 trimmomatic=26403 cutadapt=26029
+
+--- ERR16879199 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879199.fastq.gz /work/data/trimmed/ERR16879199.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 44799 Surviving: 25910 (57.84%) Dropped: 18889 (42.16%)
+TrimmomaticSE: Completed successfully
+raw=44799 trimmomatic=25910 cutadapt=25412
+
+--- ERR16879200 ---
+TrimmomaticSE: Started with arguments:
+ -threads 4 -phred33 /work/data/raw/ERR16879200.fastq.gz /work/data/trimmed/ERR16879200.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+Input Reads: 40224 Surviving: 26593 (66.11%) Dropped: 13631 (33.89%)
+TrimmomaticSE: Completed successfully
+raw=40224 trimmomatic=26593 cutadapt=26094
+
+=== done ===
+Per-sample read survival written to /work/results/02_cutadapt_summary.tsv
+Wed 12 Aug 2026 05:38:05 PM MDT

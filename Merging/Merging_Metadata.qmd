@@ -56,18 +56,17 @@ Each block reads a study's parsed metadata (produced by that study's `Parsing_me
 Overall aGVHD only (`agvhd` / `agvhd_organ`), no gut-specific staging, so `gut_gvhd*` are left blank. Donors have no disease -\> set to "none".
 
 ```{r}
-liu <- read_tsv("~/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv") %>%
-  transmute(
-    `sample-id` = ID,
-    study       = "Liu2017",
-    person      = host_subject_id,
-    sex         = sex,
-    age         = age,
-    disease     = if_else(donor_or_patient == "Donor", "none", disease),
-    death       = deceased,
-    relapse     = relapsed
-  ) %>%
-  to_schema()
+liu <- read_tsv("~/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv") 
+  # transmute(
+  #   `sample-id` = ID,
+  #   study       = "Liu2017",
+  #   person      = host_subject_id,
+  #   sex         = sex,
+  #   age         = age,
+  #   disease     = if_else(donor_or_patient == "Donor", "none", disease),
+  #   death       = deceased,
+  #   relapse     = relapsed
+  # ) 
 ```
 
 ## Fujimoto2024
@@ -75,17 +74,17 @@ liu <- read_tsv("~/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv")
 Overall aGVHD only (`AGVHD`), no gut-specific staging. `Timepoint` is a sampling label ("pre", "day0", "day14", ...); parse the numeric day relative to transplant ("pre" -\> NA).
 
 ```{r}
-fuji <- read_tsv("~/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv") %>%
-  transmute(
-    `sample-id`                = `sample-id`,
-    study                      = "Fujimoto2024",
-    person                     = Patient,
-    sex                        = Sex,
-    age                        = Age,
-    disease                    = Disease,
-    sample_time_rel_transplant = suppressWarnings(as.numeric(str_remove(Timepoint, "day")))
-  ) %>%
-  to_schema()
+fuji <- read_tsv("~/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv") #%>%
+  # transmute(
+  #   `sample-id`                = `sample-id`,
+  #   study                      = "Fujimoto2024",
+  #   person                     = Patient,
+  #   sex                        = Sex,
+  #   age                        = Age,
+  #   disease                    = Disease,
+  #   sample_time_rel_transplant = suppressWarnings(as.numeric(str_remove(Timepoint, "day")))
+  # ) %>%
+  # to_schema()
 ```
 
 ## Artacho2024
@@ -93,21 +92,21 @@ fuji <- read_tsv("~/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiim
 Has gut-specific GVHD grade (`gut_gvhd_grade`). `Timepoint` is days relative to transplant.
 
 ```{r}
-artacho <- read_tsv("~/Documents/ODSi/ODSiData/Artacho2024/Metadata/artacho_meta_qiime.tsv") %>%
-  transmute(
-    `sample-id`                = `sample-id`,
-    study                      = "Artacho2024",
-    person                     = Patient,
-    sex                        = Gender,
-    age                        = Age,
-    disease                    = Disease,
-    gut_gvhd                   = case_when(is.na(gut_gvhd_grade) ~ NA_real_,
-                                           gut_gvhd_grade > 0     ~ 1,
-                                           TRUE                   ~ 0),
-    gut_gvhd_stage             = gut_gvhd_grade,
-    sample_time_rel_transplant = Timepoint
-  ) %>%
-  to_schema()
+artacho <- read_tsv("~/Documents/ODSi/ODSiData/Artacho2024/Metadata/artacho_meta_qiime.tsv") #%>%
+  # transmute(
+  #   `sample-id`                = `sample-id`,
+  #   study                      = "Artacho2024",
+  #   person                     = Patient,
+  #   sex                        = Gender,
+  #   age                        = Age,
+  #   disease                    = Disease,
+  #   gut_gvhd                   = case_when(is.na(gut_gvhd_grade) ~ NA_real_,
+  #                                          gut_gvhd_grade > 0     ~ 1,
+  #                                          TRUE                   ~ 0),
+  #   gut_gvhd_stage             = gut_gvhd_grade,
+  #   sample_time_rel_transplant = Timepoint
+  # ) %>%
+  # to_schema()
 ```
 
 ## Ingham2019
@@ -115,24 +114,24 @@ artacho <- read_tsv("~/Documents/ODSi/ODSiData/Artacho2024/Metadata/artacho_meta
 No gut-specific GVHD (overall `agvhd`/`agvhd_grade` only), so `gut_gvhd*` blank. Rich outcome data: death, cause of death, time-to-event, relapse. Dates are kept as raw strings; `timepoint` is days post-transplant. Note `sex` is coded 1/2 and `age` carries decimals — harmonize later.
 
 ```{r}
-ingham <- read_tsv("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/ingham_meta_qiime.tsv") %>%
-  transmute(
-    `sample-id`                 = `sample-id`,
-    study                       = "Ingham2019",
-    person                      = patient,
-    sex                         = sex,
-    age                         = age,
-    disease                     = disease,
-    transplant_day              = transplant_date,
-    sample_day                  = sampling_date,
-    sample_time_rel_transplant  = timepoint,
-    death                       = death,
-    cause_of_death              = cause_of_death,
-    death_time_rel_transplant   = tte_death,
-    relapse                     = relapse,
-    relapse_time_rel_transplant = tte_relapse
-  ) %>%
-  to_schema()
+ingham <- read_tsv("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/ingham_meta_qiime.tsv") #%>%
+  # transmute(
+  #   `sample-id`                 = `sample-id`,
+  #   study                       = "Ingham2019",
+  #   person                      = patient,
+  #   sex                         = sex,
+  #   age                         = age,
+  #   disease                     = disease,
+  #   transplant_day              = transplant_date,
+  #   sample_day                  = sampling_date,
+  #   sample_time_rel_transplant  = timepoint,
+  #   death                       = death,
+  #   cause_of_death              = cause_of_death,
+  #   death_time_rel_transplant   = tte_death,
+  #   relapse                     = relapse,
+  #   relapse_time_rel_transplant = tte_relapse
+  # ) %>%
+  # to_schema()
 ```
 
 ## Vallet2023

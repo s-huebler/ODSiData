@@ -21,7 +21,9 @@ clinical16S <- clinical %>%
 No way to link, requires calculating alpha diversity to try to match to meta_clinical.
 
 ```{r}
-alpha_import <- clinical16S %>% select(Patient, Richness, Simpson, Shannon)%>%distinct()
+alpha_import <- clinical16S %>% 
+  select(Patient, day = `d after aHSCT`,Richness, Simpson, Shannon)%>%
+  distinct()
 ```
 
 ```{r}

@@ -30,10 +30,10 @@ liu_samples <- liu_samples_raw %>%
   left_join(liu_ena_raw %>%
               select(Run = run_accession, sample_accession),
              by = "Run")%>%
-  mutate(ID = `BioSample`)%>%
+  mutate(`sample-id` = `BioSample`)%>%
   select(
     # Identifications
-    ID,
+    `sample-id`,
     #Project,
     BioSample,
     `Library Name`,
@@ -51,65 +51,65 @@ liu_samples <- liu_samples_raw %>%
     age = AGE,
     race,
     sex,
-    #aborh,
-    #BMI,
+    aborh,
+    BMI,
     
     ## Medical History
     disease,
-    # disease_status_at_transplant,
-    # infection_prior_to_transplant,
-    # other_viruses,
-    # gi_history_details,
+     disease_status_at_transplant,
+     infection_prior_to_transplant,
+     other_viruses,
+     gi_history_details,
     # 
     # ## Donor Information
-    # donor_source,
-    # donor_type,
+     donor_source,
+     donor_type,
     # 
     # ## Treatments
-    # chemotherapy_regimen,
-    # conditioning_intensity,
-    # cyclosporine,
-    # cytogenetics,
-    # methotrexate,
-    # mmf,
-    # sirolimus,
-    # tacrolimus,
+     chemotherapy_regimen,
+     conditioning_intensity,
+     cyclosporine,
+     cytogenetics,
+     methotrexate,
+     mmf,
+     sirolimus,
+     tacrolimus,
     
     # Outcomes
-    #right_censor_time,
+    right_censor_time,
     
     ## Death
     deceased,
-    #etiology_of_death,
-    #time_to_death,
+    etiology_of_death,
+    time_to_death,
     
     ## Relapse
     relapsed,
-    #days_at_relapse,
+    days_at_relapse,
     
     # ## Platelet Engraftment
-    # platelet_engrafment,
-    # days_to_platelet_engrafment,
+     platelet_engrafment,
+     days_to_platelet_engrafment,
     # 
     # ## ANC Engraftment
-    # anc_engrafment,
-    # days_to_anc_engrafment,
+     anc_engrafment,
+     days_to_anc_engrafment,
      
     # ## AGVHD
-    #agvhd
+    #agvhd,
      agvhd_organ,
-    # agvhd_severity,
-    # agvhd_gut,
-    # time_to_agvhd,
+     agvhd_severity,
+     agvhd_gut,
+     time_to_agvhd,
     # 
     # ## CGVHD
-    # cgvhd_severity,
-    # time_to_cgvhd,
+     cgvhd_severity,
+     time_to_cgvhd,
     
   
     # ## Infection
-    # infection_duringafter_transplant,
-    # infection_details,
+     infection_duringafter_transplant,
+     infection_details,
     # 
     # # PB
     # pb_cd3_day_30,

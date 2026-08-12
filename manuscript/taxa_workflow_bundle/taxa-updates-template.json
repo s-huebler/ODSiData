@@ -1,0 +1,39 @@
+{
+  "lineage_updates": [
+    {
+      "lineage": "taxLineExistingTaxon",
+      "rank": "Order",
+      "value": "AlternativeOrderFromNewPaper"
+    }
+  ],
+  "lineages": [
+    {
+      "name": "taxLineExampleGenusExampleSpecies",
+      "ranks": [
+        {"rank": "Domain", "value": "Bacteria"},
+        {"rank": "Phylum", "value": "Examplephylum"},
+        {"rank": "Class", "value": "Exampleclass"},
+        {"rank": "Order", "value": "Exampleorder"},
+        {"rank": "Family", "value": "Examplefamily"},
+        {"rank": "Genus", "value": "Examplegenus"},
+        {"rank": "Species", "value": "Examplegenus examplespecies"}
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "name": "taxExampleGenusExampleSpecies",
+      "rank": "Species",
+      "display_tex": "\\textit{Examplegenus examplespecies}",
+      "bookmark_text": "Examplegenus examplespecies",
+      "lineage": "taxLineExampleGenusExampleSpecies"
+    },
+    {
+      "name": "taxEexamplespecies",
+      "rank": "Species",
+      "display_tex": "\\textit{E. examplespecies}",
+      "bookmark_text": "E. examplespecies",
+      "lineage": "taxLineExampleGenusExampleSpecies"
+    }
+  ]
+}

@@ -1,0 +1,430 @@
+[
+  {
+    "claim_id": "C001",
+    "claim": "Gut microbiome diversity decreased from pre-HSCT to the early post-HSCT/HSCT time point in both nutritional groups.",
+    "evidence": "“Both measures indicated, for EN and PN patients, a reduction in GM diversity from pre-HSCT to HSCT samples.”",
+    "location": "Results, Section 3.1",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 2"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C002",
+    "claim": "Parenteral-nutrition patients maintained low gut microbiome diversity in later post-HSCT samples.",
+    "evidence": "PRE_P vs. POST_P: observed ASVs p=0.05; Faith’s PD p=0.13; the post-HSCT PN boxplots remain below baseline.",
+    "location": "Results, Section 3.1",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 2"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C003",
+    "claim": "Enteral-nutrition patients recovered gut microbiome diversity to a level comparable with pre-HSCT samples.",
+    "evidence": "PRE_E vs. POST_E: observed ASVs p=0.44; Faith’s PD p=0.25.",
+    "location": "Results, Section 3.1",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 2"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C004",
+    "claim": "The post-HSCT trajectory of gut microbiome diversity differed between enteral- and parenteral-nutrition patients.",
+    "evidence": "POST_E vs. POST_P: observed ASVs p=0.01; Faith’s PD p=0.23.",
+    "location": "Results, Section 3.1",
+    "confidence": "high",
+    "claim_type": "association",
+    "supporting_figures": [
+      "Figure 2"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C005",
+    "claim": "Parenteral-nutrition patients showed a significant longitudinal shift in unweighted-UniFrac community structure after HSCT.",
+    "evidence": "Permutation test with pseudo-F ratios (Adonis), p=0.001.",
+    "location": "Results, Section 3.1",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 2"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C006",
+    "claim": "The overall gut microbiome layout in enteral-nutrition patients did not show a statistically significant dysbiotic shift following HSCT.",
+    "evidence": "For EN, the reported overall shift had p=0.063.",
+    "location": "Results, Section 3.1",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 2"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C007",
+    "claim": "Enteral- and parenteral-nutrition groups did not differ significantly in phylum- or family-level composition at baseline or the HSCT time point.",
+    "evidence": "“The GM composition analysis conducted at both the phylum and family level did not highlight any significant difference between EN and PN groups at the baseline ... as well as the HSCT time points.”",
+    "location": "Results, Section 3.2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure S1"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C008",
+    "claim": "Both nutritional groups underwent profound gut microbiome rearrangement at the HSCT time point.",
+    "evidence": "The Results describe HSCT samples in both groups as characterized by “profound rearrangements of the GM structure.”",
+    "location": "Results, Section 3.2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure S1"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C009",
+    "claim": "Post-HSCT gut microbiome composition diverged from baseline in parenteral-nutrition patients but not significantly in enteral-nutrition patients.",
+    "evidence": "The Results state that core families and genera varied significantly pre- to post-HSCT in PN patients, whereas EN composition showed no significant divergence.",
+    "location": "Results, Section 3.2",
+    "confidence": "high",
+    "claim_type": "association",
+    "supporting_figures": [
+      "Figure 3",
+      "Figure S1"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C010",
+    "claim": "Lachnospiraceae relative abundance remained stable after HSCT in enteral-nutrition patients and decreased in parenteral-nutrition patients.",
+    "evidence": "POST_E vs. POST_P p=0.003.",
+    "location": "Results, Section 3.2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 3"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C011",
+    "claim": "Blautia and Dorea were more represented post-HSCT in enteral- than parenteral-nutrition patients.",
+    "evidence": "Blautia p=0.036; Dorea p=0.008.",
+    "location": "Results, Section 3.2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 3"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C012",
+    "claim": "Parabacteroides and Oscillospira were more represented post-HSCT in enteral- than parenteral-nutrition patients.",
+    "evidence": "Parabacteroides p=0.03; Oscillospira p=0.03.",
+    "location": "Results, Section 3.2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 3"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C013",
+    "claim": "Faecalibacterium decreased significantly from baseline only in parenteral-nutrition patients.",
+    "evidence": "“Faecalibacterium significantly decreased in post-HSCT samples, compared to the baseline, only in PN patients.”",
+    "location": "Results, Section 3.2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 3"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C014",
+    "claim": "Bacteroidaceae and Bacteroides were more abundant post-HSCT in enteral- than parenteral-nutrition patients.",
+    "evidence": "Bacteroidaceae p=0.009; Bacteroides p=0.008.",
+    "location": "Results, Section 3.2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 3"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C015",
+    "claim": "Streptococcus relative abundance increased after transplantation in parenteral-nutrition patients but not in enteral-nutrition patients.",
+    "evidence": "PRE_P vs. POST_P p=0.03; no significant difference was reported in EN-fed subjects.",
+    "location": "Results, Section 3.2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 3"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C016",
+    "claim": "No enteral-nutrition patient had a documented bloodstream infection, whereas seven parenteral-nutrition patients developed eleven documented bloodstream infections.",
+    "evidence": "The Results report 0 BSI in EN and 11 BSI in 7 PN-treated patients.",
+    "location": "Results, Section 3.2; Supplementary Table S2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [],
+    "supporting_tables": [
+      "Table S2"
+    ]
+  },
+  {
+    "claim_id": "C017",
+    "claim": "The reported bloodstream infections in the parenteral group were most often attributed to Staphylococcus, Enterococcus, and Streptococcus and occurred mainly from days 5 to 30 after HSCT.",
+    "evidence": "Staphylococcus 36.4%, Enterococcus 18.2%, Streptococcus 18.2%; infections were mostly identified from day 5 to day 30 post-HSCT.",
+    "location": "Results, Section 3.2; Supplementary Table S2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [],
+    "supporting_tables": [
+      "Table S2"
+    ]
+  },
+  {
+    "claim_id": "C018",
+    "claim": "Total fecal SCFA concentration decreased significantly after HSCT in parenteral-nutrition patients.",
+    "evidence": "PRE_P 44.0 ± 6.2 vs. POST_P 16.2 ± 2.9 µmol/g; p=0.006.",
+    "location": "Results, Section 3.3",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 4"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C019",
+    "claim": "Total fecal SCFA concentration was comparable before and after HSCT in enteral-nutrition patients.",
+    "evidence": "PRE_E 35.0 ± 7.4 vs. POST_E 31.9 ± 3.1 µmol/g; p=0.78.",
+    "location": "Results, Section 3.3",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 4"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C020",
+    "claim": "Post-HSCT enteral-nutrition samples contained higher butyrate, acetate, and propionate than post-HSCT parenteral-nutrition samples.",
+    "evidence": "Butyrate p=0.01; acetate p=0.005; propionate p=0.005.",
+    "location": "Results, Section 3.3",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 4"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C021",
+    "claim": "Butyrate and acetate decreased significantly from pre- to post-HSCT in parenteral-nutrition patients; the propionate decrease did not meet the stated p≤0.05 threshold.",
+    "evidence": "Butyrate p=0.01; acetate p=0.009; propionate p=0.08.",
+    "location": "Results, Section 3.3",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 4"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C022",
+    "claim": "The authors interpret enteral nutrition as supporting structural and functional gut microbiome recovery beginning about 30 days after HSCT.",
+    "evidence": "The Discussion states that EN-fed subjects recovered a pre-transplant-like structure starting from 30 days post-HSCT and that SCFAs were restored between 30 and 120 days.",
+    "location": "Discussion",
+    "confidence": "moderate",
+    "claim_type": "interpretation",
+    "supporting_figures": [
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure S1"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C023",
+    "claim": "The authors propose that enteral nutrition may reduce local and systemic infection and aGvHD risk by preserving a eubiotic, SCFA-producing microbiome.",
+    "evidence": "The conclusion uses cautious language: “possibly reducing the risk of local and systemic infections and aGvHD onset.”",
+    "location": "Discussion, concluding paragraph",
+    "confidence": "low",
+    "claim_type": "hypothesis",
+    "supporting_figures": [
+      "Figure 2",
+      "Figure 3",
+      "Figure 4"
+    ],
+    "supporting_tables": [
+      "Table S2"
+    ]
+  },
+  {
+    "claim_id": "C024",
+    "claim": "Acute graft-versus-host disease occurred in five of ten patients in each nutritional group.",
+    "evidence": "“For both nutritional groups, five out of ten patients developed acute graft-versus-host disease (aGvHD) at different grades of severity.”",
+    "location": "Methods, Section 2.1; Supplementary Table S2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 1"
+    ],
+    "supporting_tables": [
+      "Table S2"
+    ]
+  },
+  {
+    "claim_id": "C025",
+    "claim": "All enrolled patients experienced febrile neutropenia and received ceftazidime as first-line antibiotic therapy.",
+    "evidence": "This is stated directly in Methods Section 2.1.",
+    "location": "Methods, Section 2.1",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C026",
+    "claim": "The study analyzed 104 fecal samples by 16S rRNA sequencing and 99 fecal samples for SCFAs.",
+    "evidence": "The sample counts are stated in the Results and Methods.",
+    "location": "Methods, Sections 2.1 and 2.4; Results",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [
+      "Figure 1"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C027",
+    "claim": "The enteral product listed in Supplementary Table S1 contained 0 g dietary fibre per 100 g of product.",
+    "evidence": "Supplementary Table S1: “Dietary Fibre (0 En%) 0 g.”",
+    "location": "Supplementary Table S1",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [],
+    "supporting_tables": [
+      "Table S1"
+    ]
+  },
+  {
+    "claim_id": "C028",
+    "claim": "Nineteen patients were alive at day +100 and one parenteral-group patient (P6) was deceased.",
+    "evidence": "Supplementary Table S2 records outcome “a” for 19 subjects and “d” for P6.",
+    "location": "Supplementary Table S2",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [],
+    "supporting_tables": [
+      "Table S2"
+    ]
+  },
+  {
+    "claim_id": "C029",
+    "claim": "The parenteral group was selected to match the enteral group on age, stem-cell source, disease type, and conditioning regimen.",
+    "evidence": "This matching procedure is stated in Methods Section 2.1.",
+    "location": "Methods, Section 2.1",
+    "confidence": "high",
+    "claim_type": "finding",
+    "supporting_figures": [],
+    "supporting_tables": [
+      "Table S2"
+    ]
+  },
+  {
+    "claim_id": "C030",
+    "claim": "The study exposure was observational rather than randomized, so the reported EN–PN differences do not by themselves establish causality.",
+    "evidence": "Patients were clustered by the feeding procedure used after transplant and PN patients were matched to EN patients; no random allocation is described.",
+    "location": "Methods, Section 2.1",
+    "confidence": "high",
+    "claim_type": "limitation",
+    "supporting_figures": [],
+    "supporting_tables": [
+      "Table S2"
+    ]
+  },
+  {
+    "claim_id": "C031",
+    "claim": "The authors’ statement that enteral nutrition reduced aGvHD severity and local/systemic infections relies in part on unpublished observations.",
+    "evidence": "The Discussion cites “[unpublished observations]” immediately after this clinical statement.",
+    "location": "Discussion",
+    "confidence": "high",
+    "claim_type": "limitation",
+    "supporting_figures": [],
+    "supporting_tables": [
+      "Table S2"
+    ]
+  },
+  {
+    "claim_id": "C032",
+    "claim": "Published adult studies have reported conflicting clinical outcomes for enteral nutrition after HSCT.",
+    "evidence": "The Discussion explicitly states that other studies provide conflicting results for clinical outcomes of EN in adult HSCT patients.",
+    "location": "Discussion",
+    "confidence": "moderate",
+    "claim_type": "interpretation",
+    "supporting_figures": [],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C033",
+    "claim": "The authors hypothesize that prolonged gut microbiome dysbiosis after HSCT increases innate immune activation and systemic infection risk, contributing to aGvHD.",
+    "evidence": "This mechanistic relationship is presented in the Introduction with citations [8,9].",
+    "location": "Introduction",
+    "confidence": "moderate",
+    "claim_type": "hypothesis",
+    "supporting_figures": [],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C034",
+    "claim": "The authors describe acetate, propionate, and butyrate as anti-inflammatory and antimicrobial metabolites that strengthen the epithelial barrier and regulate host metabolic homeostasis.",
+    "evidence": "This background claim is stated in the Introduction with citations [12–15].",
+    "location": "Introduction",
+    "confidence": "moderate",
+    "claim_type": "interpretation",
+    "supporting_figures": [
+      "Figure 4"
+    ],
+    "supporting_tables": []
+  },
+  {
+    "claim_id": "C035",
+    "claim": "The article’s title and conclusion use causal language that enteral nutrition “promotes” gut microbiome homeostasis, but the study design provides associative evidence.",
+    "evidence": "The title states “Promotes,” while Methods describe nonrandom group assignment and matching.",
+    "location": "Title; Methods; Discussion",
+    "confidence": "high",
+    "claim_type": "limitation",
+    "supporting_figures": [
+      "Figure 2",
+      "Figure 3",
+      "Figure 4"
+    ],
+    "supporting_tables": [
+      "Table S2"
+    ]
+  }
+]

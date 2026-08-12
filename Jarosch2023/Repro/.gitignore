@@ -1,0 +1,12 @@
+# Sequence data — regenerate with scripts/01_download.sh
+data/raw/*.fastq*
+data/trimmed/
+data/cutadapt/
+data/filtered/
+
+# Keep the ENA manifest, it's small and pins exactly which files we pulled
+!data/raw/filereport.tsv
+
+# Large intermediates
+results/*.rds
+logs/cutadapt_*.txt

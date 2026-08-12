@@ -1,0 +1,153 @@
+[
+  {
+    "figure_id": "Figure 1",
+    "title": "General representation of fecal sampling for each enrolled subject",
+    "caption": "Figure 1. General representation of the fecal sampling for each enrolled subject. On the top of the figure are depicted the ten patients that followed EN (enteral nutrition), while at the bottom are highlighted the ten subjects treated with PN (parenteral nutrition). Diamonds indicate each individual fecal sample taken pre and post-transplant. Hematopoietic stem cell transplantation (HSCT) is indicated by the vertical line in the graph and the moment of the eventual acute graft-versus-host disease (aGvHD) occurrence is reported with a red star. The bars below each subject’s timeline indicate the type and the length of the nutritional regimen followed: blue bars indicate EN and red bars indicate PN.",
+    "figure_type": "Longitudinal subject timeline / sampling schedule",
+    "summary": "Two stacked timeline panels show the ten enteral-nutrition subjects (E10–E1) above and the ten parenteral-nutrition subjects (P10–P1) below. Diamonds mark individual fecal samples across days before and after HSCT, a dashed vertical line marks transplantation at day 0, red stars mark aGvHD onset, and colored horizontal bars show the nutritional regimen and its duration.",
+    "variables_shown": [
+      "Subject identifier",
+      "Days relative to HSCT",
+      "Fecal sampling time points",
+      "Nutritional regimen",
+      "Nutritional-regimen duration",
+      "aGvHD occurrence time"
+    ],
+    "key_findings": [
+      "Sampling density and follow-up duration varied by subject.",
+      "Both groups contributed pre-HSCT and multiple post-HSCT samples.",
+      "aGvHD events occurred in both nutritional groups."
+    ],
+    "important_values": [
+      "20 subjects total",
+      "10 enteral-nutrition subjects",
+      "10 parenteral-nutrition subjects",
+      "Follow-up shown through day 120 post-HSCT"
+    ],
+    "interpretation_notes": "The figure describes study timing and exposure rather than estimating an effect. The exact number of fecal samples (104) is reported in the Methods/Results text, not encoded as a single value in the figure.",
+    "image_reference": "figure_1.png"
+  },
+  {
+    "figure_id": "Figure 2",
+    "title": "Diversity of pre- and post-HSCT samples under enteral and parenteral nutrition",
+    "caption": "Figure 2. Diversity of pre- and post-HSCT samples in patients treated with enteral and parenteral nutritional regimens. (A) Alpha diversity estimated with observed amplicon sequence variants (ASVs, top) and Faith’s Phylogenetic Diversity (PD_whole_tree, bottom) metrics for samples taken at the baseline (PRE), during the transplant (HSCT) and up to 120 days post-HSCT (POST) from patients treated with enteral (E) and parenteral (P) nutrition. Subjects treated with PN (in red) showed a significantly higher number of ASVs (Wilcoxon rank-sum test; p = 0.01). (B) Principal Coordinates Analysis (PCoA) based on unweighted UniFrac distances between samples taken before (PRE) and after the transplant (HSCT, up to 30 days post-HSCT; POST40, up to 40 days post-HSCT; POST60, from 41 to 60 days post-HSCT; POST120, up to 120 days post-transplant) from patients treated with EN (top) and PN (bottom). A significant separation among groups was observed only in patients treated with PN (permutation test with pseudo-F ratios (Adonis), p = 0.001).",
+    "figure_type": "Multi-panel boxplots and principal coordinates analysis",
+    "summary": "Panel A shows observed ASVs and Faith’s Phylogenetic Diversity across PRE, HSCT, and POST groups for enteral and parenteral nutrition. Both groups decline around HSCT; the enteral group visibly rebounds post-HSCT, whereas the parenteral group remains lower. Panel B shows unweighted-UniFrac PCoA trajectories. Enteral time groups overlap substantially, while parenteral time groups separate progressively from baseline.",
+    "variables_shown": [
+      "Observed ASVs",
+      "Faith’s Phylogenetic Diversity",
+      "Unweighted UniFrac distance",
+      "PCoA coordinates",
+      "Nutritional regimen",
+      "Time group (PRE, HSCT, POST/POST40/POST60/POST120)"
+    ],
+    "key_findings": [
+      "Gut microbiome alpha diversity fell after HSCT in both groups.",
+      "Alpha diversity recovered toward baseline in enteral-nutrition patients but remained reduced in parenteral-nutrition patients.",
+      "PCoA time-group separation was statistically significant only in the parenteral-nutrition group."
+    ],
+    "important_values": [
+      "POST_E vs. POST_P observed ASVs: p=0.01",
+      "Parenteral-nutrition PCoA separation: Adonis p=0.001",
+      "Enteral-nutrition overall shift: p=0.063",
+      "PRE_E vs. POST_E: observed ASVs p=0.44; Faith PD p=0.25",
+      "PRE_P vs. POST_P: observed ASVs p=0.05; Faith PD p=0.13"
+    ],
+    "interpretation_notes": "The caption states that PN subjects had a significantly higher number of ASVs (p=0.01), whereas the Results paragraph and the plotted POST_E versus POST_P distributions indicate higher observed-ASV diversity in the enteral group after HSCT. The caption is preserved verbatim; the discrepancy should be retained for downstream quality review.",
+    "image_reference": "figure_2.png"
+  },
+  {
+    "figure_id": "Figure 3",
+    "title": "Gut microbiota composition differences under enteral and parenteral nutrition",
+    "caption": "Figure 3. Differences in the gut microbiota composition between HSCT patients following enteral and parenteral nutrition. Boxplots representing the relative abundance distribution of genera that where significantly different between pre-HSCT, HSCT and post-HSCT time points in PN (in red) and EN patients (in blue). * p value ≤ 0.05; ** p value ≤ 0.01; Wilcoxon rank-sum test.",
+    "figure_type": "Eight-panel taxonomic relative-abundance boxplots",
+    "summary": "Boxplots display relative abundance for Bacteroides, Parabacteroides, Dorea, Faecalibacterium, unassigned Lachnospiraceae, Blautia, Streptococcus, and Oscillospira across PRE, HSCT, and POST samples in enteral and parenteral groups. Enteral post-HSCT profiles generally retain or regain health-associated anaerobic taxa, while parenteral post-HSCT profiles show lower Lachnospiraceae-related taxa and higher Streptococcus.",
+    "variables_shown": [
+      "Relative abundance (%)",
+      "Bacteroides",
+      "Parabacteroides",
+      "Dorea",
+      "Faecalibacterium",
+      "Lachnospiraceae;Unassigned",
+      "Blautia",
+      "Streptococcus",
+      "Oscillospira",
+      "Nutritional regimen",
+      "Time group"
+    ],
+    "key_findings": [
+      "Lachnospiraceae remained stable in the enteral group and decreased in the parenteral group.",
+      "Blautia, Dorea, Parabacteroides, Oscillospira, Bacteroidaceae, and Bacteroides were more represented post-HSCT in enteral than parenteral patients.",
+      "Faecalibacterium decreased significantly from baseline only in parenteral-nutrition patients.",
+      "Streptococcus increased after transplantation in parenteral-nutrition patients."
+    ],
+    "important_values": [
+      "Lachnospiraceae POST_E vs. POST_P: p=0.003",
+      "Blautia: p=0.036",
+      "Dorea: p=0.008",
+      "Parabacteroides: p=0.03",
+      "Oscillospira: p=0.03",
+      "Bacteroidaceae: p=0.009",
+      "Bacteroides: p=0.008",
+      "Streptococcus PRE_P vs. POST_P: p=0.03"
+    ],
+    "interpretation_notes": "Exact group means or medians are not printed in the figure and were not inferred. P-values listed here come from the accompanying Results text; the visual itself encodes significance primarily with asterisks.",
+    "image_reference": "figure_3.png"
+  },
+  {
+    "figure_id": "Figure 4",
+    "title": "Fecal short-chain fatty acid levels after enteral and parenteral nutrition",
+    "caption": "Figure 4. Fecal levels of short-chain fatty acids in HSCT patients after enteral and parenteral nutritional regimens. Boxplots showing the absolute amount distribution for short-chain fatty acids (SCFAs) measured in µmol/g. * p value ≤ 0.05; ** p value ≤ 0.01; Wilcoxon rank-sum test.",
+    "figure_type": "Four-panel horizontal boxplots",
+    "summary": "Horizontal boxplots show total SCFAs, butyrate, acetate, and propionate for PRE, HSCT, and POST samples in both nutritional groups. Enteral post-HSCT distributions remain near enteral baseline values, whereas parenteral post-HSCT distributions are shifted markedly lower than parenteral baseline, particularly for total SCFAs and acetate.",
+    "variables_shown": [
+      "Total SCFAs (µmol/g)",
+      "Butyrate (µmol/g)",
+      "Acetate (µmol/g)",
+      "Propionate (µmol/g)",
+      "Nutritional regimen",
+      "Time group"
+    ],
+    "key_findings": [
+      "Total SCFAs decreased significantly after HSCT in the parenteral group but not in the enteral group.",
+      "Post-HSCT enteral samples had higher butyrate, acetate, and propionate than post-HSCT parenteral samples."
+    ],
+    "important_values": [
+      "PRE_P vs. POST_P total SCFAs: 44.0 ± 6.2 vs. 16.2 ± 2.9 µmol/g; p=0.006",
+      "PRE_E vs. POST_E total SCFAs: 35.0 ± 7.4 vs. 31.9 ± 3.1 µmol/g; p=0.78",
+      "POST_E vs. POST_P butyrate: p=0.01",
+      "POST_E vs. POST_P acetate: p=0.005",
+      "POST_E vs. POST_P propionate: p=0.005",
+      "PRE_P vs. POST_P butyrate: p=0.01",
+      "PRE_P vs. POST_P acetate: p=0.009",
+      "PRE_P vs. POST_P propionate: p=0.08"
+    ],
+    "interpretation_notes": "The exact total-SCFA means and p-values are reported in the Results text. Exact component medians are not labeled in the figure and were not estimated from box positions.",
+    "image_reference": "figure_4.png"
+  },
+  {
+    "figure_id": "Figure S1",
+    "title": "Gut microbiome composition of pre- and post-HSCT samples",
+    "caption": "Supplementary Figure 1: Supplementary Figure 1: Gut microbiome composition of pre- and post-HSCT samples of patients fed with enteral and parenteral nutrition. Bar plots indicating the relative abundance of the most represented phyla (A.) and families (B.) in both enteral (E) and parenteral (P) feeding patients pre (PRE), during the transplant (HSCT) and up to 120 days post HSCT (POST). Only taxa with relative abundance >0.1% in at least 2 samples were included.",
+    "figure_type": "Two-panel stacked relative-abundance bar chart",
+    "summary": "Panel A displays phylum-level mean relative-abundance profiles for PRE, HSCT, and POST samples in the enteral and parenteral groups. Panel B displays the corresponding family-level profiles. Both groups show marked compositional rearrangement at HSCT. The enteral POST profile visually returns toward its PRE structure across several dominant taxa, whereas the parenteral POST profile retains prominent family-level shifts, including a larger Streptococcaceae band and reduced Lachnospiraceae relative to PRE_P.",
+    "variables_shown": [
+      "Relative abundance (%)",
+      "Nutritional regimen",
+      "Time group (PRE, HSCT, POST)",
+      "Phyla: Unassigned;Other, Bacteria;Other, Actinobacteria, Bacteroidetes, Cyanobacteria, Firmicutes, Fusobacteria, Proteobacteria, TM7, Verrucomicrobia, Other Phyla",
+      "Families: Unassigned;Other, Actinomycetaceae, Micrococcaceae, Bifidobacteriaceae, Coriobacteriaceae, Bacteroidaceae, Porphyromonadaceae, Prevotellaceae, Rikenellaceae, [Paraprevotellaceae], Staphylococcaceae, Gemellaceae, Aerococcaceae, Carnobacteriaceae, Enterococcaceae, Lactobacillaceae, Streptococcaceae, Clostridiales;Unassigned, Christensenellaceae, Clostridiaceae, Lachnospiraceae, Peptostreptococcaceae, Ruminococcaceae, Veillonellaceae, [Mogibacteriaceae], [Tissierellaceae], Erysipelotrichaceae, Fusobacteriaceae, Alcaligenaceae, Desulfovibrionaceae, Enterobacteriaceae, Pasteurellaceae, Pseudomonadaceae, Verrucomicrobiaceae, Other Families"
+    ],
+    "key_findings": [
+      "HSCT is accompanied by broad phylum- and family-level compositional rearrangement in both groups.",
+      "The enteral POST profile appears closer to PRE_E than the parenteral POST profile appears to PRE_P for several dominant family bands.",
+      "The parenteral POST profile has a visibly larger Streptococcaceae contribution and lower Lachnospiraceae contribution than PRE_P."
+    ],
+    "important_values": [
+      "Only taxa with relative abundance >0.1% in at least 2 samples were included.",
+      "Relative-abundance axis: 0–100%"
+    ],
+    "interpretation_notes": "The bars show aggregate composition without error bars or inferential statistics. Visual trends are qualitative; no unlabeled percentages were estimated.",
+    "image_reference": "figure_s1.png"
+  }
+]

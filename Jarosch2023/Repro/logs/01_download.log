@@ -1,0 +1,110 @@
+=== ENA fetch: PRJEB60178 ===
+Wed Aug 12 17:13:58 MDT 2026
+Runs listed in project: 53
+
+Instrument / layout summary:
+  53 Ion Torrent S5	SINGLE
+
+Filtering to 53 accessions from RawData/run_accessions.txt
+
+Downloading FASTQs into /Users/sophiehuebler/Documents/ODSi/ODSiData/Jarosch2023/Repro/data/raw
+
+  got          ERR16879144.fastq.gz (attempt 1)
+  got          ERR16879145.fastq.gz (attempt 1)
+  got          ERR16879146.fastq.gz (attempt 1)
+curl: (18) transfer closed with 9262976 bytes remaining to read
+  got          ERR16879148.fastq.gz (attempt 1)
+  got          ERR16879159.fastq.gz (attempt 1)
+  got          ERR16879161.fastq.gz (attempt 1)
+  got          ERR16879166.fastq.gz (attempt 1)
+  got          ERR16879167.fastq.gz (attempt 1)
+  got          ERR16879172.fastq.gz (attempt 1)
+  got          ERR16879178.fastq.gz (attempt 1)
+  got          ERR16879182.fastq.gz (attempt 1)
+  got          ERR16879187.fastq.gz (attempt 1)
+  got          ERR16879192.fastq.gz (attempt 1)
+  got          ERR16879195.fastq.gz (attempt 1)
+  got          ERR16879199.fastq.gz (attempt 1)
+curl: (18) transfer closed with 35985331 bytes remaining to read
+curl: (18) transfer closed with 35362739 bytes remaining to read
+  got          ERR16879150.fastq.gz (attempt 1)
+curl: (18) transfer closed with 7085899 bytes remaining to read
+curl: (18) transfer closed with 6692683 bytes remaining to read
+  got          ERR16879152.fastq.gz (attempt 1)
+  got          ERR16879153.fastq.gz (attempt 1)
+  got          ERR16879155.fastq.gz (attempt 1)
+  got          ERR16879158.fastq.gz (attempt 1)
+  got          ERR16879160.fastq.gz (attempt 1)
+curl: (52) Empty reply from server
+curl: (52) Empty reply from server
+curl: (18) transfer closed with 9944975 bytes remaining to read
+curl: (18) transfer closed with 9910282 bytes remaining to read
+  !! transfer failed ERR16879162.fastq.gz (attempt 1/5)
+  got          ERR16879162.fastq.gz (attempt 2)
+  got          ERR16879164.fastq.gz (attempt 1)
+curl: (52) Empty reply from server
+  got          ERR16879165.fastq.gz (attempt 1)
+  got          ERR16879171.fastq.gz (attempt 1)
+  got          ERR16879173.fastq.gz (attempt 1)
+  got          ERR16879174.fastq.gz (attempt 1)
+  got          ERR16879175.fastq.gz (attempt 1)
+  got          ERR16879179.fastq.gz (attempt 1)
+  got          ERR16879181.fastq.gz (attempt 1)
+  got          ERR16879183.fastq.gz (attempt 1)
+curl: (52) Empty reply from server
+curl: (18) transfer closed with 15108448 bytes remaining to read
+curl: (18) transfer closed with 14469472 bytes remaining to read
+curl: (18) transfer closed with 13830496 bytes remaining to read
+  !! transfer failed ERR16879184.fastq.gz (attempt 1/5)
+  got          ERR16879184.fastq.gz (attempt 2)
+  got          ERR16879185.fastq.gz (attempt 1)
+  got          ERR16879194.fastq.gz (attempt 1)
+  ok (cached)  ERR16879147.fastq.gz
+curl: (52) Empty reply from server
+curl: (52) Empty reply from server
+curl: (18) transfer closed with 22730127 bytes remaining to read
+  got          ERR16879149.fastq.gz (attempt 1)
+  got          ERR16879151.fastq.gz (attempt 1)
+  got          ERR16879156.fastq.gz (attempt 1)
+  got          ERR16879157.fastq.gz (attempt 1)
+curl: (52) Empty reply from server
+curl: (52) Empty reply from server
+curl: (52) Empty reply from server
+curl: (18) transfer closed with 17305262 bytes remaining to read
+  !! transfer failed ERR16879168.fastq.gz (attempt 1/5)
+  got          ERR16879168.fastq.gz (attempt 2)
+curl: (18) transfer closed with 26649449 bytes remaining to read
+curl: (18) transfer closed with 26353837 bytes remaining to read
+curl: (18) transfer closed with 26145449 bytes remaining to read
+curl: (18) transfer closed with 25961449 bytes remaining to read
+  !! transfer failed ERR16879169.fastq.gz (attempt 1/5)
+curl: (18) transfer closed with 25881449 bytes remaining to read
+curl: (18) transfer closed with 25747629 bytes remaining to read
+  got          ERR16879169.fastq.gz (attempt 2)
+curl: (52) Empty reply from server
+curl: (52) Empty reply from server
+curl: (18) transfer closed with 31088937 bytes remaining to read
+  got          ERR16879176.fastq.gz (attempt 1)
+  got          ERR16879177.fastq.gz (attempt 1)
+  got          ERR16879180.fastq.gz (attempt 1)
+  got          ERR16879188.fastq.gz (attempt 1)
+  got          ERR16879189.fastq.gz (attempt 1)
+  got          ERR16879190.fastq.gz (attempt 1)
+  got          ERR16879191.fastq.gz (attempt 1)
+  got          ERR16879193.fastq.gz (attempt 1)
+  got          ERR16879196.fastq.gz (attempt 1)
+  got          ERR16879197.fastq.gz (attempt 1)
+  got          ERR16879198.fastq.gz (attempt 1)
+  got          ERR16879200.fastq.gz (attempt 1)
+
+==========================================
+  runs downloaded/verified : 53
+  runs failed              : 0
+  runs skipped (not listed): 0
+  files on disk            : 53
+  total size               : 852M
+==========================================
+
+All requested runs present and MD5-verified.
+Wed Aug 12 17:31:06 MDT 2026
+=== done ===

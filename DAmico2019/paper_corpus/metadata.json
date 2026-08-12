@@ -1,0 +1,49 @@
+{
+  "title": "Enteral Nutrition in Pediatric Patients Undergoing Hematopoietic SCT Promotes the Recovery of Gut Microbiome Homeostasis",
+  "doi": "10.3390/nu11122958",
+  "journal": "Nutrients",
+  "year": 2019,
+  "authors": [
+    "Federica D’Amico",
+    "Elena Biagi",
+    "Simone Rampelli",
+    "Jessica Fiori",
+    "Daniele Zama",
+    "Matteo Soverini",
+    "Monica Barone",
+    "Davide Leardini",
+    "Edoardo Muratore",
+    "Arcangelo Prete",
+    "Roberto Gotti",
+    "Andrea Pession",
+    "Riccardo Masetti",
+    "Patrizia Brigidi",
+    "Silvia Turroni",
+    "Marco Candela"
+  ],
+  "study_type": "Longitudinal observational matched-group cohort study",
+  "population": "Twenty pediatric patients undergoing hematopoietic stem cell transplantation at Sant’Orsola-Malpighi Hospital-University of Bologna, Italy; 10 received enteral nutrition and 10 received parenteral nutrition after transplantation.",
+  "sample_size": 20,
+  "intervention": "Enteral nutrition for more than 7 days post-HSCT (n=10).",
+  "comparator": "Total parenteral nutrition, or enteral feeding for less than 7 days post-HSCT, classified in the parenteral-nutrition group (n=10).",
+  "outcomes": [
+    "Gut microbiome alpha diversity (observed ASVs and Faith’s Phylogenetic Diversity)",
+    "Gut microbiome beta diversity and community structure (weighted and unweighted UniFrac; PCoA)",
+    "Taxonomic relative abundance at phylum, family, and genus levels",
+    "Fecal short-chain fatty acid concentrations (total SCFAs, acetate, propionate, butyrate)",
+    "Bloodstream infections",
+    "Acute graft-versus-host disease occurrence and severity",
+    "Mucositis, engraftment, and outcome at day +100"
+  ],
+  "country": "Italy",
+  "funding": "This work was supported by the Italian Ministero della Salute (Bando Ricerca Finalizzata 2013, Giovani Ricercatori section, code GR-2013-02357136 to R.M.).",
+  "conflicts_of_interest": "The authors declare no conflict of interest.",
+  "keywords": [
+    "enteral nutrition",
+    "parenteral nutrition",
+    "gut microbiota",
+    "short-chain fatty acids",
+    "hematopoietic stem cell transplantation",
+    "graft-versus-host disease"
+  ]
+}

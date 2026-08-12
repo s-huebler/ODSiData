@@ -42,12 +42,9 @@ artacho_meta_qiime <- samples2 %>%
                                              `1` = "BM",
                                              `2` = "UC",
                                              `3` = "PBSC"))%>%
-              select(Patient.ID,
-                     Age, Gender,
+              dplyr::rename(
                      Disease = `Haematological malignency`,
-                     Donor_Type,
-                     sample.pre, sample.post,
-                     GVHD_grade,
+                     
                      gut_gvhd_grade = LGI_GVHD_grade,
                      skin_gvhd_grade = Skin_GVHD_grade,
                      liver_GVHD_grade = Liver_GVHD_grade),

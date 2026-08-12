@@ -1,0 +1,605 @@
+[
+  {
+    "table_id": "Table S1",
+    "title": "Nutritional information of enteral diet",
+    "caption": "Supplementary Table 1: Nutritional information of enteral diet.",
+    "columns": [
+      "Section",
+      "Item",
+      "Amount per 100 g of product"
+    ],
+    "rows": [
+      [
+        "Macronutrients",
+        "Energy",
+        [
+          "1992 kJ",
+          "475 kcal"
+        ]
+      ],
+      [
+        "Fat (42 En%)",
+        "Fat (42 En%)",
+        "22 g"
+      ],
+      [
+        "Fat (42 En%)",
+        "Saturated",
+        "9.4 g"
+      ],
+      [
+        "Fat (42 En%)",
+        "Monosaturated",
+        "7.7 g"
+      ],
+      [
+        "Fat (42 En%)",
+        "Polysaturated",
+        "4.0 g"
+      ],
+      [
+        "Carbohydrates (47 En%)",
+        "Carbohydrates (47 En%)",
+        "56 g"
+      ],
+      [
+        "Carbohydrates (47 En%)",
+        "Sugars",
+        "5.0 g"
+      ],
+      [
+        "Macronutrients",
+        "Dietary Fibre (0 En%)",
+        "0 g"
+      ],
+      [
+        "Macronutrients",
+        "Proteins (11 En%)",
+        "13.3 g"
+      ],
+      [
+        "Macronutrients",
+        "Salt",
+        "0.71 g"
+      ],
+      [
+        "Vitamins",
+        "Vit.A",
+        "214 µg"
+      ],
+      [
+        "Vitamins",
+        "Vit.D",
+        "6.2 µg"
+      ],
+      [
+        "Vitamins",
+        "Vit.E",
+        "6.7 mg"
+      ],
+      [
+        "Vitamins",
+        "Vit.K",
+        "19 mg"
+      ],
+      [
+        "Vitamins",
+        "Thiamine",
+        "0.48 mg"
+      ],
+      [
+        "Vitamins",
+        "Riboflavin",
+        "0.95 mg"
+      ],
+      [
+        "Vitamins",
+        "Niacin",
+        "5.3 mg"
+      ],
+      [
+        "Vitamins",
+        "Pantothenic acid",
+        "1.9 mg"
+      ],
+      [
+        "Vitamins",
+        "Vit.B6",
+        "0.48 mg"
+      ],
+      [
+        "Vitamins",
+        "Folate",
+        "71.3 µg"
+      ],
+      [
+        "Vitamins",
+        "Vit.B12",
+        "1.2 µg"
+      ],
+      [
+        "Vitamins",
+        "Biotin",
+        "14.3 µg"
+      ],
+      [
+        "Vitamins",
+        "Vit.C",
+        "47.5 mg"
+      ],
+      [
+        "Minerals",
+        "Na",
+        "285 mg"
+      ],
+      [
+        "Minerals",
+        "K",
+        "546 mg"
+      ],
+      [
+        "Minerals",
+        "Cl",
+        "437 mg"
+      ],
+      [
+        "Minerals",
+        "Ca",
+        "428 mg"
+      ],
+      [
+        "Minerals",
+        "P",
+        "309 mg"
+      ],
+      [
+        "Minerals",
+        "Mg",
+        "66.5 mg"
+      ],
+      [
+        "Minerals",
+        "Fe",
+        "5.7 mg"
+      ],
+      [
+        "Minerals",
+        "Zn",
+        "5.2 mg"
+      ],
+      [
+        "Minerals",
+        "Cu",
+        "0.48 mg"
+      ],
+      [
+        "Minerals",
+        "Mn",
+        "0.29 mg"
+      ],
+      [
+        "Minerals",
+        "Mo",
+        "24.4 µg"
+      ],
+      [
+        "Minerals",
+        "Se",
+        "15.2 µg"
+      ],
+      [
+        "Minerals",
+        "Cr",
+        "7.6 µg"
+      ],
+      [
+        "Minerals",
+        "I",
+        "71.4 µg"
+      ],
+      [
+        "Others",
+        "Choline",
+        "95.0 mg"
+      ],
+      [
+        "Others",
+        "Inositol",
+        "26.1 mg"
+      ],
+      [
+        "Others",
+        "L-carnitine",
+        "15.8 mg"
+      ],
+      [
+        "Others",
+        "Taurine",
+        "31.5 mg"
+      ]
+    ],
+    "summary": "The enteral product provides 1992 kJ (475 kcal) per 100 g, with 22 g fat, 56 g carbohydrate, 13.3 g protein, no dietary fibre, and listed vitamin, mineral, choline, inositol, L-carnitine, and taurine contents. This summary is separate from the extracted table rows."
+  },
+  {
+    "table_id": "Table S2",
+    "title": "Anagraphical and clinical information of the twenty enrolled patients",
+    "caption": "Supplementary Table 2: Anagraphical and clinical information of the twenty enrolled patients.",
+    "columns": [
+      "Subject",
+      "Nutritional Regimen",
+      "Sex/Age(yr)",
+      "Diagnosis",
+      "Donor Type",
+      "Stem cell source",
+      "Conditioning regimen",
+      "Engraftment (day) - PMN (day)",
+      "Engraftment (day) - PLT > 20000 (day)",
+      "aGvHD - Site",
+      "aGvHD - Day",
+      "aGvHD - Corticosteroid resistant",
+      "Mucositis - Grade",
+      "BSI",
+      "Outcome at +100"
+    ],
+    "rows": [
+      [
+        "E1",
+        "EN (+0/+18)",
+        "F/8",
+        "ALL B",
+        "Haploidentical",
+        "BM",
+        "BU, TT, FLUDARA",
+        "+14",
+        "+87",
+        "Skin ++, Gut ++, Liver +++",
+        "+24",
+        "n",
+        "III",
+        null,
+        "a"
+      ],
+      [
+        "E2",
+        "EN (+0/+12)",
+        "M/18",
+        "TM",
+        "MMUD",
+        "PBSC",
+        "TREO,TT,FLUDARA",
+        "+14",
+        "+20",
+        "Skin ++, Gut +",
+        "+14",
+        "n",
+        "/",
+        null,
+        "a"
+      ],
+      [
+        "E3",
+        "EN (+1/+21)",
+        "M/8",
+        "ALL B",
+        "MMFD",
+        "BM",
+        "BU, TT, FLUDARA",
+        "+16",
+        "+33",
+        null,
+        null,
+        null,
+        "II",
+        null,
+        "a"
+      ],
+      [
+        "E4",
+        "EN (+1/+19)",
+        "F/8",
+        "ALL T",
+        "MUD",
+        "BM",
+        "BU, TT, EDX",
+        "+12",
+        "+46",
+        null,
+        null,
+        null,
+        "III",
+        null,
+        "a"
+      ],
+      [
+        "E5",
+        "EN (+1/+18)",
+        "M/16",
+        "AML",
+        "Haploidentical",
+        "BM",
+        "BU, TT, FLUDARA",
+        "+23",
+        "+41",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "a"
+      ],
+      [
+        "E6",
+        "EN (-2/+25)",
+        "F/16",
+        "AML",
+        "Haploidentical",
+        "BM",
+        "BU, TT, FLUDARA",
+        "+22",
+        "+35",
+        "Skin +, Gut ++",
+        "+36",
+        "n",
+        "II",
+        null,
+        "a"
+      ],
+      [
+        "E7",
+        "EN (+0/+18)",
+        "F/2",
+        "HLH",
+        "MUD",
+        "BM",
+        "BU, TT, FLUDARA",
+        "+14",
+        "+27",
+        null,
+        null,
+        null,
+        "II",
+        null,
+        "a"
+      ],
+      [
+        "E8",
+        "EN (+1/+27)",
+        "F/12",
+        "RCC",
+        "MUD",
+        "BM",
+        "TREO,TT,FLUDARA",
+        "+24",
+        "+33",
+        null,
+        null,
+        null,
+        "I",
+        null,
+        "a"
+      ],
+      [
+        "E9",
+        "EN (+0/+22)",
+        "F/3",
+        "ALL B",
+        "MUD",
+        "BM",
+        "BU, TT, FLUDARA",
+        "+19",
+        "+19",
+        "Skin +, Liver ++",
+        "+18",
+        "n",
+        "I",
+        null,
+        "a"
+      ],
+      [
+        "E10",
+        "EN (+1/+10); PN (+10/+13)",
+        "M/13",
+        "ALL B",
+        "MUD",
+        "BM",
+        "BU, TT, FLUDARA",
+        "+13",
+        "Not Obtained",
+        "Skin ++, Gut +",
+        "+60",
+        "n",
+        "II",
+        null,
+        "a"
+      ],
+      [
+        "P1",
+        "PN (+5/+25)",
+        "M/15",
+        "CGD",
+        "MUD",
+        "BM",
+        "TREO,TT,FLUDARA",
+        "+19",
+        "+12",
+        null,
+        null,
+        null,
+        "II",
+        "S.epidermidis (+5)",
+        "a"
+      ],
+      [
+        "P2",
+        "PN (+6/+19)",
+        "M/7",
+        "AML",
+        "Haploidentical",
+        "BM",
+        "BU, TT, FLUDARA",
+        "+15",
+        "+28",
+        null,
+        null,
+        null,
+        "II",
+        "S.aureus (+7)",
+        "a"
+      ],
+      [
+        "P3",
+        "PN (+0/+16)",
+        "M/18",
+        "ALL B",
+        "MUD",
+        "BM",
+        "TREO, TT, EDX",
+        "+12",
+        "+16",
+        "Skin ++, Gut +",
+        "+28",
+        "n",
+        "I",
+        null,
+        "a"
+      ],
+      [
+        "P4",
+        "PN (+0/+18)",
+        "F/10",
+        "AML",
+        "MFD",
+        "BM",
+        "TREO,TT,FLUDARA",
+        "+11",
+        "+7",
+        null,
+        null,
+        null,
+        "II",
+        "S.epidermidis (+6); E.faecalis (+6)",
+        "a"
+      ],
+      [
+        "P5",
+        "PN (+1/+36)",
+        "M/4",
+        "JMML",
+        "MUD",
+        "BM",
+        "BU, EDX, L-PAM",
+        "+29",
+        "+37",
+        "Gut ++++",
+        "+29",
+        "y",
+        "I",
+        "E.faecalis (+57); S.mitis (+57); S.oralis (+57)",
+        "a"
+      ],
+      [
+        "P6",
+        "EN (+1/+4); PN (+5/+23)",
+        "F/1",
+        "ALL B",
+        "MMUD",
+        "BM",
+        "BU, TT, EDX",
+        "+15",
+        "+25",
+        null,
+        null,
+        null,
+        "I",
+        "E.coli (+2)",
+        "d"
+      ],
+      [
+        "P7",
+        "PN (+5/+31)",
+        "M/17",
+        "RCC",
+        "MUD",
+        "BM",
+        "EDX, FLUDARA, TBI",
+        "+28",
+        "+36",
+        null,
+        null,
+        null,
+        "II",
+        "K.pneumoniae (+6); P.aeruginosa (+15)",
+        "a"
+      ],
+      [
+        "P8",
+        "PN (+4/+13)",
+        "M/16",
+        "AML",
+        "MFD",
+        "BM",
+        "BU, EDX, L-PAM",
+        "+13",
+        "+14",
+        "Gut +++, Liver +",
+        "+21",
+        "y",
+        "II",
+        "S.aureus (+94)",
+        "a"
+      ],
+      [
+        "P9",
+        "EN (+2/+4); PN (+5/+20)",
+        "M/17",
+        "MDS",
+        "MUD",
+        "PBSC",
+        "BU, EDX, L-PAM",
+        "+19",
+        "+21",
+        "Skin ++",
+        "+20",
+        "n",
+        "II",
+        null,
+        "a"
+      ],
+      [
+        "P10",
+        "PN (+0/+17)",
+        "M/18",
+        "ALL B",
+        "MUD",
+        "BM",
+        "BU, TT, EDX",
+        "+13",
+        "+23",
+        "Skin +++",
+        "+15",
+        "n",
+        "III",
+        null,
+        "a"
+      ],
+      [
+        "Abbreviations",
+        "Abbreviations: a= alive; aGvHD= acute Graft-versus-Host disease; ALL= Acute Lymphoblastic Leukemia; AML= Acute Myeloid Leukemia; BM= Bone Marrow; BSI= Blood Stream Infections; BU= Busulphan; CGD= Chronic Granulomatous Disease; d= deceased; EDX= Cyclophosphamide; EN = Enteral Nutrition; F=Female; FLUDARA= Fludarabine; HLH= Hemophagocitic LymphoHistiocytosis; JMML= Juvenile Myelomonocytic Leukemia; L-PAM= Melphalan; M= Male; MDS= Myelodisplastic Syndrome; MFD= Matched Familiar Donor; MMFD= Mismatched Familiar Donor; MMUD= Mismatched Unrelated Donor; MUD= Match Unrelated Donor; n= no; PBSC= Peripheral Blood Stem Cell; PLT=Platelets; PMN=Polymorphonuclear Neutrophil; PN= Parenteral Nutrition; RCC= Refractory Citopenia of Childhood; TBI= Total Body Irradiation; TM= Thalassemia Major; TREO= Treosulphan; TT= Thiotepa; y= yes; The plus near by the aGvHD site indicate the grade of severity (from 1 to 4); The numbers between parenthesis indicate the starting and the ending day for the nutritional treatment post-transplant.",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "summary": "The table contains subject-level nutritional-regimen timing, age and sex, diagnosis, donor and stem-cell source, conditioning regimen, engraftment, aGvHD, mucositis, bloodstream infection, and day-100 outcome for all 20 participants. Ten subjects are labeled E1–E10 and ten P1–P10. The abbreviation legend is preserved as the final row."
+  }
+]

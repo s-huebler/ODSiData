@@ -78,15 +78,15 @@ mutate(sample_name = str_remove( `Sample Name`, "OCUBMT"))%>%
   mutate(Baseline1 = ifelse(Timepoint == "pre", 1, 0),
          Baseline2 = ifelse(Timepoint == "day0", 1, 0))%>%
   mutate(id = Run)%>%
-  select(
-    id,
-    Run,
-    `Sample Name`,
-    Patient,
-    Timepoint,
-    Baseline1,
-    Baseline2
-  )%>%
+  # select(
+  #   id,
+  #   Run,
+  #   `Sample Name`,
+  #   Patient,
+  #   Timepoint,
+  #   Baseline1,
+  #   Baseline2
+  # )%>%
   arrange(Patient, Timepoint)
 ```
 
@@ -112,12 +112,7 @@ fuji_clinical <- fuji_clinical_raw
 
 ```{r}
 fuji_meta_qiime <- fuji_samples %>%
-  left_join(fuji_clinical %>%
-              select(Patient, 
-                     Age, Sex,
-                     Disease,
-                     Donor, Graft_Type,
-                     AGVHD),
+  left_join(fuji_clinical,,
             by = "Patient")
 
 names(fuji_meta_qiime)[1]<- "sample-id"
