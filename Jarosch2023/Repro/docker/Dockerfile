@@ -97,6 +97,13 @@ RUN R -q -e "suppressPackageStartupMessages(library(dada2)); \
              stopifnot(is.function(dada), is.function(filterAndTrim)); \
              cat('dada2 loaded and callable\n')"
 
+# ---- clue: Hungarian algorithm for optimal one-to-one sample matching -------
+# Appended as a late layer so the slow R/dada2 layers above stay cached.
+RUN R -q -e "options(repos = c(CRAN = 'https://packagemanager.posit.co/cran/2021-11-01')); \
+             install.packages('clue'); \
+             if (!requireNamespace('clue', quietly = TRUE)) stop('clue missing'); \
+             cat('clue', as.character(packageVersion('clue')), 'installed\n')"
+
 WORKDIR /work
 
 CMD ["/bin/bash"]

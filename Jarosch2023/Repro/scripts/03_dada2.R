@@ -49,9 +49,28 @@ dir.create(filt_dir, showWarnings = FALSE, recursive = TRUE)
 dir.create(res_dir,  showWarnings = FALSE, recursive = TRUE)
 dir.create(log_dir,  showWarnings = FALSE, recursive = TRUE)
 
+# ---------------------------------------------------------------------------
+# Threading.
+#
+# This image is linux/amd64 running under emulation on Apple Silicon. R's
+# multicore backend (mclapply/mcmapply, which dada2 uses when
+# multithread = TRUE) forks, and forked workers die unpredictably under
+# emulation -- they return no result and dada2 fails with a confusing
+#   'names' attribute [53] must be the same length as the vector [44]
+# because some jobs silently vanished.
+#
+# Default is therefore serial. Serial is also fully deterministic, which is
+# what we want for a replication. Override at your own risk:
+#   NCORES=4 ./docker/run.sh Rscript scripts/03_dada2.R
+# ---------------------------------------------------------------------------
+ncores <- suppressWarnings(as.integer(Sys.getenv("NCORES", "1")))
+if (is.na(ncores) || ncores < 1) ncores <- 1
+mt <- if (ncores > 1) ncores else FALSE
+
 cat("dada2 version:", as.character(packageVersion("dada2")), "\n")
 cat("R version    :", R.version.string, "\n")
-cat("Input dir    :", cut_dir, "\n\n")
+cat("Input dir    :", cut_dir, "\n")
+cat("Threads      :", if (isFALSE(mt)) "1 (serial)" else mt, "\n\n")
 
 fns <- sort(list.files(cut_dir, pattern = "\\.fastq(\\.gz)?$", full.names = TRUE))
 if (!length(fns)) stop("No FASTQs in ", cut_dir, " -- run scripts/02_trim.sh first.")
@@ -63,21 +82,46 @@ names(filts) <- samples
 
 # ---- filterAndTrim ---------------------------------------------------------
 cat("== filterAndTrim ==\n")
-track_filt <- filterAndTrim(
-  fwd        = fns,
-  filt       = filts,
-  trimLeft   = 15,      # REPORTED
-  maxEE      = 5,       # REPORTED ("minEE value of 5")
-  truncQ     = 2,       # ASSUMPTION: dada2 default
-  maxN       = 0,       # ASSUMPTION: dada2 default (required by dada())
-  minLen     = 50,      # ASSUMPTION: guards against Ion Torrent runt reads
-  rm.phix    = FALSE,   # ASSUMPTION: PhiX is an Illumina control, not Ion Torrent
-  compress   = TRUE,
-  multithread = TRUE,
-  verbose    = TRUE
-)
-rownames(track_filt) <- samples
-print(head(track_filt))
+# One file per call, so a failure names the offending sample instead of
+# surfacing as a vector-length mismatch after the fact.
+track_filt <- matrix(NA_real_, nrow = length(samples), ncol = 2,
+                     dimnames = list(samples, c("reads.in", "reads.out")))
+filt_errors <- character(0)
+
+for (i in seq_along(samples)) {
+  s <- samples[i]
+  res <- tryCatch(
+    filterAndTrim(
+      fwd        = fns[i],
+      filt       = filts[i],
+      trimLeft   = 15,      # REPORTED
+      maxEE      = 5,       # REPORTED ("minEE value of 5")
+      truncQ     = 2,       # ASSUMPTION: dada2 default
+      maxN       = 0,       # ASSUMPTION: dada2 default (required by dada())
+      minLen     = 50,      # ASSUMPTION: guards against Ion Torrent runt reads
+      rm.phix    = FALSE,   # ASSUMPTION: PhiX is an Illumina control, not Ion Torrent
+      compress   = TRUE,
+      multithread = FALSE,  # already serial at this level
+      verbose    = FALSE
+    ),
+    error = function(e) {
+      filt_errors <<- c(filt_errors, paste0(s, ": ", conditionMessage(e)))
+      NULL
+    }
+  )
+  if (!is.null(res)) track_filt[i, ] <- as.numeric(res[1, 1:2])
+  cat(sprintf("  [%2d/%2d] %-14s in=%s out=%s\n", i, length(samples), s,
+              format(track_filt[i, 1], big.mark = ","),
+              format(track_filt[i, 2], big.mark = ",")))
+}
+
+if (length(filt_errors)) {
+  cat("\nfilterAndTrim failed on", length(filt_errors), "sample(s):\n")
+  cat(paste0("  ", filt_errors, collapse = "\n"), "\n")
+  stop("Fix the inputs above before continuing.")
+}
+cat("\nTotal reads in :", format(sum(track_filt[, 1]), big.mark = ","), "\n")
+cat("Total reads out:", format(sum(track_filt[, 2]), big.mark = ","), "\n")
 
 # Drop samples that lost everything, or learnErrors/dada will error out.
 keep  <- track_filt[, "reads.out"] > 0
@@ -92,7 +136,7 @@ samples <- samples[keep]
 cat("\n== learnErrors ==\n")
 err <- learnErrors(
   filts,
-  multithread             = TRUE,
+  multithread             = mt,
   HOMOPOLYMER_GAP_PENALTY = -1,   # REPORTED
   BAND_SIZE               = 32,   # REPORTED
   randomize               = TRUE,
@@ -112,7 +156,7 @@ names(derep) <- samples
 dd <- dada(
   derep,
   err                     = err,
-  multithread             = TRUE,
+  multithread             = mt,
   HOMOPOLYMER_GAP_PENALTY = -1,   # REPORTED
   BAND_SIZE               = 32,   # REPORTED
   pool                    = FALSE # ASSUMPTION: dada2 default; try TRUE if mismatched
@@ -129,7 +173,7 @@ saveRDS(seqtab, file.path(res_dir, "seqtab_prechimera.rds"))
 # written so step 4 can compare either against the published metrics.
 cat("\n== removeBimeraDenovo (consensus) ==\n")
 seqtab_nc <- removeBimeraDenovo(seqtab, method = "consensus",
-                                multithread = TRUE, verbose = TRUE)
+                                multithread = mt, verbose = TRUE)
 cat("ASVs (post-chimera):", ncol(seqtab_nc), "\n")
 cat("Fraction of reads retained:", sum(seqtab_nc) / sum(seqtab), "\n")
 saveRDS(seqtab_nc, file.path(res_dir, "seqtab_nochim.rds"))

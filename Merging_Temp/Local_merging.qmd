@@ -124,7 +124,7 @@ circular_tree
 ```
 
 ```{r}
-vizualize_collapse(ps, "ASV")
+vizualize_collapse(ps, "ASV", show_labels = TRUE)
 ```
 
 ```{r}
@@ -132,5 +132,5 @@ vizualize_collapse(ps, "Species")
 ```
 
 ```{r}
-vizualize_collapse(ps, "Genus")
+vizualize_collapse(ps, "Genus", show_labels = TRUE)
 ```

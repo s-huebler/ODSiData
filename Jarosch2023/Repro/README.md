@@ -1,11 +1,40 @@
-# Jarosch2023 — native-pipeline replication
+# Jarosch2023 — recovering the run → patient mapping
 
-Goal: reproduce the alpha diversity values published with Jarosch et al. 2023
-(*Cell Rep Med* 4:101125, PRJEB60178) using the authors' own toolchain rather
-than QIIME2, and quantify how close we get.
+**The problem.** Jarosch et al. 2023 (*Cell Rep Med* 4:101125) deposited 53
+sequencing runs in ENA (PRJEB60178) under anonymous library aliases (`AAX11`,
+`R000000616`, …), and separately published alpha diversity for 46 stool samples
+keyed by **Patient + day after aHSCT**. They never published the link between
+the two. Without it, the sequencing data cannot be joined to any clinical
+covariate — which makes the study unusable for the meta-analysis.
 
-Target values live in `../Metadata/jarosch_alpha_diversity.tsv`
-(53 runs; `Richness`, `Shannon`, `Simpson`, `depth`).
+**The approach.** Reproduce the authors' own pipeline (Trimmomatic → cutadapt →
+DADA2, not QIIME2) closely enough that our alpha diversity values reproduce
+theirs, then use the `(Richness, Shannon, Simpson)` triple as a **fingerprint**
+to identify which run is which sample.
+
+This works because the published values carry a lot of information: `Richness`
+is an exact integer, `Shannon`/`Simpson` are given to ~7 decimal places, and all
+46 published triples are mutually distinct. A faithful reproduction should give
+near-zero distance for the true pairing and clearly larger distances for every
+alternative.
+
+**Reproduction fidelity is the means, not the end.** The closer steps 1–3 get,
+the more confident the mapping in step 4 can be. Simulated on these published
+values, recovery of the correct pairing degrades sharply with pipeline error:
+
+| systematic richness bias (ours ÷ theirs) | correct matches |
+|---|---|
+| none — faithful reproduction | 98–100% |
+| 0.90 | 74% |
+| 0.75 | 28% |
+| 0.45 | 10% |
+
+The existing QIIME2 attempt sits at ratio ≈ 0.45 (median richness 28 vs the
+paper's 62), which is why `../Metadata/jarosch_sample_to_clinical.tsv` yielded
+only 18 high-confidence matches. That file is superseded by this work.
+
+Published target: `../Metadata/Original_alpha.tsv` (46 samples, 39 patients —
+several patients have multiple timepoints, so `Patient + day` is the key).
 
 This sits alongside — not replacing — the QIIME2 attempt in `../QiimeData/`
 and `../Preprocessing.qmd`.
@@ -36,8 +65,15 @@ inline in the scripts as `ASSUMPTION` or `INFERRED`.
 1. **"Trimmomatic 0.9" is not a real release.** Trimmomatic versions run
    0.30–0.39. The image installs 0.39.
 2. **No Trimmomatic parameters are given.** `scripts/02_trim.sh` uses
-   `LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100`. This is the single
-   biggest lever on the `depth` column — vary it first.
+   `LEADING:3 TRAILING:3 SLIDINGWINDOW:20:15 MINLEN:200`. This is the single
+   biggest lever on the `depth` column — vary it first. Override without
+   editing the script:
+   `TRIMMOMATIC_ARGS="LEADING:3 TRAILING:3 MINLEN:200" ./docker/run.sh bash scripts/02_trim.sh`
+
+   The Illumina-default `SLIDINGWINDOW:4:15` is actively wrong here: measured
+   on these reads it keeps only 66% and cuts the median from 449 to 321 bp,
+   yielding 140–165 bp ASV fragments instead of a ~490 bp V1–V3 amplicon.
+   A 20-base window keeps 98.7% at median 448 bp.
 3. **"minEE value of 5"** — dada2 has no `minEE` argument. `maxEE = 5` is
    the only expected-error filter and is what the scripts use.
 4. **"Demultiplexed using cutadapt"** — ENA serves the runs already
@@ -93,6 +129,31 @@ package, only failing later at the version check.
 The verification layer loads the package and calls into it, so it catches a
 missing package, a wrong version, and a bad shared-object link.
 
+### Threading and emulation
+
+`scripts/03_dada2.R` runs **serial by default**. R's multicore backend forks,
+and forked workers die unpredictably under x86 emulation on Apple Silicon —
+they return nothing and dada2 fails with a misleading message like:
+
+```
+Error in names(answer) <- dots[[1L]] :
+  'names' attribute [53] must be the same length as the vector [44]
+```
+
+That is not a data problem: 9 of 53 jobs silently vanished. Serial execution
+avoids it and is deterministic, which is what a replication wants anyway. The
+cost is runtime — budget 1–3 hours for step 3 on this dataset (~1.95M reads).
+
+If you want to try parallel anyway:
+
+```bash
+NCORES=4 ./docker/run.sh Rscript scripts/03_dada2.R
+```
+
+If it fails the same way, go back to serial. Raising Docker Desktop's memory
+allocation (Settings → Resources → Memory, 8 GB or more) makes parallel runs
+somewhat more survivable but does not fully fix the forking issue.
+
 ## Running the pipeline
 
 ```bash
@@ -106,11 +167,11 @@ bash scripts/01_download.sh
 # Step 2 — Trimmomatic + cutadapt
 ./docker/run.sh bash scripts/02_trim.sh
 
-# Step 3 — DADA2 ASVs
+# Step 3 — DADA2 ASVs (serial by default; expect 1-3 h under emulation)
 ./docker/run.sh Rscript scripts/03_dada2.R
 
-# Step 4 — alpha diversity comparison against the published table
-./docker/run.sh Rscript scripts/04_compare_alpha.R
+# Step 4 — recover the run -> (patient, day) mapping
+./docker/run.sh Rscript scripts/04_match_samples.R
 ```
 
 Each step is independently re-runnable; step 1 skips files whose MD5 already
@@ -121,35 +182,57 @@ matches.
 | After | Check | Expect |
 |---|---|---|
 | 1 | `results/01_download_status.tsv` | 53 rows all `ok`; the run summary should print `runs failed : 0` |
-| 2 | `results/02_cutadapt_summary.tsv` | forward primer found in a large majority of reads; modest loss at each stage |
-| 3 | `results/03_read_tracking.tsv` | amplicon length mode near 480–500 bp; non-chimeric fraction roughly 55–90% (matches the QIIME2 run's 54–92%) |
-| 4 | `results/04_alpha_comparison_grid.tsv` | `depth` correlation is the headline number — read it before anything else |
+| 2 | `results/02_cutadapt_summary.tsv` | **final median length 400–490 bp** — step 2 now fails with a warning if reads are over-trimmed |
+| 3 | `results/03_read_tracking.tsv` | ASV length distribution peaked near 480–500 bp; non-chimeric fraction roughly 55–90% (matches the QIIME2 run's 54–92%) |
+| 4 | `results/04_run_to_patient_map.tsv` | the deliverable — read the quality gate at the top of the console output first |
 
 ## Interpreting step 4
 
-`depth` is the diagnostic that isolates the trimming assumptions, since it does
-not depend on any diversity convention. Read the results in this order:
+Read the output top to bottom; it is ordered deliberately.
 
-- **`depth` r high, `mean_diff` near zero** → trimming matches; any remaining
-  Shannon/Simpson gap is a convention or denoising difference.
-- **`depth` r high, `mean_diff` large** → the pipeline shape is right but
-  stringency differs. Loosen or tighten `TRIMMOMATIC_ARGS` in step 2.
-- **`depth` r low** → something structural is wrong (wrong runs, primer
-  orientation, or reads being discarded wholesale). Check
-  `results/02_cutadapt_summary.tsv` before touching DADA2.
+**1. Reproduction quality gate.** Compares our richness distribution to the
+published one. If the median ratio falls outside 0.7–1.4 the script says so
+loudly. A weak fingerprint produces a confident-looking mapping that is
+nonetheless wrong, so fix the pipeline before believing anything below it.
 
-An exact match is unlikely: the paper omits enough parameters that some drift
-is guaranteed. A defensible outcome for the dissertation is high rank
-correlation (Spearman > 0.9) on all three metrics, with the residual
-discrepancy attributed to specific documented gaps.
+**2. Convention sweep.** The paper never states whether Shannon is ln/log2/log10
+or whether Simpson is `1-D`, `D`, or `1/D`, so all combinations are tried
+against both the pre- and post-chimera tables. Watch `n_exact_rich` — the count
+of samples where published and reproduced `Richness` are *identical*. That is
+the cleanest evidence the pipeline, not the matcher, is doing the work.
+
+**3. Assignment.** One-to-one and global (Hungarian via `clue`), not greedy
+nearest-neighbour: 46 published samples compete for 53 runs, each run used at
+most once, 7 runs expected to go unassigned. Per match you get `dist`,
+`margin` (gap to the runner-up — a large margin means it isn't a near-tie),
+and `exact_richness`.
+
+**4. Stability.** The same assignment is recomputed under all 54 variants
+(2 tables × 3 log bases × 3 Simpson forms × 3 scoring modes). The three scoring
+modes matter most:
+
+| mode | compares | breaks when |
+|---|---|---|
+| `pooled` | absolute values | pipeline has systematic bias |
+| `separate` | values standardised within each source | ordering is wrong |
+| `rank` | within-cohort ranks only | ordering is wrong |
+
+`pooled` is the sharpest when the reproduction is faithful, and is what selects
+the convention. `rank` is nearly immune to systematic bias. **All three agreeing
+is much stronger evidence than any one alone**, so `n_modes_agree == 3` is the
+column to trust; it feeds back into the final `confidence` tier.
+
+Treat `high` confidence with `n_modes_agree == 3` and `exact_richness == TRUE`
+as settled. Treat `low` confidence as unresolved rather than guessing — leaving
+a run unmapped is far cheaper than a wrong clinical join.
 
 ## Layout
 
 ```
 Repro/
   docker/     Dockerfile, build.sh, run.sh
-  scripts/    01_download.sh  02_trim.sh  03_dada2.R  04_compare_alpha.R
+  scripts/    01_download.sh  02_trim.sh  03_dada2.R  04_match_samples.R
   data/       raw/ trimmed/ cutadapt/ filtered/     (gitignored)
-  results/    ASV tables, comparison grids, plots
+  results/    ASV tables, the recovered mapping, plots
   logs/       per-step logs and cutadapt reports
 ```

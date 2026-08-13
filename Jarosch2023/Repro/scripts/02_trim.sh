@@ -34,11 +34,25 @@ REV_PRIMER_RC="GCCAGCMGCCGCGGTAAT"
 
 # ---------------------------------------------------------------------------
 # TRIMMOMATIC PARAMETERS — INFERRED, NOT REPORTED.
-# The paper states only "quality trimming with Trimmomatic (0.9)" with no
-# settings. These are conventional single-end defaults. If the alpha diversity
-# comparison in step 4 is off, this block is the first thing to vary.
+# The paper states only "quality trimming with Trimmomatic (0.9)".
+#
+# The Illumina-conventional SLIDINGWINDOW:4:15 is WRONG for Ion Torrent, whose
+# per-base quality is noisier. Measured on the raw reads (median length 449):
+#
+#   config                  kept    median len
+#   SLIDINGWINDOW:4:15      66.3%      321      <- destroys the V1-V3 amplicon
+#   SLIDINGWINDOW:4:20      43.8%      233
+#   SLIDINGWINDOW:10:15     88.1%      445
+#   SLIDINGWINDOW:20:15     98.7%      448      <- current setting
+#   no sliding window      100.0%      449
+#
+# A 4-base window trips on isolated low-quality bases and truncates mid-
+# amplicon. A 20-base window smooths over them and only cuts where quality
+# genuinely collapses. MINLEN:200 discards fragments too short to be a real
+# V1-V3 read; the expected-error filter (maxEE=5) in step 3 does the rest,
+# which is how the authors describe their filtering.
 # ---------------------------------------------------------------------------
-TRIMMOMATIC_ARGS="LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100"
+TRIMMOMATIC_ARGS="${TRIMMOMATIC_ARGS:-LEADING:3 TRAILING:3 SLIDINGWINDOW:20:15 MINLEN:200}"
 
 THREADS="${THREADS:-4}"
 
@@ -60,7 +74,13 @@ echo "Found ${#FILES[@]} input files."
 echo
 
 SUMMARY="${HERE}/results/02_cutadapt_summary.tsv"
-printf "sample\traw_reads\ttrimmomatic_reads\tcutadapt_reads\tfwd_primer_found\trev_primer_found\n" > "${SUMMARY}"
+printf "sample\traw_reads\ttrimmomatic_reads\tcutadapt_reads\tfwd_primer_found\trev_primer_found\traw_median_len\tfinal_median_len\n" > "${SUMMARY}"
+
+# median read length of a fastq.gz
+medlen() {
+  zcat "$1" | awk 'NR%4==2{print length($0)}' | sort -n | \
+    awk '{a[NR]=$1} END{if(NR==0){print 0}else{print a[int((NR+1)/2)]}}'
+}
 
 for f in "${FILES[@]}"; do
   s="$(basename "${f}" .fastq.gz)"
@@ -78,13 +98,19 @@ for f in "${FILES[@]}"; do
   # --- cutadapt: strip 27F from 5', read-through 519R-rc from 3' ---
   # --discard-untrimmed is deliberately NOT set: Ion Torrent 5' ends are noisy
   # and dropping every read without a clean primer match would bias depth.
-  # -e 0.15 tolerates the degenerate bases; -n 2 allows both ends in one pass.
+  #
+  # -O 12 is essential. cutadapt's default minimum overlap is 3, so ANY 3-base
+  # coincidental match triggers a trim -- and for a 5' (-g) adapter cutadapt
+  # removes everything BEFORE the match, so a spurious internal hit decapitates
+  # the read. With the default the median length collapsed from 335 to 201 bp.
+  # Requiring 12 of the 18-20 primer bases makes false hits vanishingly rare
+  # while still catching genuine read-through.
   ca_report="${HERE}/logs/cutadapt_${s}.txt"
   cutadapt \
     -g "${FWD_PRIMER}" \
     -a "${REV_PRIMER_RC}" \
-    -e 0.15 -n 2 \
-    --minimum-length 100 \
+    -e 0.15 -n 2 -O 12 \
+    --minimum-length 200 \
     -j "${THREADS}" \
     -o "${CUT}/${s}.fastq.gz" \
     "${TRIM}/${s}.fastq.gz" > "${ca_report}"
@@ -96,11 +122,39 @@ for f in "${FILES[@]}"; do
   fwd_hit=$(awk '/=== Adapter 1 ===/{f=1} f && /Trimmed:/{for(i=1;i<=NF;i++) if($i=="Trimmed:"){gsub(/,/,"",$(i+1)); print $(i+1); exit}}' "${ca_report}")
   rev_hit=$(awk '/=== Adapter 2 ===/{f=1} f && /Trimmed:/{for(i=1;i<=NF;i++) if($i=="Trimmed:"){gsub(/,/,"",$(i+1)); print $(i+1); exit}}' "${ca_report}")
 
-  printf "%s\t%s\t%s\t%s\t%s\t%s\n" "${s}" "${raw_n}" "${trim_n}" "${cut_n}" "${fwd_hit:-NA}" "${rev_hit:-NA}" >> "${SUMMARY}"
-  echo "raw=${raw_n} trimmomatic=${trim_n} cutadapt=${cut_n}"
+  raw_len=$(medlen "${f}")
+  cut_len=$(medlen "${CUT}/${s}.fastq.gz")
+
+  printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "${s}" "${raw_n}" "${trim_n}" "${cut_n}" \
+    "${fwd_hit:-NA}" "${rev_hit:-NA}" "${raw_len}" "${cut_len}" >> "${SUMMARY}"
+  echo "raw=${raw_n} trimmomatic=${trim_n} cutadapt=${cut_n} | median len ${raw_len} -> ${cut_len}"
   echo
 done
 
 echo "=== done ==="
 echo "Per-sample read survival written to ${SUMMARY}"
+
+# --------------------------------------------------------------------------
+# QC GATE — the V1-V3 amplicon is ~490 bp. If trimming has chewed reads down
+# to a few hundred bases the ASVs will be fragments, not amplicons, and every
+# downstream diversity number is meaningless. Catch that here, loudly.
+# --------------------------------------------------------------------------
+echo
+echo "=== length QC ==="
+awk -F'\t' 'NR>1 {rk += $7; ck += $8; n++; if ($8 < 350) short++}
+  END {
+    printf "  mean median length: raw %.0f -> final %.0f  (retained %.0f%%)\n", rk/n, ck/n, 100*ck/rk;
+    printf "  samples with final median < 350 bp: %d / %d\n", short+0, n;
+    if (short+0 > 0 || ck/rk < 0.75) {
+      print "";
+      print "  *** WARNING: reads are being over-trimmed. ***";
+      print "  Expected final median ~400-490 bp for a V1-V3 amplicon.";
+      print "  Loosen TRIMMOMATIC_ARGS (widen the SLIDINGWINDOW) and confirm";
+      print "  cutadapt -O is high enough to prevent spurious internal matches.";
+      exit 3;
+    } else {
+      print "  OK: amplicon length preserved.";
+    }
+  }' "${SUMMARY}"
+
 date

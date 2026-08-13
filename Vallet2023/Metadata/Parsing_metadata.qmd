@@ -187,14 +187,14 @@ allo_map <- linked_allo %>%
               group_by(allozithro_id)%>%
               mutate(age = min(age))%>%
               ungroup()%>%
-              select(clinical_id = allozithro_id,
+              dplyr::rename(clinical_id = allozithro_id,
                      clinical_sex = sex,
                      clinical_age = age,
                      clinical_trt = group)%>%
               distinct(),
-            by = c("allozithro_id" = "clinical_id"))
+            by = c("allozithro_id"= "clinical_id" ))
 
-
+#allo_map$clinical_id <- allo_map$allozithro_id
 ```
 
 We can confirm here whether everything observed in both datasets aligns by making sure that the starting age is the same (within 6 months) as well as the gender and the treatment group.
