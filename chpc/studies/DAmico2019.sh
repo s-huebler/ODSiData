@@ -179,10 +179,17 @@ METADATA="$REPO_ROOT/$STUDY/Metadata/damico_meta_qiime.tsv"
 
 # Walltime hints per stage (edit per dataset size). Used by submit.sh. 104 runs.
 # DENOISE_TIME covers whichever denoiser DENOISER selects.
-FETCH_TIME="12:00:00"
-IMPORT_TIME="04:00:00"
-TRIM_TIME="06:00:00"   # two cutadapt passes since the 2026-08-13 primer fix
-DENOISE_TIME="6:00:00"
+# All written as ${VAR:-default} so a value exported on the command line WINS.
+# (A plain VAR="..." here would clobber the environment, since submit.sh sources
+# this file after the shell sets it.) That matters for notchpeak-shared-short,
+# whose 8h wall cap would reject the 24h DENOISE_TIME default:
+#   CHPC_CLUSTER=notchpeak CHPC_ACCOUNT=notchpeak-shared-short \
+#   CHPC_PARTITION=notchpeak-shared-short DENOISE_TIME=08:00:00 \
+#   ./chpc/submit.sh DAmico2019 denoise
+FETCH_TIME="${FETCH_TIME:-12:00:00}"
+IMPORT_TIME="${IMPORT_TIME:-04:00:00}"
+TRIM_TIME="${TRIM_TIME:-06:00:00}"   # two cutadapt passes since the 2026-08-13 primer fix
+DENOISE_TIME="${DENOISE_TIME:-07:50:00}"
 
 # =============================================================================
 # Greengenes2 mapping — qc + map stages (05_qc.slurm / 06_gg2_map.slurm)
@@ -217,6 +224,6 @@ DENOISE_TIME="6:00:00"
 # MAP_INPUT_SEQS="$REPO_ROOT/$STUDY/Mapped/qc-seqs.qza"
 #
 # --- Resources (override chpc/submit.sh defaults) ----------------------------
-QC_TIME="07:00:00";  QC_MEM="16G";  QC_THREADS=8
-MAP_TIME="07:00:00"; MAP_MEM="24G"; MAP_THREADS=8
+QC_TIME="${QC_TIME:-07:00:00}";  QC_MEM="${QC_MEM:-16G}";  QC_THREADS="${QC_THREADS:-8}"
+MAP_TIME="${MAP_TIME:-07:00:00}"; MAP_MEM="${MAP_MEM:-24G}"; MAP_THREADS="${MAP_THREADS:-8}"
 # =============================================================================
