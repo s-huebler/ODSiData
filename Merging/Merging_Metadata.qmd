@@ -139,21 +139,21 @@ ingham <- read_tsv("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/ingham_meta_qi
 Overall aGVHD only, so `gut_gvhd*` blank. Has transplant date (`dat.hsct`) and sample date (`sample_date`); compute sample time relative to transplant in days.
 
 ```{r}
-vallet <- read_tsv("~/Documents/ODSi/ODSiData/Vallet2023/Metadata/vallet_meta_qiime.tsv") %>%
-  transmute(
-    `sample-id`                = `sample-id`,
-    study                      = "Vallet2023",
-    person                     = individual,
-    sex                        = sex,
-    age                        = age,
-    disease                    = diagnosis2,
-    transplant_day             = dat.hsct,
-    sample_day                 = sample_date,
-    sample_time_rel_transplant = as.numeric(as.Date(sample_date) - as.Date(dat.hsct)),
-    death                      = death,
-    relapse                    = relapse
-  ) %>%
-  to_schema()
+vallet <- read_tsv("~/Documents/ODSi/ODSiData/Vallet2023/Metadata/vallet_meta_qiime.tsv") #%>%
+  # transmute(
+  #   `sample-id`                = `sample-id`,
+  #   study                      = "Vallet2023",
+  #   person                     = individual,
+  #   sex                        = sex,
+  #   age                        = age,
+  #   disease                    = diagnosis2,
+  #   transplant_day             = dat.hsct,
+  #   sample_day                 = sample_date,
+  #   sample_time_rel_transplant = as.numeric(as.Date(sample_date) - as.Date(dat.hsct)),
+  #   death                      = death,
+  #   relapse                    = relapse
+  # ) %>%
+  #  to_schema()
 ```
 
 ## DAmico2019
@@ -161,22 +161,22 @@ vallet <- read_tsv("~/Documents/ODSi/ODSiData/Vallet2023/Metadata/vallet_meta_qi
 Has gut-specific GVHD grade (`gut_gvhd_grade`) and GVHD onset day (`gvhd_day`). `Timepoint` is days relative to transplant. No death/relapse fields captured.
 
 ```{r}
-damico <- read_tsv("~/Documents/ODSi/ODSiData/DAmico2019/Metadata/damico_meta_qiime.tsv") %>%
-  transmute(
-    `sample-id`                    = `sample-id`,
-    study                          = "DAmico2019",
-    person                         = Patient,
-    sex                            = Sex,
-    age                            = Age,
-    disease                        = Diagnosis,
-    gut_gvhd                       = case_when(is.na(gut_gvhd_grade) ~ NA_real_,
-                                               gut_gvhd_grade > 0     ~ 1,
-                                               TRUE                   ~ 0),
-    gut_gvhd_stage                 = gut_gvhd_grade,
-    sample_time_rel_transplant     = Timepoint,
-    gut_gvhd_time_rel_transplant   = gvhd_day
-  ) %>%
-  to_schema()
+damico <- read_tsv("~/Documents/ODSi/ODSiData/DAmico2019/Metadata/damico_meta_qiime.tsv") #%>%
+  # transmute(
+  #   `sample-id`                    = `sample-id`,
+  #   study                          = "DAmico2019",
+  #   person                         = Patient,
+  #   sex                            = Sex,
+  #   age                            = Age,
+  #   disease                        = Diagnosis,
+  #   gut_gvhd                       = case_when(is.na(gut_gvhd_grade) ~ NA_real_,
+  #                                              gut_gvhd_grade > 0     ~ 1,
+  #                                              TRUE                   ~ 0),
+  #   gut_gvhd_stage                 = gut_gvhd_grade,
+  #   sample_time_rel_transplant     = Timepoint,
+  #   gut_gvhd_time_rel_transplant   = gvhd_day
+  # ) %>%
+  # to_schema()
 ```
 
 ## Jarosch2023
@@ -185,11 +185,9 @@ Clinical data is not yet matched to the sequenced samples, so only `sample-id` a
 
 ```{r}
 jarosch <- read_csv("~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/Raw_metadata/meta_samples.csv") %>%
-  transmute(
-    `sample-id` = Run,
-    study       = "Jarosch2023"
-  ) %>%
-  to_schema()
+  dplyr::rename(
+    `sample-id` = Run
+  )
 ```
 
 ## Setting up final data frame

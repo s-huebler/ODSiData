@@ -31,12 +31,12 @@ samples2 <- samples %>%
     Timepoint = ifelse(str_detect(HostID, "PRE"), -1, second_num)
   ) %>%
   mutate(`sample-id` = Run)%>%
-  select(`sample-id`, Run, 
-         Experiment,
-         HostID,
-         Patient,
-         Timepoint
-         )%>%
+  # select(`sample-id`, Run, 
+  #        Experiment,
+  #        HostID,
+  #        Patient,
+  #        Timepoint
+  #        )%>%
   left_join(pre_hsct_estimates, by = "Patient") %>%
   mutate(
     # If timepoint is -1, use the estimate; otherwise, keep the original timepoint
@@ -49,17 +49,19 @@ samples2 <- samples %>%
 
 ```{r}
 damico_meta_qiime <- samples2 %>%
-  left_join(clinical %>%
-              select(Subject,
-                     Sex, Age, Diagnosis, Donor_Type,
-                     Stem_cell_source,
-                     skin_gvhd_grade = Skin_gvhd_grade,
-                     gut_gvhd_grade,
-                     liver_gvhd_grade,
-                     gvhd_day,
-                     gvhd_steroid_resistant,
-                     outcome_day100 = Outcome_at_100), 
-            by = c("Patient" = "Subject"))
+  left_join(clinical, # %>%
+              # select(Subject,
+              #        Sex, Age, Diagnosis, Donor_Type,
+              #        Stem_cell_source,
+              #        skin_gvhd_grade = Skin_gvhd_grade,
+              #        gut_gvhd_grade,
+              #        liver_gvhd_grade,
+              #        gvhd_day,
+              #        gvhd_steroid_resistant,
+              #        outcome_day100 = Outcome_at_100), 
+            by = c("Patient" = "Subject"))%>%
+  select(-`sample-id`)%>%
+  dplyr::rename(`sample-id` = Run)
 ```
 
 ```{r}
