@@ -1,0 +1,645 @@
+% taxa-dictionary.tex
+% Paper-specific taxon commands for the Artacho et al. allo-HSCT summary.
+%
+% Required packages/definitions in the main document:
+%   \usepackage{xcolor}
+%   \usepackage{xspace}
+%   \usepackage{hyperref}
+%   \usepackage{pdfcomment}
+%   \taxOrder, \taxFamily, \taxGenus, and \taxSpecies
+%
+% Taxonomy convention:
+%   The lineage labels below intentionally follow the legacy/paper-aligned
+%   terminology used with the paper's SILVA 138-era 16S workflow. Newer
+%   taxonomies may instead use names such as Bacillota/Bacteroidota and may
+%   split the former Clostridiales into several orders.
+%
+% Turn all tooltip annotations off by placing \TaxTooltipsfalse AFTER the
+% \input{taxa-dictionary.tex} line in the main document.
+
+% --------------------------------------------------------------------------
+% Tooltip engine
+% --------------------------------------------------------------------------
+\newif\ifTaxTooltips
+\TaxTooltipstrue
+
+% Arguments:
+%   #1 = formatted text printed in the manuscript
+%   #2 = plain-text fallback for PDF bookmarks
+%   #3 = tooltip text
+\DeclareRobustCommand{\taxonTooltip}[3]{%
+  \texorpdfstring{%
+    \ifTaxTooltips
+      \pdftooltip{#1}{#3}%
+    \else
+      #1%
+    \fi
+  }{#2}%
+}
+
+% --------------------------------------------------------------------------
+% Reusable lineage strings
+% --------------------------------------------------------------------------
+\newcommand{\taxLineClostridiales}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales%
+}
+
+\newcommand{\taxLineRuminococcaceae}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae%
+}
+
+\newcommand{\taxLineBlautia}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Lachnospiraceae\textCR%
+Genus: Blautia\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineFaecalibacterium}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae\textCR%
+Genus: Faecalibacterium\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineOscillibacter}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae\textCR%
+Genus: Oscillibacter\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineClostridiumIV}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae\textCR%
+Genus-level 16S cluster: Clostridium IV\textCR%
+Species: not resolved%
+}
+
+\newcommand{\taxLineFlavonifractor}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae\textCR%
+Genus: Flavonifractor\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineAnaeromassilibacillusSp}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae\textCR%
+Genus: Anaeromassilibacillus\textCR%
+Species: unresolved (reported as Anaeromassilibacillus sp.)%
+}
+
+\newcommand{\taxLineButyricicoccusSp}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae\textCR%
+Genus: Butyricicoccus\textCR%
+Species: unresolved (reported as Butyricicoccus sp.)%
+}
+
+\newcommand{\taxLineLachnoanaerobaculumSp}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Lachnospiraceae\textCR%
+Genus: Lachnoanaerobaculum\textCR%
+Species: unresolved/unclassified%
+}
+
+\newcommand{\taxLineEnterococcusFaecium}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Lactobacillales\textCR%
+Family: Enterococcaceae\textCR%
+Genus: Enterococcus\textCR%
+Species: Enterococcus faecium%
+}
+
+\newcommand{\taxLineParabacteroides}{%
+Domain: Bacteria\textCR%
+Phylum: Bacteroidetes\textCR%
+Class: Bacteroidia\textCR%
+Order: Bacteroidales\textCR%
+Family: Tannerellaceae\textCR%
+Genus: Parabacteroides\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineStaphylococcus}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Bacillales\textCR%
+Family: Staphylococcaceae\textCR%
+Genus: Staphylococcus\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineStaphylococcusSpecies}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Bacillales\textCR%
+Family: Staphylococcaceae\textCR%
+Genus: Staphylococcus\textCR%
+Species discussed: S. aureus; S. epidermidis; S. simulans%
+}
+
+\newcommand{\taxLineStaphylococcusAureus}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Bacillales\textCR%
+Family: Staphylococcaceae\textCR%
+Genus: Staphylococcus\textCR%
+Species: Staphylococcus aureus%
+}
+
+\newcommand{\taxLineStaphylococcusEpidermidis}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Bacillales\textCR%
+Family: Staphylococcaceae\textCR%
+Genus: Staphylococcus\textCR%
+Species: Staphylococcus epidermidis%
+}
+
+\newcommand{\taxLineStaphylococcusSimulans}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Bacillales\textCR%
+Family: Staphylococcaceae\textCR%
+Genus: Staphylococcus\textCR%
+Species: Staphylococcus simulans%
+}
+
+\newcommand{\taxLineClostridiumXIVb}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: not resolved by this paper-level label\textCR%
+Genus-level 16S cluster: Clostridium XIVb\textCR%
+Species: not resolved%
+}
+
+\newcommand{\taxLineBacteroides}{%
+Domain: Bacteria\textCR%
+Phylum: Bacteroidetes\textCR%
+Class: Bacteroidia\textCR%
+Order: Bacteroidales\textCR%
+Family: Bacteroidaceae\textCR%
+Genus: Bacteroides\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineBacteroidesSpecies}{%
+Domain: Bacteria\textCR%
+Phylum: Bacteroidetes\textCR%
+Class: Bacteroidia\textCR%
+Order: Bacteroidales\textCR%
+Family: Bacteroidaceae\textCR%
+Genus: Bacteroides\textCR%
+Species: unspecified/multiple species%
+}
+
+\newcommand{\taxLineVeillonellaceae}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Negativicutes\textCR%
+Order: Selenomonadales\textCR%
+Family: Veillonellaceae%
+}
+
+\newcommand{\taxLineSelenomonadales}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Negativicutes\textCR%
+Order: Selenomonadales%
+}
+
+\newcommand{\taxLineParabacteroidesDistasonis}{%
+Domain: Bacteria\textCR%
+Phylum: Bacteroidetes\textCR%
+Class: Bacteroidia\textCR%
+Order: Bacteroidales\textCR%
+Family: Porphyromonadaceae\textCR%
+Genus: Parabacteroides\textCR%
+Species: Parabacteroides distasonis%
+}
+
+\newcommand{\taxLineBarnesiellaceae}{%
+Domain: Bacteria\textCR%
+Phylum: Bacteroidetes\textCR%
+Class: Bacteroidia\textCR%
+Order: Bacteroidales\textCR%
+Family: Barnesiellaceae%
+}
+
+\newcommand{\taxLineLachnobacterium}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Lachnospiraceae\textCR%
+Genus: Lachnobacterium\textCR%
+Species: unresolved (reported as Lachnobacterium unknown)%
+}
+
+\newcommand{\taxLineHaemophilus}{%
+Domain: Bacteria\textCR%
+Phylum: Proteobacteria\textCR%
+Class: Gammaproteobacteria\textCR%
+Order: Pasteurellales\textCR%
+Family: Pasteurellaceae\textCR%
+Genus: Haemophilus\textCR%
+Species: unresolved (reported as Haemophilus unknown)%
+}
+
+\newcommand{\taxLineEnterococcus}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Lactobacillales\textCR%
+Family: Enterococcaceae\textCR%
+Genus: Enterococcus\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineEnterococcusFaecalis}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Lactobacillales\textCR%
+Family: Enterococcaceae\textCR%
+Genus: Enterococcus\textCR%
+Species: Enterococcus faecalis%
+}
+
+\newcommand{\taxLineLactobacillus}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Lactobacillales\textCR%
+Family: Lactobacillaceae\textCR%
+Genus: Lactobacillus\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineSubdoligranulum}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae\textCR%
+Genus: Subdoligranulum\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineButyricicoccus}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae\textCR%
+Genus: Butyricicoccus\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineLachnoclostridium}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Lachnospiraceae\textCR%
+Genus: Lachnoclostridium\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineCoprobacter}{%
+Domain: Bacteria\textCR%
+Phylum: Bacteroidetes\textCR%
+Class: Bacteroidia\textCR%
+Order: Bacteroidales\textCR%
+Family: Porphyromonadaceae\textCR%
+Genus: Coprobacter\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineClostridiumInnocuumGroup}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Erysipelotrichia\textCR%
+Order: Erysipelotrichales\textCR%
+Family: Erysipelotrichaceae\textCR%
+Genus-level cluster: Clostridium (innocuum group)\textCR%
+Species: not resolved%
+}
+
+\newcommand{\taxLineAlistipes}{%
+Domain: Bacteria\textCR%
+Phylum: Bacteroidetes\textCR%
+Class: Bacteroidia\textCR%
+Order: Bacteroidales\textCR%
+Family: Rikenellaceae\textCR%
+Genus: Alistipes\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineCampylobacter}{%
+Domain: Bacteria\textCR%
+Phylum: Proteobacteria\textCR%
+Class: Epsilonproteobacteria\textCR%
+Order: Campylobacterales\textCR%
+Family: Campylobacteraceae\textCR%
+Genus: Campylobacter\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineLachnospiraceae}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Lachnospiraceae%
+}
+
+\newcommand{\taxLineDorea}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Lachnospiraceae\textCR%
+Genus: Dorea\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineOscillospira}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Clostridia\textCR%
+Order: Clostridiales\textCR%
+Family: Ruminococcaceae\textCR%
+Genus: Oscillospira\textCR%
+Species: not specified%
+}
+
+\newcommand{\taxLineBacteroidaceae}{%
+Domain: Bacteria\textCR%
+Phylum: Bacteroidetes\textCR%
+Class: Bacteroidia\textCR%
+Order: Bacteroidales\textCR%
+Family: Bacteroidaceae%
+}
+
+\newcommand{\taxLineStreptococcus}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Lactobacillales\textCR%
+Family: Streptococcaceae\textCR%
+Genus: Streptococcus\textCR%
+Species: not specified%
+}
+
+% --------------------------------------------------------------------------
+% New Lineages added for Pediatric Allo-HSCT Summary
+% --------------------------------------------------------------------------
+
+\newcommand{\taxLineEnterococcaceae}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Lactobacillales\textCR%
+Family: Enterococcaceae%
+}
+
+\newcommand{\taxLineLactobacillaceae}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Lactobacillales\textCR%
+Family: Lactobacillaceae%
+}
+
+\newcommand{\taxLineEnterobacteriaceae}{%
+Domain: Bacteria\textCR%
+Phylum: Proteobacteria\textCR%
+Class: Gammaproteobacteria\textCR%
+Order: Enterobacteriales\textCR%
+Family: Enterobacteriaceae%
+}
+
+\newcommand{\taxLineStaphylococcaceae}{%
+Domain: Bacteria\textCR%
+Phylum: Firmicutes\textCR%
+Class: Bacilli\textCR%
+Order: Bacillales\textCR%
+Family: Staphylococcaceae%
+}
+
+% --------------------------------------------------------------------------
+% Named manuscript commands
+% --------------------------------------------------------------------------
+
+% Order and family
+\DeclareRobustCommand{\taxClostridiales}{%
+  \taxonTooltip{\taxOrder{Clostridiales}}{Clostridiales}{\taxLineClostridiales}\xspace}
+
+\DeclareRobustCommand{\taxRuminococcaceae}{%
+  \taxonTooltip{\taxFamily{Ruminococcaceae}}{Ruminococcaceae}{\taxLineRuminococcaceae}\xspace}
+
+\DeclareRobustCommand{\taxVeillonellaceae}{%
+  \taxonTooltip{\taxFamily{Veillonellaceae}}{Veillonellaceae}{\taxLineVeillonellaceae}\xspace}
+
+\DeclareRobustCommand{\taxSelenomonadales}{%
+  \taxonTooltip{\taxOrder{Selenomonadales}}{Selenomonadales}{\taxLineSelenomonadales}\xspace}
+
+% Genera and genus-level 16S clusters
+\DeclareRobustCommand{\taxBlautia}{%
+  \taxonTooltip{\taxGenus{\textit{Blautia}}}{Blautia}{\taxLineBlautia}\xspace}
+
+\DeclareRobustCommand{\taxFaecalibacterium}{%
+  \taxonTooltip{\taxGenus{\textit{Faecalibacterium}}}{Faecalibacterium}{\taxLineFaecalibacterium}\xspace}
+
+\DeclareRobustCommand{\taxOscillibacter}{%
+  \taxonTooltip{\taxGenus{\textit{Oscillibacter}}}{Oscillibacter}{\taxLineOscillibacter}\xspace}
+
+\DeclareRobustCommand{\taxClostridiumIV}{%
+  \taxonTooltip{\taxGenus{\textit{Clostridium} IV}}{Clostridium IV}{\taxLineClostridiumIV}\xspace}
+
+\DeclareRobustCommand{\taxFlavonifractor}{%
+  \taxonTooltip{\taxGenus{\textit{Flavonifractor}}}{Flavonifractor}{\taxLineFlavonifractor}\xspace}
+
+\DeclareRobustCommand{\taxParabacteroides}{%
+  \taxonTooltip{\taxGenus{\textit{Parabacteroides}}}{Parabacteroides}{\taxLineParabacteroides}\xspace}
+
+\DeclareRobustCommand{\taxStaphylococcus}{%
+  \taxonTooltip{\taxGenus{\textit{Staphylococcus}}}{Staphylococcus}{\taxLineStaphylococcus}\xspace}
+
+\DeclareRobustCommand{\taxClostridiumXIVb}{%
+  \taxonTooltip{\taxGenus{\textit{Clostridium} XIVb}}{Clostridium XIVb}{\taxLineClostridiumXIVb}\xspace}
+
+\DeclareRobustCommand{\taxBacteroides}{%
+  \taxonTooltip{\taxGenus{\textit{Bacteroides}}}{Bacteroides}{\taxLineBacteroides}\xspace}
+
+% Species-level and unresolved species-level features
+\DeclareRobustCommand{\taxAnaeromassilibacillusSp}{%
+  \taxonTooltip{\taxSpecies{\textit{Anaeromassilibacillus} sp.}}{Anaeromassilibacillus sp.}{\taxLineAnaeromassilibacillusSp}\xspace}
+
+\DeclareRobustCommand{\taxButyricicoccusSp}{%
+  \taxonTooltip{\taxSpecies{\textit{Butyricicoccus} sp.}}{Butyricicoccus sp.}{\taxLineButyricicoccusSp}\xspace}
+
+% Same shotgun feature, displayed without "sp." in the severity bullet.
+\DeclareRobustCommand{\taxButyricicoccusBare}{%
+  \taxonTooltip{\taxSpecies{\textit{Butyricicoccus}}}{Butyricicoccus}{\taxLineButyricicoccusSp}\xspace}
+
+\DeclareRobustCommand{\taxLachnoanaerobaculumSpecies}{%
+  \taxonTooltip{\taxSpecies{unclassified \textit{Lachnoanaerobaculum} species}}{unclassified Lachnoanaerobaculum species}{\taxLineLachnoanaerobaculumSp}\xspace}
+
+\DeclareRobustCommand{\taxEnterococcusFaecium}{%
+  \taxonTooltip{\taxSpecies{\textit{Enterococcus faecium}}}{Enterococcus faecium}{\taxLineEnterococcusFaecium}\xspace}
+
+\DeclareRobustCommand{\taxEfaecium}{%
+  \taxonTooltip{\taxSpecies{\textit{E. faecium}}}{E. faecium}{\taxLineEnterococcusFaecium}\xspace}
+
+\DeclareRobustCommand{\taxStaphylococcusSpecies}{%
+  \taxonTooltip{\taxSpecies{\textit{Staphylococcus} species}}{Staphylococcus species}{\taxLineStaphylococcusSpecies}\xspace}
+
+\DeclareRobustCommand{\taxStaphylococcusSpp}{%
+  \taxonTooltip{\taxSpecies{\textit{Staphylococcus} spp.}}{Staphylococcus spp.}{\taxLineStaphylococcusSpecies}\xspace}
+
+\DeclareRobustCommand{\taxStaphylococcusAureus}{%
+  \taxonTooltip{\taxSpecies{\textit{Staphylococcus aureus}}}{Staphylococcus aureus}{\taxLineStaphylococcusAureus}\xspace}
+
+\DeclareRobustCommand{\taxSaureus}{%
+  \taxonTooltip{\taxSpecies{\textit{S. aureus}}}{S. aureus}{\taxLineStaphylococcusAureus}\xspace}
+
+\DeclareRobustCommand{\taxStaphylococcusEpidermidis}{%
+  \taxonTooltip{\taxSpecies{\textit{Staphylococcus epidermidis}}}{Staphylococcus epidermidis}{\taxLineStaphylococcusEpidermidis}\xspace}
+
+\DeclareRobustCommand{\taxSepidermidis}{%
+  \taxonTooltip{\taxSpecies{\textit{S. epidermidis}}}{S. epidermidis}{\taxLineStaphylococcusEpidermidis}\xspace}
+
+\DeclareRobustCommand{\taxStaphylococcusSimulans}{%
+  \taxonTooltip{\taxSpecies{\textit{Staphylococcus simulans}}}{Staphylococcus simulans}{\taxLineStaphylococcusSimulans}\xspace}
+
+\DeclareRobustCommand{\taxSsimulans}{%
+  \taxonTooltip{\taxSpecies{\textit{S. simulans}}}{S. simulans}{\taxLineStaphylococcusSimulans}\xspace}
+
+\DeclareRobustCommand{\taxBacteroidesSpecies}{%
+  \taxonTooltip{\taxSpecies{\textit{Bacteroides} species}}{Bacteroides species}{\taxLineBacteroidesSpecies}\xspace}
+
+\DeclareRobustCommand{\taxParabacteroidesDistasonis}{%
+  \taxonTooltip{\taxSpecies{\textit{Parabacteroides distasonis}}}{Parabacteroides distasonis}{\taxLineParabacteroidesDistasonis}\xspace}
+
+\DeclareRobustCommand{\taxBarnesiellaceaeSpp}{%
+  \taxonTooltip{\taxFamily{Barnesiellaceae spp.}}{Barnesiellaceae spp.}{\taxLineBarnesiellaceae}\xspace}
+
+\DeclareRobustCommand{\taxLachnobacteriumSpp}{%
+  \taxonTooltip{\taxSpecies{\textit{Lachnobacterium} spp.}}{Lachnobacterium spp.}{\taxLineLachnobacterium}\xspace}
+
+\DeclareRobustCommand{\taxHaemophilusParainfluenzae}{%
+  \taxonTooltip{\taxSpecies{\textit{Haemophilus parainfluenzae}}}{Haemophilus parainfluenzae}{\taxLineHaemophilus}\xspace}
+
+\DeclareRobustCommand{\taxEnterococcus}{%
+  \taxonTooltip{\taxGenus{\textit{Enterococcus}}}{Enterococcus}{\taxLineEnterococcus}\xspace}
+
+\DeclareRobustCommand{\taxEnterococcusFaecalis}{%
+  \taxonTooltip{\taxSpecies{\textit{Enterococcus faecalis}}}{Enterococcus faecalis}{\taxLineEnterococcusFaecalis}\xspace}
+
+\DeclareRobustCommand{\taxEfaecalis}{%
+  \taxonTooltip{\taxSpecies{\textit{E. faecalis}}}{E. faecalis}{\taxLineEnterococcusFaecalis}\xspace}
+
+\DeclareRobustCommand{\taxLactobacillus}{%
+  \taxonTooltip{\taxGenus{\textit{Lactobacillus}}}{Lactobacillus}{\taxLineLactobacillus}\xspace}
+
+\DeclareRobustCommand{\taxSubdoligranulum}{%
+  \taxonTooltip{\taxGenus{\textit{Subdoligranulum}}}{Subdoligranulum}{\taxLineSubdoligranulum}\xspace}
+
+\DeclareRobustCommand{\taxButyricicoccus}{%
+  \taxonTooltip{\taxGenus{\textit{Butyricicoccus}}}{Butyricicoccus}{\taxLineButyricicoccus}\xspace}
+
+\DeclareRobustCommand{\taxLachnoclostridium}{%
+  \taxonTooltip{\taxGenus{\textit{Lachnoclostridium}}}{Lachnoclostridium}{\taxLineLachnoclostridium}\xspace}
+
+\DeclareRobustCommand{\taxCoprobacter}{%
+  \taxonTooltip{\taxGenus{\textit{Coprobacter}}}{Coprobacter}{\taxLineCoprobacter}\xspace}
+
+\DeclareRobustCommand{\taxClostridiumInnocuumGroup}{%
+  \taxonTooltip{\taxGenus{\textit{Clostridium} (innocuum group)}}{Clostridium (innocuum group)}{\taxLineClostridiumInnocuumGroup}\xspace}
+
+\DeclareRobustCommand{\taxAlistipes}{%
+  \taxonTooltip{\taxGenus{\textit{Alistipes}}}{Alistipes}{\taxLineAlistipes}\xspace}
+
+\DeclareRobustCommand{\taxCampylobacter}{%
+  \taxonTooltip{\taxGenus{\textit{Campylobacter}}}{Campylobacter}{\taxLineCampylobacter}\xspace}
+
+\DeclareRobustCommand{\taxLachnospiraceae}{%
+  \taxonTooltip{\taxFamily{Lachnospiraceae}}{Lachnospiraceae}{\taxLineLachnospiraceae}\xspace}
+
+\DeclareRobustCommand{\taxDorea}{%
+  \taxonTooltip{\taxGenus{\textit{Dorea}}}{Dorea}{\taxLineDorea}\xspace}
+
+\DeclareRobustCommand{\taxOscillospira}{%
+  \taxonTooltip{\taxGenus{\textit{Oscillospira}}}{Oscillospira}{\taxLineOscillospira}\xspace}
+
+\DeclareRobustCommand{\taxBacteroidaceae}{%
+  \taxonTooltip{\taxFamily{Bacteroidaceae}}{Bacteroidaceae}{\taxLineBacteroidaceae}\xspace}
+
+\DeclareRobustCommand{\taxStreptococcus}{%
+  \taxonTooltip{\taxGenus{\textit{Streptococcus}}}{Streptococcus}{\taxLineStreptococcus}\xspace}
+
+% --------------------------------------------------------------------------
+% New Commands added for Pediatric Allo-HSCT Summary
+% --------------------------------------------------------------------------
+
+\DeclareRobustCommand{\taxEnterococcaceae}{%
+  \taxonTooltip{\taxFamily{Enterococcaceae}}{Enterococcaceae}{\taxLineEnterococcaceae}\xspace}
+
+\DeclareRobustCommand{\taxLactobacillaceae}{%
+  \taxonTooltip{\taxFamily{Lactobacillaceae}}{Lactobacillaceae}{\taxLineLactobacillaceae}\xspace}
+
+\DeclareRobustCommand{\taxEnterobacteriaceae}{%
+  \taxonTooltip{\taxFamily{Enterobacteriaceae}}{Enterobacteriaceae}{\taxLineEnterobacteriaceae}\xspace}
+
+\DeclareRobustCommand{\taxStaphylococcaceae}{%
+  \taxonTooltip{\taxFamily{Staphylococcaceae}}{Staphylococcaceae}{\taxLineStaphylococcaceae}\xspace}
+
+\DeclareRobustCommand{\taxEnterococcusSpp}{%
+  \taxonTooltip{\taxSpecies{\textit{Enterococcus} spp.}}{Enterococcus spp.}{\taxLineEnterococcus}\xspace}
+
+\DeclareRobustCommand{\taxLactobacillusSpp}{%
+  \taxonTooltip{\taxSpecies{\textit{Lactobacillus} spp.}}{Lactobacillus spp.}{\taxLineLactobacillus}\xspace}
