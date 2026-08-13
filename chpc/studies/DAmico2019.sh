@@ -182,7 +182,7 @@ METADATA="$REPO_ROOT/$STUDY/Metadata/damico_meta_qiime.tsv"
 FETCH_TIME="12:00:00"
 IMPORT_TIME="04:00:00"
 TRIM_TIME="06:00:00"   # two cutadapt passes since the 2026-08-13 primer fix
-DENOISE_TIME="24:00:00"
+DENOISE_TIME="6:00:00"
 
 # =============================================================================
 # Greengenes2 mapping — qc + map stages (05_qc.slurm / 06_gg2_map.slurm)
