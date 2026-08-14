@@ -224,6 +224,6 @@ DENOISE_TIME="${DENOISE_TIME:-07:50:00}"
 # MAP_INPUT_SEQS="$REPO_ROOT/$STUDY/Mapped/qc-seqs.qza"
 #
 # --- Resources (override chpc/submit.sh defaults) ----------------------------
-QC_TIME="${QC_TIME:-07:00:00}";  QC_MEM="${QC_MEM:-16G}";  QC_THREADS="${QC_THREADS:-8}"
+QC_TIME="${QC_TIME:-24:00:00}";  QC_MEM="${QC_MEM:-16G}";  QC_THREADS="${QC_THREADS:-8}"
 MAP_TIME="${MAP_TIME:-07:00:00}"; MAP_MEM="${MAP_MEM:-24G}"; MAP_THREADS="${MAP_THREADS:-8}"
 # =============================================================================
