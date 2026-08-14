@@ -120,7 +120,7 @@ DADA2S_TRUNC_Q=0
 # show most reads dying at the `filtered` step, try 3.0 then 5.0 as a
 # SENSITIVITY ANALYSIS — do not pick the value that merely maximizes retention;
 # check that per-sample retention and the resulting ASVs are stable across it.
-DADA2S_MAX_EE=2.0
+DADA2S_MAX_EE=5.0
 
 DADA2S_CHIMERA="consensus"
 
