@@ -35,8 +35,9 @@ infer_type <- function(x) {
   date_patterns <- c("^\\d{4}-\\d{2}-\\d{2}$", "^\\d{2}/\\d{2}/\\d{4}$",
                      "^\\d{4}/\\d{2}/\\d{2}$")
   if (any(sapply(date_patterns, function(p) all(grepl(p, non_na))))) return("date")
-  if (is.logical(suppressWarnings(as.logical(non_na))) ||
-      all(tolower(non_na) %in% c("true", "false", "yes", "no", "t", "f", "1", "0"))) {
+  bool_vocab <- c("true", "false", "yes", "no", "t", "f")
+  if (length(unique(tolower(non_na))) <= 2 &&
+      all(tolower(non_na) %in% bool_vocab)) {
     return("logical")
   }
   n_unique <- length(unique(non_na))
