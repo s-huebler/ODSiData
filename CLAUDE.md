@@ -160,3 +160,21 @@ Rules for this prompt:
   Jarosch2023, Fujimoto2024, Greengenes2, Merging.
 - The study folder must already be committed and pushed to the branch CHPC tracks, or
   `reapply` will materialize nothing — flag this if the study is new to the repo.
+
+## Known gotchas
+
+### openxlsx corrupts xlsx for openpyxl
+`openxlsx::saveWorkbook()` emits dangling `<Relationship>` entries in every
+`xl/worksheets/_rels/sheetN.xml.rels` that point at `../drawings/drawingN.xml`,
+`../drawings/vmlDrawingN.vml`, and `../printerSettings/printerSettingsN.bin` — none
+of which it actually writes into the archive. It also emits a stale
+`<dimension ref="A1"/>` in every sheet XML.
+
+Consequences:
+- `openpyxl.load_workbook()` (default mode) raises `KeyError: 'xl/drawings/drawing1.xml'`
+- `openpyxl.load_workbook(read_only=True)` silently returns only the header row per
+  sheet (stale dimension fools the read-only range scanner)
+
+**Rule for this repo:** use `writexl::write_xlsx()` for writing and `readxl::read_excel()`
+for reading xlsx files. Never use openxlsx for output. Never use openpyxl `read_only=True`
+on files produced by openxlsx.

@@ -1,4 +1,5 @@
-library(openxlsx)
+library(writexl)
+library(readxl)
 library(readr)
 
 # ── Study configuration ────────────────────────────────────────────────────────
@@ -76,39 +77,24 @@ existing_annotations <- list()
 
 if (file.exists(output_path)) {
   message("Existing data_dictionaries.xlsx found — carrying forward manual annotations.")
-  wb_old <- loadWorkbook(output_path)
   for (sname in names(studies)) {
-    if (sname %in% names(wb_old)) {
-      old_df <- read.xlsx(wb_old, sheet = sname)
-      # keep only rows/cols that have manual content
+    tryCatch({
+      old_df <- read_excel(output_path, sheet = sname)
       if ("column_name" %in% names(old_df)) {
         ann <- old_df[, c("column_name", intersect(MANUAL_COLS, names(old_df))), drop = FALSE]
-        # normalise missing manual cols
         for (mc in MANUAL_COLS) {
           if (!mc %in% names(ann)) ann[[mc]] <- NA_character_
         }
-        existing_annotations[[sname]] <- ann
+        existing_annotations[[sname]] <- as.data.frame(ann, stringsAsFactors = FALSE)
       }
-    }
+    }, error = function(e) {
+      message(sprintf("  [warn] could not read sheet '%s': %s", sname, conditionMessage(e)))
+    })
   }
 }
 
-# ── Build workbook ─────────────────────────────────────────────────────────────
-wb <- createWorkbook()
-
-header_style <- createStyle(
-  textDecoration = "bold",
-  fgFill         = "#D9E1F2",
-  border         = "Bottom",
-  borderStyle    = "medium",
-  halign         = "left",
-  valign         = "top",
-  wrapText       = FALSE
-)
-
-body_style <- createStyle(halign = "left", valign = "top")
-
-example_style <- createStyle(halign = "left", valign = "top", wrapText = TRUE)
+# ── Build sheets ───────────────────────────────────────────────────────────────
+all_sheets <- list()
 
 for (study_name in names(studies)) {
   cfg  <- studies[[study_name]]
@@ -147,13 +133,13 @@ for (study_name in names(studies)) {
     n_uniq     <- length(unique(non_na))
 
     data.frame(
-      column_name   = col,
-      n_unique      = n_uniq,
-      n_missing     = n_miss,
-      pct_missing   = round(n_miss / n_rows * 100, 1),
-      variation     = classify_variation(vals_clean, patient_ids),
-      inferred_type = infer_type(vals_clean),
-      example_values = example_values(non_na),
+      column_name       = col,
+      n_unique          = n_uniq,
+      n_missing         = n_miss,
+      pct_missing       = round(n_miss / n_rows * 100, 1),
+      variation         = classify_variation(vals_clean, patient_ids),
+      inferred_type     = infer_type(vals_clean),
+      example_values    = example_values(non_na),
       meaning           = NA_character_,
       harmonized_name   = NA_character_,
       harmonized_values = NA_character_,
@@ -182,52 +168,14 @@ for (study_name in names(studies)) {
     message(sprintf("    %-20s %d", v, var_counts[v]))
   }
 
-  # ── write sheet ──
-  addWorksheet(wb, sheetName = study_name)
-  writeData(wb, sheet = study_name, x = dict, headerStyle = header_style)
-
-  n_data_rows <- nrow(dict)
-
-  # body style on all data cells
-  addStyle(wb, sheet = study_name,
-           style = body_style,
-           rows  = seq_len(n_data_rows) + 1,
-           cols  = seq_len(ncol(dict)),
-           gridExpand = TRUE)
-
-  # wrap text on example_values column (col 7)
-  addStyle(wb, sheet = study_name,
-           style = example_style,
-           rows  = seq_len(n_data_rows) + 1,
-           cols  = 7,
-           gridExpand = TRUE)
-
-  # freeze header row
-  freezePane(wb, sheet = study_name, firstRow = TRUE)
-
-  # column widths (approximate)
-  col_widths <- c(
-    column_name       = 28,
-    n_unique          = 10,
-    n_missing         = 11,
-    pct_missing       = 12,
-    variation         = 18,
-    inferred_type     = 14,
-    example_values    = 45,
-    meaning           = 30,
-    harmonized_name   = 22,
-    harmonized_values = 22,
-    notes             = 25
-  )
-  setColWidths(wb, sheet = study_name,
-               cols   = seq_along(col_widths),
-               widths = unname(col_widths))
-
-  # row height for data rows (accommodate wrapped example_values)
-  setRowHeights(wb, sheet = study_name,
-                rows    = seq_len(n_data_rows) + 1,
-                heights = 30)
+  all_sheets[[study_name]] <- dict
 }
 
-saveWorkbook(wb, file = output_path, overwrite = TRUE)
+write_xlsx(all_sheets, path = output_path)
 message(sprintf("\nSaved: %s", output_path))
+
+# ── inferred_type distribution ─────────────────────────────────────────────────
+all_types <- unlist(lapply(all_sheets, `[[`, "inferred_type"))
+message("\n=== inferred_type distribution (all studies) ===")
+counts <- sort(table(all_types), decreasing = TRUE)
+for (nm in names(counts)) message(sprintf("  %-15s %d", nm, counts[nm]))

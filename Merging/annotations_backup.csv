@@ -1,0 +1,66 @@
+study,column_name,meaning,notes
+Artacho,sample-id,QIIME2 primary sample identifier; equals the SRA run accession (SRR) for this study,unique per sample — identifier
+Artacho,Run,"SRA run accession (SRR...); unique per sequencing run, identical to sample-id here",unique per sample — identifier
+Artacho,Experiment,SRA experiment accession (SRX...); groups runs from the same library preparation,unique per sample — identifier
+Artacho,Library Name,"SRA submitter-assigned library name; encodes patient ID and timepoint (e.g., 59_post_16S)",unique per sample — identifier
+DAmico,sample-id,QIIME2 primary sample identifier; equals the SRA run accession (SRR) for this study,unique per sample — identifier
+DAmico,Assay Type,SRA library assay-type classification; value 'WGA' (whole-genome amplification) is SRA's generic label for amplicon libraries submitted without an explicit amplicon assay type,constant across all samples; constant value: WGA
+DAmico,Bases,Total number of bases sequenced in the SRA run (bp),unique per sample — identifier
+DAmico,BioProject,NCBI BioProject accession for this study (PRJNA592853),constant across all samples; constant value: PRJNA592853
+DAmico,BioSample,NCBI BioSample accession (SAMN...); unique per physical sample in NCBI,unique per sample — identifier
+DAmico,BioSampleModel,NCBI BioSample metadata schema applied to these submissions; 'Metagenome or environmental' is the standard schema for gut microbiome samples,constant across all samples; constant value: Metagenome or environmental
+DAmico,Bytes,Compressed file size of the SRA run data (bytes),unique per sample — identifier
+DAmico,Center Name,Name of the institution that submitted the data to SRA,constant across all samples; constant value: UNIVERSITY OF BOLOGNA
+DAmico,Collection_Date,Sample collection date as recorded in SRA metadata,constant across all samples; constant value: not available — date not provided by submitters
+DAmico,Consent,SRA data-access consent classification,constant across all samples; constant value: public
+DAmico,Experiment,SRA experiment accession (SRX...); unique per sequencing library,unique per sample — identifier
+DAmico,geo_loc_name_country,Country of sample collection as recorded in SRA metadata,constant across all samples; constant value: Italy — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+DAmico,geo_loc_name_country_continent,Continent of sample collection as recorded in SRA metadata,constant across all samples; constant value: Europe — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+DAmico,geo_loc_name,Geographic location (country:city) of sample collection as recorded in SRA metadata,constant across all samples; constant value: Italy:Bologna — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+DAmico,Host,Host organism for the microbiome sample as recorded in NCBI taxonomy,constant across all samples; constant value: Homo sapiens
+DAmico,HostID,Submitter-assigned host (patient) identifier in SRA; equivalent to patient ID,unique per sample — identifier
+DAmico,Instrument,Sequencing instrument model used for this study,constant across all samples; constant value: Illumina MiSeq
+DAmico,isolate,Sample source material as recorded in SRA metadata,constant across all samples; constant value: human feces
+DAmico,isolation_source,"Biological source from which the sample was isolated, as recorded in SRA metadata",constant across all samples; constant value: human gut
+DAmico,lat_lon,Latitude/longitude of sample collection site as recorded in SRA metadata,constant across all samples; constant value: missing — coordinates not provided by submitters
+DAmico,Library Name,Submitter-assigned library name in SRA; corresponds to the patient identifier used in the study,unique per sample — identifier
+DAmico,LibraryLayout,Sequencing read layout: single-end or paired-end,constant across all samples; constant value: SINGLE
+DAmico,LibrarySelection,"Method used to select or enrich the sequencing library (PCR = PCR amplification, as expected for 16S amplicon libraries)",constant across all samples; constant value: PCR
+DAmico,LibrarySource,Type of source material sequenced as recorded in SRA; GENOMIC is SRA's label for amplicon libraries lacking an explicit AMPLICON source type,constant across all samples; constant value: GENOMIC
+DAmico,Organism,NCBI taxonomy label applied to the sample,constant across all samples; constant value: human gut metagenome
+DAmico,Platform,Sequencing technology platform,constant across all samples; constant value: ILLUMINA
+DAmico,version,SRA metadata schema version number,constant across all samples; constant value: 1
+DAmico,Sample Name,Submitter-defined sample name in SRA; identical to Library Name and HostID for this study,unique per sample — identifier
+DAmico,sample_type,Sample type classification as recorded in SRA metadata,constant across all samples; constant value: metagenomic assembly
+DAmico,SRA Study,SRA study accession; groups all runs from the same BioProject submission (SRP234378),constant across all samples; constant value: SRP234378
+Fujimoto,sample-id,QIIME2 primary sample identifier; equals the SRA run accession (SRR) for this study,unique per sample — identifier
+Fujimoto,Sample Name,"Descriptive sample name encoding patient ID and timepoint (e.g., OCUBMT001_day0); submitter-defined",unique per sample — identifier
+Fujimoto,id,Duplicate of sample-id; SRA run accession (SRR...) assigned by submitters as a redundant identifier column,unique per sample — identifier
+Ingham,sample-id,QIIME2 primary sample identifier; equals the ENA run accession (ERR) for this study,unique per sample — identifier
+Ingham,Run,"ENA run accession (ERR...); unique per sequencing run, identical to sample-id here",unique per sample — identifier
+Ingham,run_accession,ENA run accession (ERR...); duplicate of Run and sample-id columns,unique per sample — identifier
+Ingham,sample_accession,ENA sample accession (SAMEA...); unique per physical sample in ENA,unique per sample — identifier
+Ingham,Experiment,ENA experiment accession (ERX...); groups runs from the same library preparation,unique per sample — identifier
+Ingham,secondary_sample_accession,ENA secondary sample accession (ERS...); alternative stable identifier for the sample in the European Nucleotide Archive,unique per sample — identifier
+Ingham,external_id,ENA external sample identifier; identical to sample_accession (SAMEA...) for this study,unique per sample — identifier
+Ingham,library_name,"Generic library name assigned by the submitter (Sample1, Sample2, …); no study-specific information encoded",unique per sample — identifier
+Ingham,sample_title,"Descriptive ENA sample title encoding patient ID and visit/week (e.g., P01.w1); submitter-defined",unique per sample — identifier
+Ingham,GvHD_onset,Day of GvHD onset relative to transplant,all values missing
+Ingham,Was.graft.manipulated.for.GVHD.prophylaxis,"Binary indicator: was the graft manipulated (e.g., T-cell depletion) for GvHD prophylaxis (0 = no)",constant across all samples; constant value: 0 — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+Ingham,cgvhd,Binary indicator: did the patient develop chronic GvHD (0 = no),constant across all samples; constant value: 0 — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+Ingham,Expr1018,Study-internal flag; exact meaning unknown; value 'no' for all samples,constant across all samples; constant value: no — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+Ingham,Myeloabl,Binary indicator: did the patient receive myeloablative conditioning (1 = yes),constant across all samples; constant value: 1 — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+Ingham,Total.dose.thiotepa..mg.,Total dose of thiotepa (mg) given as part of the conditioning regimen,constant across all samples; constant value: 0 — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+Liu,sample-id,QIIME2 primary sample identifier; equals the ENA BioSample accession (SAMEA) for this study,unique per sample — identifier
+Liu,BioSample,ENA BioSample accession (SAMEA...); identical to sample-id and sample_accession for this study,unique per sample — identifier
+Liu,Library Name,"Submitter-assigned library name in ENA/SRA; encodes study ID and patient ID (e.g., 10564.0QP6NJCM)",unique per sample — identifier
+Liu,sample_accession,ENA sample accession (SAMEA...); identical to sample-id and BioSample for this study,unique per sample — identifier
+Liu,host_subject_id,Patient identifier used as the patient key for this study,unique per sample — identifier
+Liu,external_id,ENA external sample identifier; identical to BioSample and sample_accession (SAMEA...) for this study,unique per sample — identifier
+Liu,sirolimus,Binary indicator: did the patient receive sirolimus as GvHD prophylaxis (no = none received),constant across all samples; constant value: no — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+Vallet,sample-id,QIIME2 primary sample identifier; equals the SRA run accession (SRR) for this study,unique per sample — identifier
+Vallet,azimut_id,"Study-specific sample identifier used as the patient key; encodes patient code, sample date, and a suffix (e.g., 002-1101-G-D_12_05_14)",unique per sample — identifier
+Vallet,retrait.consent,Administrative field: whether the patient withdrew study consent (no = consent retained),"constant across all samples; constant value: no — administrative field, not analytically meaningful"
+Vallet,vemsBos,Study-internal field; exact meaning unknown; possibly a version or protocol code related to bosutinib arm,"constant across all samples; constant value: 2,62 — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge"
+Vallet,dat_bos,Date associated with bosutinib treatment or protocol event (format YYYY-MM-DD),constant across all samples; constant value: 2016-03-07 — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
+Vallet,bos,Binary indicator: patient enrolled in or received bosutinib (yes = all patients in this exported subset received bosutinib),constant across all samples; constant value: yes — UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge
