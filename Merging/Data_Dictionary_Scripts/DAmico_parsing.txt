@@ -1,0 +1,41 @@
+Fill in the `meaning` column of the [DAmico2019] sheet in Merging/data_dictionaries.xlsx.
+Only `meaning` and `notes` — leave harmonized_name and harmonized_values empty;
+harmonization is a separate later step. Skip rows where meaning is already filled.
+
+
+Sources, in priority order:
+  1. [DAmico2019]/Metadata/Parsing_metadata.qmd— how the metadata was assembled, and any
+     recoding already applied
+  2. [DAmico2019]/Manuscript/[Mauscript.pdf ]and any supplement — read these first
+  3. The raw metadata under [DAmico2019]/Metadata/ — including any pre-expansion
+     source files, whose original column names may be more legible than the
+     harmonized ones
+  4. The actual values in [DAmico2019]/Metadata/[damico_meta_qiime.tsv] — read the full column, not
+     just the 5 examples in the scaffold
+
+Each `meaning` entry should contain three things where applicable:
+  - what the variable is, in one or two sentences
+  - units or scale (days from transplant? days from sampling? years? mg? cGy?)
+  - the value key: what every coded level means, e.g. "0=none, 1=grade I-II,
+    2=grade III-IV" or "Glucksberg overall grade, 0-4"
+For any date column, state the reference point explicitly, and for any
+time-to-event column state both the time origin and what the event is.
+
+When the paper does not establish a column, write your best inference in
+`meaning` and record in `notes`: the prefix "UNCERTAIN:", the basis for the
+inference, and what you checked and did not find. I will review all UNCERTAIN
+rows in a batch. Do not silently guess — an unflagged meaning is a claim that
+the source supports it.
+
+Three specific things to watch for and note:
+  - Columns that appear redundant with each other. Say which one you would keep
+    and why, in notes. Do not delete anything.
+  - Columns that look like one-hot / indicator expansions of a single underlying
+    categorical. Identify the group and the underlying variable in notes.
+  - second_num is opaque. PMN_day and PLT_over_20000_day are engraftment day definitions and need their thresholds stated.
+
+Work through the sheet top to bottom. When done, print a list of every column you
+flagged UNCERTAIN with a one-line reason, so I can see the review queue without
+opening the file.
+
+Commit as: [[DAmico]] data dictionary meanings

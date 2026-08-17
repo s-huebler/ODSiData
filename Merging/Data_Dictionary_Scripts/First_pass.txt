@@ -1,0 +1,24 @@
+In Merging/data_dictionaries.xlsx, fill the `meaning` column ONLY for rows where
+variation is CONSTANT, UNIQUE_ID, or ALL_MISSING. Do all six sheets in this one
+pass. Do not touch PATIENT_LEVEL or SAMPLE_LEVEL rows, and do not touch
+harmonized_name or harmonized_values.
+
+Most of these are sequencing-archive boilerplate: SRA Run Selector fields in
+DAmico (Assay Type, Bases, BioProject, DATASTORE *, lat_lon, Platform,
+LibraryLayout, etc.) and ENA fields in Ingham (run_accession, sample_accession,
+secondary_sample_accession). For those, write what the archive field means and
+its units where applicable — e.g. "SRA run accession; unique per sequencing run,
+1:1 with sample-id here" or "Total bases sequenced for the run (bp)".
+
+For each row also record in `notes` why it carries no analytic information:
+"constant across all samples", "unique per sample — identifier", or
+"all values missing". For CONSTANT columns, state the single value it holds.
+
+Where a CONSTANT column is constant only because this study happened to enroll a
+homogeneous cohort (rather than because it is a technical field), flag it in
+notes as "UNCERTAIN: constant in this study but analytically meaningful — may
+vary across studies at merge" — that distinction matters for harmonization later.
+
+Do not open any manuscript PDFs for this pass.
+
+Commit as: [Merging] data dictionary — technical and identifier columns

@@ -1,0 +1,68 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\froman\fcharset0 Times-Roman;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Fill in the `meaning` column of the [Artacho2024] sheet in Merging/data_dictionaries.xlsx.\
+Only `meaning` and `notes` \'97 leave harmonized_name and harmonized_values empty;\
+harmonization is a separate later step. Skip rows where meaning is already filled.\
+\
+Sources, in priority order:\
+  1. [Artacho2024]/Metadata/Parsing_metadata.qmd\'97 how the metadata was assembled, and any\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0      recoding already applied\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0   2. [Artacho2024]/Manuscript/[Multimodal analysis identifies microbiome changes linked to stem cell transplantation-associated diseases.pdf ]and any supplement \'97 read these first\
+  3. The raw metadata under [Artacho2024]/Metadata/ \'97 including any pre-expansion\
+     source files, whose original column names may be more legible than the\
+     harmonized ones\
+  4. The actual values in [Artacho2024]/Metadata/[artacho_meta_qiime.tsv] \'97 read the full column, not\
+     just the 5 examples in the scaffold\
+\
+Each `meaning` entry should contain three things where applicable:\
+  - what the variable is, in one or two sentences\
+  - units or scale (days from transplant? days from sampling? years? mg? cGy?)\
+  - the value key: what every coded level means, e.g. "0=none, 1=grade I-II,\
+    2=grade III-IV" or "Glucksberg overall grade, 0-4"\
+For any date column, state the reference point explicitly, and for any\
+time-to-event column state both the time origin and what the event is.\
+\
+When the paper does not establish a column, write your best inference in\
+`meaning` and record in `notes`: the prefix "UNCERTAIN:", the basis for the\
+inference, and what you checked and did not find. I will review all UNCERTAIN\
+rows in a batch. Do not silently guess \'97 an unflagged meaning is a claim that\
+the source supports it.\
+\
+Three specific things to watch for and note:\
+  - Columns that appear redundant with each other. Say which one you would keep\
+    and why, in notes. Do not delete anything.\
+  - Columns that look like one-hot / indicator expansions of a single underlying\
+    categorical. Identify the group and the underlying variable in notes.\
+	- 
+\f1\fs26 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Type.of.tranplant
+\f2\fs24  (col 10) and 
+\f1\fs26 Tranplant_Type
+\f2\fs24  (col 25) are both present and both misspelled; they may or may not be the same thing. Same question for 
+\f1\fs26 Transplant.source
+\f2\fs24  vs 
+\f1\fs26 Donor_Type
+\f2\fs24 . 
+\f1\fs26 sample.pre
+\f2\fs24 /
+\f1\fs26 sample.post
+\f2\fs24 /
+\f1\fs26 Omic.analysis.pre
+\f2\fs24 /
+\f1\fs26 Omic.analysis.post
+\f2\fs24  look like an indicator group.
+\f0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+Work through the sheet top to bottom. When done, print a list of every column you\
+flagged UNCERTAIN with a one-line reason, so I can see the review queue without\
+opening the file.\
+\
+Commit as: [[Artacho]] data dictionary meanings}
