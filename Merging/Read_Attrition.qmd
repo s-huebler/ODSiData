@@ -1,0 +1,164 @@
+---
+title: "Read Attrition"
+format: html
+editor: visual
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(qiime2R)
+library(ggh4x)
+library(scales)
+```
+
+# Goal
+
+Examine read attrition across microbiome processing pipeline
+
+# Steps
+
+1.  Original read depth
+
+    -   Per-sample sequence count in `QiimeData/demux.qza` as written by `02_import.slurm` / `02_import_single.slurm` — the demultiplexed ENA/SRA FASTQs before any trimming or denoising.
+    -   For paired-end studies this counts read *pairs* (one count per fragment, not per mate), so it stays on the same scale as every downstream step.
+
+2.  After trimming primers
+
+    -   Paired-end studies (`03_trim_paired.slurm`): `qiime cutadapt trim-paired` removes `PRIMER_F` / `PRIMER_R` as 5' front adapters, one per mate, with `--p-discard-untrimmed` — a pair in which either primer is not found is dropped.
+    -   Single-end / pre-merged studies (`03_trim_single.slurm`): **two** sequential `trim-single` passes — pass 1 strips the 5' forward primer (`--p-discard-untrimmed`), pass 2 strips the 3' reverse-complemented reverse primer (`--p-no-discard-untrimmed`). Two passes are required because cutadapt's `--times 1` default removes at most one adapter per read; only pass 1 discards reads.
+    -   Ingham2019 is a no-op here — its primers were already stripped upstream by `lib/prep_ingham_454.sh`, so `FWD_PRIMER` is empty and the raw demux carries through unchanged.
+
+3.  Denoising (one step if single end, or as 3 steps with denoising and then merging and non-chimeric if paired end)
+
+    -   Every DADA2 arm first applies an internal quality filter (the `filtered` column of `stats.qza`: truncation at `trunc-len`, an expected-error ceiling `max-ee`, and removal of any read containing an N). This sits between steps 2 and 3 and can optionally be plotted — see `step_colors_optional` below.
+    -   **DADA2 `denoise-paired`** (Artacho2024, Fujimoto2024, Vallet2023): reads are truncated at `TRUNC_LEN_F/R`, an Illumina error model is learned per run, and exact amplicon sequence variants are inferred separately for each mate (**Denoised**); mates are then overlapped into a single amplicon and pairs that fail to overlap are dropped (**Merged**); finally `consensus` chimera detection removes bimeras (**Non-chimeric**).
+    -   **DADA2 `denoise-single`** (Liu2017, DAmico2019): the same Illumina error model applied to un-merged forward reads (Liu2017) or to depositor-joined amplicons as a sensitivity arm (DAmico2019) — ASV inference (**Denoised**) then chimera removal (**Non-chimeric**). There is no merge column, so **Merged** is absent for these studies.
+    -   **DADA2 `denoise-pyro`** (Ingham2019, Jarosch2023): the 454/Ion Torrent error model, which tolerates homopolymer indels and variable read length instead of truncating every read to a fixed length. Reports the same two substeps as `denoise-single` (**Denoised**, **Non-chimeric**).
+    -   **Deblur `denoise-16S`** (alternate arm for pre-merged reads): a mandatory `quality-filter q-score` pre-step, then sub-OTU denoising against the positive 16S reference at a fixed `--p-trim-length`, which additionally discards every read shorter than that length. Deblur reports its own columns (reads-raw → artifact-filtered → hit-reference) rather than a chimera column, so its substeps are mapped onto **Denoised** / **Non-chimeric** when plotted.
+
+4.  Quality control (qc step)
+
+    -   `05_qc.slurm` runs `qiime feature-classifier classify-consensus-vsearch` on the study's rep-seqs against the Greengenes2 backbone at `perc-identity = 0.97`, `query-cov = 0.90`, `min-consensus = 0.51`.
+    -   `qiime taxa filter-table` / `filter-seqs` then drop every feature classified `Unassigned`; the reads lost here are those carried by ASVs with no high-confidence taxonomic assignment.
+
+5.  Closed reference ASV mapping (map step)
+
+    -   `06_gg2_map.slurm` runs `qiime greengenes2 non-v4-16s` at 99% identity, re-expressing the QC-passing ASVs in the Greengenes2 backbone namespace; ASVs with no backbone match drop out along with their reads.
+    -   This is run uniformly on every study — including V4-only Liu2017 — so that all primer regions end up in one namespace and align to the shared GG2 phylogeny for merging and UniFrac.
+
+# Plotting
+
+## Colors
+
+### Study colors (facet strips)
+
+```{r}
+source("/Users/sophiehuebler/Documents/ODSi/ODSiData/Shared_aesthetics/Study_colors.R")
+
+# Facet strips: outline in the study's tree color, translucent fill behind the label.
+# Order must match the factor level order of df_long$study.
+base_study_colors        <- unname(study_colors[studies])
+transparent_study_colors <- alpha(base_study_colors, 0.65)
+```
+
+### Pipeline step colors
+
+```{r}
+# Attrition palette, ordered along the pipeline:
+#   Input          dark purple            raw demultiplexed depth
+#   Trimmed        blue                   after cutadapt primer removal
+#   Denoised   \
+#   Merged      >  green -> yellow ramp   the DADA2 denoising substeps
+#   Non-chimeric/                         (single-end arms simply omit "Merged")
+#   QC             orange                 vsearch high-confidence assignment gate
+#   Mapped         red                    Greengenes2 closed-reference mapping
+
+# The denoising substeps are generated as a gradient so the block reads as one
+# family; change the stops / n here if the substep count ever changes.
+denoise_gradient <- colorRampPalette(c("#1B7A3F", "#DCE04A"))(3)
+# -> "#1B7A3F" "#7BAD45" "#DCE04A"
+
+step_colors <- c(
+  "Input"        = "#3F2B56",           # darkest, purple
+  "Trimmed"      = "#3C6FA8",           # blue
+  "Denoised"     = denoise_gradient[1], # green
+  "Merged"       = denoise_gradient[2], # green-yellow
+  "Non-chimeric" = denoise_gradient[3], # yellow
+  "QC"           = "#EF8A17",           # orange
+  "Mapped"       = "#C1272D"            # red
+)
+
+# Draw order: largest (earliest) bar in back, smallest (latest) in front.
+step_order <- names(step_colors)
+
+# Optional: DADA2's internal quality-filter column ("filtered" in stats.qza),
+# which sits between Trimmed and Denoised. Kept out of the default palette so the
+# legend stays at seven entries; splice it in if you decide to plot it.
+step_colors_optional <- c("Filtered" = "#7FA9D4")   # lighter shade of the trim blue
+# step_colors <- append(step_colors, step_colors_optional, after = 2)
+# step_order  <- names(step_colors)
+```
+
+```{r}
+#| fig-height: 1.4
+#| fig-width: 8
+
+# Quick visual check of the ramp
+tibble(step = factor(step_order, levels = step_order), y = 1) %>%
+  ggplot(aes(x = step, y = y, fill = step)) +
+  geom_col(width = 1) +
+  scale_fill_manual(values = step_colors) +
+  theme_void() +
+  theme(axis.text.x = element_text(size = 8), legend.position = "none")
+```
+
+## Metadata
+
+```{r}
+meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
+```
+
+## Data frame
+
+## Plot
+
+```{r}
+read_attrition <- ggplot(df_long, aes(y = sample.id, x = Reads, fill = Pipeline_Step)) +
+  geom_bar(stat = "identity", position = "identity") +
+  scale_fill_manual(values = step_colors, breaks = step_order) +
+
+  # Swap facet_grid for facet_grid2 from the ggh4x package
+  facet_grid2(
+    study ~ .,
+    scales = "free_y",
+    space = "free_y",
+    switch = "y",
+
+    strip = strip_themed(
+      background_y = elem_list_rect(fill = transparent_study_colors, color = base_study_colors)
+    )
+  ) +
+
+  labs(
+    title = "Read Attrition Across Microbiome Processing Pipeline",
+    y = "Individual Samples",
+    x = "Number of Reads",
+    fill = "Processing Step"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    #strip.placement = "outside",
+
+
+    strip.text.y.left = element_text(size = 12, face = "bold", color = "black", angle = 0),
+    panel.grid.major.y = element_blank(),
+    legend.position = "bottom"
+  ) +
+
+
+  guides(fill = guide_legend(nrow = 1, byrow = TRUE))
+```
