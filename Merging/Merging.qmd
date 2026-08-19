@@ -1,32 +1,143 @@
 ---
-title: "Batch Effects Correction Debias M"
+title: "Untitled"
 format: html
 editor: visual
 ---
 
-# Overview
-
-We are working off of the uncorreced_ps object created in ODSiData/AnalyticCohort.
+# Libraries
 
 ```{r}
+library(phyloseq)
+library(qiime2R)
+library(biomformat)
+library(readr)
 library(tidyverse)
-#BiocManager::install("sva")
+library(ape)
+library(Biostrings)
+library(ggtree)
+```
+
+# Files
+
+```{r}
+table_qza <- "~/Documents/ODSi/ODSiData/Merging/full_cohort/merged-table.qza"
+taxonomy_qza  <- "~/Documents/ODSi/ODSiData/Merging/full_cohort/taxonomy-gg.qza"
+repseqs_qza   <- "~/Documents/ODSi/ODSiData/Merging/full_cohort/merged-seqs.qza"      
+tree_nwk     <- "~/Documents/ODSi/ODSiData/Merging/full_cohort/merged-tree.nwk"
+meta_tsv <- "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv"
+```
+
+```{r}
+qt_orig <- read_qza(table_qza)$data
+tax_q  <- read_qza(taxonomy_qza)$data
+tree    <- ape::read.tree(tree_nwk)
+rep_seqs <- tryCatch(read_qza(repseqs_qza)$data, error = function(e) NULL)
+meta <- read_tsv(meta_tsv)
+```
+
+# Phyloseq
+
+## OTU
+
+```{r}
+otu_mat <- otu_table(qt_orig, taxa_are_rows = TRUE)
+```
+
+## Taxonomy
+
+```{r}
+parse_taxonomy <- function(tax_df) {
+  # tax_df expected to have columns: Feature.ID (or similar) and Taxon (string "k__; p__; ...")
+  cnames <- colnames(tax_df)
+  idcol <- cnames[1]    # usually "Feature.ID"
+  taxcol <- cnames[2]   # usually "Taxon"
+  tax_df2 <- as.data.frame(tax_df, stringsAsFactors = FALSE)
+  colnames(tax_df2)[1:2] <- c("FeatureID","Taxon")
+  tax_df2$Taxon <- as.character(tax_df2$Taxon)
+  ranks <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
+  tax_sep <- tidyr::separate(tax_df2, Taxon, into = ranks, sep = ";\\s*", fill = "right", remove = FALSE)
+  clean_rank <- function(x) {
+    x <- ifelse(is.na(x) | x == "" , NA, x)
+    x <- gsub("^[dkpcofgs]__|^__", "", x)   # remove prefixes like 'k__'
+    trimws(x)
+  }
+  tax_mat <- tax_sep %>%
+    dplyr::select(all_of(ranks)) %>%
+    mutate_all(clean_rank) %>%
+    as.matrix()
+  rownames(tax_mat) <- tax_sep$FeatureID
+  tax_mat
+}
+
+```
+
+```{r}
+tax_mat <- parse_taxonomy(tax_q)
+tax_mat <- tax_table(tax_mat)
+```
+
+## Seqs
+
+```{r}
+seqs <- Biostrings::DNAStringSet(rep_seqs)
+names(seqs) <- names(rep_seqs)
+```
+
+## Meta
+
+```{r}
+
+setdiff(meta$`sample-id`, colnames(otu_mat))->excluded
+meta_df <- sample_data(meta %>%
+                         filter(!(`sample-id` %in% excluded)))
+rownames(meta_df)<- meta_df$`sample-id`
+```
+
+## Combining
+
+```{r}
+print("Matching otu rownames and tree tip labels:")
+all(rownames(otu_mat) %in% tree$tip.label)
+
+print(sprintf("OTU features: %d ; tree tips: %d", ntaxa(otu_mat), length(tree$tip.label)))
+print(sprintf("Intersection: %d", sum(rownames(otu_mat) %in% tree$tip.label)))
+
+
+print(sprintf("OTU sample: %d ; meta samples: %d", ncol(otu_mat), nrow(meta_df)))
+print(sprintf("Intersection: %d", sum(colnames(otu_mat) %in% rownames(meta_df))))
+```
+
+```{r}
+ps <- phyloseq(otu_mat, tax_mat, meta_df, phy_tree(tree), refseq(seqs))
+print(ps)
+```
+
+# Visualizing
+
+```{r}
+source("/Users/sophiehuebler/Documents/ODSi/ODSiData/Functions/color_tips.R")
+```
+
+```{r}
+circular_tree <- ggtree(ps@phy_tree, layout = "circular", branch.length = "none") +
+  geom_tippoint( size = 1.6, alpha = 0.9)
+
+circular_tree
+```
+
+```{r}
+genus_tree <- vizualize_collapse(ps, "Genus", show_labels = TRUE)
+```
+
+# Beta diversity
+
+```{r}
 library(sva)
 library(biomformat)
 library(vegan)
 library(phyloseq)
 library(ggExtra)
 ```
-
-```{r}
-load("~/Documents/ODSi/ODSiData/AnalyticCohort/uncorrected_ps.Rdata")
-
-source("/Users/sophiehuebler/Documents/ODSi/ODSiData/Functions/tree_coloring.R")
-
-uncorrected_ps
-```
-
-# Functions
 
 ```{r}
 permanova_label_generate <- function(perm_res,
@@ -182,6 +293,10 @@ beta_pipe <- function(phylo_obj,
      distance_obj <-  phyloseq::distance(norm_phylo, method = ord_method,
                          weighted = FALSE)
     }
+    if(ord_method %in% c("wunifrac")){
+     distance_obj <-  phyloseq::distance(norm_phylo, method = "unifrac",
+                         weighted = TRUE)
+    }
     if(ord_method %in% c("euclidean")){
      distance_obj <- phyloseq::distance(norm_phylo, method = "euclidean")
     }
@@ -208,7 +323,31 @@ beta_pipe <- function(phylo_obj,
     #print(box)
     
   # 3) Plot
-    
+
+    # Per-study colors come from the shared palette in
+    # Shared_aesthetics/Study_colors.R (`study_colors`, one Okabe-Ito hue per
+    # cohort). It is normally in scope already because color_tips.R (sourced in
+    # the Visualizing section) sources it; source defensively so beta_pipe still
+    # works if this chunk is run on its own.
+    if (!exists("study_colors")) {
+      source("/Users/sophiehuebler/Documents/ODSi/ODSiData/Shared_aesthetics/Study_colors.R")
+    }
+
+    # study_colors is keyed by full "StudyYYYY" names (e.g. "Artacho2024"), but
+    # the merged metadata abbreviates most cohorts ("Artacho") while keeping
+    # "Liu2017". Match each study value present in this object to the shared name
+    # it is a prefix of, so the palette maps onto the actual factor levels rather
+    # than silently dropping to NA on a key mismatch.
+    present_studies <- sort(unique(as.character(sample_data(norm_phylo)$study)))
+    cohort_colors <- vapply(present_studies, function(s) {
+      hit <- names(study_colors)[startsWith(names(study_colors), s)]
+      if (length(hit) < 1L) {
+        stop("No Shared_aesthetics color found for study '", s, "'")
+      }
+      unname(study_colors[hit[1L]])
+    }, character(1))
+    names(cohort_colors) <- present_studies
+
     base_plot <- plot_ordination(norm_phylo,
                              ord_obj,
                              color = "study") +
@@ -217,10 +356,7 @@ beta_pipe <- function(phylo_obj,
       theme_bw() +                                   # Clean background theme
       theme(legend.position = "bottom")+              # Move legend to bottom so it doesn't crowd the margins
       scale_color_manual(name = "Cohort",
-                     labels = c("Allo" = "Allozithro",
-                                "Fuji" = "Fujimoto",
-                                "Liu" = "Liu"),
-                     values = c("gold", "#56B4E9", "#76EE00"))+
+                     values = cohort_colors)+
       geom_label(x = box$box_x, y = box$box_y, label = box$box_label,
              fill = "white", color = "black", fontface = "bold", size = 4) +
       ggtitle(title_str)
@@ -247,21 +383,14 @@ final_plot
 }
 ```
 
-# Prevalence threshold
-
 ```{r}
-singleton_ps <- filter_taxa(uncorrected_ps, function(x) sum(x > 0) ==1, prune = TRUE)
+singleton_ps <- filter_taxa(ps, function(x) sum(x > 0) ==1, prune = TRUE)
 singleton_ps
 ```
 
-Out of the 1731 taxa we start with, 683 occur in only a single sample.
-
-We will drop taxa that appear in fewer than x% of samples
-
 ```{r}
-
-filter_by_prevalence <- function(x, phylo_obj=uncorrected_ps){
-prevalence_threshold <- x * nsamples(phylo_obj) 
+filter_by_prevalence <- function(x, phylo_obj=ps){
+prevalence_threshold <- x * nsamples(phylo_obj)
 
 # Filter the taxa
 filtered_ps <- filter_taxa(phylo_obj, function(x) sum(x > 0) >= prevalence_threshold, prune = TRUE)
@@ -275,143 +404,18 @@ filter_by_prevalence(.1)
 filter_by_prevalence(.05)
 ```
 
-We'll filter for taxa found in at least 5% of samples (8 out of 144).
-
 ```{r}
 filtered_ps <- filter_by_prevalence(.05)
 ```
 
-# Uncorrected
-
-## Export to qiime
+## Rarefaction
 
 ```{r}
-# 1. Extract the OTU table (convert to matrix)
-otu_mat <- as(otu_table(filtered_ps), "matrix")
-
-# 2. Create OTU biom
-biom_otu <- make_biom(data = t(otu_mat))
-write_biom(biom_otu, 
-           "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/Filtered/feature-table.biom")
-
-
-# 3. Extract Taxonomy table
-tax_mat <- as(tax_table(filtered_ps), "matrix")
-tax_strings <- apply(tax_mat, 1, function(x) paste(x, collapse = "; "))
-qiime_tax <- data.frame(
-  `Feature ID` = rownames(tax_mat),
-  Taxon = tax_strings,
-  check.names = FALSE
-)
-write.table(qiime_tax, "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/Filtered/taxonomy.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
-
-
-
-
-rm(otu_mat, tax_mat, biom_otu, tax_strings, qiime_tax)
-
-# 4. Export Metadata (Standard TSV)
-#metadata <- as(sample_data(ps), "data.frame")
-# Add the #SampleID header required by QIIME 2
-#metadata <- cbind(SampleID = rownames(metadata), metadata)
-
-uncorrected_meta <- sample_data(filtered_ps)%>%data.frame()
-names(uncorrected_meta)<- c("sampleid","study",
-                                "individual","sex","age",
-                                "disease","agvhd","death", "relapse")
-
-
-write.table(uncorrected_meta, "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/Filtered/meta.tsv", sep="\t", row.names=FALSE, quote=FALSE)
-
-# 5. Export Tree 
-if (!is.null(phy_tree(filtered_ps, errorIfNULL = FALSE))) {
-  ape::write.tree(phy_tree(filtered_ps), 
-                  "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/Filtered/tree.nwk")
-}
-
-rm(uncorrected_meta)
-```
-
-## Beta diversity
-
-### Rarefaction
-
-```{r}
-summary(rowSums(as(otu_table(uncorrected_ps), "matrix")))
-summary(rowSums(as(otu_table(filtered_ps), "matrix")))
-```
-
-```         
-rarefy_pipe.sh 5000
-```
-
-![](images/alpha_curvs.png)
-
-```{r}
-set.seed(9134)
-```
-
-### Bray
-
-```{r}
-uncorrected_rare900_beta_bray <- beta_pipe(filtered_ps,
-          900,
-          "bray",
-"Beta Diversity (Bray-Curtis)
-Uncorrected
-Rarefied to 900",
-"rarefy",
-box_label_positions = c("l", "l"),
-box_label_percs = c(.99, .89))
-
-uncorrected_rare900_beta_bray 
+source("~/Documents/ODSi/ODSiData/Functions/plot_rarefaction_curves.R")
 ```
 
 ```{r}
-uncorrected_logCPM_beta_bray <- beta_pipe(filtered_ps,
-          NULL,
-          "bray",
-"Beta Diversity (Bray-Curtis)
-Uncorrected
-Log Parts Per Million",
-"logCPM",
-box_label_positions = c("l", "l"),
-box_label_percs = c(.99, .89))
-
-uncorrected_logCPM_beta_bray 
-```
-
-### Unifrac
-
-```{r}
-uncorrected_rare900_beta_unifrac <- beta_pipe(filtered_ps,
-          900,
-          "unifrac",
-"Beta Diversity (Unweighted Unifrac)
-Uncorrected
-Rarefied to 900",
-box_label_positions = c("l", "l"),
-box_label_percs = c(1.0, -.9),
-overide_positions = c(-.5, -.5))
-
-uncorrected_rare900_beta_unifrac
-```
-
-Export at 700 x 500
-
-```{r}
-uncorrected_logCPM_beta_unifrac <- beta_pipe(filtered_ps,
-          NULL,
-          "unifrac",
-"Beta Diversity (Unweighted Unifrac)
-Uncorrected
-Log Parts Per Million",
-"logCPM",                                          
-box_label_positions = c("l", "l"),
-box_label_percs = c(1.0, -.9),
-overide_positions = c(-.5, -.5))
-
-uncorrected_logCPM_beta_unifrac
+plot_rarefaction_curves(filtered_ps)
 ```
 
 # Debias M
@@ -453,17 +457,16 @@ counts_df <- as.data.frame(t(shared_count_matrix))
 counts_df <- cbind(sampleid = rownames(counts_df), counts_df)
 
 write.csv(counts_df,
-          "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/DebiasM/debiasm-counts.csv",
+          "/Users/sophiehuebler/Documents/ODSi/ODSiData/Correcting/DebiasM/debiasm-counts.csv",
           row.names = FALSE)
 
 ## 5) Build metadata aligned to filtered sample order and write meta CSV
 debiasm_meta <- count_meta[sample_keep, , drop = FALSE]
-names(debiasm_meta) <- c("sampleid", "study", "individual", "sex", "age",
-                          "disease", "agvhd", "death", "relapse")
-debiasm_meta <- debiasm_meta[, c("sampleid", "study", "agvhd")]
+debiasm_meta <- debiasm_meta[, c("sample.id", "study", "agvhd")]
+names(debiasm_meta)<- c("sampleid", "study", "agvhd")
 
 write.csv(debiasm_meta,
-          "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/DebiasM/debiasm-meta.csv",
+          "/Users/sophiehuebler/Documents/ODSi/ODSiData/Correcting/DebiasM/debiasm-meta.csv",
           row.names = FALSE)
 ```
 
@@ -471,14 +474,14 @@ write.csv(debiasm_meta,
 
 ```         
 conda activate debiasm
-python /Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/DebiasM/run_debiasm.py
+python /Users/sophiehuebler/Documents/ODSi/ODSiData/Correcting/DebiasM/run_debiasm.py
 ```
 
 ## 4) Import back into R
 
 ```{r}
 corrected_df <- read.csv(
-  "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/DebiasM/debiasm-corrected.csv",
+  "/Users/sophiehuebler/Documents/ODSi/ODSiData/Correcting/DebiasM/debiasm-corrected.csv",
   row.names = 1,
   check.names = FALSE
 )
@@ -488,8 +491,8 @@ corrected_df <- read.csv(
 retained_samples <- rownames(corrected_df)
 retained_taxa    <- colnames(corrected_df)
 
-debiasm_ps <- prune_samples(sample_names(uncorrected_ps) %in% retained_samples,
-                             uncorrected_ps)
+debiasm_ps <- prune_samples(sample_names(ps) %in% retained_samples,
+                             ps)
 debiasm_ps <- prune_taxa(taxa_names(debiasm_ps) %in% retained_taxa,
                           debiasm_ps)
 
@@ -529,6 +532,20 @@ set.seed(9134)
 ### Bray
 
 ```{r}
+uncorrected_beta_bray <- beta_pipe(filtered_ps,
+          rare_depth = 1200,
+          "bray",
+"Beta Diversity (Bray-Curtis)
+Rarefied 1200
+Relative Abundance",
+"rarefy",
+box_label_positions = c("l", "l"),
+box_label_percs = c(.99, .89))
+
+uncorrected_beta_bray
+```
+
+```{r}
 debiasm_beta_bray <- beta_pipe(debiasm_ps,
           NULL,
           "bray",
@@ -542,157 +559,32 @@ box_label_percs = c(.99, .89))
 debiasm_beta_bray
 ```
 
-### Unifrac
+## Weighted Unifrac
 
 ```{r}
-debiasm_beta_unifrac <- beta_pipe(debiasm_ps,
+uncorrected_beta_wunifrac <- beta_pipe(filtered_ps,
+          rare_depth = 1200,
+          "wunifrac",
+"Beta Diversity (Weighted Unifrac)
+Rarefied 1200
+Relative Abundance",
+"rarefy",
+box_label_positions = c("l", "l"),
+box_label_percs = c(.99, .89))
+
+uncorrected_beta_wunifrac
+```
+
+```{r}
+debiasm_beta_wunifrac <- beta_pipe(debiasm_ps,
           NULL,
-          "unifrac",
-"Beta Diversity (Unweighted Unifrac)
+          "wunifrac",
+"Beta Diversity (Bray-Weighted Unifrac)
 DEBIAS-M corrected
 Relative Abundance",
 "identity",
 box_label_positions = c("l", "l"),
-box_label_percs = c(1, .89),
-overide_positions = c(-.5, -.5))
-
-debiasm_beta_unifrac
-```
-
-# Log space
-
-```{r}
-uncorrected_clr_beta <- beta_pipe(filtered_ps,
-          NULL,
-          "euclidean",
-"Beta Diversity (PCA)
-Uncorrected
-CLR Transformed",
-"clr",
-box_label_positions = c("l", "l"),
 box_label_percs = c(.99, .89))
 
-uncorrected_clr_beta
-```
-
-## Debias log-additive
-
-### 1) CLR transform
-
-```{r}
-otu <- as(otu_table(filtered_ps), "matrix")
-    if (taxa_are_rows(filtered_ps)) {
-      otu <- t(otu)   # ensure samples are rows, taxa are columns
-    }
-
-    imputed <- otu + 1                                   # naive zero imputation
-    clr_mat <- t(apply(imputed, 1,
-                       function(r) as.numeric(compositions::clr(r))))
-    rownames(clr_mat) <- rownames(imputed)
-    colnames(clr_mat) <- colnames(imputed)
-
-    clr_otu <- otu_table(clr_mat, taxa_are_rows = FALSE)
-    clr_ps <- phyloseq(clr_otu,
-                           sample_data(filtered_ps),
-                           tax_table(filtered_ps))
-    
-    rm(otu, imputed)
-```
-
-### 2) Export data from R to python
-
-```{r}
-## Taxa rows × sample cols (same orientation required by ComBat-seq)
-count_matrix <- as(otu_table(clr_ps), "matrix")
-if (!taxa_are_rows(clr_ps)) {
-  count_matrix <- t(count_matrix)
-}
-
-count_meta <- data.frame(sample_data(clr_ps))
-count_meta <- count_meta[colnames(count_matrix), , drop = FALSE]
-
-batch_var <- droplevels(factor(count_meta$study))
-
-## 1) Identify taxa non-zero in at least one sample of at least two studies
-# shared_taxa <- rowSums(sapply(levels(batch_var), function(b) {
-#   abs(rowSums(count_matrix[, batch_var == b, drop = FALSE])) > 0
-# })) >= 2
-
-shared_taxa <- rep(TRUE, nrow(count_matrix))
-names(shared_taxa) <- rownames(count_matrix)
-
-## 2) Filter to shared taxa
-shared_count_matrix <- count_matrix[shared_taxa, , drop = FALSE]
-
-## 3) Do NOT drop samples with zero total counts after filtering, the colSums will all be about 0
-## 3) Drop samples with zero total counts after filtering
-sample_keep <- rep(TRUE, ncol(count_matrix))
-names(sample_keep)<- colnames(count_matrix)
-
-
-## 4) Transpose to samples × taxa and write counts CSV
-counts_df <- as.data.frame(t(shared_count_matrix))
-counts_df <- cbind(sampleid = rownames(counts_df), counts_df)
-
-write.csv(counts_df,
-          "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/DebiasM/logdebiasm-counts.csv",
-          row.names = FALSE)
-
-## 5) Build metadata aligned to filtered sample order and write meta CSV
-debiasm_meta <- count_meta[sample_keep, , drop = FALSE]
-names(debiasm_meta) <- c("sampleid", "study", "individual", "sex", "age",
-                          "disease", "agvhd", "death", "relapse")
-debiasm_meta <- debiasm_meta[, c("sampleid", "study", "agvhd")]
-
-write.csv(debiasm_meta,
-          "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/DebiasM/logdebiasm-meta.csv",
-          row.names = FALSE)
-```
-
-### 3) Run logDebias-M python script
-
-### 4) Import back into R
-
-```{r}
-logcorrected_df <- read.csv(
-  "/Users/sophiehuebler/Documents/ODSi/ODSiData/AnalyticCohort/DebiasM/logdebiasm-corrected.csv",
-  row.names = 1,
-  check.names = FALSE
-)
-
-# corrected_df is samples × taxa; prune uncorrected_ps to the retained
-# samples and taxa before swapping the otu_table
-retained_samples <- rownames(logcorrected_df)
-retained_taxa    <- colnames(logcorrected_df)
-
-logdebiasm_ps <- prune_samples(sample_names(filtered_ps) %in% retained_samples,
-                             filtered_ps)
-logdebiasm_ps <- prune_taxa(taxa_names(filtered_ps) %in% retained_taxa,
-                          filtered_ps)
-
-# Align corrected matrix to the object's current sample and taxa order,
-# then transpose to taxa × samples for otu_table assignment
-logcorrected_mat <- as.matrix(logcorrected_df[sample_names(logdebiasm_ps),
-                                         taxa_names(logdebiasm_ps)])
-stopifnot(identical(colnames(logcorrected_mat), taxa_names(logdebiasm_ps)))
-stopifnot(identical(rownames(logcorrected_mat), sample_names(logdebiasm_ps)))
-
-#Multiply by the number of taxa
-otu_table(logdebiasm_ps) <- 342*otu_table(t(logcorrected_mat), taxa_are_rows = TRUE)
-```
-
-### 5) Beta diversity
-
-```{r}
-logdebiasm_beta_clr <- beta_pipe(logdebiasm_ps,
-          NULL,
-          "euclidean",
-"Beta Diversity (PCA)
-DEBIAS-M corrected
-CLR Transformed",
-"identity",
-box_label_positions = c("l", "l"),
-box_label_percs = c(.99, .89))
-
-logdebiasm_beta_clr
+debiasm_beta_wunifrac
 ```

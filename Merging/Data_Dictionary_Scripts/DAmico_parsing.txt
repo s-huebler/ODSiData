@@ -1,6 +1,6 @@
 Fill in the `meaning` column of the [DAmico2019] sheet in Merging/data_dictionaries.xlsx.
 Only `meaning` and `notes` — leave harmonized_name and harmonized_values empty;
-harmonization is a separate later step. Skip rows where meaning is already filled.
+harmonization is a separate later step. Skip rows where meaning is already filled. Write your results into a file called Merging/Data_Dictionary_Scripts/fill_damico_meanings.R. 
 
 
 Sources, in priority order:

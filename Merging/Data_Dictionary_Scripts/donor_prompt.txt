@@ -1,0 +1,146 @@
+Add donor relationship and HLA match to the harmonized GVHD metadata.
+
+Follow the "Harmonization Variable Additions" section of CLAUDE.md for all
+standing conventions.
+
+SHAPE: two categorical covariates
+
+DEFINITION: Every study records donor type as a single label that fuses two
+independent things: how the donor is related to the recipient, and how well the
+donor and recipient are HLA-matched. I want them split, because they act
+differently — relationship drives donor availability and graft composition,
+while HLA disparity is the primary driver of alloreactivity and therefore of
+GVHD risk. A haploidentical transplant is related AND half-matched, which a
+single fused column cannot express.
+
+CANONICAL VOCABULARY:
+
+  donor_relationship    related | unrelated
+    related    = family donor of any degree, including HLA-identical siblings,
+                 other matched family members, and haploidentical relatives.
+    unrelated  = volunteer unrelated donor, OR a cord blood unit. Cord units
+                 have no living related donor and are unrelated by definition —
+                 see NOTES on why cord maps here rather than to its own level.
+
+  donor_hla_match       matched | mismatched | haploidentical
+    matched        = fully HLA-matched, whether related or unrelated.
+    mismatched     = one or more antigen/allele mismatches, short of a
+                     deliberate half-match.
+    haploidentical = deliberate one-haplotype (~50%) match with a relative.
+                     This is its own level, NOT a kind of "mismatched".
+    NA where the source records no HLA information. Do not infer match status
+    from a donor-relationship label — see stop-and-ask 1.
+
+PLACEMENT: immediately after disease and before transplant_date, in the order
+donor_relationship, donor_hla_match. These are properties of the transplant
+itself rather than peri-transplant exposures, so they sit ahead of the
+conditioning and prophylaxis blocks if those already exist.
+
+PER-STUDY CONSTRUCTION:
+- Artacho:  Donor_Type is the decoded label (use it, not the numeric
+            Type.of.tranplant, which is the same variable in codes):
+              "Family, HLA identical"       -> related,   matched        (62)
+              "Family, Haplo identical"     -> related,   haploidentical (36)
+              "Unrelated, HLA compatible"   -> unrelated, matched        (28)
+              "Unrelated, HLA incompatible" -> unrelated, mismatched     (46)
+            Note the 41 "Unrelated, HLA incompatible" samples with
+            Tranplant_Type = UC are cord-blood recipients that Artacho has
+            already resolved onto both axes. No special handling needed.
+- DAmico:   Donor_Type, per the manuscript Supplementary Table 2 footnote:
+              MFD  (Matched Familiar/related Donor)     -> related,   matched        (13)
+              MMFD (Mismatched Familiar/related Donor)  -> related,   mismatched     (6)
+              MUD  (Matched Unrelated Donor)            -> unrelated, matched        (54)
+              MMUD (Mismatched Unrelated Donor)         -> unrelated, mismatched     (10)
+              Haploidentical (5/10 HLA-matched related) -> related,   haploidentical (21)
+- Fujimoto: Donor:
+              MRD           (HLA-matched related)    -> related,   matched        (88)
+              MUD           (HLA-matched unrelated)  -> unrelated, matched        (46)
+              Mismatched UD (HLA-mismatched unrel.)  -> unrelated, mismatched     (4)
+              Haplo         (haploidentical)         -> related,   haploidentical (106)
+              CB            (cord blood, unrelated)  -> unrelated, NA             (71)
+            CB carries no HLA information in this source, so donor_hla_match is
+            NA for those 71 samples. See stop-and-ask 2.
+- Ingham:   Use BOTH columns — they are complementary, not redundant.
+            donor -> donor_relationship: "sibling" -> related (19),
+              "unrelated" -> unrelated (77).
+            match -> donor_hla_match:
+              "sibling_donor"     -> matched     (19)
+              "matched_unrelated" -> matched     (56)
+              "1HLA_mismatch"     -> mismatched  (14)
+              "2HLA_mismatch"     -> mismatched  (7)
+            Ingham has no haploidentical donors. Its 12 cord-blood recipients
+            (Ubilical.cord == 1) already appear as unrelated + 1/2 HLA mismatch,
+            so no cord-specific rule is needed. The one row with no clinical
+            metadata stays NA on both columns.
+            Assert in the tests that every mismatch is unrelated and every
+            sibling is matched — this holds in the current data, and a violation
+            means the two columns have drifted apart.
+- Liu2017:  donor_type -> donor_relationship:
+              "related"   -> related    (26)
+              "unrelated" -> unrelated  (12)
+              "cord"      -> unrelated  (19)
+            donor_hla_match -> NA for the whole study. See stop-and-ask 1.
+            Donor rows -> NA on both columns.
+- Vallet:   donor_type -> donor_relationship: "related" -> related (44),
+            "unrelated" -> unrelated (74). The 7 cord-blood samples
+            (csh_type = "cord blood") are already coded unrelated in the source,
+            so no special handling is needed.
+            donor_hla_match -> NA for the whole study. See stop-and-ask 1.
+
+NOTES:
+- Cord blood maps to donor_relationship = unrelated in every study, rather than
+  becoming its own level. Rationale: four of the six studies (Artacho, Ingham,
+  Vallet, and DAmico by absence) already resolve cord recipients onto the
+  relationship and match axes, and only Fujimoto and Liu promote cord to a donor
+  category. Mapping cord to unrelated makes all six consistent. The information
+  that the graft was a cord unit is not lost — it lives in the graft-source
+  columns (Artacho Tranplant_Type, DAmico Stem_cell_source, Fujimoto Graft_Type,
+  Ingham Ubilical.cord, Liu donor_source, Vallet csh_type), which are present in
+  all six studies and are a natural next variable to harmonize. Record that in
+  the log.
+- haploidentical is deliberately a level of donor_hla_match, not of
+  donor_relationship. A haplo donor IS a relative, so collapsing it into the
+  relationship axis would make "related" mean two different things. Keeping the
+  axes orthogonal is the whole point of the split.
+- Do not treat haploidentical as a kind of mismatched. It is a planned half-match
+  with its own prophylaxis implications, and pooling it with incidental 1-2
+  antigen mismatches would blur a real distinction.
+- Ingham is the only study distinguishing degree of mismatch (1 vs 2 antigens,
+  n=14 and n=7). I am NOT harmonizing mismatch count in this pass since no other
+  study supports it. Note in the log that Ingham's match column retains it if a
+  finer variable is wanted later.
+
+Before editing anything, read all six study sheets in data_dictionaries.xlsx
+(the copy in Merging/, which is more current than the one in
+Merging/Harmonization/) and cross-tabulate the real source columns in the
+*_meta_qiime.tsv files. Three things I want your read on before you write code:
+
+  1. Liu and Vallet HLA match. Both dictionaries gloss donor_type as
+     "related = HLA-matched related donor" and "unrelated = HLA-matched
+     unrelated donor". My reading is that this is descriptive prose about what
+     the label typically means, not a per-patient match field, and that coding
+     197 samples as "matched" on that basis would manufacture data — especially
+     since Vallet includes 7 cord-blood transplants, which are rarely fully
+     matched. My default is donor_hla_match = NA for both studies. Check whether
+     either manuscript reports HLA matching in a patient table, and tell me if
+     you find per-patient match data anywhere.
+  2. Fujimoto CB. Cord units are typically 1-2 antigen mismatched, but Fujimoto
+     does not state match status for its 71 CB samples. My default is NA rather
+     than assuming mismatched. Tell me if the manuscript reports CB HLA matching.
+  3. Liu cord inconsistency. The data dictionary states "For cord+cord
+     transplants, donor_type is always cord", but 2 samples have
+     donor_type = "unrelated" with donor_source = "cord+cord". Both map to
+     unrelated under my rule so the harmonized value is unaffected, but tell me
+     whether this is a source data error worth flagging, since it means the
+     dictionary's stated invariant does not hold.
+
+If the data contradicts the spec above, or you hit any of the other
+stop-and-ask triggers in CLAUDE.md, stop and ask me before writing code —
+report the counts that make it matter and propose a default. Otherwise proceed:
+edit harmonize_gvhd_metadata.R, extend build_qa() with (a) a coverage row for
+each new column, (b) a non-canonical value table for both vocabularies, (c) a
+cross-tabulation of donor_relationship by donor_hla_match by study so I can see
+the joint distribution, and (d) a check that donor_hla_match == "haploidentical"
+implies donor_relationship == "related"; add unit and end-to-end tests; run the
+test suite; and append an entry to to_log/harmonization_decisions.md. Do not
+touch the xlsx.

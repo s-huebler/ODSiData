@@ -1,0 +1,191 @@
+Add conditioning variables to the harmonized GVHD metadata.
+
+Follow the "Harmonization Variable Additions" section of CLAUDE.md for all
+standing conventions.
+
+SHAPE: one categorical covariate, one canonical-string covariate, two binaries
+
+DEFINITION: Conditioning is the preparative regimen given before graft infusion,
+and it is the single largest microbiome insult in the transplant course. I want
+it captured on four separate axes: how intense the regimen was, which cytotoxic
+drugs it contained, whether it included total body irradiation, and whether it
+included serotherapy. Splitting irradiation and serotherapy out of the drug
+string is deliberate — it keeps the drug combinations comparable across studies
+that record irradiation and serotherapy differently, or not at all.
+
+CANONICAL VOCABULARY:
+
+  conditioning_intensity   MAC | RIC | NMA
+    MAC = myeloablative, RIC = reduced-intensity, NMA = non-myeloablative.
+    Where a study records only a two-level myeloablative flag, map 1 -> MAC and
+    0 -> NMA. See NOTES for the consequence of that rule.
+
+  conditioning_regimen     canonical drug-combination string
+    Lower-case drug tokens joined by "/", sorted ALPHABETICALLY so the string is
+    a deterministic join key rather than a clinical-convention name. Token set:
+      bu    busulfan          (DAmico "BU", Ingham X233Bu, Liu "Bu")
+      cy    cyclophosphamide  (DAmico "EDX", Ingham X270Cyclo, Liu "Cy")
+      flu   fludarabine       (DAmico "FLUDARA", Ingham X284.2Fludarab, Liu "Flu")
+      mel   melphalan         (DAmico "L-PAM", Ingham melphalan dose, Liu "Mel")
+      thio  thiotepa          (DAmico "TT", Liu "Thio")
+      treo  treosulfan        (DAmico "TREO", Liu "Treo")
+      vp16  etoposide         (Ingham VP16 dose)
+    TBI and serotherapy are NOT tokens in this string — they have their own
+    columns. Strip them out wherever a source embeds them in a regimen name.
+
+  conditioning_tbi         1/0
+    1 = total body irradiation included in the preparative regimen.
+
+  conditioning_serotherapy 1/0
+    1 = ATG or an antibody-based agent (alemtuzumab/rituximab) given as part of
+    conditioning. NA where the study does not record it at all.
+
+PLACEMENT: immediately after sample_day_rel_transplant, in the order
+conditioning_intensity, conditioning_regimen, conditioning_tbi,
+conditioning_serotherapy. This puts the treatment-exposure block before the GVHD
+outcome blocks. If the gvhd_prophylaxis columns already exist, conditioning goes
+before them, since conditioning precedes prophylaxis chronologically.
+
+PER-STUDY CONSTRUCTION:
+- Artacho:  not recorded -> NA for all four columns. The source has no
+            conditioning regimen, intensity or TBI field. Myelosuppression is
+            NOT conditioning intensity — see NOTES.
+- DAmico:   Conditioning_regimen is a comma-separated drug list, six observed
+            combinations, no intensity label. Parse to canonical tokens,
+            stripping TBI into conditioning_tbi:
+              "BU, TT, FLUDARA"    -> bu/flu/thio    tbi 0   (40)
+              "BU, EDX, L-PAM"     -> bu/cy/mel      tbi 0   (24)
+              "BU, TT, EDX"        -> bu/cy/thio     tbi 0   (16)
+              "TREO, TT, FLUDARA"  -> flu/thio/treo  tbi 0   (15)
+              "EDX, FLUDARA, TBI"  -> cy/flu         tbi 1   (5)
+              "TREO, TT, EDX"      -> cy/thio/treo   tbi 0   (4)
+            The data dictionary describes the column as "Myeloablative
+            conditioning regimen", so conditioning_intensity = MAC for all 104
+            samples — verify first, see stop-and-ask 1.
+            conditioning_serotherapy -> NA (not recorded).
+- Fujimoto: Conditioning_Intensity maps directly: MAC (173) / RIC (135) /
+            NMA (7). Conditioning_TBI Yes/No -> conditioning_tbi (91 / 224).
+            No drug detail -> conditioning_regimen NA.
+            conditioning_serotherapy -> NA.
+- Ingham:   Myeloabl is constant 1 -> conditioning_intensity = MAC for the whole
+            cohort (96 samples; the one row with no clinical metadata stays NA).
+            Assemble conditioning_regimen from the drug indicators:
+              bu    X233Bu in (1, 2)      [2 is undocumented; treat as given]
+              cy    X270Cyclo == 1
+              flu   X284.2Fludarab == 1
+              mel   Total.dose.melphalan..mg.  present and non-zero
+              vp16  Total.dose.VP16..mg.       present and non-zero
+              thio  Total.dose.thiotepa..mg.   present and non-zero (constant 0
+                    in this cohort, so thio never appears — keep the branch so
+                    the rule is uniform across studies)
+            conditioning_tbi from TBI, which is missing for 29 samples. Every
+            TBI-missing row has Irrad = 0, meaning no irradiation of any kind,
+            so TBI must be 0. That recovers 28 of the 29; the last is the
+            metadata-less row and stays NA. Assert this relationship in the
+            tests rather than assuming it holds.
+            conditioning_serotherapy = 1 if X197ATGmm == 1 or X10Ab == 1
+            (78 yes / 18 no / 1 NA).
+            Expected regimen strings (samples): bu/cy/mel 23, vp16 22, bu/cy 12,
+            bu/flu 9, cy/flu 8, cy 8, bu/vp16 5, flu 5, bu/cy/vp16 3, cy/vp16 1.
+- Liu2017:  conditioning_intensity from conditioning_intensity: High -> MAC (9),
+            Intermediate -> RIC (24), Low -> NMA (24). See stop-and-ask 2.
+            conditioning_regimen from chemotherapy_regimen. Three things must be
+            stripped: the parenthetical dose annotations ("Cy/TBI (12)" and
+            "Flu/Cy/TBI (13G)" are the same regimens as "Cy/TBI" and
+            "Flu/Cy/TBI"), the TBI token, and the ATG token:
+              Flu/TBI            -> flu          tbi 1  sero 0  (22)
+              Flu/Cy/TBI         -> cy/flu       tbi 1  sero 0  (9)
+              Flu/Cy/TBI (13G)   -> cy/flu       tbi 1  sero 0  (1)
+              Flu/Cy/Thio/TBI    -> cy/flu/thio  tbi 1  sero 0  (7)
+              Bu/Cy              -> bu/cy        tbi 0  sero 0  (7)
+              Flu/Mel            -> flu/mel      tbi 0  sero 0  (5)
+              Flu/Treo/TBI       -> flu/treo     tbi 1  sero 0  (3)
+              Cy/ATG             -> cy           tbi 0  sero 1  (2)
+              Cy/TBI (12)        -> cy           tbi 1  sero 0  (1)
+            Note that Cy/ATG and Cy/TBI both reduce to the string "cy" — that is
+            correct, because the differentiating components live in the
+            serotherapy and tbi columns.
+            Donor rows -> NA for all four columns.
+- Vallet:   conditioning -> MAC for "myeloablative" (30), NMA for
+            "non myeloablative" (88), per the two-level rule above. See NOTES.
+            No drug detail -> conditioning_regimen NA. TBI not recorded -> NA.
+            conditioning_serotherapy -> NA.
+            Ignore the group column (ALLOZITHRO azithromycin arm) entirely —
+            antibiotics will be a separate variable later.
+
+NOTES:
+- Vallet's two-level collapse has a consequence I want recorded explicitly in
+  the decision log. The source documents "non myeloablative" as meaning
+  "reduced-intensity OR non-myeloablative", so mapping it to NMA puts 88
+  heterogeneous samples in the NMA cell. Cohort-wide that is 88 of 119 NMA
+  samples, so any RIC-versus-NMA contrast is substantially a Vallet-versus-
+  not-Vallet contrast. Apply the rule as specified, but log this as an open
+  question with the counts.
+- Do NOT derive conditioning_intensity from drug doses. I checked Ingham's doses
+  against the CIBMTR/ASBMT working definitions (MAC = busulfan >9 mg/kg total,
+  melphalan >=140 mg/m2, TBI >800 cGy fractionated or >500 cGy single-fraction)
+  and the conversion does not hold up: melphalan's threshold is per m2 and
+  Ingham has weight but no height, so BSA is not computable for the 5 melphalan
+  patients; etoposide has no threshold in the criteria and 9 patients received
+  it; cyclophosphamide-only regimens are not addressed; and the criteria are
+  adult-derived while Ingham is paediatric (ages 1.1-16.5, weights 7-89 kg).
+  Keep each study's own assertion.
+- BUT add a QA table cross-checking Ingham dose against the asserted MAC, since
+  it reveals a real anomaly. Busulfan is 10.0-20.0 mg/kg for all 15 dosed
+  patients, comfortably myeloablative. However three patients (P23, P25, P27)
+  received 200 cGy SINGLE-FRACTION TBI, below the 500 cGy single-fraction
+  threshold and the canonical non-myeloablative TBI dose; all three had
+  cyclophosphamide with no busulfan and no fludarabine, consistent with
+  aplastic-anaemia conditioning. They are nonetheless flagged Myeloabl = 1.
+  Flag them in QA and write them up as an open question. Do not change their
+  conditioning_intensity.
+- Artacho's Myelosuppression (0 = 98, 1 = 74) is a binary toxicity observed
+  during the transplant course, not a description of the preparative regimen.
+  Myelosuppression can follow either myeloablative or reduced-intensity
+  conditioning. Do not map it to any conditioning column. Add a code comment
+  saying so, since it is the obvious wrong answer.
+- Ingham yields a single-token "flu" regimen for 5 samples, all from one SCID
+  patient. Minimal or fludarabine-only conditioning is genuinely used in SCID,
+  so treat this as plausible rather than a parsing failure.
+- Ingham records no thiotepa (constant 0) and has no treosulfan column at all,
+  so Ingham-derived regimen strings may understate the true regimen relative to
+  DAmico's and Liu's parsed strings. Log this as a comparability caveat.
+- Expected result of the harmonization: 17 distinct conditioning_regimen
+  strings, of which 5 are shared by more than one study — cy/flu (all three:
+  DAmico 5, Liu 10, Ingham 8), bu/cy/mel (DAmico 24, Ingham 23), flu (Liu 22,
+  Ingham 5), bu/cy (Liu 7, Ingham 12), cy (Liu 3, Ingham 8). If your parse
+  produces materially different overlap, something is wrong — check the token
+  mapping before proceeding.
+
+Before editing anything, read all six study sheets in data_dictionaries.xlsx
+(the copy in Merging/, which is more current than the one in
+Merging/Harmonization/) and cross-tabulate the real source columns in the
+*_meta_qiime.tsv files. Two things I want your read on before you write code:
+
+  1. DAmico intensity. The dictionary labels Conditioning_regimen as
+     myeloablative, but one of the six regimens is "EDX, FLUDARA, TBI"
+     (cyclophosphamide + fludarabine + TBI, n=5 samples), which in adults is
+     commonly reduced-intensity. This is a paediatric cohort so it may genuinely
+     be myeloablative. Check the manuscript methods if you can reach them, and
+     tell me whether to assign MAC to all 104 samples or leave those 5 as NA.
+  2. Liu intensity mapping. Liu uses its own three-tier scale (High /
+     Intermediate / Low), which is not the ASBMT MAC/RIC/NMA scale Fujimoto
+     uses. My proposed mapping is High -> MAC, Intermediate -> RIC, Low -> NMA.
+     Supporting evidence: Low is Flu/TBI (n=22) and Cy/ATG (n=2), and low-dose
+     Flu/TBI is the canonical non-myeloablative regimen; Intermediate is
+     Flu/Cy/TBI, Flu/Cy/Thio/TBI, Flu/Mel and Flu/Treo/TBI, all
+     reduced-intensity; High is Bu/Cy and Cy/TBI, classically myeloablative.
+     Tell me whether you agree, and flag any case where the regimen string
+     contradicts the intensity label.
+
+If the data contradicts the spec above, or you hit any of the other
+stop-and-ask triggers in CLAUDE.md, stop and ask me before writing code —
+report the counts that make it matter and propose a default. Otherwise proceed:
+edit harmonize_gvhd_metadata.R, extend build_qa() with (a) a coverage row for
+each new column, (b) a non-canonical value table for conditioning_intensity,
+(c) a table of every distinct conditioning_regimen string by study so I can
+eyeball the standardization and see which strings are shared, (d) a check that
+no conditioning_regimen string contains a "tbi" or "atg" token, and (e) the
+Ingham dose-versus-asserted-intensity cross-check described in NOTES; add unit
+and end-to-end tests; run the test suite; and append an entry to
+to_log/harmonization_decisions.md. Do not touch the xlsx.

@@ -1,0 +1,124 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Add four secondary post-transplant outcomes to the harmonized GVHD metadata.\
+\
+Follow the "Harmonization Variable Additions" section of CLAUDE.md for all\
+standing conventions.\
+\
+SHAPE: four binary covariates\
+\
+DEFINITION: Secondary post-transplant complications, recorded as simple 1/0\
+event flags. No time-to-event columns and no severity columns for any of these \'97\
+where a source records a grade, collapse it to presence/absence. Most are\
+single-study; heavy NA is expected and fine.\
+\
+COLUMNS (all 1/0, all added to binary_outcome_cols):\
+  myelosuppression          myelosuppression during the transplant course\
+  mucositis                 mucositis (oral/GI) during the transplant course\
+  bloodstream_infection     documented bacteraemia or fungaemia post-transplant\
+  bronchiolitis_obliterans  bronchiolitis obliterans syndrome\
+\
+PLACEMENT: at the end of target_cols, after relapse_day_rel_transplant, in the\
+order listed above. These are secondary outcomes and sit behind the primary\
+GVHD, death and relapse blocks.\
+\
+PER-STUDY CONSTRUCTION:\
+- Artacho:  Myelosuppression 0/1 -> myelosuppression (74 yes / 98 no).\
+            Mucositis Yes/No -> mucositis (15 yes / 157 no).\
+            Other new columns -> NA.\
+- DAmico:   Mucositis_grade -> mucositis. Grades I, II and III -> 1. Both "/"\
+            and NA -> 0, i.e. treat an ungraded patient as having no mucositis.\
+            Expect 94 yes / 10 no.\
+            BSI -> bloodstream_infection. The column is free text naming\
+            organisms and days ("S.aureus (+7)"); any non-missing value -> 1,\
+            NA -> 0. NA genuinely means no BSI here, confirmed by the manuscript\
+            (all events were in the PN group; the EN group had zero). Expect\
+            39 yes / 65 no.\
+            Other new columns -> NA.\
+- Fujimoto: not recorded -> NA for all four.\
+- Ingham:   not recorded -> NA for all four.\
+- Liu2017:  bloodstream_infection derived by READING the two free-text infection\
+            fields. See the LIU BSI CLASSIFICATION section below.\
+            Other new columns -> NA.\
+- Vallet:   bos -> bronchiolitis_obliterans. "yes" -> 1; missing -> 0, NOT NA.\
+            The dictionary states explicitly that NA/missing means no BOS, and\
+            manuscript Table 1 reports BOS counts of 0, 0, 1, 1 by enterotype,\
+            confirming exactly 2 cases. Expect 2 yes / 116 no.\
+            Other new columns -> NA.\
+\
+LIU BSI CLASSIFICATION:\
+Liu records infections as unstructured free text across two columns,\
+infection_duringafter_transplant (45 distinct non-blank values among the 57\
+recipients) and infection_details (27 distinct non-blank values). Do not write a\
+regex. Instead:\
+\
+  1. Extract the complete list of distinct values from each column, restricted\
+     to recipient rows.\
+  2. Read every one of those ~72 strings and decide, per string, whether it\
+     documents a bloodstream infection.\
+     - Any documented bacteraemia counts as a BSI. If the text names bacteraemia\
+       (however spelled, and including constructions like "CNS bacteremia",\
+       "E coli bacteremia 12/2013", "bacteremia: pseudomonas, E coli, VRE"),\
+       classify it 1.\
+     - Fungaemia and candidaemia count as BSI.\
+     - Non-bloodstream infections do not count: UTI, pneumonia, colitis,\
+       cellulitis, sinusitis, abscess, oral candida, C difficile, and similar.\
+     - Viral viremia (CMV, EBV, BK, adenovirus) does not count. BSI here means\
+       bacteraemia or fungaemia.\
+     - Organism names appearing without any site or bloodstream context are\
+       ambiguous. Use your judgement, and list every call you were unsure about\
+       in the decision log so I can review them.\
+  3. Hard-code the resulting classification into harmonize_gvhd_metadata.R as an\
+     explicit literal lookup: two named character vectors (or a small tibble)\
+     mapping each distinct source string to 1 or 0. R cannot read free text at\
+     runtime, so the reading happens once, now, and the code must contain the\
+     finished crosswalk rather than a heuristic. Every distinct value must appear\
+     in the lookup \'97 including the blank/NA value, which maps to 0.\
+  4. A recipient is bloodstream_infection = 1 if EITHER column's value maps to 1.\
+     Donor rows -> NA.\
+  5. Add a QA table that reproduces the full crosswalk (source string, column,\
+     classification, n samples) so the derivation stays auditable, and a test\
+     asserting that every distinct source value in the real data is present in\
+     the lookup \'97 so the script fails loudly rather than silently returning NA\
+     if the source file ever changes.\
+\
+For reference, a strict regex on bacteremia|bacteraemia|fungemia|candidemia|\
+septic shock|sepsis gives 13 of 57 recipients. Treat that as a sanity-check\
+ballpark, not a target \'97 if your reading lands far from it, say why.\
+\
+NOTES:\
+- Artacho's Myelosuppression belongs here, as its own outcome. If a conditioning\
+  block already exists in the file, confirm Myelosuppression was NOT used to\
+  populate conditioning_intensity \'97 it is a toxicity of conditioning, not a\
+  description of it, and it should appear only in this new column.\
+- Both mucositis sources carry a documented UNCERTAIN flag about the timing\
+  window and severity threshold, and neither states its grading system. Artacho\
+  is a bare Yes/No with no threshold given; DAmico uses an unnamed I/II/III\
+  scale, and under the rule above an ungraded DAmico patient is treated as\
+  mucositis-free rather than unknown. Pooling the two therefore compares two\
+  undefined thresholds. Record that caveat in the log.\
+- Six Liu recipients have both infection fields empty. They become 0, but "no\
+  documented infection" and "not assessed" are not distinguishable in this\
+  source. Note it; do not special-case them.\
+- Ingham's tx_death is deliberately NOT harmonized. Do not add a\
+  treatment_related_death column.\
+\
+Before editing anything, read the relevant study sheets in\
+data_dictionaries.xlsx (the copy in Merging/, which is more current than the one\
+in Merging/Harmonization/) and cross-tabulate the real source columns in the\
+*_meta_qiime.tsv files. Then, before writing the Liu lookup into the script,\
+show me your classification of the ~72 distinct infection strings as a table so\
+I can review it. That is the one thing here I want to see before it lands.\
+\
+If the data contradicts the spec above, or you hit any of the stop-and-ask\
+triggers in CLAUDE.md, stop and ask me. Otherwise proceed: edit\
+harmonize_gvhd_metadata.R, extend build_qa() with a coverage row for each new\
+column plus the Liu crosswalk table; add unit and end-to-end tests including the\
+lookup-completeness assertion; run the test suite; and append an entry to\
+to_log/harmonization_decisions.md recording the full Liu classification. Do not\
+touch the xlsx.}

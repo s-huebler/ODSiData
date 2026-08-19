@@ -1,0 +1,38 @@
+Add end_observation_day_rel_transplant to the harmonized GVHD metadata.
+
+Follow the "Harmonization Variable Additions" section of CLAUDE.md for all
+standing conventions.
+
+SHAPE: time-to-event. This is not a time-to-event triplet like the other outcomes in that there is no stage/grade. 
+
+DEFINITION: This should indicate the final day that outcomes could be observed. For a downstream time to event analysis this would serve as the censoring time for those who don't experience the event. This could be end of study, recorded loss to follow-up, or the latest date that something occurs, or death. An event like gvhd should not be the recorded date for this unless it is the latest event recorded. Death should be the recorded date for this. 
+
+Columns for this time-to-event variable:
+   end_observation_reason        should be one of EOS, administrative, death, last observation, lost to follow up
+   end_observation_day_rel_transplant     day relative to transplant
+
+
+PLACEMENT: After relapse_day_rel_transplant
+
+PER-STUDY CONSTRUCTION:
+- Artacho:  not recorded
+- DAmico:   Day should be 100. The reason should be administrative. 
+- Fujimoto: not recorded
+- Ingham:   censor has the planned censoring day. So it should be that, unless somebody died (from any cause) in which case it should be the death day. Then the reason should either be EOS or death. 
+- Liu2017:  Should be the right_censor_time or death date. The reason should be EOS or death. 
+- Vallet:   Should be the earliest of dat.lfu, dat.endstudy, or dat.death. (but should be calculated at days relative to transplant). The reason should be death, or if dat.lfu was before end of study then lost to follow up, or else EOS.
+
+
+
+Before editing anything, read the relevant study sheets in
+data_dictionaries_harmonized.xlsx and cross-tabulate the real source columns in
+the *_meta_qiime.tsv files. If the data contradicts the spec above, or you hit
+any of the stop-and-ask triggers in CLAUDE.md, stop and ask me before writing
+code — report the counts that make it matter and propose a default. Otherwise
+proceed: edit harmonize_gvhd_metadata.R, extend build_qa(), add unit and
+end-to-end tests, run the test suite, and append an entry to
+to_log/harmonization_decisions.md. Do not touch the xlsx.
+
+
+AMSWERS:
+Issue 1: use the death day for the liu patient NYYC95BI rather than the right censor time. Issue 2:  I accept the proposed default. Issue 3: I accept the proposed default.

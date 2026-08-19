@@ -1,0 +1,109 @@
+Add GVHD prophylaxis to the harmonized GVHD metadata.
+
+Follow the "Harmonization Variable Additions" section of CLAUDE.md for all
+standing conventions.
+
+SHAPE: categorical covariate (two columns, two axes)
+
+DEFINITION: The pharmacological regimen given to prevent GVHD, started at or
+around transplant. This is prophylaxis given to everyone as standard of care —
+it is NOT treatment given after GVHD is diagnosed, and the two must not be
+conflated. Every regimen observed across these studies is a calcineurin
+inhibitor backbone plus a partner agent, so I want the partner agent and the
+backbone identity as separate columns: methotrexate causes mucositis and gut
+epithelial damage and mycophenolate is enterohepatically recycled, so the
+partner agent is the axis most likely to act on the gut microbiome, while
+cyclosporine vs tacrolimus is a weaker direct effect I still want recoverable.
+
+CANONICAL VOCABULARY:
+
+  gvhd_prophylaxis       cni-mtx | cni-mmf | cni-steroid | cni-alone | other
+    cni-mtx      calcineurin inhibitor + methotrexate
+    cni-mmf      calcineurin inhibitor + mycophenolate mofetil
+    cni-steroid  calcineurin inhibitor + corticosteroids
+    cni-alone    calcineurin inhibitor monotherapy
+    other        regimen recorded but composition not specified
+
+  gvhd_prophylaxis_cni   cyclosporine | tacrolimus
+    NA where the regimen is recorded but the backbone is unspecified.
+
+PLACEMENT: immediately after sample_day_rel_transplant and before the agvhd
+block, so the column order reads patient characteristics -> sample timing ->
+treatment exposure -> outcomes.
+
+PER-STUDY CONSTRUCTION:
+- Artacho:  not recorded -> NA for both columns. There is no prophylaxis column
+            in the source at all.
+- DAmico:   not recorded -> NA for both columns. Conditioning_regimen is the
+            PREPARATIVE regimen, not prophylaxis — do not map it. See NOTES.
+- Fujimoto: not recorded -> NA for both columns. AGVHD_Treatment is treatment of
+            established aGVHD, not prophylaxis — do not map it. See NOTES.
+- Ingham:   gvhd_prophylaxis (3 levels) ->
+              "Cyclosporine A + Methotrexate"   -> cni-mtx
+              "Cyclosporine + Corticosteroids"  -> cni-steroid
+              "Cyclosporine A"                  -> cni-alone
+            gvhd_prophylaxis_cni = cyclosporine for all three.
+            The one row with no clinical metadata stays NA.
+- Liu2017:  Collapse the five one-hot columns. cyclosporine/tacrolimus give
+            gvhd_prophylaxis_cni; methotrexate/mmf/sirolimus give the partner
+            agent (sirolimus is constant "no" in this cohort). Donor rows -> NA
+            for both columns, as with every other Liu clinical variable.
+            Assert in the tests that every recipient has exactly one CNI and
+            exactly one partner agent — this holds in the current data, and a
+            violation means the one-hot expansion has broken.
+- Vallet:   gvhd_proph_type ->
+              "ciclosporin-MTX"  -> cni-mtx,  cni = cyclosporine
+              "cyclosporin-MMF"  -> cni-mmf,  cni = cyclosporine
+              "Other"            -> other,    cni = NA
+            Note the source spells it "ciclosporin" in one value and
+            "cyclosporin" in the other; match both.
+
+NOTES:
+- Coverage is only 3 of 6 studies (271 of 885 samples). Record the three
+  not-recorded studies explicitly in the decision log so the NAs are a logged
+  decision rather than an oversight.
+- Two tempting wrong mappings, both of which I want explicitly ruled out in the
+  code comments: DAmico's Conditioning_regimen contains EDX (cyclophosphamide),
+  which is CONDITIONING cyclophosphamide and not post-transplant cyclophosphamide
+  prophylaxis; and Fujimoto's AGVHD_Treatment contains mPSL and ATG, which are
+  rescue therapy after aGVHD was diagnosed. Neither belongs in a prophylaxis
+  column.
+- Ingham also has X197ATGmm (ATG given, n=72) and
+  Was.graft.manipulated.for.GVHD.prophylaxis (constant 0). I have deliberately
+  left both out of this variable — see the stop-and-ask below.
+
+Before editing anything, read the Ingham, Liu and Vallet sheets in
+data_dictionaries.xlsx (the copy in Merging/, which is more current than the one
+in Merging/Harmonization/ and is the only one documenting Ingham's
+gvhd_prophylaxis column) and cross-tabulate the real source columns in the
+*_meta_qiime.tsv files. I already know of three things to check and want your
+read on each before you write code:
+
+  1. Liu label swap. The dictionary note for Liu's cyclosporine column cites
+     Table 1 as cyclosporine/MTX N=2, cyclosporine/MMF N=21, tacrolimus/MTX
+     N=21, tacrolimus/MMF N=13. The one-hot columns instead give tacrolimus/MMF
+     N=21 and tacrolimus/MTX N=13 — the same multiset, but those two labels
+     swapped. Tell me which you think is authoritative and why.
+  2. Ingham ATG. X197ATGmm is described as ATG included in the CONDITIONING
+     regimen, but ATG functions as in-vivo T-cell depletion for GVHD
+     prophylaxis. Should it be part of this variable, or held back for a future
+     conditioning variable? I lean toward holding it back, since including a
+     single-study column would make gvhd_prophylaxis mean something different
+     for Ingham than for the other two studies.
+  3. Ingham "Cyclosporine A" alone (n=8 samples, 4 patients). Is that genuine
+     monotherapy, or a partner agent that went unrecorded? If it cannot be
+     distinguished, say so and I will decide whether cni-alone or NA is
+     the honest coding.
+  4. Vallet has both cyclosporin and ciclosporin which are different spellings of the same medication, so just use cyclosporine. 
+
+If the data contradicts the spec above, or you hit any of the other
+stop-and-ask triggers in CLAUDE.md, stop and ask me before writing code —
+report the counts that make it matter and propose a default. Otherwise proceed:
+edit harmonize_gvhd_metadata.R, extend build_qa() with a non-canonical value
+table for both new vocabularies plus a coverage row, add unit and end-to-end
+tests, run the test suite, and append an entry to
+to_log/harmonization_decisions.md. Do not touch the xlsx.
+
+
+ANSWERS:
+1) Use the patient-level records (tacrolimus = 34, cyclosporine = 23). I accept the proposed mapping for Liu. 2) We are in agreement to only use the gvhd_prophylaxis column of Ingham for this part. Conditioning will be done separately elsewhere. 3) We'll treat Cyclosporine A as cni-alone. 

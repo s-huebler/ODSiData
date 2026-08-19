@@ -1,0 +1,38 @@
+Add transplant_type to the harmonized GVHD metadata.
+
+Follow the "Harmonization Variable Additions" section of CLAUDE.md for all
+standing conventions.
+
+SHAPE: categorical covariate 
+
+DEFINITION: This should describe what type of transplant or what the stem cell source was for each person 
+
+
+Columns:
+none
+bone marrow
+umbilical cord blood
+peripheral blood stem cells 
+bone marrow and umbilical cord blood 
+
+
+PLACEMENT: [where in target_cols, e.g. "immediately after the cgvhd block"]
+
+PER-STUDY CONSTRUCTION:
+- Artacho:  Use transplant source. If 1 then bone marrow. If 2 the umbilical cord blood. If 3 then peripheral blood stem cells. 
+- DAmico:   Use stem_cell_source column. BM = bone marrow; PBSC = peripheral blood stem cells
+- Fujimoto: Use graft type. BM = bone marrow; PB = peripheral blood stem cells; CB = umbilical cord blood 
+- Ingham:    Use the transplant_type column. BM = bone marrow; PBSC = peripheral blood stem cells; UC = umbilical cord blood; BM_UC = bone marrow and umbilical cord blood
+- Liu2017:  Use the donor_source column. For donors this should be "none". pbsc = peripheral blood stem cells; marrow = bone marrow; cord+cord = umbilical cord blood 
+- Vallet:   Use csh_type. PBC = peripheral blood stem cells, cord blood = umbilical cord blood, or bone marrow
+
+
+
+Before editing anything, read the relevant study sheets in
+data_dictionaries_harmonized.xlsx and cross-tabulate the real source columns in
+the *_meta_qiime.tsv files. If the data contradicts the spec above, or you hit
+any of the stop-and-ask triggers in CLAUDE.md, stop and ask me before writing
+code — report the counts that make it matter and propose a default. Otherwise
+proceed: edit harmonize_gvhd_metadata.R, extend build_qa(), add unit and
+end-to-end tests, run the test suite, and append an entry to
+to_log/harmonization_decisions.md. Do not touch the xlsx.

@@ -122,10 +122,90 @@ meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/merged_me
 
 ## Data frame
 
+Read counts are extracted from the QIIME2 artifacts on CHPC by `chpc/lib/extract_read_counts.py` and committed to `Merging/ReadCounts/`, one wide TSV per study. Columns are the pipeline stages in order; stages a study's denoiser arm never produces (`trimmed` for Ingham2019, `merged` for the single-end / pyro arms) are carried forward from the previous stage so the bar draws flat rather than dropping to zero, and `stages_imputed` records which columns that applied to. `*_read_counts_raw.tsv` holds the same values pre-fill, with genuine gaps left empty.
+
+```{r}
+read_counts_dir <- "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/ReadCounts"
+
+# "_read_counts.tsv$" deliberately excludes the "_read_counts_raw.tsv" files.
+count_files <- list.files(read_counts_dir,
+                          pattern    = "_read_counts\\.tsv$",
+                          full.names = TRUE)
+
+read_counts <- count_files %>%
+  map_dfr(read_tsv,
+          col_types = cols(
+            `sample-id`    = col_character(),
+            study          = col_character(),
+            stages_imputed = col_character(),
+            .default       = col_double()
+          )) %>%
+  dplyr::rename(sample.id = `sample-id`)
+
+# --- Checks -----------------------------------------------------------------
+# 1. one row per sample
+stopifnot(!any(duplicated(read_counts$sample.id)))
+# 2. every study is in the shared palette, or the facet strip colors misalign
+stopifnot(all(read_counts$study %in% studies))
+# 3. read counts and metadata cover the same samples
+stopifnot(setequal(read_counts$sample.id, meta$`sample-id`))
+
+read_counts %>%
+  count(study) %>%
+  left_join(read_counts %>%
+              group_by(study) %>%
+              summarise(across(c(input, mapped), sum), .groups = "drop"),
+            by = "study") %>%
+  mutate(retained = scales::percent(mapped / input, accuracy = 0.1))
+```
+
+```{r}
+# TSV column -> legend label. "filtered" is DADA2's internal quality-filter
+# column; it is carried through here but only plotted if "Filtered" was spliced
+# into step_colors above, since the filter below keys off step_order.
+step_lookup <- c(
+  input        = "Input",
+  trimmed      = "Trimmed",
+  filtered     = "Filtered",
+  denoised     = "Denoised",
+  merged       = "Merged",
+  non_chimeric = "Non-chimeric",
+  qc           = "QC",
+  mapped       = "Mapped"
+)
+
+df_long <- read_counts %>%
+  # Facet order must match the level order of base_study_colors.
+  mutate(study = factor(study, levels = studies)) %>%
+  # Sort samples by starting depth so each panel reads as a wedge.
+  # Swap desc(input) for desc(mapped) to sort by final depth instead.
+  arrange(study, desc(input)) %>%
+  mutate(sample.id = factor(sample.id, levels = rev(unique(sample.id)))) %>%
+  pivot_longer(
+    cols      = all_of(names(step_lookup)),
+    names_to  = "step_col",
+    values_to = "Reads"
+  ) %>%
+  mutate(Pipeline_Step = factor(step_lookup[step_col], levels = step_order)) %>%
+  # Drops any stage not in the active palette (i.e. "Filtered" by default).
+  filter(!is.na(Pipeline_Step), !is.na(Reads)) %>%
+  # Bars are overlaid with position = "identity", so row order sets draw order:
+  # Input first (largest, in back) through Mapped last (smallest, in front).
+  arrange(sample.id, Pipeline_Step) %>%
+  select(sample.id, study, Pipeline_Step, Reads, stages_imputed)
+
+df_long
+```
+
 ## Plot
 
 ```{r}
-read_attrition <- ggplot(df_long, aes(y = sample.id, x = Reads, fill = Pipeline_Step)) +
+plot_attrition_func <- function(df, log_reads = FALSE){
+  if(log_reads){
+    df$Reads <- log(df$Reads)
+  }
+  
+  ggplot(df, aes(y = sample.id, x = Reads, fill = Pipeline_Step)) +
   geom_bar(stat = "identity", position = "identity") +
   scale_fill_manual(values = step_colors, breaks = step_order) +
 
@@ -161,4 +241,13 @@ read_attrition <- ggplot(df_long, aes(y = sample.id, x = Reads, fill = Pipeline_
 
 
   guides(fill = guide_legend(nrow = 1, byrow = TRUE))
+}
+```
+
+```{r}
+plot_attrition_func(df_long)
+```
+
+```{r}
+plot_attrition_func(df_long, log_reads = TRUE)
 ```

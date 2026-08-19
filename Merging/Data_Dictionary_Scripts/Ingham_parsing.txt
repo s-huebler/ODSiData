@@ -1,6 +1,6 @@
 Fill in the `meaning` column of the [Ingham2019] sheet in Merging/data_dictionaries.xlsx.
 Only `meaning` and `notes` — leave harmonized_name and harmonized_values empty;
-harmonization is a separate later step. Skip rows where meaning is already filled.
+harmonization is a separate later step. Skip rows where meaning is already filled. Write your results into a file called Merging/Data_Dictionary_Scripts/fill_ingham_meanings.R. You can use the logic that is in the current Merging/Data_Dictionary_Scripts/update_ingham_meanings.py, but double check it and translate it to an R file. 
 
 
 Sources, in priority order:
@@ -38,4 +38,4 @@ Work through the sheet top to bottom. When done, print a list of every column yo
 flagged UNCERTAIN with a one-line reason, so I can see the review queue without
 opening the file.
 
-Commit as: [[Ingham]] data dictionary meanings
+Commit as: [[Ingham]] data dictionary meanings update
