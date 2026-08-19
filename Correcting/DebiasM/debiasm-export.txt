@@ -1,0 +1,5 @@
+counts_md5=2a85ac4b356931af1d4ac6a06414d37f
+meta_md5=e6ec6da98e66cbe11bcb4aeea8437b8f
+n_samples=43
+n_taxa=79
+exported_at=2026-08-19T17:14:04-0600

@@ -255,3 +255,104 @@ plot_attrition_func(df_long)
 ```{r}
 plot_attrition_func(df_long, log_reads = TRUE)
 ```
+
+# Options
+
+```{r}
+plot_attrition_func <- function(df, log_reads = FALSE, flip_vertical = FALSE, 
+                                organize_stage = "import") {
+  
+  # 1. Organize samples based on the specified stage
+  # Filters the dataframe to the target stage, sorts by Reads, and re-levels the sample.id factor
+  if (organize_stage %in% unique(df$Pipeline_Step)) {
+    stage_df <- df[df$Pipeline_Step == organize_stage, ]
+    
+    # Sort samples by reads. 
+    # Note: decreasing = FALSE is used so that the sample with the most reads appears 
+    # at the top of a horizontal plot or the right of a vertical plot.
+    ordered_samples <- stage_df$sample.id[order(stage_df$Reads, decreasing = FALSE)]
+    df$sample.id <- factor(df$sample.id, levels = ordered_samples)
+  } else {
+    warning(paste("Stage", organize_stage, "not found in Pipeline_Step. Skipping reordering."))
+  }
+  
+  # 2. Handle log transformation and dynamic axis labeling
+  if (log_reads) {
+    df$Reads <- log(df$Reads)
+    read_label <- "Log (Number of Reads)"
+  } else {
+    read_label <- "Number of Reads"
+  }
+  
+  # 3. Build the plot based on orientation
+  if (flip_vertical) {
+    
+    # --- VERTICAL ORIENTATION ---
+    p <- ggplot(df, aes(x = sample.id, y = Reads, fill = Pipeline_Step)) +
+      geom_bar(stat = "identity", position = "identity") +
+      scale_fill_manual(values = step_colors, breaks = step_order) +
+      
+      # Adjusted facet_grid2 for vertical layout
+      facet_grid2(
+        . ~ study,
+        scales = "free_x",
+        space = "free_x",
+        switch = "x",
+        strip = strip_themed(
+          background_x = elem_list_rect(fill = transparent_study_colors, color = base_study_colors)
+        )
+      ) +
+      labs(
+        title = "Read Attrition Across Microbiome Processing Pipeline",
+        x = "Individual Samples",
+        y = read_label, # Reads on the Y-axis
+        fill = "Processing Step"
+      ) +
+      theme_minimal() +
+      theme(
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        strip.text.x.bottom = element_text(size = 12, face = "bold", color = "black", angle = 0),
+        panel.grid.major.x = element_blank(),
+        legend.position = "bottom"
+      )
+    
+  } else {
+    
+    # --- HORIZONTAL ORIENTATION (Original) ---
+    p <- ggplot(df, aes(y = sample.id, x = Reads, fill = Pipeline_Step)) +
+      geom_bar(stat = "identity", position = "identity") +
+      scale_fill_manual(values = step_colors, breaks = step_order) +
+      
+      # Original facet_grid2 for horizontal layout
+      facet_grid2(
+        study ~ .,
+        scales = "free_y",
+        space = "free_y",
+        switch = "y",
+        strip = strip_themed(
+          background_y = elem_list_rect(fill = transparent_study_colors, color = base_study_colors)
+        )
+      ) +
+      labs(
+        title = "Read Attrition Across Microbiome Processing Pipeline",
+        y = "Individual Samples",
+        x = read_label, # Reads on the X-axis
+        fill = "Processing Step"
+      ) +
+      theme_minimal() +
+      theme(
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        strip.text.y.left = element_text(size = 12, face = "bold", color = "black", angle = 0),
+        panel.grid.major.y = element_blank(),
+        legend.position = "bottom"
+      )
+  }
+  
+  # 4. Add common legend formatting and return
+  p <- p + guides(fill = guide_legend(nrow = 1, byrow = TRUE))
+  
+  return(p)
+}
+```

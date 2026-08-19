@@ -25,8 +25,8 @@ parse_taxonomy <- function(tax_df) {
   ranks <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
   tax_sep <- tidyr::separate(tax_df2, Taxon, into = ranks, sep = ";\\s*", fill = "right", remove = FALSE)
   clean_rank <- function(x) {
-    x <- ifelse(is.na(x) | x == "" , NA, x)
     x <- gsub("^[dkpcofgs]__|^__", "", x)   # remove prefixes like 'k__'
+    x <- ifelse(is.na(x) | x == "" , NA, x)
     trimws(x)
   }
   tax_mat <- tax_sep %>%

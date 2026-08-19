@@ -27,63 +27,20 @@ source("~/Documents/ODSi/ODSiData/Functions/parse_taxonomy.R")
 source("~/Documents/ODSi/ODSiData/Functions/color_tips.R")
 source("~/Documents/ODSi/ODSiData/Functions/filter_by_prevalence.R")
 source("~/Documents/ODSi/ODSiData/Functions/plot_rarefaction_curves.R")
+source("~/Documents/ODSi/ODSiData/Functions/debiasm.R")
+source("~/Documents/ODSi/ODSiData/Functions/build_phyloseq.R")
+source("~/Documents/ODSi/ODSiData/Functions/plot_beta_correction.R")
+source("~/Documents/ODSi/ODSiData/Functions/suppress_all.R")
 ```
 
-# Files
+# Build phyloseq
+
+Building from the Merging/full_cohort folder
 
 ```{r}
-table_qza <- "~/Documents/ODSi/ODSiData/Merging/full_cohort/merged-table.qza"
-taxonomy_qza  <- "~/Documents/ODSi/ODSiData/Merging/full_cohort/taxonomy-gg.qza"
-repseqs_qza   <- "~/Documents/ODSi/ODSiData/Merging/full_cohort/merged-seqs.qza"      
-tree_nwk     <- "~/Documents/ODSi/ODSiData/Merging/full_cohort/merged-tree.nwk"
-meta_tsv <- "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv"
-```
-
-```{r}
-qt_orig <- read_qza(table_qza)$data
-tax_q  <- read_qza(taxonomy_qza)$data
-tree    <- ape::read.tree(tree_nwk)
-rep_seqs <- tryCatch(read_qza(repseqs_qza)$data, error = function(e) NULL)
-meta <- read_tsv(meta_tsv)
-```
-
-# Phyloseq
-
-## OTU
-
-```{r}
-otu_mat <- otu_table(qt_orig, taxa_are_rows = TRUE)
-```
-
-## Taxonomy
-
-```{r}
-tax_mat <- parse_taxonomy(tax_q)
-tax_mat <- tax_table(tax_mat)
-```
-
-## Seqs
-
-```{r}
-seqs <- Biostrings::DNAStringSet(rep_seqs)
-names(seqs) <- names(rep_seqs)
-```
-
-## Meta
-
-```{r}
-
-setdiff(meta$`sample-id`, colnames(otu_mat))->excluded
-meta_df <- sample_data(meta %>%
-                         filter(!(`sample-id` %in% excluded)))
-rownames(meta_df)<- meta_df$`sample-id`
-```
-
-## Combining
-
-```{r}
-ps <- phyloseq(otu_mat, tax_mat, meta_df, phy_tree(tree), refseq(seqs))
-print(ps)
+ps <- build_phyloseq("~/Documents/ODSi/ODSiData/Merging/full_cohort",
+                     prefix   = "merged-",
+                     meta_tsv = "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
 ```
 
 ```{r}
@@ -93,29 +50,19 @@ check_phyloseq(ps)
 # Visualizing
 
 ```{r}
-circular_tree <- ggtree(ps@phy_tree, layout = "circular", branch.length = "none") +
-  geom_tippoint( size = 1.6, alpha = 0.9)
-
-circular_tree
-```
-
-```{r}
 genus_tree <- vizualize_collapse(ps, "Genus", show_labels = TRUE)
 ```
 
 # Beta diversity
+
+## How many taxa appear in only 1 study?
 
 ```{r}
 singleton_ps <- filter_taxa(ps, function(x) sum(x > 0) ==1, prune = TRUE)
 singleton_ps
 ```
 
-```{r}
-
-
-filter_by_prevalence(.1)
-filter_by_prevalence(.05)
-```
+## Filter by prevelance
 
 ```{r}
 filtered_ps <- filter_by_prevalence(.05)
@@ -124,176 +71,89 @@ filtered_ps <- filter_by_prevalence(.05)
 ## Rarefaction
 
 ```{r}
-plot_rarefaction_curves(filtered_ps)
+plot_rarefaction_curves(filtered_ps, aggregate = "mean")
 ```
 
-# Debias M
-
-## 1) Confirm debias M is installed and environment is launched
-
-```         
-conda activate debiasm
-```
-
-## 2) Export data from R to python usable
+# Plotting before/after correction
 
 ```{r}
-## Taxa rows × sample cols (same orientation required by ComBat-seq)
-count_matrix <- as(otu_table(filtered_ps), "matrix")
-if (!taxa_are_rows(filtered_ps)) {
-  count_matrix <- t(count_matrix)
-}
-
-count_meta <- data.frame(sample_data(filtered_ps))
-count_meta <- count_meta[colnames(count_matrix), , drop = FALSE]
-
-batch_var <- droplevels(factor(count_meta$study))
-
-## 1) Identify taxa non-zero in at least one sample of at least two studies
-shared_taxa <- rowSums(sapply(levels(batch_var), function(b) {
-  rowSums(count_matrix[, batch_var == b, drop = FALSE]) > 0
-})) >= 2
-
-## 2) Filter to shared taxa
-shared_count_matrix <- count_matrix[shared_taxa, , drop = FALSE]
-
-## 3) Drop samples with zero total counts after filtering
-sample_keep <- colSums(shared_count_matrix) > 0
-shared_count_matrix <- shared_count_matrix[, sample_keep, drop = FALSE]
-
-## 4) Transpose to samples × taxa and write counts CSV
-counts_df <- as.data.frame(t(shared_count_matrix))
-counts_df <- cbind(sampleid = rownames(counts_df), counts_df)
-
-write.csv(counts_df,
-          "/Users/sophiehuebler/Documents/ODSi/ODSiData/Correcting/DebiasM/debiasm-counts.csv",
-          row.names = FALSE)
-
-## 5) Build metadata aligned to filtered sample order and write meta CSV
-debiasm_meta <- count_meta[sample_keep, , drop = FALSE]
-debiasm_meta <- debiasm_meta[, c("sample.id", "study", "agvhd")]
-names(debiasm_meta)<- c("sampleid", "study", "agvhd")
-
-write.csv(debiasm_meta,
-          "/Users/sophiehuebler/Documents/ODSi/ODSiData/Correcting/DebiasM/debiasm-meta.csv",
-          row.names = FALSE)
-```
-
-## 3) Run Debias-M python script
-
-```         
-conda activate debiasm
-python /Users/sophiehuebler/Documents/ODSi/ODSiData/Correcting/DebiasM/run_debiasm.py
-```
-
-## 4) Import back into R
-
-```{r}
-corrected_df <- read.csv(
-  "/Users/sophiehuebler/Documents/ODSi/ODSiData/Correcting/DebiasM/debiasm-corrected.csv",
-  row.names = 1,
-  check.names = FALSE
-)
-
-# corrected_df is samples × taxa; prune uncorrected_ps to the retained
-# samples and taxa before swapping the otu_table
-retained_samples <- rownames(corrected_df)
-retained_taxa    <- colnames(corrected_df)
-
-debiasm_ps <- prune_samples(sample_names(ps) %in% retained_samples,
-                             ps)
-debiasm_ps <- prune_taxa(taxa_names(debiasm_ps) %in% retained_taxa,
-                          debiasm_ps)
-
-# Align corrected matrix to the object's current sample and taxa order,
-# then transpose to taxa × samples for otu_table assignment
-corrected_mat <- as.matrix(corrected_df[sample_names(debiasm_ps),
-                                         taxa_names(debiasm_ps)])
-stopifnot(identical(colnames(corrected_mat), taxa_names(debiasm_ps)))
-stopifnot(identical(rownames(corrected_mat), sample_names(debiasm_ps)))
-
-otu_table(debiasm_ps) <- otu_table(t(corrected_mat), taxa_are_rows = TRUE)
+debiasm_ps <- debiasm_correct(filtered_ps)
 ```
 
 ```{r}
-print("Matching otu rownames and tree tip labels:")
-all(rownames(debiasm_ps@otu_table) %in% debiasm_ps@phy_tree$tip.label)
-
-print(sprintf("OTU features: %d ; tree tips: %d", ntaxa(debiasm_ps@otu_table), length(debiasm_ps@phy_tree$tip.label)))
-print(sprintf("Intersection: %d", sum(rownames(debiasm_ps@otu_table) %in% debiasm_ps@phy_tree$tip.label)))
-
-print(sprintf("OTU sample: %d ; meta samples: %d", ncol(debiasm_ps@otu_table), nrow(debiasm_ps@sam_data)))
-print(sprintf("Intersection: %d", sum(colnames(debiasm_ps@otu_table) %in% rownames(debiasm_ps@sam_data))))
+check_phyloseq(debiasm_ps)
 ```
 
-```{r}
-print(debiasm_ps)
-```
-
-## 5) Beta diversity
-
-> These relative-abundance panels are most comparable to the logCPM uncorrected/ComBat panels, not the rarefied-to-900 ones.
-
-```{r}
-set.seed(9134)
-```
+## Full cohort
 
 ### Bray
 
 ```{r}
-uncorrected_beta_bray <- beta_pipe(filtered_ps,
-          rare_depth = 1200,
-          "bray",
-"Beta Diversity (Bray-Curtis)
-Rarefied 1200
-Relative Abundance",
-"rarefy",
-box_label_positions = c("l", "l"),
-box_label_percs = c(.99, .89))
+plot_beta_correction("!is.na(study)", 
+                     ord_method = "bray",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900)
+```
 
-uncorrected_beta_bray
+### Weighted Unifrac
+
+```{r}
+plot_beta_correction("!is.na(study)", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900)
+```
+
+## Exclude Ingham
+
+```{r}
+
+without_ingham <- plot_beta_correction("study != 'Ingham'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900)
+
+
 ```
 
 ```{r}
-debiasm_beta_bray <- beta_pipe(debiasm_ps,
-          NULL,
-          "bray",
-"Beta Diversity (Bray-Curtis)
-DEBIAS-M corrected
-Relative Abundance",
-"identity",
-box_label_positions = c("l", "l"),
-box_label_percs = c(.99, .89))
-
-debiasm_beta_bray
-```
-
-## Weighted Unifrac
-
-```{r}
-uncorrected_beta_wunifrac <- beta_pipe(filtered_ps,
-          rare_depth = 1200,
-          "wunifrac",
-"Beta Diversity (Weighted Unifrac)
-Rarefied 1200
-Relative Abundance",
-"rarefy",
-box_label_positions = c("l", "l"),
-box_label_percs = c(.99, .89))
-
-uncorrected_beta_wunifrac
+print(without_ingham)
 ```
 
 ```{r}
-debiasm_beta_wunifrac <- beta_pipe(debiasm_ps,
-          NULL,
-          "wunifrac",
-"Beta Diversity (Bray-Weighted Unifrac)
-DEBIAS-M corrected
-Relative Abundance",
-"identity",
-box_label_positions = c("l", "l"),
-box_label_percs = c(.99, .89))
+baseline_without_ingham <- 
+  plot_beta_correction("study != 'Ingham' & timepoint %in% c('conditioning', 'transplant')", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900)
+```
 
-debiasm_beta_wunifrac
+```{r}
+before_engraftment<- 
+  plot_beta_correction("timepoint!='follow-up'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900)
+```
+
+# Baseline
+
+```{r}
+baseline_ps <- subset_ps_func(filtered_ps,
+                            "timepoint %in% c('pre-conditioning','conditioning', 'transplant') & disease != 'none'")
+print(baseline_ps)
+```
+
+```{r}
+baseline<- plot_beta_correction("!is.na(study)", 
+                     ord_method = "wunifrac",
+                     phylo_obj = baseline_ps,
+                     rare_depth = 900)
+```
+
+```{r}
+baseline <- plot_beta_correction("!is.na(study)", 
+                     ord_method = "wunifrac",
+                     phylo_obj = baseline_ps,
+                     rare_depth = 900)
 ```
