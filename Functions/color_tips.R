@@ -16,33 +16,8 @@ library(dplyr)
 library(tidyr)
 library(tibble)
 
-source("/Users/sophiehuebler/Documents/ODSi/ODSiData/Shared_aesthetics/Study_colors.R")
-
-# # -----------------------------------------------------------------------------
-# # Cohorts
-# # -----------------------------------------------------------------------------
-# studies <- c(
-#   "Liu2017", "Fujimoto2024", "Artacho2024", "Ingham2019",
-#   "Vallet2023", "DAmico2019", "Jarosch2023"
-# )
-# 
-# # -----------------------------------------------------------------------------
-# # Color scheme
-# # -----------------------------------------------------------------------------
-# 
-# # One distinct color per study, for tips unique to that study.
-# # Okabe-Ito colorblind-friendly palette (7 hues, black reserved for "all shared").
-# study_palette <- c(
-#   "#E69F00", # orange
-#   "#56B4E9", # sky blue
-#   "#009E73", # bluish green
-#   "#F0E442", # yellow
-#   "#0072B2", # blue
-#   "#D55E00", # vermillion
-#   "#CC79A7"  # reddish purple
-# )
-# 
-# study_colors <- setNames(study_palette[seq_along(studies)], studies)
+# `studies`, `study_colors`, study_key() and study_color() all come from here.
+source("~/Documents/ODSi/ODSiData/Functions/study_colors.R")
 
 # Grayscale ramp for shared tips, indexed by the number of studies sharing a tip
 # (2 = lightest, length(studies) = black).
@@ -65,7 +40,9 @@ legend_map <- c(
 tip_color <- function(present_studies) {
   n <- length(present_studies)
   if (n == 0) return(NA_character_)
-  if (n == 1) return(unname(study_colors[present_studies]))
+  # study_color() rather than study_colors[] so a phyloseq object still labelled
+  # "Liu2017" resolves to the same hue as one labelled "Liu".
+  if (n == 1) return(unname(study_color(present_studies)))
   unname(shared_gray[as.character(min(n, n_studies))])
 }
 

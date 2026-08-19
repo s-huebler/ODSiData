@@ -55,7 +55,7 @@ Examine read attrition across microbiome processing pipeline
 ### Study colors (facet strips)
 
 ```{r}
-source("/Users/sophiehuebler/Documents/ODSi/ODSiData/Shared_aesthetics/Study_colors.R")
+source("~/Documents/ODSi/ODSiData/Functions/study_colors.R")
 
 # Facet strips: outline in the study's tree color, translucent fill behind the label.
 # Order must match the factor level order of df_long$study.
@@ -140,7 +140,11 @@ read_counts <- count_files %>%
             stages_imputed = col_character(),
             .default       = col_double()
           )) %>%
-  dplyr::rename(sample.id = `sample-id`)
+  dplyr::rename(sample.id = `sample-id`) %>%
+  # The CHPC read-count TSVs still label studies "Artacho2024"/"Liu2017";
+  # the shared palette and the harmonized metadata both key on the bare
+  # surname, so normalize here. study_key() errors on an unknown cohort.
+  mutate(study = study_key(study))
 
 # --- Checks -----------------------------------------------------------------
 # 1. one row per sample

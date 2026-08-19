@@ -111,13 +111,16 @@ binary_outcome_cols <- c(
   "myelosuppression", "mucositis", "bloodstream_infection", "bronchiolitis_obliterans"
 )
 
-# Edit these constants if you prefer publication-year suffixes for every study.
+# Study labels are the capitalized author surname with no year, matching the
+# keys in Functions/study_colors.R. Liu carried a "Liu2017" suffix until
+# 2026-08-19; it was dropped so every cohort labels the same way and plots can
+# look colors up directly. Edit these constants if you prefer year suffixes.
 study_labels <- c(
   artacho = "Artacho",
   damico = "DAmico",
   fujimoto = "Fujimoto",
   ingham = "Ingham",
-  liu = "Liu2017",
+  liu = "Liu",
   vallet = "Vallet"
 )
 

@@ -6,22 +6,21 @@ library(dplyr)
 library(tidyr)
 library(patchwork)
 
+# Per-cohort colors: single definition, do not re-declare study_colors here.
+source("~/Documents/ODSi/ODSiData/Functions/study_colors.R")
+
 plot_rarefaction_curves <- function(phylo_obj,
-                                    step_size = 100, 
-                                    xmax = 3000, 
+                                    step_size = 100,
+                                    xmax = 3000,
                                     aggregate = TRUE) {
-  
-  # 1. Define custom color mapping
-  study_colors <- c(
-    "Artacho"  = "#E69F00",  
-    "DAmico"   = "#56B4E9",  
-    "Fujimoto" = "#009E73",  
-    "Ingham"   = "#F0E442",  
-    "Jarosch"  = "#0072B2",  
-    "Liu"      = "#D55E00",  
-    "Vallet"   = "#CC79A7"
+
+  # Map the study labels this object actually carries onto the shared palette.
+  # study_color() tolerates either "Liu" or "Liu2017", so the scales below
+  # cover every level present rather than dropping one to gray.
+  cohort_colors <- study_color(
+    sort(unique(as.character(sample_data(phylo_obj)$study)))
   )
-  
+
   # ==========================================
   # DATA PREP: PLOT 1 (Observed Richness)
   # ==========================================
@@ -72,12 +71,12 @@ plot_rarefaction_curves <- function(phylo_obj,
     
     p1 <- ggplot(plot_data_agg, aes(x = Depth, y = Richness, group = study)) +
       geom_line(aes(color = study), linewidth = 1.2) + # Thicker line for average
-      scale_color_manual(values = study_colors)
+      scale_color_manual(values = cohort_colors)
   } else {
     # Plot individual samples
     p1 <- ggplot(plot_data_richness, aes(x = Depth, y = Richness, group = SampleID)) +
       geom_line(aes(color = study), alpha = 0.5, linewidth = 0.6) +
-      scale_color_manual(values = study_colors)
+      scale_color_manual(values = cohort_colors)
   }
   
   p1 <- p1 +
@@ -98,7 +97,7 @@ plot_rarefaction_curves <- function(phylo_obj,
   # ==========================================
   p2 <- ggplot(plot_data_retention, aes(x = Depth, y = SamplesRetained, group = study)) +
     geom_step(aes(color = study), linewidth = 0.9) +
-    scale_color_manual(values = study_colors) +
+    scale_color_manual(values = cohort_colors) +
     theme_bw() +
     labs(
       x = "Sequencing Depth (Reads)",

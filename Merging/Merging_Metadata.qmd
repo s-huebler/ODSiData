@@ -20,6 +20,10 @@ library(tidyverse)
 
 # Reading in data
 
+```{r}
+source("~/Documents/ODSi/ODSiData/Merging/Harmonization/harmonize_gvhd_metadata.R")
+```
+
 Each block reads a study's parsed metadata (produced by that study's `Parsing_metadata.qmd`) and maps its columns into the target schema. Comments note what the study does and does NOT provide.
 
 ```{r}

@@ -474,6 +474,9 @@ QA `noncanonical_transplant_type_values` is empty. All non-NA `transplant_type` 
 
 ## Open questions
 
+- Should `chpc/lib/extract_read_counts.py` emit the bare study surname instead
+  of `StudyYYYY`, so the `study_key()` normalization in `Read_Attrition.qmd`
+  becomes unnecessary? (Raised 2026-08-19 with the Liu label change.)
 - Should `timepoint` be exported as an ordered factor in any downstream R
   object, or is the character column plus `timepoint_levels` enough?
 - Liu donor rows currently get `pre-conditioning` like the recipients. If donor
@@ -710,3 +713,59 @@ Event counts: Artacho myelosuppression 74/172; Artacho mucositis 15/172; DAmico 
 - `Coverage`: add rows for all four columns.
 - `Harmonization_Summary`: note coverage pattern; note mucositis pooling caveat; note Liu BSI derivation method and uncertain calls.
 - Per-study sheets (`Artacho`, `DAmico`, `Liu`, `Vallet`): update `harmonized_name` and `harmonized_values` for the relevant source columns.
+
+---
+
+## 2026-08-19 — Study label for Liu drops the year suffix
+
+**Decision.** `study_labels[["liu"]]` changes from `"Liu2017"` to `"Liu"`. Every
+cohort now labels as the capitalized author surname with no year: Artacho,
+DAmico, Fujimoto, Ingham, Liu, Vallet (plus Jarosch, added in
+`Merging_Metadata.qmd`, which was already bare).
+
+**Why.** Liu was the only cohort carrying a publication-year suffix, so the
+`study` column was internally inconsistent and every plot that keyed a palette
+on it needed a fuzzy prefix match to avoid dropping Liu to NA. With the label
+regularized, `Functions/study_colors.R` is a plain named lookup.
+
+### Per-study rules
+
+| Study | Rule | Source columns |
+|---|---|---|
+| Liu | `study_labels[["liu"]]` = `"Liu"` (was `"Liu2017"`) | n/a — constant, not derived from source |
+| all others | unchanged | n/a |
+
+### Decisions taken along the way
+
+- `person_prefixes[["liu"]]` was already `"Liu"` and is **not** changed, so
+  person IDs stay `Liu_01`, `Liu_02`, … Nothing about person identity moves.
+- Every reference in the harmonizer and the test file goes through
+  `study_labels[["liu"]]` symbolically — `grep '"Liu2017"'` found exactly one
+  literal occurrence in the whole harmonization folder (the constant itself) and
+  zero in the tests. So the change is confined to one line.
+- `Merging/ReadCounts/*_read_counts.tsv` (written on CHPC by
+  `chpc/lib/extract_read_counts.py`) still uses the full `StudyYYYY` form for
+  every cohort. Rather than touch the CHPC extractor, `Functions/study_colors.R`
+  exposes `study_key()`, which strips a trailing 4-digit year and errors on an
+  unknown cohort; `Merging/Read_Attrition.qmd` normalizes with it at read time.
+- Consequence: `Merging/merged_metadata.tsv` still contains 79 rows of
+  `Liu2017` until `Merging/Merging_Metadata.qmd` is re-run. Plotting code
+  tolerates both forms in the meantime, so this is not urgent, but the file is
+  stale with respect to the harmonizer until then.
+
+### Verification
+
+Ran `Rscript Merging/Harmonization/test_harmonize_gvhd_metadata.R` against the
+six real `*_meta_qiime.tsv` files. **ALL TESTS PASSED (0 failures).** Per-study
+sample counts unchanged: Artacho 172, DAmico 104, Fujimoto 315, Ingham 97,
+Liu 79, Vallet 118. QA tables all report under the `Liu` label.
+
+Separately confirmed the palette is hue-for-hue identical to the old
+`Shared_aesthetics/Study_colors.R` assignment for all seven cohorts.
+
+**Workbook edits still owed.**
+- Per-study sheet `Liu`: any cell recording the emitted `study` value should read
+  `Liu` rather than `Liu2017`.
+- `Canonical_Schema`: the `study` row's documented value set drops `Liu2017` and
+  gains `Liu`.
+- `Value_Map`: same substitution wherever `Liu2017` appears as a harmonized value.
