@@ -152,7 +152,31 @@ baseline<- plot_beta_correction("!is.na(study)",
 ```
 
 ```{r}
-baseline <- plot_beta_correction("!is.na(study)", 
+baseline_adults_viz <- plot_beta_correction("!is.na(study) & age >= 17", 
+                     ord_method = "wunifrac",
+                     phylo_obj = baseline_ps,
+                     rare_depth = 900)
+```
+
+```{r}
+baseline_adults <- plot_beta_correction("!is.na(study) & age >= 17", "wunifrac", baseline_ps, label_corner = "br") 
+```
+
+```{r}
+baseline_adults_ps <- subset_ps_func(baseline_ps,
+                            "!is.na(study) & age >= 17")
+
+baseline_adults_genus <- vizualize_collapse_dots(baseline_adults_ps, "Genus",
+                        id_col_name = "sample.id", cohort_col_name = "study",
+                        show_labels = FALSE, dot_spacing = 0.8)
+
+baseline_adults_species <- vizualize_collapse_dots(baseline_adults_ps, "Species",
+                        id_col_name = "sample.id", cohort_col_name = "study",
+                        show_labels = FALSE, dot_spacing = 0.8)
+```
+
+```{r}
+baseline_children <- plot_beta_correction("study != 'Vallet' & age < 17", 
                      ord_method = "wunifrac",
                      phylo_obj = baseline_ps,
                      rare_depth = 900)

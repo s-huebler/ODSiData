@@ -8,6 +8,14 @@
 #     plot_beta_correction("timepoint %in% c('pre-conditioning')", "wunifrac",
 #                          filtered_ps, rare_depth = 1200)
 #
+# The PERMANOVA box defaults to the top-left corner of the panel. Move it, or
+# take it off the panel entirely, without touching anything else:
+#
+#     plot_beta_correction("agvhd == 1", "bray", filtered_ps,
+#                          label_corner = "br")
+#     plot_beta_correction("agvhd == 1", "bray", filtered_ps,
+#                          label_as_caption = TRUE)
+#
 # `filtering_function` is a string evaluated against the sample_data() of
 # `phylo_obj`, so any expression over the metadata columns works. Samples whose
 # expression evaluates to NA are dropped along with the FALSEs.
@@ -48,7 +56,26 @@ plot_beta_correction <- function(filtering_function,
                                  ord_method,
                                  phylo_obj,
                                  rare_depth = 900,
+                                 label_corner = "tl",
+                                 label_as_caption = FALSE,
                                  ...){
+
+  # label_corner     which panel corner the PERMANOVA box is pinned to, one of
+  #                  "tl" / "tr" / "bl" / "br". Both plots get the same corner
+  #                  so the before/after pair stays comparable. Set to NULL to
+  #                  fall back to the old data-driven box_label_percs placement,
+  #                  which put the box inside the point cloud.
+  # label_as_caption TRUE moves the PERMANOVA result off both panels and into
+  #                  the caption under each plot.
+
+  # overide_positions (absolute data coordinates) is still forwarded through
+  # ..., but beta_pipe() lets an explicit label_corner win over it. Since
+  # label_corner now defaults to "tl", a caller who passes only
+  # overide_positions would otherwise have it silently ignored -- so stand the
+  # default down when the corner was not asked for by name.
+  if (!is.null(list(...)$overide_positions) && missing(label_corner)) {
+    label_corner <- NULL
+  }
 
   new_ps <- subset_ps_func(phylo_obj, filtering_function)
 
@@ -75,7 +102,9 @@ plot_beta_correction <- function(filtering_function,
                         norm_method = "rarefy",
                         title_str = title_str_old,
                         box_label_positions = c("l", "l"),
-                        box_label_percs = c(.99, .89), ...)
+                        box_label_percs = c(.99, .89),
+                        label_corner = label_corner,
+                        label_as_caption = label_as_caption, ...)
 
   new_plot <- beta_pipe(debias_new_ps,
                         rare_depth = NULL,
@@ -83,7 +112,9 @@ plot_beta_correction <- function(filtering_function,
                         norm_method = "identity",
                         title_str = title_str_new,
                         box_label_positions = c("l", "l"),
-                        box_label_percs = c(.99, .89), ...)
+                        box_label_percs = c(.99, .89),
+                        label_corner = label_corner,
+                        label_as_caption = label_as_caption, ...)
 
   print(old_plot)
   print(new_plot)

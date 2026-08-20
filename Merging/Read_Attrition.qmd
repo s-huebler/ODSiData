@@ -356,3 +356,7 @@ plot_attrition_func <- function(df, log_reads = FALSE, flip_vertical = FALSE,
   return(p)
 }
 ```
+
+```{r}
+plot_attrition_func(df_long, flip_vertical = TRUE)
+```
