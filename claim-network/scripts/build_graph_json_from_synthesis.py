@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Build graph_data2.json for the batch-2 GVHD claims/evidence network.
+"""Step 1 of 2 (formerly gen2.py).
+Build data/graph_data2.json for the batch-2 GVHD claims/evidence network.
 Model (same as gvhd_claims_network_alt.html):
   nodes: review papers (Citing) + primary papers (ref) + claim nodes (canonical claims)
   edges: CITES  = review  -> primary  (review cites the primary for that claim)
@@ -7,9 +8,13 @@ Model (same as gvhd_claims_network_alt.html):
 Source: Claims_Synthesis2.xlsx (Atomic_Claims + Canonical_Claims).
 """
 import openpyxl, json, re
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+DATA_DIR = HERE.parent / "data"
 from collections import defaultdict, OrderedDict
 
-XLSX = "/sessions/wonderful-magical-rubin/mnt/outputs/Claims_Synthesis2.xlsx"
+XLSX = DATA_DIR / "Claims_Synthesis2.xlsx"
 wb = openpyxl.load_workbook(XLSX, read_only=True)
 
 def sheet(name):
@@ -125,7 +130,7 @@ for (cit_id, ref_id), v in cites.items():
         "weight": v["w"], "ewidth": 1.5 + v["w"] * 0.7}})
 
 out = {"nodes": nodes, "edges": edges}
-json.dump(out, open("/sessions/wonderful-magical-rubin/mnt/outputs/graph_data2.json", "w"))
+json.dump(out, open(DATA_DIR / "graph_data2.json", "w"))
 nclaim = sum(1 for n in nodes if n["data"]["ntype"] == "claim")
 nrev = sum(1 for n in nodes if n["data"].get("role") == "review")
 nprim = sum(1 for n in nodes if n["data"].get("role") == "primary")

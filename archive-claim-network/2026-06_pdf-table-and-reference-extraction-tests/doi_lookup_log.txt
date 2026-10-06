@@ -1,0 +1,107 @@
+/Users/sophiehuebler/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Rows to process: 1003
+Checkpoint: 25/1003 rows processed, 9 filled via Crossref, 16 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 50/1003 rows processed, 24 filled via Crossref, 26 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 75/1003 rows processed, 35 filled via Crossref, 40 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 100/1003 rows processed, 45 filled via Crossref, 55 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 125/1003 rows processed, 58 filled via Crossref, 67 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 150/1003 rows processed, 70 filled via Crossref, 80 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 175/1003 rows processed, 76 filled via Crossref, 99 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 200/1003 rows processed, 86 filled via Crossref, 114 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 225/1003 rows processed, 101 filled via Crossref, 124 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 250/1003 rows processed, 109 filled via Crossref, 141 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 275/1003 rows processed, 118 filled via Crossref, 157 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 300/1003 rows processed, 129 filled via Crossref, 171 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 325/1003 rows processed, 146 filled via Crossref, 179 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 350/1003 rows processed, 156 filled via Crossref, 194 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 375/1003 rows processed, 171 filled via Crossref, 204 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 400/1003 rows processed, 187 filled via Crossref, 213 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 425/1003 rows processed, 194 filled via Crossref, 231 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 450/1003 rows processed, 199 filled via Crossref, 251 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 475/1003 rows processed, 203 filled via Crossref, 272 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 500/1003 rows processed, 210 filled via Crossref, 290 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 525/1003 rows processed, 222 filled via Crossref, 303 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 550/1003 rows processed, 229 filled via Crossref, 321 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 575/1003 rows processed, 232 filled via Crossref, 343 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 600/1003 rows processed, 240 filled via Crossref, 360 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 625/1003 rows processed, 245 filled via Crossref, 380 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 650/1003 rows processed, 252 filled via Crossref, 398 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 675/1003 rows processed, 260 filled via Crossref, 415 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 700/1003 rows processed, 270 filled via Crossref, 430 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 725/1003 rows processed, 286 filled via Crossref, 439 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 750/1003 rows processed, 294 filled via Crossref, 456 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 775/1003 rows processed, 300 filled via Crossref, 475 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 800/1003 rows processed, 312 filled via Crossref, 488 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 825/1003 rows processed, 328 filled via Crossref, 497 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 850/1003 rows processed, 343 filled via Crossref, 507 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 875/1003 rows processed, 355 filled via Crossref, 520 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 900/1003 rows processed, 364 filled via Crossref, 536 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 925/1003 rows processed, 375 filled via Crossref, 550 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 950/1003 rows processed, 385 filled via Crossref, 565 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 975/1003 rows processed, 395 filled via Crossref, 580 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+Checkpoint: 1000/1003 rows processed, 412 filled via Crossref, 588 left blank — saved to /Users/sophiehuebler/Desktop/References_Pubmed_parsed_dois2.xlsx
+
+Final save: 1003/1003 rows processed, 413 filled via Crossref, 590 left blank.
+
+Spot-checking 5 DOIs...
+  10.1016/s2352-3026(14)00035-0 → https://doi.org/10.1016/s2352-3026(14)00035-0 [200]
+  10.3324/haematol.2020.270835 → https://doi.org/10.3324/haematol.2020.270835 [200]
+  10.3390/life11060467 → https://doi.org/10.3390/life11060467 [403]
+  10.1038/bmt.2014.178 → https://doi.org/10.1038/bmt.2014.178 [200]
+  10.1053/bbmt.2003.49999 → https://doi.org/10.1053/bbmt.2003.49999 [200]
+
+Checking for abbrev_citation DOI mismatches...
+  MISMATCH: Andersen_2020 → ['10.1016/j.clnu.2019.06.012', '10.1007/s00520-020-05397-x'] (citing_paper(s): ['Muratore_2022'])
+  MISMATCH: Baumgartner_2017 → ['10.1016/j.nut.2016.10.007', '10.1038/bmt.2016.310'] (citing_paper(s): ['Limpert_2023', 'Muratore_2022'])
+  MISMATCH: Bindels_2015 → ['10.1038/ismej.2015.209', '10.1038/nrgastro.2015.47'] (citing_paper(s): ['Muratore_2022', 'Khuat_2021'])
+  MISMATCH: CarrilloCruz_2019 → ['10.1158/1078-0432.CCR-18-3875', '10.1158/1078-0432.ccr-18-3875'] (citing_paper(s): ['Limpert_2023', 'Lakshmanan_2023'])
+  MISMATCH: Chen_2017 → ['10.1371/journal.pone.0185210', '10.1161/JAHA.117.006347'] (citing_paper(s): ['Wolfe&Markey_2022', 'Hong_2021'])
+  MISMATCH: Chen_2019 → ['10.1016/j.cell.2019.03.036', '10.1097/MOT.0000000000000701'] (citing_paper(s): ['Lakshmanan_2023', 'Gail_2023'])
+  MISMATCH: Collins_2014 → ['10.1038/nrmicro3315', '10.1038/nrgastro.2014.40'] (citing_paper(s): ['Li_2022', 'Hong_2021'])
+  MISMATCH: Crowther_2009 → ['10.1017/S0029665109001384', '10.1038/bmt.2009.41'] (citing_paper(s): ['Limpert_2023', 'Lin_2021'])
+  MISMATCH: DeFilipp_2019 → ['10.1056/NEJMoa1910437', '10.1016/j.bbmt.2018.10.022'] (citing_paper(s): ['Limpert_2023', 'Hong_2021'])
+  MISMATCH: Du_2017 → ['10.1182/blood-2017-01-758854', '10.1182/blood-2016-11-752444'] (citing_paper(s): ['Gail_2023', 'Wolfe&Markey_2022'])
+  MISMATCH: Eriguchi_2012 → ['10.1182/blood-2011-12-401166', '10.1182/blood-2014-07-586628'] (citing_paper(s): ['Gail_2023', 'Hong_2021', 'Lin_2021', 'Kohler_2019', 'Peled_2016', 'Raghunathan_2016', 'Chen_2015'])
+  MISMATCH: Flint_2012 → ['10.4161/gmic.19897', '10.1038/nrgastro.2012.156'] (citing_paper(s): ['Riwes&Reddy_2020', 'Chen_2015'])
+  MISMATCH: Gudelj_2018 → ['10.1016/j.cellimm.2018.07.009', '10.1016/j.bbadis.2018.03.018'] (citing_paper(s): ['Crossland_2020'])
+  MISMATCH: Harris_2016 → ['10.1164/rccm.201507-1491OC', '10.1164/rccm.201507-1491oc'] (citing_paper(s): ['Muratore_2022', 'Smibert_2020'])
+  MISMATCH: Hill_2021 → ['10.1146/annurev-immunol-102119-073227', '10.3390/nu13103364'] (citing_paper(s): ['Limpert_2023', 'Lakshmanan_2023'])
+  MISMATCH: Ivanov_2009 → ['10.1016/j.cell.2009.09.033', '10.1172/JCI37884'] (citing_paper(s): ['Wolfe&Markey_2022', 'Crossland_2020', 'Staffas_2017', 'Chen_2015'])
+  MISMATCH: Jagasia_2012 → ['10.1182/blood-2011-06-364265', '10.1038/bmt.2011.261'] (citing_paper(s): ['Hong_2021', 'Kohler_2019'])
+  MISMATCH: Jenq_2012 → ['10.1084/jem.20112408', '10.1016/j.bbmt.2011.12.424'] (citing_paper(s): ['Limpert_2023', 'Lakshmanan_2023', 'Khuat_2021', 'Hong_2021', 'Lin_2021', 'Smibert_2020', 'Kohler_2019', 'Staffas_2017', 'Raghunathan_2016', 'Chen_2015'])
+  MISMATCH: Lee_2016 → ['10.1080/15548627.2016.1164358', '10.4049/jimmunol.1502152'] (citing_paper(s): ['Li_2022', 'Crossland_2020'])
+  MISMATCH: Li_2011 → ['10.1182/blood-2010-07-299073', '10.1016/j.cell.2011.09.025'] (citing_paper(s): ['Gail_2023', 'Kohler_2019'])
+  MISMATCH: Liu_2017 → ['10.1038/sigtrans.2017.23', '10.1038/bmt.2017.200'] (citing_paper(s): ['Wolfe&Markey_2022', 'Thomas_2022', 'Khuat_2021', 'LeBastard_2021', 'Lin_2021', 'Smibert_2020'])
+  MISMATCH: Martin_2012 → ['10.1016/j.bbmt.2012.04.006', '10.1016/j.bbmt.2012.04.005'] (citing_paper(s): ['Hong_2021', 'Kohler_2019', 'Staffas_2017'])
+  MISMATCH: Masetti_2021 → ['10.1182/bloodadvances.2021005129', '10.1038/s41598-021-93571-4', '10.3390/ijms22031197'] (citing_paper(s): ['Muratore_2022'])
+  MISMATCH: Matsuoka_2010 → ['10.1172/jci41072', '10.1172/JCI41072'] (citing_paper(s): ['Gail_2023', 'Crossland_2020'])
+  MISMATCH: Peled_2020 → ['10.1056/NEJMoa1900623', '10.1056/nejmoa1900623'] (citing_paper(s): ['Gail_2023', 'Wolfe&Markey_2022', 'Li_2022', 'Muratore_2022', 'Hong_2021', 'LeBastard_2021', 'Lin_2021'])
+  MISMATCH: Penack_2010 → ['10.1093/jnci/djq172', '10.1182/blood-2009-09-242784'] (citing_paper(s): ['Hong_2021', 'Chen_2015'])
+  MISMATCH: Penack_2020 → ['10.3324/haematol.2019.228668', '10.1016/S2352-3026(19)30256-X'] (citing_paper(s): ['Li_2022', 'Hong_2021'])
+  MISMATCH: Petersen_1986 → ['10.1017/S0195941700065437', '10.1007/BF01643474'] (citing_paper(s): ['Kohler_2019'])
+  MISMATCH: Rashidi_2018 → ['10.1016/j.bbmt.2018.01.025', '10.1111/bjh.15492'] (citing_paper(s): ['Lindner&Peled_2020', 'Kohler_2019'])
+  MISMATCH: Routy_2017 → ['10.1080/2162402X.2016.1258506', '10.1080/2162402x.2016.1258506'] (citing_paper(s): ['Hong_2021', 'Lin_2021'])
+  MISMATCH: Scher_2013 → ['10.7554/elife.01202', '10.7554/elife.01202.001.e01202'] (citing_paper(s): ['Staffas_2017', 'Chen_2015'])
+  MISMATCH: Seguy_2012 → ['10.1097/TP.0b013e3182558f60', '10.1097/tp.0b013e3182558f60'] (citing_paper(s): ['Limpert_2023', 'Lin_2021'])
+  MISMATCH: Singh_2020 → ['10.1038/s41598-020-77806-4', '10.3389/fcimb.2020.00376'] (citing_paper(s): ['Limpert_2023', 'Khuat_2021'])
+  MISMATCH: Smith_2013 → ['10.1126/science.1229000', '10.1126/science.1241165'] (citing_paper(s): ['Muratore_2022', 'Hong_2021', 'Raghunathan_2016'])
+  MISMATCH: Song_2020 → ['10.1053/j.gastro.2019.06.048', '10.1038/s41586-019-1865-0'] (citing_paper(s): ['Limpert_2023', 'Wolfe&Markey_2022'])
+  MISMATCH: Staffas_2017 → ['10.1182/blood-2016-09-691394', '10.1182/blood-2017-03-771543'] (citing_paper(s): ['Limpert_2023', 'Wolfe&Markey_2022', 'Li_2022', 'Henig_2020'])
+  MISMATCH: Storb_1983 → ['10.1056/NEJM198302103080602', '10.1056/nejm198302103080602'] (citing_paper(s): ['Khuat_2021', 'Hong_2021', 'Kohler_2019', 'Staffas_2017'])
+  MISMATCH: Turnbaugh_2009 → ['10.1038/nature07540', '10.1126/scitranslmed.3000322'] (citing_paper(s): ['Khuat_2021', 'Henig_2020', 'Riwes&Reddy_2020'])
+  MISMATCH: Ubeda_2010 → ['10.1172/jci43918', '10.1172/JCI43918'] (citing_paper(s): ['Lin_2021', 'Smibert_2020', 'Lindner&Peled_2020', 'Staffas_2017', 'Raghunathan_2016'])
+  MISMATCH: Varelias_2017 → ['10.1182/blood-2016-08-732628', '10.4049/jimmunol.198.supp.82.8'] (citing_paper(s): ['Hong_2021', 'Lindner&Peled_2020'])
+  MISMATCH: Vossen_1990 → ['10.1007/BF01969527', '10.1007/bf01969527'] (citing_paper(s): ['Khuat_2021', 'Staffas_2017'])
+  MISMATCH: Vossen_2014 → ['10.1371/journal.pone.0105706', '10.1371/journal.pone.0105706.e105706'] (citing_paper(s): ['Khuat_2021', 'Hong_2021', 'Masetti_2020', 'Chen_2015'])
+  MISMATCH: Wang_2015 → ['10.3748/wjg.v21.i3.803', '10.1038/srep08566'] (citing_paper(s): ['Hong_2021', 'Staffas_2017'])
+  MISMATCH: Weber_2017 → ['10.1371/journal.pone.0185265', '10.1016/j.bbmt.2017.02.006'] (citing_paper(s): ['Li_2022', 'Thomas_2022', 'Khuat_2021', 'Hong_2021', 'Lin_2021', 'Henig_2020', 'Smibert_2020'])
+  MISMATCH: Wu_2018 → ['10.1182/blood-2017-06-789321', '10.1155/2018/1605341'] (citing_paper(s): ['Crossland_2020', 'Kohler_2019'])
+  MISMATCH: Zama_2020 → ['10.1177/2040620719896961', '10.1186/s12937-020-00537-9'] (citing_paper(s): ['Muratore_2022', 'Hong_2021'])
+  MISMATCH: Zeiser&Blazar_2017 → ['10.1056/NEJMra1609337', '10.1056/NEJMra1703472', '10.1056/nejmra1609337'] (citing_paper(s): ['Limpert_2023', 'Gail_2023', 'Li_2022', 'Khuat_2021', 'LeBastard_2021', 'Lin_2021', 'Crossland_2020'])
+  MISMATCH: Zhang_2017 → ['10.1126/sciimmunol.aah7152', '10.18632/oncotarget.15579'] (citing_paper(s): ['Gail_2023', 'Crossland_2020'])
+  MISMATCH: Zhang_2021 → ['10.1186/s13287-020-02118-3', '10.1038/s41467-020-20240-x'] (citing_paper(s): ['Wolfe&Markey_2022', 'Lin_2021'])
+  MISMATCH: Zhao_2018 → ['10.1172/jci99261', '10.1172/JCI99261'] (citing_paper(s): ['Lin_2021', 'Kohler_2019'])
+  MISMATCH: Zheng_2008 → ['10.1182/blood-2007-08-109678', '10.1038/nm1720'] (citing_paper(s): ['Gail_2023', 'Kohler_2019'])
+
+Done.

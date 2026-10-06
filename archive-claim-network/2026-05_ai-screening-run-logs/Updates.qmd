@@ -1,0 +1,120 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+final_raw <- read_csv("~/Documents/ODSi/ODSiData/AI_assisted_litreview/Screening2_AI/Final.csv")
+```
+
+```{r}
+final_abbrev <- final_raw %>%
+  select(ID=`original ID`, First_Author = `First author`, Year = year,
+         Journal_Abrev = `Journal Abbreviation` , Title, Tags, Summary = `AI Summary`)
+```
+
+```{r}
+library(tidyverse)
+
+final_cleaned1 <- final_abbrev %>%
+  # 1. Create a row ID to keep track of individual papers during the pivot
+  mutate(row_id = row_number()) %>%
+  
+  # 2. Duplicate Tags so we don't destroy the original column
+  mutate(temp_tag = Tags) %>%
+  
+  # 3. Split the comma-separated strings into multiple rows (one tag per row)
+  separate_longer_delim(temp_tag, delim = ",") %>%
+  mutate(temp_tag = str_trim(temp_tag)) %>% # Clean up trailing/leading spaces
+    distinct()%>%
+  # 4. Classify the tags and strip out the prefixes
+  mutate(
+    tag_type = case_when(
+      str_detect(temp_tag, "^SecondPassAI-(Include|Exclude|EdgeCase-Include|EdgeCase-Exclude)$") ~ "Decision",
+      str_detect(temp_tag, "^SecondPassAI-ExcludeReason-") ~ "Reason",
+      TRUE ~ "Other" # Catches things like "Prompt Gen" or "Screen1"
+    ),
+    clean_value = case_when(
+      temp_tag == "SecondPassAI-Include" ~ "include",
+      temp_tag == "SecondPassAI-Exclude" ~ "exclude",
+      temp_tag == "SecondPassAI-EdgeCase-Include" ~ "edge_include",
+      temp_tag == "SecondPassAI-EdgeCase-Exclude" ~ "edge_exclude",
+      tag_type == "Reason" ~ str_remove(temp_tag, "^SecondPassAI-ExcludeReason-"),
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  
+  # 5. Drop the "Other" tags (we only want to pivot Decisions and Reasons into new columns)
+  filter(!is.na(clean_value)) %>%
+  
+  # 6. Group by paper and tag type to dynamically number the reasons (Reason1, Reason2...)
+  group_by(row_id, tag_type) %>%
+  mutate(
+    col_name = if_else(tag_type == "Reason", paste0("Reason", row_number()), tag_type)
+  ) %>%
+  ungroup() %>%
+  
+  # 7. Keep only what we need to pivot
+  select(row_id, col_name, clean_value) %>%
+  
+  # 8. Pivot back to wide format. R will automatically figure out how many Reason columns it needs!
+  pivot_wider(
+    names_from = col_name,
+    values_from = clean_value
+  ) %>%
+  
+  # 9. Join back to the original dataframe so papers with NO decisions/reasons aren't lost
+  right_join(
+    final_abbrev %>% mutate(row_id = row_number()), 
+    by = "row_id"
+  ) %>%
+  
+  # 10. Clean up the row_id and reorder the columns nicely
+  select(-row_id) %>%
+  relocate(Tags, Decision, starts_with("Reason"))
+```
+
+```{r}
+final<- final_cleaned1 %>%
+  select(ID, First_Author, Year, Journal_Abrev, Title, Decision, Reason1, Reason2, Reason3, Summary)
+```
+
+```{r}
+table(final$Decision)
+```
+
+```{r}
+table(final$Decision, final$Reason1)
+```
+
+# Included
+
+```{r}
+included <- current_prog_cleaned %>%
+  filter(Decision == "include")%>%
+  select(-c("Reason1", "Reason2"))
+```
+
+```{r}
+table(summarized$Type)
+```
+
+```{r}
+view_summary_func <- function(title_str){
+  df <- final %>%
+    filter(grepl(title_str, Title))%>%
+    select(Title, Summary)
+  
+  print(df$Title)
+  print(df$Summary)
+}
+```
+
+```{r}
+view_summary_func("rate of blood stream infections")
+```

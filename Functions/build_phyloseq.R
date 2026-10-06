@@ -1,30 +1,29 @@
 # build_phyloseq.R
+# From Sophie Huebler
+# Created 20 Aug 2026
 # -----------------------------------------------------------------------------
-# Build a phyloseq object from a set of QIIME2 artifacts, following the same
-# steps the "Files" / "Phyloseq" sections of Merging/Merging.qmd used to do
-# inline: define the files, read them in, build the OTU table, parse the
-# taxonomy, load the sequences, attach the metadata (dropping samples that are
-# not in the OTU table), then combine.
+# Build a phyloseq object from a set of QIIME2 artifacts: table, taxonomy, seqs, tree, and metadata.
+# Steps: define the files, read them in, build the ASV table, parse the taxonomy, load the sequences, attach the metadata (dropping samples that are not in the ASV table), then combine.
 #
 # Returns the phyloseq object and nothing else.
 #
 # -----------------------------------------------------------------------------
 # Two ways to call it
 # -----------------------------------------------------------------------------
-# By folder + prefix -- any file whose name matches EXACTLY is picked up:
+# 1) By folder + prefix -- any file whose name matches EXACTLY is picked up:
 #
-#     ps <- build_phyloseq("Merging/full_cohort", prefix = "merged-")
+#     ps <- build_phyloseq("Project/cohort1", prefix = "cohort1-")
 #
-#   looks for  merged-table.qza
-#              merged-taxonomy.qza
-#              merged-seqs.qza
-#              merged-tree.nwk   (preferred)  or  merged-tree.qza
-#              merged-metadata.tsv
+#   looks for  cohort1-table.qza
+#              cohort1-taxonomy.qza
+#              cohort1-seqs.qza
+#              cohort1-tree.nwk   (preferred)  or  cohort1-tree.qza
+#              cohort1-metadata.tsv
 #
-# By explicit path -- anything supplied directly wins over the folder:
+# 2) By explicit path -- anything supplied directly wins over the folder:
 #
-#     ps <- build_phyloseq("Merging/full_cohort", prefix = "merged-",
-#                          meta_tsv = "Merging/merged_metadata.tsv")
+#     ps <- build_phyloseq("Project/cohort1", prefix = "cohort1-",
+#                          meta_tsv = "Project/all_metadata.tsv")
 #
 # The two mix freely: supply the odd one out, let the folder cover the rest.
 #
@@ -41,6 +40,8 @@ library(qiime2R)
 library(Biostrings)
 library(ape)
 library(readr)
+library(dplyr)
+library(tidyr)
 
 # Exact filenames looked for inside `folder`, after `prefix`.
 BUILD_PHYLOSEQ_FILENAMES <- c(
@@ -94,6 +95,32 @@ BUILD_PHYLOSEQ_FILENAMES <- c(
 }
 
 # -----------------------------------------------------------------------------
+# parse_taxonomy
+# -----------------------------------------------------------------------------
+parse_taxonomy <- function(tax_df) {
+  # tax_df expected to have columns: Feature.ID (or similar) and Taxon (string "k__; p__; ...")
+  cnames <- colnames(tax_df)
+  idcol <- cnames[1]    # usually "Feature.ID"
+  taxcol <- cnames[2]   # usually "Taxon"
+  tax_df2 <- as.data.frame(tax_df, stringsAsFactors = FALSE)
+  colnames(tax_df2)[1:2] <- c("FeatureID","Taxon")
+  tax_df2$Taxon <- as.character(tax_df2$Taxon)
+  ranks <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
+  tax_sep <- tidyr::separate(tax_df2, Taxon, into = ranks, sep = ";\\s*", fill = "right", remove = FALSE)
+  clean_rank <- function(x) {
+    x <- gsub("^[dkpcofgs]__|^__", "", x)   # remove prefixes like 'k__'
+    x <- ifelse(is.na(x) | x == "" , NA, x)
+    trimws(x)
+  }
+  tax_mat <- tax_sep %>%
+    dplyr::select(all_of(ranks)) %>%
+    mutate_all(clean_rank) %>%
+    as.matrix()
+  rownames(tax_mat) <- tax_sep$FeatureID
+  tax_mat
+}
+
+# -----------------------------------------------------------------------------
 # build_phyloseq()
 # -----------------------------------------------------------------------------
 build_phyloseq <- function(folder = NULL,
@@ -118,10 +145,21 @@ build_phyloseq <- function(folder = NULL,
   # ===========================================================================
   fn <- BUILD_PHYLOSEQ_FILENAMES
 
-  table_path <- .bp_resolve(table_qza,    folder, prefix, fn[["table"]],    "table_qza")
-  tax_path   <- .bp_resolve(taxonomy_qza, folder, prefix, fn[["taxonomy"]], "taxonomy_qza")
-  seqs_path  <- .bp_resolve(repseqs_qza,  folder, prefix, fn[["seqs"]],     "repseqs_qza")
-  meta_path  <- .bp_resolve(meta_tsv,     folder, prefix, fn[["metadata"]], "meta_tsv")
+  table_path <- .bp_resolve(table_qza,   
+                            folder, prefix, fn[["table"]], 
+                            "table_qza")
+  tax_path   <- .bp_resolve(taxonomy_qza, 
+                            folder, prefix, 
+                            fn[["taxonomy"]], 
+                            "taxonomy_qza")
+  seqs_path  <- .bp_resolve(repseqs_qza,  
+                            folder, prefix,
+                            fn[["seqs"]],   
+                            "repseqs_qza")
+  meta_path  <- .bp_resolve(meta_tsv,     
+                            folder, prefix, 
+                            fn[["metadata"]], 
+                            "meta_tsv")
 
   # Tree is the one slot with two acceptable extensions. A directly supplied
   # path is taken as-is; otherwise .nwk in the folder beats .qza.
@@ -134,10 +172,24 @@ build_phyloseq <- function(folder = NULL,
     }
   }
 
-  .bp_require(table_path, "feature table",   "table_qza",    folder, prefix, fn[["table"]])
-  .bp_require(tax_path,   "taxonomy",        "taxonomy_qza", folder, prefix, fn[["taxonomy"]])
-  .bp_require(seqs_path,  "representative sequences", "repseqs_qza", folder, prefix, fn[["seqs"]])
-  .bp_require(meta_path,  "sample metadata", "meta_tsv",     folder, prefix, fn[["metadata"]])
+  .bp_require(table_path, 
+              "feature table",  
+              "table_qza",   
+              folder, prefix, 
+              fn[["table"]])
+  .bp_require(tax_path, 
+              "taxonomy",       
+              "taxonomy_qza", 
+              folder,
+              prefix, fn[["taxonomy"]])
+  .bp_require(seqs_path, 
+              "representative sequences", 
+              "repseqs_qza",
+              folder, prefix, fn[["seqs"]])
+  .bp_require(meta_path, 
+              "sample metadata", 
+              "meta_tsv",   
+              folder, prefix, fn[["metadata"]])
   if (is.null(tree_path)) {
     stop("Could not find the tree.\n",
          "  looked for: ", file.path(folder, paste0(prefix, fn[["tree_nwk"]])), "\n",
@@ -184,7 +236,7 @@ build_phyloseq <- function(folder = NULL,
   # ===========================================================================
   if (!identical(tax_q, NA)) {
     if (!exists("parse_taxonomy")) {
-      source("~/Documents/ODSi/ODSiData/Functions/parse_taxonomy.R")
+      stop("Load parse_taxonomy function")
     }
     tax_mat <- tax_table(parse_taxonomy(tax_q))
   } else {

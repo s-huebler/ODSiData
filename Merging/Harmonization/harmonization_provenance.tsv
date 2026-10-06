@@ -1,0 +1,344 @@
+target_order	domain_order	domain	target_column	study	status	source_column	harmonization_rule
+1	1	Identifiers	sample-id	Artacho	exact	sample-id	Copied as character without modification.
+1	1	Identifiers	sample-id	DAmico	exact	sample-id	Copied as character without modification.
+1	1	Identifiers	sample-id	Fujimoto	exact	sample-id	Copied as character without modification.
+1	1	Identifiers	sample-id	Ingham	exact	sample-id	Copied as character without modification.
+1	1	Identifiers	sample-id	Jarosch	exact	Run	Renamed from Run; copied as character without modification.
+1	1	Identifiers	sample-id	Liu	exact	sample-id	Copied as character without modification.
+1	1	Identifiers	sample-id	Vallet	exact	sample-id	Copied as character without modification.
+2	1	Identifiers	study	Artacho	derived	constant	"Set to ""Artacho""."
+2	1	Identifiers	study	DAmico	derived	constant	"Set to ""DAmico""."
+2	1	Identifiers	study	Fujimoto	derived	constant	"Set to ""Fujimoto""."
+2	1	Identifiers	study	Ingham	derived	constant	"Set to ""Ingham""."
+2	1	Identifiers	study	Jarosch	derived	constant	"Set to ""Jarosch""."
+2	1	Identifiers	study	Liu	derived	constant	"Set to ""Liu""; the Liu2017 suffix was dropped 2026-08-19."
+2	1	Identifiers	study	Vallet	derived	constant	"Set to ""Vallet""."
+3	1	Identifiers	person	Artacho	derived	Patient	Natural-sort crosswalk to Artacho_NNN; original code not retained.
+3	1	Identifiers	person	DAmico	derived	Patient	Natural-sort crosswalk to DAmico_NN.
+3	1	Identifiers	person	Fujimoto	derived	Patient	Natural-sort crosswalk to Fujimoto_NN.
+3	1	Identifiers	person	Ingham	derived	patient	Natural-sort crosswalk to Ingham_NN.
+3	1	Identifiers	person	Jarosch	unavailable		Not recorded in the source metadata.
+3	1	Identifiers	person	Liu	derived	host_subject_id	Natural-sort crosswalk to Liu_NN.
+3	1	Identifiers	person	Vallet	derived	allozithro_id	Natural-sort crosswalk to Vallet_NN.
+4	1	Identifiers	timepoint	Artacho	recoded	Timepoint	Shared day-bin rule on the numeric day; Timepoint_Class not used.
+4	1	Identifiers	timepoint	DAmico	recoded	Timepoint	Shared day-bin rule on the numeric day.
+4	1	Identifiers	timepoint	Fujimoto	recoded	Timepoint	dayN labels binned by the shared day rule; the 'pre' label is assigned pre-conditioning by a study-specific override.
+4	1	Identifiers	timepoint	Ingham	recoded	timepoint	Shared day-bin rule on the numeric day.
+4	1	Identifiers	timepoint	Jarosch	unavailable		Not recorded in the source metadata.
+4	1	Identifiers	timepoint	Liu	derived	study design	Every subject was sampled once before conditioning began, so every row is pre-conditioning by design; no sample day or date exists.
+4	1	Identifiers	timepoint	Vallet	recoded	j.hsct, sample.time, dat.cond	Study-specific override: pre-conditioning vs conditioning is decided by whether the sample predates the recorded conditioning start date; samples from day -1 onward use the shared day rule.
+5	2	Demographics	sex	Artacho	recoded	Gender	F -> female; M -> male.
+5	2	Demographics	sex	DAmico	recoded	Sex	Mapped to female | male.
+5	2	Demographics	sex	Fujimoto	recoded	Sex	Mapped to female | male.
+5	2	Demographics	sex	Ingham	recoded	sex	Mapped to female | male.
+5	2	Demographics	sex	Jarosch	unavailable		Not recorded in the source metadata.
+5	2	Demographics	sex	Liu	recoded	sex	Mapped to female | male.
+5	2	Demographics	sex	Vallet	recoded	gender	Mapped to female | male.
+6	2	Demographics	age	Artacho	direct	Age	Years, retained unrounded.
+6	2	Demographics	age	DAmico	direct	Age	Years, retained unrounded.
+6	2	Demographics	age	Fujimoto	direct	Age	Years, retained unrounded.
+6	2	Demographics	age	Ingham	direct	age	Years, retained unrounded.
+6	2	Demographics	age	Jarosch	unavailable		Not recorded in the source metadata.
+6	2	Demographics	age	Liu	derived	age, donor_or_patient	Years; donor rows set to NA.
+6	2	Demographics	age	Vallet	direct	age	Years, retained unrounded.
+7	2	Demographics	disease	Artacho	recoded	Disease	Study abbreviations expanded to the shared disease vocabulary.
+7	2	Demographics	disease	DAmico	recoded	Diagnosis	Expanded to the shared disease vocabulary.
+7	2	Demographics	disease	Fujimoto	recoded	Disease	Expanded to the shared disease vocabulary.
+7	2	Demographics	disease	Ingham	recoded	disease	Expanded to the shared disease vocabulary.
+7	2	Demographics	disease	Jarosch	unavailable		Not recorded in the source metadata.
+7	2	Demographics	disease	Liu	derived	disease, donor_or_patient	"Expanded to the shared disease vocabulary; donor rows -> ""none""."
+7	2	Demographics	disease	Vallet	recoded	diagnosis2	Expanded to the shared disease vocabulary.
+8	3	Transplant context	nutrition	Artacho	recoded	Parenteral.Nutrition	Yes -> parenteral; No -> enteral.
+8	3	Transplant context	nutrition	DAmico	recoded	Nutritional_Regimen	Free-text EN/PN windows collapsed to enteral | parenteral | mixed.
+8	3	Transplant context	nutrition	Fujimoto	unavailable		Not recorded in the source metadata.
+8	3	Transplant context	nutrition	Ingham	unavailable		Not recorded in the source metadata.
+8	3	Transplant context	nutrition	Jarosch	unavailable		Not recorded in the source metadata.
+8	3	Transplant context	nutrition	Liu	unavailable		Not recorded in the source metadata.
+8	3	Transplant context	nutrition	Vallet	recoded	nutrition	Mapped to the canonical nutrition vocabulary.
+9	3	Transplant context	transplant_type	Artacho	recoded	Transplant.source	1 -> bone marrow; 2 -> umbilical cord blood; 3 -> peripheral blood stem cells.
+9	3	Transplant context	transplant_type	DAmico	recoded	Stem_cell_source	BM -> bone marrow; PBSC -> peripheral blood stem cells.
+9	3	Transplant context	transplant_type	Fujimoto	recoded	Graft_Type	BM -> bone marrow; PB -> peripheral blood stem cells; CB -> umbilical cord blood.
+9	3	Transplant context	transplant_type	Ingham	recoded	transplant_type	BM | PBSC | UC | BM_UC mapped to the canonical graft vocabulary.
+9	3	Transplant context	transplant_type	Jarosch	unavailable		Not recorded in the source metadata.
+9	3	Transplant context	transplant_type	Liu	recoded	donor_source	"pbsc | marrow | cord+cord mapped to the canonical graft vocabulary; donor rows -> ""none""."
+9	3	Transplant context	transplant_type	Vallet	recoded	csh_type	PBC -> peripheral blood stem cells; cord blood -> umbilical cord blood; bone marrow -> bone marrow.
+10	3	Transplant context	transplant_date	Artacho	recoded	date.of.transplant	Parsed to ISO YYYY-MM-DD.
+10	3	Transplant context	transplant_date	DAmico	unavailable		Not recorded in the source metadata.
+10	3	Transplant context	transplant_date	Fujimoto	unavailable		Not recorded in the source metadata.
+10	3	Transplant context	transplant_date	Ingham	recoded	transplant_date	Parsed to ISO YYYY-MM-DD.
+10	3	Transplant context	transplant_date	Jarosch	unavailable		Not recorded in the source metadata.
+10	3	Transplant context	transplant_date	Liu	unavailable		Not recorded in the source metadata.
+10	3	Transplant context	transplant_date	Vallet	direct	dat.hsct	Parsed to ISO YYYY-MM-DD.
+11	3	Transplant context	sample_date	Artacho	derived	date.of.transplant + Timepoint	Transplant date advanced by the sample day.
+11	3	Transplant context	sample_date	DAmico	unavailable		Not recorded in the source metadata.
+11	3	Transplant context	sample_date	Fujimoto	unavailable		Not recorded in the source metadata.
+11	3	Transplant context	sample_date	Ingham	recoded	sampling_date	Parsed to ISO YYYY-MM-DD.
+11	3	Transplant context	sample_date	Jarosch	unavailable		Not recorded in the source metadata.
+11	3	Transplant context	sample_date	Liu	unavailable		Not recorded in the source metadata.
+11	3	Transplant context	sample_date	Vallet	direct	sample.time	Parsed to ISO YYYY-MM-DD.
+12	3	Transplant context	sample_day_rel_transplant	Artacho	direct	Timepoint	Day relative to transplant.
+12	3	Transplant context	sample_day_rel_transplant	DAmico	direct	Timepoint	Day relative to transplant.
+12	3	Transplant context	sample_day_rel_transplant	Fujimoto	limited	Timepoint	Parsed from dayN labels; the 'pre' baseline sample carries no numeric day and stays NA.
+12	3	Transplant context	sample_day_rel_transplant	Ingham	direct	timepoint	Day relative to transplant.
+12	3	Transplant context	sample_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+12	3	Transplant context	sample_day_rel_transplant	Liu	unavailable		Not recorded in the source metadata.
+12	3	Transplant context	sample_day_rel_transplant	Vallet	direct	j.hsct	Day relative to transplant.
+13	4	Conditioning	conditioning_intensity	Artacho	unavailable		Not recorded in the source metadata.
+13	4	Conditioning	conditioning_intensity	DAmico	derived	constant	Set to MAC for all samples on the data dictionary's assertion (Supplementary Table 2); no intensity column exists. The five paediatric Cy/Flu/TBI samples record no TBI dose, so MAC cannot be independently verified.
+13	4	Conditioning	conditioning_intensity	Fujimoto	direct	Conditioning_Intensity	MAC | RIC | NMA already in canonical form.
+13	4	Conditioning	conditioning_intensity	Ingham	derived	Myeloabl	Constant 1 across all 96 documented rows -> MAC; the one metadata-less row stays NA.
+13	4	Conditioning	conditioning_intensity	Jarosch	unavailable		Not recorded in the source metadata.
+13	4	Conditioning	conditioning_intensity	Liu	recoded	conditioning_intensity	"High -> MAC, Intermediate -> RIC, Low -> NMA. The Low group is coded NMA despite the paper labelling it ""RIC"" parenthetically, because its regimens (Flu/TBI, Cy/ATG) are NMA."
+13	4	Conditioning	conditioning_intensity	Vallet	recoded	conditioning	myeloablative -> MAC; non myeloablative -> NMA. No RIC patients in this cohort.
+14	4	Conditioning	conditioning_regimen	Artacho	unavailable		Not recorded in the source metadata.
+14	4	Conditioning	conditioning_regimen	DAmico	recoded	Conditioning_regimen	Six source strings mapped to canonical sorted token sets; TBI stripped into its own column.
+14	4	Conditioning	conditioning_regimen	Fujimoto	unavailable		Not recorded in the source metadata.
+14	4	Conditioning	conditioning_regimen	Ingham	derived	X233Bu, X270Cyclo, X284.2Fludarab, Total.dose.melphalan..mg., Total.dose.VP16..mg., Total.dose.thiotepa..mg.	Six drug-presence flags and dose columns assembled into a sorted token string; X233Bu values 1 and 2 both count as busulfan.
+14	4	Conditioning	conditioning_regimen	Jarosch	unavailable		Not recorded in the source metadata.
+14	4	Conditioning	conditioning_regimen	Liu	recoded	chemotherapy_regimen	Dose annotations in parentheses stripped, string split on /, TBI and ATG removed into their own columns, remaining tokens mapped and sorted.
+14	4	Conditioning	conditioning_regimen	Vallet	unavailable		Not recorded in the source metadata.
+15	4	Conditioning	conditioning_tbi	Artacho	unavailable		Not recorded in the source metadata.
+15	4	Conditioning	conditioning_tbi	DAmico	derived	Conditioning_regimen	TBI token detected in the regimen string.
+15	4	Conditioning	conditioning_tbi	Fujimoto	recoded	Conditioning_TBI	yes -> 1; no -> 0.
+15	4	Conditioning	conditioning_tbi	Ingham	derived	TBI, Irrad	TBI is NA for 28 samples, all of which have Irrad = 0; those are recovered to 0.
+15	4	Conditioning	conditioning_tbi	Jarosch	unavailable		Not recorded in the source metadata.
+15	4	Conditioning	conditioning_tbi	Liu	derived	chemotherapy_regimen	TBI token detected in the regimen string.
+15	4	Conditioning	conditioning_tbi	Vallet	unavailable		Not recorded in the source metadata.
+16	4	Conditioning	conditioning_serotherapy	Artacho	unavailable		Not recorded in the source metadata.
+16	4	Conditioning	conditioning_serotherapy	DAmico	unavailable		Not recorded in the source metadata.
+16	4	Conditioning	conditioning_serotherapy	Fujimoto	unavailable		Not recorded in the source metadata.
+16	4	Conditioning	conditioning_serotherapy	Ingham	derived	X197ATGmm, X10Ab	ATG or an antibody-based agent -> 1.
+16	4	Conditioning	conditioning_serotherapy	Jarosch	unavailable		Not recorded in the source metadata.
+16	4	Conditioning	conditioning_serotherapy	Liu	derived	chemotherapy_regimen	ATG token detected in the regimen string.
+16	4	Conditioning	conditioning_serotherapy	Vallet	unavailable		Not recorded in the source metadata.
+17	5	GVHD prophylaxis	gvhd_prophylaxis	Artacho	unavailable		Not recorded in the source metadata.
+17	5	GVHD prophylaxis	gvhd_prophylaxis	DAmico	unavailable		Not recorded in the source metadata.
+17	5	GVHD prophylaxis	gvhd_prophylaxis	Fujimoto	unsupported	AGVHD_Treatment	AGVHD_Treatment (mPSL, ATG, MSC) is rescue therapy given after diagnosis, not prophylaxis.
+17	5	GVHD prophylaxis	gvhd_prophylaxis	Ingham	recoded	gvhd_prophylaxis	Three source strings collapsed to cni-mtx | cni-steroid | cni-alone; ATG in conditioning and graft manipulation deliberately excluded.
+17	5	GVHD prophylaxis	gvhd_prophylaxis	Jarosch	unavailable		Not recorded in the source metadata.
+17	5	GVHD prophylaxis	gvhd_prophylaxis	Liu	derived	cyclosporine, tacrolimus, methotrexate, mmf, sirolimus	Five one-hot drug columns collapsed to the partner-agent category cni-mtx | cni-mmf; sirolimus is constant no. Patient-level one-hots are treated as authoritative over the dictionary's Table 1 counts, which appear transposed.
+17	5	GVHD prophylaxis	gvhd_prophylaxis	Vallet	recoded	gvhd_proph_type	Three source levels collapsed to cni-mtx | cni-mmf | other.
+18	5	GVHD prophylaxis	gvhd_prophylaxis_cni	Artacho	unavailable		Not recorded in the source metadata.
+18	5	GVHD prophylaxis	gvhd_prophylaxis_cni	DAmico	unavailable		Not recorded in the source metadata.
+18	5	GVHD prophylaxis	gvhd_prophylaxis_cni	Fujimoto	unsupported	AGVHD_Treatment	Same: the only drug column is post-diagnosis rescue therapy.
+18	5	GVHD prophylaxis	gvhd_prophylaxis_cni	Ingham	derived	gvhd_prophylaxis	All recorded regimens are cyclosporine-based, so the backbone is set to cyclosporine wherever prophylaxis is known.
+18	5	GVHD prophylaxis	gvhd_prophylaxis_cni	Jarosch	unavailable		Not recorded in the source metadata.
+18	5	GVHD prophylaxis	gvhd_prophylaxis_cni	Liu	derived	cyclosporine, tacrolimus	Backbone identity taken from the one-hot CNI columns.
+18	5	GVHD prophylaxis	gvhd_prophylaxis_cni	Vallet	derived	gvhd_proph_type	"All recorded regimens are cyclosporine-based (the source spells it ""ciclosporin"" and ""cyclosporin""); ""other"" leaves the backbone NA."
+19	6	Acute GVHD, overall	agvhd	Artacho	derived	GVHD_grade	Composite grade > 0.
+19	6	Acute GVHD, overall	agvhd	DAmico	derived	gut/Skin/liver_gvhd_grade	Maximum organ stage > 0; no composite grade exists.
+19	6	Acute GVHD, overall	agvhd	Fujimoto	recoded	AGVHD	Source 1/0 event flag.
+19	6	Acute GVHD, overall	agvhd	Ingham	recoded	agvhd	Source 1/0 event flag.
+19	6	Acute GVHD, overall	agvhd	Jarosch	unavailable		Not recorded in the source metadata.
+19	6	Acute GVHD, overall	agvhd	Liu	recoded	agvhd	Source 1/0 event flag; donor rows NA.
+19	6	Acute GVHD, overall	agvhd	Vallet	recoded	agvhd	Three-level competing-risk code: 0 -> 0, 1 -> 1, 2 (died before aGVHD, n = 25) -> 0. Those 25 are informatively censored; fit competing risks from the raw code if that matters.
+20	6	Acute GVHD, overall	agvhd_grade	Artacho	direct	GVHD_grade	Overall composite grade.
+20	6	Acute GVHD, overall	agvhd_grade	DAmico	unavailable		No overall composite grade recorded.
+20	6	Acute GVHD, overall	agvhd_grade	Fujimoto	direct	AGVHD_Severity	Overall Glucksberg grade at diagnosis.
+20	6	Acute GVHD, overall	agvhd_grade	Ingham	direct	agvhd_grade	Glucksberg grade.
+20	6	Acute GVHD, overall	agvhd_grade	Jarosch	unavailable		Not recorded in the source metadata.
+20	6	Acute GVHD, overall	agvhd_grade	Liu	recoded	agvhd_severity	Free-text severity parsed to a numeric overall grade.
+20	6	Acute GVHD, overall	agvhd_grade	Vallet	direct	grad.agvhd	Glucksberg/Seattle grade. Three agvhd = 1 patients have no recorded grade or date.
+21	6	Acute GVHD, overall	agvhd_day_rel_transplant	Artacho	unavailable		No aGVHD onset date or day anywhere in the source.
+21	6	Acute GVHD, overall	agvhd_day_rel_transplant	DAmico	derived	gvhd_day	Single first-diagnosis day, retained where any organ stage > 0.
+21	6	Acute GVHD, overall	agvhd_day_rel_transplant	Fujimoto	direct	AGVHD_TTE	Overall onset day.
+21	6	Acute GVHD, overall	agvhd_day_rel_transplant	Ingham	derived	agvhd_date - transplant_date	Calendar onset date converted to a day relative to transplant, masked by the event.
+21	6	Acute GVHD, overall	agvhd_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+21	6	Acute GVHD, overall	agvhd_day_rel_transplant	Liu	direct	time_to_agvhd	Overall onset day.
+21	6	Acute GVHD, overall	agvhd_day_rel_transplant	Vallet	derived	dat.agvhd - dat.hsct	Calendar onset date converted to a day relative to transplant, masked by the event.
+22	7	Acute GVHD, by organ	gut_gvhd	Artacho	derived	gut_gvhd_grade	Organ stage > 0.
+22	7	Acute GVHD, by organ	gut_gvhd	DAmico	derived	gut_gvhd_grade	Organ stage > 0.
+22	7	Acute GVHD, by organ	gut_gvhd	Fujimoto	derived	AGVHD + AGVHD_Organ	Membership in the involved-organ list; an aGVHD-negative patient is a confirmed negative.
+22	7	Acute GVHD, by organ	gut_gvhd	Ingham	unsupported	agvhd	aGVHD is recorded overall with no organ breakdown anywhere in the source.
+22	7	Acute GVHD, by organ	gut_gvhd	Jarosch	unavailable		Not recorded in the source metadata.
+22	7	Acute GVHD, by organ	gut_gvhd	Liu	derived	agvhd, agvhd_organ	"Membership in the free-text organ list; ""upper gut"" is deliberately combined into gut, reproducing the source agvhd_gut column exactly."
+22	7	Acute GVHD, by organ	gut_gvhd	Vallet	unsupported	agvhd	aGVHD is recorded overall with no organ breakdown anywhere in the source.
+23	7	Acute GVHD, by organ	gut_gvhd_stage	Artacho	direct	gut_gvhd_grade	True organ stage (grade-per-organ study).
+23	7	Acute GVHD, by organ	gut_gvhd_stage	DAmico	direct	gut_gvhd_grade	True organ stage.
+23	7	Acute GVHD, by organ	gut_gvhd_stage	Fujimoto	derived	AGVHD_Severity + AGVHD_Organ	Overall grade applied to every organ named; this is a composite grade, not a true organ stage.
+23	7	Acute GVHD, by organ	gut_gvhd_stage	Ingham	unsupported	agvhd_grade	Only an overall grade exists; no organ stage.
+23	7	Acute GVHD, by organ	gut_gvhd_stage	Jarosch	unavailable		Not recorded in the source metadata.
+23	7	Acute GVHD, by organ	gut_gvhd_stage	Liu	derived	agvhd_severity + agvhd_organ	Overall grade applied to every organ named; a composite grade, not a true organ stage.
+23	7	Acute GVHD, by organ	gut_gvhd_stage	Vallet	unsupported	grad.agvhd	Only an overall grade exists; no organ stage.
+24	7	Acute GVHD, by organ	gut_gvhd_day_rel_transplant	Artacho	unavailable		No aGVHD onset day recorded.
+24	7	Acute GVHD, by organ	gut_gvhd_day_rel_transplant	DAmico	derived	gvhd_day	One aGVHD onset day applied to every involved organ; the source does not record which organ presented first.
+24	7	Acute GVHD, by organ	gut_gvhd_day_rel_transplant	Fujimoto	derived	AGVHD_TTE + AGVHD_Organ	Overall onset day applied to every organ named.
+24	7	Acute GVHD, by organ	gut_gvhd_day_rel_transplant	Ingham	unsupported	agvhd_date	Only an overall onset date exists; no organ-specific day.
+24	7	Acute GVHD, by organ	gut_gvhd_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+24	7	Acute GVHD, by organ	gut_gvhd_day_rel_transplant	Liu	derived	time_to_agvhd + agvhd_organ	Overall onset day applied to every organ named.
+24	7	Acute GVHD, by organ	gut_gvhd_day_rel_transplant	Vallet	unsupported	dat.agvhd	Only an overall onset date exists.
+25	7	Acute GVHD, by organ	skin_gvhd	Artacho	derived	skin_gvhd_grade	Organ stage > 0.
+25	7	Acute GVHD, by organ	skin_gvhd	DAmico	derived	Skin_gvhd_grade	Organ stage > 0.
+25	7	Acute GVHD, by organ	skin_gvhd	Fujimoto	derived	AGVHD + AGVHD_Organ	Membership in the involved-organ list.
+25	7	Acute GVHD, by organ	skin_gvhd	Ingham	unsupported	agvhd	No organ breakdown in the source.
+25	7	Acute GVHD, by organ	skin_gvhd	Jarosch	unavailable		Not recorded in the source metadata.
+25	7	Acute GVHD, by organ	skin_gvhd	Liu	derived	agvhd, agvhd_organ	Membership in the free-text organ list.
+25	7	Acute GVHD, by organ	skin_gvhd	Vallet	unsupported	agvhd	No organ breakdown in the source.
+26	7	Acute GVHD, by organ	skin_gvhd_stage	Artacho	direct	skin_gvhd_grade	True organ stage.
+26	7	Acute GVHD, by organ	skin_gvhd_stage	DAmico	direct	Skin_gvhd_grade	True organ stage.
+26	7	Acute GVHD, by organ	skin_gvhd_stage	Fujimoto	derived	AGVHD_Severity + AGVHD_Organ	Overall grade applied to every organ named.
+26	7	Acute GVHD, by organ	skin_gvhd_stage	Ingham	unsupported	agvhd_grade	Only an overall grade exists.
+26	7	Acute GVHD, by organ	skin_gvhd_stage	Jarosch	unavailable		Not recorded in the source metadata.
+26	7	Acute GVHD, by organ	skin_gvhd_stage	Liu	derived	agvhd_severity + agvhd_organ	Overall grade applied to every organ named.
+26	7	Acute GVHD, by organ	skin_gvhd_stage	Vallet	unsupported	grad.agvhd	Only an overall grade exists.
+27	7	Acute GVHD, by organ	skin_gvhd_day_rel_transplant	Artacho	unavailable		No aGVHD onset day recorded.
+27	7	Acute GVHD, by organ	skin_gvhd_day_rel_transplant	DAmico	derived	gvhd_day	Shared onset day applied to every involved organ.
+27	7	Acute GVHD, by organ	skin_gvhd_day_rel_transplant	Fujimoto	derived	AGVHD_TTE + AGVHD_Organ	Overall onset day applied to every organ named.
+27	7	Acute GVHD, by organ	skin_gvhd_day_rel_transplant	Ingham	unsupported	agvhd_date	Only an overall onset date exists.
+27	7	Acute GVHD, by organ	skin_gvhd_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+27	7	Acute GVHD, by organ	skin_gvhd_day_rel_transplant	Liu	derived	time_to_agvhd + agvhd_organ	Overall onset day applied to every organ named.
+27	7	Acute GVHD, by organ	skin_gvhd_day_rel_transplant	Vallet	unsupported	dat.agvhd	Only an overall onset date exists.
+28	7	Acute GVHD, by organ	liver_gvhd	Artacho	derived	liver_GVHD_grade	Organ stage > 0.
+28	7	Acute GVHD, by organ	liver_gvhd	DAmico	derived	liver_gvhd_grade	Organ stage > 0.
+28	7	Acute GVHD, by organ	liver_gvhd	Fujimoto	derived	AGVHD + AGVHD_Organ	Membership in the involved-organ list.
+28	7	Acute GVHD, by organ	liver_gvhd	Ingham	unsupported	agvhd	No organ breakdown in the source.
+28	7	Acute GVHD, by organ	liver_gvhd	Jarosch	unavailable		Not recorded in the source metadata.
+28	7	Acute GVHD, by organ	liver_gvhd	Liu	derived	agvhd, agvhd_organ	Membership in the free-text organ list.
+28	7	Acute GVHD, by organ	liver_gvhd	Vallet	unsupported	agvhd	No organ breakdown in the source.
+29	7	Acute GVHD, by organ	liver_gvhd_stage	Artacho	direct	liver_GVHD_grade	True organ stage.
+29	7	Acute GVHD, by organ	liver_gvhd_stage	DAmico	direct	liver_gvhd_grade	True organ stage.
+29	7	Acute GVHD, by organ	liver_gvhd_stage	Fujimoto	derived	AGVHD_Severity + AGVHD_Organ	Overall grade applied to every organ named.
+29	7	Acute GVHD, by organ	liver_gvhd_stage	Ingham	unsupported	agvhd_grade	Only an overall grade exists.
+29	7	Acute GVHD, by organ	liver_gvhd_stage	Jarosch	unavailable		Not recorded in the source metadata.
+29	7	Acute GVHD, by organ	liver_gvhd_stage	Liu	derived	agvhd_severity + agvhd_organ	Overall grade applied to every organ named.
+29	7	Acute GVHD, by organ	liver_gvhd_stage	Vallet	unsupported	grad.agvhd	Only an overall grade exists.
+30	7	Acute GVHD, by organ	liver_gvhd_day_rel_transplant	Artacho	unavailable		No aGVHD onset day recorded.
+30	7	Acute GVHD, by organ	liver_gvhd_day_rel_transplant	DAmico	derived	gvhd_day	Shared onset day applied to every involved organ.
+30	7	Acute GVHD, by organ	liver_gvhd_day_rel_transplant	Fujimoto	derived	AGVHD_TTE + AGVHD_Organ	Overall onset day applied to every organ named.
+30	7	Acute GVHD, by organ	liver_gvhd_day_rel_transplant	Ingham	unsupported	agvhd_date	Only an overall onset date exists.
+30	7	Acute GVHD, by organ	liver_gvhd_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+30	7	Acute GVHD, by organ	liver_gvhd_day_rel_transplant	Liu	derived	time_to_agvhd + agvhd_organ	Overall onset day applied to every organ named.
+30	7	Acute GVHD, by organ	liver_gvhd_day_rel_transplant	Vallet	unsupported	dat.agvhd	Only an overall onset date exists.
+31	8	Chronic GVHD	cgvhd	Artacho	unavailable		Not recorded in the source metadata.
+31	8	Chronic GVHD	cgvhd	DAmico	unavailable		Not recorded in the source metadata.
+31	8	Chronic GVHD	cgvhd	Fujimoto	unavailable		Not recorded in the source metadata.
+31	8	Chronic GVHD	cgvhd	Ingham	recoded	cgvhd	Source 1/0 event flag; constant 0 in this cohort, a genuine all-negative column.
+31	8	Chronic GVHD	cgvhd	Jarosch	unavailable		Not recorded in the source metadata.
+31	8	Chronic GVHD	cgvhd	Liu	derived	cgvhd_severity	A staged recipient is an event; a blank recipient row is a confirmed negative; donor rows NA.
+31	8	Chronic GVHD	cgvhd	Vallet	derived	dat_cgvhd	A recorded chronic GVHD date is an event; dat_cgvhd and cgvhd_grad are present or absent together, so a missing date is a confirmed negative.
+32	8	Chronic GVHD	cgvhd_stage	Artacho	unavailable		Not recorded in the source metadata.
+32	8	Chronic GVHD	cgvhd_stage	DAmico	unavailable		Not recorded in the source metadata.
+32	8	Chronic GVHD	cgvhd_stage	Fujimoto	unavailable		Not recorded in the source metadata.
+32	8	Chronic GVHD	cgvhd_stage	Ingham	unavailable		Not recorded in the source metadata.
+32	8	Chronic GVHD	cgvhd_stage	Jarosch	unavailable		Not recorded in the source metadata.
+32	8	Chronic GVHD	cgvhd_stage	Liu	recoded	cgvhd_severity	Stage 1/2/3 aligned with Vallet's NIH mild/moderate/severe onto 1/2/3.
+32	8	Chronic GVHD	cgvhd_stage	Vallet	recoded	cgvhd_grad	NIH mild | moderate | severe aligned onto 1/2/3.
+33	8	Chronic GVHD	cgvhd_day_rel_transplant	Artacho	unavailable		Not recorded in the source metadata.
+33	8	Chronic GVHD	cgvhd_day_rel_transplant	DAmico	unavailable		Not recorded in the source metadata.
+33	8	Chronic GVHD	cgvhd_day_rel_transplant	Fujimoto	unavailable		Not recorded in the source metadata.
+33	8	Chronic GVHD	cgvhd_day_rel_transplant	Ingham	unavailable		Not recorded in the source metadata.
+33	8	Chronic GVHD	cgvhd_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+33	8	Chronic GVHD	cgvhd_day_rel_transplant	Liu	unsupported	time_to_cgvhd	time_to_cgvhd duplicates time_to_agvhd in 78 of 79 rows and its missingness does not track cgvhd_severity, so it is not a usable chronic onset time.
+33	8	Chronic GVHD	cgvhd_day_rel_transplant	Vallet	derived	dat_cgvhd - dat.hsct	Calendar onset date converted to a day relative to transplant.
+34	9	Engraftment	anc_engraftment	Artacho	unavailable		Not recorded in the source metadata.
+34	9	Engraftment	anc_engraftment	DAmico	derived	PMN_day	A recorded PMN day implies engraftment; present for all 20 patients.
+34	9	Engraftment	anc_engraftment	Fujimoto	unavailable		Not recorded in the source metadata.
+34	9	Engraftment	anc_engraftment	Ingham	recoded	Engraphment	Source 0/1 flag (source spelling).
+34	9	Engraftment	anc_engraftment	Jarosch	unavailable		Not recorded in the source metadata.
+34	9	Engraftment	anc_engraftment	Liu	recoded	anc_engrafment	yes -> 1; no -> 0 (source spelling); donor rows NA.
+34	9	Engraftment	anc_engraftment	Vallet	unavailable		Not recorded in the source metadata.
+35	9	Engraftment	anc_engraftment_day_rel_transplant	Artacho	unavailable		Not recorded in the source metadata.
+35	9	Engraftment	anc_engraftment_day_rel_transplant	DAmico	direct	PMN_day	Day of neutrophil recovery.
+35	9	Engraftment	anc_engraftment_day_rel_transplant	Fujimoto	unavailable		Not recorded in the source metadata.
+35	9	Engraftment	anc_engraftment_day_rel_transplant	Ingham	unavailable		No engraftment day column in the source.
+35	9	Engraftment	anc_engraftment_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+35	9	Engraftment	anc_engraftment_day_rel_transplant	Liu	direct	days_to_anc_engrafment	Masked by the engraftment event.
+35	9	Engraftment	anc_engraftment_day_rel_transplant	Vallet	unavailable		Not recorded in the source metadata.
+36	9	Engraftment	platelet_engraftment	Artacho	unavailable		Not recorded in the source metadata.
+36	9	Engraftment	platelet_engraftment	DAmico	limited	PLT_over_20000_day	A missing platelet day cannot be distinguished from failure to recover; the one missing patient (E10, alive at day +100) is coded 0.
+36	9	Engraftment	platelet_engraftment	Fujimoto	unavailable		Not recorded in the source metadata.
+36	9	Engraftment	platelet_engraftment	Ingham	unavailable		Not recorded in the source metadata.
+36	9	Engraftment	platelet_engraftment	Jarosch	unavailable		Not recorded in the source metadata.
+36	9	Engraftment	platelet_engraftment	Liu	recoded	platelet_engrafment	yes -> 1; no -> 0; donor rows NA.
+36	9	Engraftment	platelet_engraftment	Vallet	unavailable		Not recorded in the source metadata.
+37	9	Engraftment	platelet_engraftment_day_rel_transplant	Artacho	unavailable		Not recorded in the source metadata.
+37	9	Engraftment	platelet_engraftment_day_rel_transplant	DAmico	direct	PLT_over_20000_day	Day of platelet recovery.
+37	9	Engraftment	platelet_engraftment_day_rel_transplant	Fujimoto	unavailable		Not recorded in the source metadata.
+37	9	Engraftment	platelet_engraftment_day_rel_transplant	Ingham	unavailable		Not recorded in the source metadata.
+37	9	Engraftment	platelet_engraftment_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+37	9	Engraftment	platelet_engraftment_day_rel_transplant	Liu	direct	days_to_platelet_engrafment	Masked by the engraftment event.
+37	9	Engraftment	platelet_engraftment_day_rel_transplant	Vallet	unavailable		Not recorded in the source metadata.
+38	10	Survival and relapse	death	Artacho	unavailable		Not recorded in the source metadata.
+38	10	Survival and relapse	death	DAmico	limited	Outcome_at_100	Vital status through day +100 only; A -> 0, D -> 1.
+38	10	Survival and relapse	death	Fujimoto	unavailable		Not recorded in the source metadata.
+38	10	Survival and relapse	death	Ingham	recoded	death	Source 1/0 event flag.
+38	10	Survival and relapse	death	Jarosch	unavailable		Not recorded in the source metadata.
+38	10	Survival and relapse	death	Liu	recoded	deceased	Source 1/0 event flag; donor rows NA.
+38	10	Survival and relapse	death	Vallet	derived	dat.death	A recorded death date is the event.
+39	10	Survival and relapse	death_date	Artacho	unavailable		Not recorded in the source metadata.
+39	10	Survival and relapse	death_date	DAmico	unavailable		Not recorded in the source metadata.
+39	10	Survival and relapse	death_date	Fujimoto	unavailable		Not recorded in the source metadata.
+39	10	Survival and relapse	death_date	Ingham	unavailable		Not recorded in the source metadata.
+39	10	Survival and relapse	death_date	Jarosch	unavailable		Not recorded in the source metadata.
+39	10	Survival and relapse	death_date	Liu	unavailable		Not recorded in the source metadata.
+39	10	Survival and relapse	death_date	Vallet	direct	dat.death	Parsed to ISO YYYY-MM-DD.
+40	10	Survival and relapse	cause_of_death	Artacho	unavailable		Not recorded in the source metadata.
+40	10	Survival and relapse	cause_of_death	DAmico	unavailable		Not recorded in the source metadata.
+40	10	Survival and relapse	cause_of_death	Fujimoto	unavailable		Not recorded in the source metadata.
+40	10	Survival and relapse	cause_of_death	Ingham	limited	cause_of_death	EBMT registry code retained as EBMT_code_N rather than a text cause; masked by the death event.
+40	10	Survival and relapse	cause_of_death	Jarosch	unavailable		Not recorded in the source metadata.
+40	10	Survival and relapse	cause_of_death	Liu	recoded	etiology_of_death	Free text mapped to canonical semicolon-separated cause phrases; masked by the death event.
+40	10	Survival and relapse	cause_of_death	Vallet	unavailable		Not recorded in the source metadata.
+41	10	Survival and relapse	death_day_rel_transplant	Artacho	unavailable		Not recorded in the source metadata.
+41	10	Survival and relapse	death_day_rel_transplant	DAmico	unavailable		Not recorded in the source metadata.
+41	10	Survival and relapse	death_day_rel_transplant	Fujimoto	unavailable		Not recorded in the source metadata.
+41	10	Survival and relapse	death_day_rel_transplant	Ingham	derived	tte_death	Retained only for death events, so censoring times are never read as death times.
+41	10	Survival and relapse	death_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+41	10	Survival and relapse	death_day_rel_transplant	Liu	direct	time_to_death	Masked by the death event.
+41	10	Survival and relapse	death_day_rel_transplant	Vallet	derived	dat.death - dat.hsct	Calendar date converted to a day relative to transplant.
+42	10	Survival and relapse	relapse	Artacho	unavailable		Not recorded in the source metadata.
+42	10	Survival and relapse	relapse	DAmico	unavailable		Not recorded in the source metadata.
+42	10	Survival and relapse	relapse	Fujimoto	unavailable		Not recorded in the source metadata.
+42	10	Survival and relapse	relapse	Ingham	recoded	relapse	Source 1/0 event flag.
+42	10	Survival and relapse	relapse	Jarosch	unavailable		Not recorded in the source metadata.
+42	10	Survival and relapse	relapse	Liu	recoded	relapsed	yes -> 1; no -> 0; donor rows NA.
+42	10	Survival and relapse	relapse	Vallet	recoded	relapse01	Source 1/0 event flag.
+43	10	Survival and relapse	relapse_day_rel_transplant	Artacho	unavailable		Not recorded in the source metadata.
+43	10	Survival and relapse	relapse_day_rel_transplant	DAmico	unavailable		Not recorded in the source metadata.
+43	10	Survival and relapse	relapse_day_rel_transplant	Fujimoto	unavailable		Not recorded in the source metadata.
+43	10	Survival and relapse	relapse_day_rel_transplant	Ingham	derived	tte_relapse	Contains event or censoring time, so retained only for relapse events.
+43	10	Survival and relapse	relapse_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+43	10	Survival and relapse	relapse_day_rel_transplant	Liu	direct	days_at_relapse	Masked by the relapse event.
+43	10	Survival and relapse	relapse_day_rel_transplant	Vallet	derived	dat.relapse - dat.hsct	Calendar date converted to a day relative to transplant, masked by the event.
+44	11	Observation window	end_observation_reason	Artacho	unavailable		Not recorded in the source metadata.
+44	11	Observation window	end_observation_reason	DAmico	derived	constant	"Set to ""administrative"": follow-up was censored at day +100 for every subject."
+44	11	Observation window	end_observation_reason	Fujimoto	unavailable		Not recorded in the source metadata.
+44	11	Observation window	end_observation_reason	Ingham	derived	death, censor	"death -> ""death""; otherwise a recorded censor day -> ""EOS""."
+44	11	Observation window	end_observation_reason	Jarosch	unavailable		Not recorded in the source metadata.
+44	11	Observation window	end_observation_reason	Liu	derived	deceased	"deceased -> ""death""; otherwise ""EOS""."
+44	11	Observation window	end_observation_reason	Vallet	derived	dat.lfu, dat.endstudy, dat.death	"Earliest of last follow-up, end of study and death. ""lost to follow up"" never fires in this cohort but the logic is preserved."
+45	11	Observation window	end_observation_day_rel_transplant	Artacho	unavailable		Not recorded in the source metadata.
+45	11	Observation window	end_observation_day_rel_transplant	DAmico	derived	constant	Set to 100; no later outcome date exists in the source.
+45	11	Observation window	end_observation_day_rel_transplant	Fujimoto	unavailable		Not recorded in the source metadata.
+45	11	Observation window	end_observation_day_rel_transplant	Ingham	derived	tte_death, censor	tte_death for deaths (earlier than the planned censor day), otherwise the planned end-of-follow-up day.
+45	11	Observation window	end_observation_day_rel_transplant	Jarosch	unavailable		Not recorded in the source metadata.
+45	11	Observation window	end_observation_day_rel_transplant	Liu	derived	right_censor_time, time_to_death	Death day where recorded, otherwise the right-censor time. Two documented exceptions: NYYC95BI (censor 365 > death 345, death day used) and CCHWVERY (deceased with no death time, censor 100 used).
+45	11	Observation window	end_observation_day_rel_transplant	Vallet	derived	dat.lfu, dat.endstudy, dat.death	Earliest of the three dates, as a day relative to transplant. dat.endstudy is NA for 32/50 patients, whose last-follow-up date serves as the censoring date.
+46	12	Secondary outcomes	myelosuppression	Artacho	direct	Myelosuppression	Source 0/1 carried through harmonize_binary(); a toxicity outcome, not a conditioning descriptor.
+46	12	Secondary outcomes	myelosuppression	DAmico	unavailable		Not recorded in the source metadata.
+46	12	Secondary outcomes	myelosuppression	Fujimoto	unavailable		Not recorded in the source metadata.
+46	12	Secondary outcomes	myelosuppression	Ingham	unavailable		Not recorded in the source metadata.
+46	12	Secondary outcomes	myelosuppression	Jarosch	unavailable		Not recorded in the source metadata.
+46	12	Secondary outcomes	myelosuppression	Liu	unavailable		Not recorded in the source metadata.
+46	12	Secondary outcomes	myelosuppression	Vallet	unavailable		Not recorded in the source metadata.
+47	12	Secondary outcomes	mucositis	Artacho	recoded	Mucositis	Yes -> 1; No -> 0.
+47	12	Secondary outcomes	mucositis	DAmico	recoded	Mucositis_grade	"Grades I/II/III -> 1; ""/"" (ungraded, n=5) and NA (n=5) -> 0, because the source records mucositis only as a graded adverse event."
+47	12	Secondary outcomes	mucositis	Fujimoto	unavailable		Not recorded in the source metadata.
+47	12	Secondary outcomes	mucositis	Ingham	unavailable		Not recorded in the source metadata.
+47	12	Secondary outcomes	mucositis	Jarosch	unavailable		Not recorded in the source metadata.
+47	12	Secondary outcomes	mucositis	Liu	unavailable		Not recorded in the source metadata.
+47	12	Secondary outcomes	mucositis	Vallet	unavailable		Not recorded in the source metadata.
+48	12	Secondary outcomes	bloodstream_infection	Artacho	unavailable		Not recorded in the source metadata.
+48	12	Secondary outcomes	bloodstream_infection	DAmico	derived	BSI	Any non-missing organism string -> 1; NA -> 0, confirmed against manuscript Table 2.
+48	12	Secondary outcomes	bloodstream_infection	Fujimoto	unavailable		Not recorded in the source metadata.
+48	12	Secondary outcomes	bloodstream_infection	Ingham	unavailable		Not recorded in the source metadata.
+48	12	Secondary outcomes	bloodstream_infection	Jarosch	unavailable		Not recorded in the source metadata.
+48	12	Secondary outcomes	bloodstream_infection	Liu	recoded	infection_duringafter_transplant, infection_details	Two free-text columns looked up against hand-classified crosswalk maps; either mapping to 1 makes the recipient BSI-positive. NA -> 0, since 'not documented' and 'not assessed' are indistinguishable here. Donor rows NA.
+48	12	Secondary outcomes	bloodstream_infection	Vallet	unavailable		Not recorded in the source metadata.
+49	12	Secondary outcomes	bronchiolitis_obliterans	Artacho	unavailable		Not recorded in the source metadata.
+49	12	Secondary outcomes	bronchiolitis_obliterans	DAmico	unavailable		Not recorded in the source metadata.
+49	12	Secondary outcomes	bronchiolitis_obliterans	Fujimoto	unavailable		Not recorded in the source metadata.
+49	12	Secondary outcomes	bronchiolitis_obliterans	Ingham	unavailable		Not recorded in the source metadata.
+49	12	Secondary outcomes	bronchiolitis_obliterans	Jarosch	unavailable		Not recorded in the source metadata.
+49	12	Secondary outcomes	bronchiolitis_obliterans	Liu	unavailable		Not recorded in the source metadata.
+49	12	Secondary outcomes	bronchiolitis_obliterans	Vallet	recoded	bos	yes -> 1; NA -> 0, because the data dictionary states missing means no BOS and manuscript Table 1 confirms exactly 2 cases.

@@ -18,3 +18,11 @@
 **/Mapped/*.qza
 **/Mapped/*.qzv
 **/Mapped/*.fasta
+
+# Claims-network archive: third-party tooling and source PDFs (kept on disk, not in git)
+archive-claim-network/2026-07_zotero-plugins/zotero-zotadata-main/
+archive-claim-network/**/*.xpi
+archive-claim-network/**/*.pdf
+**/node_modules/
+# Excel lock files
+~$*

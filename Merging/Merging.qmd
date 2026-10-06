@@ -51,6 +51,222 @@ check_phyloseq(ps)
 
 ```{r}
 genus_tree <- vizualize_collapse(ps, "Genus", show_labels = TRUE)
+
+genus_tree
+```
+
+# Metadata
+
+```{r}
+metadata <- ps@sam_data %>% as.data.frame()%>%
+  unclass()%>%as.data.frame()
+```
+
+## Harmonization provenance
+
+`Merging/Harmonization/harmonization_provenance.tsv` records, for every target column and every study, how that column was obtained from the study's parsed metadata. Statuses use the seven-level vocabulary of the `Harmonization_Summary` sheet in `data_dictionaries_harmonized.xlsx`, audited against `Merging/Harmonization/harmonize_gvhd_metadata.R`. Regenerate the file with `python3 Merging/Harmonization/build_provenance.py <out.tsv>` after changing the harmonizer.
+
+```{r}
+source("~/Documents/ODSi/ODSiData/Functions/study_colors.R")
+
+status_levels <- c("exact", "direct", "recoded", "derived",
+                   "limited", "unsupported", "unavailable")
+
+status_key <- tibble::tribble(
+  ~status,       ~definition,
+  "exact",       "Copied verbatim from the source column; no modification.",
+  "direct",      "Read off a single source column, type coercion only.",
+  "recoded",     "Source values mapped or binned onto a canonical vocabulary.",
+  "derived",     "Computed or generated from one or more source columns.",
+  "limited",     "Populated, but with a documented restriction on coverage or meaning.",
+  "unsupported", "The study records something related that cannot support this column.",
+  "unavailable", "The study does not record it."
+)
+
+provenance <- read_tsv(
+  "~/Documents/ODSi/ODSiData/Merging/Harmonization/harmonization_provenance.tsv",
+  show_col_types = FALSE
+) %>%
+  mutate(
+    study  = study_key(study),
+    status = factor(status, levels = status_levels)
+  )
+
+stopifnot(!any(is.na(provenance$status)))
+
+# Schema order and block order, both carried by the provenance file.
+target_cols <- provenance %>%
+  distinct(target_order, target_column) %>%
+  arrange(target_order) %>%
+  pull(target_column)
+
+domain_levels <- provenance %>%
+  distinct(domain_order, domain) %>%
+  arrange(domain_order) %>%
+  pull(domain)
+```
+
+## Missingness
+
+Percent of each study's samples with no value, by target variable. A cross marks a variable the study does not record at all (`unavailable` or `unsupported`), as distinct from one it records but records incompletely.
+
+```{r}
+#| fig-width: 9
+#| fig-height: 11
+
+meta_flat <- metadata %>%
+  rownames_to_column("sample-id") %>%
+  mutate(.study = study_key(study))
+
+missingness <- meta_flat %>%
+  select(.study, any_of(target_cols)) %>%
+  # phyloseq hands these back as characters, so empty strings and a literal
+  # "NA" are missing values that is.na() alone would not catch.
+  mutate(across(-.study, ~ na_if(na_if(str_squish(as.character(.x)), ""), "NA"))) %>%
+  pivot_longer(-.study, names_to = "target_column", values_to = "value") %>%
+  group_by(study = .study, target_column) %>%
+  summarise(n = n(), n_missing = sum(is.na(value)), .groups = "drop") %>%
+  mutate(pct_missing = 100 * n_missing / n)
+
+heat <- missingness %>%
+  left_join(provenance, by = c("study", "target_column")) %>%
+  mutate(
+    not_collected = status %in% c("unavailable", "unsupported"),
+    domain        = factor(domain, levels = domain_levels),
+    target_column = factor(target_column, levels = rev(target_cols)),
+    study         = factor(study, levels = studies)
+  )
+
+# The provenance file and the data must agree: nothing the harmonizer populates
+# may be empty everywhere, and nothing it calls absent may carry values.
+stopifnot(
+  !any(is.na(heat$status)),
+  sum(heat$pct_missing == 100 & !heat$not_collected) == 0,
+  sum(heat$pct_missing <  100 &  heat$not_collected) == 0
+)
+
+study_labs <- meta_flat %>%
+  count(study = .study) %>%
+  mutate(lab = paste0(study, "\n(n = ", n, ")")) %>%
+  { setNames(.$lab, .$study) }
+
+p_missing <- ggplot(heat, aes(x = study, y = target_column, fill = pct_missing)) +
+  geom_tile(colour = "white", linewidth = 0.4) +
+  geom_point(
+    data  = function(d) dplyr::filter(d, not_collected),
+    shape = 4, size = 1.4, stroke = 0.5, colour = "white", alpha = 0.85
+  ) +
+  facet_grid(domain ~ ., scales = "free_y", space = "free_y", switch = "y") +
+  scale_fill_gradient(
+    low = "#EAF2F8", high = "#0B3D66", limits = c(0, 100),
+    breaks = c(0, 25, 50, 75, 100), labels = scales::label_number(suffix = "%"),
+    name = "Missing"
+  ) +
+  scale_x_discrete(labels = study_labs, position = "top") +
+  labs(
+    x = NULL, y = NULL,
+    title    = "Missingness in the harmonized metadata",
+    subtitle = "Percent of each study's samples with no value, by target variable",
+    caption  = str_wrap(paste(
+      "A cross marks a variable the study does not record at all (harmonization status",
+      "unavailable or unsupported), as distinct from one it records but records incompletely.",
+      "Statuses are audited from Merging/Harmonization/harmonize_gvhd_metadata.R."
+    ), width = 110)
+  ) +
+  theme_minimal(base_size = 9) +
+  theme(
+    panel.grid            = element_blank(),
+    axis.text.y           = element_text(family = "mono", size = 6),
+    axis.text.x           = element_text(size = 7.5, lineheight = 1.1),
+    strip.text.y.left     = element_text(angle = 0, hjust = 0, size = 7.5,
+                                         colour = "grey25"),
+    strip.placement       = "outside",
+    panel.spacing.y       = unit(2, "pt"),
+    legend.position       = "right",
+    legend.key.width      = unit(8, "pt"),
+    plot.title            = element_text(face = "bold", size = 11),
+    plot.subtitle         = element_text(colour = "grey30", size = 8,
+                                         margin = margin(b = 6)),
+    plot.caption          = element_text(hjust = 0, colour = "grey35", size = 6.5,
+                                         lineheight = 1.2),
+    plot.title.position   = "plot",
+    plot.caption.position = "plot"
+  )
+
+p_missing
+```
+
+```{r}
+ggsave("~/Documents/ODSi/ODSiData/Merging/metadata_missingness.png",
+       p_missing, width = 9, height = 11, dpi = 300, bg = "white")
+```
+
+## Provenance table
+
+How each target variable was obtained, by study. The fill groups the seven statuses into the four things that can happen to a variable: taken as given (blue), collapsed onto a canonical vocabulary (green), inferred from other columns (orange), or not obtainable (grey). The status word carries the identity, so the fill is secondary and the table reads without color.
+
+```{r}
+provenance_wide <- provenance %>%
+  select(domain_order, domain, target_order, target_column, study, status) %>%
+  mutate(study = factor(study, levels = studies)) %>%
+  pivot_wider(names_from = study, values_from = status) %>%
+  arrange(domain_order, target_order) %>%
+  select(-domain_order, -target_order)
+
+status_fill <- c(
+  exact       = "#D7E6F4",  # taken as given
+  direct      = "#E7F0F9",
+  recoded     = "#D9EBDD",  # collapsed onto a canonical vocabulary
+  derived     = "#FAE7CD",  # inferred from other columns
+  limited     = "#F6D7C4",
+  unsupported = "#E4E4E4",  # not obtainable
+  unavailable = "#F6F6F6"
+)
+
+prov_tbl <- provenance_wide %>%
+  gt::gt(groupname_col = "domain", rowname_col = "target_column") %>%
+  gt::tab_header(
+    title    = "Harmonization provenance by variable and study",
+    subtitle = "How each target column was obtained from each study's parsed metadata"
+  ) %>%
+  gt::tab_source_note(gt::md(
+    paste0("**", status_key$status, "** &mdash; ", status_key$definition,
+           collapse = "<br>")
+  )) %>%
+  gt::tab_style(
+    style     = gt::cell_text(font = "IBM Plex Mono, Menlo, monospace"),
+    locations = gt::cells_stub()
+  ) %>%
+  gt::tab_options(
+    row_group.font.weight = "bold",
+    data_row.padding      = gt::px(3),
+    table.font.size       = gt::px(11)
+  )
+
+# One fill per study column per status. gt takes row indices here, so the
+# lookup is done in plain R rather than as a tidy expression.
+for (st in studies) {
+  for (s in status_levels) {
+    idx <- which(as.character(provenance_wide[[st]]) == s)
+    if (length(idx) == 0L) next
+    prov_tbl <- prov_tbl %>%
+      gt::tab_style(
+        style     = gt::cell_fill(color = unname(status_fill[[s]])),
+        locations = gt::cells_body(columns = all_of(st), rows = idx)
+      )
+  }
+}
+
+prov_tbl
+```
+
+```{r}
+#| eval: false
+# Long form, for the rule and caveat behind any single cell.
+provenance %>%
+  filter(target_column == "gut_gvhd") %>%
+  select(study, status, source_column, harmonization_rule) %>%
+  arrange(study)
 ```
 
 # Beta diversity
@@ -65,7 +281,8 @@ singleton_ps
 ## Filter by prevelance
 
 ```{r}
-filtered_ps <- filter_by_prevalence(.05)
+filtered_ps <- filter_by_prevalence(.1)
+filtered_ps
 ```
 
 ## Rarefaction
@@ -152,7 +369,7 @@ baseline<- plot_beta_correction("!is.na(study)",
 ```
 
 ```{r}
-baseline_adults_viz <- plot_beta_correction("!is.na(study) & age >= 17", 
+baseline_adults_viz <- plot_beta_correction("!is.na(study) & age >= 17 & study != 'DAmico'", 
                      ord_method = "wunifrac",
                      phylo_obj = baseline_ps,
                      rare_depth = 900)
@@ -180,4 +397,313 @@ baseline_children <- plot_beta_correction("study != 'Vallet' & age < 17",
                      ord_method = "wunifrac",
                      phylo_obj = baseline_ps,
                      rare_depth = 900)
+```
+
+# No stratification
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none'", 
+                     ord_method = "bray",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+# Stratified by Age
+
+## Adults (N = 662)
+
+```{r}
+
+plot_beta_correction("!is.na(disease)& disease != 'none' & study %in% c('Artacho', 'Fujimoto', 'Liu', 'Vallet')", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+
+```
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none' & study %in% c('Artacho', 'Fujimoto', 'Liu', 'Vallet')", 
+                     ord_method = "bray",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+## Children (N = 199)
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none' & !(study %in% c('Artacho', 'Fujimoto', 'Liu', 'Vallet'))", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none' & !(study %in% c('Artacho', 'Fujimoto', 'Liu', 'Vallet'))", 
+                     ord_method = "bray",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+# Stratified by before/after engraftment
+
+## Before engraftment (N = 442)
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none' & timepoint %in% c('pre-conditioning', 'conditioning', 'transplant', 'pre-engraftment')", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none' & !(timepoint %in% c('pre-conditioning', 'conditioning', 'transplant', 'pre-engraftment'))", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+# Stratified by age and timepoint
+
+-   Adults: Artacho, Fujimoto, Jarosch, Liu, Vallet
+
+-   Children: Ingham, Damico
+
+```{r}
+filtered_metadata <- filtered_ps@sam_data %>% as.data.frame()%>%
+  unclass()%>%as.data.frame()
+```
+
+```{r}
+sample_categories <- filtered_metadata %>%
+  mutate(is_member = ifelse(!is.na(disease) & disease == "none", FALSE, TRUE))%>%
+  mutate(Age_group = ifelse(study %in% c("Artacho", "Fujimoto", 
+                                      "Jarosch", "Liu", "Vallet"),
+                         "Adults", "Children"))%>%
+  select(sample.id, Age_group, timepoint, is_member)%>%
+  pivot_wider(id_cols = sample.id,
+              names_from = c(Age_group, timepoint),
+              values_from = is_member,
+              values_fill = FALSE,
+              names_glue = "{Age_group}_{timepoint}")
+
+names(sample_categories)
+```
+
+```{r}
+adults_preconditioning <- prune_samples(sample_categories$`Adults_pre-conditioning`, filtered_ps)
+debiasm_adults_preconditioning <- debiasm_correct(adults_preconditioning)
+
+adults_conditioning <- prune_samples(sample_categories$`Adults_conditioning`, filtered_ps)
+
+adults_transplant<- prune_samples(sample_categories$`Adults_transplant`, filtered_ps)
+
+adults_preengraftment <- prune_samples(sample_categories$`Adults_pre-engraftment`, filtered_ps)
+
+adults_engraftment <- prune_samples(sample_categories$`Adults_engraftment`, filtered_ps)
+
+adults_followup <- prune_samples(sample_categories$`Adults_follow-up`, filtered_ps)
+
+
+
+```
+
+```{r}
+children_preconditioning <- prune_samples(sample_categories$`Children_pre-conditioning`, filtered_ps)
+
+children_conditioning <- prune_samples(sample_categories$`Children_conditioning`, filtered_ps)
+
+children_transplant<- prune_samples(sample_categories$`Children_transplant`, filtered_ps)
+
+children_preengraftment <- prune_samples(sample_categories$`Children_pre-engraftment`, filtered_ps)
+
+children_engraftment <- prune_samples(sample_categories$`Children_engraftment`, filtered_ps)
+
+children_followup <- prune_samples(sample_categories$`Children_follow-up`, filtered_ps)
+```
+
+## Adults
+
+### Preconditioning (N-112)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = adults_preconditioning,
+                     rare_depth = 900
+                     )
+
+```
+
+### Conditioning (N=86)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = adults_conditioning,
+                     rare_depth = 900
+                     )
+```
+
+### Transplant (N=78)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = adults_transplant,
+                     rare_depth = 900
+                     )
+```
+
+### Pre-engraftment (N=92)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = adults_preengraftment,
+                     rare_depth = 900
+                     )
+```
+
+### Engraftment (N=103)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = adults_engraftment,
+                     rare_depth = 900
+                     )
+```
+
+### Follow-up (N = 191)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = adults_followup,
+                     rare_depth = 900
+                     )
+```
+
+## Children
+
+### Preconditioning (N=24)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = children_preconditioning,
+                     rare_depth = 900
+                     )
+
+```
+
+### Conditioning (N = 13)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = children_conditioning,
+                     rare_depth = 900
+                     )
+```
+
+### Transplant (N=11)
+
+```{r}
+# plot_beta_correction("study != 'random'", 
+#                      ord_method = "wunifrac",
+#                      phylo_obj = children_transplant,
+#                      rare_depth = 900
+#                      )
+```
+
+### Pre-engraftment (N = 26)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = children_preengraftment,
+                     rare_depth = 900
+                     )
+```
+
+### Engraftment (N = 24)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = children_engraftment,
+                     rare_depth = 900
+                     )
+```
+
+### Follow-up (N = 101)
+
+```{r}
+plot_beta_correction("study != 'random'", 
+                     ord_method = "wunifrac",
+                     phylo_obj = children_followup,
+                     rare_depth = 900
+                     )
+```
+
+# Stratified by age and engraftment
+
+## Adults
+
+### Before (N = 368)
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none' & timepoint %in% c('pre-conditioning', 'conditioning', 'transplant', 'pre-engraftment') & study %in% c('Artacho', 'Fujimoto', 'Liu', 'Vallet')", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+### After (N = 294)
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none' & !(timepoint %in% c('pre-conditioning', 'conditioning', 'transplant', 'pre-engraftment')) & study %in% c('Artacho', 'Fujimoto', 'Liu', 'Vallet')", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+## Children
+
+### Before (N = 74)
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none' & timepoint %in% c('pre-conditioning', 'conditioning', 'transplant', 'pre-engraftment') & !(study %in% c('Artacho', 'Fujimoto', 'Liu', 'Vallet'))", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
+```
+
+### After (N = 125)
+
+```{r}
+plot_beta_correction("!is.na(disease)& disease != 'none' & !(timepoint %in% c('pre-conditioning', 'conditioning', 'transplant', 'pre-engraftment')) & !(study %in% c('Artacho', 'Fujimoto', 'Liu', 'Vallet'))", 
+                     ord_method = "wunifrac",
+                     phylo_obj = filtered_ps,
+                     rare_depth = 900
+                     )
 ```

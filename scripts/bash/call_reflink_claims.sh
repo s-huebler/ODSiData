@@ -14,7 +14,7 @@
 #
 # Example:
 #   scripts/bash/call_reflink_claims.sh \
-#       claim-network2/Claims_14July.xlsx \
+#       claim-network/data/Claims_15July.xlsx \
 #       citation-network/Full_Network/citing_dictionary.csv
 
 set -euo pipefail

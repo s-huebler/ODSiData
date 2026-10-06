@@ -1,4 +1,6 @@
 # parse_taxonomy.R
+# From Sophie Huebler
+# Created 20 Aug 2026
 # -----------------------------------------------------------------------------
 # Turn a QIIME2 taxonomy table (as returned by qiime2R::read_qza()$data) into a
 # feature x rank character matrix suitable for phyloseq::tax_table().
@@ -8,7 +10,6 @@
 # e.g. "k__Bacteria; p__Firmicutes; ..."). Rank prefixes (k__, p__, ...) are
 # stripped and empty ranks become NA.
 #
-# Shared across the merging/analysis notebooks -- edit here, not in a .qmd.
 # -----------------------------------------------------------------------------
 
 library(dplyr)

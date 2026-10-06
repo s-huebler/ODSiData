@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Render gvhd_claims_network2_alt.html by embedding graph_data2.json into the
+"""Step 2 of 2 (formerly render2.py).
+Render output/gvhd_claims_network2_alt.html by embedding graph_data2.json into the
 exact same Cytoscape template used for gvhd_claims_network_alt.html."""
 import json, re
 
-BUILD = "/sessions/wonderful-magical-rubin/mnt/ODSiData/claim-network2/build_html.py"
-DATA  = "/sessions/wonderful-magical-rubin/mnt/outputs/graph_data2.json"
-OUT   = "/sessions/wonderful-magical-rubin/mnt/outputs/gvhd_claims_network2_alt.html"
+from pathlib import Path
+HERE  = Path(__file__).resolve().parent
+BUILD = HERE / "network_html_template.py"   # batch-1 build_html.py; only its HTML template is used
+DATA  = HERE.parent / "data" / "graph_data2.json"
+OUT   = HERE.parent / "output" / "gvhd_claims_network2_alt.html"
 
 src = open(BUILD).read()
 # extract the r'''...''' HTML template

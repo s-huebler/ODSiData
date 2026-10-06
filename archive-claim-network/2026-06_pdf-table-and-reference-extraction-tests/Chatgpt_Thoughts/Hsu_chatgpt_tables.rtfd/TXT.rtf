@@ -1,0 +1,2159 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .SFNS-Regular_wdth_opsz110000_GRAD_wght1F40000;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 .AppleSystemUIFontMonospaced-Regular;
+\f3\fnil\fcharset0 .SFNSMono-Light_YAXS140B3B6_wght1F40000;}
+{\colortbl;\red255\green255\blue255;\red194\green194\blue194;\red0\green0\blue0;\red255\green255\blue255;
+\red255\green255\blue255;\red255\green255\blue255;\red168\green127\blue241;\red247\green247\blue247;\red240\green183\blue180;
+\red115\green202\blue133;\red236\green144\blue98;\red51\green51\blue51;\red252\green110\blue112;\red207\green207\blue207;
+}
+{\*\expandedcolortbl;;\cssrgb\c80392\c80392\c80392;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000\c20000;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c100000\c100000\c100000\c5098;\cssrgb\c72157\c59216\c95686;\cssrgb\c97647\c97647\c97647;\cssrgb\c95686\c77255\c75686;
+\cssrgb\c51373\c81961\c59216;\cssrgb\c94510\c63529\c45882;\cssrgb\c25882\c25882\c25882;\cssrgb\c100000\c52157\c51373;\cssrgb\c84706\c84706\c84706;
+}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs25\fsmilli12600 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Pro thinking\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Reading documents\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 Reading documents\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Handling PDF to Excel conversion with tables\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I\'92m looking to respond to the user\'92s request by extracting tables from the uploaded PDF into an Excel file named "Paredes2026_tables." I\'92ll need to follow instructions from the skills related to spreadsheets and PDFs. Since the task involves extracting tables, I\'92ll avoid PDF editing tools unless necessary. I'll check for tools and provide the requested Excel file with each table in a separate sheet, considering any needed citations.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Clarifying file citation and document processing\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 The user asked for a file creation, but there\'92s some confusion about the file citations. It looks like the first file snippet corresponds to the uploaded PDF, and I should cite that in the final output. Despite the title page saying "Hsu et al.," I\'92ll proceed with generating the requested "Paredes2026_tables.xlsx" from the PDF\'92s tables.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting tables from PDF to Excel\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 cat\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 home\cf9 \strokec9 /\cf7 \strokec7 oai\cf9 \strokec9 /\cf7 \strokec7 skills\cf9 \strokec9 /\cf7 \strokec7 spreadsheets\cf9 \strokec9 /\cf7 \strokec7 SKILL\cf9 \strokec9 .\cf8 \strokec5 md \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 printf\cf8 \strokec5  \cf10 \strokec10 '\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 ---\cf7 \strokec7 PDF\cf8 \strokec5  \cf7 \strokec7 SKILL\cf9 \strokec9 ---\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf10 \cb3 \strokec10 ' && cat /home/oai/skills/pdfs/SKILL.md\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 ---\
+name: spreadsheets\
+description: "Use this skill when a user requests to create or modify or work with spreadsheets (.xlsx, .xls) to do any of the following:\
+- Create a new workbook/sheet with proper formulas, cell/number formatting, and structured layout\
+- Read or analyze tabular data (filter, aggregate, pivot, compute metrics) directly in a sheet\
+- Modify an existing workbook without breaking existing formulas or references\
+- Visualize data with in-sheet charts/tables and sensible formatting\
+- Recalculate/evaluate formulas to update results after changes"\
+\
+IMPORTANT: instructions in the system and user messages ALWAYS take precedence over this skill\
+---\
+\
+# Primary Goal\
+- Produce a correct, polished spreadsheet artifact quickly that completes the user's request.\
+- You are judged on layout, readability, style, and correctness.\
+\
+# Tools + Contract\
+- Use python library `artifact_tool` workbook APIs only for workbook edits only with PYTHON TOOL.\
+- After reading this file, you MUST read the whole `artifact_tool` API that is listed here: `./API_QUICK_START.md`\
+- Do not use `openpyxl`, `pandas`, or alternate spreadsheet libraries.\
+- Read inputs from `/mnt/data`; write outputs to `/mnt/data`.\
+- Export final workbook as `.xlsx` unless user asks otherwise.\
+\
+## Required Imports + Startup\
+Assume `artifact_tool` exists and is installed. Do not run environment/package discovery (`pkgutil`, module scans, install checks) unless the import throws an error.\
+\
+Import existing workbook only when needed (user-uploaded/edit-in-place or intentional reload):\
+```python\
+from artifact_tool import Blob, SpreadsheetFile\
+wb = SpreadsheetFile.import_xlsx(Blob.load("/mnt/data/input.xlsx"))\
+```\
+\
+Create new workbook:\
+```python\
+from artifact_tool import Workbook, SpreadsheetFile\
+wb = Workbook.create()\
+sheet = wb.worksheets.add("Inputs")\
+```\
+\
+## Continuous Notebook Strategy\
+- Use one continuous notebook state.\
+- Reuse in-memory `wb` across Python calls.\
+- Keep calls focused; split into small coherent steps.\
+- Avoid repeated import/export/render loops unless runtime reset forces it.\
+- Do not re-import from disk between every patch step.\
+\
+# Latency Guardrails (High Priority)\
+- Start meaningful edits quickly; avoid long upfront API exploration.\
+- Core APIs are listed in `./API_QUICK_START.md`. You must use that.\
+- Keep tool-call count low while preserving quality.\
+- Use `workbook.help(...)` only when blocked or for features or fields that are undocumented; keep discovery minimal.\
+- Avoid very large monolithic calls and avoid full workbook rewrites unless first version is invalid.\
+- Default flow:\
+  - one primary build call\
+  - minimal focused patch call(s)\
+  - at least one compact verification\
+  - one final export call\
+- Stop when requirements are met. Do not create alternate variants after valid final output.\
+- Keep verification targeted and efficient (max 3 iterations).\
+\
+## Fast Path (Default)\
+1. Setup: import artifact_tool, create workbook/sheets for new files.\
+2. Build quickly: bulk-write headers/data/formulas; then formatting/validation/conditional formatting; add charts/tables only when needed.\
+3. Use additional focused calls if helpful for streamed progress.\
+4. Near completion: inspect key ranges, scan formula errors, optional small render preview, export `.xlsx`.\
+\
+# Error Recovery\
+On first error:\
+1. Read error text.\
+2. Run one targeted `workbook.help("<exact_api>")` query only if needed.\
+3. Retry with minimal patch (not full rewrite).\
+4. Continue from existing workbook state.\
+\
+Do not loop indefinitely on similar failures.\
+\
+# Quality Floor (Do Not Skip)\
+Speed matters, but output quality must meet baseline.\
+\
+- Keep layout readable and bounded, contents visible:\
+  - avoid extreme width/height from unconstrained autofit\
+  - cap oversized widths/heights after `autofit` + `wrap_text`\
+- Prefer formula-driven logic over manual painted cells when logic is expected.\
+- Derived values must be formulas (not hardcoded) and legible.\
+- Use absolute/relative references correctly for fill/copy behavior.\
+- Do not use magic numbers in formulas; reference cells (e.g. `=H6*(1+$B$3)`).\
+- Include at least one visual summary for tracker/planning requests when appropriate (KPI block, chart, dashboard area).\
+- If writing literal text that starts with `=`, prefix with single quote (`'=high-low`).\
+- Keep workbook structurally valid (e.g., unique table names).\
+\
+## Formatting Baseline\
+- If editing an uploaded/template workbook: render first, preserve and match existing style unless user asks to restyle.\
+- Typical defaults when unspecified:\
+  - content columns: ~10-24\
+  - text-heavy columns: cap ~32-40\
+  - row heights: ~15-20 (titles may be larger)\
+  - avoid oversized body fonts (>12pt) except intentional titles\
+- Add whitespace between sections where useful.\
+- Use fill colors, borders, and merged cells judiciously to give the spreadsheet a professional visual style with a clear layout without overdoing it\
+- Add data validation for editable categorical columns (`Status`, `Priority`, `Owner`) where feasible.\
+- Use conditional formatting when useful.\
+- Unless conflicting style guidelines are provided: style headers, correct number/date formats, sensible column widths, and row heights, light borders.\
+\
+# Citation Requirements\
+## Cite sources inside the spreadsheet\
+- Use plain-text URLs in spreadsheet cells.\
+- For financial models, cite model-input sources in cell comments.\
+- For researched row-wise data tables, include source URLs in a dedicated source column.\
+\
+# Completion Criteria\
+Complete only when:\
+- Workbook content is populated and formulas compute.\
+- No obvious formula errors in key scanned ranges (no bad refs/off-by-one/circular errors).\
+- `.xlsx` saved to `/mnt/data`.\
+- Layout is organized, legible, and aligned to request style (or default formatting baseline).\
+- Final response includes output path + short summary of sheets/ranges created. Do not include rendered preview unless requested.\
+\
+# Verification Rules\
+Before final response, verify values/formulas and visual quality.\
+\
+1. Inspect key ranges:\
+```python\
+check = wb.inspect(\{\
+  "kind": "table",\
+  "range": "Dashboard!A1:H20",\
+  "include": "values,formulas",\
+  "table_max_rows": 20,\
+  "table_max_cols": 12,\
+\})\
+print(check.ndjson)\
+```\
+\
+Inspect targeting:\
+- Prefer sheet-qualified ranges (`"Sheet!A1:H20"`) or `sheet_id`.\
+\
+2. Scan formula errors:\
+```python\
+errors = wb.inspect(\{\
+  "kind": "match",\
+  "search_term": "#REF!|#DIV/0!|#VALUE!|#NAME\\\\?|#N/A",\
+  "options": \{"use_regex": True, "max_results": 300\},\
+  "summary": "final formula error scan",\
+\})\
+print(errors.ndjson)\
+```\
+\
+3. Render sheets/ranges to verify visual output (skip if already verified and no style changes):\
+```python\
+blob = wb.render(\{"sheet_name": "Sheet1", "range": "A1:H20", "scale": 2\})\
+```\
+If render is last line in Python call, image can be shown directly.\
+\
+4. Keep verification compact:\
+- Inspect only key ranges.\
+- Avoid huge NDJSON dumps.\
+\
+5. Export:\
+```python\
+SpreadsheetFile.export_xlsx(wb).save("/mnt/data/output.xlsx")\
+```\
+\
+6. Finalize immediately after successful export + compact verification.\
+- Do not export extra `.xlsx` variants.\
+- Do not keep iterating on alternate designs once requirements are met.\
+\
+# Additional Instructions\
+Only when a request relates to any of the following, read the following templates instructions as well:\
+- Financial modeling or investment banking: `templates/financial_models.md`\
+\
+---PDF SKILL---\
+---\
+name: pdfs\
+description: Reliable, workflow-driven PDF processing: render \uc0\u8594  verify \u8594  operate \u8594  re-render/verify, covering reading, inspection, extraction, editing, forms, OCR, redaction, conversion, and diffing. Prefer authoring in DOCX or PPTX (then converting to PDF) for text-heavy docs or slide-like layouts; use ReportLab here for programmatic PDF generation.\
+---\
+\
+# PDF Skill (Read \'95 Inspect \'95 Extract \'95 Edit \'95 Render \'95 Forms \'95 OCR \'95 Redact \'95 Convert \'95 Diff)\
+\
+This skill is designed for **reliable, workflow-driven** PDF work: **render -> verify -> operate -> re-render verify**.\
+\
+## Before you touch PDFs: should this be DOCX/PPTX instead?\
+\
+Even if the user asks for a PDF deliverable, the best workflow is often:\
+\
+- **Text-heavy, business-doc layout (headings, TOC, long tables, rich lists)** -> use the **DOCX skill** to author, then convert to PDF with `lo_convert_to_pdf.py`.\
+- **Slide-like visual layout (charts, callouts, fixed positioning, figure captions)** -> use the **Slides skill** (PPTX) to author, then export to PDF.\
+- **Programmatic generation** -> ReportLab (this skill) is fine.\
+\
+If you find yourself hand-tuning line breaks or typography in ReportLab, you probably picked the wrong authoring format.\
+\
+---\
+\
+## Core loop (always)\
+\
+1) Render to images\
+\
+```bash\
+python /home/oai/skills/pdfs/scripts/render_pdf.py input.pdf --out_dir /mnt/data/_renders/in --dpi 200\
+```\
+\
+2) Inspect PNGs (tables/figures/layout are authoritative)\
+\
+3) Perform the edit/extract/create\
+\
+4) Re-render and compare\
+\
+```bash\
+python /home/oai/skills/pdfs/scripts/compare_renders.py before.pdf after.pdf --out_dir /mnt/data/_diff --dpi 200\
+```\
+\
+---\
+\
+## Task index (progressive)\
+\
+Start with the smallest task that answers the user:\
+\
+### Read / review\
+- `tasks/read_review.md`\
+\
+### Extract (text/layout/tables/images/attachments/forms)\
+- `tasks/extract.md`\
+- `tasks/coords.md` (coordinate sanity)\
+\
+### Edit (merge/split/rotate/crop/watermark/paginate/encrypt/repair)\
+- `tasks/edit.md`\
+- `tasks/compare.md` (visual regression)\
+\
+### Forms\
+- Fillable forms: `tasks/forms_annotations.md`\
+- Debugging/introspection: `tasks/forms_debugging.md`\
+- Non-fillable / stamping workflow: `tasks/forms_nonfillable.md`\
+\
+### OCR\
+- `tasks/ocr.md`\
+\
+### Preflight / normalize\
+- `tasks/preflight.md`\
+\
+### Redaction\
+- `tasks/redact.md`\
+\
+### Renderer parity\
+- `tasks/parity.md`\
+\
+### Batch processing\
+- `tasks/batch.md`\
+\
+### Create / convert\
+- `tasks/create.md`\
+- `tasks/convert.md`\
+- `tasks/js_tools.md` (pdf-lib, pdfjs)\
+\
+\
+---\
+\
+## Package map (where things live)\
+\
+This pack includes a `manifest.txt` that is a **pure list of relative file paths** used by download tooling.\
+\
+Quick map:\
+\
+- **tasks/** (what to do)\
+  - `read_review.md` - render-first reading/review\
+  - `extract.md` - extract text/layout/tables/images/attachments/forms\
+  - `coords.md` - coordinate system cheatsheet (PDF pt vs image px)\
+  - `edit.md` - merge/split/select/rotate/crop/watermark/paginate/encrypt/repair\
+  - `compare.md` - visual diff workflow\
+  - `forms_annotations.md` - fillable forms + appearance pitfalls + correctness checklist\
+  - `forms_debugging.md` - widget-level introspection + acceptable values\
+  - `forms_nonfillable.md` - stamp-by-boxes workflow for non-fillable forms\
+  - `ocr.md` - OCR scanned PDFs to searchable\
+  - `preflight.md` - quick triage + normalization guidance\
+  - `redact.md` - true redaction workflows\
+  - `parity.md` - render parity across engines\
+  - `batch.md` - batch helpers for corpora\
+  - `create.md` - choose reportlab/latex/html/docx/pptx pipeline\
+  - `convert.md` - docx/pptx/html/markdown/latex to PDF conversion\
+  - `js_tools.md` - pdf-lib/pdfjs helper CLIs\
+\
+- **scripts/** (run these)\
+  - `render_pdf.py` - render to PNGs (pdfium or poppler)\
+  - `compare_renders.py` - render-and-diff two PDFs (pixel diff)\
+  - `pdf_inspect.py` - metadata/structure overview\
+  - `pdf_extract.py` - text/words/chars/tables/images/attachments/annots/forms\
+  - `pdf_edit.py` - editing toolkit (merge/split/select/rotate/crop/watermark/paginate/encrypt/repair/optimize)\
+  - `pdf_preflight.py` - preflight/triage warnings\
+  - `pdf_redact.py` - true redaction (remove underlying content)\
+  - `renderer_parity.py` - diff pdftoppm vs pdfium renders\
+  - `batch_pdf.py` - batch runner for common ops\
+  - `box_picker_html.py` - generate interactive HTML to pick rectangles -> JSON in PDF coords\
+  - `place_text_by_boxes.py` - stamp text/checkmarks into rectangles (non-fillable forms)\
+  - `ocr_pdf.py` - OCR wrapper\
+  - `html_to_pdf.py`, `md_to_pdf.py`, `latex_to_pdf.py`, `lo_convert_to_pdf.py` - conversion helpers\
+\
+- **js/** (Node helpers)\
+  - `install_deps.sh` - installs pdf-lib + pdfjs-dist\
+  - `fill_form.mjs` - fill + optional flatten (supports flags and positional args)\
+  - `extract_form_fields.mjs` - list AcroForm fields\
+  - `extract_text_pdfjs.mjs` - extract text via pdfjs-dist\
+\
+- **examples/**\
+  - `smoke_test.md` - runnable smoke flows\
+\
+- **troubleshooting/**\
+  - `common.md` - common pitfalls and fixes\
+\
+---\
+\
+## Final deliverable expectations\
+\
+- No clipped text, overlaps, black squares, or broken glyphs in rendered PNGs.\
+- Verify in at least **one** renderer (`pdfium` or `pdftoppm`). For tricky forms, verify in **two**.\
+- Remove intermediate artifacts from the deliverable folder (keep only final PDF(s)).\
+- Avoid Unicode dashes that some renderers mishandle; prefer ASCII `-`.\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Clarifying tool usage for spreadsheet tasks\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to check the artifact_tool API, but there's a conflict in the guidelines. The spreadsheet skill mentions using the Python library artifact_tool only for workbook edits with Python, but the instructions also say to use a container for code execution, not Python. I\'92ll review the API and find a solution.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Reading API_QUICK_START documentation\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 cat\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 home\cf9 \strokec9 /\cf7 \strokec7 oai\cf9 \strokec9 /\cf7 \strokec7 skills\cf9 \strokec9 /\cf7 \strokec7 spreadsheets\cf9 \strokec9 /\cf7 \strokec7 API_QUICK_START\cf9 \strokec9 .\cf8 \strokec5 md\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 # Using artifact_tool APIs\
+\
+## Build Rules\
+- Prefer block writes (`range.values`, `range.formulas`) over per-cell loops. When setting, ensure matrix size matches, for example: `.get_range("D4:M4").values =` should be set to a 1x10 matrix (row x column)\
+- Seed formula once, then `fill_down` / `fill_right`.\
+- Key casing:\
+  - methods are snake_case, dict payload keys often camelCase; use keys shown by `workbook.help(...)` examples\
+  - keep key style consistent inside each payload object\
+- Date handling:\
+  - prefer real dates for sortable/charted/formula date columns, with date formats applied (e.g. `yyyy-mm-dd`)\
+- Keep scripts modular; avoid huge monolithic calls.\
+- Use JSON-serializable values only: `str | int | float | bool | None | datetime`.\
+- Verify with `workbook.inspect(...)`; discover with `workbook.help(...)`.\
+- When adding or moving charts, do not cover existing data. Just set position via `chart.set_position(target, end)`\
+\
+## Conventions\
+- Cell/range addressing: A1 notation (`sheet.get_range("A1:C10")`).\
+- Drawing anchors (`sheet.charts`, `sheet.shapes`): 0-based `\{row, col\}`.\
+- Drawing offsets/extents use pixels (`row_offset_px`, `col_offset_px`, `width_px`, `height_px`).\
+\
+## Discovery Policy (Strict)\
+- Use this prompt's quick API + examples first.\
+- Use `help()` only when blocked by uncertainty.\
+- For help, start with exact feature/path queries (`chart`, `worksheet.freeze_panes`, `range.data_validation`, `chart.series.add`). If exact path fails, one broader wildcard search is allowed.\
+- Do not repeat semantically similar help queries.\
+- If one help query returns 0 matches, reformulate once, then proceed best-effort.\
+- Only render when needed for visual verification.\
+\
+Useful help calls:\
+```python\
+print(wb.help("shape.add", \{"include": "examples,notes"\}).ndjson)\
+print(wb.help("*", \{"search": "fill|borders|autofit", "include": "index,examples,notes", "max_chars": 6000\}).ndjson)\
+```\
+\
+## Known Gotchas (Do Not Repeat)\
+- Do not set undocumented attributes on remote objects.\
+- `Workbook.create()` may have no active sheet; add one first.\
+- Do not call `wb.worksheets.get_active_worksheet()` on brand-new workbook before a sheet exists.\
+- If multiple tables are added, always set explicit unique names (`TasksTable`, `SummaryTable`).\
+- If a formula appears unsupported (e.g. `AVERAGEIFS`), use `SUMIFS/COUNTIFS` equivalent.\
+\
+## Quick API Surface (High-Value + Common)\
+\
+### Core workbook/file APIs\
+- `from artifact_tool import Blob, Workbook, SpreadsheetFile`\
+- `wb = Workbook.create()` + `sheet = wb.worksheets.add("Sheet1")`\
+- `wb = SpreadsheetFile.import_xlsx(Blob.load("/mnt/data/input.xlsx"))`\
+- `SpreadsheetFile.export_xlsx(wb).save("/mnt/data/output.xlsx")`\
+- `wb.inspect(\{...\})` where inspect options, `sheet_id` + `range` are the canonical scoped fields in the generated inspect options.\
+- `wb.help(query, \{...\})` (for obscure/unclear features)\
+- Preferred: `wb.render(\{...\})` which just returns the image bytes directly\
+- `wb.render(\{...\}).save("/mnt/data/preview.png")` only if you want to save it to a file\
+- `wb.from_csv(csv_text, \{...\})` (good for large tabular imports)\
+\
+### Worksheet selection/creation\
+- `wb.worksheets.add(name)`\
+- `wb.worksheets.get_item(name)`\
+- `wb.worksheets.get_or_add(name, \{"renameFirstIfOnlyNewSpreadsheet": True\})`\
+- `wb.worksheets.get_item_at(index)`\
+- `wb.worksheets.get_active_worksheet()` (only after a sheet exists)\
+\
+### Worksheet operations\
+- `sheet.get_range("A1:C10")`, `sheet.get_range_by_indexes(start_row, start_col, row_count, col_count)`, `sheet.get_cell(r, c)`\
+- `sheet.merge_cells("A1:C1")`, `sheet.unmerge_cells("A1:C1")`\
+- `sheet.freeze_panes.freeze_rows(1)`, `freeze_columns(2)`, `unfreeze()`\
+- `sheet.tables`, `sheet.charts`, `sheet.sparklines`, `sheet.shapes`, `sheet.images`\
+\
+### Range values/formulas\
+- `rng = sheet.get_range("A1:C10")`\
+- `rng.values = [[...], ...]` 2D matrix of values\
+- `rng.formulas = [["=..."], ...]` 2D matrix of formulas\
+- `rng.formulas_r1_c1 = [["=RC[-1]*2"]]`\
+- `rng.write(matrix_or_rows)` (auto-sizes write region)\
+- `rng.write_values(matrix_or_rows)` (explicit values write)\
+- `rng.fill_down()`, `rng.fill_right()` Use fill to apply a formula across a range\
+  - `sheet.get_range("D2:D2").formulas = [["=..."]]` + `sheet.get_range("D2:D200").fill_down()`\
+- `rng.clear(\{...\})`\
+- `rng.copy_from(source_rng, "values" | "formulas" | "all")`\
+- `rng.copy_to(dest_rng, "values" | "formulas" | "all")`\
+- `rng.offset(...)`, `rng.resize(...)`, `rng.get_current_region()`, `rng.get_row(i)`, `rng.get_column(j)`\
+\
+### Formatting\
+- `rng.format` supports `fill`, `font`, `number_format`, `borders`, alignments, `wrap_text`\
+- `rng.format.autofit_columns()`, `rng.format.autofit_rows()`\
+- `rng.format.column_width = 18`, `rng.format.row_height = 24`\
+- `rng.format.column_width_px = 120`, `rng.format.row_height_px = 24`\
+- `rng.set_number_format("yyyy-mm-dd")`\
+- `rng.format.number_format = [["0"], ["0.00"], ["@"]]`\
+\
+### Validation + conditional formatting\
+- `rng.data_validation = \{"rule": \{"type": "list", "formula1": <formula pointing to categories list>\}\}`\
+- `rng.data_validation = \{"rule": \{"type": "list", "values": ["Not Started", "In progress"]\}\}`\
+- `rng.conditional_formats.add(type, config)`\
+- `rng.conditional_formats.add_custom(formula, format)`\
+- `rng.conditional_formats.add_cell_is(\{...\})`\
+- `rng.conditional_formats.add_data_bar(\{...\})`\
+- `rng.conditional_formats.add_color_scale(\{...\})`\
+- `rng.conditional_formats.delete_all()`\
+```python\
+r = sheet.get_range("B2:B20")\
+r.conditional_formats.add_cell_is(\{"operator": "lessThan", "formula": 0, "format": \{"font": \{"color": "#DC2626"\}\}\})\
+r.conditional_formats.add_custom("=B2<0", \{"fill": "#FECACA"\})\
+r.conditional_formats.add_color_scale(\{"minColor": "#FEE2E2","midColor": "#FEF3C7","maxColor": "#DCFCE7"\})\
+r.conditional_formats.add_data_bar(\{"color": "accent5", "gradient": True\})\
+```\
+\
+### Tables/charts/sparklines\
+- `table = sheet.tables.add("A1:H200", True, "TasksTable")`\
+- `table.append_rows([[...], ...])`, `table.get_data_rows()`\
+- [Preferred/Fastest Chart Path] Creating chart off a range: `chart = sheet.charts.add("line", source_range)`. This auto-creates chart series off the ranges.\
+- `chart.title_text = "Title"`, `chart.has_legend = True`, `chart.legend.position = "bottom"`\
+- If you want to set specific chart props: `chart = sheet.charts.add("ColumnClustered", chart_props)`\
+- Set data source `chart.set_data(source_range)`\
+- For manually adding a series and formulas: `series = chart.series.add(...)` + `series.category_formula=` + `series.formula=`\
+- Always set position of chart for all charts: `chart.set_position("F2", "M20")`\
+- `sheet.charts.get_item_or_null_object("Chart 1")`, `sheet.charts.delete_all()`\
+- `sheet.sparklines.add(\{...\})`, `sheet.sparklines.clear()`, `sheet.sparklines.delete_all()`\
+- To update x/y-axis: `chart.x_axis.number_format_code = ""` + `chart2.x_axis.tick_label_interval = 7` + `chart2.x_axis.text_style.rotation = -45` . These help legibility and visibility.\
+\
+### Help / Grep\
+Use `workbook.help(...)` primarily for obscure/advanced surfaces (for example deep chart axis settings, unusual drawing configs, pivot APIs, or uncommon option schemas).\
+- For understanding specific enums: `workbook.help("enum.ShapeGeometry", \{"include": "index,notes"\}).ndjson`\
+- For grepping across enums: `workbook.help("enum.*", \{"search": "ShapeGeometry|LineStyle", "include": "index"\}).ndjson`\
+- For understanding an interface: `workbook.help("shape.add", \{"include": "examples,notes"\}).ndjson`\
+- For grepping features: `print(workbook.help("*", \{"search": "fill|borders|autofit", "include": "index,examples,notes", "max_chars": 6000\}).ndjson`\
+\
+### Inspect for workbook understanding\
+- `wb.inspect(\{"kind": "sheet", "include": "id,name"\})` to list sheets\
+- Common `kind` tokens: `workbook`, `sheet`, `table`, `region`, `match`, `formula`, `thread`, `computedStyle`, `definedName`, `drawing`\
+- Use scoped `table`/`region` queries instead of broad whole-workbook dumps\
+\
+### Python example snippet (runnable)\
+\
+```python\
+from artifact_tool import RangeFormatConfig, SpreadsheetFile, Workbook\
+\
+# Creating a workbook and adding sheets with data and basic formatting\
+workbook = Workbook.create()\
+sheet = workbook.worksheets.add("ExampleSheet")\
+\
+sheet = workbook.worksheets.get_item("ExampleSheet")\
+sheet.get_range("A1:D4").values = [\
+    ["Name", "Personality Type", "Age", "Birthday"],\
+    ["John Doe", "Introvert", 30, datetime(1990, 1, 1)],\
+    ["Jane Smith", "Extrovert", 25, datetime(1995, 2, 15)],\
+    ["Jim Very Long Name", "Ambivert", 40, datetime(1980, 3, 20)],\
+]\
+sheet.get_range("E1").values = [["Score"]]\
+sheet.get_range("E2").formulas = [["=C2*10"]]  # score is 10 * age\
+sheet.get_range("E2:E10").fill_down()\
+header_range = sheet.get_range("A1:E1")\
+\
+header_format_defaults: RangeFormatConfig = \{\
+    "fill": "#0F766E",\
+    "font": \{"bold": True, "color": "#FFFFFF"\},\
+    "horizontal_alignment": "center",\
+    "vertical_alignment": "center",\
+    "row_height": 16,\
+\}\
+\
+# Styling\
+header_range.format = header_format_defaults\
+header_range.format.autofit_columns()\
+data_range = sheet.get_range("A2:D10")\
+data_range.format.wrap_text = True\
+\
+# Format dates properly.\
+sheet.get_range("D2:D10").format.number_format = "MM/DD/YYYY"\
+\
+# Conditional formatting\
+sheet.get_range("C2:C10").conditional_formats.add_data_bar(\
+    \{"color": "#704023", "gradient": True\}\
+)\
+sheet.get_range("E2:E10").conditional_formats.add_cell_is(\
+    \{"operator": "greaterThan", "formula": 300, "format": \{"font": \{"color": "#B91C1C"\}\}\}\
+)\
+sheet.conditional_formattings.add(\
+    \{\
+        "range": "B2:B10",\
+        "rule": \{"type": "expression", "formula": '=B2="Introvert"', "format": \{"fill": "#FCA5A5"\}\},\
+    \}\
+)\
+\
+# Data validation: Since Personality Type is a dropdown category, let's add data validation\
+categories_sheet = workbook.worksheets.get_or_add("CategoriesSheet")\
+categories_sheet.get_range("A1:A4").values = [\
+    ["Personality Type"], ["Introvert"], ["Extrovert"], ["Ambivert"]\
+]\
+sheet.get_range("B2:B10").data_validation = \{\
+    "rule": \{"type": "list", "formula1": "CategoriesSheet!$A$2:$A$4"\}\
+\}\
+\
+# Tables: Turn it into a table. If second param has_headers=True, the range must include headers\
+table = sheet.tables.add(sheet.get_range("A1:E10"), True, "PeopleTable")\
+# table = sheet.tables.add("A1:E10", True, "PeopleTable")  # also valid\
+table.get_header_row_range()\
+\
+# First column still wide since we only auto-fit the first row. Let's expand it\
+# to a reasonable width.\
+sheet.get_range("A1:A10").format.column_width = 20\
+\
+# Going to create charts to the right of the table\
+sheet.get_range("H1:O1").merge()\
+sheet.get_range("H1").values = [["Charts"]]\
+sheet.get_range("H1").format = header_format_defaults\
+\
+# Adding charts!\
+chart_props: ChartPropsInput = \{\
+    "title": "Person by Scores",\
+    "has_legend": True,\
+    "display_blanks_as": "zero",\
+\}\
+chart = sheet.charts.add("bar", chart_props)\
+chart.width = 620\
+chart.height = 320\
+chart.bar_options.direction = "column"\
+chart.bar_options.grouping = "clustered"\
+sheet_ref = sheet.name.replace("'", "''")\
+data_end_row = 4  # Keep chart refs to rows with data only.\
+\
+score_series = chart.series.add("Scores by Person")\
+score_series.category_formula = f"'\{sheet_ref\}'!$A$2:$A$\{data_end_row\}"\
+score_series.formula = f"'\{sheet_ref\}'!$E$2:$E$\{data_end_row\}"\
+score_series.values_format_code = "0"\
+chart.set_position("H2", "O16")\
+\
+x_axis_config = \{\
+    "axis_type": "textAxis",  # or "dateAxis"\
+    "title": \{"text": "Person", "text_style": \{"font_size": 13, "bold": True\}\},\
+    "position": "bottom",  # left|top|right|bottom\
+    "text_style": \{"font_size": 10\},\
+    "line": \{"fill": "background2", "style": "solid", "width": 1\},\
+\}\
+\
+y_axis_config = \{\
+    "axis_type": "textAxis",\
+    "title": \{"text": "Scores", "text_style": \{"font_size": 13, "bold": True\}\},\
+    "number_format_code": "0,000",\
+    "number_format_source_linked": False,\
+\}\
+chart.x_axis = x_axis_config\
+chart.y_axis = y_axis_config\
+\
+# Chart 2 - Preferred/Fastest path\
+chart2 = sheet.charts.add("line", sheet.get_range("B2:C4"))\
+chart2.title_text = "Scores by Personality"\
+chart2.set_position("H20", "O35")\
+\
+# Sparklines: Add to right of table\
+sparklines_header = sheet.get_range("F1")\
+sparklines_header.values = [["Sparklines"]]\
+sparklines_header.format = header_format_defaults\
+sparklines_header.format.autofit_columns()\
+sheet.sparklines.add(  # Potential options are in SparklineConfig\
+    \{\
+        "type": "column",  # or "line" or "stacked"\
+        "source_data": sheet.get_range("E2:E10"),\
+        "target_range": sheet.get_range("F2:F10"),  # Put sparkline in column E\
+        "series_color": "#AAAAAA",\
+    \}\
+)\
+```\
+\
+Render:\
+```python\
+img = workbook.render(\{"sheet_name": "ExampleSheet", "auto_crop": "all", "scale": 1\})\
+```\
+\
+Export:\
+```python\
+SpreadsheetFile.export_xlsx(workbook).save("/mnt/data/spreadsheet.xlsx")\
+```\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting tables from PDF and creating the workbook\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to extract all tables from the uploaded PDF, which contains a review article with tables like Table 1 on page 3. I'll focus on scanning the full document for tables, using tools like pdfplumber and Camelot for extraction. However, for creating the Excel file, I must stick with the artifact_tool as per instructions.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Rendering PDF and extracting tables\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to render the PDF to images at 200 dpi, following the PDF skill's guidance. I'll check the installed libraries and see if Camelot or another tool is available for extracting tables. I'll use container-based code and run the render to ensure everything is processed correctly.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting tables from PDF and rendering pages\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 ls\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 la\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf8 \strokec5  \cf9 \strokec9 |\cf8 \strokec5  \cf7 \strokec7 sed\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf10 \strokec10 '1,120p'\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 total 4441\
+drwxrwxr-x 2 oai  oai_shared     280 Jun 24 17:54 .\
+drwxr-xr-x 2 root root            60 Jun 24 17:39 ..\
+-rw-r--r-- 1 root root       3131829 Jun 24 17:54 1-s2.0-S1040842826001162-main.pdf\
+-rw-r--r-- 1 root root        126056 Jun 24 17:40 article_layout.txt\
+-rw-r--r-- 1 root root          7898 Jun 24 17:44 create_tables_log.txt\
+-rw-r--r-- 1 root root         16289 Jun 24 17:44 create_tables_workbook.py\
+drwxr-xr-x 2 root root           120 Jun 24 17:40 extracted_tables\
+-rw-r--r-- 1 root oai_shared  617710 Jun 24 17:39 login.ezproxy.lib.utah.edu 4_23_2026, 11_08_59 AM.pdf\
+drwxr-xr-x 2 root root           240 Jun 24 17:39 pdf_renders\
+-rw-r--r-- 1 root root         12337 Jun 24 17:44 pdf_tables_converted.xlsx\
+-rw-r--r-- 1 root root          9692 Jun 24 17:54 pdf_tables_extracted.xlsx\
+-rw-r--r-- 1 root root        345932 Jun 24 17:43 table1_preview.png\
+-rw-r--r-- 1 root root        277973 Jun 24 17:43 table2_preview.png\
+drwxr-xr-x 2 root root            60 Jun 24 17:40 user-dsx8ToyQ9SS9Raj83WiiMzns__272b87f4-0126-403f-8878-95893d50a1d3\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Understanding the new PDF\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I\'92m wondering if I can reuse previous scripts for the new PDF, but first, I need to better understand this PDF, especially since it\'92s likely 13 pages. I'll check the document\'92s info using tools like pdfinfo or by rendering the pages to ensure I\'92m on the right track.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Inspecting PDF metadata and contents\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 home\cf9 \strokec9 /\cf7 \strokec7 oai\cf9 \strokec9 /\cf7 \strokec7 skills\cf9 \strokec9 /\cf7 \strokec7 pdfs\cf9 \strokec9 /\cf7 \strokec7 scripts\cf9 \strokec9 /\cf7 \strokec7 pdf_inspect\cf9 \strokec9 .\cf8 \strokec5 py \cf10 \strokec10 '/mnt/data/1-s2.0-S1040842826001162-main.pdf'\cf8 \strokec5  \cf9 \strokec9 >\cf8 \strokec5  /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_pdf_inspect\cf9 \strokec9 .\cf8 \strokec5 txt \cf11 \strokec11 2\cf9 \strokec9 >\cf8 \strokec5 &\cf11 \strokec11 1\cf8 \strokec5  \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 head\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf11 \strokec11 80\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_pdf_inspect\cf9 \strokec9 .\cf8 \strokec5 txt\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 PDF: /mnt/data/1-s2.0-S1040842826001162-main.pdf\
+Pages: 13\
+Encrypted: False\
+Page sizes (pt, rounded):\
+  - 595 x 794 (13 page(s))\
+Metadata:\
+  /Author: Chou-Yi Hsu\
+  /CreationDate: D:20260410130904Z\
+  /CreationDate--Text: 10th April 2026\
+  /Creator: Elsevier\
+  /CrossMarkDomains[1]: elsevier.com\
+  /CrossMarkDomains[2]: sciencedirect.com\
+  /CrossmarkDomainExclusive: true\
+  /CrossmarkMajorVersionDate: 2010-04-23\
+  /ElsevierWebPDFSpecifications: 7.0.1\
+  /Keywords: Pharmacomicrobiomics,Gut microbiome,Metabolomics / microbial metabolome,Hematologic malignancies,Allogeneic hematopoietic cell transplantation (allo-HCT),Immunotherapy / checkpoint inhibitors\
+  /ModDate: D:20260410131147Z\
+  /Producer: Acrobat Distiller 8.1.0 (Windows)\
+  /Subject: Critical Reviews in Oncology / Hematology, 221 (2026) 105229. doi:10.1016/j.critrevonc.2026.105229\
+  /Title: Pharmacomicrobiomics in blood cancers: How the gut microbiome and its metabolites shape drug efficacy and toxicity\
+  /doi: 10.1016/j.critrevonc.2026.105229\
+  /robots: noindex\
+Outline items: 34\
+Form fields: 0\
+Attachments: 0\
+Annotations: 588\
+\
+Fonts (pdffonts, first 25 lines):\
+name                                 type              encoding         emb sub uni object ID\
+------------------------------------ ----------------- ---------------- --- --- --- ---------\
+GBNAGF+Univers                       Type 1C           Builtin          yes yes yes   2623  0\
+EOGKGY+CharisSIL                     CID TrueType      Identity-H       yes yes yes   2627  0\
+HJBKTH+TeX_CM_Maths_Symbols          Type 1C           Builtin          yes yes yes   2632  0\
+EREZUM+CharisSIL-Italic              CID TrueType      Identity-H       yes yes yes   2636  0\
+KWWJVR+CharisSIL                     CID TrueType      Identity-H       yes yes yes   2641  0\
+AAABOC+CharisSIL                     CID TrueType      Identity-H       yes yes yes   2647  0\
+GBGCKX+STIX-Regular                  Type 1C           Custom           yes yes yes   2655  0\
+AAAAAD+CharisSIL                     CID TrueType      Identity-H       yes yes yes    736  0\
+PHFYMX+STIX-Bold                     Type 1C           Custom           yes yes yes    743  0\
+RIKCBB+CharisSIL-Bold                CID TrueType      Identity-H       yes yes yes    748  0\
+EMVDCW+CharisSIL-Italic              CID TrueType      Identity-H       yes yes yes    753  0\
+AAAALE+CharisSIL-Italic              CID TrueType      Identity-H       yes yes yes    759  0\
+OUTUKK+TeX_CM_Roman                  Type 1C           Builtin          yes yes yes    766  0\
+YLJXYI+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    770  0\
+DCGSMS+ArialUnicodeMS                CID TrueType      Identity-H       yes yes yes     53  0\
+SSHIIE+TeX_CM_Maths_Italic           Type 1C           Builtin          yes yes yes    266  0\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Rendering the PDF\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to render the PDF. It sounds like the next step in the process, so I\'92ll go ahead and do that to properly examine the content. This will help me gather the information I need to proceed. Let\'92s make sure everything looks as expected through rendering.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Rendering PDF to directory\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 rm\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 rf\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_renders\cf8 \strokec5  \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 mkdir\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 p\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_renders\cf8 \strokec5  \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 home\cf9 \strokec9 /\cf7 \strokec7 oai\cf9 \strokec9 /\cf7 \strokec7 skills\cf9 \strokec9 /\cf7 \strokec7 pdfs\cf9 \strokec9 /\cf7 \strokec7 scripts\cf9 \strokec9 /\cf7 \strokec7 render_pdf\cf9 \strokec9 .\cf8 \strokec5 py \cf10 \strokec10 '/mnt/data/1-s2.0-S1040842826001162-main.pdf'\cf8 \strokec5  \cf9 \strokec9 --\cf7 \strokec7 out_dir\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_renders\cf8 \strokec5  \cf9 \strokec9 --\cf7 \strokec7 dpi\cf8 \strokec5  \cf11 \strokec11 180\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 Rendered 13 page(s) to /mnt/data/paredes_renders\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Identifying tables in the PDF\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to identify all the tables in the PDF. I\'92ll start by searching the text, maybe using extraction if needed. I can try using PyMuPDF\'92s text search, or even run tools like pdftotext or pdfplumber to extract all the text to locate the tables accurately. Let\'92s go from there.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting and identifying tables from PDF\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 home\cf9 \strokec9 /\cf7 \strokec7 oai\cf9 \strokec9 /\cf7 \strokec7 skills\cf9 \strokec9 /\cf7 \strokec7 pdfs\cf9 \strokec9 /\cf7 \strokec7 scripts\cf9 \strokec9 /\cf7 \strokec7 pdf_extract\cf9 \strokec9 .\cf8 \strokec5 py \cf10 \strokec10 '/mnt/data/1-s2.0-S1040842826001162-main.pdf'\cf8 \strokec5  \cf9 \strokec9 --\cf7 \strokec7 text\cf8 \strokec5  \cf9 \strokec9 >\cf8 \strokec5  /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_text_extract\cf9 \strokec9 .\cf8 \strokec5 txt \cf11 \strokec11 2\cf9 \strokec9 >\cf8 \strokec5 &\cf11 \strokec11 1\cf8 \strokec5  \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 grep\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf10 \strokec10 "Table"\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_text_extract\cf9 \strokec9 .\cf8 \strokec5 txt \cf9 \strokec9 |\cf8 \strokec5  \cf7 \strokec7 head\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf11 \strokec11 50\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 Command 'bash -lc 'python /home/oai/skills/pdfs/scripts/pdf_extract.py '"'"'/mnt/data/1-s2.0-S1040842826001162-main.pdf'"'"' --text > /mnt/data/Paredes2026_text_extract.txt 2>&1 && grep -n "Table" /mnt/data/Paredes2026_text_extract.txt | head -n 50'' failed with status 2.\cf5 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Checking command error\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 It seems like the command failed, probably due to an incorrect argument. I\'92ll need to inspect the help documentation to figure out what went wrong and find the correct arguments to use. I'll check the details and retry. Let's see what needs adjustment.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Inspecting command help output\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 home\cf9 \strokec9 /\cf7 \strokec7 oai\cf9 \strokec9 /\cf7 \strokec7 skills\cf9 \strokec9 /\cf7 \strokec7 pdfs\cf9 \strokec9 /\cf7 \strokec7 scripts\cf9 \strokec9 /\cf7 \strokec7 pdf_extract\cf9 \strokec9 .\cf8 \strokec5 py \cf9 \strokec9 --\cf7 \strokec7 help\cf8 \strokec5  \cf9 \strokec9 |\cf8 \strokec5  \cf7 \strokec7 sed\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf10 \strokec10 '1,120p'\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 usage: pdf_extract.py [-h]\
+                      \{info,text,words,chars,tables,images,attachments,annotations,forms\} ...\
+\
+Extract text/layout/tables/images/forms/attachments from PDFs. Subcommands:\
+info - quick summary (delegates to pdf_inspect) text - extract plain text\
+words - extract word boxes (coordinates) chars - extract character boxes\
+(fine-grained layout) tables - extract tables to CSV or XLSX images - extract\
+embedded images attachments - extract embedded file attachments annotations -\
+list annotations forms - list form fields Examples: python pdf_extract.py text\
+input.pdf --method pdfplumber --out /mnt/data/text.txt python pdf_extract.py\
+words input.pdf --out words.csv python pdf_extract.py tables input.pdf\
+--out_dir /mnt/data/tables --format xlsx python pdf_extract.py images\
+input.pdf --out_dir /mnt/data/images Notes: - pdfplumber coordinates are top-\
+left origin; y increases downward. - PyMuPDF (fitz) word boxes are also top-\
+left origin.\
+\
+positional arguments:\
+  \{info,text,words,chars,tables,images,attachments,annotations,forms\}\
+    info                inspect pdf\
+    text                extract plain text\
+    words               extract word boxes\
+    chars               extract character boxes\
+    tables              extract tables\
+    images              extract images\
+    attachments         extract embedded attachments\
+    annotations         list annotations\
+    forms               list form fields\
+\
+options:\
+  -h, --help            show this help message and exit\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Ensuring the process runs smoothly\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to get this running correctly. It seems there\'92s something I need to fix to make sure everything works as expected. I\'92ll pay attention to the details and try running it properly this time, making sure all the steps are in place.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting text and searching for tables\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 home\cf9 \strokec9 /\cf7 \strokec7 oai\cf9 \strokec9 /\cf7 \strokec7 skills\cf9 \strokec9 /\cf7 \strokec7 pdfs\cf9 \strokec9 /\cf7 \strokec7 scripts\cf9 \strokec9 /\cf7 \strokec7 pdf_extract\cf9 \strokec9 .\cf8 \strokec5 py \cf7 \strokec7 text\cf8 \strokec5  \cf10 \strokec10 '/mnt/data/1-s2.0-S1040842826001162-main.pdf'\cf8 \strokec5  \cf9 \strokec9 --\cf7 \strokec7 method\cf8 \strokec5  \cf7 \strokec7 pdfplumber\cf8 \strokec5  \cf9 \strokec9 --\cf7 \strokec7 out\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_text_extract\cf9 \strokec9 .\cf8 \strokec5 txt \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 grep\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf10 \strokec10 "Table"\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_text_extract\cf9 \strokec9 .\cf8 \strokec5 txt \cf9 \strokec9 |\cf8 \strokec5  \cf7 \strokec7 head\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf11 \strokec11 100\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 101:cytoreduction, prolonged neutropenia, broad-spectrum antibiotic drug pharmacology is summarized in Table 1.\
+124:Table 1\
+344:Table 2 summarizes representative, clinically relevant microbe- patterns and dynamic metabolomic changes during therapy associate\
+352:Table 2\
+423:profoundly immunosuppressed hosts requires careful evaluation (Lin et al., 2024; Li et al., 2024; Po\'a8tgens et al., 2024). Table 4lists a practical\
+424:et al., 2021; Wallace et al., 2010; Wang et al., 2025). Table 3summarizes holo-omic toolkit (modalities and specimen types) that we recommend\
+505:Table 3\
+570:Table 4\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Inspecting text for table extraction\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 The text mentions Table 1, 2, 3, and 4, so I\'92ll need to extract all of them. To do that, I should inspect the pages first. I also wonder if using\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 grep -n
+\f1\fs28 \cb3 \strokec2 \'a0will help with text line mapping. I\'92ll need to look into file sections to make sure I\'92m covering everything.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting specific tables from text\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 sed\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf10 \strokec10 '115,180p'\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_text_extract\cf9 \strokec9 .\cf8 \strokec5 txt \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 printf\cf8 \strokec5  \cf10 \strokec10 '\cf13 \ul \ulc13 \strokec13 \\n\cf10 \ulnone \strokec10 ---Table2---\cf13 \ul \ulc13 \strokec13 \\n\cf10 \ulnone \strokec10 '\cf8 \strokec5  \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 sed\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf10 \strokec10 '345,420p'\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_text_extract\cf9 \strokec9 .\cf8 \strokec5 txt \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 printf\cf8 \strokec5  \cf10 \strokec10 '\cf13 \ul \ulc13 \strokec13 \\n\cf10 \ulnone \strokec10 ---Table3+4---\cf13 \ul \ulc13 \strokec13 \\n\cf10 \ulnone \strokec10 '\cf8 \strokec5  \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 sed\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf10 \strokec10 '500,640p'\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_text_extract\cf9 \strokec9 .\cf8 \strokec5 txt\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 and to develop therapeutic approaches guided by rigorous experimental macrophage \uc0\u8594  iron-handling cascade that biases HSC fate under\
+and clinical validation (Nayak et al., 2021; Wallace et al., 2015). His- regenerative pressure: perturbing the microbiota shifts macrophage iron\
+torical milestones have catalyzed this shift. Early mechanistic proofs recycling and, in some experimental settings, increases HSC self-renewal\
+that commensal bacteria can directly inactivate drugs (for example, while reducing differentiation; the direction of this effect depends on the\
+digoxin inactivation by Eggerthella lenta) established the concept of specific perturbation and contextual signals (Zhang et al., 2022).\
+microbial drug metabolism. Seminal enzyme-targeting work Converging lines of evidence show that microbially produced\
+2\
+\
+C.-Y. Hsu et al. C r i t i c a l R e v i e w s i n O n c o l o g y / H e m a t o l o g y 221 (2026) 105229\
+Table 1\
+Mechanisms by which the gut microbiome shapes drug efficacy and toxicity.\
+Mechanism Short description Ref.\
+Microbial enzymatic drug Bacterial \uc0\u946 -glucuronidases reactivate drug-glucuronides in the gut, increasing local toxicity (e.g., (Bhatt et al., 2020; Wallace et al.,\
+biotransformation (\uc0\u946 -glucuronidase) irinotecan, mycophenolate). 2010)\
+Direct drug inactivation by specific taxa Some commensals enzymatically reduce or inactivate drugs. Digoxin inactivation by Eggerthella (Haiser et al., 2014)\
+(e.g., Eggerthella lenta) lenta is a canonical proof-of-principle example that demonstrates direct microbial drug inactivation;\
+analogous mechanisms (e.g., enzymatic deconjugation or metabolism) have been implicated in\
+hematology-relevant compounds such as mycophenolate and tacrolimus.\
+Microbial metabolite modulation of Loss of SCFAs (notably butyrate) worsens mucosal damage and graft-versus-host disease after allo- (Mathewson et al., 2016)\
+mucosal injury & GVHD HCT.\
+Microbiome \uc0\u8594  bone-marrow (iron- Microbial signals alter marrow macrophage iron recycling and thereby HSC fate decisions under (Zhang et al., 2022)\
+handling) cross-talk stress.\
+Microbiome-driven immune priming / Translocation or antigen-sampling of commensals can boost antitumor T-cell priming (relevant to (Daill`ere et al., 2016;\
+adjuvancy alkylators & immunotherapy). Gopalakrishnan et al., 2018)\
+short-chain fatty acids (e.g., butyrate) and related metabolites transit landscapes and thereby reshape marrow output and immune reconsti-\
+into circulation, penetrate marrow microenvironments, and reprogram tution; such shifts associate with heightened infection risk, worsened\
+progenitors and niche populations, altering myeloid maturation and GVHD, and may even influence clonal dynamics in bone-marrow dis-\
+macrophage phagocytic functions that secondarily affect eryth- orders (Le Bastard et al., 2021; Romick-Rosendale et al., 2018). As\
+rophagocytosis and iron homeostasis (Liu et al., 2024; Zhang et al., illustrated in Fig. 1, gut-derived metabolites and microbial components\
+2022). Acute disruption of the mucosa, particularly signals from form an integrated gut\'96liver\'96bone marrow axis that can reprogram\
+Gram-negative commensals, can trigger innate cascades that expand hematopoietic niches and influence drug fate and antitumor immunity.\
+HSC/progenitor compartments and mobilize them to sites of inflam-\
+mation; experimental data implicate Bacteroides-linked cues and\
+GM-CSF dependent mechanisms in this response (Sezaki et al., 2022). At 2.2. Pattern recognition, direct sensing and mechanistic receptors\
+the cellular interface, HSCs and progenitors display pattern-recognition\
+receptors (notably TLRs) and can directly detect microbial molecules; A gut ecosystem characterized by beneficial commensals establishes\
+for instance, systemic LPS activates HSCs through TLR4\'96TRIF signaling a systemic immune landscape that enhances tumor surveillance through\
+causing transient proliferation but, if prolonged, diminished long-term improved dendritic cell activation, more effective T-cell priming, and\
+repopulating fitness (Nagai et al., 2006; Takizawa et al., 2017). increased infiltration of effector lymphocytes into malignant tissues\
+Together, these data support a two-mode model: basal, low-amplitude (Mager et al., 2020; Perl et al., 2025). Across several human cohorts,\
+microbial metabolites and MAMPs homeostatically bias lineage output greater intestinal microbial richness, or the presence of specific favor-\
+and niche behavior, whereas acute or sustained microbial inflammation able taxa, has been correlated with improved clinical outcomes\
+drives emergency myelopoiesis and risks HSC exhaustion (Liu et al., following immune checkpoint inhibitor therapy (Allard et al., 2017;\
+2024; Takizawa et al., 2017). Clinically relevant perturbations, Mager et al., 2020; Wang et al., 2025). Intervention experiments in\
+broad-spectrum antibiotics, major dietary shifts in fiber, or the severe germ-free and humanized mice, including fecal microbiota transfer from\
+dysbioses that follow transplantation, modify microbial metabolite human responders, have transferred enhanced antitumor T-cell activity\
+and improved checkpoint responsiveness to recipients; these data\
+Fig. 1. The central gut\'96bone marrow\'96lymphoid axis. Gut microbial communities produce metabolites and microbe-associated molecular patterns (e.g., short-chain\
+fatty acids, bile acids, LPS) that travel to the liver and bone marrow, modulate drug metabolism and hematopoietic niche function, and reshape the tumor\
+microenvironment and systemic immunity. This integrated network highlights paths by which microbial chemistry can alter hematopoiesis, drug pharmacokinetics,\
+and antitumor immune responses.\
+3\
+\
+C.-Y. Hsu et al. C r i t i c a l R e v i e w s i n O n c o l o g y / H e m a t o l o g y 221 (2026) 105229\
+provide strong preclinical support for a causal role of resident microbial post-conditioning mucositis) that permits translocation of microbes,\
+communities and their metabolites, while human interventional data microbial enzymes, or chemically modified drug species into systemic\
+remain limited and variable (Bird, 2020; Gopalakrishnan et al., 2018; tissues and lymphoid organs, mechanisms that are supported by animal\
+Sun et al., 2025). Mechanistic work attributes response-associated mi- models linking mucosal injury, bacterial translocation, and systemic\
+crobes to enhancement of antigen-presenting cell maturation, potenti- pharmacologic or immunologic effects (Wilson and Nicholson, 2017;\
+ation of type-I interferon pathways, and promotion of CD8\uc0\u8314  T-cell tumor Zhou et al., 2018). Empirical detection of bacterially-derived MTX-po-\
+homing; in parallel, bacterially produced small molecules (for example, lyglutamate species in human stool, mucosal biopsies, or plasma re-\
+SCFAs) tilt the effector/regulatory T-cell axis and reshape myeloid mains scarce; determining where modification predominates will\
+suppressor programs that normally limit immunotherapy (Peled et al., therefore require focused metatranscriptomic/metaproteomic profiling\
+2020; Zhu et al., 2023). Early interventional human trials in solid tu- of mucosa-associated microbes together with targeted metabolomics\
+mours (notably responder-derived FMT in PD-1-refractory melanoma) that quantifies MTX and its polyglutamated derivatives across stool,\
+have produced objective clinical responses in subsets of patients and mucosa, and blood (Yan et al., 2021).\
+\
+---Table2---\
+\'97drug interactions discussed in Section 3 and highlights taxa and with both response and adverse outcomes after CAR-T infusion, for\
+mechanisms that can alter pharmacokinetics and toxicity in hematologic instance, with prediction of cytokine-release syndrome intensity and\
+patients. probabilities of sustained remission, implying that combined micro-\
+Fig. 2provides representative molecular examples, bacterial folate- biome\'96metabolome predictive models may stratify patients before and\
+pathway interactions with MTX, enzymatic antibiotic degradation, and during cellular therapy (Kim et al., 2025; Perna et al., 2024; Smith et al.,\
+microbe-derived immune modulators, that illustrate the drug-microbe 2022; Zhang and Xie, 2024).\
+mechanisms discussed throughout Section 3.\
+Table 2\
+Key microbe \uc0\u8594  drug interactions relevant to hematologic care.\
+Drug / drug class Microbial mechanism (what bacteria do) Representative taxa / enzyme Clinical consequence (in hematology) Ref.\
+Digoxin Microbial reduction / inactivation of Eggerthella lenta, cardiac- Reduced digoxin activity; serves as a canonical proof-of- (Haiser et al.,\
+drug glycoside reductase operon principle of direct microbial drug inactivation, 2014)\
+mechanistically analogous to microbiome-driven\
+modification of hematology-relevant agents (see\
+mycophenolate and tacrolimus rows).\
+Methotrexate (MTX) Direct bacterial DHFR / folate-pathway Diverse gut bacteria with Altered MTX bioavailability, mucositis risk; pretreatment (Nayak et al.,\
+/ antifolates interactions; dose-dependent folate-pathway enzymes; microbiome associates with response. 2021; Yan et al.,\
+community shifts mucosa-associated taxa 2023)\
+Thiopurines Bacterial TPMT-like methyltransferases; Various commensals (e.g., Possible reduced systemic exposure \uc0\u8594  therapy failure or (Yan et al.,\
+(azathioprine / 6- bacterial catabolism reduces drug Blautia spp.* implicated in changed toxicity profile. 2023)\
+MP) availability IBD*)\
+Mycophenolate Glucuronide deconjugation by bacterial GUS-expressing taxa (e.g., Increased GI toxicity and variable systemic exposure; (Drevland et al.,\
+(MMF / MPA) \uc0\u946 -glucuronidases \u8594  reactivation and Bacteroides spp.) antibiotic modulation affects toxicity. 2025)\
+enterohepatic recirculation\
+Tacrolimus Microbial conversion to less-potent Commensal bacteria May contribute to variable tacrolimus levels after oral (Guo et al.,\
+metabolites demonstrated to metabolize dosing (pharmacokinetic variability). 2019)\
+tacrolimus\
+6\
+\
+C.-Y. Hsu et al. C r i t i c a l R e v i e w s i n O n c o l o g y / H e m a t o l o g y 221 (2026) 1[... ELLIPSIZATION ...]ion ecology (ward-level antibiotic stewardship, genome databases and improvements in genome-resolved metagenomic\
+room environment, and cross-transmission risk). Robust causal infer- pipelines make it progressively easier to assign microbial genes to\
+ence therefore requires study designs and analyses that explicitly ac- biochemical functions, which in turn increases confidence when linking\
+count for these factors (e.g., detailed antibiotic time-series, conditioning microbial gene expression to metabolite signatures and host biology\
+stratification, and mediation analyses) (Bansal et al., 2022; Gavriilaki (Almeida et al., 2021; Kifle et al., 2024; Leviatan et al., 2022). As\
+et al., 2020; Rashidi et al., 2023; Shono et al., 2016; Wade and Hall, network-inference, mediation frameworks and multi-omic integrators\
+2019). become more robust, OME-wide studies should reveal microbial me-\
+tabolites and host circuits that are both mechanistically actionable and\
+clinically actionable biomarkers. Realizing this potential will demand\
+5.3. Holobiont-scale OME-wide integration\
+community-wide adoption of reproducible pipelines, thorough meth-\
+odological transparency, and deliberate inclusion of ethnically and\
+Adopting a holobiont viewpoint emphasizes that clinical phenotypes\
+clinically diverse cohorts to secure generalizable results (Lei et al., 2025;\
+reflect continuous crosstalk among host genetic programs, the resident\
+Lu et al., 2022; Odriozola et al., 2024; Sherwani et al., 2025).\
+microbial community and the chemical mediators exchanged between\
+them; as a result, researchers are moving toward integrated \'91OME-wide\'92\
+experiments that simultaneously capture host genomics and tran- 5.4. Standards and best practices for clinical microbiome/metabolome\
+scriptomics together with metagenomes, metatranscriptomes, pro- studies\
+teomes and metabolomes (Kobel et al., 2024; Lei et al., 2025; Nyholm\
+et al., 2020). Initial holo-omic studies demonstrate that layering com- To increase reproducibility and interpretability in clinical trans-\
+plementary data types materially improves mechanistic insight and lational pipelines we recommend adopting community standards for\
+prediction compared with single-omic surveys: multi-omic models can, study design, sampling, contamination control, analytic QC and\
+9\
+\
+C.-Y. Hsu et al. C r i t i c a l R e v i e w s i n O n c o l o g y / H e m a t o l o g y 221 (2026) 105229\
+Table 4\
+Practical holo-omic toolkit for causal translational studies.\
+Modality / sample What it measures Practical note / why include it Ref.\
+Whole-metagenome shotgun Gene content and strain-level resolution Necessary to assign drug-modifying enzymes to taxa and to (Almeida et al., 2021; Leviatan\
+sequencing (stool / mucosa) (gene families, biosynthetic clusters) design targeted interventions et al., 2022)\
+Metatranscriptomics (stool / Actively expressed microbial genes Distinguishes genetic potential from active function, essential (Josephs-Spaulding et al., 2025;\
+mucosa) (which pathways are on/off) for mapping enzymes that are actually transcribed under Nayak et al., 2021)\
+treatment.\
+Untargeted metabolomics (stool, Small-molecule outputs (SCFAs, bile Direct readout of mediators that reach host compartments (Go et al., 2024; Mathewson\
+tissue, plasma) acids, drug metabolites) and bind host receptors, anchors causality. et al., 2016)\
+Metaproteomics / targeted enzyme Enzyme abundance and activity (e.g., Verifies that predicted enzymes are present and functional, (Bhatt et al., 2020; Wallace\
+assays (stool/mucosa) GUS activity assays) validates intervention targets (e.g., enzyme inhibitors). et al., 2015)\
+Spatial / mucosal sampling and Local tissue metabolite gradients and Important in transplantation and mucositis where lumenal vs (Odriozola et al., 2024; Prosty\
+paired host omics host transcriptional responses mucosal vs systemic pools differ. et al., 2024)\
+reporting. The STORMS checklist provides a comprehensive reporting metagenomics with metatranscriptomics, proteomics and spatially\
+framework for human microbiome studies (sampling details, negative/ resolved metabolomics across stool, mucosa and systemic compart-\
+positive controls, raw data deposition, analysis pipelines). The Micro- ments. Whole-metagenome assemblies and metatranscriptomes allow\
+biome Quality Control (MBQC) project documents sources of inter- assignment of drug-modifying enzymes to specific strains and their\
+laboratory variation and recommends use of standardized controls and transcriptional states, while untargeted metabolomics documents the\
+replication to quantify batch effects. The Genomic Standards Consor- small molecules that actually reach the host and bind receptors or un-\
+tium\'92s MIxS metadata standards enable consistent capture of contextual dergo enterohepatic cycling (Gopalakrishnan et al., 2018; Mathewson\
+sample information essential for cross-study harmonization. For et al., 2016). Using these multi-layer data in tandem with gnotobiotic\
+computational pipelines and batch-effect mitigation, several methodo- and humanized mouse models will enable falsifiable mechanistic hy-\
+logical reviews provide practical recommendations for benchmarking potheses, for example mapping specific bacterial \uc0\u946 -glucuronidases to\
+and normalization. Implementing these standards (STORMS, MBQC, mycophenolate reactivation or identifying taxa that convert tacrolimus\
+MIxS plus established computational best practices) should be a to inactive metabolites (Bhatt et al., 2020; Guo et al., 2019).\
+precondition for prospective holo-omic trials in hematology to ensure\
+reproducible, comparable datasets (Bokulich et al., 2020; Mirzayi et al.,\
+6.3. Precision enzyme targeting and metabolite replacement\
+2021; Sinha et al., 2015).\
+A promising precision approach is to inhibit discrete bacterial en-\
+6. Future directions zymes that cause local drug reactivation or toxicity while sparing the\
+broader microbiome. Preclinical work targeting bacterial \uc0\u946 -glucuroni-\
+6.1. Priorities for translational validation and clinical trials dases has mitigated irinotecan and mycophenolate gut toxicity and\
+enabled therapeutic intensification without wholesale community\
+A central near-term priority is to move beyond reproducible obser- depletion, illustrating how targeted inhibition of microbial enzymes can\
+vational associations toward prospective, mechanism-embedded inter- reduce gastrointestinal toxicity while preserving systemic drug efficacy\
+ventional trials and rigorous prognostic validation studies in (Bhatt et al., 2020; Wallace et al., 2010). Translating these approaches\
+hematologic oncology. For predictive biomarkers, this requires pre- into hematology could mean, for example, co-prescribing validated,\
+specified model definitions, reporting of discrimination and calibration, non-absorbable bacterial-\uc0\u946 -glucuronidase inhibitors during mycophe-\
+and independent (external) validation; for interventions, trials should nolate or irinotecan exposure in the peri-transplant period, or devel-\
+embed dense molecular endpoints that confirm on-target biological oping selective inhibitors aimed at other identified drug-modifying\
+perturbation in addition to clinical benefit (Collins et al., 2015; enzymes (e.g., reductases that inactivate specific chemotherapeutics),\
+Steyerberg et al., 2010). Large multicenter cohorts have shown that with early-phase trials using fecal enzyme activity and metabolomic\
+peri-transplant microbial diversity predicts mortality and readouts as primary mechanistic endpoints (Louie et al., 2023; Routy\
+graft-versus-host disease risk, establishing a strong rationale for trials et al., 2018). Complementary strategies include development of stable,\
+that prospectively manipulate microbiota composition or metabolite orally deliverable postbiotics and metabolite analogues that substitute\
+pools in allogeneic hematopoietic cell transplantation (Mathewson for protective microbial products such as butyrate in settings where\
+et al., 2016; Peled et al., 2020). We propose embedding butyrogenic communities have been lost after conditioning or antibi-\
+metabolome-based risk stratification into HSCT and CAR-T care path- otics. Early translational studies of fermentable fiber and defined\
+ways: baseline and early post-conditioning metabolomic profiles (e.g., butyrate-enriching consortia offer proof of concept for metabolite\
+short-chain fatty acids, bile acid and tryptophan catabolites, replacement strategies in transplantation and maintenance therapy\
+NAD+/redox markers) may stratify patients for intensified infection (Peled et al., 2020; Shah et al., 2022).\
+surveillance, alternative prophylaxis, or metabolite-replacement ther-\
+apy in order to reduce GVHD, infectious complications, or CAR-T in-\
+6.4. Engineered microbial therapeutics and safety frameworks\
+flammatory toxicity. Early multicenter work and cohort analyses\
+already link metabolite signatures to transplant and CAR-T outcomes\
+Manufactured, defined bacterial consortia offer reproducible meta-\
+and support prospective metabolomic stratification as a realistic\
+bolic function with standardized safety testing and are now advancing in\
+near-term objective for biomarker-driven trials (Jalota et al., 2023;\
+randomized trials for other indications; adapting these products to he-\
+Smith et al., 2022).\
+matology will require tailored designs that consider immunosuppres-\
+sion, mucosal integrity and pathogen risk in transplant and neutropenic\
+6.2. Mechanistic, holo-omic pipelines to move from correlation to patients (Gopalakrishnan et al., 2018; Peled et al., 2020). Regulatory\
+causation pathways must be harmonized so that engineered microbiome thera-\
+peutics undergo rigorous donor or strain screening, genomic stability\
+To infer causality and identify drug-modifying microbial activities, assessment and pharmacokinetic evaluation, and so that trial protocols\
+investigators must adopt holo-omic pipelines that pair genome-resolved include robust infection surveillance and criteria for interruption in\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting full tables and processing\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 It seems the text excerpt has a truncated Table 3 from using\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 grep
+\f1\fs28 \cb3 \strokec2 , so I\'92ll need the complete Table 2 and Table 3. Maybe I can use\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 pdfplumber
+\f1\fs28 \cb3 \strokec2 \'a0to automatically extract the tables. I\'92ll try using it to output in CSV or XLSX, and possibly utilize this as a reference or process further with a workbook tool.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting tables from PDF and saving as CSV\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 rm\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 rf\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_extracted_tables\cf8 \strokec5  \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 mkdir\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 p\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_extracted_tables\cf8 \strokec5  \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 home\cf9 \strokec9 /\cf7 \strokec7 oai\cf9 \strokec9 /\cf7 \strokec7 skills\cf9 \strokec9 /\cf7 \strokec7 pdfs\cf9 \strokec9 /\cf7 \strokec7 scripts\cf9 \strokec9 /\cf7 \strokec7 pdf_extract\cf9 \strokec9 .\cf8 \strokec5 py \cf7 \strokec7 tables\cf8 \strokec5  \cf10 \strokec10 '/mnt/data/1-s2.0-S1040842826001162-main.pdf'\cf8 \strokec5  \cf9 \strokec9 --\cf7 \strokec7 out_dir\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_extracted_tables\cf8 \strokec5  \cf9 \strokec9 --\cf7 \strokec7 format\cf8 \strokec5  \cf7 \strokec7 csv\cf8 \strokec5  \cf9 \strokec9 >\cf8 \strokec5  /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_pdf_extract_tables_log\cf9 \strokec9 .\cf8 \strokec5 txt \cf11 \strokec11 2\cf9 \strokec9 >\cf8 \strokec5 &\cf11 \strokec11 1\cf8 \strokec5 ; \cf7 \strokec7 cat\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_pdf_extract_tables_log\cf9 \strokec9 .\cf8 \strokec5 txt; \cf7 \strokec7 find\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_extracted_tables\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 maxdepth\cf8 \strokec5  \cf11 \strokec11 1\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 type\cf8 \strokec5  \cf7 \strokec7 f\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 print\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 Wrote tables to: /mnt/data/paredes_extracted_tables\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Processing without files - focusing on logs\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 It looks like I only need to output the log, rather than files. I\'92ll focus on creating a list instead. It seems like the key is just organizing the log data into a list format, so I can present it efficiently. Let\'92s proceed with that approach.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Listing files without saving output\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 find\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_extracted_tables\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 type\cf8 \strokec5  \cf7 \strokec7 f\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 maxdepth\cf8 \strokec5  \cf11 \strokec11 2\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 print\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 exec\cf8 \strokec5  \cf7 \strokec7 ls\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 l\cf8 \strokec5  \{\} \\;\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Listing rendered page images\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 ls\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 la\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 paredes_renders\cf8 \strokec5  \cf9 \strokec9 |\cf8 \strokec5  \cf7 \strokec7 sed\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf10 \strokec10 '1,80p'\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 total 10564\
+drwxr-xr-x 2 root root           300 Jun 24 17:55 .\
+drwxrwxr-x 2 oai  oai_shared     400 Jun 24 17:55 ..\
+-rw-r--r-- 1 root root        572349 Jun 24 17:54 page-01.png\
+-rw-r--r-- 1 root root        775609 Jun 24 17:54 page-02.png\
+-rw-r--r-- 1 root root        835763 Jun 24 17:54 page-03.png\
+-rw-r--r-- 1 root root        896543 Jun 24 17:54 page-04.png\
+-rw-r--r-- 1 root root        881122 Jun 24 17:55 page-05.png\
+-rw-r--r-- 1 root root        740021 Jun 24 17:55 page-06.png\
+-rw-r--r-- 1 root root        802649 Jun 24 17:55 page-07.png\
+-rw-r--r-- 1 root root        850942 Jun 24 17:55 page-08.png\
+-rw-r--r-- 1 root root       1008000 Jun 24 17:55 page-09.png\
+-rw-r--r-- 1 root root        783130 Jun 24 17:55 page-10.png\
+-rw-r--r-- 1 root root        805713 Jun 24 17:55 page-11.png\
+-rw-r--r-- 1 root root        938997 Jun 24 17:55 page-12.png\
+-rw-r--r-- 1 root root        924340 Jun 24 17:55 page-13.png\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Opening page 3\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to open page 3. It sounds like the next step in this process, so I\'92ll go ahead and focus on what\'92s on that page. Once it\'92s open, I can dive into analyzing or processing what\'92s there to keep the task moving forward. Let\'92s do it.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Analyzed image\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 {{\NeXTGraphic Attachment.png \width320 \height320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Opening pages 6, 8, and 10\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to open page 6, and it looks like I might need to check pages 8 and 10 as well. I\'92ll open these pages now to make sure I don\'92t miss anything important. Once I have them open, I can dive into the relevant content. Let\'92s do this!\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Analyzed image\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 {{\NeXTGraphic Attachment.png \width320 \height320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Opening pages 8, 9, and 10\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 Okay, it looks like Table 2 is all on page 6, at the bottom. I need to open pages 8, 9, and 10 now to see if there\'92s more related information or important content I might have missed. Let\'92s go ahead and check those pages!\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Analyzed image\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 {{\NeXTGraphic Attachment.png \width320 \height320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Opening page 10\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 It looks like Table 3 is all the way at the bottom of page 8. Table 4, on the other hand, seems to be at the top of page 10. I\'92ll go ahead and open page 10 to make sure I have everything I need from the tables!\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Analyzed image\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 {{\NeXTGraphic Attachment.png \width320 \height320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting tables and verifying accuracy\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to extract tables 2, 3, and 4 into a workbook. We could manually transcribe from the rendered pages or text, but it\'92s more accurate to use PDF text extraction. I\'92ll probably use pdfplumber to crop the table areas and reconstruct rows. I'll also output data in CSV or JSON for inspection, using PyMuPDF or pdfplumber. For the final workbook, I'll try using artifact_tool but may resort to openpyxl if needed. We can manually build accurate lists to verify content.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Exploring promising transplant therapies and mechanisms\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 Several consortia show promise for transplant medicine but need hematology-specific trials. For instance, fecal microbiota transplantation (FMT) has shown potential in post-transplant GVHD. Targeted microbial enzyme inhibitors may help mitigate GI toxicity, and postbiotics like butyrate analogues are emerging for their protective benefits.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Organizing tables with style specifications\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I\'92m working on organizing the tables for inclusion in the workbook. I think I'll add 4 sheets labeled "Table 1", "Table 2", etc., plus a "Summary" sheet. I\'92ll format the tables with a merged title row, dark header background, and white text. Columns will be sized and text wrapped for readability.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Refining table formatting specifics\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 For Table 2, I\'92ll set column widths to 24, 35, 32, 48, and 28. I want the rows to auto-fit and wrap text, adjusting lengths based on content. For row heights, I'd set titles at 30 and headers at 22. I'll check vertical and horizontal alignment, and consider using borders for polish. Lets test minimal setup.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Formatting table and setting properties\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 -\cf8 \strokec5  \cf9 \strokec9 <<\cf10 \strokec10 'PY'\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 from\cf8 \strokec5  \cf7 \strokec7 artifact_tool\cf8 \strokec5  \cf9 \strokec9 import\cf8 \strokec5  \cf7 \strokec7 Workbook\cf8 \strokec5 , \cf7 \strokec7 SpreadsheetFile\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 wb\cf9 \strokec9 =\cf7 \strokec7 Workbook\cf9 \strokec9 .\cf8 \strokec5 create()\cf0 \cb1 \
+\cf7 \cb3 \strokec7 s\cf9 \strokec9 =\cf7 \strokec7 wb\cf9 \strokec9 .\cf8 \strokec5 worksheets\cf9 \strokec9 .\cf8 \strokec5 add(\cf10 \strokec10 'Test'\cf8 \strokec5 )\cf0 \cb1 \
+\cf7 \cb3 \strokec7 s\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 'A1:B2'\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 values\cf9 \strokec9 =\cf8 \strokec5 [[\cf10 \strokec10 'a'\cf8 \strokec5 ,\cf10 \strokec10 'b'\cf8 \strokec5 ],[\cf11 \strokec11 1\cf8 \strokec5 ,\cf11 \strokec11 2\cf8 \strokec5 ]]\cf0 \cb1 \
+\cf7 \cb3 \strokec7 print\cf8 \strokec5 (\cf7 \strokec7 wb\cf9 \strokec9 .\cf8 \strokec5 inspect(\{\cf10 \strokec10 'kind'\cf8 \strokec5 :\cf10 \strokec10 'table'\cf8 \strokec5 ,\cf10 \strokec10 'range'\cf8 \strokec5 :\cf10 \strokec10 'Test!A1:B2'\cf8 \strokec5 ,\cf10 \strokec10 'include'\cf8 \strokec5 :\cf10 \strokec10 'values'\cf8 \strokec5 \})\cf9 \strokec9 .\cf8 \strokec5 ndjson)\cf0 \cb1 \
+\cf7 \cb3 \strokec7 SpreadsheetFile\cf9 \strokec9 .\cf8 \strokec5 export_xlsx(\cf7 \strokec7 wb\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 save(\cf10 \strokec10 '/mnt/data/test_artifact.xlsx'\cf8 \strokec5 )\cf0 \cb1 \
+\cf7 \cb3 \strokec7 PY\cf0 \cb1 \strokec5 \
+\cf7 \cb3 \strokec7 ls\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 l\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 test_artifact\cf9 \strokec9 .\cf8 \strokec5 xlsx\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 \{"kind":"table","sheet":"Test","address":"A1:B2","rows":2,"cols":2,"values":[["a","b"],[1,2]]\}\
+-rw-r--r-- 1 root root 3303 Jun 24 17:57 /mnt/data/test_artifact.xlsx\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Finalizing table inspection and workbook creation\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 Artifact_tool seems to work fine. Before finalizing, though, I should inspect the .xlsx file, maybe using LibreOffice or openpyxl for verification, but that might not be necessary. I\'92ll double-check all tables from the PDF, and confirm there are no appendix tables by searching with "grep."\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting table references from text\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 grep\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 o\cf8 \strokec5  \cf10 \strokec10 "Table [0-9][0-9]*"\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_text_extract\cf9 \strokec9 .\cf8 \strokec5 txt \cf9 \strokec9 |\cf8 \strokec5  \cf7 \strokec7 sort\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 u\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 Table 1\
+Table 2\
+Table 3\
+Table 4\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Checking for Blautia footnote in Table 2\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I\'92m wondering if Table 2 has a footnote about Blautia and IBD. The screenshot shows asterisks, but I\'92m not sure if the actual footnote is visible in the table. Maybe it\'92s in the text after the table. I\'92ll check page 7 and search for "Blautia" and footnotes.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Searching for Blautia and IBD references\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 grep\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf10 \strokec10 "Blautia\cf13 \ul \ulc13 \strokec13 \\|\cf10 \ulnone \strokec10 IBD"\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_text_extract\cf9 \strokec9 .\cf8 \strokec5 txt \cf9 \strokec9 |\cf8 \strokec5  \cf7 \strokec7 head\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 n\cf8 \strokec5  \cf11 \strokec11 20\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 364:(azathioprine / 6- bacterial catabolism reduces drug Blautia spp.* implicated in changed toxicity profile. 2023)\
+365:MP) availability IBD*)\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Checking table phrasing and updates\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 The text looks good so far. In Table 4, Row 2, "metatranscriptomics" should mention mapping enzymes transcribed under treatment, not just genes. In Row 1, the practical note should be about assigning drug-modifying enzymes to taxa and designing targeted interventions. Also, use the hyphen for "Whole-metagenome shotgun sequencing."\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Clarity and phrasing adjustments for tables\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 For Page 8, the row on "Targeted microbial enzyme inhibitors" should describe blocking discrete bacterial enzymes (like GUS) to prevent local reactivation of toxic metabolites. For "Postbiotics" row, it should focus on replacing protective microbial metabolites. Also, check the references in Table 2, especially for Blautia spp.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Extracting table references from text\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 -\cf8 \strokec5  \cf9 \strokec9 <<\cf10 \strokec10 'PY'\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 import\cf8 \strokec5  \cf7 \strokec7 re\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 text\cf9 \strokec9 =\cf7 \strokec7 open\cf8 \strokec5 (\cf10 \strokec10 '/mnt/data/Paredes2026_text_extract.txt'\cf8 \strokec5 ,\cf7 \strokec7 encoding\cf9 \strokec9 =\cf10 \strokec10 'utf-8'\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 read()\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 for\cf8 \strokec5  \cf7 \strokec7 m\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  \cf7 \strokec7 re\cf9 \strokec9 .\cf8 \strokec5 finditer(\cf10 \strokec10 r'Table\\s+[0-9]+'\cf8 \strokec5 , \cf7 \strokec7 text\cf8 \strokec5 ):\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf7 \strokec7 print\cf8 \strokec5 (\cf7 \strokec7 m\cf9 \strokec9 .\cf8 \strokec5 group(), \cf10 \strokec10 'at char'\cf8 \strokec5 , \cf7 \strokec7 m\cf9 \strokec9 .\cf8 \strokec5 start())\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 PY\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 Table 1 at char 10460\
+Table 1 at char 12857\
+Table 2 at char 39984\
+Table 2 at char 40885\
+Table 4 at char 49116\
+Table 3 at char 49197\
+Table 3 at char 54805\
+Table 4 at char 61513\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Creating and verifying the file from PDF\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 Since the user wants me to extract from the uploaded PDF, I don\'92t need\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 file_search.msearch
+\f1\fs28 \cb3 \strokec2 \'a0but could rely on local PDFs. To create the file, using the container should work fine. I might use\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 pdfplumber
+\f1\fs28 \cb3 \strokec2 \'a0for automatic table extraction, though manual checks are fine too. I'll verify against text extraction.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Formatting with range and styles\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I\'92m considering how to apply styling to the table. For the row heights, I\'92ll use something like\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 get_range()
+\f1\fs28 \cb3 \strokec2 \'a0for each section. I may go simple with fill color and bold fonts for the title row. As for font size, if it\'92s unsupported, I\'92ll avoid using it. I'll focus on bold and color for now and check if there\'92s an issue later.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Setting row heights based on content\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I\'92m thinking of using\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 autofit_rows()
+\f1\fs28 \cb3 \strokec2 \'a0after the data body, but large text may still make the rows huge. I could calculate row heights manually based on line length and set them with\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 row_height
+\f1\fs28 \cb3 \strokec2 . For title and header rows, I'll use preset heights, while for data rows, I\'92ll calculate the height based on the text. This should work fine.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Formatting and rendering options for table\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I\'92m thinking about setting\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 row_height
+\f1\fs28 \cb3 \strokec2 \'a0in points using a formula of 15*lines+8. For alignment, I should consider both horizontal and vertical. Using\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 sheet.tables.add
+\f1\fs28 \cb3 \strokec2 \'a0with a data range may overwrite header styles, but it should work. I'll use\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 artifact_tool
+\f1\fs28 \cb3 \strokec2 \'a0to render the preview and check visually.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Calculating row heights and formatting tables\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 cat\cf8 \strokec5  \cf9 \strokec9 >\cf8 \strokec5  /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 create_paredes_tables_workbook\cf9 \strokec9 .\cf8 \strokec5 py \cf9 \strokec9 <<\cf10 \strokec10 'PY'\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 from\cf8 \strokec5  \cf7 \strokec7 artifact_tool\cf8 \strokec5  \cf9 \strokec9 import\cf8 \strokec5  \cf7 \strokec7 Workbook\cf8 \strokec5 , \cf7 \strokec7 SpreadsheetFile\cf0 \cb1 \strokec5 \
+\cf9 \cb3 \strokec9 from\cf8 \strokec5  \cf7 \strokec7 math\cf8 \strokec5  \cf9 \strokec9 import\cf8 \strokec5  \cf7 \strokec7 ceil\cf0 \cb1 \strokec5 \
+\cf9 \cb3 \strokec9 import\cf8 \strokec5  \cf7 \strokec7 os\cf0 \cb1 \strokec5 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 OUTPUT\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf10 \strokec10 "/mnt/data/Paredes2026_tables.xlsx"\cf0 \cb1 \strokec5 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf14 \cb3 \strokec14 # Extracted from: Hsu et al., Critical Reviews in Oncology / Hematology 221 (2026) 105229\cf0 \cb1 \strokec5 \
+\cf14 \cb3 \strokec14 # Source PDF: /mnt/data/1-s2.0-S1040842826001162-main.pdf\cf0 \cb1 \strokec5 \
+\cf14 \cb3 \strokec14 # DOI: https://doi.org/10.1016/j.critrevonc.2026.105229\cf0 \cb1 \strokec5 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 tables\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  [\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \{\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "sheet"\cf8 \strokec5 : \cf10 \strokec10 "Table 1"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "name"\cf8 \strokec5 : \cf10 \strokec10 "T1_Mechanisms"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "page"\cf8 \strokec5 : \cf11 \strokec11 3\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "caption"\cf8 \strokec5 : \cf10 \strokec10 "Mechanisms by which the gut microbiome shapes drug efficacy and toxicity."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "columns"\cf8 \strokec5 : [\cf10 \strokec10 "Mechanism"\cf8 \strokec5 , \cf10 \strokec10 "Short description"\cf8 \strokec5 , \cf10 \strokec10 "Ref."\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "widths"\cf8 \strokec5 : [\cf11 \strokec11 34\cf8 \strokec5 , \cf11 \strokec11 70\cf8 \strokec5 , \cf11 \strokec11 30\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "rows"\cf8 \strokec5 : [\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Microbial enzymatic drug biotransformation (\uc0\u946 -glucuronidase)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Bacterial \uc0\u946 -glucuronidases reactivate drug-glucuronides in the gut, increasing local toxicity (e.g., irinotecan, mycophenolate)."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Bhatt et al., 2020; Wallace et al., 2010)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Direct drug inactivation by specific taxa (e.g., Eggerthella lenta)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Some commensals enzymatically reduce or inactivate drugs. Digoxin inactivation by Eggerthella lenta is a canonical proof-of-principle example that demonstrates direct microbial drug inactivation; analogous mechanisms (e.g., enzymatic deconjugation or metabolism) have been implicated in hematology-relevant compounds such as mycophenolate and tacrolimus."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Haiser et al., 2014)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Microbial metabolite modulation of mucosal injury & GVHD"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Loss of SCFAs (notably butyrate) worsens mucosal damage and graft-versus-host disease after allo-HCT."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Mathewson et al., 2016)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Microbiome \uc0\u8594  bone-marrow (iron-handling) cross-talk"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Microbial signals alter marrow macrophage iron recycling and thereby HSC fate decisions under stress."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Zhang et al., 2022)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Microbiome-driven immune priming / adjuvancy"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Translocation or antigen-sampling of commensals can boost antitumor T-cell priming (relevant to alkylators & immunotherapy)."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Daill\'e8re et al., 2016; Gopalakrishnan et al., 2018)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3         ],\cf0 \cb1 \
+\cf8 \cb3     \},\cf0 \cb1 \
+\cf8 \cb3     \{\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "sheet"\cf8 \strokec5 : \cf10 \strokec10 "Table 2"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "name"\cf8 \strokec5 : \cf10 \strokec10 "T2_DrugInteractions"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "page"\cf8 \strokec5 : \cf11 \strokec11 6\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "caption"\cf8 \strokec5 : \cf10 \strokec10 "Key microbe \uc0\u8594  drug interactions relevant to hematologic care."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "columns"\cf8 \strokec5 : [\cf10 \strokec10 "Drug / drug class"\cf8 \strokec5 , \cf10 \strokec10 "Microbial mechanism (what bacteria do)"\cf8 \strokec5 , \cf10 \strokec10 "Representative taxa / enzyme"\cf8 \strokec5 , \cf10 \strokec10 "Clinical consequence (in hematology)"\cf8 \strokec5 , \cf10 \strokec10 "Ref."\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "widths"\cf8 \strokec5 : [\cf11 \strokec11 25\cf8 \strokec5 , \cf11 \strokec11 35\cf8 \strokec5 , \cf11 \strokec11 34\cf8 \strokec5 , \cf11 \strokec11 48\cf8 \strokec5 , \cf11 \strokec11 28\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "rows"\cf8 \strokec5 : [\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Digoxin"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Microbial reduction / inactivation of drug"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Eggerthella lenta, cardiac-glycoside reductase operon"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Reduced digoxin activity; serves as a canonical proof-of-principle of direct microbial drug inactivation, mechanistically analogous to microbiome-driven modification of hematology-relevant agents (see mycophenolate and tacrolimus rows)."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Haiser et al., 2014)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Methotrexate (MTX) / antifolates"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Direct bacterial DHFR / folate-pathway interactions; dose-dependent community shifts"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Diverse gut bacteria with folate-pathway enzymes; mucosa-associated taxa"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Altered MTX bioavailability, mucositis risk; pretreatment microbiome associates with response."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Nayak et al., 2021; Yan et al., 2023)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Thiopurines (azathioprine / 6-MP)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Bacterial TPMT-like methyltransferases; bacterial catabolism reduces drug availability"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Various commensals (e.g., Blautia spp.* implicated in IBD*)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Possible reduced systemic exposure \uc0\u8594  therapy failure or changed toxicity profile."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Yan et al., 2023)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Mycophenolate (MMF / MPA)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Glucuronide deconjugation by bacterial \uc0\u946 -glucuronidases \u8594  reactivation and enterohepatic recirculation"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "GUS-expressing taxa (e.g., Bacteroides spp.)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Increased GI toxicity and variable systemic exposure; antibiotic modulation affects toxicity."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Drevland et al., 2025)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Tacrolimus"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Microbial conversion to less-potent metabolites"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Commensal bacteria demonstrated to metabolize tacrolimus"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "May contribute to variable tacrolimus levels after oral dosing (pharmacokinetic variability)."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Guo et al., 2019)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3         ],\cf0 \cb1 \
+\cf8 \cb3     \},\cf0 \cb1 \
+\cf8 \cb3     \{\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "sheet"\cf8 \strokec5 : \cf10 \strokec10 "Table 3"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "name"\cf8 \strokec5 : \cf10 \strokec10 "T3_Strategies"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "page"\cf8 \strokec5 : \cf11 \strokec11 8\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "caption"\cf8 \strokec5 : \cf10 \strokec10 "Microbiome-directed therapeutic strategies (evidence and caveats)."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "columns"\cf8 \strokec5 : [\cf10 \strokec10 "Intervention"\cf8 \strokec5 , \cf10 \strokec10 "Mechanism / rationale"\cf8 \strokec5 , \cf10 \strokec10 "Evidence summary in hematology / translational context"\cf8 \strokec5 , \cf10 \strokec10 "Ref."\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "widths"\cf8 \strokec5 : [\cf11 \strokec11 30\cf8 \strokec5 , \cf11 \strokec11 42\cf8 \strokec5 , \cf11 \strokec11 60\cf8 \strokec5 , \cf11 \strokec11 30\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "rows"\cf8 \strokec5 : [\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Prebiotic / fermentable fiber"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Boost butyrate-producing taxa \uc0\u8594  restore SCFA pools, strengthen barrier"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Pilot transplant trials show increased fecal SCFAs and signals toward reduced GVHD (feasibility data)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Andersen et al., 2025; Song et al., 2024)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Defined bacterial consortia (e.g., VE303)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Deliver standardized metabolic functionality (butyrate producers / restorative taxa)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Phase II/III work in other fields (e.g., CDI) shows safety and function; consortia are promising for transplant but need hematology-specific trials"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Louie et al., 2023)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Fecal microbiota transplantation (FMT)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Rapid restoration of community richness/metabolic output"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Case series and early trials in post-transplant GVHD show promise but require stringent donor screening and safety oversight"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Gray and DeFilipp, 2023; Weber et al., 2024)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Targeted microbial enzyme inhibitors"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Block discrete bacterial enzymes (e.g., GUS) to prevent local reactivation of toxic metabolites"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Preclinical models show mitigation of GI toxicity and improved tolerability of chemotherapies; translational enzyme targets under investigation"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Bhatt et al., 2020; Lin et al., 2021; Wallace et al., 2010)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Postbiotics / metabolite replacement (e.g., butyrate analogues)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Replace protective microbial metabolites directly to restore epithelial/immune tone"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Pilot data and rationale from animal models; human transplant proof-of-concept data emerging"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Mathewson et al., 2016; Shah et al., 2022)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3         ],\cf0 \cb1 \
+\cf8 \cb3     \},\cf0 \cb1 \
+\cf8 \cb3     \{\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "sheet"\cf8 \strokec5 : \cf10 \strokec10 "Table 4"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "name"\cf8 \strokec5 : \cf10 \strokec10 "T4_Toolkit"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "page"\cf8 \strokec5 : \cf11 \strokec11 10\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "caption"\cf8 \strokec5 : \cf10 \strokec10 "Practical holo-omic toolkit for causal translational studies."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "columns"\cf8 \strokec5 : [\cf10 \strokec10 "Modality / sample"\cf8 \strokec5 , \cf10 \strokec10 "What it measures"\cf8 \strokec5 , \cf10 \strokec10 "Practical note / why include it"\cf8 \strokec5 , \cf10 \strokec10 "Ref."\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "widths"\cf8 \strokec5 : [\cf11 \strokec11 38\cf8 \strokec5 , \cf11 \strokec11 44\cf8 \strokec5 , \cf11 \strokec11 62\cf8 \strokec5 , \cf11 \strokec11 32\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         \cf10 \strokec10 "rows"\cf8 \strokec5 : [\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Whole-metagenome shotgun sequencing (stool / mucosa)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Gene content and strain-level resolution (gene families, biosynthetic clusters)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Necessary to assign drug-modifying enzymes to taxa and to design targeted interventions"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Almeida et al., 2021; Leviatan et al., 2022)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Metatranscriptomics (stool / mucosa)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Actively expressed microbial genes (which pathways are on/off)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Distinguishes genetic potential from active function, essential for mapping enzymes that are actually transcribed under treatment."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Josephs-Spaulding et al., 2025; Nayak et al., 2021)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Untargeted metabolomics (stool, tissue, plasma)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Small-molecule outputs (SCFAs, bile acids, drug metabolites)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Direct readout of mediators that reach host compartments and bind host receptors, anchors causality."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Go et al., 2024; Mathewson et al., 2016)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Metaproteomics / targeted enzyme assays (stool/mucosa)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Enzyme abundance and activity (e.g., GUS activity assays)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Verifies that predicted enzymes are present and functional, validates intervention targets (e.g., enzyme inhibitors)."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Bhatt et al., 2020; Wallace et al., 2015)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3             [\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Spatial / mucosal sampling and paired host omics"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Local tissue metabolite gradients and host transcriptional responses"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "Important in transplantation and mucositis where lumenal vs mucosal vs systemic pools differ."\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3                 \cf10 \strokec10 "(Odriozola et al., 2024; Prosty et al., 2024)"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3             ],\cf0 \cb1 \
+\cf8 \cb3         ],\cf0 \cb1 \
+\cf8 \cb3     \},\cf0 \cb1 \
+\cf8 \cb3 ]\cf0 \cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 header_format\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \{\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf10 \strokec10 "fill"\cf8 \strokec5 : \cf10 \strokec10 "#0F4C81"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "font"\cf8 \strokec5 : \{\cf10 \strokec10 "bold"\cf8 \strokec5 : \cf11 \strokec11 True\cf8 \strokec5 , \cf10 \strokec10 "color"\cf8 \strokec5 : \cf10 \strokec10 "#FFFFFF"\cf8 \strokec5 \},\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "horizontal_alignment"\cf8 \strokec5 : \cf10 \strokec10 "center"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "vertical_alignment"\cf8 \strokec5 : \cf10 \strokec10 "center"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "wrap_text"\cf8 \strokec5 : \cf11 \strokec11 True\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3 \}\cf0 \cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 title_format\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \{\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf10 \strokec10 "fill"\cf8 \strokec5 : \cf10 \strokec10 "#EAF2F8"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "font"\cf8 \strokec5 : \{\cf10 \strokec10 "bold"\cf8 \strokec5 : \cf11 \strokec11 True\cf8 \strokec5 \},\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "horizontal_alignment"\cf8 \strokec5 : \cf10 \strokec10 "left"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "vertical_alignment"\cf8 \strokec5 : \cf10 \strokec10 "center"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "wrap_text"\cf8 \strokec5 : \cf11 \strokec11 True\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3 \}\cf0 \cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 source_format\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \{\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf10 \strokec10 "font"\cf8 \strokec5 : \{\cf10 \strokec10 "bold"\cf8 \strokec5 : \cf11 \strokec11 False\cf8 \strokec5 , \cf10 \strokec10 "color"\cf8 \strokec5 : \cf10 \strokec10 "#475569"\cf8 \strokec5 \},\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "horizontal_alignment"\cf8 \strokec5 : \cf10 \strokec10 "left"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "vertical_alignment"\cf8 \strokec5 : \cf10 \strokec10 "center"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "wrap_text"\cf8 \strokec5 : \cf11 \strokec11 True\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3 \}\cf0 \cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 body_format\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \{\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf10 \strokec10 "vertical_alignment"\cf8 \strokec5 : \cf10 \strokec10 "top"\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3     \cf10 \strokec10 "wrap_text"\cf8 \strokec5 : \cf11 \strokec11 True\cf8 \strokec5 ,\cf0 \cb1 \
+\cf8 \cb3 \}\cf0 \cb1 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 def\cf8 \strokec5  \cf7 \strokec7 col_letter\cf8 \strokec5 (\cf7 \strokec7 idx_zero_based\cf8 \strokec5 : \cf7 \strokec7 int\cf8 \strokec5 ) -> \cf7 \strokec7 str\cf8 \strokec5 :\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf7 \strokec7 idx\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 idx_zero_based\cf8 \strokec5  \cf9 \strokec9 +\cf8 \strokec5  \cf11 \strokec11 1\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 letters\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf10 \strokec10 ""\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf9 \strokec9 while\cf8 \strokec5  \cf7 \strokec7 idx\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 idx\cf8 \strokec5 , \cf7 \strokec7 rem\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 divmod\cf8 \strokec5 (\cf7 \strokec7 idx\cf8 \strokec5  \cf9 \strokec9 -\cf8 \strokec5  \cf11 \strokec11 1\cf8 \strokec5 , \cf11 \strokec11 26\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 letters\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 chr\cf8 \strokec5 (\cf11 \strokec11 65\cf8 \strokec5  \cf9 \strokec9 +\cf8 \strokec5  \cf7 \strokec7 rem\cf8 \strokec5 ) \cf9 \strokec9 +\cf8 \strokec5  \cf7 \strokec7 letters\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf9 \strokec9 return\cf8 \strokec5  \cf7 \strokec7 letters\cf0 \cb1 \strokec5 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 def\cf8 \strokec5  \cf7 \strokec7 wrapped_lines\cf8 \strokec5 (\cf7 \strokec7 text\cf8 \strokec5 , \cf7 \strokec7 col_width\cf8 \strokec5 ):\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf9 \strokec9 if\cf8 \strokec5  \cf7 \strokec7 text\cf8 \strokec5  \cf9 \strokec9 is\cf8 \strokec5  \cf11 \strokec11 None\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf9 \strokec9 return\cf8 \strokec5  \cf11 \strokec11 1\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 s\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 str\cf8 \strokec5 (\cf7 \strokec7 text\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf9 \strokec9 if\cf8 \strokec5  \cf9 \strokec9 not\cf8 \strokec5  \cf7 \strokec7 s\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf9 \strokec9 return\cf8 \strokec5  \cf11 \strokec11 1\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 lines\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 0\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 width\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 max\cf8 \strokec5 (\cf11 \strokec11 8\cf8 \strokec5 , \cf7 \strokec7 int\cf8 \strokec5 (\cf7 \strokec7 col_width\cf8 \strokec5  \cf9 \strokec9 *\cf8 \strokec5  \cf11 \strokec11 0.95\cf8 \strokec5 ))\cf0 \cb1 \
+\cf8 \cb3     \cf9 \strokec9 for\cf8 \strokec5  \cf7 \strokec7 part\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  \cf7 \strokec7 s\cf9 \strokec9 .\cf8 \strokec5 split(\cf10 \strokec10 "\cf13 \ul \ulc13 \strokec13 \\n\cf10 \ulnone \strokec10 "\cf8 \strokec5 ):\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 lines\cf8 \strokec5  \cf9 \strokec9 +=\cf8 \strokec5  \cf7 \strokec7 max\cf8 \strokec5 (\cf11 \strokec11 1\cf8 \strokec5 , \cf7 \strokec7 ceil\cf8 \strokec5 (\cf7 \strokec7 len\cf8 \strokec5 (\cf7 \strokec7 part\cf8 \strokec5 ) \cf9 \strokec9 /\cf8 \strokec5  \cf7 \strokec7 width\cf8 \strokec5 ))\cf0 \cb1 \
+\cf8 \cb3     \cf9 \strokec9 return\cf8 \strokec5  \cf7 \strokec7 lines\cf0 \cb1 \strokec5 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 def\cf8 \strokec5  \cf7 \strokec7 apply_table_sheet\cf8 \strokec5 (\cf7 \strokec7 wb\cf8 \strokec5 , \cf7 \strokec7 table\cf8 \strokec5 ):\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf7 \strokec7 sheet\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 wb\cf9 \strokec9 .\cf8 \strokec5 worksheets\cf9 \strokec9 .\cf8 \strokec5 add(\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "sheet"\cf8 \strokec5 ])\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 ncols\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 len\cf8 \strokec5 (\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "columns"\cf8 \strokec5 ])\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 nrows\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 len\cf8 \strokec5 (\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "rows"\cf8 \strokec5 ])\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 last_col\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 col_letter\cf8 \strokec5 (\cf7 \strokec7 ncols\cf8 \strokec5  \cf9 \strokec9 -\cf8 \strokec5  \cf11 \strokec11 1\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 last_row\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 4\cf8 \strokec5  \cf9 \strokec9 +\cf8 \strokec5  \cf7 \strokec7 nrows\cf0 \cb1 \strokec5 \
+\
+\cf8 \cb3     \cf14 \strokec14 # Title and source rows\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 merge_cells(\cf10 \strokec10 f"A1:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\cf10 \strokec10 1"\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 merge_cells(\cf10 \strokec10 f"A2:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\cf10 \strokec10 2"\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 "A1"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 values \cf9 \strokec9 =\cf8 \strokec5  [[\cf10 \strokec10 f'\cf8 \strokec5 \{\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "sheet"\cf8 \strokec5 ]\}\cf10 \strokec10 . \cf8 \strokec5 \{\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "caption"\cf8 \strokec5 ]\}\cf10 \strokec10 '\cf8 \strokec5 ]]\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 "A2"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 values \cf9 \strokec9 =\cf8 \strokec5  [[\cf10 \strokec10 f'Source page: \cf8 \strokec5 \{\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "page"\cf8 \strokec5 ]\}\cf10 \strokec10  | DOI: https://doi.org/10.1016/j.critrevonc.2026.105229'\cf8 \strokec5 ]]\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A1:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\cf10 \strokec10 1"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 title_format\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A2:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\cf10 \strokec10 2"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 source_format\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A1:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\cf10 \strokec10 1"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 row_height \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 28\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A2:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\cf10 \strokec10 2"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 row_height \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 20\cf0 \cb1 \strokec5 \
+\
+\cf8 \cb3     \cf14 \strokec14 # Data block\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 values\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  [\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "columns"\cf8 \strokec5 ]] \cf9 \strokec9 +\cf8 \strokec5  \cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "rows"\cf8 \strokec5 ]\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A4:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\{\cf7 \strokec7 last_row\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 values \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 values\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A4:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\cf10 \strokec10 4"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 header_format\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A5:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\{\cf7 \strokec7 last_row\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 body_format\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A4:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\cf10 \strokec10 4"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 row_height \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 28\cf0 \cb1 \strokec5 \
+\
+\cf8 \cb3     \cf14 \strokec14 # Column widths\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf9 \strokec9 for\cf8 \strokec5  \cf7 \strokec7 c\cf8 \strokec5 , \cf7 \strokec7 width\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  \cf7 \strokec7 enumerate\cf8 \strokec5 (\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "widths"\cf8 \strokec5 ]):\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 col\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 col_letter\cf8 \strokec5 (\cf7 \strokec7 c\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"\cf8 \strokec5 \{\cf7 \strokec7 col\cf8 \strokec5 \}\cf10 \strokec10 1:\cf8 \strokec5 \{\cf7 \strokec7 col\cf8 \strokec5 \}\{\cf7 \strokec7 last_row\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 column_width \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 width\cf0 \cb1 \strokec5 \
+\
+\cf8 \cb3     \cf14 \strokec14 # Per-row height estimate to keep wrapped cells visible without overgrowing the sheet.\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf9 \strokec9 for\cf8 \strokec5  \cf7 \strokec7 r_idx\cf8 \strokec5 , \cf7 \strokec7 row\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  \cf7 \strokec7 enumerate\cf8 \strokec5 (\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "rows"\cf8 \strokec5 ], \cf7 \strokec7 start\cf9 \strokec9 =\cf11 \strokec11 5\cf8 \strokec5 ):\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 max_lines\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 max\cf8 \strokec5 (\cf7 \strokec7 wrapped_lines\cf8 \strokec5 (\cf7 \strokec7 cell\cf8 \strokec5 , \cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "widths"\cf8 \strokec5 ][\cf7 \strokec7 c\cf8 \strokec5 ]) \cf9 \strokec9 for\cf8 \strokec5  \cf7 \strokec7 c\cf8 \strokec5 , \cf7 \strokec7 cell\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  \cf7 \strokec7 enumerate\cf8 \strokec5 (\cf7 \strokec7 row\cf8 \strokec5 ))\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 height\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 min\cf8 \strokec5 (\cf11 \strokec11 130\cf8 \strokec5 , \cf7 \strokec7 max\cf8 \strokec5 (\cf11 \strokec11 32\cf8 \strokec5 , \cf11 \strokec11 15\cf8 \strokec5  \cf9 \strokec9 *\cf8 \strokec5  \cf7 \strokec7 max_lines\cf8 \strokec5  \cf9 \strokec9 +\cf8 \strokec5  \cf11 \strokec11 8\cf8 \strokec5 ))\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A\cf8 \strokec5 \{\cf7 \strokec7 r_idx\cf8 \strokec5 \}\cf10 \strokec10 :\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\{\cf7 \strokec7 r_idx\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 row_height \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 height\cf0 \cb1 \strokec5 \
+\
+\cf8 \cb3     \cf14 \strokec14 # Lightly format the full used range and add Excel table filter behavior.\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A4:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\{\cf7 \strokec7 last_row\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 wrap_text \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 True\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A4:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\{\cf7 \strokec7 last_row\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 vertical_alignment \cf9 \strokec9 =\cf8 \strokec5  \cf10 \strokec10 "top"\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf9 \strokec9 try\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 tables\cf9 \strokec9 .\cf8 \strokec5 add(\cf10 \strokec10 f"A4:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\{\cf7 \strokec7 last_row\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 , \cf11 \strokec11 True\cf8 \strokec5 , \cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 "name"\cf8 \strokec5 ])\cf0 \cb1 \
+\cf8 \cb3     \cf9 \strokec9 except\cf8 \strokec5  \cf7 \strokec7 Exception\cf8 \strokec5  \cf9 \strokec9 as\cf8 \strokec5  \cf7 \strokec7 e\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf14 \strokec14 # The data is still present even if a table object cannot be created.\cf0 \cb1 \strokec5 \
+\cf8 \cb3         \cf7 \strokec7 print\cf8 \strokec5 (\cf10 \strokec10 f"Warning: could not add table object on \cf8 \strokec5 \{\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 'sheet'\cf8 \strokec5 ]\}\cf10 \strokec10 : \cf8 \strokec5 \{\cf7 \strokec7 e\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf9 \strokec9 try\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 freeze_panes\cf9 \strokec9 .\cf8 \strokec5 freeze_rows(\cf11 \strokec11 4\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf9 \strokec9 except\cf8 \strokec5  \cf7 \strokec7 Exception\cf8 \strokec5  \cf9 \strokec9 as\cf8 \strokec5  \cf7 \strokec7 e\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 print\cf8 \strokec5 (\cf10 \strokec10 f"Warning: could not freeze panes on \cf8 \strokec5 \{\cf7 \strokec7 table\cf8 \strokec5 [\cf10 \strokec10 'sheet'\cf8 \strokec5 ]\}\cf10 \strokec10 : \cf8 \strokec5 \{\cf7 \strokec7 e\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf0 \cb1 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 def\cf8 \strokec5  \cf7 \strokec7 add_source_sheet\cf8 \strokec5 (\cf7 \strokec7 wb\cf8 \strokec5 ):\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf7 \strokec7 sheet\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 wb\cf9 \strokec9 .\cf8 \strokec5 worksheets\cf9 \strokec9 .\cf8 \strokec5 add(\cf10 \strokec10 "Source"\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 rows\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  [\cf0 \cb1 \
+\cf8 \cb3         [\cf10 \strokec10 "Field"\cf8 \strokec5 , \cf10 \strokec10 "Value"\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         [\cf10 \strokec10 "Source title"\cf8 \strokec5 , \cf10 \strokec10 "Pharmacomicrobiomics in blood cancers: How the gut microbiome and its metabolites shape drug efficacy and toxicity"\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         [\cf10 \strokec10 "Authors"\cf8 \strokec5 , \cf10 \strokec10 "Chou-Yi Hsu; Yasir Qasim almajidi; Mohammad Abohassan; Rushen Gafarov; Tina Saeed Basunduwah; Ahmed Hjazi; Vimal Arora; Priya Priyadarshini Nayak; Sandeep Kumar Shukla; Karthikeyan Jayabalan"\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         [\cf10 \strokec10 "Journal"\cf8 \strokec5 , \cf10 \strokec10 "Critical Reviews in Oncology / Hematology 221 (2026) 105229"\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         [\cf10 \strokec10 "DOI"\cf8 \strokec5 , \cf10 \strokec10 "https://doi.org/10.1016/j.critrevonc.2026.105229"\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         [\cf10 \strokec10 "PDF filename"\cf8 \strokec5 , \cf10 \strokec10 "1-s2.0-S1040842826001162-main.pdf"\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         [\cf10 \strokec10 "Tables extracted"\cf8 \strokec5 , \cf10 \strokec10 "Table 1 (page 3); Table 2 (page 6); Table 3 (page 8); Table 4 (page 10)"\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3         [\cf10 \strokec10 "Workbook note"\cf8 \strokec5 , \cf10 \strokec10 "Each article table is placed on its own worksheet with wrapped text and filterable headers."\cf8 \strokec5 ],\cf0 \cb1 \
+\cf8 \cb3     ]\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 "A1:B8"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 values \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 rows\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 "A1:B1"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 header_format\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 "A2:B8"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 body_format\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 "A1:A8"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 column_width \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 24\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 "B1:B8"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 column_width \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 92\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 "A1:B8"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 wrap_text \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 True\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 "A1:B1"\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 row_height \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 24\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf9 \strokec9 for\cf8 \strokec5  \cf7 \strokec7 r\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  \cf7 \strokec7 range\cf8 \strokec5 (\cf11 \strokec11 2\cf8 \strokec5 , \cf11 \strokec11 9\cf8 \strokec5 ):\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 get_range(\cf10 \strokec10 f"A\cf8 \strokec5 \{\cf7 \strokec7 r\cf8 \strokec5 \}\cf10 \strokec10 :B\cf8 \strokec5 \{\cf7 \strokec7 r\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 format\cf9 \strokec9 .\cf8 \strokec5 row_height \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 36\cf8 \strokec5  \cf9 \strokec9 if\cf8 \strokec5  \cf7 \strokec7 r\cf8 \strokec5  \cf9 \strokec9 not\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  (\cf11 \strokec11 3\cf8 \strokec5 ,) \cf9 \strokec9 else\cf8 \strokec5  \cf11 \strokec11 64\cf0 \cb1 \strokec5 \
+\cf8 \cb3     \cf9 \strokec9 try\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 tables\cf9 \strokec9 .\cf8 \strokec5 add(\cf10 \strokec10 "A1:B8"\cf8 \strokec5 , \cf11 \strokec11 True\cf8 \strokec5 , \cf10 \strokec10 "SourceInfo"\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 freeze_panes\cf9 \strokec9 .\cf8 \strokec5 freeze_rows(\cf11 \strokec11 1\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf9 \strokec9 except\cf8 \strokec5  \cf7 \strokec7 Exception\cf8 \strokec5  \cf9 \strokec9 as\cf8 \strokec5  \cf7 \strokec7 e\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 print\cf8 \strokec5 (\cf10 \strokec10 f"Warning: source sheet table/freeze issue: \cf8 \strokec5 \{\cf7 \strokec7 e\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf0 \cb1 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 wb\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 Workbook\cf9 \strokec9 .\cf8 \strokec5 create()\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 for\cf8 \strokec5  \cf7 \strokec7 t\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  \cf7 \strokec7 tables\cf8 \strokec5 :\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf7 \strokec7 apply_table_sheet\cf8 \strokec5 (\cf7 \strokec7 wb\cf8 \strokec5 , \cf7 \strokec7 t\cf8 \strokec5 )\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 add_source_sheet\cf8 \strokec5 (\cf7 \strokec7 wb\cf8 \strokec5 )\cf0 \cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf14 \cb3 \strokec14 # Verification: inspect sheets and a couple of ranges; scan for obvious errors.\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 print\cf8 \strokec5 (\cf7 \strokec7 wb\cf9 \strokec9 .\cf8 \strokec5 inspect(\{\cf10 \strokec10 "kind"\cf8 \strokec5 : \cf10 \strokec10 "sheet"\cf8 \strokec5 , \cf10 \strokec10 "include"\cf8 \strokec5 : \cf10 \strokec10 "id,name"\cf8 \strokec5 \})\cf9 \strokec9 .\cf8 \strokec5 ndjson)\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 for\cf8 \strokec5  \cf7 \strokec7 t\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  \cf7 \strokec7 tables\cf8 \strokec5 :\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf7 \strokec7 last_col\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 col_letter\cf8 \strokec5 (\cf7 \strokec7 len\cf8 \strokec5 (\cf7 \strokec7 t\cf8 \strokec5 [\cf10 \strokec10 "columns"\cf8 \strokec5 ]) \cf9 \strokec9 -\cf8 \strokec5  \cf11 \strokec11 1\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 last_row\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf11 \strokec11 4\cf8 \strokec5  \cf9 \strokec9 +\cf8 \strokec5  \cf7 \strokec7 len\cf8 \strokec5 (\cf7 \strokec7 t\cf8 \strokec5 [\cf10 \strokec10 "rows"\cf8 \strokec5 ])\cf0 \cb1 \
+\cf8 \cb3     \cf7 \strokec7 print\cf8 \strokec5 (\cf7 \strokec7 wb\cf9 \strokec9 .\cf8 \strokec5 inspect(\{\cf10 \strokec10 "kind"\cf8 \strokec5 : \cf10 \strokec10 "table"\cf8 \strokec5 , \cf10 \strokec10 "range"\cf8 \strokec5 : \cf10 \strokec10 f"\cf8 \strokec5 \{\cf7 \strokec7 t\cf8 \strokec5 [\cf10 \strokec10 'sheet'\cf8 \strokec5 ]\}\cf10 \strokec10 !A4:\cf8 \strokec5 \{\cf7 \strokec7 last_col\cf8 \strokec5 \}\{\cf7 \strokec7 last_row\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 , \cf10 \strokec10 "include"\cf8 \strokec5 : \cf10 \strokec10 "values"\cf8 \strokec5 , \cf10 \strokec10 "table_max_rows"\cf8 \strokec5 : \cf11 \strokec11 10\cf8 \strokec5 , \cf10 \strokec10 "table_max_cols"\cf8 \strokec5 : \cf11 \strokec11 8\cf8 \strokec5 \})\cf9 \strokec9 .\cf8 \strokec5 ndjson)\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 errors\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 wb\cf9 \strokec9 .\cf8 \strokec5 inspect(\{\cf10 \strokec10 "kind"\cf8 \strokec5 : \cf10 \strokec10 "match"\cf8 \strokec5 , \cf10 \strokec10 "search_term"\cf8 \strokec5 : \cf10 \strokec10 "#REF!|#DIV/0!|#VALUE!|#NAME\cf13 \ul \ulc13 \strokec13 \\\\\cf10 \ulnone \strokec10 ?|#N/A"\cf8 \strokec5 , \cf10 \strokec10 "options"\cf8 \strokec5 : \{\cf10 \strokec10 "use_regex"\cf8 \strokec5 : \cf11 \strokec11 True\cf8 \strokec5 , \cf10 \strokec10 "max_results"\cf8 \strokec5 : \cf11 \strokec11 100\cf8 \strokec5 \}, \cf10 \strokec10 "summary"\cf8 \strokec5 : \cf10 \strokec10 "final formula error scan"\cf8 \strokec5 \})\cf0 \cb1 \
+\cf7 \cb3 \strokec7 print\cf8 \strokec5 (\cf7 \strokec7 errors\cf9 \strokec9 .\cf8 \strokec5 ndjson)\cf0 \cb1 \
+\
+\cf7 \cb3 \strokec7 SpreadsheetFile\cf9 \strokec9 .\cf8 \strokec5 export_xlsx(\cf7 \strokec7 wb\cf8 \strokec5 )\cf9 \strokec9 .\cf8 \strokec5 save(\cf7 \strokec7 OUTPUT\cf8 \strokec5 )\cf0 \cb1 \
+\cf7 \cb3 \strokec7 print\cf8 \strokec5 (\cf10 \strokec10 f"Saved \cf8 \strokec5 \{\cf7 \strokec7 OUTPUT\cf8 \strokec5 \}\cf10 \strokec10 "\cf8 \strokec5 )\cf0 \cb1 \
+\cf7 \cb3 \strokec7 PY\cf0 \cb1 \strokec5 \
+\cf7 \cb3 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 create_paredes_tables_workbook\cf9 \strokec9 .\cf8 \strokec5 py\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 \{"kind":"sheet","id":"ws/5jbgjj","name":"Table 1","index":0,"range":"A1:C9","address":"A1:C9"\}\
+\{"kind":"sheet","id":"ws/qubv6l","name":"Table 2","index":1,"range":"A1:E9","address":"A1:E9"\}\
+\{"kind":"sheet","id":"ws/an1ox6","name":"Table 3","index":2,"range":"A1:D9","address":"A1:D9"\}\
+\{"kind":"sheet","id":"ws/gqj4do","name":"Table 4","index":3,"range":"A1:D9","address":"A1:D9"\}\
+\{"kind":"sheet","id":"ws/s5ddvf","name":"Source","index":4,"range":"A1:B8","address":"A1:B8"\}\
+\{"kind":"table","sheet":"Table 1","address":"A4:C9","rows":6,"cols":3,"values":[["Mechanism","Short description","Ref."],["Microbial enzymatic drug biotransformation (\uc0\u946 -glucuronidase)","Bacterial \u946 -glucuronidases reactivate drug-glucuronides in the gut, increasing local toxicity (e.g., irinotecan, mycophenolate).","(Bhatt et al., 2020; Wallace et al., 2010)"],["Direct drug inactivation by specific taxa (e.g., Eggerthella lenta)","Some commensals enzymatically reduce or inactivate drugs. Digoxin inactivation by Eggerthella lenta is a canonical proof-of-principle example that demonstrates direct microbial drug inactivation; analogous mechanisms (e.g., enzymatic deconjugation or metabolism) have been implicated in hematology-relevant compounds such as mycophenolate and tacrolimus.","(Haiser et al., 2014)"],["Microbial metabolite modulation of mucosal injury & GVHD","Loss of SCFAs (notably butyrate) worsens mucosal damage and graft-versus-host disease after allo-HCT.","(Mathewson et al., 2016)"],["Microbiome \u8594  bone-marrow (iron-handling) cross-talk","Microbial signals alter marrow macrophage iron recycling and thereby HSC fate decisions under stress.","(Zhang et al., 2022)"],["Microbiome-driven immune priming / adjuvancy","Translocation or antigen-sampling of commensals can boost antitumor T-cell priming (relevant to alkylators & immunotherapy).","(Daill\'e8re et al., 2016; Gopalakrishnan et al., 2018)"]]\}\
+\{"kind":"table","sheet":"Table 2","address":"A4:E9","rows":6,"cols":5,"values":[["Drug / drug class","Microbial mechanism (what bacteria do)","Representative taxa / enzyme","Clinical consequence (in hematology)","Ref."],["Digoxin","Microbial reduction / inactivation of drug","Eggerthella lenta, cardiac-glycoside reductase operon","Reduced digoxin activity; serves as a canonical proof-of-principle of direct microbial drug inactivation, mechanistically analogous to microbiome-driven modification of hematology-relevant agents (see mycophenolate and tacrolimus rows).","(Haiser et al., 2014)"],["Methotrexate (MTX) / antifolates","Direct bacterial DHFR / folate-pathway interactions; dose-dependent community shifts","Diverse gut bacteria with folate-pathway enzymes; mucosa-associated taxa","Altered MTX bioavailability, mucositis risk; pretreatment microbiome associates with response.","(Nayak et al., 2021; Yan et al., 2023)"],["Thiopurines (azathioprine / 6-MP)","Bacterial TPMT-like methyltransferases; bacterial catabolism reduces drug availability","Various commensals (e.g., Blautia spp.* implicated in IBD*)","Possible reduced systemic exposure \uc0\u8594  therapy failure or changed toxicity profile.","(Yan et al., 2023)"],["Mycophenolate (MMF / MPA)","Glucuronide deconjugation by bacterial \u946 -glucuronidases \u8594  reactivation and enterohepatic recirculation","GUS-expressing taxa (e.g., Bacteroides spp.)","Increased GI toxicity and variable systemic exposure; antibiotic modulation affects toxicity.","(Drevland et al., 2025)"],["Tacrolimus","Microbial conversion to less-potent metabolites","Commensal bacteria demonstrated to metabolize tacrolimus","May contribute to variable tacrolimus levels after oral dosing (pharmacokinetic variability).","(Guo et al., 2019)"]]\}\
+\{"kind":"table","sheet":"Table 3","address":"A4:D9","rows":6,"cols":4,"values":[["Intervention","Mechanism / rationale","Evidence summary in hematology / translational context","Ref."],["Prebiotic / fermentable fiber","Boost butyrate-producing taxa \uc0\u8594  restore SCFA pools, strengthen barrier","Pilot transplant trials show increased fecal SCFAs and signals toward reduced GVHD (feasibility data)","(Andersen et al., 2025; Song et al., 2024)"],["Defined bacterial consortia (e.g., VE303)","Deliver standardized metabolic functionality (butyrate producers / restorative taxa)","Phase II/III work in other fields (e.g., CDI) shows safety and function; consortia are promising for transplant but need hematology-specific trials","(Louie et al., 2023)"],["Fecal microbiota transplantation (FMT)","Rapid restoration of community richness/metabolic output","Case series and early trials in post-transplant GVHD show promise but require stringent donor screening and safety oversight","(Gray and DeFilipp, 2023; Weber et al., 2024)"],["Targeted microbial enzyme inhibitors","Block discrete bacterial enzymes (e.g., GUS) to prevent local reactivation of toxic metabolites","Preclinical models show mitigation of GI toxicity and improved tolerability of chemotherapies; translational enzyme targets under investigation","(Bhatt et al., 2020; Lin et al., 2021; Wallace et al., 2010)"],["Postbiotics / metabolite replacement (e.g., butyrate analogues)","Replace protective microbial metabolites directly to restore epithelial/immune tone","Pilot data and rationale from animal models; human transplant proof-of-concept data emerging","(Mathewson et al., 2016; Shah et al., 2022)"]]\}\
+\{"kind":"table","sheet":"Table 4","address":"A4:D9","rows":6,"cols":4,"values":[["Modality / sample","What it measures","Practical note / why include it","Ref."],["Whole-metagenome shotgun sequencing (stool / mucosa)","Gene content and strain-level resolution (gene families, biosynthetic clusters)","Necessary to assign drug-modifying enzymes to taxa and to design targeted interventions","(Almeida et al., 2021; Leviatan et al., 2022)"],["Metatranscriptomics (stool / mucosa)","Actively expressed microbial genes (which pathways are on/off)","Distinguishes genetic potential from active function, essential for mapping enzymes that are actually transcribed under treatment.","(Josephs-Spaulding et al., 2025; Nayak et al., 2021)"],["Untargeted metabolomics (stool, tissue, plasma)","Small-molecule outputs (SCFAs, bile acids, drug metabolites)","Direct readout of mediators that reach host compartments and bind host receptors, anchors causality.","(Go et al., 2024; Mathewson et al., 2016)"],["Metaproteomics / targeted enzyme assays (stool/mucosa)","Enzyme abundance and activity (e.g., GUS activity assays)","Verifies that predicted enzymes are present and functional, validates intervention targets (e.g., enzyme inhibitors).","(Bhatt et al., 2020; Wallace et al., 2015)"],["Spatial / mucosal sampling and paired host omics","Local tissue metabolite gradients and host transcriptional responses","Important in transplantation and mucositis where lumenal vs mucosal vs systemic pools differ.","(Odriozola et al., 2024; Prosty et al., 2024)"]]\}\
+\{"kind":"notice","message":"Cell search matched 0 entries."\}\
+Saved /mnt/data/Paredes2026_tables.xlsx\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Verifying output with preview render\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 I need to verify that the output exists before proceeding. It might be useful to render a preview using\'a0
+\f3\fs24\fsmilli12250 \cb12 \strokec5 artifact_tool
+\f1\fs28 \cb3 \strokec2 . I\'92ll inspect one preview image to check for visual quality. I could render PNGs of all sheets, but I'll focus on inspecting the first one for clarity.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Rendering spreadsheet previews as PNGs\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 python\cf8 \strokec5  \cf9 \strokec9 -\cf8 \strokec5  \cf9 \strokec9 <<\cf10 \strokec10 'PY'\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 from\cf8 \strokec5  \cf7 \strokec7 artifact_tool\cf8 \strokec5  \cf9 \strokec9 import\cf8 \strokec5  \cf7 \strokec7 Blob\cf8 \strokec5 , \cf7 \strokec7 SpreadsheetFile\cf0 \cb1 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 wb\cf8 \strokec5  \cf9 \strokec9 =\cf8 \strokec5  \cf7 \strokec7 SpreadsheetFile\cf9 \strokec9 .\cf8 \strokec5 import_xlsx(\cf7 \strokec7 Blob\cf9 \strokec9 .\cf8 \strokec5 load(\cf10 \strokec10 '/mnt/data/Paredes2026_tables.xlsx'\cf8 \strokec5 ))\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \cb3 \strokec9 for\cf8 \strokec5  \cf7 \strokec7 sheet\cf8 \strokec5  \cf9 \strokec9 in\cf8 \strokec5  [\cf10 \strokec10 'Table 1'\cf8 \strokec5 ,\cf10 \strokec10 'Table 2'\cf8 \strokec5 ,\cf10 \strokec10 'Table 3'\cf8 \strokec5 ,\cf10 \strokec10 'Table 4'\cf8 \strokec5 ,\cf10 \strokec10 'Source'\cf8 \strokec5 ]:\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf8 \cb3     \cf9 \strokec9 try\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 wb\cf9 \strokec9 .\cf8 \strokec5 render(\{\cf10 \strokec10 'sheet_name'\cf8 \strokec5 : \cf7 \strokec7 sheet\cf8 \strokec5 , \cf10 \strokec10 'auto_crop'\cf8 \strokec5 : \cf10 \strokec10 'all'\cf8 \strokec5 , \cf10 \strokec10 'scale'\cf8 \strokec5 : \cf11 \strokec11 1\cf8 \strokec5 \})\cf9 \strokec9 .\cf8 \strokec5 save(\cf10 \strokec10 f'/mnt/data/\cf8 \strokec5 \{\cf7 \strokec7 sheet\cf9 \strokec9 .\cf8 \strokec5 replace(\cf10 \strokec10 " "\cf8 \strokec5 , \cf10 \strokec10 "_"\cf8 \strokec5 )\}\cf10 \strokec10 _preview.png'\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 print\cf8 \strokec5 (\cf10 \strokec10 'rendered'\cf8 \strokec5 , \cf7 \strokec7 sheet\cf8 \strokec5 )\cf0 \cb1 \
+\cf8 \cb3     \cf9 \strokec9 except\cf8 \strokec5  \cf7 \strokec7 Exception\cf8 \strokec5  \cf9 \strokec9 as\cf8 \strokec5  \cf7 \strokec7 e\cf8 \strokec5 :\cf0 \cb1 \
+\cf8 \cb3         \cf7 \strokec7 print\cf8 \strokec5 (\cf10 \strokec10 'render error'\cf8 \strokec5 , \cf7 \strokec7 sheet\cf8 \strokec5 , \cf7 \strokec7 e\cf8 \strokec5 )\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb3 \strokec7 PY\cf0 \cb1 \strokec5 \
+\cf7 \cb3 \strokec7 ls\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 l\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Table_\cf9 \strokec9 *\cf7 \strokec7 _preview\cf9 \strokec9 .\cf8 \strokec5 png \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Source_preview\cf9 \strokec9 .\cf8 \strokec5 png\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 rendered Table 1\
+rendered Table 2\
+rendered Table 3\
+rendered Table 4\
+rendered Source\
+-rw-r--r-- 1 root root  66108 Jun 24 17:58 /mnt/data/Source_preview.png\
+-rw-r--r-- 1 root root 122064 Jun 24 17:58 /mnt/data/Table_1_preview.png\
+-rw-r--r-- 1 root root 146814 Jun 24 17:58 /mnt/data/Table_2_preview.png\
+-rw-r--r-- 1 root root 133862 Jun 24 17:58 /mnt/data/Table_3_preview.png\
+-rw-r--r-- 1 root root 122347 Jun 24 17:58 /mnt/data/Table_4_preview.png\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb1 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Analyzed image\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 {{\NeXTGraphic Attachment.png \width320 \height320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Inspecting Table preview for text wrapping\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 It looks like the text in column A is getting cut off\'97row 5 seems to have some issues, though the text wraps after the second line. Row 9 might be tricky too, with possible truncation due to column C's width. The alternating row colors are fine, but I should check for any hidden content in row 9. I'll inspect Table 2 next.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Analyzed image\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 {{\NeXTGraphic Attachment.png \width320 \height320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Analyzed image\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 {{\NeXTGraphic Attachment.png \width320 \height320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Analyzed image\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 {{\NeXTGraphic Attachment.png \width320 \height320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Finalizing output with citation and file check\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 The preview looks good. I don't need to inspect the source again, but I should finalize the output path. I\'92ll include the link to "Paredes2026_tables.xlsx" and mention the extracted tables\'97Tables 1 to 4 and the Source sheet. I\'92ll ensure the file exists and avoid raw paths. I'll cite the source PDF properly.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Verifying and citing Paredes2026 tables file\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs21 \cf0 \cb6 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24\fsmilli12250 \cf7 \cb3 \strokec7 bash\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 lc\cf8 \strokec5  \cf7 \strokec7 ls\cf8 \strokec5  \cf9 \strokec9 -\cf7 \strokec7 l\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_tables\cf9 \strokec9 .\cf8 \strokec5 xlsx \cf9 \strokec9 &&\cf8 \strokec5  \cf7 \strokec7 file\cf8 \strokec5  \cf9 \strokec9 /\cf7 \strokec7 mnt\cf9 \strokec9 /\cf7 \strokec7 data\cf9 \strokec9 /\cf7 \strokec7 Paredes2026_tables\cf9 \strokec9 .\cf8 \strokec5 xlsx\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs21 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb3 \strokec5 -rw-r--r-- 1 root root 14327 Jun 24 17:58 /mnt/data/Paredes2026_tables.xlsx\
+/mnt/data/Paredes2026_tables.xlsx: Microsoft Excel 2007+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb1 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf5 \cb3 \strokec5 Thought for 7m 25s\cb1 \
+\pard\pardeftab720\sa80\partightenfactor0
+\cf2 \cb3 \strokec2 Done\cb1 \
+}

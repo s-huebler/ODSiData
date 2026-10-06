@@ -1,7 +1,7 @@
 # Quotes → Claims / Studies Parsing Instructions
 
 Reusable procedure for the GVHD microbiome claim-network workbook
-(`claim-network2/Claims_<date>.xlsx`). When Sophie says **"parse the quotes page
+(`claim-network/data/Claims_<date>.xlsx`). When Sophie says **"parse the quotes page
 into Claims and Studies"**, follow this document.
 
 Companion to the persistent `claim-synthesis-procedure` memory. This file governs the

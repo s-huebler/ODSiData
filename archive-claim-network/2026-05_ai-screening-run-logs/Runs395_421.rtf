@@ -1,0 +1,144 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 [2026-05-28 12:16:42] (395/474) Stella-Blood Adv.-2023.pdf\
+`stella2023nonrestrictive-40c -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-UnmeasuredGutMicrobiome]`\
+\
+**Reasoning:** The paper is an RCT comparing protective diet vs. nonrestrictive diet during HSCT neutropenia. It includes an allo-SCT subset (n=41, 18%) with aGVHD as a secondary endpoint (Criteria 1 & 3 partially met), but **Criterion 2 fails**: the gut microbiome is never measured. The "microbiological surveillance" consists of clinical rectal swabs detecting antibiotic-resistant pathogens \'97 not 16S/metagenomics/diversity metrics. Excluded as `UnmeasuredGutMicrobiome`.\
+[2026-05-28 12:17:39] (396/474) Stoma-Clin. Infect. Dis.-2020.pdf\
+`stoma2020compositional-d80 -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-NoGVHDOutcome]`\
+\
+**Rationale:** Criteria 1 (allo-HCT cohort, n=708) and 2 (16S rRNA fecal sequencing) are met. Criterion 3 fails \'97 the primary outcome is gram-negative bloodstream infection risk, not GVHD. GVHD is not mentioned in the abstract or the readable PDF text.\
+[2026-05-28 12:18:59] (397/474) Swimm-Blood-2018.pdf\
+`swimm2018indoles-781 -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-NonHuman]`\
+\
+**Decision rationale:** This paper (Swimm et al., *Blood* 2018) uses exclusively murine (mouse) allo-BMT models \'97 no human patient cohort. Criterion 1 (COHORT) is explicitly violated: all in vivo experiments are in MHC-mismatched mice. References to human patient data (e.g., urinary indole levels at transplant) are citations to other papers, not data collected in this study. Clean `Exclude` with reason `NonHuman`.\
+[2026-05-28 12:20:13] (398/474) Szerafin-Orvosi Hetil.-2019.pdf\
+`szerafin2019b\'e9lfl\'f3ra-fcb -> SecondPassAI-EdgeCase-Include [SecondPassAI-EdgeCaseReason-Language]`\
+\
+**Rationale:** Hungarian-language narrative review that substantively covers all three criteria \'97 allo-SCT cohort, gut microbiome (specific taxa: Firmicutes, Bacteroidetes, Clostridium cluster XIV/Blautia, Lactobacillus, Enterococcus; diversity metrics), and GVHD (dedicated section on dysbiosis in aGVHD, low diversity predicting severe GVHD at day 10, FMT for steroid-resistant aGVHD). Non-English full text triggers `EdgeCase` with reason `Language`.\
+[2026-05-28 12:21:28] (399/474) Takatsuka-Drugs-2003.pdf\
+`takatsuka2003intestinal-ea0 -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-PassingMentionOnly]`\
+\
+**Classification rationale:** This 2003 narrative review covers intestinal GVHD mechanisms and immunosuppressive drug management. Criterion 1 (allo-SCT cohort) and Criterion 3 (GVHD substantively engaged) are met. Criterion 2 fails: the gut microbiome is mentioned only in passing \'97 LPS from "normal bowel flora" appears briefly as a GVHD-amplifying mechanism, and "eradication of intestinal bacteria" is listed as one of several management approaches. No specific taxa are named, no diversity metrics are reported or reviewed, and the paper's substantive focus is on T-cell biology and immunosuppressants (cyclosporin, tacrolimus, MMF, T-cell depletion), not the gut microbiome.\
+[2026-05-28 12:23:23] (400/474) Tanaka-Biol. Blood Marrow Transplant.-2020.pdf\
+`tanaka2020anaerobic-826 -> SecondPassAI-Include`\
+\
+**Decision:** Include \'97 all three criteria met:\
+- Cohort: 1214 allo-HSCT recipients (children and adults)\
+- Gut microbiome measured: shotgun metagenomic sequencing of serial fecal samples (n=36 subset)\
+- GVHD outcome: acute gut/liver GVHD and GVHD mortality as primary outcomes\
+\
+Row appended to `Output475.csv` with updated Tags: `\\\{SCFA\\\},SCFA, SecondPassAI-Include`.\
+[2026-05-28 12:24:09] (401/474) Taur-Best Pr. Res. Clin. Haematol.-2015.pdf\
+`taur2015role-b42 -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-NoGVHDOutcome]`\
+\
+**Rationale:** This 2015 narrative review (Taur et al., *Best Pract Res Clin Haematol*) covers intestinal microbiota in allo-HSCT and uses 16S sequencing \'97 Criteria 1 and 2 are met. However, GVHD appears only twice as passing motivation; the entire content focuses on bacteremia, intestinal domination, diversity loss, and survival. Criterion 3 (GVHD as substantive outcome/covariate/focus) is not met \uc0\u8594  **Exclude, NoGVHDOutcome**.\
+[2026-05-28 12:25:52] (402/474) Taur-Blood-2014.pdf\
+`taur2014effects-60e -> SecondPassAI-Include []`\
+\
+**Classification rationale:**\
+- **Criterion 1 (COHORT):** \uc0\u10003  80 adult allo-HSCT recipients at MSKCC.\
+- **Criterion 2 (GUT MICROBIOME MEASURED):** \uc0\u10003  Fecal 16S rRNA sequencing (V1\'96V3, 454 GS FLX Titanium); alpha-diversity (inverse Simpson) computed.\
+- **Criterion 3 (GVHD OUTCOME):** \uc0\u10003  "Death due to GVHD or infection" analyzed as a cause-specific mortality endpoint, with results explicitly reported by diversity group. Gut microbiome is the paper's substantive focus throughout.\
+[2026-05-28 12:27:35] (403/474) Taur-Clin. Infect. Dis.-2012.pdf\
+`taur2012intestinal-88d -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-NoGVHDOutcome]`\
+\
+**Rationale:** Taur et al. 2012 meets Criteria 1 (allo-HSCT cohort, n=94) and 2 (16S rRNA 454 pyrosequencing of fecal specimens), but fails Criterion 3. The primary outcome is **bacteremia** (VRE and gram-negative rod bloodstream infection). GVHD appears only as a single passing mention in the discussion ("complications of allo-HSCT, such as graft-versus-host disease") and in references \'97 it is never an outcome, covariate, or substantive mechanistic focus.\
+[2026-05-28 12:28:35] (404/474) Taur-Sci. Transl. Med.-2018.pdf\
+`taur2018reconstitution-74a -> SecondPassAI-Include`\
+\
+**Summary:** Taur 2018 (Sci. Transl. Med.) is a clean Include. It's a phase 2 RCT of autologous FMT in allo-HSCT patients (n=25 RCT + 753 observational), with 16S rRNA sequencing of 3,237 stool samples, and GVHD is a registered secondary endpoint with substantive mechanistic engagement throughout. Row appended to Output475.csv with Tags: `Liao cited, SecondPassAI-Include`.\
+[2026-05-28 12:30:37] (405/474) Teshima-Biol. Blood Marrow Transplant.-2016.1.pdf\
+`teshima2016reprint-cb6 -> SecondPassAI-Include`\
+\
+**Rationale**: Narrative review (Teshima et al. 2016) with GVHD as its primary topic and the gut microbiome given a substantive mechanistic role \'97 Paneth cell loss, intestinal dysbiosis, specific taxa (Clostridia), and microbial metabolites (butyrate/SCFAs) are all named and mechanistically discussed. Narrative review criteria fully met.\
+[2026-05-28 12:31:39] (406/474) Teshima-Biol. Blood Marrow Transplant.-2016.pdf\
+`teshima2016acute-247 -> SecondPassAI-Include`\
+\
+This narrative review on acute GVHD biology clearly meets all narrative-review criteria: GVHD is the entire topic, and the gut microbiome is given a substantive mechanistic role (Paneth cell dysbiosis, butyrate/metabolome, specific taxa). Row appended to Output475.csv.\
+[2026-05-28 12:32:43] (407/474) Thiagarajan-Semin. Immunopathol.-2019.pdf\
+`thiagarajan2019resolution-3b4 -> SecondPassAI-Include []`\
+\
+**Classification:** Include\
+\
+This is a narrative review (Seminars in Immunopathology 2019) on the resolution of acute intestinal GvHD after allo-HCT. All three criteria are met under the narrative review rule: (1) substantively focused on allo-HCT patients, (2) gut microbiota given a substantive mechanistic role \'97 specific taxa (clostridia), diversity metrics, metabolites, and FMT discussed \'97 and (3) intestinal GvHD is the primary topic throughout. Clean include, no edge-case flags needed.\
+[2026-05-28 12:33:38] (408/474) Thomas-J. Adv. Pr. Oncol.-2022.pdf\
+`thomas2022antibiotic-b26 -> SecondPassAI-Include`\
+\
+**Rationale:** This is a narrative/systematic review (n=7 primary studies) in allo-SCT patients examining antibiotic therapy and GI GvHD. All three criteria are met: allo-SCT cohort (C1), gut microbiome diversity from stool analyses is substantively discussed as the mechanistic link \'97 including specific taxa (Lachnospiraceae) and diversity metrics (C2), and GI GvHD is the primary outcome (C3). Clean include under the narrative review rule.\
+[2026-05-28 12:34:54] (409/474) Thompson-Blood-2019.pdf\
+`thompson2019financial-c77 -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-UnmeasuredGutMicrobiome, SecondPassAI-ExcludeReason-PassingMentionOnly]`\
+\
+**Rationale:** This paper (Thompson et al., PLoS ONE 2022 / Blood 2019 abstract) tests financial incentives to improve stool sample collection compliance in allo-HCT patients. The gut microbiome is never actually measured \'97 stool is collected for future research use, but no 16S sequencing, diversity metrics, or named taxa are reported. GVHD appears only as background context in the introduction (one passing sentence linking HCT microbiome disruption to GVHD). Neither Criterion 2 nor Criterion 3 is met.\
+[2026-05-28 12:36:07] (410/474) Toenges-Ann. Hematol.-2024.pdf\
+`toenges2024interventional-134 -> SecondPassAI-EdgeCase-Exclude [SecondPassAI-ExcludeReason-UnmeasuredGutMicrobiome]`\
+\
+**Rationale:** Allo-HSCT adult cohort (\uc0\u10003 ) with GVHD as secondary endpoint (\u10003 ), but the gut microbiome is never measured \'97 no 16S, metagenomics, diversity metrics, or taxa reported. The paper compares antibiotic prophylaxis vs. interventional treatment strategies, invoking gut microbiome disruption as motivating context only. Per the study-type rules for intervention papers without microbiome measurement \u8594  EdgeCase-Exclude.\
+[2026-05-28 12:37:18] (411/474) Toubai-Nat. Microbiol.-2019.pdf\
+`toubai2019host-c73 -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-NonHuman]`\
+\
+**Rationale:** This paper is an entirely murine study \'97 all experiments use mouse models (C57BL/6, BALB/c, C3H.sw, Nlrp6\uc0\u8722 /\u8722  knockouts, bone marrow chimaeras). No human patient cohort exists anywhere in the paper. It fails **Criterion 1 (COHORT)** outright under the `NonHuman` rule. GVHD (Criterion 3) and gut microbiome measurement (Criterion 2) are both present in the mouse models, but the human cohort requirement is unmet.\
+[2026-05-28 12:38:26] (412/474) Trenschel-Bone Marrow Transplant.-2000.pdf\
+`trenschel2000fungal-e1a -> SecondPassAI-EdgeCase-Include [SecondPassAI-EdgeCaseReason-GVHDNotPrimary]`\
+\
+**Rationale:** All three criteria are technically met \'97 allo-BMT cohort (n=134), stool cultures measuring named gut taxa (anaerobic bacteria and fungi, quantified twice weekly), and GVHD substantively engaged as both a measured covariate (Table 1) and a mechanistic link (anaerobic decontamination \uc0\u8594  reduced aGVHD \u8594  potentially reduced IFI). However, the primary study outcome is invasive fungal infection, not GVHD \'97 GVHD enters only as a mechanistic context for IFI risk. Tagged `GVHDNotPrimary` accordingly.\
+[2026-05-28 12:40:21] (413/474) Tu-Int. J. Mol. Sci.-2016.pdf\
+`tu2016role-c3b -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-PassingMentionOnly]`\
+\
+**Rationale:** This is a narrative review on TLR/PRR signaling in GVHD pathogenesis (Tu et al., *Int. J. Mol. Sci.* 2016). The gut microbiome/intestinal flora is mentioned as the source of PAMPs that activate TLRs, but no specific gut taxa, diversity metrics, or microbiome characterization are named \'97 the substantive focus is host innate immune signaling. Fails the narrative review threshold for Criterion 2 ("gut microbiome given a substantive mechanistic role with specific taxa, diversity, or measurable mechanism named").\
+[2026-05-28 12:41:56] (414/474) Ubeda-Infect. Immun.-2013.pdf\
+`ubeda2013intestinal-c28 -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-NoGVHDOutcome]`\
+\
+**Rationale:** The paper studies VRE colonization in allo-HSCT patients using 16S rRNA sequencing of fecal samples (Criterion 2 met, Criterion 1 partially met via patient subset), but GVHD is never mentioned as an outcome, covariate, or focus \'97 the outcome is VRE domination and bloodstream infection. Criterion 3 is explicitly violated.\
+[2026-05-28 12:42:43] (415/474) Ubeda-J. Clin. Investig.-2010.pdf\
+Done.\
+\
+**ubeda2010vancomycinresistant-bed \uc0\u8594  `SecondPassAI-Exclude` [`SecondPassAI-ExcludeReason-NoGVHDOutcome`]**\
+\
+**Rationale:**\
+- **Criterion 1 (Cohort):** Pass \'97 includes allo-HSCT patients in the clinical arm.\
+- **Criterion 2 (Gut microbiome measured):** Pass \'97 16S rDNA pyrosequencing of intestinal/stool samples.\
+- **Criterion 3 (GVHD outcome):** Fail \'97 GVHD is never mentioned in this paper. The outcome is VRE bloodstream invasion (bacterial sepsis), not GVHD.\
+[2026-05-28 12:43:37] (416/474) Varadarajan-Blood-2023.pdf\
+**varadarajan2023effect-b25 \uc0\u8594  `SecondPassAI-EdgeCase-Exclude` [`SecondPassAI-ExcludeReason-UnmeasuredGutMicrobiome`]**\
+\
+**Rationale:** ASH 2023 abstract for a Phase I prebiotic diet feasibility study in HSCT patients (14 allo, 13 auto). Stool samples were collected for metagenomic sequencing, but the abstract explicitly states "Meta-genomic analysis of stool samples is currently ongoing" \'97 no microbiome results are reported. Per the therapeutic-paper rule, this classifies as `EdgeCase-Exclude` with `UnmeasuredGutMicrobiome`. Cohort (allo subset) and GVHD (acute skin GVHD secondary endpoint) criteria are otherwise met.\
+[2026-05-28 12:44:46] (417/474) Varelias-J. Clin. Investig.-2018.pdf\
+`varelias2018recipient-62f -> SecondPassAI-Exclude [SecondPassAI-ExcludeReason-NonHuman]`\
+\
+**Rationale:** The paper is an entirely mouse-based mechanistic study. All in vivo BMT/GVHD experiments use murine cohorts (B6.WT, B6.MR1\'96/\'96, B6D2F1, BALB/c). The 16S rRNA sequencing is of mouse fecal samples. Mentions of humans are discussion/rationale only ("given their very high frequency in humans\'85") \'97 no human patient cohort exists in this paper. Criterion 1 (COHORT) is explicitly violated \uc0\u8594  `Exclude` + `NonHuman`.\
+[2026-05-28 12:46:08] (418/474) Veenendaal-M\'e9d. Microbiol. Immunol.-1988.pdf\
+Done.\
+\
+**`veenendaal1988effect-079` \uc0\u8594  `SecondPassAI-Exclude` [`SecondPassAI-ExcludeReason-NonHuman`]**\
+\
+The paper is a mouse-only study (C57Bl/6J \'d7 C3H/He), with no human patient cohort. Criterion 1 (allo-SCT human cohort) is explicitly violated. Row appended to `Output475.csv`.\
+[2026-05-28 12:46:55] (419/474) Vehreschild-Blood-2021.pdf\
+**vehreschild2021phase-783 \uc0\u8594  `SecondPassAI-EdgeCase-Exclude`**\
+\
+**Reasoning:**\
+- **Criterion 1 (Cohort):** Primary cohort is AML/MDS patients on intensive chemotherapy \'97 not allo-SCT. Allo-HSCT patients are a named subset ("transplanted patients") but the trial was not designed around them. \uc0\u8594  `WrongCohort` (violated for primary cohort) + `SubsetOnly` (allo-HSCT subset exists and is separable).\
+- **Criterion 2 (Gut microbiome):** "Diversity of the gut microbiome" is a secondary endpoint, so microbiome will be measured. \uc0\u10003 \
+- **Criterion 3 (GVHD):** Acute GvHD incidence is a secondary/exploratory endpoint only; primary outcome is CDI prevention. \uc0\u8594  `GVHDNotPrimary`.\
+\
+Tags appended: `SecondPassAI-EdgeCase-Exclude, SecondPassAI-ExcludeReason-WrongCohort, SecondPassAI-EdgeCaseReason-SubsetOnly, SecondPassAI-EdgeCaseReason-GVHDNotPrimary`\
+[2026-05-28 12:48:53] (420/474) Velden-Biol. Blood Marrow Transplant.-2013.pdf\
+`velden2013role-e83 -> SecondPassAI-Include`\
+\
+**Classification rationale:**\
+- **Criterion 1 (Cohort)**: 153 adults undergoing matched-related allo-SCT \'97 clear pass.\
+- **Criterion 2 (Gut microbiome measured)**: Candida colonization evaluated from fecal samples; named gut taxon abundance from stool qualifies under the criterion.\
+- **Criterion 3 (GVHD outcome)**: Acute GVHD and GI-GVHD are the primary outcomes, substantively engaged throughout.\
+\
+Row appended to `Output475.csv` with tag `SecondPassAI-Include`.\
+[2026-05-28 12:49:58] (421/474) Villa-Curr. Pathobiol. Rep.-2018.pdf\
+You've hit your limit \'b7 resets 5:10pm (America/Denver)\
+[error] claude exited with 1 on 'Villa-Curr. Pathobiol. Rep.-2018.pdf'.\
+[error] Stopping. Rerun the script to resume.\
+zsh: permission denied: /Users/sophiehuebler/Documents/ODSi/ODSiData/AI_assisted_litreview/prompts/screening-ft_v3.md\
+sophiehuebler@Sophies-MBP ~ % }
