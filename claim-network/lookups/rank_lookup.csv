@@ -1,87 +1,87 @@
-subject,rank_as_cited,source
-Actinomyces,genus,July synthesis
-Actinomycetaceae,family,July synthesis
-Akkermansia,genus,July synthesis
-Akkermansia muciniphila,species,July synthesis
-Alphaproteobacteria,class,July synthesis
-Anaerostipes,genus,July synthesis
-B. mimicus,species,July synthesis
-Bacillus,genus,July synthesis
-Bacteroides,genus,July synthesis
-Bacteroides fragilis,species,July synthesis
-Bacteroides ovatus,species,July synthesis
-Bacteroides thetaiotaomicron,species,July synthesis
-Bacteroidetes,phylum,July synthesis
-Bifidobacterium,genus,July synthesis
-Bifidobacterium longum,species,July synthesis
-Bile-acid-producing bacteria,functional,July synthesis
-Blautia,genus,July synthesis
-Brucella,genus,July synthesis
-C. perfringens,species,July synthesis
-Candida,genus,July synthesis
-Clostridia,class,July synthesis
-Clostridiales,order,July synthesis
-Clostridium,genus,July synthesis
-Clostridium butyricum,species,July synthesis
-Clostridium coccoides),species,July synthesis
-Clostridium leptum,species,July synthesis
-Clostridium savagella,species,July synthesis
-Clostridium scindens,species,July synthesis
-Clostridium sporogenes,species,July synthesis
-Coriobacteriaceae,family,July synthesis
-Cyanobacteria,phylum,July synthesis
-Eggerthella,genus,July synthesis
-Enterobacter,genus,July synthesis
-Enterobacteriaceae,family,July synthesis
-Enterococcaceae,family,July synthesis
-Enterococcus,genus,July synthesis
-Enterococcus faecalis,species,July synthesis
-Escherichia,genus,July synthesis
-Escherichia coli,species,July synthesis
-Eubacterium,genus,July synthesis
-Eubacterium hallii,species,July synthesis
-Eubacterium rectale,species,July synthesis
-Faecalibacterium,genus,July synthesis
-Faecalibacterium duncaniae,species,July synthesis
-Faecalibacterium prausnitzii,species,July synthesis
-Firmicutes,phylum,July synthesis
-Fusobacterium,genus,July synthesis
-Gammaproteobacteria,class,July synthesis
-Gentamicin-resistant bacteria,functional,July synthesis
-Gram-negative bacteria (LPS),functional,July synthesis
-Gram-positive bacteria,functional,July synthesis
-Indole/tryptophan-producing bacteria,functional,July synthesis
-Lachnoclostridium,genus,July synthesis
-Lachnospiraceae,family,July synthesis
-Lactate/lactase-producing bacteria,functional,July synthesis
-Lactobacillales,order,July synthesis
-Lactobacillus,genus,July synthesis
-Lactobacillus plantarum,species,July synthesis
-Lactobacillus reuteri,species,July synthesis
-Lactobacillus rhamnosus,species,July synthesis
-Moraxellaceae,family,July synthesis
-Odoribacteraceae,family,July synthesis
-Oscillospiraceae,family,July synthesis
-Parabacteroides distasonis,species,July synthesis
-Pasteurellaceae,family,July synthesis
-Picobirnavirus,genus,July synthesis
-Porphyromonas,genus,July synthesis
-Prevotella,genus,July synthesis
-Propionibacterium freudenreichii,species,July synthesis
-Proteobacteria,phylum,July synthesis
-Proteus,genus,July synthesis
-Roseburia,genus,July synthesis
-Roseburia hominis,species,July synthesis
-Ruminococcaceae,family,July synthesis
-Ruminococcus,genus,July synthesis
-Ruminococcus gnavus,species,July synthesis
-SCFA-producing bacteria,functional,July synthesis
-Salmonella,genus,July synthesis
-Segmented filamentous bacteria,functional,July synthesis
-Sharpea,genus,July synthesis
-Streptococci,genus,July synthesis
-Streptococcus,genus,July synthesis
-Trichoderma,genus,July synthesis
-Vancomycin-resistant bacteria,functional,July synthesis
-Veillonella,genus,July synthesis
-bacterial flagellin,molecular_pattern,July synthesis
+subject,rank_as_cited,source,subject_group
+Actinomyces,genus,July synthesis,Actinobacteria (Actinomycetota)
+Actinomycetaceae,family,July synthesis,Actinobacteria (Actinomycetota)
+Akkermansia,genus,July synthesis,Verrucomicrobia
+Akkermansia muciniphila,species,July synthesis,Verrucomicrobia
+Alphaproteobacteria,class,July synthesis,Proteobacteria (Pseudomonadota)
+Anaerostipes,genus,July synthesis,Firmicutes (Bacillota)
+B. mimicus,species,July synthesis,Other/unclassified
+Bacillus,genus,July synthesis,Firmicutes (Bacillota)
+Bacteroides,genus,July synthesis,Bacteroidetes (Bacteroidota)
+Bacteroides fragilis,species,July synthesis,Bacteroidetes (Bacteroidota)
+Bacteroides ovatus,species,July synthesis,Bacteroidetes (Bacteroidota)
+Bacteroides thetaiotaomicron,species,July synthesis,Bacteroidetes (Bacteroidota)
+Bacteroidetes,phylum,July synthesis,Bacteroidetes (Bacteroidota)
+Bifidobacterium,genus,July synthesis,Actinobacteria (Actinomycetota)
+Bifidobacterium longum,species,July synthesis,Actinobacteria (Actinomycetota)
+Bile-acid-producing bacteria,functional,July synthesis,functional group
+Blautia,genus,July synthesis,Firmicutes (Bacillota)
+Brucella,genus,July synthesis,Proteobacteria (Pseudomonadota)
+C. perfringens,species,July synthesis,Other/unclassified
+Candida,genus,July synthesis,Fungi
+Clostridia,class,July synthesis,Firmicutes (Bacillota)
+Clostridiales,order,July synthesis,Firmicutes (Bacillota)
+Clostridium,genus,July synthesis,Firmicutes (Bacillota)
+Clostridium butyricum,species,July synthesis,Firmicutes (Bacillota)
+Clostridium coccoides),species,July synthesis,Firmicutes (Bacillota)
+Clostridium leptum,species,July synthesis,Firmicutes (Bacillota)
+Clostridium savagella,species,July synthesis,Firmicutes (Bacillota)
+Clostridium scindens,species,July synthesis,Firmicutes (Bacillota)
+Clostridium sporogenes,species,July synthesis,Firmicutes (Bacillota)
+Coriobacteriaceae,family,July synthesis,Actinobacteria (Actinomycetota)
+Cyanobacteria,phylum,July synthesis,Cyanobacteria
+Eggerthella,genus,July synthesis,Actinobacteria (Actinomycetota)
+Enterobacter,genus,July synthesis,Proteobacteria (Pseudomonadota)
+Enterobacteriaceae,family,July synthesis,Proteobacteria (Pseudomonadota)
+Enterococcaceae,family,July synthesis,Firmicutes (Bacillota)
+Enterococcus,genus,July synthesis,Firmicutes (Bacillota)
+Enterococcus faecalis,species,July synthesis,Firmicutes (Bacillota)
+Escherichia,genus,July synthesis,Proteobacteria (Pseudomonadota)
+Escherichia coli,species,July synthesis,Proteobacteria (Pseudomonadota)
+Eubacterium,genus,July synthesis,Firmicutes (Bacillota)
+Eubacterium hallii,species,July synthesis,Firmicutes (Bacillota)
+Eubacterium rectale,species,July synthesis,Firmicutes (Bacillota)
+Faecalibacterium,genus,July synthesis,Firmicutes (Bacillota)
+Faecalibacterium duncaniae,species,July synthesis,Firmicutes (Bacillota)
+Faecalibacterium prausnitzii,species,July synthesis,Firmicutes (Bacillota)
+Firmicutes,phylum,July synthesis,Firmicutes (Bacillota)
+Fusobacterium,genus,July synthesis,Fusobacteria
+Gammaproteobacteria,class,July synthesis,Proteobacteria (Pseudomonadota)
+Gentamicin-resistant bacteria,functional,July synthesis,functional group
+Gram-negative bacteria (LPS),functional,July synthesis,functional group
+Gram-positive bacteria,functional,July synthesis,functional group
+Indole/tryptophan-producing bacteria,functional,July synthesis,functional group
+Lachnoclostridium,genus,July synthesis,Firmicutes (Bacillota)
+Lachnospiraceae,family,July synthesis,Firmicutes (Bacillota)
+Lactate/lactase-producing bacteria,functional,July synthesis,functional group
+Lactobacillales,order,July synthesis,Firmicutes (Bacillota)
+Lactobacillus,genus,July synthesis,Firmicutes (Bacillota)
+Lactobacillus plantarum,species,July synthesis,Firmicutes (Bacillota)
+Lactobacillus reuteri,species,July synthesis,Firmicutes (Bacillota)
+Lactobacillus rhamnosus,species,July synthesis,Firmicutes (Bacillota)
+Moraxellaceae,family,July synthesis,Proteobacteria (Pseudomonadota)
+Odoribacteraceae,family,July synthesis,Bacteroidetes (Bacteroidota)
+Oscillospiraceae,family,July synthesis,Firmicutes (Bacillota)
+Parabacteroides distasonis,species,July synthesis,Bacteroidetes (Bacteroidota)
+Pasteurellaceae,family,July synthesis,Proteobacteria (Pseudomonadota)
+Picobirnavirus,genus,July synthesis,Virus
+Porphyromonas,genus,July synthesis,Bacteroidetes (Bacteroidota)
+Prevotella,genus,July synthesis,Bacteroidetes (Bacteroidota)
+Propionibacterium freudenreichii,species,July synthesis,Actinobacteria (Actinomycetota)
+Proteobacteria,phylum,July synthesis,Proteobacteria (Pseudomonadota)
+Proteus,genus,July synthesis,Proteobacteria (Pseudomonadota)
+Roseburia,genus,July synthesis,Firmicutes (Bacillota)
+Roseburia hominis,species,July synthesis,Firmicutes (Bacillota)
+Ruminococcaceae,family,July synthesis,Firmicutes (Bacillota)
+Ruminococcus,genus,July synthesis,Firmicutes (Bacillota)
+Ruminococcus gnavus,species,July synthesis,Firmicutes (Bacillota)
+SCFA-producing bacteria,functional,July synthesis,functional group
+Salmonella,genus,July synthesis,Proteobacteria (Pseudomonadota)
+Segmented filamentous bacteria,functional,July synthesis,functional group
+Sharpea,genus,July synthesis,Firmicutes (Bacillota)
+Streptococci,genus,July synthesis,Other/unclassified
+Streptococcus,genus,July synthesis,Firmicutes (Bacillota)
+Trichoderma,genus,July synthesis,Fungi
+Vancomycin-resistant bacteria,functional,July synthesis,functional group
+Veillonella,genus,July synthesis,Firmicutes (Bacillota)
+bacterial flagellin,molecular_pattern,July synthesis,non-taxonomic

@@ -1,20 +1,32 @@
 #!/usr/bin/env python3
 """Step 1 of 2 (formerly gen2.py).
-Build data/graph_data2.json for the batch-2 GVHD claims/evidence network.
+Build graph_data.json for the GVHD claims/evidence network.
 Model (same as gvhd_claims_network_alt.html):
   nodes: review papers (Citing) + primary papers (ref) + claim nodes (canonical claims)
   edges: CITES  = review  -> primary  (review cites the primary for that claim)
          SUPPORTS = primary -> claim  (primary is evidence for the claim)
-Source: Claims_Synthesis2.xlsx (Atomic_Claims + Canonical_Claims).
+Source: Claims_Synthesis2.xlsx (default) or a path passed as argv[1].
+
+Usage:
+  python build_graph_json_from_synthesis.py                    # default (Synthesis2)
+  python build_graph_json_from_synthesis.py path/to/input.xlsx [path/to/output.json]
 """
-import openpyxl, json, re
+import openpyxl, json, re, sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 DATA_DIR = HERE.parent / "data"
 from collections import defaultdict, OrderedDict
 
-XLSX = DATA_DIR / "Claims_Synthesis2.xlsx"
+if len(sys.argv) > 1:
+    XLSX = Path(sys.argv[1])
+    if not XLSX.is_absolute():
+        XLSX = Path.cwd() / XLSX
+    OUT_JSON = Path(sys.argv[2]) if len(sys.argv) > 2 else XLSX.with_suffix(".json")
+else:
+    XLSX = DATA_DIR / "Claims_Synthesis2.xlsx"
+    OUT_JSON = DATA_DIR / "graph_data2.json"
+
 wb = openpyxl.load_workbook(XLSX, read_only=True)
 
 def sheet(name):
@@ -130,7 +142,7 @@ for (cit_id, ref_id), v in cites.items():
         "weight": v["w"], "ewidth": 1.5 + v["w"] * 0.7}})
 
 out = {"nodes": nodes, "edges": edges}
-json.dump(out, open(DATA_DIR / "graph_data2.json", "w"))
+json.dump(out, open(OUT_JSON, "w"))
 nclaim = sum(1 for n in nodes if n["data"]["ntype"] == "claim")
 nrev = sum(1 for n in nodes if n["data"].get("role") == "review")
 nprim = sum(1 for n in nodes if n["data"].get("role") == "primary")

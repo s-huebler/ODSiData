@@ -36,8 +36,9 @@ def load_july() -> pd.DataFrame:
 
 
 def run_pipeline_steps() -> pd.DataFrame:
-    """Run all implemented steps; skip stubs gracefully."""
-    steps = ["01_atomize", "02_subjects", "04_valence", "05_mechanism"]
+    """Run all implemented steps in order; skip on first stub."""
+    steps = ["01_atomize", "02_subjects", "03_taxonomy",
+             "04_valence", "05_mechanism", "06_canonical"]
     df = None
     ran = []
     for name in steps:
@@ -141,6 +142,50 @@ def _check_per_src_row(july, mine, col_july, col_mine, label):
         print("OK — all values match July.")
 
 
+def _check_canonical(july: pd.DataFrame, mine: pd.DataFrame) -> None:
+    """Compare canonical claim assignments per atomic row."""
+    print("\n── CANONICAL CLAIMS ──────────────────────────────────────────")
+
+    j_ids = july[["src_row", "subject", "canonical_claim_id"]]
+    m_ids = (mine[["src_row", "subject", "canonical_claim_id"]]
+             .assign(src_row=lambda d: d["src_row"].astype(int)))
+
+    merged = j_ids.merge(m_ids, on=["src_row", "subject"],
+                         suffixes=("_j", "_m"), how="outer", indicator=True)
+
+    both     = merged[merged["_merge"] == "both"]
+    j_only   = merged[merged["_merge"] == "left_only"]
+    m_only   = merged[merged["_merge"] == "right_only"]
+    mismatch = both[both["canonical_claim_id_j"].fillna("") !=
+                    both["canonical_claim_id_m"].fillna("")]
+
+    print(f"Matched rows (src_row+subject): {len(both)}")
+    print(f"  ID matches:    {len(both) - len(mismatch)}")
+    print(f"  ID mismatches: {len(mismatch)}")
+    print(f"In July only:    {len(j_only)}")
+    print(f"In mine only:    {len(m_only)}")
+
+    if not mismatch.empty:
+        print("\nMISMATCHED IDs:")
+        print(mismatch[["src_row", "subject",
+                         "canonical_claim_id_j",
+                         "canonical_claim_id_m"]].to_string(index=False))
+    if not j_only.empty:
+        detail = j_only.merge(
+            july[["src_row", "subject", "taxon", "canonical_claim_id"]]
+            .rename(columns={"canonical_claim_id": "claim_id"}),
+            on=["src_row", "subject"], how="left"
+        )
+        print("\nIN JULY ONLY:")
+        print(detail[["src_row", "subject", "taxon", "claim_id"]]
+              .to_string(index=False))
+
+    if mismatch.empty and j_only.empty and m_only.empty:
+        print("OK — canonical claim IDs match July exactly.")
+    elif j_only.empty and m_only.empty:
+        print("\nNote: ID mismatches only — may indicate ordering difference.")
+
+
 def check():
     print("Loading July synthesis …")
     july = load_july()
@@ -167,6 +212,11 @@ def check():
         print("verbatim string; recorded in review/seed_conflicts.csv. Primary matches.")
     else:
         print("\n── MECHANISM — step 05 not yet run")
+
+    if "canonical_claim_id" in mine.columns:
+        _check_canonical(july, mine)
+    else:
+        print("\n── CANONICAL — step 06 not yet run")
 
     print("\n══ DONE ══════════════════════════════════════════════════════")
 
