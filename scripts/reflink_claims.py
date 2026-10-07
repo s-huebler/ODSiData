@@ -36,7 +36,8 @@ Two steps per sheet:
         1. exact author + year + disambiguation-letter suffix,
         2. author + year, ignoring the suffix (if the match is unique),
         3. author + year where the bibtex author ends with the cited surname,
-           handling keys that prepend a first name (if the match is unique).
+           handling keys that prepend a first name (if the match is unique),
+        4. author with the year off by one (online vs issue year), if unique.
 
    When NO reference can be found and the "Cited" cell is not blank, the "Cited"
    cell in the output is highlighted RED for manual review.
@@ -233,6 +234,12 @@ def lookup_author(by_author, citing, token):
     ew = [e for e in entries if e[1] == year and e[0].endswith(author_norm)]
     if len(ew) == 1:
         return ew[0][3]
+    # Tier 4: author + year within +/-1 (unique only). Online-first papers are often
+    # cited by their online year but keyed by their issue year (e.g. "Kujawska et al.
+    # 2024" -> Kujawska_2025).
+    near = [e for e in entries if e[0] == author_norm and abs(int(e[1]) - int(year)) == 1]
+    if len(near) == 1:
+        return near[0][3]
     return None
 
 

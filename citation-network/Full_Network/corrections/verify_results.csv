@@ -1,0 +1,40 @@
+tab,key,mode,doi,status,crossref_title,author,year,journal,title_match
+1,Berzofsky_2020,verify,10.1126/science.aax0701,OK,Cross-reactivity between tumor MHC class I–restricted antigens and an enterococcal bacteriophage,Fluckiger,2020,Science,1.0
+1,Chiu_2013,verify,10.1056/NEJMoa1211115,OK,"Sequence-Based Discovery of
+                    <i>Bradyrhizobium enterica</i>
+                    in Cord Colitis Syndrome",Bhatt,2013,New England Journal of Medicine,1.0
+1,Dupont_2016,verify,10.7326/M14-2693,MISMATCH - check,Fecal Microbiota Transplantation for <i>Clostridium difficile</i> Infection,Drekonja,2015,Annals of Internal Medicine,0.67
+1,Fontana_2018,verify,10.1126/science.aao5774,OK,Gut bacteria selectively promoted by dietary fibers alleviate type 2 diabetes,Zhao,2018,Science,1.0
+1,Huenig_2011,verify,10.1002/eji.201041073,OK,"Integrated T‐cell receptor and costimulatory signals determine TGF‐β‐dependent differentiation and maintenance of Foxp3
+                    <sup>+</sup>
+                    regulatory T cells",Gabryšová,2011,European Journal of Immunology,0.93
+1,Malmstroem_2022,verify,10.1016/S0140-6736(21)02724-0,OK,Global burden of bacterial antimicrobial resistance in 2019: a systematic analysis,Murray,2022,The Lancet,1.0
+1,Quigley_2012,verify,10.1001/jama.2012.3507,MISMATCH - check,Probiotics for the Prevention and Treatment of Antibiotic-Associated Diarrhea,Newberry,2012,JAMA,0.6
+1,Tlaskalova-Hogenova_2009,verify,10.1073/pnas.0809919106,OK,"Differential NF-κB pathways induction by
+                    <i>Lactobacillus plantarum</i>
+                    in the duodenum of healthy humans correlating with immune tolerance",van Baarlen,2009,Proceedings of the National Academy of Sciences,0.92
+2,Lee_2025/10,lookup,10.1182/bloodadvances.2019000934,LIKELY,Using a machine learning algorithm to predict acute graft-versus-host disease following allogeneic transplantation,Arai,2019,Blood Advances,1.0
+2,Lee_2025/32,lookup,10.1186/s12874-024-02237-y,LIKELY,Leveraging machine learning for predicting acute graft-versus-host disease grades in allogeneic hematopoietic cell transplantation for T-cell prolymphocytic leukaemia,Chandra,2024,BMC Medical Research Methodology,1.0
+2,Lee_2025/41,lookup,10.1016/j.jtct.2022.05.038,LIKELY,Toward a Better Understanding of the Atypical Features of Chronic Graft-Versus-Host Disease: A Report from the 2020 National Institutes of Health Consensus Project Task Force,Cuvelier,2022,Transplantation and Cellular Therapy,1.0
+2,Lee_2025/104,lookup,10.1016/j.bbmt.2010.05.019,LIKELY,Graft-versus-Host Disease Treatment: Predictors of Survival,Levine,2010,Biology of Blood and Marrow Transplantation,1.0
+2,Lee_2025/127,lookup,10.1111/bjh.18141,LIKELY,Artificial intelligence recognition of cutaneous chronic <scp>graft‐versus‐host</scp> disease by a deep learning neural network,McNeil,2022,British Journal of Haematology,1.0
+2,Lee_2025/128,lookup,10.1182/blood-2008-07-168401,LIKELY,Initial therapy of acute graft-versus-host disease with low-dose prednisone does not compromise patient outcomes,Mielcarek,2009,Blood,1.0
+2,Lee_2025/151,lookup,10.1016/j.ajpath.2015.01.005,LIKELY,ROCK and Rho,Riches,2015,The American Journal of Pathology,1.0
+2,Lee_2025/161,lookup,10.3324/haematol.2018.190777,LIKELY,The eGVHD App has the potential to improve the accuracy of graft-versus-host disease assessment: a multicenter randomized controlled trial,Schoemans,2018,Haematologica,1.0
+2,Lee_2025/184,lookup,10.1172/jci99261,LIKELY,Survival signal REG3α prevents crypt apoptosis to control acute gastrointestinal graft-versus-host disease,Zhao,2018,Journal of Clinical Investigation,1.0
+3,NA/18,lookup,10.1016/s0140-6736(88)91151-8,WEAK - check,THALIDOMIDE FOR GRAFT-VERSUS-HOST DISEASE AFTER BONE MARROW TRANSPLANTATION,Saurat,1988,The Lancet,0.43
+3,Hsu_2026/112,lookup,10.12688/wellcomeopenres.15628.1,LIKELY,Improving causality in microbiome research: can human genetic epidemiology help?,Wade,2019,Wellcome Open Research,1.0
+3,Mathewson_2015/65,lookup,10.1038/bmt.2008.57,WEAK - check,Prevention and treatment of acute GvHD,Messina,2008,Bone Marrow Transplantation,0.75
+3,Sporrer_2015/34,lookup,10.4049/jimmunol.179.5.3109,WEAK - check,The Paneth Cell α-Defensin Deficiency of Ileal Crohn’s Disease Is Linked to Wnt/Tcf-4,Wehkamp,2007,The Journal of Immunology,0.7
+3,Bai_2025/47,lookup,10.1073/pnas.2011170118,WEAK - check,IDO1 scavenges reactive oxygen species in myeloid-derived suppressor cells to prevent graft-versus-host disease,Ju,2021,Proceedings of the National Academy of Sciences,0.69
+3,Nakagaki_2025/61,lookup,10.1016/b978-0-12-819265-8.00049-8,WEAK - check,Gut Microbiota and Antibiotics: Dysbiosis and Antimicrobial Resistance,Imchen,2022,Comprehensive Gut Microbiota,0.83
+3,Ferrara_2017/1,lookup,10.1097/00007890-197503000-00013,WEAK - check,GRAFT-VERSUS-HOST REACTIONS IN ISOHISTOGENIC RATS,&NA;,1975,Transplantation,0.6
+3,Kumari_2020/84,lookup,10.1093/ndt/gfs133,LIKELY,p-Cresol sulfate and indoxyl sulfate induce similar cellular inflammatory gene expressions in cultured proximal renal tubular cells,Sun,2013,Nephrology Dialysis Transplantation,1.0
+3,Hsu_2026/43,lookup,10.1124/dmd.118.084772,LIKELY,Commensal Gut Bacteria Convert the Immunosuppressant Tacrolimus to Less Potent Metabolites,Guo,2019,Drug Metabolism and Disposition,1.0
+3,Peled_2016/16,lookup,10.3181/00379727-130-33687,WEAK - check,The Response of Iron Metabolism to the Microbial Flora: Studies on Germfree Mice,Donati,1969,Experimental Biology and Medicine,0.75
+3,Crossland_2020/104,lookup,10.17219/acem/155373,WEAK - check,Differential expression of miRNAs from extracellular vesicles in chronic graft-versus-host disease: A preliminary study,Łacina,2022,Advances in Clinical and Experimental Medicine,0.64
+3,Smibert_2020/2,lookup,10.18231/j.ijcbr.2024.033,WEAK - check,Exploring the role of the gut microbiome in modulating response to anti-PD-1 immunotherapy in melanoma patients,Nawal,2025,International Journal of Clinical Biochemistry and Research,0.7
+3,Yue_2024/155,lookup,10.1182/blood.2022017857,LIKELY,GVHD prevention by personalized nutrition,Stein-Thoeringer,2022,Blood,1.0
+3,SoleimaniSamarkhazan_2025/105,lookup,10.1159/000538303,LIKELY,Fecal Microbiota Transfer in Acute Graft-versus-Host Disease following Allogeneic Stem Cell Transplantation,Weber,2024,Visceral Medicine,1.0
+3,Hsu_2026/119,lookup,10.1016/j.trsl.2016.08.002,LIKELY,"Gut microbiome interactions with drug metabolism, efficacy, and toxicity",Wilson,2017,Translational Research,1.0
+3,Hsu_2026/118,lookup,10.1159/000538303,LIKELY,Fecal Microbiota Transfer in Acute Graft-versus-Host Disease following Allogeneic Stem Cell Transplantation,Weber,2024,Visceral Medicine,1.0

@@ -1,0 +1,87 @@
+subject,rank_as_cited,gtdb_name,gtdb_rank,domain,phylum,class,order,family,genus,species,match_method,reclassified,gtdb_release,note
+Actinomyces,genus,Actinomyces,genus,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Actinomycetaceae,Actinomyces,,exact_gtdb,no,r232,
+Actinomycetaceae,family,Actinomycetaceae,family,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Actinomycetaceae,,,exact_gtdb,no,r232,
+Akkermansia,genus,Akkermansia,genus,Bacteria,Verrucomicrobiota,Verrucomicrobiia,Verrucomicrobiales,Akkermansiaceae,Akkermansia,,exact_gtdb,no,r232,
+Akkermansia muciniphila,species,Akkermansia muciniphila,species,Bacteria,Verrucomicrobiota,Verrucomicrobiia,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia muciniphila,exact_gtdb,no,r232,
+Alphaproteobacteria,class,Alphaproteobacteria,class,Bacteria,Pseudomonadota,Alphaproteobacteria,,,,,exact_gtdb,no,r232,
+Anaerostipes,genus,Anaerostipes,genus,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Anaerostipes,,exact_gtdb,no,r232,
+B. mimicus,species,Vibrio mimicus,,Bacteria,Pseudomonadota,Gammaproteobacteria,Vibrionales,Vibrionaceae,Vibrio,Vibrio mimicus,manual,no,r232,Abbreviated binomial; interpreted as Vibrio mimicus; GTDB g__Vibrio
+Bacillus,genus,Bacillus,genus,Bacteria,Bacillota,Bacilli,Bacillales,Bacillaceae,Bacillus,,exact_gtdb,no,r232,
+Bacteroides,genus,Bacteroides,genus,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,,exact_gtdb,no,r232,
+Bacteroides fragilis,species,Bacteroides fragilis,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fragilis,exact_gtdb,no,r232,
+Bacteroides ovatus,species,Bacteroides ovatus,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides ovatus,exact_gtdb,no,r232,
+Bacteroides thetaiotaomicron,species,Bacteroides thetaiotaomicron,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides thetaiotaomicron,exact_gtdb,no,r232,
+Bacteroidetes,phylum,Bacteroidota,phylum,Bacteria,Bacteroidota,,,,,,ncbi_reclassified,yes,r232,NCBI Bacteroidetes → GTDB p__Bacteroidota
+Bifidobacterium,genus,Bifidobacterium,genus,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Bifidobacteriaceae,Bifidobacterium,,exact_gtdb,no,r232,
+Bifidobacterium longum,species,Bifidobacterium longum,species,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Bifidobacteriaceae,Bifidobacterium,Bifidobacterium longum,exact_gtdb,no,r232,
+Bile-acid-producing bacteria,functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
+Blautia,genus,Blautia,genus,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Blautia,,exact_gtdb,no,r232,
+Brucella,genus,Brucella,genus,Bacteria,Pseudomonadota,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Brucella,,exact_gtdb,no,r232,
+C. perfringens,species,Clostridium perfringens,,Bacteria,Bacillota,Clostridia,Eubacteriales,Peptostreptococcaceae,Clostridium,Clostridium perfringens,manual,no,r232,Abbreviated binomial; Clostridium perfringens; GTDB g__Clostridium
+Candida,genus,Candida,,Eukaryota,Ascomycota,Saccharomycetes,Saccharomycetales,Debaryomycaceae,Candida,,manual,no,r232,Fungal genus; NCBI taxonomy; not in GTDB
+Clostridia,class,Clostridia,class,Bacteria,Bacillota,Clostridia,,,,,exact_gtdb,no,r232,
+Clostridiales,order,Clostridiales,order,Bacteria,Bacillota,Clostridia,Clostridiales,,,,exact_gtdb,no,r232,
+Clostridium,genus,Clostridium,genus,Bacteria,Bacillota,Clostridia,Clostridiales,Clostridiaceae,Clostridium,,exact_gtdb,no,r232,
+Clostridium butyricum,species,Clostridium butyricum,species,Bacteria,Bacillota,Clostridia,Clostridiales,Clostridiaceae,Clostridium,Clostridium butyricum,exact_gtdb,no,r232,
+Clostridium coccoides),species,,,Bacteria,Bacillota,Clostridia,,,,,manual,no,r232,Artifact: trailing ')' from July src_row 32 parenthetical extraction; species identity uncertain (likely Blautia coccoides or related)
+Clostridium leptum,species,Clostridium_A leptum,species,Bacteria,Bacillota,Clostridia,Oscillospirales,Acutalibacteraceae,Clostridium_A,Clostridium_A leptum,ncbi_reclassified,yes,r232,GTDB polyphyletic suffix: g__Clostridium_A
+Clostridium savagella,species,Dwaynesavagella gallinarum,species,Bacteria,Bacillota,Clostridia,Clostridiales,Clostridiaceae,Dwaynesavagella,Dwaynesavagella gallinarum,ncbi_reclassified,yes,r232,NCBI Clostridium savagella → GTDB Dwaynesavagella gallinarum
+Clostridium scindens,species,Clostridium_AP scindens,species,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Clostridium_AP,Clostridium_AP scindens,ncbi_reclassified,yes,r232,GTDB polyphyletic suffix: g__Clostridium_AP
+Clostridium sporogenes,species,Clostridium_F sporogenes,species,Bacteria,Bacillota,Clostridia,Clostridiales,Clostridiaceae,Clostridium_F,Clostridium_F sporogenes,ncbi_reclassified,yes,r232,GTDB polyphyletic suffix: g__Clostridium_F
+Coriobacteriaceae,family,Coriobacteriaceae,family,Bacteria,Actinomycetota,Coriobacteriia,Coriobacteriales,Coriobacteriaceae,,,exact_gtdb,no,r232,
+Cyanobacteria,phylum,Cyanobacteriota,phylum,Bacteria,Cyanobacteriota,,,,,,ncbi_reclassified,yes,r232,NCBI Cyanobacteria → GTDB p__Cyanobacteriota
+Eggerthella,genus,Eggerthella,genus,Bacteria,Actinomycetota,Coriobacteriia,Coriobacteriales,Eggerthellaceae,Eggerthella,,exact_gtdb,no,r232,
+Enterobacter,genus,Enterobacter,genus,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Enterobacter,,exact_gtdb,no,r232,
+Enterobacteriaceae,family,Enterobacteriaceae,family,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,,,exact_gtdb,no,r232,
+Enterococcaceae,family,Enterococcaceae,family,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,,,exact_gtdb,no,r232,
+Enterococcus,genus,Enterococcus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,,exact_gtdb,no,r232,
+Enterococcus faecalis,species,Enterococcus faecalis,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,Enterococcus faecalis,exact_gtdb,no,r232,
+Escherichia,genus,Escherichia,genus,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Escherichia,,exact_gtdb,no,r232,
+Escherichia coli,species,Escherichia coli,species,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Escherichia,Escherichia coli,exact_gtdb,no,r232,
+Eubacterium,genus,Eubacterium,genus,Bacteria,Bacillota,Clostridia,Eubacteriales,Eubacteriaceae,Eubacterium,,exact_gtdb,no,r232,
+Eubacterium hallii,species,Anaerobutyricum hallii,species,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Anaerobutyricum,Anaerobutyricum hallii,ncbi_reclassified,yes,r232,NCBI Eubacterium → GTDB Anaerobutyricum
+Eubacterium rectale,species,Roseburia rectalis,species,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Roseburia,Roseburia rectalis,ncbi_reclassified,yes,r232,NCBI Eubacterium rectale → GTDB Roseburia rectalis
+Faecalibacterium,genus,Faecalibacterium,genus,Bacteria,Bacillota,Clostridia,Oscillospirales,Ruminococcaceae,Faecalibacterium,,exact_gtdb,no,r232,
+Faecalibacterium duncaniae,species,Faecalibacterium duncaniae,species,Bacteria,Bacillota,Clostridia,Oscillospirales,Ruminococcaceae,Faecalibacterium,Faecalibacterium duncaniae,exact_gtdb,no,r232,
+Faecalibacterium prausnitzii,species,Faecalibacterium prausnitzii,species,Bacteria,Bacillota,Clostridia,Oscillospirales,Ruminococcaceae,Faecalibacterium,Faecalibacterium prausnitzii,exact_gtdb,no,r232,
+Firmicutes,phylum,Bacillota,phylum,Bacteria,Bacillota,,,,,,ncbi_reclassified,yes,r232,NCBI Firmicutes → GTDB p__Bacillota
+Fusobacterium,genus,Fusobacterium,genus,Bacteria,Fusobacteriota,Fusobacteriia,Fusobacteriales,Fusobacteriaceae,Fusobacterium,,exact_gtdb,no,r232,
+Gammaproteobacteria,class,Gammaproteobacteria,class,Bacteria,Pseudomonadota,Gammaproteobacteria,,,,,exact_gtdb,no,r232,
+Gentamicin-resistant bacteria,functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
+Gram-negative bacteria (LPS),functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
+Gram-positive bacteria,functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
+Indole/tryptophan-producing bacteria,functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
+Lachnoclostridium,genus,Lachnoclostridium,genus,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Lachnoclostridium,,exact_gtdb,no,r232,
+Lachnospiraceae,family,Lachnospiraceae,family,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,,,exact_gtdb,no,r232,
+Lactate/lactase-producing bacteria,functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
+Lactobacillales,order,Lactobacillales,order,Bacteria,Bacillota,Bacilli,Lactobacillales,,,,exact_gtdb,no,r232,
+Lactobacillus,genus,Lactobacillus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Lactobacillus,,exact_gtdb,no,r232,
+Lactobacillus plantarum,species,Lactiplantibacillus plantarum,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Lactiplantibacillus,Lactiplantibacillus plantarum,ncbi_reclassified,yes,r232,NCBI Lactobacillus → GTDB Lactiplantibacillus
+Lactobacillus reuteri,species,Limosilactobacillus reuteri,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Limosilactobacillus,Limosilactobacillus reuteri,ncbi_reclassified,yes,r232,NCBI Lactobacillus → GTDB Limosilactobacillus
+Lactobacillus rhamnosus,species,Lacticaseibacillus rhamnosus,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Lacticaseibacillus,Lacticaseibacillus rhamnosus,ncbi_reclassified,yes,r232,NCBI Lactobacillus → GTDB Lacticaseibacillus
+Moraxellaceae,family,Moraxellaceae,family,Bacteria,Pseudomonadota,Gammaproteobacteria,Pseudomonadales,Moraxellaceae,,,exact_gtdb,no,r232,
+Odoribacteraceae,family,Marinifilaceae,family,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Marinifilaceae,,,ncbi_reclassified,yes,r232,NCBI Odoribacteraceae → GTDB f__Marinifilaceae
+Oscillospiraceae,family,Oscillospiraceae,family,Bacteria,Bacillota,Clostridia,Oscillospirales,Oscillospiraceae,,,exact_gtdb,no,r232,
+Parabacteroides distasonis,species,Parabacteroides distasonis,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,Parabacteroides distasonis,exact_gtdb,no,r232,
+Pasteurellaceae,family,Pasteurellaceae,family,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Pasteurellaceae,,,exact_gtdb,no,r232,
+Picobirnavirus,genus,Picobirnavirus,,Virus,,,,Picobirnaviridae,Picobirnavirus,,manual,no,r232,Dsegmented dsRNA virus; not in GTDB
+Porphyromonas,genus,Porphyromonas,genus,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Porphyromonadaceae,Porphyromonas,,exact_gtdb,no,r232,
+Prevotella,genus,Prevotella,genus,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Prevotella,,exact_gtdb,no,r232,
+Propionibacterium freudenreichii,species,Propionibacterium freudenreichii,species,Bacteria,Actinomycetota,Actinomycetes,Propionibacteriales,Propionibacteriaceae,Propionibacterium,Propionibacterium freudenreichii,exact_gtdb,no,r232,
+Proteobacteria,phylum,Pseudomonadota,phylum,Bacteria,Pseudomonadota,,,,,,ncbi_reclassified,yes,r232,NCBI Proteobacteria → GTDB p__Pseudomonadota
+Proteus,genus,Proteus,genus,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Proteus,,exact_gtdb,no,r232,
+Roseburia,genus,Roseburia,genus,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Roseburia,,exact_gtdb,no,r232,
+Roseburia hominis,species,Roseburia hominis,species,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Roseburia,Roseburia hominis,exact_gtdb,no,r232,
+Ruminococcaceae,family,Ruminococcaceae,family,Bacteria,Bacillota,Clostridia,Oscillospirales,Ruminococcaceae,,,exact_gtdb,no,r232,
+Ruminococcus,genus,Ruminococcus,genus,Bacteria,Bacillota,Clostridia,Oscillospirales,Ruminococcaceae,Ruminococcus,,exact_gtdb,no,r232,
+Ruminococcus gnavus,species,Mediterraneibacter gnavus,species,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Mediterraneibacter,Mediterraneibacter gnavus,ncbi_reclassified,yes,r232,NCBI Ruminococcus → GTDB Mediterraneibacter
+SCFA-producing bacteria,functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
+Salmonella,genus,Salmonella,genus,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Salmonella,,exact_gtdb,no,r232,
+Segmented filamentous bacteria,functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
+Sharpea,genus,Sharpea,genus,Bacteria,Bacillota_I,Bacilli_A,Erysipelotrichales,Coprobacillaceae,Sharpea,,exact_gtdb,no,r232,
+Streptococci,genus,Streptococcus,,Bacteria,Bacillota,Bacilli,Lactobacillales,Streptococcaceae,Streptococcus,,manual,no,r232,Informal plural; corresponds to GTDB g__Streptococcus
+Streptococcus,genus,Streptococcus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Streptococcaceae,Streptococcus,,exact_gtdb,no,r232,
+Trichoderma,genus,Trichoderma,,Eukaryota,Ascomycota,Sordariomycetes,Hypocreales,Hypocreaceae,Trichoderma,,manual,no,r232,Fungal genus; NCBI taxonomy; not in GTDB
+Vancomycin-resistant bacteria,functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
+Veillonella,genus,Veillonella,genus,Bacteria,Bacillota,Negativicutes,Veillonellales,Veillonellaceae,Veillonella,,exact_gtdb,no,r232,
+bacterial flagellin,molecular_pattern,,,,,,,,,,not_applicable,no,,rank=molecular_pattern is not a GTDB biological taxon

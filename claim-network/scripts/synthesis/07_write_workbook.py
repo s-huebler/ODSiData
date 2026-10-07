@@ -49,6 +49,7 @@ def _build_canonical_claims(df: pd.DataFrame) -> pd.DataFrame:
             "subject":            first["subject"],
             "subject_rank":       first["rank_as_cited"],
             "subject_group":      first.get("subject_group", ""),
+            "gtdb_phylum":        first.get("phylum", ""),
             "valence":            first["valence"],
             "outcome_domain":     "GVHD",
             "mechanism_categories": mech_str,
@@ -79,6 +80,9 @@ def _build_atomic_claims(df: pd.DataFrame) -> pd.DataFrame:
         "relationship_verbatim", "mechanism_category", "mechanism_primary",
         "mechanism_verbatim", "citing", "citing_id", "ref_id", "ref_label",
         "evidence", "source", "taxa_cell_verbatim",
+        # GTDB r232 lineage columns (additive; not in July 2026 synthesis)
+        "gtdb_name", "domain", "phylum", "class", "order",
+        "family", "genus", "species", "gtdb_reclassified",
     ]
     for c in cols:
         if c not in out.columns:

@@ -1,0 +1,4 @@
+# GTDB taxonomy cache files — large downloads, not tracked in git.
+# Regenerate with: download from https://data.gtdb.ecogenomic.org/releases/latest/
+*.tsv.gz
+*.tar.gz

@@ -1,0 +1,16 @@
+subject,rank_as_cited,gtdb_name,phylum,note
+Bacteroidetes,phylum,Bacteroidota,Bacteroidota,NCBI Bacteroidetes → GTDB p__Bacteroidota
+Clostridium leptum,species,Clostridium_A leptum,Bacillota,GTDB polyphyletic suffix: g__Clostridium_A
+Clostridium savagella,species,Dwaynesavagella gallinarum,Bacillota,NCBI Clostridium savagella → GTDB Dwaynesavagella gallinarum
+Clostridium scindens,species,Clostridium_AP scindens,Bacillota,GTDB polyphyletic suffix: g__Clostridium_AP
+Clostridium sporogenes,species,Clostridium_F sporogenes,Bacillota,GTDB polyphyletic suffix: g__Clostridium_F
+Cyanobacteria,phylum,Cyanobacteriota,Cyanobacteriota,NCBI Cyanobacteria → GTDB p__Cyanobacteriota
+Eubacterium hallii,species,Anaerobutyricum hallii,Bacillota,NCBI Eubacterium → GTDB Anaerobutyricum
+Eubacterium rectale,species,Roseburia rectalis,Bacillota,NCBI Eubacterium rectale → GTDB Roseburia rectalis
+Firmicutes,phylum,Bacillota,Bacillota,NCBI Firmicutes → GTDB p__Bacillota
+Lactobacillus plantarum,species,Lactiplantibacillus plantarum,Bacillota,NCBI Lactobacillus → GTDB Lactiplantibacillus
+Lactobacillus reuteri,species,Limosilactobacillus reuteri,Bacillota,NCBI Lactobacillus → GTDB Limosilactobacillus
+Lactobacillus rhamnosus,species,Lacticaseibacillus rhamnosus,Bacillota,NCBI Lactobacillus → GTDB Lacticaseibacillus
+Odoribacteraceae,family,Marinifilaceae,Bacteroidota,NCBI Odoribacteraceae → GTDB f__Marinifilaceae
+Proteobacteria,phylum,Pseudomonadota,Pseudomonadota,NCBI Proteobacteria → GTDB p__Pseudomonadota
+Ruminococcus gnavus,species,Mediterraneibacter gnavus,Bacillota,NCBI Ruminococcus → GTDB Mediterraneibacter

@@ -1,0 +1,110 @@
+op,source,ref_id,from_ref_id,to_ref_id,citing_bibtex,local_number,call_prefix,citing_id,BIBTEXKEY,DOI,PMID,TITLE
+UPDATE_REF,tab1 Faculty Opinions Berzofsky_2020 corrected in place,b4606d5f,,,,,,,Fluckiger_2020,10.1126/science.aax0701,,Cross-reactivity between Tumor MHC Class I-restricted Antigens and an Enterococcal Bacteriophage.
+REPOINT_REF,tab1 Faculty Opinions Caspi_2015,,dd99a64b,f8e46f05,,,,,,,,
+REPOINT_REF,tab1 Faculty Opinions Chao_2018,,8b798d91,9e860c0a,,,,,,,,
+UPDATE_REF,tab1 Faculty Opinions Chatila_2018 corrected in place,03b8633c,,,,,,,Telesford_2015,10.1080/19490976.2015.1056973,,A Commensal Symbiotic Factor Derived from Bacteroides Fragilis Promotes Human CD39(+)Foxp3(+) T Cells and Treg Function.
+UPDATE_REF,tab1 Faculty Opinions Chiu_2013 corrected in place,e6c6a09a,,,,,,,Bhatt_2013,10.1056/NEJMoa1211115,,Sequence-based Discovery of Bradyrhizobium Enterica in Cord Colitis Syndrome.
+REPOINT_REF,tab1 Faculty Opinions Conrad_2013,,50ff2b2a,44aeee02,,,,,,,,
+UPDATE_REF,tab1 row8 (Sophie: rename MetaHITConsortium_2010 -> Qin_2010),4e3d3c90,,,,,,,Qin_2010,,,
+REPOINT_REF,tab1 row8 Faculty Opinions -> Qin 2010,,d323d06d,4e3d3c90,,,,,,,,
+REPOINT_REF,tab1 Faculty Opinions DOrazio_2015,,3dc994cd,f0c68fbf,,,,,,,,
+UPDATE_REF,tab1 Faculty Opinions Dupont_2016 corrected in place,842cc889,,,,,,,Drekonja_2015,10.7326/M14-2693,,Fecal Microbiota Transplantation for the Treatment of Clostridium Difficile Infection: A Systematic Review.
+UPDATE_REF,tab1 Faculty Opinions Fontana_2018 corrected in place,14a9bd92,,,,,,,Zhao_2018b,10.1126/science.aao5774,,Gut Bacteria Selectively Promoted by Dietary Fibers Alleviate Type 2 Diabetes.
+REPOINT_REF,tab1 Faculty Opinions Garrett_2015,,ac796dde,f68c3f47,,,,,,,,
+REPOINT_REF,tab1 Faculty Opinions Grainger_2018,,6a1728f9,cdb3fa69,,,,,,,,
+REPOINT_REF,tab1 Faculty Opinions Hehlmann_2020,,8933682c,b3afeea3,,,,,,,,
+UPDATE_REF,tab1 Faculty Opinions Huenig_2011 corrected in place,6bf8912a,,,,,,,Gabrysova_2011,10.1002/eji.201041073,,Integrated T-cell Receptor and Costimulatory Signals Determine TGF-$\beta$-dependent Differentiation and Maintenance of Foxp3+ Regulatory T Cells.
+UPDATE_REF,tab1 Faculty Opinions Malmstroem_2022 corrected in place,91fde01c,,,,,,,Murray_2022,10.1016/S0140-6736(21)02724-0,,Global Burden of Bacterial Antimicrobial Resistance in 2019: A Systematic Analysis.
+REPOINT_REF,tab1 Faculty Opinions Oliver_2015,,77ff2fc9,f68c3f47,,,,,,,,
+REPOINT_REF,tab1 Faculty Opinions Pettersson_2018,,77d8e188,4d62d71b,,,,,,,,
+REPOINT_REF,tab1 Faculty Opinions Postow_2016,,33f2a630,318c35c7,,,,,,,,
+UPDATE_REF,tab1 Faculty Opinions Quigley_2012 corrected in place,6ed4d91e,,,,,,,Hempel_2012,10.1001/jama.2012.3507,,Probiotics for the Prevention and Treatment of Antibiotic-Associated Diarrhea: A Systematic Review and Meta-Analysis.
+REPOINT_REF,tab1 Faculty Opinions Quigley_2020,,cd5bf475,1c7b8ee9,,,,,,,,
+REPOINT_REF,tab1 Faculty Opinions Saas_2015,,98d13d38,58db64e8,,,,,,,,
+REPOINT_REF,tab1 Faculty Opinions Saas_2016,,be551e70,c03d7be7,,,,,,,,
+UPDATE_REF,tab1 Faculty Opinions Tlaskalova-Hogenova_2009 corrected in place,811fad86,,,,,,,vanBaarlen_2009,10.1073/pnas.0809919106,,Differential NF-kappaB Pathways Induction by Lactobacillus Plantarum in the Duodenum of Healthy Humans Correlating with Immune Tolerance.
+REPOINT_REF,tab1 Faculty Opinions Valenzano_2018,,1217443b,7e415ca9,,,,,,,,
+REPOINT_REF,tab1 Faculty Opinions Wiersinga_2019,,cdb93c5a,51e3c6cd,,,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,c7df3c52,Lee_2025,5,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,aa1b8f83,Lee_2025,8,,,,,,
+NEW_REF,tab2 Lee_2025 new entry (Crossref),a3afd115,,,,,,,Arai_2019,10.1182/bloodadvances.2019000934,,Using a machine learning algorithm to predict acute graft-versus-host disease following allogeneic transplantation
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,a3afd115,Lee_2025,10,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,b2055024,Lee_2025,29,,,,,,
+NEW_REF,tab2 Lee_2025 new entry (Crossref),798b979d,,,,,,,Chandra_2024,10.1186/s12874-024-02237-y,,Leveraging machine learning for predicting acute graft-versus-host disease grades in allogeneic hematopoietic cell transplantation for T-cell prolymphocytic leukaemia
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,798b979d,Lee_2025,32,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,f1b47d5e,Lee_2025,35,,,,,,
+NEW_REF,tab2 Lee_2025 new entry (Crossref),4e201839,,,,,,,Cuvelier_2022,10.1016/j.jtct.2022.05.038,,Toward a Better Understanding of the Atypical Features of Chronic Graft-Versus-Host Disease: A Report from the 2020 National Institutes of Health Consensus Project Task Force
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,4e201839,Lee_2025,41,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,3b1c643a,Lee_2025,64,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,8a1a8fd5,Lee_2025,65,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,e583a292,Lee_2025,71,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,6db2c38a,Lee_2025,72,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,0afd09a9,Lee_2025,74,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,08eb50be,Lee_2025,79,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,63b8e8a4,Lee_2025,80,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,d6e90590,Lee_2025,83,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,8d2ed8ae,Lee_2025,84,,,,,,
+NEW_REF,tab2 Lee_2025 new entry (Crossref),c8238b0b,,,,,,,Levine_2010,10.1016/j.bbmt.2010.05.019,,Graft-versus-Host Disease Treatment: Predictors of Survival
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,c8238b0b,Lee_2025,104,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,8a892c10,Lee_2025,105,,,,,,
+NEW_REF,tab2 Lee_2025 new entry (Crossref),c0a02054,,,,,,,McNeil_2022,10.1111/bjh.18141,,Artificial intelligence recognition of cutaneous chronic <scp>graft‐versus‐host</scp> disease by a deep learning neural network
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,c0a02054,Lee_2025,127,,,,,,
+NEW_REF,tab2 Lee_2025 new entry (Crossref),2c4ab959,,,,,,,Mielcarek_2009,10.1182/blood-2008-07-168401,,Initial therapy of acute graft-versus-host disease with low-dose prednisone does not compromise patient outcomes
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,2c4ab959,Lee_2025,128,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,8fb68cb9,Lee_2025,129,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,61f4a031,Lee_2025,134,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,30b6ae74,Lee_2025,143,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,56e82f9b,Lee_2025,148,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,6d0bdfc0,Lee_2025,151,,,,,,
+NEW_REF,tab2 Lee_2025 new entry (Crossref),7e9d410f,,,,,,,Schoemans_2018,10.3324/haematol.2018.190777,,The eGVHD App has the potential to improve the accuracy of graft-versus-host disease assessment: a multicenter randomized controlled trial
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,7e9d410f,Lee_2025,161,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,a35361d0,Lee_2025,162,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,e0f85a8f,Lee_2025,171,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,290780f2,Lee_2025,172,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,f9fee583,Lee_2025,177,,,,,,
+REPOINT_ROW,tab2 Lee_2025 shifted DOIs,,,7c45ec7b,Lee_2025,184,,,,,,
+NEW_REF,tab3 new entry Hsu_2026 #112,5123b897,,,,,,,Wade_2019,10.12688/wellcomeopenres.15628.1,,Improving causality in microbiome research: can human genetic epidemiology help?
+REPOINT_ROW,tab3 wrong link,,,5123b897,Hsu_2026,112,,,,,,
+REPOINT_ROW,tab3 wrong link,,,53a387e3,Bai_2025,47,,,,,,
+NEW_REF,"tab3 row7 (Sophie: no DOI; PMID 36568836, PMCID PMC9765331)",d52215db,,,,,,,Matzaras_2022,,36568836,Gut microbiota modulation and prevention of dysbiosis as an alternative approach to antimicrobial resistance: a narrative review
+REPOINT_ROW,tab3 row7,,,d52215db,Nakagaki_2025,61,,,,,,
+REPOINT_ROW,tab3 wrong link,,,774e1e44,Ferrara_2017,1,,,,,,
+NEW_REF,tab3 new entry Kumari_2020 #84,447017d7,,,,,,,Sun_2013,10.1093/ndt/gfs133,,p-Cresol sulfate and indoxyl sulfate induce similar cellular inflammatory gene expressions in cultured proximal renal tubular cells
+REPOINT_ROW,tab3 wrong link,,,447017d7,Kumari_2020,84,,,,,,
+NEW_REF,tab3 new entry Hsu_2026 #43,852e1f67,,,,,,,Guo_2019,10.1124/dmd.118.084772,,Commensal Gut Bacteria Convert the Immunosuppressant Tacrolimus to Less Potent Metabolites
+REPOINT_ROW,tab3 wrong link,,,852e1f67,Hsu_2026,43,,,,,,
+REPOINT_ROW,tab3 wrong link,,,d57f0030,Peled_2016,16,,,,,,
+REPOINT_ROW,tab3 wrong link,,,fa5eff24,Smibert_2020,2,,,,,,
+REPOINT_ROW,tab3 wrong link,,,196901b9,Yue_2024,155,,,,,,
+REPOINT_ROW,tab3 wrong link,,,7ebd5697,SoleimaniSamarkhazan_2025,105,,,,,,
+NEW_REF,tab3 new entry Hsu_2026 #119,544033c7,,,,,,,Wilson_2017,10.1016/j.trsl.2016.08.002,,"Gut microbiome interactions with drug metabolism, efficacy, and toxicity"
+REPOINT_ROW,tab3 wrong link,,,544033c7,Hsu_2026,119,,,,,,
+REPOINT_ROW,tab3 wrong link,,,7ebd5697,Hsu_2026,118,,,,,,
+REPOINT_REF,tab4 preprint Andermann_2021a -> published Andermann_2021,,3535a679,b6fc1087,,,,,,,,
+REPOINT_REF,tab4 preprint Assmann_2020 -> published Assmann_2021,,0d8ac233,f5fb27cd,,,,,,,,
+REPOINT_REF,tab4 preprint Contaifer_2018 -> published Contaifer_2019,,cc58d4ae,d6d5abd2,,,,,,,,
+REPOINT_REF,tab4 preprint Fujiwara_2020 -> published Fujiwara_2021a,,ecefea06,a520f554,,,,,,,,
+UPDATE_REF,tab4 preprint Gurry_2017: published DOI from Sophie,8a911149,,,,,,,Gurry_2018,10.1038/s41598-018-30783-1,,
+UPDATE_REF,tab4 preprint Minot_2019: published DOI from Sophie,1f653c3c,,,,,,,,10.1186/s40168-019-0722-6,,
+REPOINT_REF,tab4 preprint Schluter_2019 -> published Schluter_2020 (Claude-added: bioRxiv 618256 = Nature 2020),,e101972c,9cca053a,,,,,,,,
+UPDATE_REF,tab4 preprint Tourret_2021: published DOI from Sophie,694df361,,,,,,,,10.1136/jitc-2021-003123,,
+REPOINT_REF,tab5 duplicate group 12: merge Horowitz_1990b -> Horowitz_1990,,f3dbf7c3,101b8504,,,,,,,,
+REPOINT_REF,tab5 duplicate group 14: merge McCarthy_1991 -> McCarthy_1991a,,faa5c1d7,3a39a908,,,,,,,,
+REPOINT_REF,tab5 duplicate group 15: merge Panoskaltsis-Mortari_1998a -> Panoskaltsis-Mortari_1998,,12ef2a8a,ac79de28,,,,,,,,
+REPOINT_REF,tab5 duplicate group 16: merge Krijanovski_1999a -> Krijanovski_1999,,29f1651d,205727e7,,,,,,,,
+REPOINT_REF,tab5 duplicate group 17: merge Severyn_2019a -> Severyn_2019,,47c81392,604aa802,,,,,,,,
+REPOINT_REF,tab5 duplicate group 20: merge Sullivan_1988 -> Sullivan_1988a,,e12461e4,9da032f3,,,,,,,,
+REPOINT_REF,tab5 duplicate group 21: merge Marr_2000b -> Marr_2000,,627d42a7,4cb8d77f,,,,,,,,
+REPOINT_REF,tab5 duplicate group 23: merge Kaiko_2016a -> Kaiko_2016,,e2d10532,3411305d,,,,,,,,
+REPOINT_REF,tab5 duplicate group 25: merge Cooke_2002a -> Cooke_2002,,f88b6825,0d24df70,,,,,,,,
+REPOINT_REF,tab5 duplicate group 5: merge Hartwell_2018 -> Hartwell_2017,,8a1a8fd5,8767a2e1,,,,,,,,
+REPOINT_REF,tab5 duplicate group 8: merge Antin_1992 -> Antin_1992a,,67c7467a,658f966d,,,,,,,,
+REPOINT_REF,tab5 duplicate group 9: merge Beelen_1992b -> Beelen_1992,,9410640e,6e2be306,,,,,,,,
+REPOINT_REF,tab6 erratum -> original Brown_2013,,50745928,fe1c92ff,,,,,,,,
+UPDATE_REF,tab6 no-title: filled from citation (Claude; Sophie left blank),54fd3ee1,,,,,,,,,,Interleukin-6 and chronic inflammation
+REPOINT_REF,tab6 corrigendum -> original Mathewson_2016,,408b40d5,c03d7be7,,,,,,,,
+SET_CITING,citing_bibtex/citing_id were NA,,,,Malard_2022,,Malard_2022,2536ccb9,,,,
+SET_CITING,citing_bibtex/citing_id were NA,,,,Seguy_2023,,Seguy&Hueso_2023,daa0dcc8,,,,
+NEW_REF,citing paper Qayed & Horan (Mini-Rev Med Chem 16:193-199); citation from Sophie,d9831916,,,,,,,Qayed_2015,10.2174/1389557515666150722110547,,The Role of Intestinal Microbiota in Graft versus Host Disease
+SET_CITING,citing_bibtex/citing_id were NA,,,,Qayed_2015,,Qayed&Horan_2015,d9831916,,,,
+REPOINT_ROW,tab3 row2 (Sophie: Qayed&Horan_2015 #18 -> Lampert_1988),,,e5412fe2,Qayed_2015,18,,,,,,

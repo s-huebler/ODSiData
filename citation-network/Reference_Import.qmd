@@ -4,17 +4,20 @@ format: html
 editor: visual
 ---
 
+> **Archived build (July 2026).** Every code chunk above the "Post-QA" section is commented out and set to `eval: false`. It is kept to show how the dictionaries were first built. Do not rerun it: it assigns new random `ref_id`s and would undo the October 2026 corrections. The current workflow is the "Post-QA" section at the end of this file.
+
 # Set up
 
 ```{r}
-library(tidyverse)
-library(readxl)
-library(stringr)
-library(stringi)
-library(ggraph)
-library(tidygraph)
-library(purrr)
-library(bib2df)
+#| eval: false
+# library(tidyverse)
+# library(readxl)
+# library(stringr)
+# library(stringi)
+# library(ggraph)
+# library(tidygraph)
+# library(purrr)
+# library(bib2df)
 ```
 
 # Batch 1
@@ -24,8 +27,9 @@ library(bib2df)
 10 original reviews,
 
 ```{r}
-batch1a <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Doi_References/batch1a_dois_all.xlsx")%>%
-    transform(local_number = as.numeric(local_number))
+#| eval: false
+# batch1a <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Doi_References/batch1a_dois_all.xlsx")%>%
+#     transform(local_number = as.numeric(local_number))
 
 ```
 
@@ -34,15 +38,16 @@ batch1a <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Doi_References
 22 selected best reviews with pubmed format
 
 ```{r}
-batch1b<- read_excel("~/Documents/ODSi/ODSiData/citation-network/Doi_References/batch1b_dois_all.xlsx")%>%
-  select(-"doi_source")
+#| eval: false
+# batch1b<- read_excel("~/Documents/ODSi/ODSiData/citation-network/Doi_References/batch1b_dois_all.xlsx")%>%
+#   select(-"doi_source")
 
 
-batch1 <- rbind(batch1a, batch1b)%>%
-    transform(local_number = as.numeric(local_number))
-table(table(batch1$doi))
+# batch1 <- rbind(batch1a, batch1b)%>%
+#     transform(local_number = as.numeric(local_number))
+# table(table(batch1$doi))
 
-#rm(batch1a, batch1b)
+# #rm(batch1a, batch1b)
 ```
 
 # Batch 2: Pubmeds & non Pubmeds without abbreviations
@@ -50,86 +55,92 @@ table(table(batch1$doi))
 ## Batch 2a: Pubmed with rough abbreviations
 
 ```{r}
+#| eval: false
 
-batch2a_path <- "~/Documents/ODSi/ODSiData/citation-network/Hand_Copied_References/batch2a_raw.xlsx"
-batch2a <- batch2a_path |>
-  excel_sheets() |>
-  set_names() |>
-  map(\(sheet) read_excel(batch2a_path, sheet = sheet)) |>
-  list_rbind(names_to = "sheet_name") %>%
-  group_by(sheet_name) %>%
-  fill(citing_paper, citing_doi, .direction = "down") %>%
-  mutate(local_number = row_number()) %>%
-  ungroup()%>%
-    transform(local_number = as.numeric(local_number))
+# batch2a_path <- "~/Documents/ODSi/ODSiData/citation-network/Hand_Copied_References/batch2a_raw.xlsx"
+# batch2a <- batch2a_path |>
+#   excel_sheets() |>
+#   set_names() |>
+#   map(\(sheet) read_excel(batch2a_path, sheet = sheet)) |>
+#   list_rbind(names_to = "sheet_name") %>%
+#   group_by(sheet_name) %>%
+#   fill(citing_paper, citing_doi, .direction = "down") %>%
+#   mutate(local_number = row_number()) %>%
+#   ungroup()%>%
+#     transform(local_number = as.numeric(local_number))
 ```
 
 ## Batch 2b: Pubmeds without abbreviations1
 
 ```{r}
-batch2b_path <- "~/Documents/ODSi/ODSiData/citation-network/Hand_Copied_References/batch2b_raw.xlsx"
+#| eval: false
+# batch2b_path <- "~/Documents/ODSi/ODSiData/citation-network/Hand_Copied_References/batch2b_raw.xlsx"
 
-batch2b <- batch2b_path |>
-  excel_sheets() |>
-  set_names() |>
-  map(\(sheet) read_excel(batch2b_path, sheet = sheet)) |>
-  list_rbind(names_to = "sheet_name") %>%
-  group_by(sheet_name) %>%
-  fill(citing_paper, citing_doi, .direction = "down") %>%
-  mutate(local_number = row_number()) %>%
-  ungroup()%>%
-    transform(local_number = as.numeric(local_number))
+# batch2b <- batch2b_path |>
+#   excel_sheets() |>
+#   set_names() |>
+#   map(\(sheet) read_excel(batch2b_path, sheet = sheet)) |>
+#   list_rbind(names_to = "sheet_name") %>%
+#   group_by(sheet_name) %>%
+#   fill(citing_paper, citing_doi, .direction = "down") %>%
+#   mutate(local_number = row_number()) %>%
+#   ungroup()%>%
+#     transform(local_number = as.numeric(local_number))
 ```
 
 ## Batch 2c: NonPubmeds
 
 ```{r}
-batch2c_path <- "~/Documents/ODSi/ODSiData/citation-network/Hand_Copied_References/batch2c_fixed.xlsx"
-batch2c <-batch2c_path |>
-  excel_sheets() |>
-  set_names() |>
-  map(\(sheet) read_excel(batch2c_path, sheet = sheet)) |>
-  list_rbind(names_to = "sheet_name") %>%
-  group_by(sheet_name) %>%
-  fill(citing_paper, citing_doi, .direction = "down") %>%
+#| eval: false
+# batch2c_path <- "~/Documents/ODSi/ODSiData/citation-network/Hand_Copied_References/batch2c_fixed.xlsx"
+# batch2c <-batch2c_path |>
+#   excel_sheets() |>
+#   set_names() |>
+#   map(\(sheet) read_excel(batch2c_path, sheet = sheet)) |>
+#   list_rbind(names_to = "sheet_name") %>%
+#   group_by(sheet_name) %>%
+#   fill(citing_paper, citing_doi, .direction = "down") %>%
 
-  mutate(local_number = row_number()) %>%
-  ungroup()
+#   mutate(local_number = row_number()) %>%
+#   ungroup()
 ```
 
 ## Batch 2 organizing
 
 ```{r}
-batch2_combined <- bind_rows(batch2a, batch2b, batch2c)
+#| eval: false
+# batch2_combined <- bind_rows(batch2a, batch2b, batch2c)
 
-#write_csv(batch2_combined, file = "~/Documents/ODSi/ODSiData/citation-network/Organized_References.xlsx")
+# #write_csv(batch2_combined, file = "~/Documents/ODSi/ODSiData/citation-network/Organized_References.xlsx")
 
-#rm(batch2a, batch2b, batch2c, batch2_combined)
+# #rm(batch2a, batch2b, batch2c, batch2_combined)
 ```
 
 ## Importing dois
 
 ```{r}
-batch2 <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Doi_References/batch2_dois_all.xlsx")%>%
-    transform(local_number = as.numeric(local_number))
+#| eval: false
+# batch2 <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Doi_References/batch2_dois_all.xlsx")%>%
+#     transform(local_number = as.numeric(local_number))
 
 ```
 
 # Batch 3: Correcting individual issues
 
 ```{r}
-batch3_path <- "~/Documents/ODSi/ODSiData/citation-network/Hand_Copied_References/batch3_raw.xlsx"
+#| eval: false
+# batch3_path <- "~/Documents/ODSi/ODSiData/citation-network/Hand_Copied_References/batch3_raw.xlsx"
 
-batch3 <- batch3_path |>
-  excel_sheets() |>
-  set_names() |>
-  map(\(sheet) read_excel(batch3_path, sheet = sheet)) |>
-  list_rbind(names_to = "sheet_name") %>%
-  group_by(sheet_name) %>%
-  fill(citing_paper, citing_doi, .direction = "down") %>%
-  mutate(local_number = row_number()) %>%
-  ungroup()%>%
-    transform(local_number = as.numeric(local_number))
+# batch3 <- batch3_path |>
+#   excel_sheets() |>
+#   set_names() |>
+#   map(\(sheet) read_excel(batch3_path, sheet = sheet)) |>
+#   list_rbind(names_to = "sheet_name") %>%
+#   group_by(sheet_name) %>%
+#   fill(citing_paper, citing_doi, .direction = "down") %>%
+#   mutate(local_number = row_number()) %>%
+#   ungroup()%>%
+#     transform(local_number = as.numeric(local_number))
 ```
 
 # Catching Tricky DOI
@@ -137,35 +148,37 @@ batch3 <- batch3_path |>
 Total 10,841 references
 
 ```{r}
-refs_stage0 <- bind_rows(batch1, batch2, batch3)%>%
-  select(citing_paper, citing_doi, local_number, full_citation, doi)%>%
-    transform(local_number = as.numeric(local_number))
+#| eval: false
+# refs_stage0 <- bind_rows(batch1, batch2, batch3)%>%
+#   select(citing_paper, citing_doi, local_number, full_citation, doi)%>%
+#     transform(local_number = as.numeric(local_number))
 
-#10841
+# #10841
 
-refs_fixed <- bind_rows(batch1, batch2, batch3)%>%
-  mutate(ID = paste0(citing_doi, "_", local_number))%>%
-  select(ID, citing_paper, citing_doi, local_number, full_citation, doi)%>%
-    transform(local_number = as.numeric(local_number))%>%
-  filter(!(citing_paper %in% "Zhou&Fang_2026"))%>%
-  distinct(ID, .keep_all = TRUE)
-#10823
+# refs_fixed <- bind_rows(batch1, batch2, batch3)%>%
+#   mutate(ID = paste0(citing_doi, "_", local_number))%>%
+#   select(ID, citing_paper, citing_doi, local_number, full_citation, doi)%>%
+#     transform(local_number = as.numeric(local_number))%>%
+#   filter(!(citing_paper %in% "Zhou&Fang_2026"))%>%
+#   distinct(ID, .keep_all = TRUE)
+# #10823
 ```
 
 ## Stage 1
 
 ```{r}
-refs_stage1 <- refs_stage0 %>%
-    filter(!is.na(doi))
+#| eval: false
+# refs_stage1 <- refs_stage0 %>%
+#     filter(!is.na(doi))
 
-#9168
+# #9168
   
-needsDOI_stage1<- refs_stage0 %>% filter(is.na(doi))
-#1673
+# needsDOI_stage1<- refs_stage0 %>% filter(is.na(doi))
+# #1673
 
-#Total 10841
+# #Total 10841
   
- # write_csv(needsDOI_stage1, file = "~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/missed_dois1.csv")
+#  # write_csv(needsDOI_stage1, file = "~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/missed_dois1.csv")
 
 
 ```
@@ -173,182 +186,186 @@ needsDOI_stage1<- refs_stage0 %>% filter(is.na(doi))
 ## Stage 2
 
 ```{r}
-import_stage2 <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/reran_dois1.xlsx")%>%
-    transform(local_number = as.numeric(local_number))
+#| eval: false
+# import_stage2 <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/reran_dois1.xlsx")%>%
+#     transform(local_number = as.numeric(local_number))
 
-refs_stage2 <- bind_rows(refs_stage1, import_stage2)%>%
-    filter(!is.na(doi)| grepl("US National Library of Medicine", full_citation))%>%
-  select(citing_paper, citing_doi, local_number, full_citation, doi)
-#9586
+# refs_stage2 <- bind_rows(refs_stage1, import_stage2)%>%
+#     filter(!is.na(doi)| grepl("US National Library of Medicine", full_citation))%>%
+#   select(citing_paper, citing_doi, local_number, full_citation, doi)
+# #9586
 
 
 
-needsDOI_stage2_all<- import_stage2 %>% 
-  filter(is.na(doi)&
-           !grepl("US National Library of Medicine", full_citation))%>%
-  select(citing_paper, citing_doi, local_number, full_citation, doi)%>%
-  group_by(citing_doi, citing_paper)%>%
-  mutate(N = n())
-#1255
+# needsDOI_stage2_all<- import_stage2 %>% 
+#   filter(is.na(doi)&
+#            !grepl("US National Library of Medicine", full_citation))%>%
+#   select(citing_paper, citing_doi, local_number, full_citation, doi)%>%
+#   group_by(citing_doi, citing_paper)%>%
+#   mutate(N = n())
+# #1255
 
-needsDOI_stage2_a <- needsDOI_stage2_all %>%
-  filter(N > 10)%>%
-  filter(citing_paper != "Shono&vandenBrink_2018")
-#1080
+# needsDOI_stage2_a <- needsDOI_stage2_all %>%
+#   filter(N > 10)%>%
+#   filter(citing_paper != "Shono&vandenBrink_2018")
+# #1080
 
-needsDOI_stage2_b <- needsDOI_stage2_all %>%
-  filter(N <= 10)%>%
-  filter(citing_paper != "Shono&vandenBrink_2018")
-#172
+# needsDOI_stage2_b <- needsDOI_stage2_all %>%
+#   filter(N <= 10)%>%
+#   filter(citing_paper != "Shono&vandenBrink_2018")
+# #172
 
-needsDOI_stage2_c <- needsDOI_stage2_all %>%
-  filter(citing_paper == "Shono&vandenBrink_2018")
-#3
+# needsDOI_stage2_c <- needsDOI_stage2_all %>%
+#   filter(citing_paper == "Shono&vandenBrink_2018")
+# #3
 
-# Total 10841
+# # Total 10841
 
   
- # write_csv(needsDOI_stage2_ai, file = "~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/missed_dois2_a.csv")
+#  # write_csv(needsDOI_stage2_ai, file = "~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/missed_dois2_a.csv")
   
- #   write_csv(needsDOI_stage2_hand, file = "~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/missed_dois2_b.csv")
+#  #   write_csv(needsDOI_stage2_hand, file = "~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/missed_dois2_b.csv")
 ```
 
 ## Stage 3
 
 ```{r}
-import_stage3 <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/reran_dois2.xlsx")%>%
-  transform(local_number = as.numeric(local_number))
+#| eval: false
+# import_stage3 <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/reran_dois2.xlsx")%>%
+#   transform(local_number = as.numeric(local_number))
 
-refs_stage3 <- bind_rows(
-  refs_stage2 %>%
-    filter(!is.na(doi) & !grepl("US National Library of Medicine", full_citation))%>%
-    transform(local_number = as.numeric(local_number))%>%
-    select(citing_paper, citing_doi, local_number, full_citation, doi),
-  #9557
-  import_stage3%>%
-    filter(!is.na(doi) & doi_source != "no_doi_expected")%>%
-    select(citing_paper, citing_doi, local_number, full_citation, doi)
-  #1074
-  )
-#10631
+# refs_stage3 <- bind_rows(
+#   refs_stage2 %>%
+#     filter(!is.na(doi) & !grepl("US National Library of Medicine", full_citation))%>%
+#     transform(local_number = as.numeric(local_number))%>%
+#     select(citing_paper, citing_doi, local_number, full_citation, doi),
+#   #9557
+#   import_stage3%>%
+#     filter(!is.na(doi) & doi_source != "no_doi_expected")%>%
+#     select(citing_paper, citing_doi, local_number, full_citation, doi)
+#   #1074
+#   )
+# #10631
 
-noDOI_stage3 <- bind_rows(
-  refs_stage2 %>%
-    filter(grepl("US National Library of Medicine", full_citation)|
-             is.na(doi))%>%
-    transform(local_number = as.numeric(local_number))%>%
-    select(citing_paper, citing_doi, local_number, full_citation, doi),
-  #29
-  import_stage3 %>%
-    filter(doi_source == "no_doi_expected")%>%
-    select(citing_paper, citing_doi, local_number, full_citation, doi)
-  )
-#65
+# noDOI_stage3 <- bind_rows(
+#   refs_stage2 %>%
+#     filter(grepl("US National Library of Medicine", full_citation)|
+#              is.na(doi))%>%
+#     transform(local_number = as.numeric(local_number))%>%
+#     select(citing_paper, citing_doi, local_number, full_citation, doi),
+#   #29
+#   import_stage3 %>%
+#     filter(doi_source == "no_doi_expected")%>%
+#     select(citing_paper, citing_doi, local_number, full_citation, doi)
+#   )
+# #65
 
-needsDOI_stage3<- import_stage3 %>% 
-  filter(is.na(doi)&
-           doi_source != "no_doi_expected")%>%
-  select(citing_paper, citing_doi, local_number, full_citation, doi)%>%
-  group_by(citing_doi, citing_paper)
-#145
+# needsDOI_stage3<- import_stage3 %>% 
+#   filter(is.na(doi)&
+#            doi_source != "no_doi_expected")%>%
+#   select(citing_paper, citing_doi, local_number, full_citation, doi)%>%
+#   group_by(citing_doi, citing_paper)
+# #145
 
-#Total 10841
+# #Total 10841
 
-#write_csv(needsDOI_stage3, file = "~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/missed_dois3.csv")
+# #write_csv(needsDOI_stage3, file = "~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/missed_dois3.csv")
 
 ```
 
 ## Stage 4
 
 ```{r}
-import_stage4 <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/reran_dois3.xlsx")%>%
-  transform(local_number = as.numeric(local_number))
+#| eval: false
+# import_stage4 <- read_excel("~/Documents/ODSi/ODSiData/citation-network/Catch_Doi/reran_dois3.xlsx")%>%
+#   transform(local_number = as.numeric(local_number))
 
-#Normal DOI
-refs_stage4 <- bind_rows(
-  refs_stage3 ,
-  import_stage4 %>%
-    filter(!is.na(doi))%>%
-  select(citing_paper, citing_doi, local_number, full_citation, doi)
-  )%>%
-  mutate(ID = paste0(citing_doi, "_", local_number))
-#10691
+# #Normal DOI
+# refs_stage4 <- bind_rows(
+#   refs_stage3 ,
+#   import_stage4 %>%
+#     filter(!is.na(doi))%>%
+#   select(citing_paper, citing_doi, local_number, full_citation, doi)
+#   )%>%
+#   mutate(ID = paste0(citing_doi, "_", local_number))
+# #10691
 
-#Alternative ID
-refs_altid <- import_stage4 %>%
-  filter(is.na(doi) &
-           is.na(Other) &
-          ( !(is.na(PMID)) | 
-              !is.na(PMCID) |
-              !is.na(ISBN) |
-              !is.na(ISSN) |
-              !is.na(CRID)
-          )
-  )%>%
-  mutate(ID = paste0(citing_doi, "_", local_number))
-#70
+# #Alternative ID
+# refs_altid <- import_stage4 %>%
+#   filter(is.na(doi) &
+#            is.na(Other) &
+#           ( !(is.na(PMID)) | 
+#               !is.na(PMCID) |
+#               !is.na(ISBN) |
+#               !is.na(ISSN) |
+#               !is.na(CRID)
+#           )
+#   )%>%
+#   mutate(ID = paste0(citing_doi, "_", local_number))
+# #70
 
-refs_clinicaltrials <- rbind(noDOI_stage3 ,
-                  import_stage4 %>%
-                    filter(!is.na(Other)&
-                             !(Other %in% c("DNE",
-      "TYPO_https://www.ncbi.nlm.nih.gov/books/NBK538168/",
-      "TYPO_OR_DNE")))%>%
-        select(citing_paper, citing_doi, local_number, full_citation, doi)
-      )%>%
-  filter(grepl("US National Library", full_citation))%>%
-  mutate(NCT = str_extract(full_citation, "NCT\\d{8}"))%>%
-  select(citing_paper, citing_doi, local_number, full_citation, doi, NCT)%>%
-  mutate(ID = paste0(citing_doi, "_", local_number))
-#29
+# refs_clinicaltrials <- rbind(noDOI_stage3 ,
+#                   import_stage4 %>%
+#                     filter(!is.na(Other)&
+#                              !(Other %in% c("DNE",
+#       "TYPO_https://www.ncbi.nlm.nih.gov/books/NBK538168/",
+#       "TYPO_OR_DNE")))%>%
+#         select(citing_paper, citing_doi, local_number, full_citation, doi)
+#       )%>%
+#   filter(grepl("US National Library", full_citation))%>%
+#   mutate(NCT = str_extract(full_citation, "NCT\\d{8}"))%>%
+#   select(citing_paper, citing_doi, local_number, full_citation, doi, NCT)%>%
+#   mutate(ID = paste0(citing_doi, "_", local_number))
+# #29
 
-#Websites or no other info
-refs_web <- rbind(noDOI_stage3 %>%
-                    mutate(Website = NA),
-                  import_stage4 %>%
-                    filter(!is.na(Other)&
-                             !(Other %in% c("DNE",
-      "TYPO_https://www.ncbi.nlm.nih.gov/books/NBK538168/",
-      "TYPO_OR_DNE")))%>%
-        mutate(Website = Other)%>%
-        select(citing_paper, citing_doi, local_number, full_citation, doi, Website)
-        )%>%
-  filter(!grepl("US National Library", full_citation))%>%
-  mutate(ID = paste0(citing_doi, "_", local_number))
-#48
+# #Websites or no other info
+# refs_web <- rbind(noDOI_stage3 %>%
+#                     mutate(Website = NA),
+#                   import_stage4 %>%
+#                     filter(!is.na(Other)&
+#                              !(Other %in% c("DNE",
+#       "TYPO_https://www.ncbi.nlm.nih.gov/books/NBK538168/",
+#       "TYPO_OR_DNE")))%>%
+#         mutate(Website = Other)%>%
+#         select(citing_paper, citing_doi, local_number, full_citation, doi, Website)
+#         )%>%
+#   filter(!grepl("US National Library", full_citation))%>%
+#   mutate(ID = paste0(citing_doi, "_", local_number))
+# #48
 
 
 
-refs_anomaly <- import_stage4 %>%
-  filter(Other %in% c("DNE",
-      "TYPO_https://www.ncbi.nlm.nih.gov/books/NBK538168/",
-      "TYPO_OR_DNE"))%>%
-  mutate(ID = paste0(citing_doi, "_", local_number))
-#3
+# refs_anomaly <- import_stage4 %>%
+#   filter(Other %in% c("DNE",
+#       "TYPO_https://www.ncbi.nlm.nih.gov/books/NBK538168/",
+#       "TYPO_OR_DNE"))%>%
+#   mutate(ID = paste0(citing_doi, "_", local_number))
+# #3
 
-#10841
+# #10841
 ```
 
 ## Stage 5: Adding in Wang&Zhou_2025 and Qayad&Horan and removing duplicated Chen_2015 and Zhou&Feng
 
 ```{r}
-refs_stage5 <- rbind(
-  refs_stage4 %>%
-  distinct(ID, .keep_all = TRUE),
- batch3 %>% filter(!is.na(doi) & 
-                     citing_paper %in% c("Wang&Zhou_2025",
-                                         "Qayed&Horan_2015"))%>%
-  mutate(ID = paste0(citing_doi, "_", local_number))%>%
-   select(ID, citing_paper, citing_doi, local_number, full_citation, doi)
-)
-#10691 -> 10595 -> 
+#| eval: false
+# refs_stage5 <- rbind(
+#   refs_stage4 %>%
+#   distinct(ID, .keep_all = TRUE),
+#  batch3 %>% filter(!is.na(doi) & 
+#                      citing_paper %in% c("Wang&Zhou_2025",
+#                                          "Qayed&Horan_2015"))%>%
+#   mutate(ID = paste0(citing_doi, "_", local_number))%>%
+#    select(ID, citing_paper, citing_doi, local_number, full_citation, doi)
+# )
+# #10691 -> 10595 -> 
 
-refs_altid <- refs_altid %>%
-  bind_rows(batch3 %>%
-              filter(is.na(doi)& 
-                     citing_paper %in% c("Wang&Zhou_2025",
-                                         "Qayed&Horan_2015"))%>%
-  mutate(ID = paste0(citing_doi, "_", local_number)))
+# refs_altid <- refs_altid %>%
+#   bind_rows(batch3 %>%
+#               filter(is.na(doi)& 
+#                      citing_paper %in% c("Wang&Zhou_2025",
+#                                          "Qayed&Horan_2015"))%>%
+#   mutate(ID = paste0(citing_doi, "_", local_number)))
 
 
 
@@ -357,145 +374,151 @@ refs_altid <- refs_altid %>%
 # Identifying Together
 
 ```{r}
+#| eval: false
 
-master <- refs_fixed %>%
-  mutate(ID = paste0(citing_doi, "_", local_number)) %>%
-  select(ID, citing_paper, local_number, full_citation)
-#10823
+# master <- refs_fixed %>%
+#   mutate(ID = paste0(citing_doi, "_", local_number)) %>%
+#   select(ID, citing_paper, local_number, full_citation)
+# #10823
 
-#DOI
-all_identifiers <- bind_rows(
-  # First identifier source (DOIs)
-  refs_stage5 %>%
-    mutate(Type = "Paper",
-           TypeOfIdentifier = "DOI",
-           Identifier = as.character(doi)) %>%
-    select(ID, Type, TypeOfIdentifier, Identifier),
+# #DOI
+# all_identifiers <- bind_rows(
+#   # First identifier source (DOIs)
+#   refs_stage5 %>%
+#     mutate(Type = "Paper",
+#            TypeOfIdentifier = "DOI",
+#            Identifier = as.character(doi)) %>%
+#     select(ID, Type, TypeOfIdentifier, Identifier),
   
-#PMID
-  refs_altid %>%
-    filter(!is.na(PMID)) %>%
-    mutate(Type = "Paper",
-           TypeOfIdentifier = "PMID",
-           Identifier = as.character(PMID)) %>%
-    select(ID, Type, TypeOfIdentifier, Identifier),
+# #PMID
+#   refs_altid %>%
+#     filter(!is.na(PMID)) %>%
+#     mutate(Type = "Paper",
+#            TypeOfIdentifier = "PMID",
+#            Identifier = as.character(PMID)) %>%
+#     select(ID, Type, TypeOfIdentifier, Identifier),
 
-#ISBN
-  refs_altid %>%
-    filter(!is.na(ISBN)) %>%
-    mutate(Type = "Book",
-           TypeOfIdentifier = "ISBN",
-           Identifier = as.character(ISBN)) %>%
-    select(ID, Type, TypeOfIdentifier, Identifier),
+# #ISBN
+#   refs_altid %>%
+#     filter(!is.na(ISBN)) %>%
+#     mutate(Type = "Book",
+#            TypeOfIdentifier = "ISBN",
+#            Identifier = as.character(ISBN)) %>%
+#     select(ID, Type, TypeOfIdentifier, Identifier),
 
-#CRID
-  refs_altid %>%
-    filter(!is.na(CRID)) %>%
-    mutate(Type = "ClinicalResearch",
-           TypeOfIdentifier = "CRID",
-           Identifier = as.character(ISBN)) %>%
-    select(ID, Type, TypeOfIdentifier, Identifier),
+# #CRID
+#   refs_altid %>%
+#     filter(!is.na(CRID)) %>%
+#     mutate(Type = "ClinicalResearch",
+#            TypeOfIdentifier = "CRID",
+#            Identifier = as.character(ISBN)) %>%
+#     select(ID, Type, TypeOfIdentifier, Identifier),
 
-#Clinical Trials
-  refs_clinicaltrials %>%
-    mutate(Type = "ClinicalResearch",
-           TypeOfIdentifier = "NCT",
-           Identifier = as.character(NCT)) %>%
-    select(ID, Type, TypeOfIdentifier, Identifier)
+# #Clinical Trials
+#   refs_clinicaltrials %>%
+#     mutate(Type = "ClinicalResearch",
+#            TypeOfIdentifier = "NCT",
+#            Identifier = as.character(NCT)) %>%
+#     select(ID, Type, TypeOfIdentifier, Identifier)
   
   
-) %>% 
-  distinct() # Removes any exact duplicates across the combined tables
+# ) %>% 
+#   distinct() # Removes any exact duplicates across the combined tables
 
-# 3. Join the combined identifiers to master in one step
-master_itn <- master %>%
-  left_join(all_identifiers, by = "ID")
+# # 3. Join the combined identifiers to master in one step
+# master_itn <- master %>%
+#   left_join(all_identifiers, by = "ID")
 
-# write_csv(master_itn %>%
-#             filter(is.na(Identifier)),
-#           file = "~/Documents/ODSi/ODSiData/citation-network/handcheck.csv")
+# # write_csv(master_itn %>%
+# #             filter(is.na(Identifier)),
+# #           file = "~/Documents/ODSi/ODSiData/citation-network/handcheck.csv")
 
-master_auto <- master_itn %>%
-  filter(!is.na(Identifier))
-#10772
+# master_auto <- master_itn %>%
+#   filter(!is.na(Identifier))
+# #10772
 
-master_handcheck <- read_csv("~/Documents/ODSi/ODSiData/citation-network/handcheck.csv")%>%distinct(ID, .keep_all = TRUE)
-#51
+# master_handcheck <- read_csv("~/Documents/ODSi/ODSiData/citation-network/handcheck.csv")%>%distinct(ID, .keep_all = TRUE)
+# #51
 
-master_final <- bind_rows(master_auto, master_handcheck)
-#10823
+# master_final <- bind_rows(master_auto, master_handcheck)
+# #10823
 ```
 
 # Finalizing Identifying Info
 
 ```{r}
+#| eval: false
 
-bib <- bib2df::bib2df(file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/full_bib.bib")
+# bib <- bib2df::bib2df(file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/full_bib.bib")
 ```
 
 # Foreign Key
 
 ```{r}
-citing_dict <- master_final %>%
-  mutate(call_id = paste0(citing_paper, "_", local_number))%>%
-  left_join(refs_fixed %>%
-              select(citing_paper, citing_doi)%>%
-              distinct(),
-            by = "citing_paper")
+#| eval: false
+# citing_dict <- master_final %>%
+#   mutate(call_id = paste0(citing_paper, "_", local_number))%>%
+#   left_join(refs_fixed %>%
+#               select(citing_paper, citing_doi)%>%
+#               distinct(),
+#             by = "citing_paper")
 
-set.seed(9134)
-citing_dict$id = ids::random_id(n = nrow(citing_dict), bytes = 4)
+# set.seed(9134)
+# citing_dict$id = ids::random_id(n = nrow(citing_dict), bytes = 4)
 
-citing_dict <- citing_dict %>%
-  select(id, call_id, citing_paper, citing_doi, local_number, full_citation, Type, TypeOfIdentifier, Identifier)
+# citing_dict <- citing_dict %>%
+#   select(id, call_id, citing_paper, citing_doi, local_number, full_citation, Type, TypeOfIdentifier, Identifier)
 ```
 
 ```{r}
-linking_dict <- bib %>%
-  select(BIBTEXKEY, DOI, PMID, ISSN, ISBN, TITLE, AUTHOR)
+#| eval: false
+# linking_dict <- bib %>%
+#   select(BIBTEXKEY, DOI, PMID, ISSN, ISBN, TITLE, AUTHOR)
 
-linking_dict$ref_id <- ids::random_id(n = nrow(linking_dict), bytes = 4)
+# linking_dict$ref_id <- ids::random_id(n = nrow(linking_dict), bytes = 4)
 ```
 
 ```{r}
-citing_dict2 <- citing_dict %>%
-  left_join(linking_dict %>%
-              select(citing_bibtex = BIBTEXKEY, DOI, citing_id = ref_id),
-            by = c("citing_doi" = "DOI" ))%>%
-  select(id, call_id, citing_bibtex, citing_id, local_number, full_citation, Type, TypeOfIdentifier, Identifier)
+#| eval: false
+# citing_dict2 <- citing_dict %>%
+#   left_join(linking_dict %>%
+#               select(citing_bibtex = BIBTEXKEY, DOI, citing_id = ref_id),
+#             by = c("citing_doi" = "DOI" ))%>%
+#   select(id, call_id, citing_bibtex, citing_id, local_number, full_citation, Type, TypeOfIdentifier, Identifier)
 ```
 
 ```{r}
-linking_long <- linking_dict %>%
-  # Select the ID column and the target identifier columns
-  select(ref_id, ref_bibtex = BIBTEXKEY, DOI, PMID, ISBN) %>%
-  # Pivot the data so column names become a variable and values become a variable
-  pivot_longer(
-    cols = c(DOI, PMID, ISBN),
-    names_to = "TypeOfIdentifier",
-    values_to = "Identifier",
-    # Ensure all identifiers are treated as characters to avoid type-mismatch errors
-    values_transform = list(Identifier = as.character)
-  ) %>%
-  # Drop empty rows where no identifier existed
-  filter(!is.na(Identifier) & Identifier != "") %>%
-  # Standardize case: TypeOfIdentifier to uppercase, Identifier to lowercase
-  mutate(
-    TypeOfIdentifier = toupper(TypeOfIdentifier),
-    Identifier = tolower(Identifier)  # <--- FIX ADDED HERE
-  )
+#| eval: false
+# linking_long <- linking_dict %>%
+#   # Select the ID column and the target identifier columns
+#   select(ref_id, ref_bibtex = BIBTEXKEY, DOI, PMID, ISBN) %>%
+#   # Pivot the data so column names become a variable and values become a variable
+#   pivot_longer(
+#     cols = c(DOI, PMID, ISBN),
+#     names_to = "TypeOfIdentifier",
+#     values_to = "Identifier",
+#     # Ensure all identifiers are treated as characters to avoid type-mismatch errors
+#     values_transform = list(Identifier = as.character)
+#   ) %>%
+#   # Drop empty rows where no identifier existed
+#   filter(!is.na(Identifier) & Identifier != "") %>%
+#   # Standardize case: TypeOfIdentifier to uppercase, Identifier to lowercase
+#   mutate(
+#     TypeOfIdentifier = toupper(TypeOfIdentifier),
+#     Identifier = tolower(Identifier)  # <--- FIX ADDED HERE
+#   )
 
-# 2. Join the reshaped dictionary to your citing dictionary
-citing_dict3_linked <- citing_dict2 %>%
-  # Standardize the citing_dict2 Identifier to lowercase as well
-  mutate(
-    Identifier = tolower(as.character(Identifier)) # <--- FIX ADDED HERE
-  ) %>%
-  # Perform a left join to bring in ref_id where there is a match
-  left_join(linking_long, by = c("TypeOfIdentifier", "Identifier"))
+# # 2. Join the reshaped dictionary to your citing dictionary
+# citing_dict3_linked <- citing_dict2 %>%
+#   # Standardize the citing_dict2 Identifier to lowercase as well
+#   mutate(
+#     Identifier = tolower(as.character(Identifier)) # <--- FIX ADDED HERE
+#   ) %>%
+#   # Perform a left join to bring in ref_id where there is a match
+#   left_join(linking_long, by = c("TypeOfIdentifier", "Identifier"))
 
-unlinked <- citing_dict3_linked %>%
-  filter(is.na(ref_id))
+# unlinked <- citing_dict3_linked %>%
+#   filter(is.na(ref_id))
 ```
 
 # Export
@@ -507,14 +530,210 @@ unlinked <- citing_dict3_linked %>%
 -   ref_dictionary
 
 ```{r}
-citing_dictionary <- citing_dict3_linked
-# save(citing_dictionary, file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/citing_dictionary.Rdata")
-# write_excel_csv(citing_dictionary, file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/citing_dictionary.csv" )
+#| eval: false
+# citing_dictionary <- citing_dict3_linked
+# # save(citing_dictionary, file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/citing_dictionary.Rdata")
+# # write_excel_csv(citing_dictionary, file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/citing_dictionary.csv" )
 ```
 
 ```{r}
-# ref_dictionary <- linking_dict %>%
-#   select(ref_id, names(linking_dict)[1:7])
-#  save(ref_dictionary, file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/ref_dictionary.Rdata")
-#  write_excel_csv(ref_dictionary, file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/ref_dictionary.csv" )
+#| eval: false
+# # ref_dictionary <- linking_dict %>%
+# #   select(ref_id, names(linking_dict)[1:7])
+# #  save(ref_dictionary, file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/ref_dictionary.Rdata")
+# #  write_excel_csv(ref_dictionary, file = "~/Documents/ODSi/ODSiData/citation-network/Full_Network/ref_dictionary.csv" )
+```
+
+# Post-QA (October 2026): corrected dictionaries and BibTeX export
+
+Everything above this section is the original July 2026 build, kept for the record and commented out so it cannot be rerun by accident. Rerunning it would assign new random `ref_id`s and undo the October 2026 corrections.
+
+Starting point: the dictionaries as left by `parsing_scripts/apply_dictionary_corrections.R` (steps 1 to 3, applied 2026-10-06; originals in `Full_Network/backup_20261006_171459/`). This section
+
+1.  restores `YEAR` and `MONTH`, which `bib2df` dropped on import because Zotero writes them unbraced (`year = 2001`);
+2.  fills thin entries (no author, journal or year) that are cited and have a DOI, from Crossref, filling blank fields only;
+3.  syncs `ref_dictionary` with `bib`, runs checks, and writes `citing_dictionary`, `ref_dictionary` and `bib` (`.Rdata` + `.csv`) plus `full_bib_corrected.bib`.
+
+Safe to rerun: Crossref answers are cached in `corrections/crossref_fill_cache.rds`, and only blank fields are ever filled. It does not use `bib2df`.
+
+```{r post-qa-setup}
+library(tidyverse)
+library(jsonlite)
+
+fn   <- "~/Documents/ODSi/ODSiData/citation-network/Full_Network"
+corr <- file.path(fn, "corrections")
+
+load(file.path(fn, "citing_dictionary.Rdata"))
+load(file.path(fn, "ref_dictionary.Rdata"))
+load(file.path(fn, "bib.Rdata"))
+stopifnot(nrow(ref_dictionary) == nrow(bib),
+          identical(ref_dictionary$BIBTEXKEY, bib$BIBTEXKEY))
+
+blank <- function(x) is.na(x) | x == "" | x == "NA"
+no_author <- function(a) vapply(a, function(v) all(is.na(v)) || all(v == ""), logical(1))
+
+# backup of the inputs to this section
+stamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
+bk <- file.path(fn, paste0("backup_", stamp, "_postqa"))
+dir.create(bk)
+for (f in c("citing_dictionary", "ref_dictionary", "bib"))
+  for (x in c(".Rdata", ".csv")) file.copy(file.path(fn, paste0(f, x)), bk)
+```
+
+## Restore YEAR and MONTH from the Zotero export
+
+`bib` rows 1 to 5,680 are the entries of `full_bib.bib` in file order (later rows were added during the corrections). Each value is copied only when the row's key or title still matches the file entry at that position.
+
+```{r post-qa-year}
+txt <- paste(readLines(file.path(fn, "full_bib.bib"), encoding = "UTF-8", warn = FALSE),
+             collapse = "\n")
+ent <- strsplit(txt, "\n(?=@)", perl = TRUE)[[1]]
+ent <- ent[grepl("^@", ent)]
+bib_field <- function(f) {
+  m <- regmatches(ent, regexec(paste0("\\n\\s*", f, " = \\{?([^,}\\n]*)\\}?,?\\n"), ent))
+  vapply(m, function(x) if (length(x)) x[2] else NA_character_, "")
+}
+file_key   <- sub("^@[A-Za-z]+\\{([^,]*),.*", "\\1", ent)
+file_title <- sub(".*\\n\\s*title = \\{(.*?)\\},?\\n.*", "\\1", ent)
+file_year  <- bib_field("year")
+file_month <- bib_field("month")
+
+n_file <- length(ent)
+norm <- function(x) tolower(gsub("[^A-Za-z0-9]", "", x))
+same <- file_key == bib$BIBTEXKEY[seq_len(n_file)] |
+        norm(file_title) == norm(bib$TITLE[seq_len(n_file)])
+cat("file entries:", n_file, "| aligned:", sum(same), "\n")
+stopifnot(mean(same) > 0.99)
+
+i <- which(same & blank(bib$YEAR[seq_len(n_file)]) & !is.na(file_year))
+bib$YEAR[i] <- file_year[i]
+j <- which(same & blank(bib$MONTH[seq_len(n_file)]) & !is.na(file_month))
+bib$MONTH[j] <- file_month[j]
+cat("YEAR restored:", length(i), "| MONTH restored:", length(j), "\n")
+```
+
+## Crossref fill for thin entries
+
+Thin = cited at least once, has a real DOI (not a Faculty Opinions `10.3410/` record), and lacks an author, journal or year. Only blank fields are filled. Every filled value is logged to `corrections/crossref_fill_log.csv`.
+
+```{r post-qa-crossref}
+cache_path <- file.path(corr, "crossref_fill_cache.rds")
+cache <- if (file.exists(cache_path)) readRDS(cache_path) else list()
+
+cr_get <- function(doi) {
+  if (!is.null(cache[[doi]])) return(cache[[doi]])
+  url <- paste0("https://api.crossref.org/works/", utils::URLencode(doi, reserved = TRUE),
+                "?mailto=sophhuebler@gmail.com")
+  msg <- tryCatch(jsonlite::fromJSON(url, simplifyVector = FALSE)$message,
+                  error = function(e) NULL)
+  Sys.sleep(0.5)                       # polite pool
+  if (!is.null(msg)) cache[[doi]] <<- msg
+  msg
+}
+`%||%` <- function(a, b) if (is.null(a) || !length(a)) b else a
+cr_fields <- function(m) {
+  au <- vapply(m$author %||% list(), function(a)
+    if (!is.null(a$family)) trimws(paste0(a$family, ", ", a$given %||% "")) else a$name %||% "", "")
+  list(AUTHOR  = if (length(au)) au else NULL,
+       YEAR    = as.character(m$issued$`date-parts`[[1]][[1]] %||% NA),
+       JOURNAL = unlist(m$`container-title`)[1] %||% NA,
+       VOLUME  = m$volume %||% NA,
+       NUMBER  = m$issue %||% NA,
+       PAGES   = gsub("-", "--", m$page %||% NA),
+       TITLE   = unlist(m$title)[1] %||% NA)
+}
+
+cited <- bib$BIBTEXKEY %in% citing_dictionary$ref_bibtex
+real_doi <- !blank(bib$DOI) & !grepl("^10\\.3410/", bib$DOI)
+thin <- which(cited & real_doi &
+              (no_author(bib$AUTHOR) | blank(bib$JOURNAL) | blank(bib$YEAR)))
+cat("thin cited entries with a DOI:", length(thin), "\n")
+
+fill_log <- list()
+for (k in thin) {
+  m <- cr_get(bib$DOI[k])
+  if (is.null(m)) { fill_log[[length(fill_log) + 1]] <- tibble(BIBTEXKEY = bib$BIBTEXKEY[k],
+      field = "(lookup failed)", old = NA, new = bib$DOI[k]); next }
+  v <- cr_fields(m)
+  container_col <- if (bib$CATEGORY[k] %in% c("INCOLLECTION", "INBOOK")) "BOOKTITLE" else "JOURNAL"
+  for (f in names(v)) {
+    col <- if (f == "JOURNAL") container_col else f
+    new <- v[[f]]
+    if (is.null(new) || all(is.na(new))) next
+    if (col == "AUTHOR") {
+      if (!no_author(bib$AUTHOR[k])) next
+      bib$AUTHOR[[k]] <- new
+      new <- paste(new, collapse = " and ")
+    } else {
+      if (!blank(bib[[col]][k])) next
+      bib[[col]][k] <- new
+    }
+    fill_log[[length(fill_log) + 1]] <- tibble(BIBTEXKEY = bib$BIBTEXKEY[k], field = col,
+                                               old = NA, new = as.character(new))
+  }
+}
+saveRDS(cache, cache_path)
+fill_log <- bind_rows(fill_log)
+write_csv(fill_log, file.path(corr, paste0("crossref_fill_log_", stamp, ".csv")))
+count(fill_log, field)
+```
+
+## Sync, check and write
+
+```{r post-qa-sync}
+ref_dictionary$TITLE  <- bib$TITLE
+ref_dictionary$DOI    <- bib$DOI
+ref_dictionary$PMID   <- bib$PMID
+ref_dictionary$AUTHOR <- bib$AUTHOR
+
+chk <- tibble(
+  check = c("ref_dictionary and bib aligned", "unique ref_id", "unique BIBTEXKEY",
+            "citing rows whose ref_id is missing from ref_dictionary",
+            "citing rows linked to Faculty Opinions records",
+            "citing rows with NA citing_bibtex",
+            "cited entries still missing year", "cited entries still missing author"),
+  value = c(identical(ref_dictionary$BIBTEXKEY, bib$BIBTEXKEY),
+            !anyDuplicated(ref_dictionary$ref_id), !anyDuplicated(bib$BIBTEXKEY),
+            sum(!blank(citing_dictionary$ref_id) & !citing_dictionary$ref_id %in% ref_dictionary$ref_id),
+            sum(grepl("^10\\.3410/", ref_dictionary$DOI[match(citing_dictionary$ref_id, ref_dictionary$ref_id)])),
+            sum(is.na(citing_dictionary$citing_bibtex)),
+            sum(cited & blank(bib$YEAR)), sum(cited & no_author(bib$AUTHOR))))
+chk
+stopifnot(chk$value[1:3] == 1, chk$value[4:6] == 0)
+```
+
+```{r post-qa-write}
+flat <- function(df) mutate(df, across(where(is.list), ~ vapply(.x, function(v)
+  if (all(is.na(v))) "" else paste(v, collapse = " and "), "")))
+
+# BibTeX writer (bib2df mis-reads Zotero's unbraced year/month, so it is not used)
+write_bib <- function(b, ids, path) {
+  skip <- c("CATEGORY", "BIBTEXKEY")
+  one <- function(k) {
+    vals <- c(lapply(setdiff(names(b), skip), function(f) {
+      v <- b[[f]][[k]]
+      if (is.list(v)) v <- unlist(v)
+      if (all(is.na(v)) || all(v == "") || all(v == "NA")) return(NULL)
+      v <- if (f %in% c("AUTHOR", "EDITOR")) paste(v, collapse = " and ") else paste(v, collapse = ", ")
+      if (f == "MONTH" && grepl("^[a-z]{3}$", v)) return(paste0("  month = ", v))  # BibTeX month macro
+      paste0("  ", tolower(f), " = {", v, "}")
+    }), list(paste0("  refid = {", ids[k], "}")))
+    paste0("@", tolower(b$CATEGORY[k]), "{", b$BIBTEXKEY[k], ",\n",
+           paste(unlist(vals), collapse = ",\n"), "\n}\n")
+  }
+  writeLines(vapply(seq_len(nrow(b)), one, ""), path, useBytes = TRUE)
+}
+
+
+```
+
+```{r}
+save(citing_dictionary, file = file.path(fn, "citing_dictionary.Rdata"))
+save(ref_dictionary,    file = file.path(fn, "ref_dictionary.Rdata"))
+save(bib,               file = file.path(fn, "bib.Rdata"))
+write_excel_csv(flat(citing_dictionary), file.path(fn, "citing_dictionary.csv"))
+write_excel_csv(flat(ref_dictionary),    file.path(fn, "ref_dictionary.csv"))
+write_excel_csv(flat(bib),               file.path(fn, "bib.csv"))
+write_bib(bib, ref_dictionary$ref_id, file.path(fn, "full_bib_corrected.bib"))
+cat("Wrote dictionaries (.Rdata, .csv) and full_bib_corrected.bib; inputs backed up to", bk, "\n")
 ```

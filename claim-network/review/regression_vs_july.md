@@ -25,6 +25,7 @@ Input: `claim-network/data/Claims_Master_reflinked.xlsx` (222 source rows)
 | Mechanism primary | — | — | ✓ 222/222 match |
 | ref_label | Chatila_2018 | Telesford_2015 | expected (see §2) |
 | mechanism_categories | — | — | 2 known diffs (see §3) |
+| GTDB lineage cols | n/a | added | 03_taxonomy adds domain→species + gtdb_reclassified (see §5) |
 
 ---
 
@@ -119,6 +120,32 @@ Edges total               443       441
 All claim labels for the 107 shared claims match exactly.  The 2 missing nodes are
 `CLAIM_33` and `CLAIM_34` (see §1).  The 2 missing SUPPORTS edges connect primary
 `a57ed71f` to those claims.
+
+---
+
+## §5 — GTDB r232 taxonomy lineage (new columns in Synthesis3)
+
+**What:** `03_taxonomy.py` now joins GTDB r232 lineage columns onto every atomic row:
+`gtdb_name`, `domain`, `phylum`, `class`, `order`, `family`, `genus`, `species`,
+`gtdb_reclassified`.  `Canonical_Claims` gains `gtdb_phylum`.
+
+**Coverage:** 86 subjects in rank_lookup.csv:
+- 54 exact GTDB match (name unchanged)
+- 15 NCBI→GTDB reclassifications (`gtdb_reclassified = yes`):
+  phylum renames (Firmicutes→Bacillota, Bacteroidetes→Bacteroidota,
+  Proteobacteria→Pseudomonadota, Cyanobacteria→Cyanobacteriota),
+  family rename (Odoribacteraceae→Marinifilaceae),
+  10 species/genus reclassifications (see `review/gtdb_reclassifications.csv`)
+- 7 manual (non-GTDB taxa: Candida, Trichoderma, Picobirnavirus, B. mimicus,
+  C. perfringens, Streptococci, Clostridium coccoides) artifact)
+- 10 not applicable (functional groups, molecular pattern)
+
+**Build:** Regenerate `lookups/taxonomy_lookup.csv` with
+`python claim-network/scripts/synthesis/build_taxonomy_lookup.py`
+(requires `lookups/gtdb_cache/bac120_taxonomy.tsv.gz` and `ar53_taxonomy.tsv.gz`).
+
+**Sharpea note:** GTDB r232 places Sharpea in phylum Bacillota_I (distinct from
+Bacillota); the July subject_group "Firmicutes (Bacillota)" is preserved as-is.
 
 ---
 

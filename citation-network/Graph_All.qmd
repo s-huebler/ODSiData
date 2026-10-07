@@ -9,6 +9,7 @@ editor: visual
 ```{r}
 library(tidyverse)
 library(ggraph)
+library(tidygraph)
 ```
 
 ```{r}
@@ -153,15 +154,23 @@ plot_citation_network <- function(citing_dictionary,
 ```
 
 ```{r}
-plot_citation_network(citing_dictionary = citing_dictionary,
+test <- plot_citation_network(citing_dictionary = citing_dictionary,
                       min_cited_indegree = 25,
                       min_citing_indegree = 5)
+
+
+
+test
 ```
 
 ```{r}
-plot_citation_network(citing_dictionary = citing_dictionary%>%
-                        filter(citing_id %in% claims_reduced$citing_id &
-                                 ref_id %in% claims_reduced$ref_id),
-                      min_cited_indegree = 2,
-                      min_citing_indegree = 0)
+test@data%>%arrange(desc(in_degree))%>%head(10)%>%pull(label)
+```
+
+```{r}
+# plot_citation_network(citing_dictionary = citing_dictionary%>%
+#                         filter(citing_id %in% claims_reduced$citing_id &
+#                                  ref_id %in% claims_reduced$ref_id),
+#                       min_cited_indegree = 2,
+#                       min_citing_indegree = 0)
 ```

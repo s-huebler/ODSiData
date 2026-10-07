@@ -1,0 +1,32 @@
+op,source,ref_id,from_ref_id,to_ref_id,citing_bibtex,local_number,call_prefix,citing_id,BIBTEXKEY,DOI,PMID,TITLE,old_key,new_key,n_citing_rows
+REPOINT_REF,step2: Blood erratum notice (no author; title = original citation); merge into original Eriguchi_2012,,bdbff70a,d374cacd,,,,,,,,,_2014,Eriguchi_2012,4
+REPOINT_REF,step2: Blood erratum notice (no author; title = original citation); merge into original Reichenbach_2015,,16401469,56e82f9b,,,,,,,,,_2016,Reichenbach_2015,2
+UPDATE_REF,step2: Blood erratum notice for Gill 2014 (original not in dictionary); key named after the original,b8af0337,,,,,,,Gill_2014,,,,_2016b,Gill_2014,1
+REPOINT_REF,step2: Blood erratum notice (no author; title = original citation); merge into original Staffas_2017,,668acad0,b406162c,,,,,,,,,_2017,Staffas_2017,3
+UPDATE_REF,step2: Blood erratum notice for Minnie 2018 (original not in dictionary); key named after the original,954cb3b7,,,,,,,Minnie_2018,,,,_2019,Minnie_2018,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,33c66b2b,,,,,,,Zhang_2018d,,,,FMT-standardizationStudyGroup_2018,Zhang_2018d,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,3610aff0,,,,,,,Passweg_2016,,,,fortheEuropeanSocietyforBloodandMarrowTransplantationEBMT_2016,Passweg_2016,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,68441a65,,,,,,,Duarte_2019,,,,fortheEuropeanSocietyforBloodandMarrowTransplantationEBMT_2019,Duarte_2019,1
+UPDATE_REF,step2 key cleanup: consortium is the only author; shortened,d46ee62c,,,,,,,KernelNetworks_2019,,,,KernelNetworksInc._2019,KernelNetworks_2019,1
+UPDATE_REF,step2 key cleanup: consortium is the only author; shortened,d7539279,,,,,,,KernelNetworks_2019a,,,,KernelNetworksInc._2019a,KernelNetworks_2019a,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,c1098324,,,,,,,Kolb_2018,,,,KolbConsultingUGMunchenGermany_2018,Kolb_2018,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,3923ad71,,,,,,,Huang_2018,,,,MendelianRandomizationofDairyConsumptionWorkingGroup_2018,Huang_2018,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,d940040b,,,,,,,Li_2014,,,,MetaHITConsortium_2014,Li_2014,2
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,07ea5452,,,,,,,Arumugam_2011,,,,MetaHITConsortiumadditionalmembers_2011,Arumugam_2011,2
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,a7fb3c80,,,,,,,Cattaneo_2018,,,,onbehalfofSEIFEMGroup_2018,Cattaneo_2018,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,37ed4cad,,,,,,,Schoemans_2018a,,,,onbehalfoftheComplicationsandQualityofLifeWorkingPartyoftheEBMT_2018,Schoemans_2018a,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,a35361d0,,,,,,,Schoemans_2018b,,,,onbehalfoftheEBMTEuropeanSocietyforBloodandMarrowTransplantationTransplantComplicationsWorkingPartyandtheEBMTNIHNationalInstitutesofHealthCIBMTRCenterforInternationalBloodandMarrowTransplantResearchGvHDTaskForce_2018,Schoemans_2018b,5
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,6ce9ff68,,,,,,,Demirer_2008,,,,onbehalfoftheEBMTSolidTumorsWorkingParty_2008,Demirer_2008,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,3e49652f,,,,,,,Verlinden_2020,,,,onbehalfoftheInfectiousDiseasesWorkingPartyIDWPoftheEuropeanGroupforBloodandMarrowTransplantationGroupEBMT_2020,Verlinden_2020,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,b8de76fa,,,,,,,Ullmann_2016,,,,onbehalfoftheInfectiousDiseasesWorkingPartyoftheGermanSocietyforHematologyandMedicalOncologyAGIHO/DGHOandtheDAG-KBTGermanWorkingGroupforBloodandMarrowTransplantation_2016,Ullmann_2016,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,6c06728a,,,,,,,Koyama_2019b,,,,OnbehalfoftheYokohamaCooperativeStudyGroupforHematologyYACHT_2019,Koyama_2019b,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,a9c7028e,,,,,,,Ikinciogullari_2019,,,,onbehalfofTurkishPediatricBoneMarrowTransplantationSubGroupTPBMT-SG_2019,Ikinciogullari_2019,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,ee55d82d,,,,,,,Moher_2015,,,,PRISMA-PGroup_2015,Moher_2015,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,3256cf96,,,,,,,Sokol_2020,,,,Saint-AntoineIBDNetwork_2020,Sokol_2020,1
+UPDATE_REF,step2 key cleanup: consortium is the only author; shortened,7e27f745,,,,,,,HMPConsortium_2012,,,,TheHumanMicrobiomeProjectConsortium_2012,HMPConsortium_2012,2
+UPDATE_REF,step2 key cleanup: consortium is the only author; shortened,9864e411,,,,,,,HMPConsortium_2012a,,,,TheHumanMicrobiomeProjectConsortium_2012a,HMPConsortium_2012a,6
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,97454e2b,,,,,,,Malhotra_2012,,,,theImmunologicalGenomeProjectConsortium_2012,Malhotra_2012,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,4c8c2151,,,,,,,Proctor_2019,,,,TheIntegrativeHMPiHMPResearchNetworkConsortium_2019,Proctor_2019,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,eaf9963e,,,,,,,Jostins_2012,,,,TheInternationalIBDGeneticsConsortiumIIBDGC_2012,Jostins_2012,1
+UPDATE_REF,step2 key cleanup: first author was a group name; using first person author,4fcaa5ce,,,,,,,Peterson_2009,,,,TheNIHHMPWorkingGroup_2009,Peterson_2009,0
+UPDATE_REF,step2 key cleanup: credentials were parsed into the surname,67b6004d,,,,,,,Thomas_2022,,,,ThomasMsnAprnFnp-CAocnp_2022,Thomas_2022,1

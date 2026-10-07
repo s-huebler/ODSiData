@@ -1,0 +1,5 @@
+release: r232
+download_date: 2026-10-07
+bac120_taxonomy_file: bac120_taxonomy.tsv.gz
+ar53_taxonomy_file: ar53_taxonomy.tsv.gz
+source: https://data.gtdb.ecogenomic.org/releases/latest/

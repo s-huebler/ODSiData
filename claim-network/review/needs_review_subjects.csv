@@ -1,0 +1,19 @@
+atomic_id,src_row,citing,taxon_token,taxa_cell_verbatim
+AT011,3,Moses_2026,and Clostridium,"Escherichia, Lactobacillus, Bifidobaterium, Faecalibacterium, Bacteroides, Roseburia, Ruminococcus, Salmonela, and Clostridium"
+AT020,4,Moses_2026,and Clostridium,"Escherichia, Lactobacillus, Bifidobaterium, Faecalibacterium, Bacteroides, Roseburia, Ruminococcus, Salmonela, and Clostridium"
+AT101,56,Sohouli_2025,Clostridium (obligate anaerobes),Clostridium (obligate anaerobes)
+AT102,57,Sohouli_2025,Clostridium (obligate anaerobes),Clostridium (obligate anaerobes)
+AT103,58,Sohouli_2025,Clostridium (obligate anaerobes),Clostridium (obligate anaerobes)
+AT112,67,Sohouli_2025,Bacteroidetes (propionate-producing),Bacteroidetes (propionate-producing)
+AT118,71,Sohouli_2025,Alphaproteobacteria (post-HSCT),Moraxellaceae; Enterococcaceae; Alphaproteobacteria (post-HSCT); Proteobacteria; Gammaproteobacteria; Odoribacteraceae (pre-HSCT)
+AT121,71,Sohouli_2025,Odoribacteraceae (pre-HSCT),Moraxellaceae; Enterococcaceae; Alphaproteobacteria (post-HSCT); Proteobacteria; Gammaproteobacteria; Odoribacteraceae (pre-HSCT)
+AT124,74,Sohouli_2025,Parabacteroides distasonis (Tannerellaceae),Parabacteroides distasonis (Tannerellaceae); oral Actinomyces (Actinomycetaceae)
+AT125,74,Sohouli_2025,oral Actinomyces (Actinomycetaceae),Parabacteroides distasonis (Tannerellaceae); oral Actinomyces (Actinomycetaceae)
+AT143,88,Sohouli_2025,Clostridium (combination),Clostridium (combination)
+AT159,98,Bai_2025,Blautia (C. perfringens spp.),Blautia (C. perfringens spp.); Akkermansia muciniphila
+AT161,99,Bai_2025,Blautia (clostridial spp.),Blautia (clostridial spp.)
+AT181,108,Bai_2025,Picobirnavirus (gut virome),Picobirnavirus (gut virome)
+AT188,112,AzharUdDin_2025,Proteobacteria (Enterobacteriaceae),Proteobacteria (Enterobacteriaceae)
+AT191,114,AzharUdDin_2025,Clostridia (Clostridiales),Clostridia (Clostridiales)
+AT229,148,AzharUdDin_2025,Enterococcus faecalis (Enterococcus),Enterococcus faecalis (Enterococcus)
+AT274,174,SoleimaniSamarkhazan_2025,Enterococcus (residual recipient),Enterococcus (residual recipient)
