@@ -5,15 +5,36 @@ Output: Input + columns: subject, subject_type
 Lookup: claim-network/lookups/subject_lookup.csv
         (token_verbatim → subject, subject_type)
 
-Values not in subject_lookup go to review/needs_review_subjects.csv.
+Matching: exact string match after stripping leading/trailing whitespace.
+No fuzzy matching.  Unmapped tokens → review/needs_review_subjects.csv + stop.
 """
+import sys
+from pathlib import Path
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).parent))
 from common import load_lookup, review_and_stop
 
 
 def main(df: pd.DataFrame) -> pd.DataFrame:
-    # STUB
-    raise NotImplementedError("02_subjects not yet implemented")
+    lkp = load_lookup("subject_lookup.csv").set_index("token_verbatim")
+
+    tokens = df["taxon_token"].str.strip()
+    mapped = tokens.map(lkp["subject"])
+    types_  = tokens.map(lkp["subject_type"])
+
+    unmapped_mask = mapped.isna()
+    if unmapped_mask.any():
+        bad = df[unmapped_mask][
+            ["atomic_id", "src_row", "citing", "taxon_token", "taxa_cell_verbatim"]
+        ].copy()
+        review_and_stop(bad, "subjects",
+                        f"{unmapped_mask.sum()} taxon tokens not found in subject_lookup.csv")
+
+    df = df.copy()
+    df["subject"] = mapped
+    df["subject_type"] = types_
+    return df
 
 
 if __name__ == "__main__":

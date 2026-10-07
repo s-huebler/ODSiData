@@ -5,7 +5,7 @@ Paths are relative to the repo root (two levels up from this file).
 from pathlib import Path
 import pandas as pd
 
-REPO_ROOT = Path(__file__).parent.parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 DATA_DIR = REPO_ROOT / "claim-network" / "data"
 LOOKUPS_DIR = REPO_ROOT / "claim-network" / "lookups"
 REVIEW_DIR = REPO_ROOT / "claim-network" / "review"
