@@ -1,0 +1,74 @@
+mechanism_verbatim,categories,primary_category
+3-IS,Indole/tryptophan metabolite,Indole/tryptophan metabolite
+Bacterial translocation,Dysbiosis / mono-dominance,Dysbiosis / mono-dominance
+Barrier - Mucus / tight junctions,Barrier / mucus; SCFA metabolite,Barrier / mucus
+Barrier / immune (lung),Barrier / mucus; Other immune,Barrier / mucus
+Biomarker,Biomarker / indicator,Biomarker / indicator
+Biomarker (ratio),Biomarker / indicator; Diversity / commensal depletion; Lactate metabolite,Biomarker / indicator
+Commensal,Diversity / commensal depletion,Diversity / commensal depletion
+Diversity / commensal,Diversity / commensal depletion,Diversity / commensal depletion
+Diversity / commensal anaerobes,Diversity / commensal depletion,Diversity / commensal depletion
+Diversity / mono-dominance,Diversity / commensal depletion; Dysbiosis / mono-dominance,Diversity / commensal depletion
+Dysbiosis,Dysbiosis / mono-dominance,Dysbiosis / mono-dominance
+Dysbiosis (antibiotic-induced),Dysbiosis / mono-dominance,Dysbiosis / mono-dominance
+Dysbiosis / low diversity,Dysbiosis / mono-dominance; Diversity / commensal depletion,Dysbiosis / mono-dominance
+General,General / unspecified,General / unspecified
+Immune - IgA / mucosal,IgA / mucosal immunity; Other immune,IgA / mucosal immunity
+Immune - LPS / innate,Innate / TLR-LPS; Other immune,Innate / TLR-LPS
+Immune - MAIT,MAIT modulator; Other immune,MAIT modulator
+Immune - MHC II,MHC II inducer; Other immune,MHC II inducer
+Immune - MHC II inducer,MHC II inducer; Other immune,MHC II inducer
+Immune - MHC II suppressor,MHC II suppressor; Other immune,MHC II suppressor
+Immune - Microbial antigens,Microbial-antigen presentation; Other immune,Microbial-antigen presentation
+Immune - T reg; Metabolite - SCFA,Treg inducer; SCFA metabolite; Other immune,Treg inducer
+Immune - TH1 suppression,Th1 suppression; Other immune,Th1 suppression
+Immune - TLR/innate,Innate / TLR-LPS; Other immune,Innate / TLR-LPS
+Immune - Th17,Th17 modulator; Microbial-antigen presentation; Th1 suppression,Th17 modulator
+Immune - Th17/Treg,Th17 modulator; Treg inducer; Microbial-antigen presentation; Th1 suppression,Th17 modulator
+Immune - Treg (PSA/glycoantigen),Treg inducer; Macrophage / PSA modulator,Treg inducer
+Immune - Treg; Metabolites - SCFA,Treg inducer; SCFA metabolite; Other immune,Treg inducer
+Immune - modulator/indicator,Other immune; Biomarker / indicator,Other immune
+Immune - regulatory macrophage (PSA/LPS),Macrophage / PSA modulator; Innate / TLR-LPS; Other immune,Macrophage / PSA modulator
+MIAT,Microbial-antigen presentation,Microbial-antigen presentation
+Metabolites - Bile Acid,SBA metabolite; IgA / mucosal immunity,SBA metabolite
+Metabolites - Bile Acid; taurocholic acid; DCA,SBA metabolite,SBA metabolite
+Metabolites - Bile acid,SBA metabolite,SBA metabolite
+Metabolites - Butyrate; butyric acid,SCFA metabolite,SCFA metabolite
+Metabolites - HMO,HMO metabolite,HMO metabolite
+Metabolites - IPA,Indole/tryptophan metabolite,Indole/tryptophan metabolite
+Metabolites - Iald,Indole/tryptophan metabolite,Indole/tryptophan metabolite
+Metabolites - Indole / tryptophan,Indole/tryptophan metabolite,Indole/tryptophan metabolite
+Metabolites - Indole/tryptophan; Immune - IL-22,Indole/tryptophan metabolite; ILC / IL-22 axis; Other immune,Indole/tryptophan metabolite
+Metabolites - Indole/tryptophan; Immune - IL-22 / ILC,Indole/tryptophan metabolite; ILC / IL-22 axis; Other immune,Indole/tryptophan metabolite
+Metabolites - Isovaleric acid,SCFA metabolite; Other metabolite,SCFA metabolite
+Metabolites - LCA,SBA metabolite,SBA metabolite
+Metabolites - Lactate,Lactate metabolite,Lactate metabolite
+Metabolites - Lactate; Immune - Treg,Lactate metabolite; Treg inducer; Other immune,Lactate metabolite
+Metabolites - Metalloprotease,Metalloprotease / virulence,Metalloprotease / virulence
+Metabolites - Metalloprotese,Metalloprotease / virulence,Metalloprotease / virulence
+Metabolites - Methionine,Other metabolite,Other metabolite
+Metabolites - Phenylacetic acid,Other metabolite,Other metabolite
+Metabolites - Propionate,SCFA metabolite,SCFA metabolite
+Metabolites - SBA,SBA metabolite,SBA metabolite
+Metabolites - SCFA,SCFA metabolite,SCFA metabolite
+Metabolites - SCFA (butyrate),SCFA metabolite,SCFA metabolite
+Metabolites - SCFA (butyrate) / bile acid; Immune - Treg,SCFA metabolite; SBA metabolite; Treg inducer; Other immune,SCFA metabolite
+Metabolites - SCFA (butyrate); Barrier / mucosal,SCFA metabolite; Barrier / mucus; IgA / mucosal immunity,SCFA metabolite
+Metabolites - SCFA (butyrate); Immune - MHC II,SCFA metabolite; MHC II inducer; Other immune,SCFA metabolite
+Metabolites - SCFA (butyrate); Immune - T cell,SCFA metabolite; Other immune,SCFA metabolite
+Metabolites - SCFA (butyrate); Immune - Treg,SCFA metabolite; Treg inducer; Other immune,SCFA metabolite
+Metabolites - SCFA (propionate),SCFA metabolite,SCFA metabolite
+"Metabolites - SCFA, butyrate",SCFA metabolite,SCFA metabolite
+Metabolites - SCFA; Immune - IgA,SCFA metabolite; IgA / mucosal immunity; Other immune,SCFA metabolite
+Metabolites - SCFA; Immune - Treg,SCFA metabolite; Treg inducer; Other immune,SCFA metabolite
+Metabolites - Succinate,Other metabolite,Other metabolite
+Metabolites - TUDCA,SBA metabolite,SBA metabolite
+Metabolites - Trypophan,Indole/tryptophan metabolite,Indole/tryptophan metabolite
+Metabolites - UDCA,SBA metabolite,SBA metabolite
+Metabolites - Urolithins,Indole/tryptophan metabolite,Indole/tryptophan metabolite
+Metabolites - polyamines / bile acid,Other metabolite; SBA metabolite,Other metabolite
+Metabolizes polysaccharides,Polysaccharide metabolism,Polysaccharide metabolism
+Metabolizes polysaccharides / mucus protection,Polysaccharide metabolism; Barrier / mucus,Polysaccharide metabolism
+Mucus,Barrier / mucus,Barrier / mucus
+Pathobionts,Dysbiosis / mono-dominance,Dysbiosis / mono-dominance
+Virome,Virome,Virome

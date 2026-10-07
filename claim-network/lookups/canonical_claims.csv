@@ -1,0 +1,110 @@
+claim_id,subject,rank_as_cited,valence,claim_label,first_seen
+1,Clostridium savagella,species,unfavourable,Clostridium savagella (species) exacerbates GVHD,2026-07-15
+2,bacterial flagellin,molecular_pattern,unfavourable,bacterial flagellin (molecular_pattern) exacerbates GVHD,2026-07-15
+3,Escherichia,genus,unfavourable,Escherichia (genus) exacerbates GVHD,2026-07-15
+4,Lactobacillus,genus,unfavourable,Lactobacillus (genus) exacerbates GVHD,2026-07-15
+5,Bifidobacterium,genus,unfavourable,Bifidobacterium (genus) exacerbates GVHD,2026-07-15
+6,Faecalibacterium,genus,unfavourable,Faecalibacterium (genus) exacerbates GVHD,2026-07-15
+7,Bacteroides,genus,unfavourable,Bacteroides (genus) exacerbates GVHD,2026-07-15
+8,Roseburia,genus,unfavourable,Roseburia (genus) exacerbates GVHD,2026-07-15
+9,Ruminococcus,genus,unfavourable,Ruminococcus (genus) exacerbates GVHD,2026-07-15
+10,Salmonella,genus,unfavourable,Salmonella (genus) exacerbates GVHD,2026-07-15
+11,Clostridium,genus,unfavourable,Clostridium (genus) exacerbates GVHD,2026-07-15
+12,Faecalibacterium prausnitzii,species,favourable,Faecalibacterium prausnitzii (species) protective in GVHD,2026-07-15
+13,Enterococcus,genus,unfavourable,Enterococcus (genus) exacerbates GVHD,2026-07-15
+14,Bile-acid-producing bacteria,functional,unfavourable,Bile-acid-producing bacteria exacerbates GVHD,2026-07-15
+15,Clostridia,class,favourable,Clostridia (class) protective in GVHD,2026-07-15
+16,Clostridia,class,unfavourable,Clostridia (class) exacerbates GVHD,2026-07-15
+17,Bacteroides thetaiotaomicron,species,unfavourable,Bacteroides thetaiotaomicron (species) exacerbates GVHD,2026-07-15
+18,Akkermansia muciniphila,species,unfavourable,Akkermansia muciniphila (species) exacerbates GVHD,2026-07-15
+19,Bacteroides ovatus,species,favourable,Bacteroides ovatus (species) protective in GVHD,2026-07-15
+20,Bacteroides thetaiotaomicron,species,favourable,Bacteroides thetaiotaomicron (species) protective in GVHD,2026-07-15
+21,Lactobacillus rhamnosus,species,favourable,Lactobacillus rhamnosus (species) protective in GVHD,2026-07-15
+22,Lactobacillus rhamnosus,species,context,Lactobacillus rhamnosus (species) context-dependent role in GVHD,2026-07-15
+23,Bifidobacterium,genus,favourable,Bifidobacterium (genus) protective in GVHD,2026-07-15
+24,Ruminococcus,genus,favourable,Ruminococcus (genus) protective in GVHD,2026-07-15
+25,Roseburia hominis,species,favourable,Roseburia hominis (species) protective in GVHD,2026-07-15
+26,Eubacterium rectale,species,favourable,Eubacterium rectale (species) protective in GVHD,2026-07-15
+27,Propionibacterium freudenreichii,species,favourable,Propionibacterium freudenreichii (species) protective in GVHD,2026-07-15
+28,Clostridium,genus,favourable,Clostridium (genus) protective in GVHD,2026-07-15
+29,Bacteroides,genus,favourable,Bacteroides (genus) protective in GVHD,2026-07-15
+30,Clostridium scindens,species,favourable,Clostridium scindens (species) protective in GVHD,2026-07-15
+31,Ruminococcus gnavus,species,favourable,Ruminococcus gnavus (species) protective in GVHD,2026-07-15
+32,Eubacterium,genus,favourable,Eubacterium (genus) protective in GVHD,2026-07-15
+33,Clostridium leptum,species,favourable,Clostridium leptum (species) protective in GVHD,2026-07-15
+34,Clostridium coccoides),species,favourable,Clostridium coccoides) (species) protective in GVHD,2026-07-15
+35,Bacteroides fragilis,species,favourable,Bacteroides fragilis (species) protective in GVHD,2026-07-15
+36,Clostridium sporogenes,species,favourable,Clostridium sporogenes (species) protective in GVHD,2026-07-15
+37,Eubacterium hallii,species,favourable,Eubacterium hallii (species) protective in GVHD,2026-07-15
+38,Lactobacillus reuteri,species,favourable,Lactobacillus reuteri (species) protective in GVHD,2026-07-15
+39,Lactobacillus plantarum,species,favourable,Lactobacillus plantarum (species) protective in GVHD,2026-07-15
+40,Prevotella,genus,favourable,Prevotella (genus) protective in GVHD,2026-07-15
+41,Lactobacillus,genus,favourable,Lactobacillus (genus) protective in GVHD,2026-07-15
+42,Akkermansia muciniphila,species,favourable,Akkermansia muciniphila (species) protective in GVHD,2026-07-15
+43,Eggerthella,genus,favourable,Eggerthella (genus) protective in GVHD,2026-07-15
+44,Bacteroides ovatus,species,unfavourable,Bacteroides ovatus (species) exacerbates GVHD,2026-07-15
+45,Akkermansia,genus,unfavourable,Akkermansia (genus) exacerbates GVHD,2026-07-15
+46,Lactobacillales,order,unfavourable,Lactobacillales (order) exacerbates GVHD,2026-07-15
+47,Blautia,genus,favourable,Blautia (genus) protective in GVHD,2026-07-15
+48,Lachnoclostridium,genus,favourable,Lachnoclostridium (genus) protective in GVHD,2026-07-15
+49,Ruminococcaceae,family,favourable,Ruminococcaceae (family) protective in GVHD,2026-07-15
+50,SCFA-producing bacteria,functional,favourable,SCFA-producing bacteria protective in GVHD,2026-07-15
+51,Fusobacterium,genus,unfavourable,Fusobacterium (genus) exacerbates GVHD,2026-07-15
+52,Bacteroidetes,phylum,favourable,Bacteroidetes (phylum) protective in GVHD,2026-07-15
+53,Faecalibacterium,genus,favourable,Faecalibacterium (genus) protective in GVHD,2026-07-15
+54,Enterococcus,genus,favourable,Enterococcus (genus) protective in GVHD,2026-07-15
+55,Pasteurellaceae,family,unfavourable,Pasteurellaceae (family) exacerbates GVHD,2026-07-15
+56,Moraxellaceae,family,context,Moraxellaceae (family) context-dependent role in GVHD,2026-07-15
+57,Enterococcaceae,family,context,Enterococcaceae (family) context-dependent role in GVHD,2026-07-15
+58,Alphaproteobacteria,class,context,Alphaproteobacteria (class) context-dependent role in GVHD,2026-07-15
+59,Proteobacteria,phylum,context,Proteobacteria (phylum) context-dependent role in GVHD,2026-07-15
+60,Gammaproteobacteria,class,context,Gammaproteobacteria (class) context-dependent role in GVHD,2026-07-15
+61,Odoribacteraceae,family,context,Odoribacteraceae (family) context-dependent role in GVHD,2026-07-15
+62,Enterobacter,genus,unfavourable,Enterobacter (genus) exacerbates GVHD,2026-07-15
+63,Lactate/lactase-producing bacteria,functional,unfavourable,Lactate/lactase-producing bacteria exacerbates GVHD,2026-07-15
+64,Parabacteroides distasonis,species,unfavourable,Parabacteroides distasonis (species) exacerbates GVHD,2026-07-15
+65,Actinomyces,genus,unfavourable,Actinomyces (genus) exacerbates GVHD,2026-07-15
+66,Oscillospiraceae,family,favourable,Oscillospiraceae (family) protective in GVHD,2026-07-15
+67,Enterococcaceae,family,unfavourable,Enterococcaceae (family) exacerbates GVHD,2026-07-15
+68,Enterobacteriaceae,family,unfavourable,Enterobacteriaceae (family) exacerbates GVHD,2026-07-15
+69,Clostridiales,order,favourable,Clostridiales (order) protective in GVHD,2026-07-15
+70,Gammaproteobacteria,class,unfavourable,Gammaproteobacteria (class) exacerbates GVHD,2026-07-15
+71,Candida,genus,unfavourable,Candida (genus) exacerbates GVHD,2026-07-15
+72,Lactobacillus,genus,context,Lactobacillus (genus) context-dependent role in GVHD,2026-07-15
+73,Lachnospiraceae,family,favourable,Lachnospiraceae (family) protective in GVHD,2026-07-15
+74,Streptococci,genus,unfavourable,Streptococci (genus) exacerbates GVHD,2026-07-15
+75,Akkermansia muciniphila,species,context,Akkermansia muciniphila (species) context-dependent role in GVHD,2026-07-15
+76,Clostridium,genus,context,Clostridium (genus) context-dependent role in GVHD,2026-07-15
+77,Gram-negative bacteria (LPS),functional,unfavourable,Gram-negative bacteria (LPS) exacerbates GVHD,2026-07-15
+78,Porphyromonas,genus,unfavourable,Porphyromonas (genus) exacerbates GVHD,2026-07-15
+79,Sharpea,genus,unfavourable,Sharpea (genus) exacerbates GVHD,2026-07-15
+80,Enterococcus faecalis,species,favourable,Enterococcus faecalis (species) protective in GVHD,2026-07-15
+81,Trichoderma,genus,favourable,Trichoderma (genus) protective in GVHD,2026-07-15
+82,Bifidobacterium,genus,context,Bifidobacterium (genus) context-dependent role in GVHD,2026-07-15
+83,C. perfringens,species,context,C. perfringens (species) context-dependent role in GVHD,2026-07-15
+84,B. mimicus,species,context,B. mimicus (species) context-dependent role in GVHD,2026-07-15
+85,Picobirnavirus,genus,unfavourable,Picobirnavirus (genus) exacerbates GVHD,2026-07-15
+86,Gram-positive bacteria,functional,favourable,Gram-positive bacteria protective in GVHD,2026-07-15
+87,Streptococcus,genus,unfavourable,Streptococcus (genus) exacerbates GVHD,2026-07-15
+88,Proteobacteria,phylum,unfavourable,Proteobacteria (phylum) exacerbates GVHD,2026-07-15
+89,Actinomycetaceae,family,favourable,Actinomycetaceae (family) protective in GVHD,2026-07-15
+90,Firmicutes,phylum,favourable,Firmicutes (phylum) protective in GVHD,2026-07-15
+91,Segmented filamentous bacteria,functional,context,Segmented filamentous bacteria context-dependent role in GVHD,2026-07-15
+92,Bifidobacterium longum,species,favourable,Bifidobacterium longum (species) protective in GVHD,2026-07-15
+93,Cyanobacteria,phylum,favourable,Cyanobacteria (phylum) protective in GVHD,2026-07-15
+94,Escherichia coli,species,unfavourable,Escherichia coli (species) exacerbates GVHD,2026-07-15
+95,Enterococcus faecalis,species,unfavourable,Enterococcus faecalis (species) exacerbates GVHD,2026-07-15
+96,Brucella,genus,favourable,Brucella (genus) protective in GVHD,2026-07-15
+97,Proteus,genus,unfavourable,Proteus (genus) exacerbates GVHD,2026-07-15
+98,Escherichia coli,species,favourable,Escherichia coli (species) protective in GVHD,2026-07-15
+99,Indole/tryptophan-producing bacteria,functional,favourable,Indole/tryptophan-producing bacteria protective in GVHD,2026-07-15
+100,Akkermansia,genus,favourable,Akkermansia (genus) protective in GVHD,2026-07-15
+101,Bacillus,genus,favourable,Bacillus (genus) protective in GVHD,2026-07-15
+102,Clostridium butyricum,species,favourable,Clostridium butyricum (species) protective in GVHD,2026-07-15
+103,Coriobacteriaceae,family,favourable,Coriobacteriaceae (family) protective in GVHD,2026-07-15
+104,Faecalibacterium duncaniae,species,favourable,Faecalibacterium duncaniae (species) protective in GVHD,2026-07-15
+105,Veillonella,genus,favourable,Veillonella (genus) protective in GVHD,2026-07-15
+106,Lactate/lactase-producing bacteria,functional,favourable,Lactate/lactase-producing bacteria protective in GVHD,2026-07-15
+107,Gentamicin-resistant bacteria,functional,favourable,Gentamicin-resistant bacteria protective in GVHD,2026-07-15
+108,Vancomycin-resistant bacteria,functional,favourable,Vancomycin-resistant bacteria protective in GVHD,2026-07-15
+109,Anaerostipes,genus,favourable,Anaerostipes (genus) protective in GVHD,2026-07-15

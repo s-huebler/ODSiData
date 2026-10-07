@@ -1,0 +1,21 @@
+src_row,field,flag,verbatim_value
+17,valence,neg+causal?,Negative; causal
+20,mechanism,blank-mechanism,
+44,mechanism,blank-mechanism,
+45,mechanism,blank-mechanism,
+46,mechanism,blank-mechanism,
+47,mechanism,blank-mechanism,
+48,mechanism,blank-mechanism,
+49,mechanism,blank-mechanism,
+50,mechanism,blank-mechanism,
+53,mechanism,blank-mechanism,
+55,mechanism,blank-mechanism,
+71,valence,prognostic/biomarker,Prognostic (survival indicators)
+91,taxon,group?,Streptococci
+100,valence,low-abundance->GVHD implies protective,Reported: low abundance associated with chronic GVHD
+105,taxon,abbrev-genus,C. perfringens
+105,taxon,abbrev-genus,B. mimicus
+106,taxon,abbrev-genus,C. perfringens
+106,taxon,abbrev-genus,B. mimicus
+107,taxon,abbrev-genus,C. perfringens
+107,taxon,abbrev-genus,B. mimicus

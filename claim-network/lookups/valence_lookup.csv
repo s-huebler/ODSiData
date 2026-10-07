@@ -1,0 +1,18 @@
+relationship_verbatim,valence,rule
+Complex; context-dependent,context,complex or immunomodulatory effect; net direction unclear
+Complex; immunomodulatory,context,complex or immunomodulatory effect; net direction unclear
+Modulatory (bile-acid metabolism),context,modulatory effect; directionality context-dependent
+Negative association,favourable,negative association with adverse GVHD outcome
+Negative association; protective,favourable,negative association with GVHD outcome; lower abundance / presence is protective
+Negative association; protective (loss is exacerbative),favourable,negative association with GVHD outcome; lower abundance / presence is protective
+Negative; alleviative,favourable,negative association with GVHD outcome; lower abundance / presence is protective
+Negative; causal,favourable,negative association framed as causal protection
+Negative; protective,favourable,negative association with GVHD outcome; lower abundance / presence is protective
+No association,context,no statistical association reported
+Positive association,unfavourable,positive association with adverse GVHD outcome
+Positive; exacerbative,unfavourable,positive association; higher abundance exacerbates GVHD
+Positive; exacerbative or causal,unfavourable,positive association; higher abundance exacerbates GVHD
+Positive; predictive of aGVHD,unfavourable,positive association; elevated abundance predicts GVHD onset
+Positive; predictive of severe intestinal GVHD,unfavourable,positive association; elevated abundance predicts GVHD onset
+Prognostic (survival indicators),context,prognostic marker without directional valence
+Reported: low abundance associated with chronic GVHD,favourable,low abundance associated with cGVHD; protective when abundant

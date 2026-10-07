@@ -1,0 +1,117 @@
+token_verbatim,subject,subject_type,note
+Actinomycetaceae,Actinomycetaceae,taxon,
+Akkermansia,Akkermansia,taxon,
+Akkermansia muciniphila,Akkermansia muciniphila,taxon,
+Akkermansia muciniphilia,Akkermansia muciniphila,taxon,spelling corrected
+Alphaproteobacteria,Alphaproteobacteria,taxon,
+Anaerostipes,Anaerostipes,taxon,
+B. mimicus,B. mimicus,taxon,
+B. thetaiotaomicron,Bacteroides thetaiotaomicron,taxon,abbreviated binomial expanded
+Bacillus spp.,Bacillus,taxon,spp. abbreviation collapsed to genus
+Bacteroides,Bacteroides,taxon,
+Bacteroides fragilis,Bacteroides fragilis,taxon,
+Bacteroides ovatus,Bacteroides ovatus,taxon,
+Bacteroides spp.,Bacteroides,taxon,spp. abbreviation collapsed to genus
+Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron,taxon,
+Bacteroidetes,Bacteroidetes,taxon,
+Bifidobacterium,Bifidobacterium,taxon,
+Bifidobacterium longum,Bifidobacterium longum,taxon,
+Bifidobacterium spp.,Bifidobacterium,taxon,spp. abbreviation collapsed to genus
+Bifidobaterium,Bifidobacterium,taxon,label normalised
+Blautia,Blautia,taxon,
+Blautia coccoides group,Blautia,taxon,spelling corrected
+Brucella,Brucella,taxon,
+Butyrate / SCFA-producing bacteria,SCFA-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+Butyrate-synthesizing bacteria (BCoAT),SCFA-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+C. perfringens,C. perfringens,taxon,
+C. savagella,Clostridium savagella,taxon,abbreviated binomial expanded
+C. sporogenes,Clostridium sporogenes,taxon,abbreviated binomial expanded
+Candida,Candida,taxon,
+Clostridia,Clostridia,taxon,
+Clostridia clusters IV,Clostridia,taxon,Clostridia cluster (cluster IV/XIVa) collapsed to Clostridia class
+Clostridiales,Clostridiales,taxon,
+Clostridiales order,Clostridiales,taxon,rank qualifier stripped
+Clostridiales species,Clostridiales,taxon,rank qualifier stripped
+Clostridium,Clostridium,taxon,
+Clostridium Clostridia,Clostridia,taxon,Clostridia cluster (cluster IV/XIVa) collapsed to Clostridia class
+Clostridium butyricum,Clostridium butyricum,taxon,
+Clostridium clusters IV,Clostridia,taxon,Clostridia cluster (cluster IV/XIVa) collapsed to Clostridia class
+Clostridium coccoides),Clostridium coccoides),taxon,
+Clostridium leptum,Clostridium leptum,taxon,
+Clostridium savagella,Clostridium savagella,taxon,
+Clostridium scindens,Clostridium scindens,taxon,
+Clostridium sporogenes,Clostridium sporogenes,taxon,
+Clostridium spp.,Clostridium,taxon,spp. abbreviation collapsed to genus
+Coriobacteriaceae family,Coriobacteriaceae,taxon,rank qualifier stripped
+Cyanobacteria,Cyanobacteria,taxon,
+Eggerthella spp.,Eggerthella,taxon,spp. abbreviation collapsed to genus
+Enterobacter,Enterobacter,taxon,
+Enterobacteriaceae,Enterobacteriaceae,taxon,
+Enterococcaceae,Enterococcaceae,taxon,
+Enterococci,Enterococcus,taxon,label normalised
+Enterococcus,Enterococcus,taxon,
+Enterococcus faecalis,Enterococcus faecalis,taxon,
+Escherichia,Escherichia,taxon,
+Escherichia coli,Escherichia coli,taxon,
+Eubacterium hallii,Eubacterium hallii,taxon,
+Eubacterium rectale,Eubacterium rectale,taxon,
+Eubacterium spp.,Eubacterium,taxon,spp. abbreviation collapsed to genus
+F. prausnitzii,Faecalibacterium prausnitzii,taxon,abbreviated binomial expanded
+Faecalibacterium,Faecalibacterium,taxon,
+Faecalibacterium duncaniae,Faecalibacterium duncaniae,taxon,
+Faecalibacterium prausnitzii,Faecalibacterium prausnitzii,taxon,
+Firmicutes,Firmicutes,taxon,
+Fusobacterium,Fusobacterium,taxon,
+Gammaproteobacteria,Gammaproteobacteria,taxon,
+Gentamicin-resistant bacteria,Gentamicin-resistant bacteria,functional_group,
+Gram-negative bacteria (LPS),Gram-negative bacteria (LPS),functional_group,
+Gram-positive bacteria (pulmonary),Gram-positive bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+Lachnoclostridium,Lachnoclostridium,taxon,
+Lachnospiraceae,Lachnospiraceae,taxon,
+Lachnospiraceae family,Lachnospiraceae,taxon,rank qualifier stripped
+"Lactase-producing bacteria (Actinobacteria, Proteobacteria, Firmicutes)",Lactate/lactase-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+Lactate producers : strict anaerobes ratio,Lactate/lactase-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+Lactobacillales,Lactobacillales,taxon,
+Lactobacilli,Lactobacillus,taxon,label normalised
+Lactobacillus,Lactobacillus,taxon,
+Lactobacillus plantarum,Lactobacillus plantarum,taxon,
+Lactobacillus reuteri,Lactobacillus reuteri,taxon,
+Lactobacillus rhamnosus,Lactobacillus rhamnosus,taxon,
+Lactobacillus spp.,Lactobacillus,taxon,spp. abbreviation collapsed to genus
+Microbes that produce bile acides that mitigate farnesoid X,Bile-acid-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+Moraxellaceae,Moraxellaceae,taxon,
+Odoribacteraceae,Odoribacteraceae,taxon,
+Oscillospiraceae,Oscillospiraceae,taxon,
+Parabacteroides distasonis,Parabacteroides distasonis,taxon,
+Pasteurellaceae,Pasteurellaceae,taxon,
+Picobirnavirus,Picobirnavirus,taxon,
+Porphyromonas,Porphyromonas,taxon,
+Prevotella spp.,Prevotella,taxon,spp. abbreviation collapsed to genus
+Propionibacterium freudenreichii,Propionibacterium freudenreichii,taxon,
+Propionic-acid (propionate)-producing bacteria,SCFA-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+Proteobacteria,Proteobacteria,taxon,
+Proteus,Proteus,taxon,
+Roseburia,Roseburia,taxon,
+Roseburia hominis,Roseburia hominis,taxon,
+Ruminococcaceae,Ruminococcaceae,taxon,
+Ruminococcaceae genus,Ruminococcaceae,taxon,rank qualifier stripped
+Ruminococcus,Ruminococcus,taxon,
+Ruminococcus gnavus,Ruminococcus gnavus,taxon,
+SCFA (butyrate) producers,SCFA-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+SCFA (butyrate) producers (BCoAT),SCFA-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+"SCFA (butyrate, propionate, acetate) producers",SCFA-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+SCFA producers,SCFA-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+SCFA producers (IgA),SCFA-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+Salmonela,Salmonella,taxon,label normalised
+Segmented filamentous bacteria,Segmented filamentous bacteria,functional_group,
+Sharpea,Sharpea,taxon,
+Streptococci,Streptococci,taxon,
+Streptococcus,Streptococcus,taxon,
+Streptococcus spp.,Streptococcus,taxon,spp. abbreviation collapsed to genus
+Trichoderma spp.,Trichoderma,taxon,spp. abbreviation collapsed to genus
+Tryptophan/indole metabolite producers (IAld),Indole/tryptophan-producing bacteria,functional_group,verbatim functional-group label collapsed to canonical functional subject
+Vancomycin-resistant bacteria,Vancomycin-resistant bacteria,functional_group,
+Veillonella genus,Veillonella,taxon,rank qualifier stripped
+XIVa,Clostridia,taxon,Clostridia cluster (cluster IV/XIVa) collapsed to Clostridia class
+bacterial flagellin,bacterial flagellin,molecular_pattern,
+oral Actinomyces,Actinomyces,taxon,spelling corrected
