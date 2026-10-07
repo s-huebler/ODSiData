@@ -165,7 +165,6 @@ Reference & Microbiome Cohort & Study design & Main results  \\
 \refcell{Ingham2019}{ingham2019specific-2d2}{PRJEB25221} & 30 children undergoing allo-SCT & Prospective longitudinal cohort investigating exploratory high dimensional clustering of the gut microbiome, immune markers, and clinical outcomes.    &  Severe GVHD and death were associated with a lack of commensal bacteria like \textit{Clostridiales}, high plasma hBD2 levels post-transplant, and increased \textit{Lactobacillaceae} at all time points. NK and B cell reconstitution was associated with mild to no GVHD and better survival, and was associated with high abundance of obligate anaerobes.  \\
 \refcell{Jarosch2023}{jarosch2023multimodal-0f7}{PRJEB60178} & 46 adults who underwent allo-SCT & Longitudinal multi-modal analysis relating the gut microbiome, immune cell function, and GVHD.  & Broad-spectrum antibiotic exposure was associated with lower microbial diversity and fewer, less suppressive intestinal Tregs. SCFA-producing taxa, particularly Clostridia and Bacteroidia, were associated with suppressive Treg phenotypes, while severe GI-GVHD was associated with persistent, clonally expanded activated CD8 T cells. Overall microbial community composition did not separate according to GI-GVHD severity.  \\
 \refcell{Liu2017}{Liu2017}{PRJEB16057} & 57 adults undergoing allo-SCT; 22 healthy SCT donors & Prospective cohort examining allo-SCT recipient and paired sibling-donor gut microbiota, at the time of pre-conditioning, in relation to GI-GVHD and mortality. & Recipients had lower baseline diversity and different composition than healthy donors. Lower recipient diversity was associated with higher overall mortality but not GI-GVHD. Donor-recipient dissimilarity was not associated with GI-GVHD, whereas higher donor diversity was associated with lower GI-GVHD odds.  \\
-\refcell{Simms-Waldrip2017}{.}{PRJNA283642} & 8 children undergoing allo-SCT & Prospective study characterizing the gut microbiome after allo-SCT using different assay techniques. & Patients who developed GVHD showed significant decline in anti-inflammatory \textit{Clostridia}.\\
 \refcell{Spindelboeck2021}{.}{ PRJEB39834} & 10 adults with GI-GVHD after allo-SCT, 14 healthy FMT donors & Prospective cohort of adults undergoing repeated colonoscopic FMT for severe treatment-refractory GI-GVHD after allo-SCT. &  Patients who responded to FMT with full or partial GI-GVHD remission at 90 days had longer overall and GI-GVHD-related survival. Responders developed a more donor-like microbiota, with restored diversity and enrichment of anaerobic butyrate-producing taxa. Ongoing broad-spectrum antibiotics were associated with persistent dysbiosis, failed engraftment, and non-response to FMT.  \\
 \refcell{Vallet2023}{.}{PRJNA902819}  & 55 adults undergoing allo-SCT  & Longidudinal multi-omics substudy of an RCT where stool samples were used to form bacterial enterotypes which interacted with viral and metabolic pathways and were investigated for association with receipt of the drug and allo-SCT outcomes.   & One specific enterotype was associated with greater odds of remission, and changing enterotypes generally was associated with greater odds of remission. Enterotype distribution was not associated with acute or chronic GVHD. \\ % TODO: add Vallet2023 to references.bib
 \end{longtblr}
@@ -203,9 +202,7 @@ Fujimoto2024 & Illumina MiSeq & V3-V4 & 341 F; 785 R & Paired-end & (105,943.9/ 
 Ingham2019 & Roche 454 & V4-V5 &  519 F; 926 R & Single-end pyro & (8,141.5/ \tbd) \\
 Jarosch2023 & Ion Torrent & V1-V3 & S-D-Bact-0008-c-S-20 F; S-D-Bact-0517-a-A-18 R & Single-end pyro & (61,285.5/ \tbd) \\
 Liu2017 & Illumina MiSeq & V4 & 534 F; 806 R & Single-end & (288,174.7/ \tbd) \\
-Simms-Waldrip2017 & Roche 454 \& Illumina HiSeq & V4 %Need to check whether this is actually V4-V5 
-& 563 F; 926BS R & Single-end pyro \& single-end & (\tbd/ \tbd)\\
-Spindelboeck2021 & Ion Torrent  & V4 & 515-S3 F; 806-S2 R & Single-end pyro  & (91,788.4/ \tbd) \\
+Spindelboeck2021 & Ion Torrent  & V4 & 515-S3 F; 806-S2 R & Single-end pyro & (91,788.4/ \tbd) \\
 Vallet2023 & Illumina MiSeq & V3-V4 & 343 F; 800R & Paired-end & (52,013.6/ \tbd) \\
 \end{tblr}
 \vspace{2pt}
@@ -495,37 +492,6 @@ The manuscript reported 58 species-level differences between recipients and dono
   \item \texttt{--p-trunc-len}: 230
   \item \texttt{--p-max-ee}: 2
   \end{itemize}
-\end{itemize}
-
-\section{Simms-Waldrip2017}
-\subsection{Summary}
-is two-cohort prospective pilot study used three complementary assays to characterize gut microbiome changes after allo-SCT in pediatric patients who did and did not develop GVHD. The combined cohort comprised 8 children from Children's Medical Center Dallas and 7 children from Cincinnati Children's Hospital, after recipients older than 18 years were excluded at both sites. Bacterial group quantitative PCR (qPCR) was performed in both cohorts to track absolute bacterial abundance over time. 16S rRNA gene sequencing was performed on the Dallas samples only, to allow comparison with prior adult studies that reported relative abundance. Metagenomic shotgun sequencing (MSS) was performed on a single sample per patient (8 Dallas and 5 Cincinnati patients) to resolve taxa at the species level and to characterize functional pathways and antibiotic resistance genes. Bacterial group qPCR uses primers targeting 16S rRNA gene sequences shared by a defined phylogenetic group, so each assay returns gene copies per gram of feces for the group as a whole rather than for an individual taxon. Three groups were quantified. CLEPT (Clostridium leptum group, clostridial cluster IV, approximating Ruminococcaceae) and EREC (Eubacterium rectale and Clostridium coccoides group, clostridial cluster XIVa, approximating Lachnospiraceae) served as markers of anti-inflammatory Clostridia (AIC), and ENTERO (Enterobacteriaceae) served as a marker of proinflammatory bacteria. The temporal slope of each group was compared between GVHD and non-GVHD patients using linear mixed-effect models. In the combined cohort, declines in CLEPT and EREC, of up to 10 log-fold before diagnosis, were significantly associated with GVHD, whereas changes in ENTERO were not. 16S sequencing showed a consistent, though descriptive, decrease in the relative abundance of Clostridiales in GVHD patients, and MSS identified specific AIC species that were depleted in GVHD patients. Cumulative total and anti-anaerobic antibiotic exposure were also significantly associated with the development of GVHD. Follow-up analyses were conducted in murine models.
-
-The 16S subcohort comprised 24 samples from 8 Dallas patients, 3 of whom developed GVHD. Samples from 7 patients were sequenced on the Roche 454 Titanium platform, and samples from 1 patient were sequenced on an Illumina HiSeq 2000. Fecal samples were collected at admission for SCT and roughly every 7 days thereafter until engraftment or, in patients who developed GVHD, until its resolution. Engraftment was defined as an absolute neutrophil count of at least 500 per mm$^3$ on 3 consecutive days. GVHD was defined as biopsy-confirmed intestinal GVHD or high-stage (stage 2 to 4) skin or liver GVHD, staged according to the Glucksberg criteria. Non-GVHD patients were required to have no GVHD in any organ through day +100 and to survive to at least day +100. All 3 Dallas GVHD patients had biopsy-confirmed lower gastrointestinal GVHD of gut stage 1, one with concurrent stage 3 skin involvement.
-\subsection{Identified microbial taxa}
-\begin{itemize}
-  \item CLEPT (\taxClostridiumLeptumGroup): Depleted in GVHD patients over time (qPCR) in the Dallas, Cincinnati, and combined cohorts.
-  \item EREC (\taxEubacteriumRectaleGroup): Depleted in GVHD patients over time (qPCR) in the Cincinnati and combined cohorts, and non-significantly depleted in the Dallas cohort alone.
-  \item ENTERO (\taxEnterobacteriaceae): Not significantly associated with GVHD (qPCR), with opposite non-significant trends in the two cohorts. Enriched in GVHD (MSS).
-  \item \taxClostridiales: Depleted in GVHD (16S), reported descriptively without a formal test.
-  \item \taxEnterococcusSpp and \taxNeisseriaceae: Enriched in GVHD (MSS).
-  \item \taxBacteroidetes and \taxActinobacteria (\taxBifidobacteriumSpp): Depleted in GVHD (MSS).
-  \item \taxRuminococcusGnavus, \taxRtorques, and \taxBlautiaUnclassified: Depleted in GVHD (MSS).
-  \item \taxClostridiumBolteae: Depleted in GVHD in the Dallas-only subanalysis (MSS).
-  \item \taxLactobacillusSpp, including \taxLactobacillusRhamnosus: Depleted in GVHD in the Cincinnati-only subanalysis (MSS).
-\end{itemize}
-\subsection{Processing}
-\begin{itemize}
-    \item \textbf{Fetch:} xxx from SRA SRP058320
-    \item \textbf{Import:}
-    \item \textbf{Trim:} Pyro preprocessing with 454 life science primers and then QIIME 2 cutadapt
-    \begin{itemize}
-        \item 454 Life sciences primer A (forward)
-        \item Forward primer (563 Fwd): AYTGGGYDTAAAGNG
-        \item 454 Life sciences primer B (reverse)
-        \item Reverse primer (926BS Rev): CCGTCAATTYYTTTRAGTTT
-    \end{itemize}
-    \item \textbf{Denoise:}xx
 \end{itemize}
 
 
