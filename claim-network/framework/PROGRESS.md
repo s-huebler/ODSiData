@@ -11,9 +11,9 @@ Last page done: 11
 Next statement_id: MOS_085
 
 ### Paredes_2026
-Status: not started
-Last page done: 0
-Next statement_id: PAR_001
+Status: done
+Last page done: 19
+Next statement_id: PAR_246
 
 ### Samarkhazan_2025
 Status: not started

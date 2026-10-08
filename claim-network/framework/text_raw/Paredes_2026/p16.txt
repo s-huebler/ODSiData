@@ -1,0 +1,137 @@
+NatureReviewsCancer|Volume26|May2026|328–350 343
+Reviewarticle
+followingallo-HCT123
+.Beyondthemodeofnutritionalintake,several
+studiesareexaminingnutritionalinterventionsinpatientswithGVHD
+(Table2).Forinstance,aphaseIIstudyattheUniversityofMichigan
+isassessingthefeasibility,safetyandpotentialbenefitsofmodify-
+ing the gut microbiome through administering a resistant potato
+starchsupplementtoincreaseintestinalbutyratelevelsandreduce
+aGVHD(NCT02763033)124
+.Inanotherexample,aphaseIstudyatthe
+FredHutchinsonCancerCenterisenrollingpatientswithGVHDto
+evaluatethesafetyandfeasibilityofFMTcombinedwithdietaryfibre
+­supplementation(NCT05067595)125
+.
+Probioticsandlivebiotherapeuticproducts
+Probioticsarelivemicroorganismsthatcanconferahealthbenefiton
+thehostandareregulatedasfoodordietarysupplements.Bycontrast,
+livebiotherapeuticproducts(LBPs)areliveorganismsdesignedfortar-
+getedtherapeuticpurposesandsubjecttoclinicaldrugstandards.Both
+approachestosupplementationprovidebeneficialmicrobialstrains
+andofferapotentialstrategytorestoreandreconstitutethedisrupted
+gastrointestinalmicrobiotaforpatientswithaGVHD.Althoughinfre-
+quent,probioticshavebeendescribedtocausebloodstreaminfections
+inpatientswhoareimmunocompromised126
+,sotestingforsafetyand
+efficacyiscrucial.
+Severalapproacheshavebeentested.Forexample,theadminis-
+trationofLactobacillusalleviatesGVHDinmousemodels127,128
+,buta
+clinical trial examining Lactobacillusrhamnosus GG administration
+inpatientsreceivingallo-HCTwasterminatedearlywhenaninterim
+analysisdidnotdetectaprobiotic-relatedchangeinthemicrobiomeor
+inGVHDincidence27
+.Lactobacillusplantarumisunderinvestigationin
+paediatricpatientsreceivingallo-HCT.Itssafetyhasbeenconfirmed129
+,
+andarandomizedphaseIIItrialisunderwaytoassessitsefficacyinthe
+prevention of aGVHD in this patient population (NCT03057054)130
+.
+ClostridiumbutyricumMIYAIRI 588(CBM588) isbeingstudiedas an
+LBPinarandomizedopen-labelpilotstudywithperi-transplantadmin-
+istration. Patients in the treatment group showed increased alpha
+diversityintheirgutmicrobiomeandlowerabundanceofEnterococ-
+cusandBacteroides,whichwerebothmorecommoninpatientswho
+developedGVHD.However,thesamplesizeof11treatedpatientswas
+not large enough for outcomes analysis131
+. SER-155 is an investiga-
+tionaloralLBPbeingstudiedtoimproveclinicaloutcomesinpatients
+receivingallo-HCT.AlthoughthebacterialspeciesinSER-155arepro-
+prietary,itscompositionhasbeenrationallydesignedbasedontaxa
+associatedwithreducedriskofbloodstreaminfectionsandGVHDin
+human studies. Initial results presented at the 2024 Tandem Meet-
+ings of American Society for Transplantation and Cellular Therapy
+(ASTCT)andCenterforInternationalBloodandMarrowTransplant
+Research(CIBMTR)demonstratedthatpatientstoleratedtheproduct
+well, drug strains successfully engrafted and patients had reduced
+pathogendominationintheirgutmicrobiomes132
+.Resultsfromaran-
+domized,double-blinded,placebo-controlledphaseIstudyofSER-155
+areawaited(NCT04995653)133
+.
+Prebiotics
+Several prebiotic therapeutic approaches for mitigating GVHD
+havebeentestedinrecentyears.Fructo-oligosaccharides(FOS)are
+well-studied prebiotic carbohydrates that have successfully been
+used in patients with inflammatory bowel disease134
+. After studies
+inmousemodelsfoundthatFOSsupplementationincreasedintes-
+tinalSCFAlevels135
+,whichinturncanlowerGVHDseverity,aphaseI
+dose-escalationtrialdemonstratedthatFOSwerewelltoleratedin
+Intervention
+type
+Status of
+clinical trial
+Clinical trial title Specific intervention No. of
+patients
+treated
+No. of
+control
+patients
+Clinical trial
+design
+Primary outcome Results Phase Clinical trial
+identifier
+Ref.
+Prebiotics Recruiting ‘Human lysozyme goat
+milk for the prevention of
+GVHD in patients with blood
+cancer undergoing a donor
+stem cell transplant’
+Human lysozyme goat
+milk (obtained from
+goats that have been
+genetically engineered
+to produce human
+lysozyme in their milk;
+human lysozyme is a
+natural enzyme found
+in human milk and acts
+as an antimicrobial) vs
+no treatment in patients
+undergoing allo-HCT
+NA NA Prospective,
+randomized,
+open label
+Ability to consume
+human lysozyme
+goat milk, volume
+consumed,
+toxicity, adverse
+effects
+NA I NCT04177004 180
+Probiotics Active, not
+recruiting
+‘Lactobacillus plantarum in
+preventing acute GVHD in
+children undergoing donor
+stem cell transplant’
+L. plantarum vs placebo
+in paediatric patients
+undergoing allo-HCT
+NA NA Prospective,
+randomized,
+double blind,
+placebo-
+controlled
+Incidence of
+grade I–IV GVHD
+up to 120 days
+after allo-HCT
+NA III NCT03057054 130
+Trials were chosen based on methodical rigour, prioritizing those with prospective, randomized and controlled designs when possible. aGVHD, acute graft-versus-host disease; allo-HCT, allogeneic haematopoietic cell
+transplantation; AML, acute myeloid leukaemia; FMT, faecal microbiota transplantation; GVHD, graft-versus-host disease; NA, not applicable.
+Table 2 (continued) | Select, published and ongoing clinical trials investigating microbiota-centred interventions to improve graft-versus-host
+disease-related outcomes after allogeneic haematopoietic cell transplantation
