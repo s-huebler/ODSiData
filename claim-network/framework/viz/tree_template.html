@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GVHD Taxonomy Ring Visualization</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; font-size: 13px; background: #f0f4f8; display: flex; height: 100vh; overflow: hidden; }
+
+  /* Sidebar left */
+  #sidebar {
+    width: 220px; min-width: 220px; background: #fff; border-right: 1px solid #ccc;
+    padding: 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+    font-size: 12px; z-index: 10;
+  }
+  #sidebar h3 { font-size: 13px; margin-bottom: 4px; color: #333; }
+  .filter-group label { display: flex; align-items: center; gap: 5px; margin: 2px 0; cursor: pointer; }
+  .filter-group label input[type=checkbox] { cursor: pointer; }
+  .count-badge { color: #888; font-size: 11px; }
+  .rank-group label { display: flex; align-items: center; gap: 5px; margin: 2px 0; cursor: pointer; }
+  #search-box {
+    width: 100%; padding: 4px 6px; border: 1px solid #bbb; border-radius: 3px; font-size: 12px;
+  }
+  .btn {
+    padding: 4px 8px; border: 1px solid #bbb; border-radius: 3px; background: #f5f5f5;
+    cursor: pointer; font-size: 12px;
+  }
+  .btn:hover { background: #e0e8f0; }
+  .btn-row { display: flex; gap: 5px; flex-wrap: wrap; }
+
+  /* Main canvas area */
+  #canvas-wrap { flex: 1; position: relative; overflow: hidden; }
+  #main-svg { width: 100%; height: 100%; }
+
+  /* Info panel right */
+  #info-panel {
+    width: 280px; min-width: 280px; background: #fff; border-left: 1px solid #ccc;
+    padding: 10px; overflow-y: auto; font-size: 12px; z-index: 10;
+  }
+  #info-panel h3 { font-size: 13px; margin-bottom: 6px; color: #333; }
+  #info-content { color: #444; }
+  #info-content table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 11px; }
+  #info-content th, #info-content td { border: 1px solid #ddd; padding: 3px 5px; text-align: left; }
+  #info-content th { background: #eef2f8; }
+  #info-content .dim { color: #888; }
+  #info-content .prot { color: #2d8a4e; font-weight: bold; }
+  #info-content .exac { color: #c0392b; font-weight: bold; }
+  #info-content .ctxd { color: #888; }
+  #info-content .lineage { font-size: 10px; color: #666; margin-top: 4px; }
+  #row-tooltip {
+    margin-top: 6px; padding: 5px 7px; background: #f8f6ee; border: 1px solid #ccc;
+    border-radius: 3px; font-size: 10px; color: #555; display: none;
+  }
+
+  /* Tooltip */
+  #tooltip {
+    position: fixed; background: rgba(40,40,40,0.92); color: #fff; padding: 6px 10px;
+    border-radius: 4px; font-size: 11px; pointer-events: none; display: none;
+    max-width: 320px; z-index: 1000; line-height: 1.5;
+  }
+
+  /* Legend */
+  #legend {
+    position: fixed; bottom: 12px; left: 228px; background: #ffffffee;
+    border: 1px solid #ccc; border-radius: 4px; padding: 8px 12px; font-size: 11px;
+    z-index: 100; max-width: 380px;
+  }
+  #legend h4 { font-size: 12px; margin-bottom: 5px; }
+  .legend-row { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
+  .legend-swatch { width: 24px; height: 6px; border-radius: 3px; }
+  .legend-circle { width: 14px; height: 14px; border-radius: 50%; }
+  #legend .section-title { font-weight: bold; margin-top: 5px; margin-bottom: 2px; color: #555; }
+
+  /* Footer note */
+  #footer-note {
+    position: fixed; bottom: 4px; right: 290px; font-size: 10px; color: #888;
+    background: #ffffffcc; padding: 2px 6px; border-radius: 3px; z-index: 100;
+  }
+
+  /* SVG styles */
+  .group-circle { fill: none; stroke-width: 2; }
+  .struct-circle { fill: none; stroke: #aaa; stroke-width: 1; }
+  .claim-circle { stroke-width: 2; }
+  .paper-circle { fill: #d4a849; stroke: #996; stroke-width: 1; }
+  .paper-label { font-size: 8px; fill: #555; }
+  .group-label { font-size: 12px; font-weight: bold; fill: #333; }
+  .taxon-label { font-size: 9px; fill: #222; }
+  .edge-path { fill: none; opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<!-- Left sidebar: controls -->
+<div id="sidebar">
+  <div>
+    <h3>Rank</h3>
+    <div class="rank-group" id="rank-controls"></div>
+  </div>
+  <div>
+    <h3>Evidence</h3>
+    <div class="filter-group" id="evidence-filters"></div>
+  </div>
+  <div>
+    <h3>Direction</h3>
+    <div class="filter-group" id="direction-filters">
+      <label><input type="checkbox" id="dir-protective" checked> <span style="color:#2d8a4e">protective</span></label>
+      <label><input type="checkbox" id="dir-exacerbating" checked> <span style="color:#c0392b">exacerbating</span></label>
+      <label><input type="checkbox" id="dir-other" checked> context-dep / unspecified</label>
+    </div>
+  </div>
+  <div>
+    <input type="text" id="search-box" placeholder="Search taxon or paper..." />
+  </div>
+  <div class="btn-row">
+    <button class="btn" id="btn-fit">Fit</button>
+    <button class="btn" id="btn-reset">Reset</button>
+    <button class="btn" id="btn-labels">Labels on/off</button>
+  </div>
+</div>
+
+<!-- SVG canvas -->
+<div id="canvas-wrap">
+  <svg id="main-svg" viewBox="0 0 1800 1100" preserveAspectRatio="xMidYMid meet">
+    <defs id="defs-markers"></defs>
+    <g id="edges-layer"></g>
+    <g id="nodes-layer"></g>
+    <g id="labels-layer"></g>
+  </svg>
+</div>
+
+<!-- Info panel right -->
+<div id="info-panel">
+  <h3>Details</h3>
+  <div id="info-content"><p style="color:#aaa">Click a node or paper to see details.</p></div>
+  <div id="row-tooltip"></div>
+</div>
+
+<!-- Tooltip -->
+<div id="tooltip"></div>
+
+<!-- Legend -->
+<div id="legend">
+  <h4>Legend</h4>
+  <div class="section-title">Edge color</div>
+  <div class="legend-row"><div class="legend-swatch" style="background:#2d8a4e"></div> protective</div>
+  <div class="legend-row"><div class="legend-swatch" style="background:#c0392b"></div> exacerbating</div>
+  <div class="legend-row"><div class="legend-swatch" style="background:#888888"></div> context-dependent / unspecified</div>
+  <div class="section-title">Taxon circle</div>
+  <div class="legend-row"><div class="legend-circle" style="background:rgba(45,138,78,0.2);border:2px solid #2d8a4e"></div> all visible edges protective</div>
+  <div class="legend-row"><div class="legend-circle" style="background:rgba(192,57,43,0.2);border:2px solid #c0392b"></div> all visible edges exacerbating</div>
+  <div class="legend-row"><div class="legend-circle" style="background:rgba(136,136,136,0.2);border:2px solid #888"></div> mixed / no visible edges</div>
+  <div class="legend-row"><div class="legend-circle" style="background:none;border:1px solid #aaa"></div> structural (non-claim) node</div>
+  <div class="section-title">Rank toggle</div>
+  <div style="font-size:10px;color:#555;">Switches grouping level; taxa with rank<br>above selected level are excluded.</div>
+</div>
+
+<!-- Footer note -->
+<div id="footer-note">43 functional-group rows (target_type=mechanism) are excluded from this view — they have no GTDB taxonomy. See the Mechanism Bubble view.</div>
+
+<script>
+(function () {
+"use strict";
+
+// -------------------------------------------------------------------------
+// Data (injected by render script)
+// -------------------------------------------------------------------------
+var DATA = __DATA__;
+
+// -------------------------------------------------------------------------
+// Constants
+// -------------------------------------------------------------------------
+var SVG_W = 1800, SVG_H = 1100;
+var CX = 900, CY = 550;
+var R_INNER = 185;       // paper ring radius
+var R_PAPER_LABEL = 230; // paper label radius
+var R_GROUP_BASE = 270;  // minimum distance from center to group center
+
+var PROT_COLOR = "#2d8a4e";
+var EXAC_COLOR = "#c0392b";
+var OTHER_COLOR = "#888888";
+
+// Domain tint colors for group circles
+var DOMAIN_TINT = {
+  "Bacteria": { stroke: "#7a9cc0", fill: "rgba(200,220,240,0.25)" },
+  "Eukaryota": { stroke: "#7ab87a", fill: "rgba(200,235,200,0.25)" },
+  "Viruses": { stroke: "#c8a060", fill: "rgba(240,220,190,0.25)" },
+  "default": { stroke: "#9a9ab0", fill: "rgba(220,220,230,0.25)" },
+};
+
+// -------------------------------------------------------------------------
+// State
+// -------------------------------------------------------------------------
+var currentLevel = "phylum";
+var labelsOn = true;
+var selectedNode = null;
+
+// node positions computed per layout: taxonName -> {x, y, r}
+var taxonPositions = {};
+// paper positions: ref_id -> {x, y}
+var paperPositions = {};
+// all rendered node data for click: id -> {type, data, x, y, r}
+var nodeRegistry = {};
+
+// -------------------------------------------------------------------------
+// Color helpers
+// -------------------------------------------------------------------------
+function dirColor(d) {
+  if (d === "protective") return PROT_COLOR;
+  if (d === "exacerbating") return EXAC_COLOR;
+  return OTHER_COLOR;
+}
+
+function taxonColor(dirSet) {
+  // dirSet: array of directions from visible edges
+  if (!dirSet || dirSet.length === 0) return OTHER_COLOR;
+  var allProt = dirSet.every(function(d){ return d === "protective"; });
+  var allExac = dirSet.every(function(d){ return d === "exacerbating"; });
+  if (allProt) return PROT_COLOR;
+  if (allExac) return EXAC_COLOR;
+  return OTHER_COLOR;
+}
+
+// -------------------------------------------------------------------------
+// Evidence types and filter UI
+// -------------------------------------------------------------------------
+var evidenceTypes = [];
+(function() {
+  var seen = {};
+  DATA.edges.forEach(function(e) {
+    if (!seen[e.evidence]) {
+      seen[e.evidence] = 0;
+      evidenceTypes.push(e.evidence);
+    }
+    seen[e.evidence]++;
+  });
+  evidenceTypes.sort();
+  var div = document.getElementById("evidence-filters");
+  evidenceTypes.forEach(function(ev) {
+    var lbl = document.createElement("label");
+    var chk = document.createElement("input");
+    chk.type = "checkbox"; chk.checked = true;
+    chk.id = "ev-" + ev.replace(/\s+/g,"_");
+    chk.dataset.ev = ev;
+    var span = document.createElement("span");
+    span.textContent = ev + " ";
+    var badge = document.createElement("span");
+    badge.className = "count-badge";
+    badge.id = "badge-" + chk.id;
+    lbl.appendChild(chk); lbl.appendChild(span); lbl.appendChild(badge);
+    div.appendChild(lbl);
+  });
+})();
+
+// Rank controls
+(function() {
+  var div = document.getElementById("rank-controls");
+  DATA.top_levels.forEach(function(lvl, i) {
+    var lbl = document.createElement("label");
+    var rb = document.createElement("input");
+    rb.type = "radio"; rb.name = "rank"; rb.value = lvl;
+    rb.id = "rank-" + lvl;
+    if (lvl === "phylum") rb.checked = true;
+    rb.addEventListener("change", function() {
+      if (rb.checked) { currentLevel = lvl; rebuildLayout(lvl); }
+    });
+    lbl.appendChild(rb);
+    lbl.appendChild(document.createTextNode(" " + lvl));
+    div.appendChild(lbl);
+  });
+})();
+
+// -------------------------------------------------------------------------
+// Get visible edges based on current filters
+// -------------------------------------------------------------------------
+function getVisibleEdges() {
+  var checkedEv = new Set();
+  document.querySelectorAll("#evidence-filters input[type=checkbox]").forEach(function(c) {
+    if (c.checked) checkedEv.add(c.dataset.ev);
+  });
+  var protOk = document.getElementById("dir-protective").checked;
+  var exacOk = document.getElementById("dir-exacerbating").checked;
+  var otherOk = document.getElementById("dir-other").checked;
+  function dirOk(d) {
+    if (d === "protective") return protOk;
+    if (d === "exacerbating") return exacOk;
+    return otherOk;
+  }
+
+  // Get taxa visible at current level
+  var visibleTaxa = getVisibleTaxaAtLevel(currentLevel);
+
+  return DATA.edges.filter(function(e) {
+    return visibleTaxa.has(e.taxon) &&
+           checkedEv.has(e.evidence) &&
+           dirOk(e.direction);
+  });
+}
+
+function getVisibleTaxaAtLevel(level) {
+  var s = new Set();
+  var levelIdx = rankIdx(level);
+  Object.keys(DATA.taxa).forEach(function(t) {
+    var info = DATA.taxa[t];
+    var ri = rankIdx(info.taxon_rank);
+    if (ri >= levelIdx && info[level]) s.add(t);
+  });
+  return s;
+}
+
+var RANKS_ORDER = ["domain","phylum","class","order","family","genus","species"];
+function rankIdx(r) { return RANKS_ORDER.indexOf(r); }
+
+// -------------------------------------------------------------------------
+// Layout computation
+// -------------------------------------------------------------------------
+function computeGroupRadius(nLeaves) {
+  return Math.max(38, 17 * Math.sqrt(nLeaves));
+}
+
+function countLeaves(node) {
+  if (!node.children || node.children.length === 0) {
+    return node.is_claim ? 1 : 0;
+  }
+  return node.children.reduce(function(s, c){ return s + countLeaves(c); }, 0);
+}
+
+function buildPackLayout(groupTree, R_group) {
+  // Build d3 hierarchy
+  var root = d3.hierarchy(groupTree, function(d) {
+    return (d.children && d.children.length > 0) ? d.children : null;
+  }).sum(function(d) {
+    return (!d.children || d.children.length === 0) ? 1 : 0;
+  });
+
+  d3.pack()
+    .size([2 * R_group, 2 * R_group])
+    .padding(3)(root);
+
+  return root; // root.x = R_group, root.y = R_group
+}
+
+function computeLayout(level) {
+  var hierarchies = DATA.hierarchies[level];
+  var groups = Object.keys(hierarchies);
+
+  // Sort: bacteria phyla alphabetically, then Eukaryota, then Viruses
+  groups.sort(function(a, b) {
+    var da = hierarchies[a];
+    var db = hierarchies[b];
+    // Find domain for each group via first claim taxon
+    function getDomain(tree) {
+      if (!tree) return "Bacteria";
+      // The top-level rank value maps to a group; find domain from taxa data
+      // Walk tree to find first claim taxon
+      function findTaxon(node) {
+        if (node.is_claim) return node.name;
+        if (node.children) {
+          for (var i=0; i<node.children.length; i++) {
+            var r = findTaxon(node.children[i]);
+            if (r) return r;
+          }
+        }
+        return null;
+      }
+      var t = findTaxon(tree);
+      return t ? (DATA.taxa[t] || {}).domain || "Bacteria" : "Bacteria";
+    }
+    var domA = getDomain(da), domB = getDomain(db);
+    var order = {"Bacteria":0, "Eukaryota":1, "Viruses":2};
+    var oa = order[domA] !== undefined ? order[domA] : 0;
+    var ob = order[domB] !== undefined ? order[domB] : 0;
+    if (oa !== ob) return oa - ob;
+    // Within bacteria: alphabetical
+    return a < b ? -1 : a > b ? 1 : 0;
+  });
+
+  // Compute R_group per group
+  var groupData = {};
+  groups.forEach(function(g) {
+    var tree = hierarchies[g];
+    var nLeaves = countLeaves(tree);
+    var R = computeGroupRadius(nLeaves);
+    groupData[g] = { tree: tree, nLeaves: nLeaves, R: R };
+  });
+
+  var sumR = groups.reduce(function(s,g){ return s + groupData[g].R; }, 0);
+  var nGroups = groups.length;
+  var totalAvailAngle = 360 - nGroups * 3;
+  var startAngle = -90; // degrees, 12 o'clock
+  var cursor = startAngle;
+
+  groups.forEach(function(g) {
+    var gd = groupData[g];
+    var share = (gd.R / sumR) * totalAvailAngle;
+    var midAngle = cursor + share / 2;
+    var dist = R_GROUP_BASE + gd.R;
+    var rad = midAngle * Math.PI / 180;
+    gd.cx = CX + dist * Math.cos(rad);
+    gd.cy = CY + dist * Math.sin(rad);
+    gd.midAngle = midAngle;
+    gd.startAngle = cursor;
+    gd.endAngle = cursor + share;
+    cursor += share + 3; // 3° gap
+  });
+
+  // Build pack layouts and collect taxon positions
+  var allTaxonPositions = {};
+  groups.forEach(function(g) {
+    var gd = groupData[g];
+    var packRoot = buildPackLayout(gd.tree, gd.R);
+    gd.packRoot = packRoot;
+
+    // Walk pack and record positions
+    packRoot.each(function(node) {
+      var d = node.data;
+      if (d.is_claim) {
+        var svgX = gd.cx + (node.x - gd.R);
+        var svgY = gd.cy + (node.y - gd.R);
+        allTaxonPositions[d.name] = { x: svgX, y: svgY, r: node.r, group: g };
+      }
+    });
+  });
+
+  // Compute paper ordering: circular mean angle of target taxa
+  var visibleTaxa = getVisibleTaxaAtLevel(level);
+  var paperAngles = {};
+  DATA.edges.forEach(function(e) {
+    if (!visibleTaxa.has(e.taxon)) return;
+    var tp = allTaxonPositions[e.taxon];
+    if (!tp) return;
+    var angle = Math.atan2(tp.y - CY, tp.x - CX);
+    if (!paperAngles[e.ref_id]) paperAngles[e.ref_id] = [];
+    paperAngles[e.ref_id].push(angle);
+  });
+
+  // Papers with positions are those with at least one target taxon at this level
+  var papersWithPos = Object.keys(paperAngles);
+
+  // Compute circular mean angle per paper
+  function circularMean(angles) {
+    var sx = 0, sy = 0;
+    angles.forEach(function(a){ sx += Math.cos(a); sy += Math.sin(a); });
+    return Math.atan2(sy / angles.length, sx / angles.length);
+  }
+
+  var paperMeanAngles = {};
+  papersWithPos.forEach(function(pid) {
+    paperMeanAngles[pid] = circularMean(paperAngles[pid]);
+  });
+
+  // Sort papers by mean angle
+  papersWithPos.sort(function(a, b) {
+    return paperMeanAngles[a] - paperMeanAngles[b];
+  });
+
+  var allPaperPositions = {};
+  var nPapers = papersWithPos.length;
+  papersWithPos.forEach(function(pid, i) {
+    var angle = (i / nPapers) * 2 * Math.PI - Math.PI / 2;
+    allPaperPositions[pid] = {
+      x: CX + R_INNER * Math.cos(angle),
+      y: CY + R_INNER * Math.sin(angle),
+      angle: angle,
+    };
+  });
+
+  return { groupData: groupData, groups: groups, taxonPositions: allTaxonPositions, paperPositions: allPaperPositions };
+}
+
+// -------------------------------------------------------------------------
+// Drawing
+// -------------------------------------------------------------------------
+var svg = d3.select("#main-svg");
+var defsEl = document.getElementById("defs-markers");
+var edgesLayer = d3.select("#edges-layer");
+var nodesLayer = d3.select("#nodes-layer");
+var labelsLayer = d3.select("#labels-layer");
+
+// Create arrowhead markers
+function ensureMarkers() {
+  // Clear existing
+  while (defsEl.firstChild) defsEl.removeChild(defsEl.firstChild);
+
+  ["protective", "exacerbating", "other"].forEach(function(dir) {
+    var color = dirColor(dir === "other" ? "other" : dir);
+    var marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
+    marker.setAttribute("id", "arrow-" + dir);
+    marker.setAttribute("markerWidth", "6");
+    marker.setAttribute("markerHeight", "6");
+    marker.setAttribute("refX", "5");
+    marker.setAttribute("refY", "3");
+    marker.setAttribute("orient", "auto");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "M0,0 L0,6 L6,3 Z");
+    path.setAttribute("fill", color);
+    marker.appendChild(path);
+    defsEl.appendChild(marker);
+  });
+}
+ensureMarkers();
+
+function markerForDir(d) {
+  if (d === "protective") return "url(#arrow-protective)";
+  if (d === "exacerbating") return "url(#arrow-exacerbating)";
+  return "url(#arrow-other)";
+}
+
+// -------------------------------------------------------------------------
+// rebuildLayout — main draw function
+// -------------------------------------------------------------------------
+function rebuildLayout(level) {
+  currentLevel = level;
+  edgesLayer.selectAll("*").remove();
+  nodesLayer.selectAll("*").remove();
+  labelsLayer.selectAll("*").remove();
+  nodeRegistry = {};
+
+  var layout = computeLayout(level);
+  taxonPositions = layout.taxonPositions;
+  paperPositions = layout.paperPositions;
+
+  var groupData = layout.groupData;
+  var groups = layout.groups;
+
+  // ------- Draw group circles (background) -------
+  groups.forEach(function(g) {
+    var gd = groupData[g];
+    var tree = gd.tree;
+    // Find domain via first taxon
+    var domain = "Bacteria";
+    function findDomain(node) {
+      if (node.is_claim && DATA.taxa[node.name]) {
+        domain = DATA.taxa[node.name].domain || "Bacteria";
+        return true;
+      }
+      if (node.children) return node.children.some(findDomain);
+      return false;
+    }
+    findDomain(tree);
+    var tint = DOMAIN_TINT[domain] || DOMAIN_TINT["default"];
+
+    // Draw all circles from pack
+    gd.packRoot.each(function(node) {
+      var d = node.data;
+      var svgX = gd.cx + (node.x - gd.R);
+      var svgY = gd.cy + (node.y - gd.R);
+      var r = node.r;
+
+      if (node.depth === 0) {
+        // Top-level group circle
+        nodesLayer.append("circle")
+          .attr("cx", svgX).attr("cy", svgY).attr("r", r)
+          .attr("class", "group-circle")
+          .attr("fill", tint.fill)
+          .attr("stroke", tint.stroke)
+          .attr("stroke-width", 2)
+          .attr("data-type", "group")
+          .attr("data-name", g)
+          .style("cursor", "pointer")
+          .on("click", function(event) {
+            event.stopPropagation();
+            showGroupInfo(g, gd, true);
+          });
+
+        nodeRegistry[g] = { type: "group", name: g, x: svgX, y: svgY, r: r, gd: gd };
+
+      } else if (d.is_claim) {
+        // Claim taxon circle
+        var info = DATA.taxa[d.name] || {};
+        var circ = nodesLayer.append("circle")
+          .attr("cx", svgX).attr("cy", svgY).attr("r", r)
+          .attr("class", "claim-circle")
+          .attr("data-type", "claim")
+          .attr("data-taxon", d.name)
+          .style("cursor", "pointer")
+          .on("click", function(event) {
+            event.stopPropagation();
+            showTaxonInfo(d.name, false);
+          });
+
+        nodeRegistry[d.name] = { type: "claim", name: d.name, x: svgX, y: svgY, r: r };
+
+        // Labels for claim taxa if r >= 10
+        if (labelsOn && r >= 10) {
+          var lbl = labelsLayer.append("text")
+            .attr("x", svgX).attr("y", svgY + 1)
+            .attr("text-anchor", "middle")
+            .attr("dominant-baseline", "middle")
+            .attr("class", "taxon-label")
+            .attr("data-taxon-label", d.name);
+          if (info.italic) {
+            lbl.append("tspan").attr("font-style", "italic").text(d.name);
+          } else {
+            lbl.text(d.name);
+          }
+        }
+      } else {
+        // Structural (non-claim) circle
+        if (r > 5) { // don't draw tiny structural nodes
+          nodesLayer.append("circle")
+            .attr("cx", svgX).attr("cy", svgY).attr("r", r)
+            .attr("class", "struct-circle")
+            .attr("data-type", "struct")
+            .attr("data-name", d.name)
+            .style("cursor", "pointer")
+            .on("click", function(event) {
+              event.stopPropagation();
+              showStructInfo(d, svgX, svgY, r, gd);
+            });
+        }
+      }
+    });
+
+    // Group label: just outside the group circle, along the radial direction
+    if (labelsOn) {
+      var angleRad = gd.midAngle * Math.PI / 180;
+      // Group center is at (R_GROUP_BASE + gd.R) from SVG center.
+      // Label at group center + R + 10px in the outward direction.
+      var outerDist = R_GROUP_BASE + gd.R + gd.R + 10;
+      var lx = CX + outerDist * Math.cos(angleRad);
+      var ly = CY + outerDist * Math.sin(angleRad);
+      // Rotate text to read radially (tangent perpendicular to radius);
+      // if left half flip so text doesn't run inward
+      var onRight = Math.cos(angleRad) >= 0;
+      // Use the angle + 90 so text aligns with the radius line (tangential)
+      // Actually: text "along" the radius means rotate by midAngle so baseline points outward
+      var textRot = onRight ? gd.midAngle : gd.midAngle + 180;
+      var anchor = onRight ? "start" : "end";
+      labelsLayer.append("text")
+        .attr("x", lx).attr("y", ly)
+        .attr("text-anchor", anchor)
+        .attr("dominant-baseline", "middle")
+        .attr("font-size", gd.R >= 60 ? "12" : "10")
+        .attr("font-weight", "bold")
+        .attr("fill", "#333")
+        .attr("transform", "rotate(" + textRot + "," + lx + "," + ly + ")")
+        .attr("data-group-label", g)
+        .text(g);
+    }
+  });
+
+  // ------- Draw paper circles -------
+  Object.keys(paperPositions).forEach(function(pid) {
+    var pp = paperPositions[pid];
+    var label = DATA.papers[pid] || pid;
+
+    nodesLayer.append("circle")
+      .attr("cx", pp.x).attr("cy", pp.y).attr("r", 5)
+      .attr("class", "paper-circle")
+      .attr("data-type", "paper")
+      .attr("data-pid", pid)
+      .style("cursor", "pointer")
+      .on("click", function(event) {
+        event.stopPropagation(); showPaperInfo(pid);
+      })
+      .on("mouseover", function(event) {
+        showTooltip(event, "<b>" + label + "</b>");
+      })
+      .on("mouseout", function() { hideTooltip(); });
+
+    nodeRegistry[pid] = { type: "paper", name: pid, x: pp.x, y: pp.y, r: 5 };
+
+    // Paper label — radial, flip if left half
+    if (labelsOn) {
+      var angleDeg = pp.angle * 180 / Math.PI;
+      var onRight = pp.x >= CX;
+      var lx = CX + R_PAPER_LABEL * Math.cos(pp.angle);
+      var ly = CY + R_PAPER_LABEL * Math.sin(pp.angle);
+      var rot = onRight ? angleDeg : angleDeg + 180;
+      var anchor = onRight ? "start" : "end";
+
+      labelsLayer.append("text")
+        .attr("x", lx).attr("y", ly)
+        .attr("text-anchor", anchor)
+        .attr("dominant-baseline", "middle")
+        .attr("class", "paper-label")
+        .attr("data-paper-label", pid)
+        .attr("transform", "rotate(" + rot + "," + lx + "," + ly + ")")
+        .text(label);
+    }
+  });
+
+  // ------- Draw edges -------
+  var visibleEdges = getVisibleEdges();
+  var edgeByPaperTaxonDir = {}; // group overlapping edges
+
+  visibleEdges.forEach(function(e) {
+    var pp = paperPositions[e.ref_id];
+    var tp = taxonPositions[e.taxon];
+    if (!pp || !tp) return;
+
+    var key = e.ref_id + "|" + e.taxon + "|" + e.direction;
+    if (!edgeByPaperTaxonDir[key]) {
+      edgeByPaperTaxonDir[key] = { edge: e, pp: pp, tp: tp };
+    }
+  });
+
+  Object.values(edgeByPaperTaxonDir).forEach(function(item) {
+    var e = item.edge, pp = item.pp, tp = item.tp;
+    // Control point: lerp(paper, center, 0.5)
+    var cpx = (pp.x + CX) / 2;
+    var cpy = (pp.y + CY) / 2;
+    var d = "M" + pp.x + "," + pp.y + " Q" + cpx + "," + cpy + " " + tp.x + "," + tp.y;
+    var w = e.width * 1.5 + 0.5;
+    var col = dirColor(e.direction);
+
+    edgesLayer.append("path")
+      .attr("class", "edge-path")
+      .attr("d", d)
+      .attr("stroke", col)
+      .attr("stroke-width", w)
+      .attr("marker-end", markerForDir(e.direction))
+      .attr("data-ref", e.ref_id)
+      .attr("data-taxon", e.taxon)
+      .attr("data-dir", e.direction)
+      .attr("data-ev", e.evidence)
+      .on("mouseover", function(event) {
+        var rows = e.rows || [];
+        var citingSet = new Set(rows.map(function(r){ return r.citing_label; }));
+        var citing = Array.from(citingSet).filter(Boolean).join(", ");
+        showTooltip(event,
+          "<b>" + e.ref_label + "</b> → <b>" + e.taxon + "</b>" +
+          "<br>" + e.direction + " | " + e.evidence +
+          (citing ? "<br>Review: " + citing : "")
+        );
+      })
+      .on("mouseout", function() { hideTooltip(); });
+  });
+
+  // Apply visual filters (colors, opacity)
+  applyFilters();
+}
+
+// -------------------------------------------------------------------------
+// applyFilters — owns all visibility/color after layout
+// -------------------------------------------------------------------------
+function applyFilters() {
+  var visibleEdges = getVisibleEdges();
+  var visibleEdgeSet = new Set();
+  var taxonDirs = {};  // taxon -> [directions]
+  var papersWithEdge = new Set();
+
+  visibleEdges.forEach(function(e) {
+    var pp = paperPositions[e.ref_id];
+    var tp = taxonPositions[e.taxon];
+    if (!pp || !tp) return;
+    var key = e.ref_id + "|" + e.taxon + "|" + e.direction;
+    visibleEdgeSet.add(key);
+    papersWithEdge.add(e.ref_id);
+    if (!taxonDirs[e.taxon]) taxonDirs[e.taxon] = [];
+    taxonDirs[e.taxon].push(e.direction);
+  });
+
+  // Update edge visibility
+  var edgeBadgeCounts = {};
+  edgesLayer.selectAll("path.edge-path").each(function() {
+    var el = d3.select(this);
+    var key = el.attr("data-ref") + "|" + el.attr("data-taxon") + "|" + el.attr("data-dir");
+    var visible = visibleEdgeSet.has(key);
+    el.style("display", visible ? null : "none");
+    if (visible) {
+      var ev = el.attr("data-ev");
+      edgeBadgeCounts[ev] = (edgeBadgeCounts[ev] || 0) + 1;
+    }
+  });
+
+  // Update badge counts
+  evidenceTypes.forEach(function(ev) {
+    var badge = document.getElementById("badge-ev-" + ev.replace(/\s+/g,"_"));
+    if (badge) badge.textContent = "(" + (edgeBadgeCounts[ev] || 0) + ")";
+  });
+
+  // Update claim circle colors and opacity
+  nodesLayer.selectAll("circle.claim-circle").each(function() {
+    var el = d3.select(this);
+    var taxon = el.attr("data-taxon");
+    var dirs = taxonDirs[taxon] || [];
+    var col = taxonColor(dirs);
+    var opacity = dirs.length > 0 ? 1.0 : 0.25;
+    el.attr("fill", col.replace("#", "rgba(").replace(/^rgba\(([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})\)$/i, function(_, r,g,b) {
+      return "rgba(" + parseInt(r,16) + "," + parseInt(g,16) + "," + parseInt(b,16) + ",0.2)";
+    }));
+    // Use a simpler approach for fill with opacity
+    el.attr("fill", hexToRgba(col, 0.2));
+    el.attr("stroke", col);
+    el.attr("opacity", opacity);
+  });
+
+  // Update paper opacity
+  nodesLayer.selectAll("circle.paper-circle").each(function() {
+    var el = d3.select(this);
+    var pid = el.attr("data-pid");
+    el.attr("opacity", papersWithEdge.has(pid) ? 1.0 : 0.25);
+  });
+
+  // Update paper labels
+  labelsLayer.selectAll("text[data-paper-label]").each(function() {
+    var el = d3.select(this);
+    var pid = el.attr("data-paper-label");
+    el.attr("opacity", papersWithEdge.has(pid) ? 1.0 : 0.25);
+  });
+
+  // Update taxon labels
+  labelsLayer.selectAll("text[data-taxon-label]").each(function() {
+    var el = d3.select(this);
+    var taxon = el.attr("data-taxon-label");
+    var dirs = taxonDirs[taxon] || [];
+    el.attr("opacity", dirs.length > 0 ? 1.0 : 0.25);
+  });
+}
+
+function hexToRgba(hex, alpha) {
+  var r = parseInt(hex.slice(1,3), 16);
+  var g = parseInt(hex.slice(3,5), 16);
+  var b = parseInt(hex.slice(5,7), 16);
+  return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+}
+
+// -------------------------------------------------------------------------
+// Tooltip
+// -------------------------------------------------------------------------
+var tooltipEl = document.getElementById("tooltip");
+
+function showTooltip(event, html) {
+  tooltipEl.innerHTML = html;
+  tooltipEl.style.display = "block";
+  positionTooltip(event);
+}
+
+function positionTooltip(event) {
+  tooltipEl.style.left = (event.clientX + 14) + "px";
+  tooltipEl.style.top = (event.clientY + 14) + "px";
+}
+
+function hideTooltip() {
+  tooltipEl.style.display = "none";
+}
+
+document.getElementById("main-svg").addEventListener("mousemove", function(evt) {
+  if (tooltipEl.style.display !== "none") {
+    tooltipEl.style.left = (evt.clientX + 14) + "px";
+    tooltipEl.style.top = (evt.clientY + 14) + "px";
+  }
+});
+
+// -------------------------------------------------------------------------
+// Info panel helpers
+// -------------------------------------------------------------------------
+function dirClass(d) {
+  if (d === "protective") return "prot";
+  if (d === "exacerbating") return "exac";
+  return "ctxd";
+}
+
+function getEdgesForTaxon(taxon, includeDescendants, currentPackRoot) {
+  var targetTaxa = new Set([taxon]);
+  if (includeDescendants && currentPackRoot) {
+    // Find all claim taxa that are descendants in tree
+    function collectDesc(node) {
+      if (node.data && node.data.is_claim) {
+        // Check if taxon is descendant of our target
+        var info = DATA.taxa[node.data.name];
+        if (info) {
+          // check if target taxon is an ancestor
+          for (var r of RANKS_ORDER) {
+            if (info[r] === taxon && RANKS_ORDER.indexOf(r) < rankIdx(DATA.taxa[taxon] ? DATA.taxa[taxon].taxon_rank : "species")) {
+              targetTaxa.add(node.data.name);
+            }
+          }
+        }
+      }
+      if (node.children) node.children.forEach(collectDesc);
+    }
+    currentPackRoot.each(collectDesc);
+  }
+
+  return DATA.edges.filter(function(e) {
+    return targetTaxa.has(e.taxon);
+  });
+}
+
+function buildEdgeTable(rows, visibleFilter) {
+  // rows: filtered edges (not CSV rows)
+  // Build table: Paper | Mechanism | Direction | Evidence
+  var html = '<table><tr><th>Paper</th><th>Mechanism</th><th>Direction</th><th>Evidence</th></tr>';
+  // Sort by mechanism_specific then paper
+  var sorted = rows.slice().sort(function(a, b) {
+    var ms_a = (a.rows[0] || {}).mechanism_specific || "";
+    var ms_b = (b.rows[0] || {}).mechanism_specific || "";
+    if (ms_a < ms_b) return -1;
+    if (ms_a > ms_b) return 1;
+    return (a.ref_label || "").localeCompare(b.ref_label || "");
+  });
+  sorted.forEach(function(e, idx) {
+    var ms = (e.rows[0] || {}).mechanism_specific || "";
+    html += '<tr class="edge-row" data-edge-idx="' + idx + '" style="cursor:pointer;">';
+    html += '<td>' + (e.ref_label || e.ref_id) + '</td>';
+    html += '<td>' + ms + '</td>';
+    html += '<td class="' + dirClass(e.direction) + '">' + e.direction + '</td>';
+    html += '<td>' + e.evidence + '</td>';
+    html += '</tr>';
+  });
+  html += '</table>';
+  return { html: html, sorted: sorted };
+}
+
+function attachRowHover(sorted) {
+  var rowTooltip = document.getElementById("row-tooltip");
+  document.querySelectorAll("#info-content .edge-row").forEach(function(tr) {
+    var idx = parseInt(tr.getAttribute("data-edge-idx"));
+    tr.addEventListener("mouseenter", function() {
+      var e = sorted[idx];
+      if (!e) return;
+      var r = e.rows[0] || {};
+      var quote = (r.quote || "").substring(0, 200);
+      var intervention = r.intervention || "";
+      var citing = r.citing_label || "";
+      rowTooltip.innerHTML = (quote ? '<i>"' + quote + (r.quote && r.quote.length > 200 ? "…" : "") + '"</i><br>' : "") +
+        (citing ? "<b>Review:</b> " + citing + "<br>" : "") +
+        (intervention ? "<b>Intervention:</b> " + intervention : "");
+      rowTooltip.style.display = "block";
+    });
+    tr.addEventListener("mouseleave", function() {
+      rowTooltip.style.display = "none";
+    });
+  });
+}
+
+function showTaxonInfo(taxon, includeDescendants) {
+  var info = DATA.taxa[taxon] || {};
+  var italic = info.italic;
+  var nameHtml = italic ? "<i>" + taxon + "</i>" : taxon;
+
+  // Build lineage path
+  var lineageParts = [];
+  RANKS_ORDER.forEach(function(r) {
+    var v = info[r];
+    if (v && v !== taxon) lineageParts.push(v);
+    if (r === info.taxon_rank) return;
+  });
+
+  var html = '<b style="font-size:13px">' + nameHtml + '</b>';
+  html += '<br><span class="dim">Rank: ' + (info.taxon_rank || "?") + '</span>';
+  var cited = info.taxon_as_cited || [];
+  if (cited.length) html += '<br><span class="dim">As cited: ' + cited.join(", ") + '</span>';
+  html += '<br><div class="lineage">' + lineageParts.join(" › ") + '</div>';
+
+  // Mechanisms from visible edges
+  var visibleEdges = getVisibleEdges().filter(function(e){ return e.taxon === taxon; });
+  var mechs = new Set(visibleEdges.flatMap(function(e){ return e.rows.map(function(r){ return r.mechanism_specific; }).filter(Boolean); }));
+  if (mechs.size) html += '<br><span class="dim">Mechanisms: ' + Array.from(mechs).join(", ") + '</span>';
+
+  // Descendants checkbox
+  html += '<br><label style="margin-top:6px;display:flex;align-items:center;gap:4px;">' +
+    '<input type="checkbox" id="desc-chk"' + (includeDescendants ? " checked" : "") + '> Include descendant taxa</label>';
+
+  // Filter note
+  var allEdges = DATA.edges.filter(function(e){ return e.taxon === taxon; });
+  html += '<br><span class="dim" style="font-size:10px">' + visibleEdges.length + ' of ' + allEdges.length + ' rows shown (filters active)</span>';
+
+  var tableResult = buildEdgeTable(visibleEdges, true);
+  html += tableResult.html;
+
+  document.getElementById("info-content").innerHTML = html;
+  document.getElementById("row-tooltip").style.display = "none";
+  attachRowHover(tableResult.sorted);
+
+  // Descendants checkbox handler
+  var chk = document.getElementById("desc-chk");
+  if (chk) chk.addEventListener("change", function() {
+    showTaxonInfo(taxon, chk.checked);
+  });
+}
+
+function showGroupInfo(groupName, gd, forceDescendants) {
+  // Collect all claim taxa in this group
+  var claimTaxa = [];
+  gd.packRoot.each(function(node) {
+    if (node.data && node.data.is_claim) claimTaxa.push(node.data.name);
+  });
+  var claimSet = new Set(claimTaxa);
+
+  var html = '<b style="font-size:13px">' + groupName + '</b>';
+  html += '<br><span class="dim">Group rank: ' + currentLevel + ' | ' + claimTaxa.length + ' claim taxa</span>';
+
+  var visibleEdges = getVisibleEdges().filter(function(e){ return claimSet.has(e.taxon); });
+  var tableResult = buildEdgeTable(visibleEdges, true);
+  html += '<br><span class="dim" style="font-size:10px">' + visibleEdges.length + ' visible edges</span>';
+  html += tableResult.html;
+
+  document.getElementById("info-content").innerHTML = html;
+  document.getElementById("row-tooltip").style.display = "none";
+  attachRowHover(tableResult.sorted);
+}
+
+function showStructInfo(nodeData, svgX, svgY, r, gd) {
+  // Find all claim taxa that are children of this struct node
+  // We need to walk the pack root to find this node's subtree
+  var claimTaxa = [];
+  function collectFromNode(packNode) {
+    if (packNode.data.id === nodeData.id || packNode.data.name === nodeData.name) {
+      // Collect all claims under this node
+      packNode.each(function(n) {
+        if (n.data.is_claim) claimTaxa.push(n.data.name);
+      });
+      return true;
+    }
+    if (packNode.children) return packNode.children.some(collectFromNode);
+    return false;
+  }
+  gd.packRoot.each(function(n) { collectFromNode(n); });
+  var claimSet = new Set(claimTaxa);
+
+  var skipped = (nodeData.skipped_ranks || []).map(function(s){ return s.rank + ": " + s.name; }).join(", ");
+  var html = '<b style="font-size:13px">' + nodeData.name + '</b>';
+  html += '<br><span class="dim">Rank: ' + nodeData.rank + ' (structural)</span>';
+  if (skipped) html += '<br><span class="dim">Skipped: ' + skipped + '</span>';
+  html += '<br><span class="dim">' + claimTaxa.length + ' descendant claim taxa</span>';
+
+  var visibleEdges = getVisibleEdges().filter(function(e){ return claimSet.has(e.taxon); });
+  var tableResult = buildEdgeTable(visibleEdges, true);
+  html += tableResult.html;
+
+  document.getElementById("info-content").innerHTML = html;
+  document.getElementById("row-tooltip").style.display = "none";
+  attachRowHover(tableResult.sorted);
+}
+
+function showPaperInfo(pid) {
+  var label = DATA.papers[pid] || pid;
+  var allEdges = DATA.edges.filter(function(e){ return e.ref_id === pid; });
+  var visibleEdges = getVisibleEdges().filter(function(e){ return e.ref_id === pid; });
+
+  var html = '<b style="font-size:13px">' + label + '</b>';
+  html += '<br><span class="dim">ref_id: ' + pid + '</span>';
+  html += '<br><span class="dim" style="font-size:10px">' + visibleEdges.length + ' of ' + allEdges.length + ' rows shown</span>';
+
+  // Table: Taxon | Mechanism | Direction | Evidence
+  var html2 = '<table><tr><th>Taxon</th><th>Mechanism</th><th>Direction</th><th>Evidence</th></tr>';
+  var sorted = visibleEdges.slice().sort(function(a,b) {
+    var ma = (a.rows[0] || {}).mechanism_specific || "";
+    var mb = (b.rows[0] || {}).mechanism_specific || "";
+    return ma.localeCompare(mb);
+  });
+  sorted.forEach(function(e, idx) {
+    var ms = (e.rows[0] || {}).mechanism_specific || "";
+    var info = DATA.taxa[e.taxon] || {};
+    var tname = info.italic ? "<i>" + e.taxon + "</i>" : e.taxon;
+    html2 += '<tr class="edge-row" data-edge-idx="' + idx + '" style="cursor:pointer;">';
+    html2 += '<td>' + tname + '</td>';
+    html2 += '<td>' + ms + '</td>';
+    html2 += '<td class="' + dirClass(e.direction) + '">' + e.direction + '</td>';
+    html2 += '<td>' + e.evidence + '</td>';
+    html2 += '</tr>';
+  });
+  html2 += '</table>';
+  html += html2;
+  document.getElementById("info-content").innerHTML = html;
+  document.getElementById("row-tooltip").style.display = "none";
+  attachRowHover(sorted);
+}
+
+// -------------------------------------------------------------------------
+// Background click clears panel
+// -------------------------------------------------------------------------
+document.getElementById("main-svg").addEventListener("click", function() {
+  document.getElementById("info-content").innerHTML = '<p style="color:#aaa">Click a node or paper to see details.</p>';
+  document.getElementById("row-tooltip").style.display = "none";
+});
+
+// -------------------------------------------------------------------------
+// Filter change handlers
+// -------------------------------------------------------------------------
+document.querySelectorAll("#evidence-filters input, #direction-filters input").forEach(function(chk) {
+  chk.addEventListener("change", applyFilters);
+});
+
+// -------------------------------------------------------------------------
+// Buttons
+// -------------------------------------------------------------------------
+document.getElementById("btn-fit").addEventListener("click", function() {
+  // Nothing to do - SVG is viewBox-based and fills container
+});
+
+document.getElementById("btn-reset").addEventListener("click", function() {
+  document.querySelectorAll("#evidence-filters input, #direction-filters input").forEach(function(c){ c.checked = true; });
+  document.getElementById("search-box").value = "";
+  clearSearch();
+  applyFilters();
+});
+
+document.getElementById("btn-labels").addEventListener("click", function() {
+  labelsOn = !labelsOn;
+  labelsLayer.style("display", labelsOn ? null : "none");
+});
+
+// -------------------------------------------------------------------------
+// Search
+// -------------------------------------------------------------------------
+function clearSearch() {
+  nodesLayer.selectAll("circle").attr("stroke-width", function() {
+    var el = d3.select(this);
+    if (el.classed("claim-circle")) return 2;
+    if (el.classed("group-circle")) return 2;
+    if (el.classed("struct-circle")) return 1;
+    if (el.classed("paper-circle")) return 1;
+    return 1;
+  });
+}
+
+document.getElementById("search-box").addEventListener("input", function() {
+  var q = this.value.trim().toLowerCase();
+  clearSearch();
+  if (!q) return;
+  // Highlight matching taxa
+  nodesLayer.selectAll("circle.claim-circle").each(function() {
+    var el = d3.select(this);
+    var taxon = (el.attr("data-taxon") || "").toLowerCase();
+    if (taxon.includes(q)) {
+      el.attr("stroke-width", 4).attr("stroke", "#f0a500");
+    }
+  });
+  // Highlight matching papers
+  nodesLayer.selectAll("circle.paper-circle").each(function() {
+    var el = d3.select(this);
+    var pid = el.attr("data-pid");
+    var label = (DATA.papers[pid] || "").toLowerCase();
+    if (label.includes(q)) {
+      el.attr("stroke-width", 3).attr("stroke", "#f0a500");
+    }
+  });
+});
+
+// -------------------------------------------------------------------------
+// Expose window helper for programmatic clicks (Playwright testing)
+// -------------------------------------------------------------------------
+window._clickNode = function(name) {
+  // Find a claim circle or group circle with this name
+  var found = false;
+  nodesLayer.selectAll("circle.claim-circle").each(function() {
+    var el = d3.select(this);
+    if (el.attr("data-taxon") === name) {
+      found = true;
+      el.dispatch("click");
+    }
+  });
+  if (!found) {
+    nodesLayer.selectAll("circle.group-circle").each(function() {
+      var el = d3.select(this);
+      if (el.attr("data-name") === name) {
+        found = true;
+        el.dispatch("click");
+      }
+    });
+  }
+  return found;
+};
+
+// -------------------------------------------------------------------------
+// Initial build
+// -------------------------------------------------------------------------
+rebuildLayout("phylum");
+
+})();
+</script>
+</body>
+</html>
