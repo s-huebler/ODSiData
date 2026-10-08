@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GVHD Mechanism Bubble Visualization</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; font-size: 13px; background: #f0f4f8; display: flex; height: 100vh; overflow: hidden; }
+
+  /* Sidebar left */
+  #sidebar {
+    width: 220px; min-width: 220px; background: #fff; border-right: 1px solid #ccc;
+    padding: 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+    font-size: 12px; z-index: 10;
+  }
+  #sidebar h3 { font-size: 13px; margin-bottom: 4px; color: #333; }
+  .filter-group label { display: flex; align-items: center; gap: 5px; margin: 2px 0; cursor: pointer; }
+  .filter-group label input[type=checkbox] { cursor: pointer; }
+  .count-badge { color: #888; font-size: 11px; }
+  #search-box {
+    width: 100%; padding: 4px 6px; border: 1px solid #bbb; border-radius: 3px; font-size: 12px;
+  }
+  .btn {
+    padding: 4px 8px; border: 1px solid #bbb; border-radius: 3px; background: #f5f5f5;
+    cursor: pointer; font-size: 12px;
+  }
+  .btn:hover { background: #e0e8f0; }
+  .btn-row { display: flex; gap: 5px; flex-wrap: wrap; }
+
+  /* Main canvas area */
+  #canvas-wrap { flex: 1; position: relative; }
+  #cy { width: 100%; height: 100%; }
+
+  /* Info panel right */
+  #info-panel {
+    width: 280px; min-width: 280px; background: #fff; border-left: 1px solid #ccc;
+    padding: 10px; overflow-y: auto; font-size: 12px; z-index: 10;
+  }
+  #info-panel h3 { font-size: 13px; margin-bottom: 6px; color: #333; }
+  #info-content { color: #444; }
+  #info-content table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 11px; }
+  #info-content th, #info-content td { border: 1px solid #ddd; padding: 3px 5px; text-align: left; }
+  #info-content th { background: #eef2f8; }
+  #info-content .dim { color: #888; }
+  #info-content .prot { color: #2d8a4e; font-weight: bold; }
+  #info-content .exac { color: #c0392b; font-weight: bold; }
+  #info-content .ctxd { color: #888; }
+
+  /* Tooltip */
+  #tooltip {
+    position: fixed; background: rgba(40,40,40,0.92); color: #fff; padding: 6px 10px;
+    border-radius: 4px; font-size: 11px; pointer-events: none; display: none;
+    max-width: 300px; z-index: 1000; line-height: 1.5;
+  }
+
+  /* Legend */
+  #legend {
+    position: fixed; bottom: 12px; left: 230px; background: #ffffffee;
+    border: 1px solid #ccc; border-radius: 4px; padding: 8px 12px; font-size: 11px;
+    z-index: 100; max-width: 340px;
+  }
+  #legend h4 { font-size: 12px; margin-bottom: 5px; }
+  .legend-row { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
+  .legend-swatch { width: 24px; height: 6px; border-radius: 3px; }
+  .legend-circle { width: 14px; height: 14px; border-radius: 50%; border: 1px solid #999; }
+  #legend .section-title { font-weight: bold; margin-top: 5px; margin-bottom: 2px; color: #555; }
+</style>
+</head>
+<body>
+
+<!-- Left sidebar: controls -->
+<div id="sidebar">
+  <div>
+    <h3>Evidence</h3>
+    <div class="filter-group" id="evidence-filters"></div>
+  </div>
+  <div>
+    <h3>Direction</h3>
+    <div class="filter-group" id="direction-filters">
+      <label><input type="checkbox" id="dir-protective" checked> <span style="color:#2d8a4e">protective</span></label>
+      <label><input type="checkbox" id="dir-exacerbating" checked> <span style="color:#c0392b">exacerbating</span></label>
+      <label><input type="checkbox" id="dir-other" checked> context-dep / unspecified</label>
+    </div>
+  </div>
+  <div>
+    <input type="text" id="search-box" placeholder="Search taxon or paper..." />
+  </div>
+  <div class="btn-row">
+    <button class="btn" id="btn-fit">Fit</button>
+    <button class="btn" id="btn-reset">Reset</button>
+    <button class="btn" id="btn-labels">Labels on/off</button>
+  </div>
+</div>
+
+<!-- Cytoscape canvas -->
+<div id="canvas-wrap">
+  <div id="cy"></div>
+</div>
+
+<!-- Info panel right -->
+<div id="info-panel">
+  <h3>Details</h3>
+  <div id="info-content"><p style="color:#aaa">Click a node to see details.</p></div>
+</div>
+
+<!-- Tooltip -->
+<div id="tooltip"></div>
+
+<!-- Legend -->
+<div id="legend">
+  <h4>Legend</h4>
+  <div class="section-title">Edge color</div>
+  <div class="legend-row"><div class="legend-swatch" style="background:#2d8a4e"></div> protective</div>
+  <div class="legend-row"><div class="legend-swatch" style="background:#c0392b"></div> exacerbating</div>
+  <div class="legend-row"><div class="legend-swatch" style="background:#888888"></div> context-dependent / unspecified</div>
+  <div class="section-title">Taxon fill</div>
+  <div class="legend-row"><div class="legend-circle" style="background:#2d8a4e"></div> all visible edges protective</div>
+  <div class="legend-row"><div class="legend-circle" style="background:#c0392b"></div> all visible edges exacerbating</div>
+  <div class="legend-row"><div class="legend-circle" style="background:#aaaaaa"></div> mixed or no visible edges</div>
+  <div class="section-title">Taxon placement</div>
+  <div style="font-size:10px;line-height:1.6;color:#555;">
+    <b>single_specific</b>: 1 mechanism class<br>
+    <b>multi_same_broad</b>: &gt;1 specific, same broad<br>
+    <b>multi_broad</b>: &gt;1 broad class (floating, top)<br>
+    <b>unattributed_only</b>: no mechanism attributed
+  </div>
+</div>
+
+<script>
+(function () {
+  // -------------------------------------------------------------------------
+  // Data (injected by render script)
+  // -------------------------------------------------------------------------
+  var graphData = __DATA__;
+
+  // -------------------------------------------------------------------------
+  // Evidence type discovery + filter UI
+  // -------------------------------------------------------------------------
+  var evidenceTypes = [];
+  var evidenceCounts = {};
+  graphData.edges.forEach(function (e) {
+    var ev = e.data.evidence;
+    if (!evidenceCounts[ev]) {
+      evidenceCounts[ev] = 0;
+      evidenceTypes.push(ev);
+    }
+    evidenceCounts[ev]++;
+  });
+  evidenceTypes.sort();
+
+  var evidenceFilterDiv = document.getElementById('evidence-filters');
+  evidenceTypes.forEach(function (ev) {
+    var lbl = document.createElement('label');
+    var chk = document.createElement('input');
+    chk.type = 'checkbox';
+    chk.checked = true;
+    chk.id = 'ev-' + ev.replace(/\s+/g, '_');
+    chk.dataset.ev = ev;
+    var span = document.createElement('span');
+    span.textContent = ev + ' ';
+    var badge = document.createElement('span');
+    badge.className = 'count-badge';
+    badge.textContent = '(' + evidenceCounts[ev] + ')';
+    lbl.appendChild(chk);
+    lbl.appendChild(span);
+    lbl.appendChild(badge);
+    evidenceFilterDiv.appendChild(lbl);
+  });
+
+  // -------------------------------------------------------------------------
+  // Build cytoscapre elements
+  // -------------------------------------------------------------------------
+  var elements = [];
+
+  // Nodes
+  graphData.nodes.forEach(function (n) {
+    var el = { data: Object.assign({}, n.data) };
+    if (n.position) el.position = { x: n.position.x, y: n.position.y };
+    // Cytoscape: parent must be set via data.parent
+    if (n.data.parent === null || n.data.parent === undefined) {
+      delete el.data.parent;
+    }
+    elements.push(el);
+  });
+
+  // Edges
+  graphData.edges.forEach(function (e) {
+    elements.push({ data: Object.assign({}, e.data) });
+  });
+
+  // -------------------------------------------------------------------------
+  // Direction color helper
+  // -------------------------------------------------------------------------
+  function dirColor(direction) {
+    if (direction === 'protective') return '#2d8a4e';
+    if (direction === 'exacerbating') return '#c0392b';
+    return '#888888';
+  }
+
+  // -------------------------------------------------------------------------
+  // Initial taxon fill color (before filters applied)
+  // -------------------------------------------------------------------------
+  // Pre-compute per taxon: incoming edge directions
+  var taxonEdgeDirs = {}; // taxon id -> list of directions
+  graphData.edges.forEach(function (e) {
+    var tgt = e.data.target;
+    if (!taxonEdgeDirs[tgt]) taxonEdgeDirs[tgt] = [];
+    taxonEdgeDirs[tgt].push(e.data.direction);
+  });
+
+  function taxonFill(taxonId, visibleDirs) {
+    var dirs = visibleDirs || [];
+    if (dirs.length === 0) return '#aaaaaa';
+    var prot = dirs.every(function (d) { return d === 'protective'; });
+    var exac = dirs.every(function (d) { return d === 'exacerbating'; });
+    if (prot) return '#2d8a4e';
+    if (exac) return '#c0392b';
+    return '#aaaaaa';
+  }
+
+  // -------------------------------------------------------------------------
+  // Cytoscape init
+  // -------------------------------------------------------------------------
+  var cy = cytoscape({
+    container: document.getElementById('cy'),
+    elements: elements,
+    layout: { name: 'preset' },
+    style: [
+      // Broad bubble
+      {
+        selector: 'node[type = "broad"]',
+        style: {
+          'shape': 'roundrectangle',
+          'background-color': '#e8f0f8',
+          'background-opacity': 0.5,
+          'border-color': '#9ab0cc',
+          'border-width': 2,
+          'label': 'data(label)',
+          'font-size': '14px',
+          'font-weight': 'bold',
+          'text-valign': 'top',
+          'text-halign': 'center',
+          'text-margin-y': -5,
+          'color': '#2c4a6e',
+          'width': 350,
+          'height': 400,
+        }
+      },
+      // Specific bubble
+      {
+        selector: 'node[type = "specific"]',
+        style: {
+          'shape': 'roundrectangle',
+          'background-color': '#c5d8f0',
+          'background-opacity': 0.6,
+          'border-color': '#7a9cc0',
+          'border-width': 1.5,
+          'label': 'data(label)',
+          'font-size': '11px',
+          'text-valign': 'top',
+          'text-halign': 'center',
+          'text-margin-y': -4,
+          'color': '#1a3a5c',
+          'min-width': 120,
+          'min-height': 80,
+          'width': 150,
+          'height': 160,
+        }
+      },
+      // Taxon node
+      {
+        selector: 'node[type = "taxon"]',
+        style: {
+          'shape': 'ellipse',
+          'background-color': '#aaaaaa',
+          'border-color': '#666',
+          'border-width': 1,
+          'label': 'data(label)',
+          'font-size': '9px',
+          'text-valign': 'center',
+          'text-halign': 'center',
+          'width': 40,
+          'height': 40,
+          'color': '#fff',
+          'text-outline-color': '#555',
+          'text-outline-width': 1,
+        }
+      },
+      // Italic taxon
+      {
+        selector: 'node[type = "taxon"][?italic]',
+        style: { 'font-style': 'italic' }
+      },
+      // Paper node
+      {
+        selector: 'node[type = "paper"]',
+        style: {
+          'shape': 'rectangle',
+          'background-color': '#f5f0e8',
+          'border-color': '#b0a080',
+          'border-width': 1,
+          'label': 'data(label)',
+          'font-size': '8px',
+          'text-valign': 'top',
+          'text-halign': 'center',
+          'text-rotation': -0.94,  // ~-54 degrees in radians
+          'text-margin-y': -3,
+          'width': 20,
+          'height': 20,
+          'color': '#555',
+        }
+      },
+      // Edges
+      {
+        selector: 'edge',
+        style: {
+          'curve-style': 'bezier',
+          'target-arrow-shape': 'triangle',
+          'target-arrow-color': '#888888',
+          'line-color': '#888888',
+          'opacity': 0.6,
+          'width': function (ele) { return ele.data('width') * 1.5 + 1; },
+        }
+      },
+      {
+        selector: 'edge[direction = "protective"]',
+        style: {
+          'line-color': '#2d8a4e',
+          'target-arrow-color': '#2d8a4e',
+        }
+      },
+      {
+        selector: 'edge[direction = "exacerbating"]',
+        style: {
+          'line-color': '#c0392b',
+          'target-arrow-color': '#c0392b',
+        }
+      },
+      // Faded nodes
+      {
+        selector: '.faded',
+        style: { 'opacity': 0.2 }
+      },
+      // Highlighted
+      {
+        selector: '.highlighted',
+        style: {
+          'border-color': '#f0a500',
+          'border-width': 3,
+          'opacity': 1,
+        }
+      },
+    ]
+  });
+
+  // -------------------------------------------------------------------------
+  // applyFilters
+  // -------------------------------------------------------------------------
+  function getCheckedEvidence() {
+    var checked = [];
+    document.querySelectorAll('#evidence-filters input[type=checkbox]').forEach(function (chk) {
+      if (chk.checked) checked.push(chk.dataset.ev);
+    });
+    return new Set(checked);
+  }
+
+  function applyFilters() {
+    var checkedEv = getCheckedEvidence();
+    var protOk = document.getElementById('dir-protective').checked;
+    var exacOk = document.getElementById('dir-exacerbating').checked;
+    var otherOk = document.getElementById('dir-other').checked;
+
+    function dirOk(d) {
+      if (d === 'protective') return protOk;
+      if (d === 'exacerbating') return exacOk;
+      return otherOk;
+    }
+
+    // Determine visible edges
+    var visibleEdges = new Set();
+    cy.edges().forEach(function (e) {
+      var ev = e.data('evidence');
+      var dir = e.data('direction');
+      if (checkedEv.has(ev) && dirOk(dir)) {
+        visibleEdges.add(e.id());
+        e.style('display', 'element');
+      } else {
+        e.style('display', 'none');
+      }
+    });
+
+    // Papers: visible if >=1 visible edge
+    var paperWithEdge = new Set();
+    cy.edges().forEach(function (e) {
+      if (visibleEdges.has(e.id())) {
+        paperWithEdge.add(e.data('source'));
+      }
+    });
+
+    cy.nodes('[type = "paper"]').forEach(function (n) {
+      if (paperWithEdge.has(n.id())) {
+        n.style('display', 'element');
+        n.style('opacity', 1);
+      } else {
+        n.style('display', 'none');
+      }
+    });
+
+    // Taxon: visible (full opacity) if >=1 visible edge; faded if 0; fill color recomputed
+    var taxonVisibleDirs = {}; // taxon id -> [directions of visible edges]
+    cy.edges().forEach(function (e) {
+      if (!visibleEdges.has(e.id())) return;
+      var tgt = e.data('target');
+      var tgtNode = cy.getElementById(tgt);
+      if (tgtNode.data('type') === 'taxon') {
+        if (!taxonVisibleDirs[tgt]) taxonVisibleDirs[tgt] = [];
+        taxonVisibleDirs[tgt].push(e.data('direction'));
+      }
+    });
+
+    cy.nodes('[type = "taxon"]').forEach(function (n) {
+      var id = n.id();
+      var dirs = taxonVisibleDirs[id] || [];
+      var fill = taxonFill(id, dirs);
+      n.style('background-color', fill);
+      if (dirs.length > 0) {
+        n.style('opacity', 1);
+        n.style('display', 'element');
+      } else {
+        n.style('opacity', 0.2);
+        n.style('display', 'element');
+      }
+    });
+
+    // Broad/specific: always visible
+    cy.nodes('[type = "broad"], [type = "specific"]').forEach(function (n) {
+      n.style('display', 'element');
+      n.style('opacity', 1);
+    });
+  }
+
+  // Bind filter controls
+  document.querySelectorAll('#evidence-filters input, #direction-filters input').forEach(function (chk) {
+    chk.addEventListener('change', applyFilters);
+  });
+
+  // Apply initial filters
+  applyFilters();
+
+  // -------------------------------------------------------------------------
+  // Buttons
+  // -------------------------------------------------------------------------
+  document.getElementById('btn-fit').addEventListener('click', function () {
+    cy.fit(undefined, 20);
+  });
+
+  document.getElementById('btn-reset').addEventListener('click', function () {
+    // Reset all filter checkboxes
+    document.querySelectorAll('#evidence-filters input, #direction-filters input').forEach(function (chk) {
+      chk.checked = true;
+    });
+    applyFilters();
+    // Clear search
+    document.getElementById('search-box').value = '';
+    clearSearch();
+    cy.fit(undefined, 20);
+  });
+
+  var labelsOn = true;
+  document.getElementById('btn-labels').addEventListener('click', function () {
+    labelsOn = !labelsOn;
+    var display = labelsOn ? 'element' : 'none';
+    cy.nodes('[type = "taxon"], [type = "paper"]').forEach(function (n) {
+      n.style('label', labelsOn ? n.data('label') : '');
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // Info panel
+  // -------------------------------------------------------------------------
+  function dirClass(d) {
+    if (d === 'protective') return 'prot';
+    if (d === 'exacerbating') return 'exac';
+    return 'ctxd';
+  }
+
+  function showTaxonInfo(node) {
+    var id = node.id();
+    var data = node.data();
+    var inEdges = node.connectedEdges('[target = "' + id + '"]');
+    var html = '<b style="font-size:13px">' + (data.italic ? '<i>' + id + '</i>' : id) + '</b>';
+    html += '<br><span class="dim">Rank: ' + (data.taxon_rank || 'unknown') + '</span>';
+    if (data.taxon_as_cited && data.taxon_as_cited.length) {
+      html += '<br><span class="dim">As cited: ' + data.taxon_as_cited.join(', ') + '</span>';
+    }
+    html += '<br><span class="dim">Placement: ' + data.placement + '</span>';
+    if (data.mechanisms && data.mechanisms.length) {
+      html += '<br><span class="dim">Mechanisms: ' + data.mechanisms.join('; ') + '</span>';
+    }
+    html += '<br><br><b>Evidence:</b>';
+    html += '<table><tr><th>Paper</th><th>Direction</th><th>Evidence</th><th>Quote</th></tr>';
+    inEdges.forEach(function (e) {
+      var edata = e.data();
+      var src = cy.getElementById(edata.source);
+      var srcLabel = src.data('label') || edata.source;
+      html += '<tr>';
+      html += '<td>' + srcLabel + '</td>';
+      html += '<td class="' + dirClass(edata.direction) + '">' + edata.direction + '</td>';
+      html += '<td>' + edata.evidence + '</td>';
+      var q = edata.rows && edata.rows[0] ? (edata.rows[0].quote || '') : '';
+      html += '<td style="font-size:10px;max-width:100px;overflow:hidden;">' + q.substring(0, 60) + (q.length > 60 ? '…' : '') + '</td>';
+      html += '</tr>';
+    });
+    html += '</table>';
+    document.getElementById('info-content').innerHTML = html;
+  }
+
+  function showPaperInfo(node) {
+    var id = node.id();
+    var label = node.data('label');
+    var outEdges = node.connectedEdges('[source = "' + id + '"]');
+    var html = '<b style="font-size:13px">' + label + '</b>';
+    html += '<br><span class="dim">ref_id: ' + id + '</span>';
+    html += '<br><br><b>Targets:</b>';
+    html += '<table><tr><th>Target</th><th>Direction</th><th>Evidence</th></tr>';
+    outEdges.forEach(function (e) {
+      var edata = e.data();
+      html += '<tr>';
+      html += '<td>' + edata.target + '</td>';
+      html += '<td class="' + dirClass(edata.direction) + '">' + edata.direction + '</td>';
+      html += '<td>' + edata.evidence + '</td>';
+      html += '</tr>';
+    });
+    html += '</table>';
+    document.getElementById('info-content').innerHTML = html;
+  }
+
+  function showBubbleInfo(node) {
+    var data = node.data();
+    var html = '<b style="font-size:13px">' + data.label + '</b>';
+    html += '<br><span class="dim">Type: ' + data.type + '</span>';
+    // Count edges to children
+    var children = cy.nodes('[parent = "' + node.id() + '"]');
+    var total = 0;
+    var dirCounts = {};
+    var evCounts = {};
+    children.forEach(function (child) {
+      child.connectedEdges('[target = "' + child.id() + '"]').forEach(function (e) {
+        total++;
+        var d = e.data('direction');
+        var ev = e.data('evidence');
+        dirCounts[d] = (dirCounts[d] || 0) + 1;
+        evCounts[ev] = (evCounts[ev] || 0) + 1;
+      });
+    });
+    html += '<br><br><b>Edge counts by direction:</b>';
+    html += '<table><tr><th>Direction</th><th>Count</th></tr>';
+    Object.keys(dirCounts).sort().forEach(function (d) {
+      html += '<tr><td class="' + dirClass(d) + '">' + d + '</td><td>' + dirCounts[d] + '</td></tr>';
+    });
+    html += '</table>';
+    html += '<br><b>Edge counts by evidence:</b>';
+    html += '<table><tr><th>Evidence</th><th>Count</th></tr>';
+    Object.keys(evCounts).sort().forEach(function (ev) {
+      html += '<tr><td>' + ev + '</td><td>' + evCounts[ev] + '</td></tr>';
+    });
+    html += '</table>';
+    document.getElementById('info-content').innerHTML = html;
+  }
+
+  cy.on('tap', 'node', function (evt) {
+    var node = evt.target;
+    var type = node.data('type');
+    if (type === 'taxon') showTaxonInfo(node);
+    else if (type === 'paper') showPaperInfo(node);
+    else showBubbleInfo(node);
+  });
+
+  cy.on('tap', function (evt) {
+    if (evt.target === cy) {
+      document.getElementById('info-content').innerHTML = '<p style="color:#aaa">Click a node to see details.</p>';
+    }
+  });
+
+  // -------------------------------------------------------------------------
+  // Tooltip on edge hover
+  // -------------------------------------------------------------------------
+  var tooltip = document.getElementById('tooltip');
+
+  cy.on('mouseover', 'edge', function (evt) {
+    var e = evt.target;
+    var edata = e.data();
+    var src = cy.getElementById(edata.source);
+    var srcLabel = src.data('label') || edata.source;
+    var citing = '';
+    if (edata.rows && edata.rows.length > 0) {
+      var citingSet = new Set(edata.rows.map(function (r) { return r.citing_label; }));
+      citing = ' | Review: ' + Array.from(citingSet).join(', ');
+    }
+    tooltip.innerHTML = '<b>' + srcLabel + '</b> → <b>' + edata.target + '</b>' +
+      '<br>' + edata.direction + ' | ' + edata.evidence + citing;
+    tooltip.style.display = 'block';
+  });
+
+  cy.on('mouseout', 'edge', function () {
+    tooltip.style.display = 'none';
+  });
+
+  cy.on('mousemove', function (evt) {
+    if (tooltip.style.display !== 'none') {
+      tooltip.style.left = (evt.originalEvent.clientX + 14) + 'px';
+      tooltip.style.top = (evt.originalEvent.clientY + 14) + 'px';
+    }
+  });
+
+  // -------------------------------------------------------------------------
+  // Search
+  // -------------------------------------------------------------------------
+  function clearSearch() {
+    cy.nodes().removeClass('highlighted');
+    cy.edges().style('opacity', 0.6);
+  }
+
+  document.getElementById('search-box').addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase();
+    clearSearch();
+    if (!q) return;
+
+    cy.nodes('[type = "taxon"], [type = "paper"]').forEach(function (n) {
+      var label = (n.data('label') || '').toLowerCase();
+      if (label.includes(q)) {
+        n.addClass('highlighted');
+        n.connectedEdges().style('opacity', 1);
+      }
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // Build legend taxa counts per bubble
+  // -------------------------------------------------------------------------
+  var legendExtra = '<div class="section-title">Taxa per specific bubble</div><div style="font-size:10px;color:#555;">';
+  var taxonPerSpec = {};
+  graphData.nodes.forEach(function (n) {
+    if (n.data.type === 'taxon') {
+      var p = n.data.parent;
+      if (p) {
+        taxonPerSpec[p] = (taxonPerSpec[p] || 0) + 1;
+      }
+    }
+  });
+  // Also per broad
+  var taxonPerBroad = {};
+  graphData.nodes.forEach(function (n) {
+    if (n.data.type === 'taxon') {
+      var bc = n.data.broad_classes || [];
+      bc.forEach(function (b) {
+        taxonPerBroad[b] = (taxonPerBroad[b] || 0) + 1;
+      });
+    }
+  });
+  // Show specific counts
+  Object.keys(taxonPerSpec).sort().forEach(function (k) {
+    legendExtra += k + ': ' + taxonPerSpec[k] + '<br>';
+  });
+  legendExtra += '</div>';
+  document.getElementById('legend').innerHTML += legendExtra;
+
+  // -------------------------------------------------------------------------
+  // Initial fit
+  // -------------------------------------------------------------------------
+  cy.fit(undefined, 20);
+  window._cy = cy;
+
+})();
+</script>
+</body>
+</html>
