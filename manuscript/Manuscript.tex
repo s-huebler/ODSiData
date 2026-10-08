@@ -1,0 +1,112 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{graphicx}
+\usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{tabularray}
+\usepackage{enumitem}
+
+% Bibliography
+\usepackage[backend=biber, style=numeric, sorting=none, autocite=superscript, maxnames=10]{biblatex}
+\addbibresource{references.bib}
+
+% Custom commands for outline mode
+\newcommand{\todoitem}[1]{\textcolor{blue!70!black}{\textbullet~#1}}
+\newcommand{\writingnote}[1]{\par\noindent\colorbox{yellow!30}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+  \small\textbf{Writing note:} #1}}\par\medskip}
+\newcommand{\placeholder}[1]{\par\noindent\colorbox{gray!15}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+  \small\textit{#1}}}\par\medskip}
+
+\graphicspath{{Bilder/}{images/}{../AnalyticCohort/images/}{../AnalyticCohort/}{../AnalyticCohort/Uncorrected/}{../AnalyticCohort/CombatSeq/}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\newpage
+\section{Introduction}
+\begin{itemize}
+\item Classify the mechanisms
+\item Therapeutic potential to target different mechinisms
+\item Some microbes known, suspected, or even tested for their therapeutic potential--> We want to make it easier to identify translational gaps by reviewing the findings in previous lit and giving a comprehensive open source dataset to future
+\end{itemize}
+
+\newpage
+\section{Literature Review}
+\subsection{Search Strategy}
+\subsection{Citation Network}
+The literature review included 98 review papers between the years xx and 2025. We sought to determine which papers in the literature were the most impactful on the field by creating a citation network that examined how often each paper was cited. \\
+
+The references for each review were coalesced into a single document and a 2-stage identification procedure was constructed to extract DOIs directly from the reference or identify them by cross-reference. Papers for which a DOI was not available were identified by PMID or Pxxx. References were then imported into Zotero reference manager by the ID, and the metadata lookup was used. From there, records were merged and deduplicated using the native Zotero capabilities. The full bibliography was exported as a .bib file and imported into R where each reference was given a random id and the dictionaries were cleaned. Quality control steps (see supplement xx) were taken to correct references that pointed towards faculty opinion DOIs or broken links. Citations pointing towards pre-prints that have since been published were updated with the most up to date version of the article. Citations pointing towards conference presentations were not updated even if a resulting publication could be found. 
+
+We found 5,694 sources cited across the 98 reviews. The full citation network can be accessed at xxx. The most commonly cited sources were 
+\begin{itemize}
+    \item Taur 2014
+    \item Jenq 2015 
+    \item Mathewson 2016
+    \item Shono 2016 
+    \item Holler 2014
+    \item Peled 2020
+    \item Taur 2012
+    \item Bekkum 1974
+    \item Stein-Thoeringer 2019
+    \item Kakihana 2016   
+\end{itemize}
+
+\subsection{Claims Network}
+Beyond examining citations, we also sought to identify which ideas were most impactful to the field. Specifically, we chose reviews which focused primarily on examining individual microbes or microbial functional groups on GVHD and identified claims about the association between each microbe and GVHD. The goal was to identify potential implementation gaps or conflicting evidence. 
+
+We chose to focus on xx reviews deemed most relevant due to their focus on relating specific microbial taxa with GVHD. We sought to classify and attribute each claim about a microbial taxon. For the classification task, we identified the taxon being discussed to the GTDB (need to cite) to get the most up to date taxonomic ranking. Next we contextualized the relationship of the microbe to GVHD by a positive or negative valence, treating association or causation in either direction equivalently. Finally, we extracted information about the mechanism being discussed and classified it into general concept block attributable to either xx, xx, or xx (list here mechanism general). For the attribution task, we mapped the claim with the citation listed to it. We classified whether the claim was describing a hypothesis (exploration based on mechanism or functional role of the microbe) or observed association (in humans or mice). We also included clinical trials that examined specific consortium to determine whether the claim has been explored in the therapeutic pipeline. We note that the lines from the reviews to the individual studies are a subgraph of the full citation network, but the claims nodes and edges are a result of a summarizing information found in the reviews themselves. 
+
+The full interactive network can be found at xx. One use case for the network is to find claims with the most primary evidence (show example of clostridia). This demonstrates well established hypotheses. Alternatively, we can use this network to identify conflicting claims, which show that more study is needed or that differences at lower taxonomic levels might be driving conflicts of evidence. 
+
+Another use case for the network is to find primary sources which are often cited in literature reviews. This can be useful in terms of identifying sources of oft-stated claims to gain valuable context. For example, (insert example of perhaps a directional claim or something in mice but not humans).
+
+Another use case for the network is to find implementation gaps. By toggling on the mechanism explorer view, we can identify whether some microbial taxa have been explored in depth or are in need of more study. 
+
+
+\subsubsection{Claims Discussion}
+\begin{itemize}
+    \item Most cited claims:
+    \item Conflicts:
+    \item Primary sources:
+    \item Implementation gaps:
+\end{itemize}
+
+
+
+\newpage
+\section{Primary Sources}
+We examined each of the xx papers identified in the literature review.
+\begin{itemize}
+    \item Common study designs. 
+    \item Pediatric vs Adult
+    \item Exploratory or investigating therepeutic strategy?
+    \item If longitudinal, what was baseline.
+\end{itemize}
+
+\subsection{Analytic Cohort}
+We identified an analytic cohort where the 16S samples were available on an open source biorepository and clinical metadata
+\subsection{Harmonization Process}
+\begin{itemize}
+    \item Metadata
+    \item Batch correction methodology
+\end{itemize}
+
+\subsection{Investigating Claims}
+
+\subsection{Discussion}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+
+\end{document}
