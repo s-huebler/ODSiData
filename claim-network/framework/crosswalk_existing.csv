@@ -1,0 +1,555 @@
+mechanism_as_named,closest_existing_category,match_quality,note
+,General/unspecified,no match,no clear alignment to existing categories
+3-oxo LCA inhibits Th17,SBA metabolite,exact,direct hit on secondary bile acid signaling
+3-oxoLCA and isoalloLCA modulate Th17/Treg,SBA metabolite,exact,direct hit on secondary bile acid signaling
+A. muciniphila enhances NK cytotoxicity,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+A. muciniphila mucin degradation thins mucus,Barrier / mucus,close,covers both mucin degradation and barrier function
+A. muciniphila urolithin production acts through AhR to regulate gut barrier,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Actinomycetaceae associated with increased OS,Biomarker/indicator,close,taxon-outcome association without mechanism
+Actinomycetaceae associated with longer survival,Biomarker/indicator,close,taxon-outcome association without mechanism
+Akkermansia accelerates immune reconstitution,Other immune,close,other immune cell type
+Akkermansia associated with GVHD development,Biomarker/indicator,close,taxon-outcome association without mechanism
+Akkermansia muciniphila associated with neutropenic fever,General/unspecified,no match,no clear alignment to existing categories
+Akkermansia muciniphila expansion and mucus degradation,Barrier / mucus,close,covers both mucin degradation and barrier function
+Alistipes activates AhR in ILC3s to produce IL-22,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+B. fragilis PSA activates DC TLR2 to induce IL-10 and regulatory macrophages,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+B. fragilis PSA engages TLR1/2 and Dectin-1 to induce CREB-dependent anti-inflammatory expression,Macrophage/PSA modulator,close,PSA signaling to DCs/macrophages
+B. fragilis PSA enhances macrophage phagocytosis,Polysaccharide metabolism,exact,direct hit on polysaccharide/glycan metabolism
+B. fragilis PSA induces IL-10+ Tregs via TLR2,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+B. fragilis associated with relapse and exhausted peripheral T cells,General/unspecified,no match,no clear alignment to existing categories
+B. fragilis tryptophan catabolism yields immune-modulating metabolites,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+B. longum subsp. infantis indole-3-lactic acid induces galectin-1 and reduces Th2/Th17 differentiation,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+B. longum subsp. infantis produces indole-3-lactic acid in infant intestine,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+B. ovatus depletion with high-risk antibiotics associates with steroid-refractory GVHD,General/unspecified,no match,no clear alignment to existing categories
+B. ovatus polysaccharide metabolism suppresses mucus-degraders,Polysaccharide metabolism,exact,direct hit on polysaccharide/glycan metabolism
+B. ovatus produces xylose to reduce GVHD,Polysaccharide metabolism,exact,direct hit on polysaccharide/glycan metabolism
+B. thetaiotaomicron glycoside hydrolase mucin degradation,Barrier / mucus,close,covers both mucin degradation and barrier function
+B. thetaiotaomicron mucin degradation thins colonic mucus,Barrier / mucus,close,covers both mucin degradation and barrier function
+B. thetaiotaomicron succinate activates inflammatory macrophages,Other metabolite,close,non-SCFA/bile acid/indole metabolite
+B. thetaiotaomicron succinate drives inflammatory macrophage activation,Other metabolite,close,non-SCFA/bile acid/indole metabolite
+B. thetaiotaomicron suppresses epithelial MHC class II,MHC II suppressor,exact,direct hit on MHC class II suppression
+B. wadsworthia expansion via taurocholic acid promotes Th1 responses and colitis,General/unspecified,no match,no clear alignment to existing categories
+BCoAT butyrate biosynthesis pathway enriched in low-IMM-risk patients,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Bacilli associated with low 3-IS,General/unspecified,no match,no clear alignment to existing categories
+Bacteroides SusC epitope shifts Th response contextually,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+Bacteroides abundance higher in patients who developed GVHD,General/unspecified,no match,no clear alignment to existing categories
+Bacteroides depletion in aGVHD impairs SBA production,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Bacteroides expansion with low SCFAs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Bacteroides fragilis PSA amplifies Tregs,Macrophage/PSA modulator,close,PSA signaling to DCs/macrophages
+Bacteroides methionine metabolites regulate redox balance and support cross-feeding,Other metabolite,close,non-SCFA/bile acid/indole metabolite
+Bacteroides ovatus reduces GVHD severity,General/unspecified,no match,no clear alignment to existing categories
+Bacteroides-deficient microbiota primary bile acids drive CXCL10 T-cell recruitment,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Bacteroides-derived DCA/taurocholic acid acts via FXR,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Bacteroides-derived isovaleric acid modulates BCAA metabolism and Th1 responses,Other metabolite,close,non-SCFA/bile acid/indole metabolite
+Bacteroides-derived phenylacetic acid promotes Treg differentiation and modulates cytokines,Treg inducer,close,Treg induction pathway
+Bacteroidota associated with intestinal MAIT,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Barnesiella and L. johnsonii suppress pathobiont expansion,Dysbiosis/mono-dominance,exact,mono-dominance or pathobiont expansion
+Beak 2022 L. acidophilus + FK506,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Bifidobacterium HMO fermentation generates SCFA/lactate and maintains barrier,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Bifidobacterium butyrate expands colonic Tregs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Bifidobacterium drives microbiota-derived antigen presentation and IgA production,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Bifidobacterium promotes Bregs,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Bifidobacterium species indole acids activate AhR and suppress monocyte inflammatory cytokines,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Bifidobacterium-produced lactate enhances tight junctions and reduces pro-inflammatory cytokines,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Blautia abundance accelerates T cell recovery,General/unspecified,no match,no clear alignment to existing categories
+Blautia associated with intestinal MAIT and reduced lethality,MAIT modulator,exact,MAIT cell modulation
+Blautia loss from parenteral nutrition,General/unspecified,no match,no clear alignment to existing categories
+Blautia low / Enterobacteriaceae high as GVHD risk signature,Biomarker/indicator,close,taxon-outcome association without mechanism
+C. savagella induces epithelial MHC class II,MHC II inducer,exact,direct hit on MHC class II induction
+C. scindens bile acid transformation suppresses Th1 differentiation via FXR,SBA metabolite,exact,direct hit on secondary bile acid signaling
+C. scindens-transformed bile acids suppress Th1 via FXR,SBA metabolite,exact,direct hit on secondary bile acid signaling
+C. sporogenes IPA activates PXR for anti-inflammatory and barrier protection,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+C. sporogenes tryptophan catabolism yields immune-modulating metabolites,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+CBM588 increases alpha diversity and lowers Enterococcus/Bacteroides,General/unspecified,no match,no clear alignment to existing categories
+Candida colonization associated with aGVHD,Virome,close,virome/mycobiome
+Candida parapsilosis expansion worsens outcomes,Virome,close,virome/mycobiome
+Clostridia IV/XIVa and F. prausnitzii inhibit HDACs and expand colonic Foxp3+ Tregs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Clostridia butyrate enhances neutrophil phagocytosis via NADPH oxidase,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Clostridia butyrate expands Foxp3+ Tregs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Clostridia butyrate preserves epithelial integrity,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Clostridia clusters IV/XIVa SCFAs expand Foxp3+ colonic Tregs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Clostridia depletion diminishes ILC IL-22 and impairs mucosal wound healing,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+"Clostridia ferment dietary fibre into butyrate, acetate and propionate",SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Clostridia taxa enriched in GVHD-free patients,General/unspecified,no match,no clear alignment to existing categories
+"Clostridia-linked SBAs (isoCDCA, 6-keto-LCA, 3-oxo-CA) reduced in aGVHD",SBA metabolite,exact,direct hit on secondary bile acid signaling
+Clostridiales depleted in mouse GVHD,General/unspecified,no match,no clear alignment to existing categories
+Clostridium XIVa restoration is a candidate strategy to restore SBA metabolism,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Clostridium butyrate expands colonic Tregs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Clostridium butyrate producer decline predicts cGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Clostridium cluster XIVa / Ruminococcus generate bile acid derivatives,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Clostridium-derived DCA/taurocholic acid acts via FXR,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Clostridium-derived phenylacetic acid promotes Treg differentiation and modulates cytokines,Treg inducer,close,Treg induction pathway
+Conclusion: conditioning-driven dysbiosis disrupts metabolites,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+Conclusion: diversity restoration rebalances T cells / SCFAs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Conventional immunosuppression response rate restated,General/unspecified,no match,no clear alignment to existing categories
+CpG/TLR9 accelerates GvHD,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+D-lactate primes γδ T cells for IL-17,Other immune,close,other immune cell type
+E. faecium induces inflammatory DCs and Th1/Th17 differentiation,Th17 modulator,close,Th17 skewing mechanism
+E. hallii tryptophan catabolism yields immune-modulating metabolites,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Eggerthella urolithin production acts through AhR to regulate gut barrier,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Enterobacteriaceae domination linked to poor outcomes,General/unspecified,no match,no clear alignment to existing categories
+Enterobacteriaceae reduce Treg/Th17 ratio with H3 hyperacetylation,Th17 modulator,close,Th17 skewing mechanism
+Enterococci domination associated with TRM,General/unspecified,no match,no clear alignment to existing categories
+Enterococcus abundance higher in patients who developed GVHD,General/unspecified,no match,no clear alignment to existing categories
+Enterococcus associated with bloodstream infection and GVHD,Biomarker/indicator,close,taxon-outcome association without mechanism
+Enterococcus dominance correlates with CD4+ lymphopenia and BSI,General/unspecified,no match,no clear alignment to existing categories
+Enterococcus dominance displaces Lactobacillus and Bifidobacterium post allo-HSCT,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Enterococcus dominance predicts mortality,Dysbiosis/mono-dominance,exact,mono-dominance or pathobiont expansion
+Enterococcus domination increases GvHD risk,General/unspecified,no match,no clear alignment to existing categories
+Enterococcus domination linked to poor outcomes,General/unspecified,no match,no clear alignment to existing categories
+Enterococcus expansion in aGVHD,General/unspecified,no match,no clear alignment to existing categories
+Enterococcus linked to increased GVHD risk,General/unspecified,no match,no clear alignment to existing categories
+Enterococcus metalloprotease degrades tight junctions,Metalloprotease/virulence,exact,direct hit on metalloprotease/virulence
+Enterococcus-dominant enterotype linked to higher relapse risk and primary bile acid metabolism,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Enterococcus-dominant microbiota skews CD4+ T cells to Th17/Th1,Th17 modulator,close,Th17 skewing mechanism
+Erysipelotrichaceae beneficial for immune reconstitution,Other immune,close,other immune cell type
+Escherichia LPS activates TLR4 and NLRP3 to drive neutrophil infiltration,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+Eubacterium limosum associated with remission,General/unspecified,no match,no clear alignment to existing categories
+F. prausnitzii SCFA-induced Treg differentiation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+F. prausnitzii associated with increased functional gut Tregs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+F. prausnitzii induces TGF-β and retinoic acid in DCs to expand Foxp3+ Tregs,Treg inducer,close,Treg induction pathway
+F. prausnitzii-specific IL-10+ CD4 T cells,General/unspecified,no match,no clear alignment to existing categories
+FMT augments SCFA and epithelial barrier,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+FMT can transmit multidrug-resistant E. coli from donor to recipients,General/unspecified,no match,no clear alignment to existing categories
+FMT improves diversity and WBC post-engraftment,General/unspecified,no match,no clear alignment to existing categories
+FMT in steroid-refractory GI GVHD boosts gut Treg infiltration,Treg inducer,close,Treg induction pathway
+FMT increases median survival in grade IV steroid-refractory GI GVHD,General/unspecified,no match,no clear alignment to existing categories
+FMT induces CR in SR GI-aGVHD,General/unspecified,no match,no clear alignment to existing categories
+FMT induces CR in SR/SD GI-aGVHD,General/unspecified,no match,no clear alignment to existing categories
+FMT raises tryptophan metabolites and SCFA,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+FMT reduces Dialister,General/unspecified,no match,no clear alignment to existing categories
+FMT reduces Enterobacteriaceae,General/unspecified,no match,no clear alignment to existing categories
+FMT reduces Enterococcus,General/unspecified,no match,no clear alignment to existing categories
+FMT reduces Streptococcus,General/unspecified,no match,no clear alignment to existing categories
+FMT reduces Veillonella,General/unspecified,no match,no clear alignment to existing categories
+FMT responders show butyrate producer enrichment,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+FMT response rate restated for disparities discussion,General/unspecified,no match,no clear alignment to existing categories
+FMT restores Clostridiales/SCFA producers,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+FMT restores anaerobic commensals and reduces pathobionts,General/unspecified,no match,no clear alignment to existing categories
+FMT restores colonization resistance,General/unspecified,no match,no clear alignment to existing categories
+FMT restores microbial diversity and reduces pathogenic taxa after allo-HCT,General/unspecified,no match,no clear alignment to existing categories
+FMT shows no significant reduction in infections in randomized phase II trial,General/unspecified,no match,no clear alignment to existing categories
+FMT transmits MDR organisms,General/unspecified,no match,no clear alignment to existing categories
+FMT treats steroid-refractory GI GvHD,General/unspecified,no match,no clear alignment to existing categories
+FMT with corticosteroids CR in treatment-naïve GI aGVHD,General/unspecified,no match,no clear alignment to existing categories
+FMT+ruxolitinib response linked to lower IL-2/IL-17A,General/unspecified,no match,no clear alignment to existing categories
+FMT+steroids correlate with tryptophan/SCFA production,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+FOS prebiotic established in inflammatory bowel disease,General/unspecified,no match,no clear alignment to existing categories
+FOS supplementation feasible for microbiome modulation in allo-HCT,General/unspecified,no match,no clear alignment to existing categories
+FOS supplementation increases intestinal SCFAs and lowers GVHD severity in mice,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+FXR activation worsens and FXR ablation improves GVHD mortality,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Faecalibacterium accelerates immune reconstitution,Other immune,close,other immune cell type
+Faecalibacterium associated with neutrophil/monocyte recovery,General/unspecified,no match,no clear alignment to existing categories
+FamiLact + FOS reduces severe aGVHD risk and increases Tregs,Treg inducer,close,Treg induction pathway
+FfAR2 enhances IL-22 to repair epithelium,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+GFO + resistant starch promotes Bifidobacterium and SCFAs for gut barrier,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+GFO + resistant starch supplementation reduces GVHD severity,General/unspecified,no match,no clear alignment to existing categories
+GI flora depletion reduces GvHD,General/unspecified,no match,no clear alignment to existing categories
+GVHD patients lose bile-acid-metabolizing taxa,SBA metabolite,exact,direct hit on secondary bile acid signaling
+GVHD reduces microbial BSH gene abundance and SBA production,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Gammaproteobacteria associated with pulmonary complications,General/unspecified,no match,no clear alignment to existing categories
+Gerbitz 2004 LGG murine,General/unspecified,no match,no clear alignment to existing categories
+HDAC inhibition reduces GVHD biomarkers,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Helicobacter hepaticus-specific T-cell polarization is IL-10 context-dependent,General/unspecified,no match,no clear alignment to existing categories
+Holmes 2022 GOS murine,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+"I3A/AhR axis induces IL-22, antimicrobial peptides and epithelial repair",Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+IAld activates ILC3 AhR to induce IL-22 and mucosal repair,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+IDO absence worsens GvHD,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+IDO kynurenine pathway promotes immunosuppression,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+IEC Hif1a is required to limit GVHD severity,Barrier / mucus,close,covers both mucin degradation and barrier function
+IEC MHC class II drives CD4+-dependent lethal GVHD,MHC II inducer,exact,direct hit on MHC class II induction
+"IEC MHC class II supports IgA, Tregs and microbiota composition",MHC II inducer,exact,direct hit on MHC class II induction
+IEC-to-phagocyte MHC class II transfer shapes gut adaptive immunity,MHC II inducer,exact,direct hit on MHC class II induction
+IL-17 enhances tissue injury via neutrophils and macrophages,General/unspecified,no match,no clear alignment to existing categories
+ILC3 ID2-dependent IL-22 colonization resistance,Other immune,close,other immune cell type
+ILC3 IL-22 protects intestinal stem cells,Other immune,close,other immune cell type
+ILC3 function regulated by FfAR2,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+ILC3s suppress alloreactive T cells,Other immune,close,other immune cell type
+IMM risk index of five microbial metabolites predicts GVHD outcomes,General/unspecified,no match,no clear alignment to existing categories
+L. plantarum IAld activates AhR to drive ILC3 IL-22 and stem cell regeneration,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+L. plantarum ineffective at preventing GI GvHD,General/unspecified,no match,no clear alignment to existing categories
+L. reuteri IAld activates AhR to drive ILC3 IL-22 and stem cell regeneration,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+L. rhamnosus GG trial terminated early with no microbiome or GVHD change,General/unspecified,no match,no clear alignment to existing categories
+L. rhamnosus reduces bacterial translocation,General/unspecified,no match,no clear alignment to existing categories
+L. rhamnosus supplementation ineffective in adults,General/unspecified,no match,no clear alignment to existing categories
+LCA from Clostridium reduces T cell-driven inflammation via FXR,SBA metabolite,exact,direct hit on secondary bile acid signaling
+LCA impairs Th1 activation and TNF/IFNγ secretion,SBA metabolite,exact,direct hit on secondary bile acid signaling
+LPS induces M1 macrophage polarization,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+LPS translocation after TBI,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+LPS-driven macrophage TNF causes tissue injury,General/unspecified,no match,no clear alignment to existing categories
+LPS/TLR4 amplifies macrophage TNF,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+Lachnoclostridium associated with decreased GVHD,Biomarker/indicator,close,taxon-outcome association without mechanism
+Lachnospiraceae associated with increased OS,Biomarker/indicator,close,taxon-outcome association without mechanism
+Lachnospiraceae associated with longer survival,Biomarker/indicator,close,taxon-outcome association without mechanism
+Lachnospiraceae/Oscillospiraceae IMM signature,General/unspecified,no match,no clear alignment to existing categories
+Lachnospiraceae/Oscillospiraceae-associated bacteriophages,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Lachnospiraceae/Ruminococcaceae support B cell reconstitution,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Lactobacillales associated with severe GVHD,General/unspecified,no match,no clear alignment to existing categories
+Lactobacillus HMO fermentation generates SCFA/lactate and maintains barrier,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Lactobacillus administration alleviates GVHD in mice,General/unspecified,no match,no clear alignment to existing categories
+Lactobacillus domination linked to poor outcomes,General/unspecified,no match,no clear alignment to existing categories
+Lactobacillus drives microbiota-derived antigen presentation and IgA production,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+Lactobacillus introduction modifies intestinal inflammation,General/unspecified,no match,no clear alignment to existing categories
+Lactobacillus modulates γδ T cell trafficking via GPR15,Other immune,close,other immune cell type
+Lactobacillus primes tolerogenic DCs,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Lactobacillus-enriched microbiota exacerbate GVHD via MHC-II alloreactive T-cell activation,MHC II inducer,exact,direct hit on MHC class II induction
+Lactobacillus-produced lactate enhances tight junctions and reduces pro-inflammatory cytokines,Barrier / mucus,close,covers both mucin degradation and barrier function
+Ladas 2016 Lactobacillus plantarum safety,General/unspecified,no match,no clear alignment to existing categories
+MDSC IDO activates AhR via kynurenines,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+MDSC arginase-1 and NO inhibit T cells,Other immune,close,other immune cell type
+MDSC expansion suppresses alloreactive T cells,Other immune,close,other immune cell type
+MHC class II-inducing taxa enhance antigen presentation,MHC II inducer,exact,direct hit on MHC class II induction
+MaaT013 ARES phase III: 62% GI response and 67% vs 28% survival,General/unspecified,no match,no clear alignment to existing categories
+MaaT013 non-responders have higher pathogenic pro-inflammatory bacteria,General/unspecified,no match,no clear alignment to existing categories
+"MaaT013 responders have increased diversity, butyrate producers and SCFAs",SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+MaaT013 response in SR GI aGVHD,General/unspecified,no match,no clear alignment to existing categories
+Muratore 2022 prebiotic review,General/unspecified,no match,no clear alignment to existing categories
+NOD1 ligand restores hematopoietic precursors,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+"NOD1/2, flagellin/TLR5, CpG/TLR9 activation",Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Oscillospiraceae associated with protective IMMs,General/unspecified,no match,no clear alignment to existing categories
+PAMPs activate APCs and donor lymphocytes,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+PAMPs released by bacterial activation/destruction,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+Peled 2020 Enterococcus/Klebsiella domination,Dysbiosis/mono-dominance,exact,mono-dominance or pathobiont expansion
+Picobirnaviridae associated with GI aGVHD,Virome,close,virome/mycobiome
+Prevotella-derived isovaleric acid modulates BCAA metabolism and Th1 responses,Other metabolite,close,non-SCFA/bile acid/indole metabolite
+Pseudomonadota associated with bloodstream infections,Biomarker/indicator,close,taxon-outcome association without mechanism
+Qiao 2023 FMT meta-analysis,General/unspecified,no match,no clear alignment to existing categories
+RPS fermentation produces SCFA,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+RPS raises fecal butyrate levels,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+RS+GFO maintains butyrate producers and butyrate,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+RS+GFO reduces GI and skin aGVHD,General/unspecified,no match,no clear alignment to existing categories
+Reddi 2025 prophylactic FMT trial,General/unspecified,no match,no clear alignment to existing categories
+Ruminococcaceae associated with high 3-IS and decreased GVHD,General/unspecified,no match,no clear alignment to existing categories
+Ruminococcaceae depletion associates with reduced LCA/DCA in UC,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Ruminococcus 2 accelerates immune reconstitution,Other immune,close,other immune cell type
+Ruminococcus associated with neutrophil/monocyte recovery,General/unspecified,no match,no clear alignment to existing categories
+Ruminococcus restoration is a candidate strategy to restore SBA metabolism,SBA metabolite,exact,direct hit on secondary bile acid signaling
+SBAs activate TGR5 to suppress gut pro-inflammatory cytokines,SBA metabolite,exact,direct hit on secondary bile acid signaling
+SBAs from Clostridium scindens modulate FXR and TGR5,SBA metabolite,exact,direct hit on secondary bile acid signaling
+SBAs from Eubacterium modulate FXR and TGR5,SBA metabolite,exact,direct hit on secondary bile acid signaling
+SBAs from Ruminococcus gnavus modulate FXR and TGR5,SBA metabolite,exact,direct hit on secondary bile acid signaling
+SBAs suppress macrophage pro-inflammatory cytokines,SBA metabolite,exact,direct hit on secondary bile acid signaling
+SCFA fermentation enhances immune tolerance,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA pathway decrease in GI aGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA pathways associated with improved survival,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA producer depletion enables pathogen expansion,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA producers protective against acute and chronic GvHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA producers support barrier and Treg,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA production from dietary fibre via GPCR/GPR43 signaling,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA signaling activates NLRP3/IL-18 and enhances FOXP3+ Tregs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA strain selection mitigates GvHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA-GPCR/HDAC inhibition tightens barrier and promotes tolerance,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA-derived acetyl-CoA fuels p300 histone acetylation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA-producing anaerobe reconstitution reduces GvHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFA/BCoAT enrichment in low-risk patients,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFAs absorbed via GPCR41/43/109A reshape gut immune homeostasis,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFAs and 3-oxoLCA suppress Th17,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFAs engage GPCRs on macrophages/DCs to shift inflammation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFAs fuel IEC oxidative phosphorylation and maintain gut hypoxia,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFAs induce Treg differentiation via HDAC inhibition,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFAs promote M2 macrophages,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+"SCFAs signal through GPR41, GPR43 and GPR109A",SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SCFAs stimulate mucin production and tight junctions,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+SER-155 Firmicutes consortium,General/unspecified,no match,no clear alignment to existing categories
+SER-155 Firmicutes consortium therapeutic,General/unspecified,no match,no clear alignment to existing categories
+SER-155 LBP engrafts and reduces pathogen domination,General/unspecified,no match,no clear alignment to existing categories
+SER-155 reduces bloodstream infections,General/unspecified,no match,no clear alignment to existing categories
+SFB and B. adolescentis drive Th17,Th17 modulator,close,Th17 skewing mechanism
+SFB and C. rodentium drive Th17 via IL-6/IL-23,Th17 modulator,close,Th17 skewing mechanism
+SFB induce Th17 via IL-23,Th17 modulator,close,Th17 skewing mechanism
+SFB promote non-inflammatory Th17 while Citrobacter drives inflammatory Th17,Th17 modulator,close,Th17 skewing mechanism
+SFB-induced IL-6/IL-23 skews Th17/Treg,Th17 modulator,close,Th17 skewing mechanism
+SFB-specific donor T cells expand in SFB-colonized recipients and worsen GVHD,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+Seike: dysbiosis is consequence not cause,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+Sofi 2021 B. fragilis gut barrier,General/unspecified,no match,no clear alignment to existing categories
+Staphylococcus associated with poor CD4 recovery,General/unspecified,no match,no clear alignment to existing categories
+Staphylococcus associated with worse CD4 recovery,General/unspecified,no match,no clear alignment to existing categories
+Streptococcus abundant after allo-HCT,General/unspecified,no match,no clear alignment to existing categories
+Streptococcus domination linked to poor outcomes,General/unspecified,no match,no clear alignment to existing categories
+Streptococcus linked to increased GVHD risk,General/unspecified,no match,no clear alignment to existing categories
+T cell FXR ablation reduces GI and liver GVHD,SBA metabolite,exact,direct hit on secondary bile acid signaling
+TBI reduces microbial diversity,General/unspecified,no match,no clear alignment to existing categories
+TGR5 inhibits NF-κB via cAMP-PKA,SBA metabolite,exact,direct hit on secondary bile acid signaling
+TGR5 limits inflammation,SBA metabolite,exact,direct hit on secondary bile acid signaling
+TLR-deficient neutrophils mitigate GvHD,IgA/mucosal immunity,exact,IgA/mucosal immunity
+TMAO inhibits DC HDAC3 and amplifies NF-κB inflammation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+TUDCA effects are independent of microbiota composition,SBA metabolite,exact,direct hit on secondary bile acid signaling
+TUDCA from Bacteroides reduces ER stress via FXR/TGR5,SBA metabolite,exact,direct hit on secondary bile acid signaling
+TUDCA from Clostridium reduces ER stress via FXR/TGR5,SBA metabolite,exact,direct hit on secondary bile acid signaling
+TUDCA improves GVHD survival and downregulates IEC MHC class II,SBA metabolite,exact,direct hit on secondary bile acid signaling
+TUDCA preserves graft-versus-leukemia activity,SBA metabolite,exact,direct hit on secondary bile acid signaling
+TUDCA protects IECs from TNF/IFNγ-induced apoptosis,SBA metabolite,exact,direct hit on secondary bile acid signaling
+TUDCA reduces aGVHD severity,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Table 1: broad-spectrum antibiotics deplete SCFA producers and expand Enterococcus,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Table 1: broad-spectrum antibiotics expand resistant Enterococcus,General/unspecified,no match,no clear alignment to existing categories
+Table 3: Bifidobacterium displacement reduces immune regulation,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+Table 3: Clostridiales donor colonizers reinforce epithelium and reduce GVHD severity,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Table 3: Enterococcus post-HSCT domination exacerbates mucosal damage and GVHD,General/unspecified,no match,no clear alignment to existing categories
+Table 3: Lactobacillus niche occupation exacerbates GVHD via MHC-II alloreactive T cells,MHC II inducer,exact,direct hit on MHC class II induction
+Table 4: Barnesiella suppresses pathobionts and enhances Tregs,Treg inducer,close,Treg induction pathway
+Table 4: Enterococcus triggers inflammation via LPS translocation,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+Table 4: Lactobacillus suppresses pathobionts and enhances Tregs,Treg inducer,close,Treg induction pathway
+Table 4: MHC-II inducing bacteria activate donor T cells,MHC II inducer,exact,direct hit on MHC class II induction
+"Table 4: SCFAs repair gut barrier, induce Tregs and reduce inflammation",SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Table 4: Streptococcus triggers inflammation via LPS translocation,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+Table 4: high microbial diversity reduces GVHD severity,General/unspecified,no match,no clear alignment to existing categories
+Table 5: FMT restores diversity and treats steroid-refractory GVHD,General/unspecified,no match,no clear alignment to existing categories
+Table 5: personalized therapies predict GVHD risk from microbiome profile,General/unspecified,no match,no clear alignment to existing categories
+Table 5: prebiotics promote beneficial bacteria and SCFAs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+Table 5: probiotics restore gut balance and enhance barrier function,General/unspecified,no match,no clear alignment to existing categories
+Thomasclavelia associated with severe GVHD,General/unspecified,no match,no clear alignment to existing categories
+UDCA associates with reduced T cell proliferation and lower GVHD-related mortality,SBA metabolite,exact,direct hit on secondary bile acid signaling
+UDCA decreases LPS-induced macrophage TNF/IL-6/IL-12/IL-1β,SBA metabolite,exact,direct hit on secondary bile acid signaling
+UDCA from Clostridium coccoides restores bile acid balance,SBA metabolite,exact,direct hit on secondary bile acid signaling
+UDCA from Clostridium leptum restores bile acid balance,SBA metabolite,exact,direct hit on secondary bile acid signaling
+UDCA has conflicting FXR agonist/antagonist activity,SBA metabolite,exact,direct hit on secondary bile acid signaling
+UDCA interacts with FXR,SBA metabolite,exact,direct hit on secondary bile acid signaling
+UDCA supplementation restores bile acid balance and limits T cell inflammation via FXR antagonism,SBA metabolite,exact,direct hit on secondary bile acid signaling
+UDCA/TGR5 regulates antigen-presenting cell inflammation,SBA metabolite,exact,direct hit on secondary bile acid signaling
+Weber 2024 donor FMT intestinal GVHD,General/unspecified,no match,no clear alignment to existing categories
+Yazdandoust 2023 synbiotic trial,General/unspecified,no match,no clear alignment to existing categories
+Zargari 2022 metagenome-wide predictive model,General/unspecified,no match,no clear alignment to existing categories
+aGVHD severity and antibiotics associate with CD8+ clonal enrichment and Treg reduction,Treg inducer,close,Treg induction pathway
+"allo-HCT shrinks bile acid pool, raises IEC FXR and lowers TGR5",SBA metabolite,exact,direct hit on secondary bile acid signaling
+"alloreactive T cells disrupt OXPHOS, raise luminal O2, shift anaerobes to facultative anaerobes",General/unspecified,no match,no clear alignment to existing categories
+alloreactive T-cell crosstalk amplifies flagellin-targeting T cells,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+alpha diversity loss and domination,Dysbiosis/mono-dominance,exact,mono-dominance or pathobiont expansion
+alpha diversity loss predicts cGVHD,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+anaerobe-sparing antibiotics do not worsen GvHD mortality,General/unspecified,no match,no clear alignment to existing categories
+anti-SCFA-producer plasmablast antibodies in cGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+antibiotic exposure reduces gut Treg functionality,Treg inducer,close,Treg induction pathway
+antibiotic neutralizing agents preserve microbiome,General/unspecified,no match,no clear alignment to existing categories
+antibiotic stewardship reduces severe GI GvHD,General/unspecified,no match,no clear alignment to existing categories
+antibiotic vacuum enables VRE domination,General/unspecified,no match,no clear alignment to existing categories
+antibiotics context-dependent effect on T-cell immunity,General/unspecified,no match,no clear alignment to existing categories
+antiemetics/opioids promote Enterococcus,General/unspecified,no match,no clear alignment to existing categories
+"antimicrobial peptides (resistin, defensins) upregulated in GVHD-free patients",General/unspecified,no match,no clear alignment to existing categories
+auto-FMT increases WBCs,General/unspecified,no match,no clear alignment to existing categories
+azithromycin promotes B. fragilis and relapse,General/unspecified,no match,no clear alignment to existing categories
+azole antifungals suppress Saccharomyces and impair Th17 defense against Candida,Th17 modulator,close,Th17 skewing mechanism
+bacterial metabolites induce anti-inflammatory responses,General/unspecified,no match,no clear alignment to existing categories
+bacterial translocation drives aGvHD and BSI,General/unspecified,no match,no clear alignment to existing categories
+bacteriophage-encoded butyrate biosynthesis contributes to SCFA pool,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+bacteriophage-mediated SCFA gene delivery,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+bacteriophages co-occur with enterotypes linked to T cell exhaustion,Virome,close,virome/mycobiome
+bile acid modification regulates immunity via FXR/GPBAR,SBA metabolite,exact,direct hit on secondary bile acid signaling
+bile acid-FXR/TGR5 signaling enhances barrier,SBA metabolite,exact,direct hit on secondary bile acid signaling
+broad anaerobic antibiotic use increases GvHD,General/unspecified,no match,no clear alignment to existing categories
+broad-spectrum antibiotic exposure associates with worse GVHD,General/unspecified,no match,no clear alignment to existing categories
+broad-spectrum antibiotics deplete SCFA-producing Blautia and Faecalibacterium,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+broad-spectrum antibiotics disrupt bacteria and virome and reduce SCFAs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+broad-spectrum antibiotics increase mortality,General/unspecified,no match,no clear alignment to existing categories
+broad-spectrum antibiotics induce dysbiosis,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+butyrate H3K9 acetylation on PPARα attenuates NF-κB signaling,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+"butyrate HDAC inhibition promotes tight junctions, Treg differentiation",SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate HDAC3/HDAC6 inhibition modulates NF-κB p65 acetylation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate administration mitigates aGVHD and cGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate enhances memory CD8+ T cells,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate from fibre inhibits HDACs and promotes Treg differentiation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate induces intestinal Tregs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate mitigates GvHD severity,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate oxidation fuels colonocyte energy and barrier integrity,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate producers induce tolerogenic CD103+ DCs and retinoic acid,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate regulates hematopoiesis via TLR,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate suppresses intestinal stem cell proliferation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+butyrate/propionate HDAC inhibition reprograms immune and epithelial gene expression,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+chemotherapy damages IECs and promotes microbial translocation,General/unspecified,no match,no clear alignment to existing categories
+circulating microbiota-reactive memory T cells,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+colonic Treg induction by Clostridiales,Treg inducer,close,Treg induction pathway
+colonic Treg induction by Parabacteroides,Treg inducer,close,Treg induction pathway
+commensal anaerobes reduce GvHD mortality,General/unspecified,no match,no clear alignment to existing categories
+commensal-driven IL-1β,General/unspecified,no match,no clear alignment to existing categories
+commensals confer colonization resistance,General/unspecified,no match,no clear alignment to existing categories
+commensals metabolize fibre and mucins to SCFAs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+conditioning drugs induce dysbiosis,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+conditioning facilitates bacterial translocation,General/unspecified,no match,no clear alignment to existing categories
+conditioning injures mucosa and permits bacterial translocation,General/unspecified,no match,no clear alignment to existing categories
+conditioning reduces SCFA levels needed for barrier repair,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+defined microbial consortia can replete the microbiome,General/unspecified,no match,no clear alignment to existing categories
+depletion of SCFA producers permits uncontrolled inflammation and GVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+dietary lactose drives Enterococcus expansion,General/unspecified,no match,no clear alignment to existing categories
+disruption of diversity associated with GvHD and impaired recovery,General/unspecified,no match,no clear alignment to existing categories
+donor Clostridiales SCFAs reinforce epithelium and suppress pro-inflammatory T cells,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+donor DCs preconditioned by donor microbiota induce regulatory recipient T cells,General/unspecified,no match,no clear alignment to existing categories
+donor FMT yields complete clinical response in 10/15 steroid-refractory GI GVHD,General/unspecified,no match,no clear alignment to existing categories
+donor TNF driven by LPS,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+donor choice affects FMT engraftment and clinical outcomes,General/unspecified,no match,no clear alignment to existing categories
+donor microbiota primes donor memory T-cell polarization,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+donor microbiota regulates BM macrophage erythrophagocytosis and iron for HSC differentiation,General/unspecified,no match,no clear alignment to existing categories
+downregulation of BSH and bai genes reduces SBA production in GVHD,SBA metabolite,exact,direct hit on secondary bile acid signaling
+dysbiosis activates TLRs and amplifies inflammatory response,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+dysbiosis alters tryptophan reduces AhR,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+dysbiosis amplifies pro-inflammatory responses and worsens GVHD,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis and aGVHD reinforce each other bidirectionally,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis associated with GVHD,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis creates pro-inflammatory milieu,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis exacerbates CD8+ exhaustion,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis linked to aGVHD,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis negatively associated with overall survival,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis reduces ILC3 epithelial repair,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+"dysbiosis reduces IgA, enabling bacterial translocation and systemic inflammation",IgA/mucosal immunity,exact,IgA/mucosal immunity
+dysbiosis reduces NK tumor surveillance,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis reduces Treg and shifts CD8 balance,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis reduces protective metabolites and increases pro-inflammatory cytokines,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+dysbiosis shifts Treg/Th1 balance and fuels GVHD inflammation,Th17 modulator,close,Th17 skewing mechanism
+dysbiosis-driven LPS translocation activates PRRs and amplifies systemic inflammation,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+dysbiotic recipient environment allows donor bacteria to establish,General/unspecified,no match,no clear alignment to existing categories
+dysregulated IL-1 signaling in GVHD immune cells,General/unspecified,no match,no clear alignment to existing categories
+early antibiotics cause loss of protective Clostridia,General/unspecified,no match,no clear alignment to existing categories
+early antibiotics reduce hepatic butyrate and impair IL-18/GPR109A-dependent LrNK maturation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+early broad-spectrum antibiotic exposure reduces Clostridiales and raises TRM,General/unspecified,no match,no clear alignment to existing categories
+early carbapenem exposure associated with higher aGVHD rates,General/unspecified,no match,no clear alignment to existing categories
+early intestinal dysbiosis associated with poor outcome,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+endotoxin translocation drives systemic inflammation via TLR4/NF-κB,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+enteral nutrition promotes R. bromii / F. prausnitzii,General/unspecified,no match,no clear alignment to existing categories
+enteral over parenteral nutrition reduces aGVHD incidence,General/unspecified,no match,no clear alignment to existing categories
+enterococcal administration aggravates GvHD,General/unspecified,no match,no clear alignment to existing categories
+fasting enriches Lactobacillaceae/Bacteroidaceae/Prevotellaceae and promotes Tregs,Treg inducer,close,Treg induction pathway
+fermented food diet promotes diversity,General/unspecified,no match,no clear alignment to existing categories
+fiber-fermenting SCFA producers,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+fibre-free Western diet increases A. muciniphila,General/unspecified,no match,no clear alignment to existing categories
+flagellin-expressing commensals drive microbe-specific donor T cell expansion worsening GVHD,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+flagellin-targeting Th1 against Clostridium XIVa,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+germ-free / decontamination reduces GvHD mortality,General/unspecified,no match,no clear alignment to existing categories
+germ-free/antibiotic mice establish gut bacteria role in aGVHD,General/unspecified,no match,no clear alignment to existing categories
+grafts carry donor-derived Enterococcus and Staphylococcus,General/unspecified,no match,no clear alignment to existing categories
+gut decontamination abrogates IL-1β,General/unspecified,no match,no clear alignment to existing categories
+gut decontamination inconsistent effect on GvHD,General/unspecified,no match,no clear alignment to existing categories
+gut decontamination lessens aGVHD severity,General/unspecified,no match,no clear alignment to existing categories
+gut decontamination prevents neutrophil-CD4 priming,General/unspecified,no match,no clear alignment to existing categories
+gut enterotypes correlate with T cell exhaustion and relapse,General/unspecified,no match,no clear alignment to existing categories
+gut microbiota shapes age-dependent immune profiling in HSCT recipients,General/unspecified,no match,no clear alignment to existing categories
+hepatic butyrate induces Kupffer cell PGE₂ and suppresses TNF-α,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+high diversity reduces mortality,General/unspecified,no match,no clear alignment to existing categories
+high-dose chemotherapy reduces Firmicutes and Actinobacteria and expands Proteobacteria,General/unspecified,no match,no clear alignment to existing categories
+high-fibre diet promotes Bifidobacteria and butyrate,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+higher butyrogenic bacteria post-GVHD linked to steroid refractoriness,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+higher diversity associated with CD4+ recovery,General/unspecified,no match,no clear alignment to existing categories
+higher diversity at engraftment associated with OS,General/unspecified,no match,no clear alignment to existing categories
+higher intestinal diversity associated with ~halved GVHD-related mortality,General/unspecified,no match,no clear alignment to existing categories
+higher microbial diversity correlates with reduced GVHD severity and improved survival,General/unspecified,no match,no clear alignment to existing categories
+ileal neutrophils traffic to MLN and present MHC class II antigen after bacterial translocation,MHC II inducer,exact,direct hit on MHC class II induction
+imipenem induces Akkermansia mucus degradation,Barrier / mucus,close,covers both mucin degradation and barrier function
+imipenem-cilastatin expands A. muciniphila and worsens GVHD,General/unspecified,no match,no clear alignment to existing categories
+indole metabolites associated with worse GvHD,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+indole-AhR regulates IL-22/IL-10 axis,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+indole/AhR axis balances Th17/Treg and gut barrier,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+indoles higher in GVHD-free recipients at onset,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+indoles including I3A promote intestinal barrier function,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+inflammatory cascade enhances donor T-cell activation and target organ damage,General/unspecified,no match,no clear alignment to existing categories
+inflammatory skew of naive microbial-reactive T cells,General/unspecified,no match,no clear alignment to existing categories
+intestinal bacteria drive IgA plasma cell development,IgA/mucosal immunity,exact,IgA/mucosal immunity
+isoalloLCA promotes Foxp3 via ROS,SBA metabolite,exact,direct hit on secondary bile acid signaling
+lactose drives Enterococcus expansion,General/unspecified,no match,no clear alignment to existing categories
+lactose restriction reduces Enterococcus,General/unspecified,no match,no clear alignment to existing categories
+lactose-free diet prevents enterococcal overgrowth,General/unspecified,no match,no clear alignment to existing categories
+lactose-free diet reduces VRE,General/unspecified,no match,no clear alignment to existing categories
+leukemia-derived TNF-α and IL-6 compromise epithelium and promote pathobionts,General/unspecified,no match,no clear alignment to existing categories
+lipoteichoic acid and peptidoglycan activate TLR2,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+loss of Clostridia butyrate producers in GI aGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+loss of beneficial anaerobic commensals,General/unspecified,no match,no clear alignment to existing categories
+loss of butyrate producers in GI aGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+loss of commensals associated with TRM,General/unspecified,no match,no clear alignment to existing categories
+loss of diversity amplifies Th17,Th17 modulator,close,Th17 skewing mechanism
+loss of microbial diversity associated with GVHD severity,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+loss of obligate anaerobes enables Enterococcus expansion and GVHD,IgA/mucosal immunity,exact,IgA/mucosal immunity
+low Blautia increases relapse risk,General/unspecified,no match,no clear alignment to existing categories
+low Blautia/Ruminococcaceae and SCFAs with severe aGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+low Clostridia increases GVHD-related mortality,General/unspecified,no match,no clear alignment to existing categories
+low Clostridium decreases neutrophils/monocytes,General/unspecified,no match,no clear alignment to existing categories
+low circulating butyrate predicts cGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+low diversity correlates with GVHD and mortality,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+low diversity increases GVHD-related mortality,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+low intestinal SCFAs linked to severe aGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+low microbial diversity associates with higher TRM and GVHD mortality,General/unspecified,no match,no clear alignment to existing categories
+low pre-FMT diversity predicts donor strain engraftment,General/unspecified,no match,no clear alignment to existing categories
+lower microbial diversity correlates with higher IL-6 and TNF-α,General/unspecified,no match,no clear alignment to existing categories
+luminal oxygen alters IEC HIF1α signaling,Barrier / mucus,close,covers both mucin degradation and barrier function
+maternal AhR ligands and retinoic acid stimulate neonatal ILC3 and LTi development,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+meropenem induces Bacteroides expansion with aGVHD,General/unspecified,no match,no clear alignment to existing categories
+metabolites enhance Treg and ILC3,Treg inducer,close,Treg induction pathway
+metronidazole promotes Enterococcus domination,General/unspecified,no match,no clear alignment to existing categories
+microbe-derived bile acids inhibit donor T cells via FXR,SBA metabolite,exact,direct hit on secondary bile acid signaling
+microbial SBAs attenuate CDCA-induced FXR signaling,SBA metabolite,exact,direct hit on secondary bile acid signaling
+microbial antigen presentation by IEC is MHC class II-dependent,MHC II inducer,exact,direct hit on MHC class II induction
+microbial compounds drive IL-1 production,Innate/TLR-LPS,exact,direct hit on LPS/TLR/innate PRR signaling
+microbial metabolites modulate T-cell differentiation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+microbial metabolites modulate immunity via AHR,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+microbial mucus degradation damages intestinal barrier,Barrier / mucus,close,covers both mucin degradation and barrier function
+microbial translocation drives systemic inflammation and sepsis,General/unspecified,no match,no clear alignment to existing categories
+microbial tryptophan catabolism to indoles modulates cytokines and barrier,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+microbial-metabolite ILC3 IL-22 induction,Other immune,close,other immune cell type
+microbiome composition linked to HLA class II expression and GVHD in patients,MHC II inducer,exact,direct hit on MHC class II induction
+microbiome disruption reduces Tregs,Treg inducer,close,Treg induction pathway
+microbiome shapes immune reconstitution and complications,Other immune,close,other immune cell type
+microbiota depletion impairs energy uptake,General/unspecified,no match,no clear alignment to existing categories
+microbiota depletion skews HSCs to self-renewal and delays immune reconstitution,Other immune,close,other immune cell type
+microbiota drives IgA class-switching,IgA/mucosal immunity,exact,IgA/mucosal immunity
+microbiota drives ileal MHC class II expression and CD4+ T cell expansion,MHC II inducer,exact,direct hit on MHC class II induction
+microbiota shortens epithelial lifespan post-TBI,General/unspecified,no match,no clear alignment to existing categories
+microbiota-dependent neutrophil infiltration,General/unspecified,no match,no clear alignment to existing categories
+"microbiota-driven ileal neutrophils generate ROS and expand T cells, worsening GVHD",General/unspecified,no match,no clear alignment to existing categories
+microbiota-induced IFN-γ enhances IEC MHC-II and donor CD4+ T cell activation,MHC II inducer,exact,direct hit on MHC class II induction
+microbiota-induced Tregs suppress alloreactive CD8,Treg inducer,close,Treg induction pathway
+microbiota-specific donor T cells exacerbate GVHD via GI antigen presentation,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+microbiota-specific donor T cells targeting Clostridium savagella exacerbate GvHD,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+microbiota-specific donor T cells targeting flagellin exacerbate GvHD,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+modern gut-decontamination trials show no clear GVHD advantage,General/unspecified,no match,no clear alignment to existing categories
+mono-domination at engraftment,Dysbiosis/mono-dominance,exact,mono-dominance or pathobiont expansion
+mucin-degrading organisms weaken barrier,Barrier / mucus,close,covers both mucin degradation and barrier function
+mucous- and junction-degrading taxa worsen barrier,Barrier / mucus,close,covers both mucin degradation and barrier function
+myeloablative conditioning reduces diversity,General/unspecified,no match,no clear alignment to existing categories
+narrow-spectrum antibiotics spare Blautia and other beneficial anaerobes,General/unspecified,no match,no clear alignment to existing categories
+oral Streptococcus salivarius and Veillonella parvula expansion in cGVHD,General/unspecified,no match,no clear alignment to existing categories
+oral charcoal or β-lactamase sequesters/degrades colonic antibiotics to prevent dysbiosis,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+oral dysbiosis / Enterococcaceae ectopic colonization exacerbates cGVHD,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+oral iron chelation lowers luminal oxygen and attenuates GI GVHD,General/unspecified,no match,no clear alignment to existing categories
+oral vancomycin depletes MHC-II-inducing bacteria to attenuate GVHD,MHC II inducer,exact,direct hit on MHC class II induction
+parenteral nutrition reduces Blautia,General/unspecified,no match,no clear alignment to existing categories
+pathobiont domination worsens GvHD,General/unspecified,no match,no clear alignment to existing categories
+pathobiont expansion,Dysbiosis/mono-dominance,exact,mono-dominance or pathobiont expansion
+pathobiont expansion with low diversity,Dysbiosis/mono-dominance,exact,mono-dominance or pathobiont expansion
+pediatric HSCT: Faecalibacterium declines and Proteobacteria rises with GVHD severity,General/unspecified,no match,no clear alignment to existing categories
+pediatric HSCT: Proteobacteria rises with GVHD severity,General/unspecified,no match,no clear alignment to existing categories
+pediatric patients have reduced butyrate producers and impaired Treg differentiation,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+pooled allogeneic FMT (MaaT013) yields 38-58% response in steroid-refractory GI aGVHD,General/unspecified,no match,no clear alignment to existing categories
+post-weaning Clostridia SCFAs promote RORγt+ Tregs,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+pre-HSCT dysbiosis raises 1-year NRM by 67%,Diversity/commensal depletion,exact,diversity loss / commensal depletion
+pre-transplant Clostridia probiotics or FMT can restore barrier,General/unspecified,no match,no clear alignment to existing categories
+pre-transplant Enterococcus dominance raises grade III-IV aGVHD risk 3.2-fold,General/unspecified,no match,no clear alignment to existing categories
+"pre-transplant conditioning drives dysbiosis, barrier failure, and pro-inflammatory T-cell skewing",Diversity/commensal depletion,exact,diversity loss / commensal depletion
+prebiotic fiber increases L. rhamnosus,General/unspecified,no match,no clear alignment to existing categories
+prebiotic mixture reduces grade II-IV GvHD,General/unspecified,no match,no clear alignment to existing categories
+prebiotics preserve diversity and butyrate,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+probiotic adverse events in immunocompromised hosts,General/unspecified,no match,no clear alignment to existing categories
+progressive loss of diversity enables Enterococcus and Streptococcus overgrowth and inflammation,General/unspecified,no match,no clear alignment to existing categories
+prophylactic FMT reduces infection but increases GvHD,General/unspecified,no match,no clear alignment to existing categories
+propionate from fibre inhibits pro-inflammatory cytokines,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+propionate reverses A. muciniphila mucin utilization,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+radiation reduces Clostridiales and permits γ-Proteobacteria expansion,General/unspecified,no match,no clear alignment to existing categories
+recipient microbiota dictates donor CD4+ T clonal expansion,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+recipient microbiota peptides prime naive T cells to Th1/Th17,Microbial-antigen presentation,exact,direct hit on microbiota-antigen T cell priming
+reduced SCFAs linked to higher GVHD severity,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+"reduced diversity increases intestinal permeability (citrulline, zonulin)",General/unspecified,no match,no clear alignment to existing categories
+resistant potato starch increases fecal butyrate,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+resistant potato starch supplement increases intestinal butyrate to reduce aGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+resistant starch mitigates microbiome and metabolite disruption,IgA/mucosal immunity,exact,IgA/mucosal immunity
+restoration of butyrate or propionate levels alleviates GVHD in mice,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+rifaximin preserves commensals vs ciprofloxacin,General/unspecified,no match,no clear alignment to existing categories
+secondary bile acids regulate gut RORγt+ Treg homeostasis,SBA metabolite,exact,direct hit on secondary bile acid signaling
+sodium butyrate reduces grade III-IV aGVHD,SCFA metabolite,exact,direct hit on SCFA/butyrate signaling
+specific bacteria act as MHC-II inducers/suppressors on IECs,General/unspecified,no match,no clear alignment to existing categories
+targeted depletion of MHC class II-inducing bacteria attenuates GVHD,MHC II inducer,exact,direct hit on MHC class II induction
+taxa-dependent modulation of intestinal MHC class II,MHC II inducer,exact,direct hit on MHC class II induction
+third-party FMT at neutrophil recovery shows no clinical outcome improvement,General/unspecified,no match,no clear alignment to existing categories
+tryptophan catabolism/AhR/IL-22 pathway,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+tryptophan metabolized to indole/AhR ligands,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+tryptophan-derived IAld activates ILC3 AhR for IL-22,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+tryptophan-metabolizing bacteria induce IL-22,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+tryptophan–MDSC axis balances tolerance and inflammation,Indole/tryptophan metabolite,exact,direct hit on tryptophan/indole/AhR axis
+vancomycin-polymyxin B gut decontamination gives no diversity or GVHD difference,General/unspecified,no match,no clear alignment to existing categories
+vendor microbiota determines ileal MHC class II and GVHD severity,MHC II inducer,exact,direct hit on MHC class II induction
+xylose supplementation inhibits mucus-degrading bacteria and preserves intestinal barrier,Polysaccharide metabolism,exact,direct hit on polysaccharide/glycan metabolism
+xylose suppresses B. thetaiotaomicron mucin degradation,Polysaccharide metabolism,exact,direct hit on polysaccharide/glycan metabolism
+β-defensin 2 modulates microbiota to reduce ileal neutrophils and GVHD,General/unspecified,no match,no clear alignment to existing categories
+β-lactams/carbapenems increase aGVHD and steroid-refractory GVHD,General/unspecified,no match,no clear alignment to existing categories

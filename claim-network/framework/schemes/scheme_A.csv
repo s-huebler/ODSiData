@@ -1,0 +1,555 @@
+mechanism_as_named,category,parent_category,fits_cleanly,note
+,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+3-oxo LCA inhibits Th17,Bile acid metabolism,A2,yes,
+3-oxoLCA and isoalloLCA modulate Th17/Treg,Bile acid metabolism,A2,yes,
+A. muciniphila enhances NK cytotoxicity,LPS/MAMP/PRR signaling,A4,yes,
+A. muciniphila mucin degradation thins mucus,Mucin/barrier degradation,A5,yes,
+A. muciniphila urolithin production acts through AhR to regulate gut barrier,Tryptophan/indole metabolism,A3,yes,
+Actinomycetaceae associated with increased OS,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Actinomycetaceae associated with longer survival,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Akkermansia accelerates immune reconstitution,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Akkermansia associated with GVHD development,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Akkermansia muciniphila associated with neutropenic fever,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Akkermansia muciniphila expansion and mucus degradation,Mucin/barrier degradation,A5,yes,
+Alistipes activates AhR in ILC3s to produce IL-22,Tryptophan/indole metabolism,A3,yes,
+B. fragilis PSA activates DC TLR2 to induce IL-10 and regulatory macrophages,Polysaccharide/glycan metabolism,A8,yes,
+B. fragilis PSA engages TLR1/2 and Dectin-1 to induce CREB-dependent anti-inflammatory expression,LPS/MAMP/PRR signaling,A4,yes,
+B. fragilis PSA enhances macrophage phagocytosis,Polysaccharide/glycan metabolism,A8,yes,
+B. fragilis PSA induces IL-10+ Tregs via TLR2,Polysaccharide/glycan metabolism,A8,yes,
+B. fragilis associated with relapse and exhausted peripheral T cells,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+B. fragilis tryptophan catabolism yields immune-modulating metabolites,Tryptophan/indole metabolism,A3,yes,
+B. longum subsp. infantis indole-3-lactic acid induces galectin-1 and reduces Th2/Th17 differentiation,Tryptophan/indole metabolism,A3,yes,
+B. longum subsp. infantis produces indole-3-lactic acid in infant intestine,Tryptophan/indole metabolism,A3,yes,
+B. ovatus depletion with high-risk antibiotics associates with steroid-refractory GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+B. ovatus polysaccharide metabolism suppresses mucus-degraders,Polysaccharide/glycan metabolism,A8,yes,
+B. ovatus produces xylose to reduce GVHD,Polysaccharide/glycan metabolism,A8,yes,
+B. thetaiotaomicron glycoside hydrolase mucin degradation,Mucin/barrier degradation,A5,yes,
+B. thetaiotaomicron mucin degradation thins colonic mucus,Mucin/barrier degradation,A5,yes,
+B. thetaiotaomicron succinate activates inflammatory macrophages,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+B. thetaiotaomicron succinate drives inflammatory macrophage activation,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+B. thetaiotaomicron suppresses epithelial MHC class II,Microbial antigen presentation / T-cell priming,A6,yes,
+B. wadsworthia expansion via taurocholic acid promotes Th1 responses and colitis,Bile acid metabolism,A2,yes,
+BCoAT butyrate biosynthesis pathway enriched in low-IMM-risk patients,SCFA/butyrate production,A1,yes,
+Bacilli associated with low 3-IS,Tryptophan/indole metabolism,A3,yes,
+Bacteroides SusC epitope shifts Th response contextually,Microbial antigen presentation / T-cell priming,A6,yes,
+Bacteroides abundance higher in patients who developed GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Bacteroides depletion in aGVHD impairs SBA production,Bile acid metabolism,A2,yes,
+Bacteroides expansion with low SCFAs,SCFA/butyrate production,A1,yes,
+Bacteroides fragilis PSA amplifies Tregs,Polysaccharide/glycan metabolism,A8,yes,
+Bacteroides methionine metabolites regulate redox balance and support cross-feeding,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Bacteroides ovatus reduces GVHD severity,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Bacteroides-deficient microbiota primary bile acids drive CXCL10 T-cell recruitment,Bile acid metabolism,A2,yes,
+Bacteroides-derived DCA/taurocholic acid acts via FXR,Bile acid metabolism,A2,yes,
+Bacteroides-derived isovaleric acid modulates BCAA metabolism and Th1 responses,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Bacteroides-derived phenylacetic acid promotes Treg differentiation and modulates cytokines,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Bacteroidota associated with intestinal MAIT,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Barnesiella and L. johnsonii suppress pathobiont expansion,Dysbiosis / diversity loss,A9,yes,
+Beak 2022 L. acidophilus + FK506,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Bifidobacterium HMO fermentation generates SCFA/lactate and maintains barrier,SCFA/butyrate production,A1,yes,
+Bifidobacterium butyrate expands colonic Tregs,SCFA/butyrate production,A1,yes,
+Bifidobacterium drives microbiota-derived antigen presentation and IgA production,Microbial antigen presentation / T-cell priming,A6,yes,
+Bifidobacterium promotes Bregs,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Bifidobacterium species indole acids activate AhR and suppress monocyte inflammatory cytokines,Tryptophan/indole metabolism,A3,yes,
+Bifidobacterium-produced lactate enhances tight junctions and reduces pro-inflammatory cytokines,SCFA/butyrate production,A1,yes,
+Blautia abundance accelerates T cell recovery,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Blautia associated with intestinal MAIT and reduced lethality,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Blautia loss from parenteral nutrition,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Blautia low / Enterobacteriaceae high as GVHD risk signature,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+C. savagella induces epithelial MHC class II,Microbial antigen presentation / T-cell priming,A6,yes,
+C. scindens bile acid transformation suppresses Th1 differentiation via FXR,Bile acid metabolism,A2,yes,
+C. scindens-transformed bile acids suppress Th1 via FXR,Bile acid metabolism,A2,yes,
+C. sporogenes IPA activates PXR for anti-inflammatory and barrier protection,Tryptophan/indole metabolism,A3,yes,
+C. sporogenes tryptophan catabolism yields immune-modulating metabolites,Tryptophan/indole metabolism,A3,yes,
+CBM588 increases alpha diversity and lowers Enterococcus/Bacteroides,Dysbiosis / diversity loss,A9,yes,
+Candida colonization associated with aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Candida parapsilosis expansion worsens outcomes,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Clostridia IV/XIVa and F. prausnitzii inhibit HDACs and expand colonic Foxp3+ Tregs,SCFA/butyrate production,A1,yes,
+Clostridia butyrate enhances neutrophil phagocytosis via NADPH oxidase,SCFA/butyrate production,A1,yes,
+Clostridia butyrate expands Foxp3+ Tregs,SCFA/butyrate production,A1,yes,
+Clostridia butyrate preserves epithelial integrity,SCFA/butyrate production,A1,yes,
+Clostridia clusters IV/XIVa SCFAs expand Foxp3+ colonic Tregs,SCFA/butyrate production,A1,yes,
+Clostridia depletion diminishes ILC IL-22 and impairs mucosal wound healing,SCFA/butyrate production,A1,yes,
+"Clostridia ferment dietary fibre into butyrate, acetate and propionate",SCFA/butyrate production,A1,yes,
+Clostridia taxa enriched in GVHD-free patients,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+"Clostridia-linked SBAs (isoCDCA, 6-keto-LCA, 3-oxo-CA) reduced in aGVHD",Bile acid metabolism,A2,yes,
+Clostridiales depleted in mouse GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Clostridium XIVa restoration is a candidate strategy to restore SBA metabolism,Bile acid metabolism,A2,yes,
+Clostridium butyrate expands colonic Tregs,SCFA/butyrate production,A1,yes,
+Clostridium butyrate producer decline predicts cGVHD,SCFA/butyrate production,A1,yes,
+Clostridium cluster XIVa / Ruminococcus generate bile acid derivatives,Bile acid metabolism,A2,yes,
+Clostridium-derived DCA/taurocholic acid acts via FXR,Bile acid metabolism,A2,yes,
+Clostridium-derived phenylacetic acid promotes Treg differentiation and modulates cytokines,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Conclusion: conditioning-driven dysbiosis disrupts metabolites,Dysbiosis / diversity loss,A9,yes,
+Conclusion: diversity restoration rebalances T cells / SCFAs,SCFA/butyrate production,A1,yes,
+Conventional immunosuppression response rate restated,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+CpG/TLR9 accelerates GvHD,LPS/MAMP/PRR signaling,A4,yes,
+D-lactate primes γδ T cells for IL-17,SCFA/butyrate production,A1,yes,
+E. faecium induces inflammatory DCs and Th1/Th17 differentiation,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+E. hallii tryptophan catabolism yields immune-modulating metabolites,Tryptophan/indole metabolism,A3,yes,
+Eggerthella urolithin production acts through AhR to regulate gut barrier,Tryptophan/indole metabolism,A3,yes,
+Enterobacteriaceae domination linked to poor outcomes,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterobacteriaceae reduce Treg/Th17 ratio with H3 hyperacetylation,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococci domination associated with TRM,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus abundance higher in patients who developed GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus associated with bloodstream infection and GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus dominance correlates with CD4+ lymphopenia and BSI,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus dominance displaces Lactobacillus and Bifidobacterium post allo-HSCT,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus dominance predicts mortality,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus domination increases GvHD risk,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus domination linked to poor outcomes,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus expansion in aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus linked to increased GVHD risk,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Enterococcus metalloprotease degrades tight junctions,Mucin/barrier degradation,A5,yes,
+Enterococcus-dominant enterotype linked to higher relapse risk and primary bile acid metabolism,Bile acid metabolism,A2,yes,
+Enterococcus-dominant microbiota skews CD4+ T cells to Th17/Th1,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Erysipelotrichaceae beneficial for immune reconstitution,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Escherichia LPS activates TLR4 and NLRP3 to drive neutrophil infiltration,LPS/MAMP/PRR signaling,A4,yes,
+Eubacterium limosum associated with remission,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+F. prausnitzii SCFA-induced Treg differentiation,SCFA/butyrate production,A1,yes,
+F. prausnitzii associated with increased functional gut Tregs,SCFA/butyrate production,A1,yes,
+F. prausnitzii induces TGF-β and retinoic acid in DCs to expand Foxp3+ Tregs,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+F. prausnitzii-specific IL-10+ CD4 T cells,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT augments SCFA and epithelial barrier,SCFA/butyrate production,A1,yes,
+FMT can transmit multidrug-resistant E. coli from donor to recipients,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT improves diversity and WBC post-engraftment,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT in steroid-refractory GI GVHD boosts gut Treg infiltration,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT increases median survival in grade IV steroid-refractory GI GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT induces CR in SR GI-aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT induces CR in SR/SD GI-aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT raises tryptophan metabolites and SCFA,Tryptophan/indole metabolism,A3,yes,
+FMT reduces Dialister,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT reduces Enterobacteriaceae,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT reduces Enterococcus,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT reduces Streptococcus,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT reduces Veillonella,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT responders show butyrate producer enrichment,Bile acid metabolism,A2,yes,
+FMT response rate restated for disparities discussion,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT restores Clostridiales/SCFA producers,SCFA/butyrate production,A1,yes,
+FMT restores anaerobic commensals and reduces pathobionts,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT restores colonization resistance,Colonization resistance / competitive exclusion,A7,yes,
+FMT restores microbial diversity and reduces pathogenic taxa after allo-HCT,Dysbiosis / diversity loss,A9,yes,
+FMT shows no significant reduction in infections in randomized phase II trial,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT transmits MDR organisms,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT treats steroid-refractory GI GvHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT with corticosteroids CR in treatment-naïve GI aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT+ruxolitinib response linked to lower IL-2/IL-17A,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FMT+steroids correlate with tryptophan/SCFA production,Tryptophan/indole metabolism,A3,yes,
+FOS prebiotic established in inflammatory bowel disease,SCFA/butyrate production,A1,yes,
+FOS supplementation feasible for microbiome modulation in allo-HCT,SCFA/butyrate production,A1,yes,
+FOS supplementation increases intestinal SCFAs and lowers GVHD severity in mice,SCFA/butyrate production,A1,yes,
+FXR activation worsens and FXR ablation improves GVHD mortality,Bile acid metabolism,A2,yes,
+Faecalibacterium accelerates immune reconstitution,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Faecalibacterium associated with neutrophil/monocyte recovery,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+FamiLact + FOS reduces severe aGVHD risk and increases Tregs,SCFA/butyrate production,A1,yes,
+FfAR2 enhances IL-22 to repair epithelium,SCFA/butyrate production,A1,yes,
+GFO + resistant starch promotes Bifidobacterium and SCFAs for gut barrier,SCFA/butyrate production,A1,yes,
+GFO + resistant starch supplementation reduces GVHD severity,SCFA/butyrate production,A1,yes,
+GI flora depletion reduces GvHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+GVHD patients lose bile-acid-metabolizing taxa,Bile acid metabolism,A2,yes,
+GVHD reduces microbial BSH gene abundance and SBA production,Bile acid metabolism,A2,yes,
+Gammaproteobacteria associated with pulmonary complications,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Gerbitz 2004 LGG murine,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+HDAC inhibition reduces GVHD biomarkers,SCFA/butyrate production,A1,yes,
+Helicobacter hepaticus-specific T-cell polarization is IL-10 context-dependent,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Holmes 2022 GOS murine,SCFA/butyrate production,A1,yes,
+"I3A/AhR axis induces IL-22, antimicrobial peptides and epithelial repair",Tryptophan/indole metabolism,A3,yes,
+IAld activates ILC3 AhR to induce IL-22 and mucosal repair,Tryptophan/indole metabolism,A3,yes,
+IDO absence worsens GvHD,Tryptophan/indole metabolism,A3,yes,
+IDO kynurenine pathway promotes immunosuppression,Tryptophan/indole metabolism,A3,yes,
+IEC Hif1a is required to limit GVHD severity,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+IEC MHC class II drives CD4+-dependent lethal GVHD,Microbial antigen presentation / T-cell priming,A6,yes,
+"IEC MHC class II supports IgA, Tregs and microbiota composition",Microbial antigen presentation / T-cell priming,A6,yes,
+IEC-to-phagocyte MHC class II transfer shapes gut adaptive immunity,Microbial antigen presentation / T-cell priming,A6,yes,
+IL-17 enhances tissue injury via neutrophils and macrophages,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+ILC3 ID2-dependent IL-22 colonization resistance,Colonization resistance / competitive exclusion,A7,yes,
+ILC3 IL-22 protects intestinal stem cells,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+ILC3 function regulated by FfAR2,SCFA/butyrate production,A1,yes,
+ILC3s suppress alloreactive T cells,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+IMM risk index of five microbial metabolites predicts GVHD outcomes,SCFA/butyrate production,A1,yes,
+L. plantarum IAld activates AhR to drive ILC3 IL-22 and stem cell regeneration,Tryptophan/indole metabolism,A3,yes,
+L. plantarum ineffective at preventing GI GvHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+L. reuteri IAld activates AhR to drive ILC3 IL-22 and stem cell regeneration,Tryptophan/indole metabolism,A3,yes,
+L. rhamnosus GG trial terminated early with no microbiome or GVHD change,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+L. rhamnosus reduces bacterial translocation,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+L. rhamnosus supplementation ineffective in adults,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+LCA from Clostridium reduces T cell-driven inflammation via FXR,Bile acid metabolism,A2,yes,
+LCA impairs Th1 activation and TNF/IFNγ secretion,Bile acid metabolism,A2,yes,
+LPS induces M1 macrophage polarization,LPS/MAMP/PRR signaling,A4,yes,
+LPS translocation after TBI,LPS/MAMP/PRR signaling,A4,yes,
+LPS-driven macrophage TNF causes tissue injury,LPS/MAMP/PRR signaling,A4,yes,
+LPS/TLR4 amplifies macrophage TNF,LPS/MAMP/PRR signaling,A4,yes,
+Lachnoclostridium associated with decreased GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Lachnospiraceae associated with increased OS,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Lachnospiraceae associated with longer survival,SCFA/butyrate production,A1,yes,
+Lachnospiraceae/Oscillospiraceae IMM signature,SCFA/butyrate production,A1,yes,
+Lachnospiraceae/Oscillospiraceae-associated bacteriophages,SCFA/butyrate production,A1,yes,
+Lachnospiraceae/Ruminococcaceae support B cell reconstitution,SCFA/butyrate production,A1,yes,
+Lactobacillales associated with severe GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Lactobacillus HMO fermentation generates SCFA/lactate and maintains barrier,SCFA/butyrate production,A1,yes,
+Lactobacillus administration alleviates GVHD in mice,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Lactobacillus domination linked to poor outcomes,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Lactobacillus drives microbiota-derived antigen presentation and IgA production,Microbial antigen presentation / T-cell priming,A6,yes,
+Lactobacillus introduction modifies intestinal inflammation,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Lactobacillus modulates γδ T cell trafficking via GPR15,SCFA/butyrate production,A1,yes,
+Lactobacillus primes tolerogenic DCs,Tryptophan/indole metabolism,A3,yes,
+Lactobacillus-enriched microbiota exacerbate GVHD via MHC-II alloreactive T-cell activation,Microbial antigen presentation / T-cell priming,A6,yes,
+Lactobacillus-produced lactate enhances tight junctions and reduces pro-inflammatory cytokines,SCFA/butyrate production,A1,yes,
+Ladas 2016 Lactobacillus plantarum safety,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+MDSC IDO activates AhR via kynurenines,Tryptophan/indole metabolism,A3,yes,
+MDSC arginase-1 and NO inhibit T cells,Tryptophan/indole metabolism,A3,yes,
+MDSC expansion suppresses alloreactive T cells,Tryptophan/indole metabolism,A3,yes,
+MHC class II-inducing taxa enhance antigen presentation,Microbial antigen presentation / T-cell priming,A6,yes,
+MaaT013 ARES phase III: 62% GI response and 67% vs 28% survival,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+MaaT013 non-responders have higher pathogenic pro-inflammatory bacteria,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+"MaaT013 responders have increased diversity, butyrate producers and SCFAs",SCFA/butyrate production,A1,yes,
+MaaT013 response in SR GI aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Muratore 2022 prebiotic review,SCFA/butyrate production,A1,yes,
+NOD1 ligand restores hematopoietic precursors,LPS/MAMP/PRR signaling,A4,yes,
+"NOD1/2, flagellin/TLR5, CpG/TLR9 activation",LPS/MAMP/PRR signaling,A4,yes,
+Oscillospiraceae associated with protective IMMs,SCFA/butyrate production,A1,yes,
+PAMPs activate APCs and donor lymphocytes,LPS/MAMP/PRR signaling,A4,yes,
+PAMPs released by bacterial activation/destruction,LPS/MAMP/PRR signaling,A4,yes,
+Peled 2020 Enterococcus/Klebsiella domination,Dysbiosis / diversity loss,A9,yes,
+Picobirnaviridae associated with GI aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Prevotella-derived isovaleric acid modulates BCAA metabolism and Th1 responses,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Pseudomonadota associated with bloodstream infections,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Qiao 2023 FMT meta-analysis,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+RPS fermentation produces SCFA,SCFA/butyrate production,A1,yes,
+RPS raises fecal butyrate levels,SCFA/butyrate production,A1,yes,
+RS+GFO maintains butyrate producers and butyrate,SCFA/butyrate production,A1,yes,
+RS+GFO reduces GI and skin aGVHD,SCFA/butyrate production,A1,yes,
+Reddi 2025 prophylactic FMT trial,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Ruminococcaceae associated with high 3-IS and decreased GVHD,Tryptophan/indole metabolism,A3,yes,
+Ruminococcaceae depletion associates with reduced LCA/DCA in UC,Bile acid metabolism,A2,yes,
+Ruminococcus 2 accelerates immune reconstitution,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Ruminococcus associated with neutrophil/monocyte recovery,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Ruminococcus restoration is a candidate strategy to restore SBA metabolism,Bile acid metabolism,A2,yes,
+SBAs activate TGR5 to suppress gut pro-inflammatory cytokines,Bile acid metabolism,A2,yes,
+SBAs from Clostridium scindens modulate FXR and TGR5,Bile acid metabolism,A2,yes,
+SBAs from Eubacterium modulate FXR and TGR5,Bile acid metabolism,A2,yes,
+SBAs from Ruminococcus gnavus modulate FXR and TGR5,Bile acid metabolism,A2,yes,
+SBAs suppress macrophage pro-inflammatory cytokines,Bile acid metabolism,A2,yes,
+SCFA fermentation enhances immune tolerance,SCFA/butyrate production,A1,yes,
+SCFA pathway decrease in GI aGVHD,SCFA/butyrate production,A1,yes,
+SCFA pathways associated with improved survival,SCFA/butyrate production,A1,yes,
+SCFA producer depletion enables pathogen expansion,SCFA/butyrate production,A1,yes,
+SCFA producers protective against acute and chronic GvHD,SCFA/butyrate production,A1,yes,
+SCFA producers support barrier and Treg,SCFA/butyrate production,A1,yes,
+SCFA production from dietary fibre via GPCR/GPR43 signaling,SCFA/butyrate production,A1,yes,
+SCFA signaling activates NLRP3/IL-18 and enhances FOXP3+ Tregs,SCFA/butyrate production,A1,yes,
+SCFA strain selection mitigates GvHD,SCFA/butyrate production,A1,yes,
+SCFA-GPCR/HDAC inhibition tightens barrier and promotes tolerance,SCFA/butyrate production,A1,yes,
+SCFA-derived acetyl-CoA fuels p300 histone acetylation,SCFA/butyrate production,A1,yes,
+SCFA-producing anaerobe reconstitution reduces GvHD,SCFA/butyrate production,A1,yes,
+SCFA/BCoAT enrichment in low-risk patients,SCFA/butyrate production,A1,yes,
+SCFAs absorbed via GPCR41/43/109A reshape gut immune homeostasis,SCFA/butyrate production,A1,yes,
+SCFAs and 3-oxoLCA suppress Th17,Bile acid metabolism,A2,yes,
+SCFAs engage GPCRs on macrophages/DCs to shift inflammation,SCFA/butyrate production,A1,yes,
+SCFAs fuel IEC oxidative phosphorylation and maintain gut hypoxia,SCFA/butyrate production,A1,yes,
+SCFAs induce Treg differentiation via HDAC inhibition,SCFA/butyrate production,A1,yes,
+SCFAs promote M2 macrophages,SCFA/butyrate production,A1,yes,
+"SCFAs signal through GPR41, GPR43 and GPR109A",SCFA/butyrate production,A1,yes,
+SCFAs stimulate mucin production and tight junctions,SCFA/butyrate production,A1,yes,
+SER-155 Firmicutes consortium,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+SER-155 Firmicutes consortium therapeutic,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+SER-155 LBP engrafts and reduces pathogen domination,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+SER-155 reduces bloodstream infections,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+SFB and B. adolescentis drive Th17,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+SFB and C. rodentium drive Th17 via IL-6/IL-23,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+SFB induce Th17 via IL-23,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+SFB promote non-inflammatory Th17 while Citrobacter drives inflammatory Th17,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+SFB-induced IL-6/IL-23 skews Th17/Treg,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+SFB-specific donor T cells expand in SFB-colonized recipients and worsen GVHD,Microbial antigen presentation / T-cell priming,A6,yes,
+Seike: dysbiosis is consequence not cause,Dysbiosis / diversity loss,A9,yes,
+Sofi 2021 B. fragilis gut barrier,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Staphylococcus associated with poor CD4 recovery,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Staphylococcus associated with worse CD4 recovery,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Streptococcus abundant after allo-HCT,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Streptococcus domination linked to poor outcomes,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Streptococcus linked to increased GVHD risk,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+T cell FXR ablation reduces GI and liver GVHD,Bile acid metabolism,A2,yes,
+TBI reduces microbial diversity,Dysbiosis / diversity loss,A9,yes,
+TGR5 inhibits NF-κB via cAMP-PKA,Bile acid metabolism,A2,yes,
+TGR5 limits inflammation,Bile acid metabolism,A2,yes,
+TLR-deficient neutrophils mitigate GvHD,LPS/MAMP/PRR signaling,A4,yes,
+TMAO inhibits DC HDAC3 and amplifies NF-κB inflammation,SCFA/butyrate production,A1,yes,
+TUDCA effects are independent of microbiota composition,Bile acid metabolism,A2,yes,
+TUDCA from Bacteroides reduces ER stress via FXR/TGR5,Bile acid metabolism,A2,yes,
+TUDCA from Clostridium reduces ER stress via FXR/TGR5,Bile acid metabolism,A2,yes,
+TUDCA improves GVHD survival and downregulates IEC MHC class II,Microbial antigen presentation / T-cell priming,A6,yes,
+TUDCA preserves graft-versus-leukemia activity,Bile acid metabolism,A2,yes,
+TUDCA protects IECs from TNF/IFNγ-induced apoptosis,Bile acid metabolism,A2,yes,
+TUDCA reduces aGVHD severity,Bile acid metabolism,A2,yes,
+Table 1: broad-spectrum antibiotics deplete SCFA producers and expand Enterococcus,SCFA/butyrate production,A1,yes,
+Table 1: broad-spectrum antibiotics expand resistant Enterococcus,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Table 3: Bifidobacterium displacement reduces immune regulation,Dysbiosis / diversity loss,A9,yes,
+Table 3: Clostridiales donor colonizers reinforce epithelium and reduce GVHD severity,SCFA/butyrate production,A1,yes,
+Table 3: Enterococcus post-HSCT domination exacerbates mucosal damage and GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Table 3: Lactobacillus niche occupation exacerbates GVHD via MHC-II alloreactive T cells,Microbial antigen presentation / T-cell priming,A6,yes,
+Table 4: Barnesiella suppresses pathobionts and enhances Tregs,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Table 4: Enterococcus triggers inflammation via LPS translocation,LPS/MAMP/PRR signaling,A4,yes,
+Table 4: Lactobacillus suppresses pathobionts and enhances Tregs,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Table 4: MHC-II inducing bacteria activate donor T cells,Microbial antigen presentation / T-cell priming,A6,yes,
+"Table 4: SCFAs repair gut barrier, induce Tregs and reduce inflammation",SCFA/butyrate production,A1,yes,
+Table 4: Streptococcus triggers inflammation via LPS translocation,LPS/MAMP/PRR signaling,A4,yes,
+Table 4: high microbial diversity reduces GVHD severity,Dysbiosis / diversity loss,A9,yes,
+Table 5: FMT restores diversity and treats steroid-refractory GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Table 5: personalized therapies predict GVHD risk from microbiome profile,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Table 5: prebiotics promote beneficial bacteria and SCFAs,SCFA/butyrate production,A1,yes,
+Table 5: probiotics restore gut balance and enhance barrier function,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Thomasclavelia associated with severe GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+UDCA associates with reduced T cell proliferation and lower GVHD-related mortality,Bile acid metabolism,A2,yes,
+UDCA decreases LPS-induced macrophage TNF/IL-6/IL-12/IL-1β,LPS/MAMP/PRR signaling,A4,yes,
+UDCA from Clostridium coccoides restores bile acid balance,Bile acid metabolism,A2,yes,
+UDCA from Clostridium leptum restores bile acid balance,Bile acid metabolism,A2,yes,
+UDCA has conflicting FXR agonist/antagonist activity,Bile acid metabolism,A2,yes,
+UDCA interacts with FXR,Bile acid metabolism,A2,yes,
+UDCA supplementation restores bile acid balance and limits T cell inflammation via FXR antagonism,Bile acid metabolism,A2,yes,
+UDCA/TGR5 regulates antigen-presenting cell inflammation,Bile acid metabolism,A2,yes,
+Weber 2024 donor FMT intestinal GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+Yazdandoust 2023 synbiotic trial,SCFA/butyrate production,A1,yes,
+Zargari 2022 metagenome-wide predictive model,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+aGVHD severity and antibiotics associate with CD8+ clonal enrichment and Treg reduction,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+"allo-HCT shrinks bile acid pool, raises IEC FXR and lowers TGR5",Bile acid metabolism,A2,yes,
+"alloreactive T cells disrupt OXPHOS, raise luminal O2, shift anaerobes to facultative anaerobes",Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+alloreactive T-cell crosstalk amplifies flagellin-targeting T cells,Microbial antigen presentation / T-cell priming,A6,yes,
+alpha diversity loss and domination,Dysbiosis / diversity loss,A9,yes,
+alpha diversity loss predicts cGVHD,Dysbiosis / diversity loss,A9,yes,
+anaerobe-sparing antibiotics do not worsen GvHD mortality,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+anti-SCFA-producer plasmablast antibodies in cGVHD,SCFA/butyrate production,A1,yes,
+antibiotic exposure reduces gut Treg functionality,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+antibiotic neutralizing agents preserve microbiome,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+antibiotic stewardship reduces severe GI GvHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+antibiotic vacuum enables VRE domination,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+antibiotics context-dependent effect on T-cell immunity,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+antiemetics/opioids promote Enterococcus,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+"antimicrobial peptides (resistin, defensins) upregulated in GVHD-free patients",Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+auto-FMT increases WBCs,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+azithromycin promotes B. fragilis and relapse,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+azole antifungals suppress Saccharomyces and impair Th17 defense against Candida,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+bacterial metabolites induce anti-inflammatory responses,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+bacterial translocation drives aGvHD and BSI,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+bacteriophage-encoded butyrate biosynthesis contributes to SCFA pool,SCFA/butyrate production,A1,yes,
+bacteriophage-mediated SCFA gene delivery,SCFA/butyrate production,A1,yes,
+bacteriophages co-occur with enterotypes linked to T cell exhaustion,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+bile acid modification regulates immunity via FXR/GPBAR,Bile acid metabolism,A2,yes,
+bile acid-FXR/TGR5 signaling enhances barrier,Bile acid metabolism,A2,yes,
+broad anaerobic antibiotic use increases GvHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+broad-spectrum antibiotic exposure associates with worse GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+broad-spectrum antibiotics deplete SCFA-producing Blautia and Faecalibacterium,SCFA/butyrate production,A1,yes,
+broad-spectrum antibiotics disrupt bacteria and virome and reduce SCFAs,SCFA/butyrate production,A1,yes,
+broad-spectrum antibiotics increase mortality,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+broad-spectrum antibiotics induce dysbiosis,Dysbiosis / diversity loss,A9,yes,
+butyrate H3K9 acetylation on PPARα attenuates NF-κB signaling,SCFA/butyrate production,A1,yes,
+"butyrate HDAC inhibition promotes tight junctions, Treg differentiation",SCFA/butyrate production,A1,yes,
+butyrate HDAC3/HDAC6 inhibition modulates NF-κB p65 acetylation,SCFA/butyrate production,A1,yes,
+butyrate administration mitigates aGVHD and cGVHD,SCFA/butyrate production,A1,yes,
+butyrate enhances memory CD8+ T cells,SCFA/butyrate production,A1,yes,
+butyrate from fibre inhibits HDACs and promotes Treg differentiation,SCFA/butyrate production,A1,yes,
+butyrate induces intestinal Tregs,SCFA/butyrate production,A1,yes,
+butyrate mitigates GvHD severity,SCFA/butyrate production,A1,yes,
+butyrate oxidation fuels colonocyte energy and barrier integrity,SCFA/butyrate production,A1,yes,
+butyrate producers induce tolerogenic CD103+ DCs and retinoic acid,SCFA/butyrate production,A1,yes,
+butyrate regulates hematopoiesis via TLR,SCFA/butyrate production,A1,yes,
+butyrate suppresses intestinal stem cell proliferation,SCFA/butyrate production,A1,yes,
+butyrate/propionate HDAC inhibition reprograms immune and epithelial gene expression,SCFA/butyrate production,A1,yes,
+chemotherapy damages IECs and promotes microbial translocation,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+circulating microbiota-reactive memory T cells,Microbial antigen presentation / T-cell priming,A6,yes,
+colonic Treg induction by Clostridiales,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+colonic Treg induction by Parabacteroides,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+commensal anaerobes reduce GvHD mortality,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+commensal-driven IL-1β,LPS/MAMP/PRR signaling,A4,yes,
+commensals confer colonization resistance,Colonization resistance / competitive exclusion,A7,yes,
+commensals metabolize fibre and mucins to SCFAs,SCFA/butyrate production,A1,yes,
+conditioning drugs induce dysbiosis,Dysbiosis / diversity loss,A9,yes,
+conditioning facilitates bacterial translocation,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+conditioning injures mucosa and permits bacterial translocation,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+conditioning reduces SCFA levels needed for barrier repair,SCFA/butyrate production,A1,yes,
+defined microbial consortia can replete the microbiome,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+depletion of SCFA producers permits uncontrolled inflammation and GVHD,SCFA/butyrate production,A1,yes,
+dietary lactose drives Enterococcus expansion,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+disruption of diversity associated with GvHD and impaired recovery,Dysbiosis / diversity loss,A9,yes,
+donor Clostridiales SCFAs reinforce epithelium and suppress pro-inflammatory T cells,SCFA/butyrate production,A1,yes,
+donor DCs preconditioned by donor microbiota induce regulatory recipient T cells,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+donor FMT yields complete clinical response in 10/15 steroid-refractory GI GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+donor TNF driven by LPS,LPS/MAMP/PRR signaling,A4,yes,
+donor choice affects FMT engraftment and clinical outcomes,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+donor microbiota primes donor memory T-cell polarization,Microbial antigen presentation / T-cell priming,A6,yes,
+donor microbiota regulates BM macrophage erythrophagocytosis and iron for HSC differentiation,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+downregulation of BSH and bai genes reduces SBA production in GVHD,Bile acid metabolism,A2,yes,
+dysbiosis activates TLRs and amplifies inflammatory response,LPS/MAMP/PRR signaling,A4,yes,
+dysbiosis alters tryptophan reduces AhR,Tryptophan/indole metabolism,A3,yes,
+dysbiosis amplifies pro-inflammatory responses and worsens GVHD,Dysbiosis / diversity loss,A9,yes,
+dysbiosis and aGVHD reinforce each other bidirectionally,Dysbiosis / diversity loss,A9,yes,
+dysbiosis associated with GVHD,Dysbiosis / diversity loss,A9,yes,
+dysbiosis creates pro-inflammatory milieu,Dysbiosis / diversity loss,A9,yes,
+dysbiosis exacerbates CD8+ exhaustion,Dysbiosis / diversity loss,A9,yes,
+dysbiosis linked to aGVHD,Dysbiosis / diversity loss,A9,yes,
+dysbiosis negatively associated with overall survival,Dysbiosis / diversity loss,A9,yes,
+dysbiosis reduces ILC3 epithelial repair,Dysbiosis / diversity loss,A9,yes,
+"dysbiosis reduces IgA, enabling bacterial translocation and systemic inflammation",Dysbiosis / diversity loss,A9,yes,
+dysbiosis reduces NK tumor surveillance,Dysbiosis / diversity loss,A9,yes,
+dysbiosis reduces Treg and shifts CD8 balance,Dysbiosis / diversity loss,A9,yes,
+dysbiosis reduces protective metabolites and increases pro-inflammatory cytokines,Dysbiosis / diversity loss,A9,yes,
+dysbiosis shifts Treg/Th1 balance and fuels GVHD inflammation,Dysbiosis / diversity loss,A9,yes,
+dysbiosis-driven LPS translocation activates PRRs and amplifies systemic inflammation,LPS/MAMP/PRR signaling,A4,yes,
+dysbiotic recipient environment allows donor bacteria to establish,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+dysregulated IL-1 signaling in GVHD immune cells,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+early antibiotics cause loss of protective Clostridia,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+early antibiotics reduce hepatic butyrate and impair IL-18/GPR109A-dependent LrNK maturation,SCFA/butyrate production,A1,yes,
+early broad-spectrum antibiotic exposure reduces Clostridiales and raises TRM,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+early carbapenem exposure associated with higher aGVHD rates,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+early intestinal dysbiosis associated with poor outcome,Dysbiosis / diversity loss,A9,yes,
+endotoxin translocation drives systemic inflammation via TLR4/NF-κB,LPS/MAMP/PRR signaling,A4,yes,
+enteral nutrition promotes R. bromii / F. prausnitzii,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+enteral over parenteral nutrition reduces aGVHD incidence,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+enterococcal administration aggravates GvHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+fasting enriches Lactobacillaceae/Bacteroidaceae/Prevotellaceae and promotes Tregs,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+fermented food diet promotes diversity,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+fiber-fermenting SCFA producers,SCFA/butyrate production,A1,yes,
+fibre-free Western diet increases A. muciniphila,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+flagellin-expressing commensals drive microbe-specific donor T cell expansion worsening GVHD,Microbial antigen presentation / T-cell priming,A6,yes,
+flagellin-targeting Th1 against Clostridium XIVa,Microbial antigen presentation / T-cell priming,A6,yes,
+germ-free / decontamination reduces GvHD mortality,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+germ-free/antibiotic mice establish gut bacteria role in aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+grafts carry donor-derived Enterococcus and Staphylococcus,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+gut decontamination abrogates IL-1β,LPS/MAMP/PRR signaling,A4,yes,
+gut decontamination inconsistent effect on GvHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+gut decontamination lessens aGVHD severity,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+gut decontamination prevents neutrophil-CD4 priming,LPS/MAMP/PRR signaling,A4,yes,
+gut enterotypes correlate with T cell exhaustion and relapse,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+gut microbiota shapes age-dependent immune profiling in HSCT recipients,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+hepatic butyrate induces Kupffer cell PGE₂ and suppresses TNF-α,SCFA/butyrate production,A1,yes,
+high diversity reduces mortality,Dysbiosis / diversity loss,A9,yes,
+high-dose chemotherapy reduces Firmicutes and Actinobacteria and expands Proteobacteria,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+high-fibre diet promotes Bifidobacteria and butyrate,SCFA/butyrate production,A1,yes,
+higher butyrogenic bacteria post-GVHD linked to steroid refractoriness,SCFA/butyrate production,A1,yes,
+higher diversity associated with CD4+ recovery,Dysbiosis / diversity loss,A9,yes,
+higher diversity at engraftment associated with OS,Dysbiosis / diversity loss,A9,yes,
+higher intestinal diversity associated with ~halved GVHD-related mortality,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+higher microbial diversity correlates with reduced GVHD severity and improved survival,Dysbiosis / diversity loss,A9,yes,
+ileal neutrophils traffic to MLN and present MHC class II antigen after bacterial translocation,Microbial antigen presentation / T-cell priming,A6,yes,
+imipenem induces Akkermansia mucus degradation,Mucin/barrier degradation,A5,yes,
+imipenem-cilastatin expands A. muciniphila and worsens GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+indole metabolites associated with worse GvHD,Tryptophan/indole metabolism,A3,yes,
+indole-AhR regulates IL-22/IL-10 axis,Tryptophan/indole metabolism,A3,yes,
+indole/AhR axis balances Th17/Treg and gut barrier,Tryptophan/indole metabolism,A3,yes,
+indoles higher in GVHD-free recipients at onset,Tryptophan/indole metabolism,A3,yes,
+indoles including I3A promote intestinal barrier function,Tryptophan/indole metabolism,A3,yes,
+inflammatory cascade enhances donor T-cell activation and target organ damage,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+inflammatory skew of naive microbial-reactive T cells,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+intestinal bacteria drive IgA plasma cell development,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+isoalloLCA promotes Foxp3 via ROS,Bile acid metabolism,A2,yes,
+lactose drives Enterococcus expansion,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+lactose restriction reduces Enterococcus,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+lactose-free diet prevents enterococcal overgrowth,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+lactose-free diet reduces VRE,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+leukemia-derived TNF-α and IL-6 compromise epithelium and promote pathobionts,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+lipoteichoic acid and peptidoglycan activate TLR2,LPS/MAMP/PRR signaling,A4,yes,
+loss of Clostridia butyrate producers in GI aGVHD,SCFA/butyrate production,A1,yes,
+loss of beneficial anaerobic commensals,Dysbiosis / diversity loss,A9,yes,
+loss of butyrate producers in GI aGVHD,SCFA/butyrate production,A1,yes,
+loss of commensals associated with TRM,Dysbiosis / diversity loss,A9,yes,
+loss of diversity amplifies Th17,Dysbiosis / diversity loss,A9,yes,
+loss of microbial diversity associated with GVHD severity,Dysbiosis / diversity loss,A9,yes,
+loss of obligate anaerobes enables Enterococcus expansion and GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+low Blautia increases relapse risk,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+low Blautia/Ruminococcaceae and SCFAs with severe aGVHD,SCFA/butyrate production,A1,yes,
+low Clostridia increases GVHD-related mortality,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+low Clostridium decreases neutrophils/monocytes,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+low circulating butyrate predicts cGVHD,SCFA/butyrate production,A1,yes,
+low diversity correlates with GVHD and mortality,Dysbiosis / diversity loss,A9,yes,
+low diversity increases GVHD-related mortality,Dysbiosis / diversity loss,A9,yes,
+low intestinal SCFAs linked to severe aGVHD,SCFA/butyrate production,A1,yes,
+low microbial diversity associates with higher TRM and GVHD mortality,Dysbiosis / diversity loss,A9,yes,
+low pre-FMT diversity predicts donor strain engraftment,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+lower microbial diversity correlates with higher IL-6 and TNF-α,Dysbiosis / diversity loss,A9,yes,
+luminal oxygen alters IEC HIF1α signaling,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+maternal AhR ligands and retinoic acid stimulate neonatal ILC3 and LTi development,Tryptophan/indole metabolism,A3,yes,
+meropenem induces Bacteroides expansion with aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+metabolites enhance Treg and ILC3,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+metronidazole promotes Enterococcus domination,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbe-derived bile acids inhibit donor T cells via FXR,Bile acid metabolism,A2,yes,
+microbial SBAs attenuate CDCA-induced FXR signaling,Bile acid metabolism,A2,yes,
+microbial antigen presentation by IEC is MHC class II-dependent,Microbial antigen presentation / T-cell priming,A6,yes,
+microbial compounds drive IL-1 production,LPS/MAMP/PRR signaling,A4,yes,
+microbial metabolites modulate T-cell differentiation,Tryptophan/indole metabolism,A3,yes,
+microbial metabolites modulate immunity via AHR,Tryptophan/indole metabolism,A3,yes,
+microbial mucus degradation damages intestinal barrier,Mucin/barrier degradation,A5,yes,
+microbial translocation drives systemic inflammation and sepsis,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbial tryptophan catabolism to indoles modulates cytokines and barrier,Tryptophan/indole metabolism,A3,yes,
+microbial-metabolite ILC3 IL-22 induction,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbiome composition linked to HLA class II expression and GVHD in patients,Microbial antigen presentation / T-cell priming,A6,yes,
+microbiome disruption reduces Tregs,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbiome shapes immune reconstitution and complications,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbiota depletion impairs energy uptake,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbiota depletion skews HSCs to self-renewal and delays immune reconstitution,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbiota drives IgA class-switching,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbiota drives ileal MHC class II expression and CD4+ T cell expansion,Microbial antigen presentation / T-cell priming,A6,yes,
+microbiota shortens epithelial lifespan post-TBI,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbiota-dependent neutrophil infiltration,LPS/MAMP/PRR signaling,A4,yes,
+"microbiota-driven ileal neutrophils generate ROS and expand T cells, worsening GVHD",LPS/MAMP/PRR signaling,A4,yes,
+microbiota-induced IFN-γ enhances IEC MHC-II and donor CD4+ T cell activation,Microbial antigen presentation / T-cell priming,A6,yes,
+microbiota-induced Tregs suppress alloreactive CD8,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+microbiota-specific donor T cells exacerbate GVHD via GI antigen presentation,Microbial antigen presentation / T-cell priming,A6,yes,
+microbiota-specific donor T cells targeting Clostridium savagella exacerbate GvHD,Microbial antigen presentation / T-cell priming,A6,yes,
+microbiota-specific donor T cells targeting flagellin exacerbate GvHD,Microbial antigen presentation / T-cell priming,A6,yes,
+modern gut-decontamination trials show no clear GVHD advantage,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+mono-domination at engraftment,Dysbiosis / diversity loss,A9,yes,
+mucin-degrading organisms weaken barrier,Mucin/barrier degradation,A5,yes,
+mucous- and junction-degrading taxa worsen barrier,Mucin/barrier degradation,A5,yes,
+myeloablative conditioning reduces diversity,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+narrow-spectrum antibiotics spare Blautia and other beneficial anaerobes,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+oral Streptococcus salivarius and Veillonella parvula expansion in cGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+oral charcoal or β-lactamase sequesters/degrades colonic antibiotics to prevent dysbiosis,Dysbiosis / diversity loss,A9,yes,
+oral dysbiosis / Enterococcaceae ectopic colonization exacerbates cGVHD,Dysbiosis / diversity loss,A9,yes,
+oral iron chelation lowers luminal oxygen and attenuates GI GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+oral vancomycin depletes MHC-II-inducing bacteria to attenuate GVHD,Microbial antigen presentation / T-cell priming,A6,yes,
+parenteral nutrition reduces Blautia,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+pathobiont domination worsens GvHD,Dysbiosis / diversity loss,A9,yes,
+pathobiont expansion,Dysbiosis / diversity loss,A9,yes,
+pathobiont expansion with low diversity,Dysbiosis / diversity loss,A9,yes,
+pediatric HSCT: Faecalibacterium declines and Proteobacteria rises with GVHD severity,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+pediatric HSCT: Proteobacteria rises with GVHD severity,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+pediatric patients have reduced butyrate producers and impaired Treg differentiation,SCFA/butyrate production,A1,yes,
+pooled allogeneic FMT (MaaT013) yields 38-58% response in steroid-refractory GI aGVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+post-weaning Clostridia SCFAs promote RORγt+ Tregs,SCFA/butyrate production,A1,yes,
+pre-HSCT dysbiosis raises 1-year NRM by 67%,Dysbiosis / diversity loss,A9,yes,
+pre-transplant Clostridia probiotics or FMT can restore barrier,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+pre-transplant Enterococcus dominance raises grade III-IV aGVHD risk 3.2-fold,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+"pre-transplant conditioning drives dysbiosis, barrier failure, and pro-inflammatory T-cell skewing",Dysbiosis / diversity loss,A9,yes,
+prebiotic fiber increases L. rhamnosus,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+prebiotic mixture reduces grade II-IV GvHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+prebiotics preserve diversity and butyrate,SCFA/butyrate production,A1,yes,
+probiotic adverse events in immunocompromised hosts,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+progressive loss of diversity enables Enterococcus and Streptococcus overgrowth and inflammation,Dysbiosis / diversity loss,A9,yes,
+prophylactic FMT reduces infection but increases GvHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+propionate from fibre inhibits pro-inflammatory cytokines,SCFA/butyrate production,A1,yes,
+propionate reverses A. muciniphila mucin utilization,SCFA/butyrate production,A1,yes,
+radiation reduces Clostridiales and permits γ-Proteobacteria expansion,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+recipient microbiota dictates donor CD4+ T clonal expansion,Microbial antigen presentation / T-cell priming,A6,yes,
+recipient microbiota peptides prime naive T cells to Th1/Th17,Microbial antigen presentation / T-cell priming,A6,yes,
+reduced SCFAs linked to higher GVHD severity,SCFA/butyrate production,A1,yes,
+"reduced diversity increases intestinal permeability (citrulline, zonulin)",Dysbiosis / diversity loss,A9,yes,
+resistant potato starch increases fecal butyrate,SCFA/butyrate production,A1,yes,
+resistant potato starch supplement increases intestinal butyrate to reduce aGVHD,SCFA/butyrate production,A1,yes,
+resistant starch mitigates microbiome and metabolite disruption,SCFA/butyrate production,A1,yes,
+restoration of butyrate or propionate levels alleviates GVHD in mice,SCFA/butyrate production,A1,yes,
+rifaximin preserves commensals vs ciprofloxacin,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+secondary bile acids regulate gut RORγt+ Treg homeostasis,Bile acid metabolism,A2,yes,
+sodium butyrate reduces grade III-IV aGVHD,SCFA/butyrate production,A1,yes,
+specific bacteria act as MHC-II inducers/suppressors on IECs,Microbial antigen presentation / T-cell priming,A6,yes,
+targeted depletion of MHC class II-inducing bacteria attenuates GVHD,Microbial antigen presentation / T-cell priming,A6,yes,
+taxa-dependent modulation of intestinal MHC class II,Microbial antigen presentation / T-cell priming,A6,yes,
+third-party FMT at neutrophil recovery shows no clinical outcome improvement,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+tryptophan catabolism/AhR/IL-22 pathway,Tryptophan/indole metabolism,A3,yes,
+tryptophan metabolized to indole/AhR ligands,Tryptophan/indole metabolism,A3,yes,
+tryptophan-derived IAld activates ILC3 AhR for IL-22,Tryptophan/indole metabolism,A3,yes,
+tryptophan-metabolizing bacteria induce IL-22,Tryptophan/indole metabolism,A3,yes,
+tryptophan–MDSC axis balances tolerance and inflammation,Tryptophan/indole metabolism,A3,yes,
+vancomycin-polymyxin B gut decontamination gives no diversity or GVHD difference,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+vendor microbiota determines ileal MHC class II and GVHD severity,Microbial antigen presentation / T-cell priming,A6,yes,
+xylose supplementation inhibits mucus-degrading bacteria and preserves intestinal barrier,Mucin/barrier degradation,A5,yes,
+xylose suppresses B. thetaiotaomicron mucin degradation,Mucin/barrier degradation,A5,yes,
+β-defensin 2 modulates microbiota to reduce ileal neutrophils and GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
+β-lactams/carbapenems increase aGVHD and steroid-refractory GVHD,Community-level / unattributed,A10,partial,no dominant microbial function; community-level association
