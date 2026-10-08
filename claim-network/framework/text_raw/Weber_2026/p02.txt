@@ -1,0 +1,134 @@
+damage is exacerbated by pretransplant conditioning, which
+causes the release of intracellular molecules, damage-associated
+molecular patterns (DAMPs), while activation or destruction of
+bacteria induces the release of pathogen-associated molecular
+patterns (PAMPs) [7]. DAMPs and PAMPs act as danger signals to
+activate antigen presenting cells, which are then responsible for
+the activation of allogenic donor lymphocytes and acute GVHD [7].
+Epithelial damage, bacterial translocation and inﬂammation are
+the hallmarks of aGvHD development and at the origin of blood
+stream infections and septicemias.
+Alteration of the intestinal microbiota is caused by antibiotics
+given either during leukemia remission-induction therapy or after
+alloHCT, by dietary changes, by pre-transplantation conditioning
+therapy and by the use of other medications. The majority of
+alloHCT recipients is extensively exposed to prolonged prophy-
+lactic and therapeutic antibiotics during episodes of neutropenia.
+These are often broad-spectrum antibiotics that target obligate
+anaerobic bacteria, typically producers of short-chain fatty acids
+(SCFA) in the gut. Depletion of SCFA producing bacteria is
+associated with expansion of opportunistic pathogens [12, 13, 15].
+In addition, absence of normal dietary intake and prolonged
+parenteral nutrition leads to loss of protective beneﬁcial bacteria
+such as Blautia [16–18]. Finally, conditioning regimens including
+chemotherapy and radiation, and immuno-suppressive medica-
+tions to prevent GvHD may disrupt the sensitive equilibrium
+between host and microbiota [19–22].
+INTERPLAY BETWEEN MICROBIOME, IMMUNE CELL SUBSETS
+AND GUT-DERIVED METABOLITES AFTER ALLOHCT
+Intestinal microbiota are able to modify local and systemic
+immunity either by direct interaction with immune cells or
+indirectly via the production of microbial metabolites such as
+SCFA like butyrate, bile acids, polyamines, and indoles binding to
+the aryl hydrocarbon receptor (AHR) [23].
+Crosstalk between microbiota and immune cell subsets
+The gut microbiome actively shapes immune reconstitution
+following alloHCT by regulating the balance between regulatory
+T cells (Tregs), pro-inﬂammatory T helper 17 (Th17) cells—the
+predominant CD4+
+T cell subsets in the lamina propria under
+steady-state conditions and innate lymphoid cells (ILC). Microbial
+diversity, speciﬁc bacterial taxa, and metabolite production play
+crucial roles in maintaining this balance, inﬂuencing both GVHD
+outcomes and immune recovery.
+Tregs play a pivotal role in maintaining immune homeostasis
+and promoting recovery, particularly in the context of gut
+microbiome interactions. Speciﬁc commensal bacteria, such as
+Bacteroides fragilis, further amplify Treg development via poly-
+saccharide A (PSA)-dependent signaling, which primes dendritic
+cells to foster Foxp3+ Treg induction [24]. Recent ﬁndings
+highlight that these microbiota-induced Tregs not only expand
+in number but also critically interact with alloreactive CD8+T cells
+to directly suppress their allogeneic activation, thereby limiting
+the severity of GvHD. Disruption of the microbiome leads to a
+marked reduction in Tregs and their regulatory crosstalk with
+alloreactive cytotoxic T cells, resulting in heightened GvHD
+severity [25].
+Th17 cells are a subset of pro-inﬂammatory T helper cells
+characterized by their production of interleukin 17 (IL-17). Th17
+play a key role in host resistance against intestinal pathogens and
+promote systemic autoimmunity [26, 27]. Certain commensal
+bacteria, including segmented ﬁlamentous bacteria (SFB) and
+Biﬁdobacterium adolescentis, are known to drive Th17 differentia-
+tion [28]. Studies in both human and murine models indicate that
+higher levels of IL-17–producing donor-derived CD4⁺ T cells are
+detected in cases of severe intestinal GvHD, where IL-17 enhances
+tissue injury by promoting neutrophil inﬁltration and macrophage
+activation [25, 29]. Microbiota-derived signals such as SFB-induced
+IL-6 and IL-23 pathways further skew the Th17/Treg balance
+toward inﬂammation, while loss of microbial diversity reduces
+regulatory feedback mechanisms that normally limit Th17
+expansion. Certain microbial metabolites, such as 3-oxo LCA (a
+secondary bile acid), can inhibit Th17 cell differentiation and
+mitigate GvHD, suggesting that both the composition and
+metabolic function of the microbiota directly affect the Treg/
+Th17 axis and GvHD outcomes [30].
+ILCs are recently discovered heterogenous group of innate
+immune cell specialized in the rapid secretion of cytokines and
+chemokines to combat infection and promote mucosal tissue
+repair [31]. ILC3s, a subset of ILCs, play a key role in gut immunity,
+and their function is regulated by FfAR2, a receptor for microbial
+metabolites [32]. FfAR2 activation enhances IL-22 production,
+which strengthens the gut barrier and promotes epithelial healing.
+Additionally, ILC3s suppress alloreactive T cell activation [33], help
+monitor gut microbiota, and support early colonization resistance
+through ID2-dependent IL-22 regulation [34]. In murine alloHCT
+models, ILC3-derived IL-22 protects the intestinal stem cells, limits
+epithelial damage, and enhances production of antimicrobial
+peptides and mucins, all promoting effective epithelial repair and
+reduced severity of GvHD [19].
+Other important immune cells also contribute to immune
+reconstitution and their interplay with the microbiota and its
+derived metabolites are summarized in Table 1.
+Gut-derived metabolites and immune reconstitution
+Short-chain fatty acids (SCFA). The gut microbiota enhances
+immune tolerance by fermenting dietary polysaccharide SCFA like
+butyrate, propionate, and acetate, which have key immunomo-
+dulatory effects. Butyrate regulates hematopoiesis by activating
+toll-like receptor signaling in hematopoietic stem cells and
+contributes to the overall restoration of immune cell numbers
+[35]. Butyrate produced by Clostridium clusters (IV, XIVa, XVIII) and
+Biﬁdobacterium, enhance Treg differentiation by inhibiting
+histone deacetylases (HDACs) and maintaining Foxp3 expression,
+thereby expanding colonic Treg populations, which are essential
+for reducing inﬂammation and promoting mucosal repair [36].
+Consistent with these ﬁndings, vorinostat, a pharmacological
+HDAC inhibitor, has been shown to decrease inﬂammatory
+cytokines, lower established GVHD biomarkers (such as Reg3
+and ST2), and enhance Treg function, thereby reducing the
+incidence and severity of acute GVHD in both preclinical and
+clinical studies [37, 38].
+Bile acids. Bile acids, synthesized by the liver and modiﬁed by gut
+microbiota into secondary forms (e.g., lithocholic acid (LCA),
+deoxycholic acid (DCA)), regulate immune responses via receptors
+like farnesoid X receptor (FXR) and G-Protein Bile Acid-activated
+Receptor (GPBAR). Secondary bile acids, such as 3-oxoLCA and
+isoalloLCA, modulate the TH17/Treg balance: 3-oxoLCA inhibits
+RORγt-driven TH17 differentiation, while isoalloLCA enhances
+FOXP3+ Treg induction [30]. Prophylactic tauroursodeoxycholic
+acid (TUDCA) administration reduced acute GVHD severity in
+murine transplantation models by decreasing antigen presenta-
+tion activity and preventing intestinal epithelial apoptosis,
+independent of microbiome alterations [39].
+Tryptophan metabolites. Tryptophan, an essential amino acid
+derived primarily from dietary sources, is metabolized via three
+interconnected pathways: kynurenine, serotonin, and indole
+pathways. In the context of allo-HSCT, microbiota-derived
+tryptophan metabolites play a crucial role in immune recovery.
+Indole derivatives produced by commensals like Lactobacilli and
+Proteobacteria activate the aryl hydrocarbon receptor (AhR),
+which regulates the IL-22/IL-10 axis, promotes Treg differentiation
+and ILC homeostasis, and suppresses hyperinﬂammation [40].
+D. Weber et al.
+386
+Bone Marrow Transplantation (2026) 61:385–394

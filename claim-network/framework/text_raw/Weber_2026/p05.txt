@@ -1,0 +1,171 @@
+Table 2. Clinical and preclinical studies on microbiota-immune reconstitution interactions.
+Study Cohort/Model Microbial Focus Immune Metrics Mechanism/Findings Clinical Impact Limitations
+Taur et al. [12] Humans (allo-
+HSCT, n = 80)
+Alpha diversity via
+inverse Simpson index
+Stem cell source,
+infection, and
+microbial diversity
+Increased OS associated with
+higher relative abundance of
+Lachnospiraceae and
+Actinomycetaceae.
+Domination by Enterococcus,
+Streptococcus, Enterobacteriaceae,
+and Lactobacillus spp. linked to poor
+outcomes.
+Replenishment of commensal
+bacterial populations may
+improve immune
+reconstitution and outcomes
+post-HSCT.
+Causal relationships
+unclear; control
+interventional studies
+needed.
+Iwamura et al.
+[95]
+Murine model
+(NOD1 − / − ,
+SPF, GF)
+Microbiota in the
+maintenance of
+steady-state
+hematopoiesis
+NOD1 and NOD2
+ligands
+NOD1 ligand administration
+restores hematopoietic precursor
+pools in germ-free mice to levels
+seen in speciﬁc pathogen-free
+animals.
+Suggests NOD1 ligands as
+potential therapeutic agents
+to restore hematopoiesis
+post-HSCT.
+Requires further studies
+to ﬁnd the interaction
+between immune
+pathways
+Staffas et al.
+[96]
+Murine model
+(antibiotic-
+treated allo-
+HSCT)
+Antibiotics, sucrose
+metabolism
+Granulocyte/
+lymphocyte recovery
+Depletion of intestinal microbiota
+impairs dietary energy uptake and
+visceral fat store.
+Caloric supplementation via
+sucrose restored granulopoiesis
+post-allo-HSCT.
+Suggests postbiotics (e.g.,
+sucrose) as potential
+therapies for neutrophil
+recovery post-HSCT.
+Preclinical model;
+relevance to human
+immune reconstitution
+requires further
+validation.
+Peled et al. [6] Humans (allo-
+HSCT, n = 1,362)
+Loss of microbial
+diversity and
+domination of single
+taxa
+OS, neutrophil
+engraftment, GVHD
+Higher diversity of intestinal
+microbiota at the time of neutrophil
+engraftment was associated with
+increased OS.
+Abundance of Enterococcus and
+Streptococcus spp. linked to
+increased GVHD risk.
+Identiﬁes microbial diversity
+as a biomarker for post-HSCT
+outcomes.
+Retrospective design;
+heterogeneity in
+conditioning regimens.
+Schluter et al.
+[42]
+Humans (allo-
+HSCT, n = 841;
+auto-FMT,
+n = 24)
+Microbial community
+dynamics
+Daily counts of
+neutrophils,
+lymphocytes, and
+monocytes
+Higher counts of WBCs in
+individuals receiving auto-FMT in
+the ﬁrst 100 days after neutrophil
+engraftment.
+Enriched microbiota with
+Faecalibacterium, Ruminococcus 2,
+Akkermansia accelerates immune
+reconstitution.
+Identiﬁes speciﬁc taxa that
+predict immune kinetics
+during the engraftment
+phase post-HSCT.
+Lacks detailed
+information on
+lymphocyte subtypes and
+other immune cell
+populations.
+Miltiadous et
+al. [97]
+Humans (allo-
+HSCT, n = 894)
+Early post-HSCT
+microbiome (d7–21)
+Day 100 CD4 + /
+CD8 + T cells, B cells,
+NK cells
+Increased abundance of
+Staphylococcus associated with poor
+CD4 T-cell recovery.
+Highlights Erysipelotrichaceae as
+beneﬁcial for immune
+reconstitution.
+Identiﬁes key microbiome
+taxa associated with immune
+recovery post-HSCT.
+Observational study;
+heterogeneity in GVHD
+prophylaxis regimens.
+Thiele Orberg
+et al. [53]
+Humans (allo-
+HSCT, n = 78)
+Bacteria and
+bacteriophage
+consortia
+SCFA biosynthesis
+pathways, survival
+outcomes
+High SCFA-producing pathways in
+bacteria/phages associated with
+improved survival and reduced
+relapse post-HSCT.
+Supports the development of
+synthetic metabolite
+formulations as adjunctive
+therapies post-allo-HSCT.
+Requires validation in
+larger cohorts.
+allo-HSCT allogeneic hematopoietic stem cell transplantation, CD cluster of differentiation, FMT fecal microbiota transplantation, GF germ-free, GVHD graft-versus-host disease, NOD nucleotide-binding
+oligomerization domain, OS overall survival, SCFA short-chain fatty acid, SPF speciﬁc pathogen-free, WBC white blood cell.
+D. Weber et al.
+389
+Bone Marrow Transplantation (2026) 61:385–394

@@ -21,9 +21,9 @@ Last page done: 12
 Next statement_id: SAM_146
 
 ### Weber_2026
-Status: not started
-Last page done: 0
-Next statement_id: WEB_001
+Status: done
+Last page done: 8
+Next statement_id: WEB_135
 
 ## Step 2b: Merge
 Status: not started

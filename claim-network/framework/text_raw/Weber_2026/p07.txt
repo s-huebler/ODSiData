@@ -1,0 +1,137 @@
+where it undergoes fermentation by the oral and intestinal
+microbiota. Consequently, it functions as a prebiotic, promoting a
+healthy gut microbiota and potentially contributing to beneﬁts
+like increased production of SCFA [70]. RPS was given daily from
+day -7 to day 100. This pilot study established that administration
+of RPS was feasible and tolerated by patients and translated in
+signiﬁcantly higher fecal butyrate levels when participants were
+on RPS than when they were not (p <0.0001). Nevertheless,
+longitudinal changes in plasma metabolites compared to baseline
+were independent of RPS (P <0.0001). Another resistant starch
+(RS), Amyloﬁber SH, (corn starch with high amylose content) was
+evaluated in combination with GFO, a prebiotics mixture
+comprising glutamine, ﬁber, and oligosaccharide commercially
+available in Japan [71]. In a prospective trial that included 49
+patients and 142 matched historic controls, RS and GFO were
+given from pretransplantation conditioning to day 28 after
+alloHCT. Prebiotics intake was associated with maintenance of
+gut microbial diversity and preservation of butyrate-producing
+bacterial. In particular fecal butyrate concentration after alloHCT
+was maintained or even increased in the prebiotics group. This
+translated in a clinical beneﬁt with a signiﬁcantly lower cumulative
+incidence of gastro-intestinal grade II-IV GvHD. The observation
+that RS and GFO also reduced the incidence of aGVHD of the skin
+suggests a systemic effect. Finally, Andersen et al. reported a pilot
+study that compared standard enteral nutrition (n =10) with
+prebiotic ﬁbre enteral nutrition (n=20) [72]. Microbial diversity
+declined in both groups, however, in the prebiotic group a
+signiﬁcant increase of the relative abundance of lactobacillus_C
+rhamnosus (p= 0.022) and decreased expression of antibiotic
+resistance genes was observed. Overall, the use of prebiotics
+shows promising results, but larger randomized studies are
+warranted to conﬁrm these ﬁndings. Regarding speciﬁc dietary
+interventions in alloHCT, additional reports and studies are also
+needed.
+Probiotics are live microorganisms which, when administered in
+adequate amounts, confer a health beneﬁt on the host. Probiotics
+can consist of single symbiotic bacterial strains, of a consortium of
+selected strains, may refer to engineered probiotics (genetic or
+metabolic modiﬁcation of probiotic microorganisms) or to a full
+ecosystem (fecal microbiota transfer, FMT). In the setting of
+alloHCT, FMT is the most widely investigated approach. FMT
+involves the transfer of fecal material from healthy donors to
+restore gut microbial diversity and function. Initially established as
+an effective treatment for Clostridioides difﬁcile infections resistant
+to antibiotics [73], FMT has expanded into experimental applica-
+tions for immune modulation, including overcoming resistance to
+immune checkpoint inhibitors (ICI), treatment of gastro-intestinal
+(GI) aGVHD and improving outcomes after alloHCT. In ICI-resistant
+melanoma patients, phase I clinical trials demonstrated that FMT
+combined with anti-PD-1 therapy led to partial or complete tumor
+responses in a subset of patients, highlighting its potential to
+reverse immunotherapy resistance [74].
+In the setting of GI-aGVHD, effective and safe use of FMT was
+ﬁrst reported by Kakihana et al. in 2016 in 4 patients with steroid-
+resistant (SR, n=3) and steroid-dependent (SD, n= 1) GI-aGVHD,
+with 3 patients that achieve a complete response [75]. Those
+results were further conﬁrmed by several case reports and small
+series [76]. In a prospective single arm study, Van Lier and
+colleagues used FMT in 15 patients with steroid refractory (SR;
+n=6) or steroid dependent (SD; n =9) GI-aGVHD, with 10 patients
+achieving a complete response [n =3 (50%) in SR and n= 7 (77%)
+in SD] [77]. A phase 2a study evaluated a pooled allogeneic FMT
+product, MaaT013, in patients with SR GI aGVHD (n=24) and with
+an expanded access program another 52 patients were evaluated.
+The day 28 overall response rate was 38% and 58% respectively
+[78]. In all studies stools from responding patients demonstrated
+higher microbiota richness and increased levels of beneﬁcial
+bacteria, in particular butyrate producers, along with increased
+levels of short-chain fatty acid and bile acids. A prospective phase
+3 study evaluating MaaT013 in SR and ruxolitinib refractory GI
+aGVHD is ongoing (NCT04769895). Finally, DeFilipp et al. eval-
+uated FMT combine with combination with systemic corticoster-
+oids in 10 patients with high-risk treatment naïve GI aGVHD, with a
+CR rate at day 28 of 70% [79]. Signiﬁcant increase in tryptophan
+metabolites and short-chain fatty acids were also observed within
+the ﬁrst 7 days after FMT [79].
+Other studies investigated FMT (autologous or allogeneic) to
+restore microbiome composition after neutrophil engraftment
+[80–82]. Those studies report signiﬁcant improvements in micro-
+bial diversity and total white blood cell (WBC) counts during the
+early post-engraftment period compared to controls [81]. A
+randomized, double-blind, placebo-controlled trial found that
+FMT improved post-antibiotic recovery of microbiota diversity,
+restored several depleted obligate anaerobic commensals, and
+reduced the abundance of expanded genera like Enterococcus,
+Streptococcus, Veillonella, and Dialister [83]. Finally, Peled et al.
+reported as a congress abstract the preliminary results of a phase
+1b study, evaluating SER-155, an oral investigational cultivated
+microbiome therapeutic comprised of 16 bacterial Firmicutes
+strains, given before conditioning and after neutrophil engraft-
+ment [84]. Compared to placebo (n= 14), SER-155 (n=20) was
+generally well tolerated with a safety proﬁle similar to placebo and
+the incidence of bloodstream infections, a secondary endpoint,
+was signiﬁcantly lower after treatment with SER-155.
+It should be noted that alloHCT recipients are severely
+immunosuppressed and at high risk of infectious complications.
+Transmission of multidrug-resistant organisms from stool bank
+products has led to fatal infections in immunocompromised
+patients, including one documented death at Massachusetts
+General Hospital of a patient who underwent HCT [85]. These
+led to a strengthening of FMT donor screening protocols by the
+health authorities’ agencies and international recommendations
+have been issued for FMT donor screening [86]. It underscores the
+continued importance of careful evaluation of FMT safety, in
+particular with respect to infectious complications [87].
+Future research should focus on optimizing the use of selected
+bacterial consortia versus whole microbiota ecosystems, donor
+selection, administration methods (e.g., oral capsules, duodeno-
+scopy or colonoscopy/enema), and on the long-term safety to
+maximize probiotics therapeutic potential in alloHCT settings. In
+addition, for prospective trials testing interventions to maintain or
+increase microbiome diversity, the choice of the primary clinical
+endpoint to prove the intervention efﬁcacy is a challenge. Given
+intestinal dysbiosis appears to play a role in the pathogenesis of
+acute GVHD, the primary endpoint may be acute GVHD, with non-
+relapse mortality as a secondary endpoint. Alternatively, using
+overall survival as the primary endpoint would likely provide the
+strongest evidence to determine whether maintaining or restoring
+microbiome diversity translates into a clinical beneﬁt.
+Postbiotics refer to a preparation of inanimate microorganisms
+and/or their components [88]. Clinical data are very scarce with
+only the results of a phase II study available as a congress abstract
+[89]. Twenty patients ingested sodium butyrate (600mg × 2
+capsules per day) from engraftment (day +14 to +21) until days
++90 to +100 and were compared to an historical control group,
+with a signiﬁcantly lower incidence of grade III-IV aGVHD in the
+postbiotics group. Randomized studies are needed to conﬁrm
+these ﬁndings.
+CONCLUSION AND FUTURE DIRECTIONS
+The gut microbiome is critical to post-transplantation immune
+reconstitution, and its diversity and composition have been linked
+to alloHSCT outcomes, particularly the development and severity
+of aGvHD and the risk of opportunistic infections. Disruption of
+microbial diversity—by conditioning regimens, antibiotics, or
+D. Weber et al.
+391
+Bone Marrow Transplantation (2026) 61:385–394
