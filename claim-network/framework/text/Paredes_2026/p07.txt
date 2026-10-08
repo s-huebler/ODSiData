@@ -1,0 +1,83 @@
+Review article
+
+
+                                                 Healthy                                                                                     GVHD
+               Fibre                               Fats                                  Amino acids                               Reduced nutritional intake
+      • Blautia sp.                      • Clostridium                             • Bacteroides sp.                                  • Enterococcus sp.
+      • Clostridium sp.                    cluster XIVa                            • Clostridium sp.                                  • Staphylococcus sp.
+      • Anaerostipes spp.                • Ruminococcus sp.                        • Eubacterium sp.                                  • Streptococcus sp.
+      • Faecalibacterium sp.             • Eubacterium sp.                         • Lactobacillus reuteri                            • Lactobacillales sp.
+      • Bifidobacterium sp.                                                        • Lactobacillus plantarum                          • Akkermansia sp.
+      • Ruminococcus sp.
+
+
+      SCFAs                          Bile acid-derived metabolites                 Tryptophan, AhR ligands,                      Reduced production of microbial
+      Butyrate, butyric acid,        HMG, UDCA, LCA, TUDCA,                        isovaleric acid, IPA,                         metabolites via fermentation,
+      propionate, succinate          taurocholic acid                              indole-3-aldehyde                             conjugation and deconjugation
+
+                       GPCRs                TGR5                               HCA2                          GPR35
+
+
+
+                                                      FXR
+
+
+
+Mucosal                                                            TGR5                                              Tight
+intestinal                                                                                                           junctions
+barrier                                                                                                PXR
+                                                              DC                       ILC3
+        • Increase of                                                                                 AhR
+          tight junctions            Macrophage
+        • Epithelial
+          homeostasis                 Modulation of inflammation                       Enhance the                                   Dysbiosis and trans-
+        • HDAC Inhibition             through TGR5 signalling                          function of ILC3s                             location of microbiome
+
+
+
+                                           TNF, IL-1β and IL-6                                IL-22
+      HDAC
+
+                                                          ↓ TH17                                                             ↓                        ↑ TH1
+   Naive T cell        Treg cell             ↑                                     • Antimicrobial peptides                                           cell
+                                                           cell
+                                                                                   • Mucus production
+        Promotion of                                                               • Inhibition of activation        Inhibition of
+        immune regulation             Differentiation and stability                  of innate immune cells          immune regulation
+
+Fig. 3 | Microbiome-derived metabolites and immune interactions at the                  regulating bile acid transport. Additionally, TGR5 signalling limits inflammation
+intestinal barrier in health versus graft-versus-host disease. Representation           through suppression of pro-inflammatory cytokine production and maintenance of
+of the intestinal barrier in health and during graft-versus-host disease (GVHD),        mucosal homeostasis186. Amino acids, particularly tryptophan, are metabolized
+highlighting how dietary components shape microbial metabolites that in                 by bacteria such as Bacteroides, Lactobacillus reuteri and Eubacterium into
+turn regulate epithelial barrier integrity and immune homeostasis. In healthy           indole derivatives (for example, indole-3-propionic acid (IPA)) and aryl
+states, dietary fibre supports the growth of microbial taxa such as Blautia,            hydrocarbon receptor (AhR) ligands. These metabolites regulate the balance
+Clostridium and Faecalibacterium, which ferment fibre into short-chain fatty            between T helper 17 cells (TH17 cells) and regulatory T cells (Treg cells) and
+acids (SCFAs) including butyrate, propionate and succinate. These metabolites           enhance gut barrier function through activation of receptors including AhR,
+increase the protein production of epithelial tight junctions and immune                GPR35, hydroxycarboxylic acid receptor 2 (HCA2; also known as GPR109A) and
+tolerance via G-protein-coupled receptor (GPCR) signalling and inhibition               pregnane X receptor (PXR). Group 3 innate lymphoid cells (ILC3s), which reside
+of histone deacetylases (HDACs). Dietary fats contribute to the generation              in the gut mucosa, are activated by microbial metabolites, and contribute to
+of bile acid derivatives including ursodeoxycholic acid (UDCA), lithocholic             epithelial barrier repair and immune regulation by producing cytokines such
+acid (LCA), tauroursodeoxycholic acid (TUDCA) and hydroxymethylglutarate                as interleukin-22 (IL-22), which has a key role in barrier protection by inducing
+(HMG), through microbial metabolism performed by bacterial species such                 epithelial cell proliferation, stimulating goblet cells to secrete mucins and
+as Clostridium cluster XIVa and Ruminococcus. These metabolites activate the            upregulating antimicrobial peptide expression187. In GVHD, dysbiosis and
+farnesoid X receptor (FXR) and Takeda G-protein-coupled receptor 5 (TGR5),              impaired microbial metabolism result in reduced production of these protective
+found on epithelial cells, immune cells (such as macrophages) and enteric               metabolites, contributing to epithelial cell damage and immune dysregulation.
+neurons. Activation of these receptors modulates epithelial responses by                Pro-inflammatory cytokines such as tumour necrosis factor (TNF), IL-1β and IL-6
+enhancing barrier integrity, stimulating antimicrobial peptide secretion and            are upregulated, perpetuating tissue injury. DC, dendritic cell.
+
+
+
+
+the intestinal metabolic environment42. These findings are in line with                 effects of allo-HCT-induced dysbiosis in naive mice and investigated
+a reported positive association between exposure to the carbapenem                      whether colonic oxygen levels instead have a role in GVHD. Their find-
+imipenem–cilastatin and increased GVHD severity and expansion of the                    ings suggest that suppressing excess oxygen levels alleviates GVHD
+mucus-degrading bacterial species A. muciniphila as demonstrated in                     through both microbiome-dependent and microbiome-independent
+a mouse model of allo-HCT19. Selective microbiota-based interventions                   mechanisms. They first demonstrated that co-housing of untrans-
+or mucin-restoring diets could therefore mitigate GVHD-associated gut                   planted, healthy mice with mice that had undergone allo-HCT and
+damage in patients receiving allo-HCT and broad-spectrum antibiotics.                   showed dysbiosis and GVHD, or gavage of untransplanted, healthy mice
+     A study by Seike et al.68 suggests that dysbiosis is a consequence                 with the stool of these dysbiotic mice, did not result in gastrointestinal
+rather than a cause of GVHD. These investigators found no pathogenic                    damage, weight loss or immune alterations in the absence of allo-HCT,
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                              334
+

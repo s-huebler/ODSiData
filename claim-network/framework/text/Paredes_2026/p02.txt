@@ -1,0 +1,82 @@
+Review article
+
+
+Introduction                                                                           and degree of immunological mismatch) and institutional practice,
+Allogeneic haematopoietic cell transplantation (allo-HCT) is a                         approaches can vary but typically consist of pharmacological T cell sup-
+life-saving treatment for patients with haematological malignancies,                   pression via a calcineurin inhibitor (that is, cyclosporine or tacrolimus)
+which replaces a diseased bone marrow with healthy cells from a geneti-                combined with an antimetabolite (that is, mycophenolate mofetil or
+cally similar, but not identical, donor. A conditioning regimen admin-                 methotrexate). In addition, T cell depletion can be achieved in the graft
+istered before the haematopoietic cell infusion consisting of cytotoxic                prior to transplantation or afterwards using anti-thymocyte globulin or
+chemotherapy, sometimes combined with total body irradiation or                        post-transplant cyclophosphamide4. Despite these efforts, grade II–IV
+monoclonal antibodies, eradicates pathogenic cells. This process allows                aGVHD has a 6-month cumulative incidence of 35–46%5 and remains
+for the engraftment of donor haematopoietic cells, which rebuild the                   a major cause of mortality6. Grade I aGVHD is often untreated, with
+immune system by restoring haematopoiesis, offering a potential                        the exception of grade I skin aGVHD which can be treated with topical
+cure. Additionally, donor T cells elicit a graft-versus-tumour effect                  steroids. In other organs, the typical first-line treatment for grade II or
+by targeting any remaining disease-causing cells. However, allo-HCT                    higher aGVHD is systemic steroids4 or sirolimus, an immunosuppres-
+is often complicated by graft-versus-host disease (GVHD), in which                     sive mTOR inhibitor sometimes used off-label to avoid the use of ster-
+alloreactive donor T cells attack the host’s organs, primarily targeting               oids, and which exhibits non-inferiority from the steroid prednisone for
+the gastrointestinal tract, liver and skin (Fig. 1).                                   standard-risk aGVHD7. Approximately 50% of patients do not respond to
+      Acute GVHD (aGVHD) is graded from I through to IV (mild to very                  first-line therapy8 and receive second-line treatments such as the Janus
+severe), depending on the clinical presentation and organ-specific                     kinase 2 ( JAK2) inhibitor ruxolitinib4. However, a substantial number of
+laboratory findings1–3. GVHD prophylaxis is an integral part of allo-HCT               patients do not achieve a durable response even to second-line therapy,
+and needs to strike a balance between inhibiting donor T cells and                     emphasizing the unmet need for novel treatment approaches9,10.
+maintaining the graft-versus-tumour effect. Depending on transplant                          Early studies of GVHD pathology discovered the underlying driv-
+conditions (for example, the conditioning regimen, transplant source                   ing mechanism to be an excessive activation of donor T cells in response
+
+
+                     Conditioning phase                                       Allo-HCT                                             GVHD
+
+
+ • Total body
+   irradiation                                                                                                                                     Central nervous system
+ • Chemotherapy
+                                                    Stem cell
+ • Antibiotics and
+                                                    transplant
+   other drugs                                                                                                                                            Skin
+
+
+
+                                                                                                                                                          Thymus
+
+
+
+                                                                                                                                                          Liver
+
+
+
+                                                                                                                                                          Gastrointestinal
+                                                                                                                                                          tract
+
+
+                                                                                                                                                          Ovaries or testis
+
+
+                                                                                                                                                          Haematopoietic
+                                                                                                                                                          system
+
+                                                                                 Donor haematopoietic
+                                                                                 stem cell
+
+                     Epithelial cell damage
+
+                                                                   MHC     TCR                                                   Alloreactive
+                                              DC                                                                                 donor T cells
+                          Macrophage
+
+          • Dysbiosis      • Inflammation
+          • Metabolome     • Recruitment of                                          Activation of
+            shifts           antigen-presenting cells                                alloreactive T cells
+
+Fig. 1 | Allogeneic haematopoietic cell transplantation and graft-versus-host          drugs are potent inducers of microbial dysbiosis and shifts in the bacterial
+disease. Patients undergoing allogeneic haematopoietic cell transplantation            metabolome. Following this regimen, donor haematopoietic cells are infused
+(allo-HCT) are treated with a pre-transplant conditioning regimen consisting           into the patient. Graft-versus-host disease (GVHD) arises when alloreactive donor
+of chemotherapy, with or without total body irradiation and/or antibody-based          T cells target and damage host tissues, including the skin, liver, gastrointestinal
+therapies, to eradicate malignant cells and to allow for the engraftment of donor      tract, central nervous system, thymus, reproductive organs (ovaries or testes)
+haematopoietic cells. Several other drugs are routinely given to combat side           and haematopoietic system. DC, dendritic cell; MHC, major histocompatibility
+effects of the treatment, such as pain medication and antiemetics. Antibiotics         complex; TCR, T cell receptor.
+are administered prophylactically to prevent and to treat infections. All of these
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                               329
+

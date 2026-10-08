@@ -1,0 +1,11 @@
+page,has_figure,has_table,has_box,is_references,words
+1,False,False,False,False,722
+2,False,True,False,False,1063
+3,False,True,False,False,380
+4,False,True,False,False,712
+5,False,True,False,False,499
+6,False,False,False,False,1106
+7,False,False,False,False,1228
+8,False,False,False,True,1284
+9,False,False,False,True,1315
+10,False,False,False,True,745

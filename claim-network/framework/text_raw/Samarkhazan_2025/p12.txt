@@ -1,0 +1,107 @@
+Page 12 of 15 Soleimani Samarkhazan et al. Journal of Translational Medicine (2025) 23:832
+Blautia and high levels of pro‐inflammatory organisms
+like Enterobacteriaceae—are at increased risk for more
+severe GVHD and higher mortality following allo‐HSCT
+[106, 107].
+Moreover, recent predictive modeling work—using
+metagenome-wide association studies—has shown that
+pre‐transplant gut microbiota profiles can achieve mod-
+erate predictive accuracy (AUC~0.67) for GVHD risk,
+suggesting that such models could be integrated into
+clinical decision-making to customize prophylactic and
+therapeutic strategies [108]. Integrating high‐resolu-
+tion microbiome profiling into the transplant workflow
+opens the door for truly personalized microbiome‐based
+interventions that could improve GVHD outcomes by
+restoring a balanced gut ecosystem, tailoring dietary or
+probiotic strategies, and even selecting donors with a
+favorable microbial profile. This precision approach not
+only has the potential to reduce the incidence and sever-
+ity of GVHD but also to enhance overall survival in trans-
+plant patients.
+Global disparities in access to microbiota-based treat-
+ments, such as probiotics, prebiotics, and FMT, signifi-
+cantly impact the management of GVHD in allogeneic
+HSCT settings. While FMT has demonstrated an 82.4%
+response rate in steroid-refractory GVHD cases [104]and
+clinical trials for probiotics (e.g., Lactobacillus plantarum,
+NCT03057054) and prebiotics (e.g., galacto-oligosaccha-
+rides, NCT04373057) show promise, these interventions
+are predominantly available in high-resource regions due
+to high costs, specialized infrastructure requirements,
+and regulatory barriers. In low- and middle-income
+countries, patients often rely on conventional immu-
+nosuppressive therapies, which achieve only a 40–60%
+response rate [94]exacerbating inequities in transplant
+outcomes. Addressing these disparities requires the
+development of cost-effective, scalable solutions, such
+as locally produced probiotics or simplified FMT pro-
+tocols, alongside international efforts to standardize
+treatment guidelines and enhance access to microbiome-
+targeted therapies, thereby improving GVHD manage-
+ment globally.
+Conclusion
+The intricate interplay between the microbiome and
+immune system profoundly influences GVHD patho-
+genesis, offering novel therapeutic opportunities to
+reshape transplant outcomes. Dysbiosis in HSCT recipi-
+ents, driven by chemotherapy, radiation, and antibiot-
+ics, disrupts microbial metabolites critical for immune
+regulation, barrier integrity, and inflammatory control.
+Conversely, restoring microbial diversity through probi-
+otics, prebiotics, or FMT has shown potential to attenu-
+ate GVHD by rebalancing T-cell subsets, enhancing
+SCFA production, and curbing systemic inflammation.
+Despite promising preclinical and clinical data, chal-
+lenges persist—including safety concerns, variable
+efficacy of microbial interventions, and the need for stan-
+dardized protocols. Future research must prioritize large-
+scale trials to validate these approaches, refine predictive
+models using microbiome profiling, and develop per-
+sonalized therapies tailored to individual microbial and
+immune landscapes. By bridging microbial ecology with
+immunology, this evolving field holds transformative
+potential to mitigate GVHD severity, reduce non-relapse
+mortality, and enhance the success of allogeneic HSCT.
+The microbiome, once a neglected player, now stands at
+the forefront of precision medicine in transplantation.
+Acknowledgements
+Although the authors received no financial support, they would like to express
+their gratitude to the researchers whose articles were used in this study.
+Author contributions
+MHM, MA were involved in the conception of the study, data analysis,
+manuscript preparation, and monitoring. Moreover, SM, MM, MA, and HSS
+contributed to the search for relevant manuscripts and the preparation of the
+manuscript. MA, SM, and MHM contributed to the development of the search
+strategy, article search, and manuscript preparation. Finally, all the authors
+reviewed and approved the manuscript.
+Funding
+This research did not receive any financial support from public, commercial, or
+nonprofit organizations.
+Data availability
+The datasets used and/or analyzed during the current study are available from
+the corresponding author upon reasonable request.
+Declarations
+Ethics approval and consent to participate
+Not applicable.
+Consent for publication
+Not applicable.
+Competing interests
+The authors declare that they have no competing interests.
+Received: 10 May 2025 / Accepted: 24 June 2025
+References
+1. Torfi E, Bahreiny SS, Saki N, et al. Evaluation of Pro-BNP biomarker in heart
+failure patients and its relationship with complete blood count parameters: A
+case–control study. Health Sci Rep. 2024;7(9):e70083.
+2. Fredricks DN.The gut microbiota and graft-versus-host disease. J Clin Invest.
+2019;129(5):1808–17.
+3. Chang CC, Hayase E, Jenq RR.The role of microbiota in allogeneic hemato-
+poietic stem cell transplantation. Expert Opin BiolTher. 2021;21(8):1121–31.
+4. Oh B, Boyle F, Pavlakis N, et al. Emerging evidence of the gut Microbiome in
+chemotherapy: A clinical review. Front Oncol. 2021;11:706331.
+5. Henig I,Yehudai-Ofir D, ZuckermanT.The clinical role of the gut Microbiome
+and fecal microbiota transplantation in allogeneic stem cell transplantation.
+Haematologica. 2021;106(4):933–46.
+6. Ouyang J, Isnard S, Lin J et al.Treating from the inside out: relevance of fecal
+microbiota transplantation to counteract gut damage in GVHD and HIV
+infection. Front Med. 2020;Volume 7–2020.

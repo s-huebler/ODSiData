@@ -1,0 +1,35 @@
+                                                                                                       GUT MICROBES        3
+
+
+
+
+Figure 1. GvHD pathogenesis emphasizes the microbiota‒immune axis. This diagram augments the classic three-step
+model of GvHD pathophysiology proposed by Ferrara et al.: conditioning-induced epithelial injury, antigen presentation,
+and the donor T-cell response, within the context of microbiota exposure. (A) Phase I: tissue damage from conditioning
+releases uric acid, ATP, and other danger signals that, together with microbial-associated molecular patterns (MAMPs),
+activate host antigen-presenting cells (APCs), and inflammatory myeloid cells through TLR and NLRP3 signaling. (B) Phase
+II: activated APCs present both host alloantigen and microbial antigens, while microbial metabolites—including short-
+chain fatty acids (SCFAs), secondary bile acids, indole derivatives, and tryptophan catabolites—modulate the differentia-
+tion of Th1, Th17, and Treg subsets. (C) Phase III: tissue injury is amplified by ongoing microbial translocation and loss of
+epithelial barrier integrity, with mucous- and junction-degrading taxa further promoting inflammation. The outer ring
+(light blue) highlights representative microbial functions that modulate each phase, including SCFA producers that
+support epithelial integrity and promote Treg expansion along with secondary bile acids, tryptophan-metabolizing
+bacteria that induce IL-22 via AhR, mucin-degrading organisms that weaken the epithelial barrier, and MHC class
+II–inducing taxa that enhance antigen presentation. Green arrows denote pathways associated with protection from
+GvHD, while red arrows indicate mechanisms that exacerbate disease. Adapted from Ferrara et al. (28).
+
+the ability for neutrophils to migrate to mesenteric lymph nodes (mLNs) and activate CD4 T cells in a
+MHCII-peptide dependent manner.44
+   Exposure to MAMPs during the conditioning phase of HSCT provided the initial biological insight for
+how microbial decontamination resulted in decreased GvHD risk. While there is strong evidence that this
+pathway plays a critical role in GvHD initiation, total sterilization, while compelling in theory, remains
+impractical. A modern understanding of the GI microbiota also suggests that protective factors attributed
+to specific bacterial taxa would be lost to broad decontamination. Nonetheless, in the absence of mitigating
+factors, MAMP exposure offers a clear pathway to explain why domination of certain pathobionts, such as
+Escherichia coli may aggravate GvHD.
+
+
+Phase 2: adaptive immunity—how microbes shape the donor T-cell response
+While the classic GvHD paradigm emphasizes genetic mismatch (either major or minor antigen differ-
+ences between donor and host) as the source of donor T-cell reactivity, this underestimates the potential
+

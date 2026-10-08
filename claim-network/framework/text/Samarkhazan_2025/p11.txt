@@ -1,0 +1,62 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine               (2025) 23:832                                                      Page 11 of 15
+
+
+
+
+Table 5 Microbiota-Based therapeutic interventions for GVHD. Outlines probiotics, prebiotics, FMT, and personalized therapies,
+highlighting their benefits, supporting evidence, and challenges
+Intervention      Potential Benefits                           Key Evidence                                           Challenges
+Probiotics        Restores gut balance, enhances               - Synbiotics induced Tregs, reduced aGVHD              Safety risks (e.g., sepsis), inconsistent
+                  barrier function, reduces aGVHD              - L. plantarum safe in kids                            outcomes, strain-specific effects,
+                  incidence/severity                           - B. fragilis, L. rhamnosus GG reduced GVHD in mice.   colonization issues.
+Prebiotics        Promotes beneficial bacteria, increas-       - GOS prevented gut injury, boosted SCFAs in mice      Depends on intact microbiome, po-
+                  es SCFAs, reduces GVHD severity              - GOS reduced GVHD in models.                          tential adverse effects (e.g., lactose
+                                                                                                                      reducing diversity).
+Fecal Microbio-   Restores diversity, effective for steroid-   − 82.4% response rate in meta-analysis                 Recurrence, mortality risks, donor
+ta Transplanta-   refractory GVHD, reduces aGVHD               - Ameliorated intestinal GVHD                          selection, standardization, long-term
+tion (FMT)        incidence                                    - Prophylactic FMT safe, effective                     safety concerns.
+Personalized      Predicts GVHD risk, tailors interven-        - Pre-transplant microbiome profiles predict GVHD      Requires further validation, complex-
+Therapies         tions for better outcomes                    risk                                                   ity in profiling and implementation.
+
+
+and five case reports, revealing a complete remission                              safety, and establish standardized treatment protocols
+(CR) rate of 55.9% and a partial remission (PR) rate of                            that can be reliably integrated into clinical practice.
+26.5%, culminating in an overall response rate of 82.4%.
+Importantly, the treatment was associated with low mor-                            Challenges and future directions
+tality and predominantly mild adverse effects, under-                              Despite promising preliminary data, several challenges
+scoring its potential efficacy and safety profile [104].                           and limitations remain for microbiota-targeting strat-
+Individual studies have further substantiated these find-                          egies in GVHD prevention and treatment. Probiotic
+ings. For instance, Weber et al. reported that donor FMT                           approaches face significant hurdles including strain-
+ameliorated intestinal GVHD in allogeneic hematopoi-                               specific efficacy, difficulties in ensuring adequate colo-
+etic cell transplant recipients, highlighting its therapeutic                      nization, and safety concerns in immunocompromised
+potential [105].                                                                   patients. For instance, while certain strains have shown
+  However, challenges persist, including the recurrence                            the ability to modulate immune responses and enhance
+of symptoms and mortality from causes such as hepatic                              barrier function in preclinical models, clinical trials have
+GVHD and septic shock. These underscore the neces-                                 yielded inconsistent outcomes and raised issues such as
+sity for careful patient selection and monitoring during                           the risk of bacteremia and low survival of ingested organ-
+FMT therapy. Notably, a randomized, double-blind, pla-                             isms in the harsh gastrointestinal environment. More-
+cebo-controlled trial published in Nature Communica-                               over, the complexity of the gut ecosystem means that
+tions (2025) evaluated the prophylactic use of FMT early                           simply adding a few strains may not restore a balanced
+after alloHCT to prevent acute GVHD. The study dem-                                microbiome in the setting of profound dysbiosis.
+onstrated that FMT was feasible and safe, with potential                              Prebiotics similarly depend on the presence of a rela-
+benefits in reducing GVHD incidence, thereby suggesting                            tively intact microbial community to stimulate the
+a role for FMT not only as a therapeutic intervention but                          growth of beneficial bacteria and produce key metabo-
+also as a preventive strategy [47].                                                lites like short-chain fatty acids. In patients with severely
+  Collectively, emerging evidence suggests that inter-                             disrupted microbiota, prebiotics may have diminished
+ventions targeting the gut microbiota—whether through                              effects or even adverse consequences—such as certain
+probiotics, prebiotics, or fecal microbiota transplanta-                           carbohydrates inadvertently reducing microbial diversity
+tion—hold considerable promise for mitigating graft-                               or exacerbating inflammation. FMT has demonstrated
+versus-host disease. Probiotics may enhance intestinal                             encouraging response rates, particularly in steroid-refrac-
+barrier function and modulate immune responses, while                              tory GVHD, yet it is constrained by issues of donor selec-
+prebiotics support the growth of beneficial bacteria and                           tion, standardization of protocols, and long-term safety
+the production of short-chain fatty acids, both of which                           data. Heterogeneity among studies, potential transmis-
+contribute to a healthier microbial environment. Fecal                             sion of pathogens, and regulatory uncertainties further
+microbiota transplantation, in particular, has demon-                              complicate the clinical application of FMT (Table 5).
+strated high response rates in refractory cases by restor-                            Personalized microbiome-based therapies for GVHD
+ing microbial diversity and promoting gastrointestinal                             represent a promising frontier that leverages each
+healing. Despite these encouraging findings from pre-                              patient’s unique gut microbial signature to predict, pre-
+clinical studies, pilot trials, and meta-analyses, further                         vent, and even treat graft‐versus‐host disease. Research
+large-scale, controlled clinical investigations are essential                      has consistently shown that patients with reduced micro-
+to determine optimal dosing strategies, ensure long-term                           bial diversity or an imbalanced community—character-
+                                                                                   ized, for example, by low levels of beneficial taxa such as
+

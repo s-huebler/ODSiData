@@ -1,0 +1,54 @@
+                                                                          D. Weber et al.
+394
+      81. Taur Y, Coyte K, Schluter J, Robilotti E, Figueroa C, Gjonbalaj M et al. Recon-      93. Bachem A, Makhlouf C, Binger KJ, de Souza DP, Tull D, Hochheiser K, et al.
+          stitution of the gut microbiota of antibiotic-treated patients by autologous fecal       Microbiota-Derived Short-Chain Fatty Acids Promote the Memory Potential of
+          microbiota transplant. Sci Transl Med 2018; 10.https://doi.org/10.1126/                  Antigen-Activated CD8(+) T Cells. Immunity. 2019;51:285–.e285. https://doi.org/
+          scitranslmed.aap9489                                                                     10.1016/j.immuni.2019.06.002.
+      82. Malard F, Vekhoff A, Lapusan S, Isnard F, D’incan-Corda E, Rey J, et al. Gut         94. Wu X, Gu B, Yang H. The role of γδ T cells in the interaction between commensal
+          microbiota diversity after autologous fecal microbiota transfer in acute myeloid         and pathogenic bacteria in the intestinal mucosa. Int Rev Immunol.
+          leukemia patients. Nature Commun. 2021;12:3084. https://doi.org/10.1038/                 2023;42:379–92. https://doi.org/10.1080/08830185.2022.2076846.
+          s41467-021-23376-6.                                                                  95. Iwamura C, Bouladoux N, Belkaid Y, Sher A, Jankovic D. Sensing of the microbiota
+      83. Rashidi A, Ebadi M, Rehman TU, Elhusseini H, Kazadi D, Halaweish H, et al. Ran-          by NOD1 in mesenchymal stromal cells regulates murine hematopoiesis. Blood.
+          domized Double-Blind Phase II Trial of Fecal Microbiota Transplantation Versus           2017;129:171–6. https://doi.org/10.1182/blood-2016-06-723742.
+          Placebo in Allogeneic Hematopoietic Cell Transplantation and AML. J Clin Oncol.      96. Staffas A, Burgos da Silva M, Slingerland AE, Lazrak A, Bare CJ, Holman CD, et al.
+          2023;41:5306–19. https://doi.org/10.1200/jco.22.02366.                                   Nutritional Support from the Intestinal Microbiota Improves Hematopoietic
+      84. Ponce DM, Kosuri S, Khera N, Murthy HS, Fredricks DN, Sandhu KS, et al. Safety           Reconstitution after Bone Marrow Transplantation in Mice. Cell host & microbe.
+          and Efﬁcacy Results from a Randomized, Double-Blind, Placebo-Controlled                  2018;23:447–57.e444. https://doi.org/10.1016/j.chom.2018.03.002.
+          Cohort 2 of a Phase 1b Study of an Investigational Live Biotherapeutic, SER-155,     97. Miltiadous O, Waters NR, Andrlová H, Dai A, Nguyen CL, Burgos da Silva M, et al.
+          in Adults Undergoing Allo-HCT. Transpl Cell Therapy. 2025;31:S86 https://doi.org/        Early intestinal microbial features are associated with CD4 T-cell recovery after
+          10.1016/j.jtct.2025.01.139.                                                              allogeneic hematopoietic transplant. Blood. 2022;139:2758–69. https://doi.org/
+      85. DeFilipp Z, Bloom PP, Torres Soto M, Mansour MK, Sater MRA, Huntley MH, et al.           10.1182/blood.2021014255.
+          Drug-Resistant E. coli Bacteremia Transmitted by Fecal Microbiota Transplant. N
+          Engl J Med. 2019;381:2043–50. https://doi.org/10.1056/NEJMoa1910437.
+      86. Keller JJ, Ooijevaar RE, Hvas CL, Terveer EM, Lieberknecht SC, Högenauer C, et al.   AUTHOR CONTRIBUTIONS
+          A standardised model for stool banking for faecal microbiota transplantation: a      DW, MT, MH, HP and FM wrote, provided critical review, editorial comments, and ﬁnal
+          consensus report from a multidisciplinary UEG working group. United Eur Gas-         approval of the manuscript.
+          troenterol J. 2021;9:229–47. https://doi.org/10.1177/2050640620967898.
+      87. Malard F, Holler E, Peric Z, Mehra V, Duarte R, Sanz J, et al. Microbiotherapy and
+          fecal microbiota transplantation in hematology-oncology: a European clinical
+          perspective to navigate the evolving regulatory framework and the emergence          COMPETING INTERESTS
+          of a new therapeutic class. Bone Marrow Transpl. 2025.                               FM reports lecture honoraria from Therakos/Mallinckrodt, BMS, MSD, Sanoﬁ, Novartis,
+      88. Salminen S, Collado MC, Endo A, Hill C, Lebeer S, Quigley EMM, et al. The            Astra Zeneca and JAZZ Pharmaceuticals, all outside the submitted work. HP, MT, DW
+          International Scientiﬁc Association of Probiotics and Prebiotics (ISAPP) consensus   and MDH have no conﬂict of interest related to this work.
+          statement on the deﬁnition and scope of postbiotics. Nature Rev Gastroenterol
+          Hepatol. 2021;18:649–67. https://doi.org/10.1038/s41575-021-00440-6.
+      89. Kim KH, Yoon SY, Won J-H. Prevension of Acute Graft-Versus-Host Disease and          ADDITIONAL INFORMATION
+          Restoration of Gut Microbiome Diversity Via Butyrate Administration in Allo-         Correspondence and requests for materials should be addressed to Florent Malard.
+          geneic Hematopoietic Stem Cell Transplantation. Transpl Cellular Therapy.
+          2025;31:S281–S282. https://doi.org/10.1016/j.jtct.2025.01.430.                       Reprints and permission information is available at http://www.nature.com/
+      90. Hou K, Wu Z-X, Chen X-Y, Wang J-Q, Zhang D, Xiao C, et al. Microbiota in health      reprints
+          and diseases. Signal Transduction and Targeted Therapy. 2022;7:135 https://
+          doi.org/10.1038/s41392-022-00974-4.                                                  Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims
+      91. Routy B, Le Chatelier E, Derosa L, Duong CPM, Alou MT, Daillere R, et al. Gut        in published maps and institutional afﬁliations.
+          microbiome inﬂuences efﬁcacy of PD-1-based immunotherapy against epithelial
+          tumors. Science (New York, N.Y.). 2018;359:91–97. https://doi.org/10.1126/
+          science.aan3706.                                                                     Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to
+      92. Yoo JY, Groer M, Dutra SVO, Sarkar A, McSkimming DI Gut Microbiota and               this article under a publishing agreement with the author(s) or other rightsholder(s);
+          Immune System Interactions. Microorganisms 2020; 8; https://doi.org/10.3390/         author self-archiving of the accepted manuscript version of this article is solely
+          microorganisms8101587                                                                governed by the terms of such publishing agreement and applicable law.
+
+
+
+
+                                                                                                                            Bone Marrow Transplantation (2026) 61:385 – 394
+

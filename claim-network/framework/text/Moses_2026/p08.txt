@@ -1,0 +1,57 @@
+                                                                                           GUT MICROBES       7
+
+
+for community-based microbial reconstitution. This approach forms the cornerstone of modern micro-
+biota therapeutics that replace or augment “beneficial” bacterial ecosystems via defined bacterial consortia,
+third party/healthy donor fecal microbiota transplantation, and pre/postbiotic therapies.
+
+
+The evolution of interventional approaches targeting the gut microbiota in GvHD
+As recent reviews have already discussed many of the key observational and interventional studies in the
+field,70,71,77-79 we focus on integrating findings in the broader context and presents three main types of
+interventions that have evolved over time: 1) decontamination strategies, 2) pre/postbiotic usage, and 3)
+ecosystem restoration (Figure 3). Some of the key challenges, particularly over the previous decade, include
+the lack of prospective studies and reliance on retrospective observations, relatively small sample sizes for
+interventional studies, and heterogeneity in treatment approaches even within the same interventional
+category. Notably, over the past several decades, there has been a shift from decontamination approaches,
+including antibiotic regimens, towards augmenting or replacing the commensal ecosystem following
+transplant (Figure 3, pre/postbiotics and FMT). We discuss the main ideas driving this shift below.
+
+
+Part 1: microbial decontamination
+Initial studies that demonstrated reduced GvHD risk in germ-free animal models3,4 naturally led to the
+adoption of decontamination strategies to improve GvHD outcomes. Strict protocols employing tech-
+niques such as laminar and reverse flow isolation rooms, sterilized food, broad-spectrum nonabsorbable
+oral antibiotics, and skin cleansing in the peritransplant window did appear to reduce but did not
+eliminate acute GvHD and infectious risk.5-7,80,81 Targeted cultures demonstrated effective, but not always
+complete microbial suppression.80 Decontamination in the clinical setting proved significantly more
+difficult to achieve compared to the preclinical setting, and antibiotic usage, particularly those with
+broad anaerobic activity, such as piperacillin/tazobactam and carbapenems, was also observed to paradox-
+ically increase GvHD risk,16,82-84 questioning the wisdom of this approach. Further improvement in
+bacterial classification via identification with 16S rRNA sequencing led to the realization that commensal
+anaerobes, which were previously difficult to isolate, were associated with reduced GvHD mortality.12
+Bacterial diversity, which closely reflects the collective state of commensal anaerobes and is susceptible to
+broad antibiotic exposure, was often adopted as a surrogate clinical endpoint owing to the correlation
+between lower diversity, unfavorable GvHD outcomes, and expansion of pathobionts such as Enterococcus
+and Escherichia.14
+   The use of selective antibiotics outside of standard gram-negative prophylaxis may be beneficial for
+GvHD outcomes but has not been conclusively proven. For example, in a retrospective study of 394
+consecutively treated patients, rifaximin, when used for gut decontamination starting 8 days before
+transplant and continuing until 14 days after engraftment, correlated with lower enterococcal positivity,
+higher urinary 3-indoxyl sulfate associated with commensal bacteria, and lower 1-year transplant related
+mortality compared to ciprofloxacin/metronidazole.19 However, rifaximin has also been shown to breed
+resistant enterococcal species,85 and a recent prospective study enrolling 38 patients comparing rifaximin
+vs. ciprofloxacin for neutropenic prophylaxis did not demonstrate statistical difference in the incidence of
+grade 2+ aGvHD (rifaximin 44.4% vs. 60%).86 Overall, antibiotic usage to improve GvHD outcomes has
+been controversial, and current practices have shifted toward selectively using broad-spectrum antibiotics
+only when necessary for infectious risk, with preservation of microbial diversity and beneficial commensal
+anaerobes being key arguments for antibiotic stewardship. Approaches to reduce GvHD risk have
+subsequently focused onselective restoration of a beneficial microbial ecosystem (Figure 3).
+
+
+Part 2: pre/probiotics
+The fermentation of commensal anaerobes with prebiotics (oral substrates that selectively promote beneficial
+commensal organisms) or direct delivery of favorable bacterial strains (probiotics) has been explored over the
+past decade as an alternative approach to antibiotics (Figure 3). Small studies have shown that preservation of
+mucosal integrity, microbial diversity, and luminal SCFA content may be achieved through enteral
+

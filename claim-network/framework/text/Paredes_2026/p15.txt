@@ -1,0 +1,64 @@
+                                                         Table 2 (continued) | Select, published and ongoing clinical trials investigating microbiota-centred interventions to improve graft-versus-host
+                                                         disease-related outcomes after allogeneic haematopoietic cell transplantation
+
+                                                         Intervention Status of      Clinical trial title            Specific intervention       No. of     No. of   Clinical trial   Primary outcome     Results   Phase   Clinical trial   Ref.
+                                                         type         clinical trial                                                             patients   control design                                                  identifier
+                                                                                                                                                 treated    patients
+                                                         FMT            Recruiting    ‘Efficacy and safety           Autologous FMT in           NA         NA        Prospective,    GVHD incidence      NA        I/II    NCT04745221      172
+                                                                                      of autologous FMT in           patients undergoing                              randomized,     and severity
+                                                                                      preventing acute GVHD’         allo-HCT                                         placebo-
+                                                                                                                                                                      controlled,
+                                                                                                                                                                      open label
+                                                                                                                                                                                                                                                    Review article
+                                                         FMT            Recruiting    ‘FMT in patients with          FMT in patients with        NA         NA        Prospective,    Sustained           NA        III     NCT03819803      173
+                                                                                      acute gastrointestinal         steroid-refractory                               single arm,     remission of
+                                                                                      graft-versus-host-disease      gastrointestinal GVHD                            open label      gastrointestinal
+                                                                                      after allogeneic stem cell                                                                      aGVHD
+                                                                                      transplantation’
+                                                         FMT            Recruiting    ‘FMT after allogeneic          FMT vs no treatment         NA         NA        Prospective,    GVHD incidence        NA      II      NCT04935684      174
+                                                                                      stem cell transplantation’     after allo-HCT                                   randomized,     and relapse-free
+                                                                                                                                                                      open label      survival 1 year after
+                                                                                                                                                                                      allo-HCT
+                                                         FMT            Active, not   ‘Autologous FMT                Auto-FMT vs no              NA         NA        Prospective,    C. difficile          NA      II      NCT02269150      175
+                                                                        recruiting    (Auto-FMT) for prophylaxis     treatment after allo-HCT                         randomized,     infection
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350
+
+
+
+                                                                                      of Clostridium difficile                                                        open label
+                                                                                      infection in recipients of
+                                                                                      allogeneic hematopoietic
+                                                                                      stem cell transplantation’
+                                                         FMT and diet Recruiting      ‘FMT and dietary fibre         FMT via oral or enteral     NA         NA        Prospective,    Gut microbiome      NA        I       NCT05067595      125
+                                                                                      supplementation for the        administration with                              randomized,     composition,
+                                                                                      treatment of gut GVHD’         or without fibre                                 open label      adverse effects
+                                                                                                                     supplementation
+                                                         Nutrition      Recruiting    ‘Dietary manipulation of the   Starch vs placebo in        NA         NA        Prospective,    Incidence of        NA        II      NCT02763033      124
+                                                                                      microbiome-metabolomic         patients undergoing                              randomized,     grade II–IV GVHD
+                                                                                      axis for mitigating GVHD in    allo-HCT                                         single-blind,
+                                                                                      patients undergoing                                                             placebo-
+                                                                                      allo-HCT’                                                                       controlled
+                                                         Nutrition      Active, not   ‘High dose vitamin A in        Vitamin A vs no             NA         NA        Prospective,    Adequate            NA        I       NCT03719092      176
+                                                                        recruiting    preventing gastrointestinal    treatment in patients                            non-            vitamin A serum
+                                                                                      GVHD in participants           undergoing allo-HCT                              randomized,     levels without
+                                                                                      undergoing donor stem cell                                                      open label      dose-limiting
+                                                                                      transplant’                                                                                     toxicity
+                                                         Nutrition      Active, not   ‘Impact of resistance          Supervised resistance       NA         NA        Prospective,    Change in           NA        NA        NCT05111834    177
+                                                                        recruiting    exercise and nutritional       training plus nutritional                        randomized,     physical                      (behav­
+                                                                                      endorsement on GVHD            endorsement vs                                   open label      performance                   ioural
+                                                                                      symptoms (IRENE-G)’            nutritional endorsement                                          from baseline to              inter­
+                                                                                                                     only in patients with                                            week 24                       ven­tion)
+                                                                                                                     steroid-treated GVHD
+                                                         Prebiotics     Recruiting    ‘Prebiotic                     GOS vs placebo in           NA         NA        Prospective,    Maximal tolerated NA          I/II    NCT04373057      178
+                                                                                      galacto-oligosaccharide        patients undergoing                              randomized,     dose of GOS,
+                                                                                      (GOS) and acute GVHD’          allo-HCT                                         double blind,   incidence of grade
+                                                                                                                                                                      placebo-        I–IV GVHD
+                                                                                                                                                                      controlled
+                                                         Prebiotics     Completed     ‘Oral supplementation of       2FL vs placebo in           NA         NA        Prospective,    Bloodstream         NA        I/II    NCT04263597      179
+                                                                                      2′-fucosyllactose (2FL) in     paediatric patients                              single arm,     infections, number
+                                                                                      allogeneic bone marrow         undergoing allo-HCT                              open label      of patients able to
+                                                                                      transplant recipients’                                                                          take 2FL, change
+                                                                                                                                                                                      in faecal levels of
+                                                                                                                                                                                      butyrate, acetate
+342                                                                                                                                                                                   and propionate
+

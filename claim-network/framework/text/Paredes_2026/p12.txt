@@ -1,0 +1,78 @@
+Review article
+
+
+Table 1 | Microbiome-derived metabolites associated with allogeneic hematopoietic cell transplantation
+
+ Microbial-derived     Bacterial taxa      Substrates       Mechanisms of          Therapeutic potential            Select interventions in the USA,                 Refs.
+ metabolite                                                 action                                                  all diseases includeda
+
+ SCFAs                 Faecalibacterium    Dietary fibre    Bind to GPCRs,         Anti-inflammatory effects,       ‘Mechanisms of Preventing Antibiotic-              40
+                       prausnitzii,                         such as GPR43          maintenance of gut barrier       Associated Diarrhoea and the Role for
+                       Bifidobacterium,                                            integrity                        Probiotics (YOBIOTIC)’ (NCT03755765);
+                       Ruminococcus                                                                                 ‘Mechanisms of Probiotics and Antibiotic-
+                                                                                                                    Associated Diarrhoea (OURBIOTIC)’
+                                                                                                                    (NCT04414722); ‘Inulin for Infections in
+                                                                                                                    the Intensive Care Unit’ (NCT03865706);
+                                                                                                                    ‘The Influence of Physical Activity on
+                                                                                                                    the Gut Microbiome of Pre-Diabetic
+                                                                                                                    Adults’ (NCT04931836); ‘Effect of Spice
+                                                                                                                    Consumption on the Microbiome’
+                                                                                                                    (NCT03676803)
+ Butyrate or butyric   F. prausnitzii,     Dietary fibre,   Stimulates mucosal     Maintenance of gut barrier   ‘Gut Butyrate and Blood Pressure in                 39–41
+ acid                  Roseburia           resistant        healing; inhibits      integrity and function,      African Americans’ (NCT04415333)
+                       hominis,            starch           HDACs                  immune modulation, such
+                       Eubacterium                                                 as promotion of Treg cell
+                       rectale                                                     differentiation, enhancement
+                                                                                   of microbial diversity,
+                                                                                   reduced production of pro-
+                                                                                   inflammatory cytokines,
+                                                                                   and promotion of anti-
+                                                                                   inflammatory pathways
+ Propionate            Bacteroides       Dietary fibre      Inhibits pro-          Immune regulation,               ‘Cardiometabolic Benefits of Potatoes          33,100
+                       thetaiotaomicron,                    inflammatory           inflammation reduction           Mediated Along the Gut-Vessel Axis
+                       Propionibacterium                    cytokine release                                        in Adults With Metabolic Syndrome’
+                       freudenreichii                       and modulates                                           (NCT03624569)
+                                                            gut immune
+                                                            environment
+ Bile acids:           Clostridium spp.,   Cholesterol      Interacts with        Regulation of T cell              ‘Ox Bile-Conjugated Bile Acids                    103
+ taurocholic acid      Bacteroides spp.                     FXR receptors,        activation and cytokine           Sodium in Type II Diabetes Mellitus’
+ and deoxycholic                                            controlling cytokine production                         (NCT02871882); ‘Characterization
+ acid (DCA)                                                 production and                                          of Bile Acid Pathway in Obesity’
+                                                            immune responses;                                       (NCT03341052); ‘Thyroid Hormones
+                                                            dysbiosis alters bile                                   Homeostasis and Energy Metabolism
+                                                            acid metabolism,                                        Changes During Stimulation of
+                                                            promoting                                               Endogenously Secreted Bile Acids’
+                                                            inflammation                                            (NCT00706381)
+ Secondary bile        Clostridium         Primary bile     Modulates FXR and      Inflammation reduction and       ‘Effect of Heavy Alcohol Consumption           100,101
+ acids (SBAs)          scindens,           acids            TGR5 signalling        improved epithelial barrier      on Farnesoid X Receptor (FXR)
+                       Ruminococcus                                                function                         Signalling’ (NCT02654236)
+                       gnavus,
+                       Eubacterium spp.
+ Tauroursode­          Clostridium,        Primary bile     Activates FXR and      Suppression of the release of    ‘A Trial of Bile Acid Supplementation          101,102
+ oxycholic acid        Bacteroides         acids            TGR5 to reduce         pro-inflammatory cytokines,      in Patients With Multiple Sclerosis’
+ (TUDCA)                                                    endoplasmic            enhanced epithelial barrier      (NCT03423121); ‘Doxycycline and
+                                                            reticulum stress       integrity; FDA approved for      TUDCA in Patients With Transthyretin
+                                                                                   liver diseases                   Amyloid Cardiomyopathy’
+                                                                                                                    (NCT01855360); ‘Tauroursodeoxycholic
+                                                                                                                    Acid for Protease-inhibitor Associated
+                                                                                                                    Insulin Resistance’ (NCT01877551)
+ Ursodeoxycholic       Clostridium         Primary bile     Restores bile acid     Reduced production of            ‘Clinical Studies on Bile Acids in Barrett’s      102
+ acid (UDCA)           cluster XIVa        acids            balance                pro-inflammatory cytokines,      Oesophagus’ (NCT00858858); ‘Ursodiol
+                       (for example,                                               gut epithelial barrier repair;   on Insulin Sensitivity, Gastric Emptying
+                       Clostridium                                                 FDA approved for liver           and Body Weight With Type 2 Diabetes
+                       leptum,                                                     diseases                         on Metformin’ (NCT02033876);
+                       Clostridium                                                                                  ‘C. difficile and Ursodiol’ (NCT02748616);
+                       coccoides)                                                                                   ‘Phase 2 Study to Evaluate LUM001 in
+                                                                                                                    Combination With Ursodeoxycholic
+                                                                                                                    Acid in Patients With Primary Biliary
+                                                                                                                    Cirrhosis (CLARITY)’ (NCT01904058)
+ Lithocholic acid      Clostridium         CDCA             Acts through FXR to    Anti-inflammatory                NA                                                102
+ (LCA)                                                      reduce T cell-driven   properties, reduction of
+                                                            inflammation and       pro-inflammatory T cell
+                                                            promote immune         activity
+                                                            homeostasis
+
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                                339
+

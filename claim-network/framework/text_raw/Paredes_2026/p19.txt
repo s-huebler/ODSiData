@@ -1,0 +1,141 @@
+NatureReviewsCancer|Volume26|May2026|328–350 346
+Reviewarticle
+andSBAsbyday28.Bycontrast,non-respondershadhigherlevelsof
+pathogenicpro-inflammatorybacteriaandincreasedlevelsofsystemic
+inflammatorymarkers.However,severeinfectiouscomplications,
+includingsepsis,wereobservedinfivepatients.Bacteriafromthedonor
+productwerenotdetectedinanyofthesecases,leavingtheconnection
+totheinterventionuncertain.Furthermore,theprospectivecohort
+showedloweroverallsurvival(28%at6months)comparedwithboth
+theexpandedaccessprogrammegroup(49%)andsurvivalestimates
+obtainedfromananalysisof25studiesonsecond-linetreatmentfor
+steroid-refractoryaGVHD(49%weightedaverage6-monthoverallsur-
+vival)167
+.ThisdiscrepancyislikelyduetotheHERACLEStrialenrollinga
+particularlyhigh-riskpopulationwithseveregastrointestinalinvolve-
+mentandhigh-riskprognosticscores,whereastheexpandedaccess
+programmeincludedsomepatientswithlessseverediseaseandmay
+havebenefitedfromdelayedeffectsofpriortreatmentssuchasruxoli-
+tinib.Followingtheseencouragingresults,aphaseIII,single-armtrial
+wasconductedacross50sitesinEurope(ARES(NCT04769895)168
+),eval-
+uatingtheefficacyofMaaT013in66patientswithsteroid-refractory
+andruxolitinib-refractorygastrointestinalaGVHD.Thefindingshave
+notyetbeenpeerreviewedbut,accordingtoanabstractpresented
+atthe2025annualmeetingoftheAmericanSocietyofHematology,
+theprimaryend-pointofthestudywasmet,withagastrointestinal
+overallresponserateatday28of62%.Furthermore,12-monthoverall
+survivalwassignificantlyhigherinrespondersversusnon-responders
+(67%versus28%,P<0.0001)169
+.
+Conclusionandfutureperspectives
+Substantialprogresshasbeenmadeinrecentyearstowardsunder-
+standingtheroleoftheintestinalmicrobiotainoutcomesfollowing
+allo-HCT,andinparticularitsinfluenceonGVHDpathogenesis,meta-
+bolichomeostasisandimmuneregulation.Theintestinalmetabolome
+hasemergedasacentralmediatorinthisprocess,withdistinctmetabo-
+lomicshiftslinkedtoGVHDdevelopment.Together,thesefindings
+offerpromisingavenuesfornoveltherapeuticinterventionsthattarget
+themicrobiomeanditsmetabolicoutputs.Althoughthereisgrowing
+enthusiasmforsuchmicrobiota-targetedstrategies,thecurrentbody
+ofevidenceremainscomplexand,attimes,contradictory.Although
+severalstudieshavereportedassociationsbetweenmicrobialdiversity,
+targetedinterventionsandaGVHD-relatedoutcomes,notallfindings
+havebeenconsistent.Thesediscrepancieshighlighttheneedfora
+morenuancedunderstandingofcausalityandeffectsize,aswellas
+theclinicalrelevanceofmicrobiotamodulation.
+Nonetheless, the field is advancing rapidly. Emerging interven-
+tions such as FMT and microbiota-based consortia therapies show
+promise,althoughtheirclinicalapplicationremainsintheearlystages.
+Importantly,severalclinicaltrialsareunderwayandexpectedtoreport
+resultsthatwillelucidatethetherapeuticpotentialoftheseapproaches.
+Futuremulticentrestudiesincorporatingadvancedmetagenomicand
+metabolomicanalyseswillalsobeessentialtoprospectivelycharacter-
+izemicrobiotadynamicsandmetaboliteprofilesduringallo-HCTand
+GVHD.Inparallel,mechanisticstudiesareneededtofurtherelucidate
+howthemicrobiomeinfluencesimmuneresponsesandtissuehomeo-
+stasis.Theseeffortswillpavethewayforthedevelopmentofpredic-
+tivebiomarkersandpersonalized,microbiota-modulatingtherapies.
+Althoughchallengesremain,weareoptimisticthatmicrobiota-centred
+interventionswillultimatelybecomeanintegralpartofclinicalpractice
+inallo-HCT.
+Published online: 26 February 2026
+References
+1. Zeiser,R.& Blazar,B.R.Acutegraft-versus-host disease—biologicprocess, prevention,
+and therapy.N.Engl.J.Med. 377,2167–2179(2017).
+2. Kean,L.S.&Blazar,B.R.Major breakthroughs inhematopoieticstem celltransplantation
+and futurechallengesinclinical implementation.J.Clin.Invest. 134,e179944 (2024).
+3. Malard,F.,Holler,E.,Sandmaier,B.M.,Huang,H.& Mohty,M.Acutegraft-versus-host
+disease. Nat.Rev.Dis.Primers 9,27 (2023).
+4. Penack,O.et al.Prophylaxis and management ofgraft-versus-host disease after
+stem-cell transplantationfor haematological malignancies:updated consensus
+recommendationsoftheEuropeanSociety for Blood and MarrowTransplantation.
+Lancet Haematol. 11,e147–e159(2024).
+5. Saliba,R.M.et al.Characteristics ofgraft-versus-host disease(GvHD)after post-
+transplantation cyclophosphamide versus conventional GvHD prophylaxis.
+Transplant.Cell.Ther. 28,681–693(2022).
+6. Greinix,H.T.et al.Improved outcomeofpatients withgraft-versus-hostdiseaseafter
+allogeneichematopoieticcell transplantationfor hematologicmalignancies over time:
+anEBMT mega-filestudy.Haematologica 107,1054–1063(2022).
+7. Pidala,J.et al.Randomized multicenter trial ofsirolimus vs prednisoneas initialtherapy
+for standard-riskacuteGVHD:theBMT CTN 1501trial.Blood 135,97–107 (2020).
+8. Westin,J.R.etal.Steroid-refractoryacuteGVHD:predictorsandoutcomes.Adv.Hematol.
+2011,601953(2011).
+9. Jagasia,M.et al.Ruxolitinib for thetreatment ofsteroid-refractory acute GVHD(REACH1):
+amulticenter,open-label phase2trial.Blood 135,1739–1749(2020).
+10. Zeiser,R.et al.Ruxolitinib for glucocorticoid-refractoryacutegraft-versus-host disease.
+N.Engl.J.Med. 382,1800–1810(2020).
+11. Ferrara,J.L.M.& Deeg,H.J.Graft-versus-host disease.N.Engl.J.Med. 324, 667–674
+(1991).
+12. Vriesendorp,H.M.& Heidt,P.J.History ofgraft-versus-host disease.Exp. Hematol. 44,
+674–688 (2016).
+13. Neuerburg,C.K.F.et al.Antibioticprophylaxis during allogeneicstem cell
+transplantation—acomprehensivesinglecenter retrospectiveanalysis. Transplant. Cell.
+Ther. 30,1195.e1–1195.e13(2024).
+14. Zheng,D.,Liwinski,T.& Elinav,E.Interactionbetweenmicrobiotaand immunity in health
+and disease.CellRes. 30,492–506 (2020).
+15. Taur,Y.et al.Intestinal dominationand theriskofbacteremiainpatientsundergoing
+allogeneichematopoieticstem cell transplantation.Clin.Infect.Dis. 55, 905–914 (2012).
+16. Holler,E.et al.Metagenomicanalysis ofthestool microbiomeinpatientsreceiving
+allogeneic stem cell transplantation: loss of diversity is associated with use of
+systemic antibiotics and more pronounced in gastrointestinal graft-versus-host
+disease. Biol.BloodMarrow Transplant. 20,640–645 (2014).
+17. Taur,Y.et al.Theeffects ofintestinal tract bacterial diversity onmortality following
+allogeneichematopoieticstem cell transplantation.Blood 124,1174–1182 (2014).
+18. Jenq,R.R.et al.Intestinal blautiais associated withreduced deathfromgraft-versus-host
+disease. Biol.BloodMarrow Transplant. 21,1373–1383(2015).
+19. Shono,Y.et al.Increased GVHD-related mortality withbroad-spectrum antibiotic use
+after allogeneichematopoieticstem cell transplantationinhumanpatients and mice.
+Sci.Transl.Med. 8,339ra371(2016).
+20. Golob,J.L.et al.Stool microbiotaat neutrophil recovery is predictivefor severe acute
+graft vs host diseaseafter hematopoieticcell transplantation.Clin.Infect. Dis. 65,
+1984–1991(2017).
+21. Peled,J.U.etal.Intestinalmicrobiotaandrelapseafterhematopoietic-celltransplantation.
+J.Clin.Oncol. 35,1650–1659(2017).
+22. Weber,D.et al.Microbiotadisruptioninduced by early useofbroad-spectrumantibiotics
+is anindependent riskfactor ofoutcomeafter allogeneicstem cell transplantation.
+Biol.BloodMarrow Transplant. 23,845–852(2017).
+23. Hidaka,D.et al.Theassociationbetweentheincidenceofintestinal graft-vs-host
+diseaseand antibioticuseafter allogeneichematopoieticstem cell transplantation.
+Clin.Transplant. 32,e13361(2018).
+24. Peled,J.U.et al.Microbiotaas predictor ofmortality inallogeneichematopoietic-cell
+transplantation. N.Engl.J.Med. 382,822–834 (2020).
+Thisstudydemonstratesthatincreasedintestinalmicrobiotadiversityduringthe
+peri-engraftmentphaseissignificantlyassociatedwithareducedincidenceofboth
+overallmortalityandtransplant-relatedmortalityfollowingallo-HCT,basedonan
+extensiveanalysisoffaecalsamplescollectedfromfourindependentpatientcohorts.
+25. Shono,Y.& vandenBrink,M.R.M.Gut microbiotainjury inallogeneichaematopoietic
+stem cell transplantation.Nat.Rev.Cancer 18,283–295 (2018).
+26. Rashidi,A.etal.Randomizeddouble-blindphaseIItrialoffecalmicrobiotatransplantation
+versus placeboinallogeneichematopoieticcell transplantationand AML. J.Clin. Oncol.
+41,5306–5319(2023).
+Thisfirstrandomized,double-blind,placebo-controlledtrialofFMTinpatientswith
+acutemyeloidleukaemia(AML)undergoingallo-HCTshowsthatoralencapsulated
+FMTsafelyimprovesmicrobiotadiversityandrestoresdepletedcommensalsafter
+antibiotics,butdoesnotreduceinfectionrates,providingkeyinsightsforfuture
+microbiome-targetedinterventions.
+27. Gorshein,E.et al.Lactobacillus rhamnosus GG probioticentericregimen does not
+appreciably alter thegut microbiomeor provideprotectionagainst GVHDafter
+allogeneichematopoieticstem cell transplantation.Clin.Transplant. 31, e12947 (2017).
+28. Rashidi,A.et al.Lasting shift inthegut microbiotainpatients withacute myeloid
+leukemia. BloodAdv. 6,3451–3457 (2022).

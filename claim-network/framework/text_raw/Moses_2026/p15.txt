@@ -1,0 +1,63 @@
+59. Pedersen TK, Brown EM, Plichta DR, Johansen J, Twardus SW, Delorey TM, Lau H, Vlamakis H, Moon JJ,
+Xavier RJ, et al. The CD4+ T cell response to a commensal-derived epitope transitions from a tolerant to an
+inflammatory state in crohn’s disease. Immunity. 2022;55:1909–1923.e6. doi: 10.1016/j.immuni.2022.08.016.
+60. Greinix HT, Eikema D, Koster L, Penack O, Yakoub-Agha I, Montoto S, Chabannon C, Styczynski J, Nagler A, Robin
+M, et al. Improved outcome of patients with graft-versus-host disease after allogeneic hematopoietic cell transplanta-
+tion for hematologic malignancies over time: an EBMT mega-file study. Haematologica. 2022;107:1054–1063. doi:
+10.3324/haematol.2020.265769.
+61. Bolaños-Meade J, Hamadani M, Wu J, Al Malki MM, Martens MJ, Runaas L, Elmariah H, Rezvani AR, Gooptu
+M, Larkin KT, et al. Post-transplantation cyclophosphamide-based graft-versus-host disease prophylaxis. N
+Engl J Med. 2023;388:2338–2348. doi: 10.1056/NEJMoa2215943.
+62. Curtis DJ, Patil SS, Reynolds J, Purtill D, Lewis C, Ritchie DS, Gottlieb DJ, Yeung DT, Wong E, Tey S, et al. Graft-
+versus-host disease prophylaxis with cyclophosphamide and cyclosporin. N Engl J Med. 2025;393:243–254. doi:
+10.1056/NEJMoa2503189.
+63. Luznik L, O'Donnell PV, Symons HJ, Chen AR, Leffell MS, Zahurak M, Gooley TA, Piantadosi S, Kaup M,
+Ambinder RF, et al. HLA-haploidentical bone marrow transplantation for hematologic malignancies using
+nonmyeloablative conditioning and high-dose, posttransplantation cyclophosphamide. Biol Blood Marrow
+Transplant. 2008;14:641–650. doi: 10.1016/j.bbmt.2008.03.005.
+64. Bleakley M, Heimfeld S, Loeb KR, Jones LA, Chaney C, Seropian S, Gooley TA, Sommermeyer F, Riddell SR,
+Shlomchik WD. Outcomes of acute leukemia patients transplanted with naive T cell-depleted stem cell grafts. J
+Clin Investig. 2015;125:2677–2689. doi: 10.1172/JCI81229.
+65. Hill GR, Ferrara JL. The primacy of the gastrointestinal tract as a target organ of acute graft-versus-host disease:
+rationale for the use of cytokine shields in allogeneic bone marrow transplantation. Blood. 2000;95:2754–2759.
+doi: 10.1182/blood.V95.9.2754.009k25_2754_2759.
+66. Steck N, Hoffmann M, Sava IG, Kim SC, Hahne H, Tonkonogy SL, Mair K, Krueger D, Pruteanu M, Shanahan
+F, et al. Enterococcus faecalis metalloprotease compromises epithelial barrier and contributes to intestinal
+inflammation. Gastroenterology. 2011;141:959–971. doi: 10.1053/j.gastro.2011.05.035.
+67. Lindner S, Miltiadous O, Ramos RJF, Paredes J, Kousa AI, Dai A, Fei T, Lauder E, Frame J, Waters NR, et al.
+Altered microbial bile acid metabolism exacerbates T cell-driven inflammation during graft-versus-host disease.
+Nat Microbiol. 2024;9:614–630. doi: 10.1038/s41564-024-01617-w.
+68. Gorshein E, Wei C, Ambrosy S, Budney S, Vivas J, Shenkerman A, Manago J, McGrath MK, Tyno A, Lin Y,
+et al. Lactobacillus rhamnosus GG probiotic enteric regimen does not appreciably alter the gut microbiome or
+provide protection against GVHD after allogeneic hematopoietic stem cell transplantation. Clin Transplant.
+2017;31:e12947. doi: 10.1111/ctr.12947.
+69. Arpaia N, Campbell C, Fan X, Dikiy S, van der Veeken J, deRoos P, Liu H, Cross JR, Pfeffer K, Coffer PJ, et al.
+Metabolites produced by commensal bacteria promote peripheral regulatory T-cell generation. Nature.
+2013;504:451–455. doi: 10.1038/nature12726.
+70. van Lier YF, Vos J, Blom B, Hazenberg MD. Allogeneic hematopoietic cell transplantation, the microbiome,
+and graft-versus-host disease. Gut Microbes. 2023;15:2178805. doi: 10.1080/19490976.2023.2178805.
+71. Rafei H, Jenq RR. Microbiome-intestine cross talk during acute graft-versus-host disease. Blood. 2020;136:401–409.
+doi: 10.1182/blood.2019000950.
+72. Kaiko GE, Ryu SH, Koues OI, Collins PL, Solnica-Krezel L, Pearce EJ, Oltz EM, Stappenbeck TS. The colonic
+crypt protects stem cells from microbiota-derived metabolites. Cell. 2016;165:1708–1720. doi: 10.1016/
+j.cell.2016.05.018.
+73. Shen J, Wang Y, Zheng F, Cao S, Lan Q, Xu K, Pan B. Aryl hydrocarbon receptor regulates IL-22 receptor
+expression on thymic epithelial cell and accelerates thymus regeneration. NPJ Regen Med. 2023;8:64. doi:
+10.1038/s41536-023-00339-7.
+74. Landfried K, Zhu W, Waldhier MC, Schulz U, Ammer J, Holler B, Wolff D, Edinger M, Peter K, Kreutz M, et al.
+Tryptophan catabolism is associated with acute GVHD after human allogeneic stem cell transplantation and
+indicates activation of indoleamine 2,3-dioxygenase. Blood. 2011;118:6971–6974. doi: 10.1182/blood-2011-06-
+357814.
+75. Shono Y, Docampo MD, Peled JU, Perobelli SM, Velardi E, Tsai JJ, Slingerland AE, Smith OM, Young LF,
+Gupta J, et al. Increased GVHD-related mortality with broad-spectrum antibiotic use after allogeneic hemato-
+poietic stem cell transplantation in human patients and mice. Sci Transl Med. 2016;8:339ra71. doi: 10.1126/
+scitranslmed.aaf2311.
+76. Koyama M, Hippe DS, Srinivasan S, Proll SC, Miltiadous O, Li N, Zhang P, Ensbey KS, Hoffman NG, Schmidt
+CR, et al. Intestinal microbiota controls graft-versus-host disease independent of donor-host genetic disparity.
+Immunity. 2023;56:1876–1893.e8. doi: 10.1016/j.immuni.2023.06.024.
+77. Andermann TM, Peled JU, Ho C, Reddy P, Riches M, Storb R, Teshima T, van den Brink MR, Alousi A,
+Balderman S, et al. The microbiome and hematopoietic cell transplantation: past, present, and future. Biol
+Blood Marrow Transplant. 2018;24:1322–1340. doi: 10.1016/j.bbmt.2018.02.009.
+78. Fredricks DN. The gut microbiota and graft-versus-host disease. J Clin Investig. 2019;129:1808–1817. doi:
+10.1172/JCI125797.
+14 A. B. MOSES AND A. C. YEH

@@ -1,0 +1,61 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine          (2025) 23:832                                                     Page 9 of 15
+
+
+
+
+production of interferon-gamma (IFN-γ)—promotes                              preserving gut barrier integrity, and ultimately mitigating
+the activation of donor-derived CD4⁺ T cells, which are                      acute GVHD severity while enhancing overall transplant
+key mediators of GVHD. Conversely, targeted deple-                           outcomes (Table 4).
+tion of MHC-II inducer bacteria via selective antibiotic
+regimens, such as oral vancomycin, leads to a reduction                      Gut-Liver Axis and immune regulation
+in MHC-II expression and subsequent attenuation of                           The gut–liver axis constitutes a complex immunometa-
+GVHD severity [87].                                                          bolic network in which microbial-derived metabolites,
+  Beyond these direct immunological effects, the over-                       particularly SCFAs such as butyrate, play a pivotal role.
+all balance of microbial communities and the abundance                       Butyrate, produced in the colon through fermentation of
+of specific bacterial genera further dictate GVHD out-                       dietary fibers, is delivered to the liver via the portal circu-
+comes. A progressive decline in microbial diversity—                         lation and can contribute up to 30% of the hepatic energy
+initiated during remission-inducing chemotherapy and                         supply. Once in the liver, butyrate exerts anti-inflamma-
+exacerbated post-transplant—results in the overgrowth                        tory effects by acting on Kupffer cells to enhance the pro-
+of pathobionts such as Enterococcus and Streptococcus,                       duction of immunosuppressive prostaglandin E₂ (PGE₂)
+both of which are potent stimulators of intestinal inflam-                   and concurrently suppress pro-inflammatory cytokines
+mation. In contrast, beneficial taxa like Barnesiella and                    like TNF-α [90].
+Lactobacillus johnsonii help maintain microbial homeo-                          Mechanistically, butyrate modulates transcriptional
+stasis by suppressing the expansion of harmful bacteria                      regulation by increasing H3K9 acetylation at the pro-
+[24]. Moreover, diminished levels of SCFAs in both the                       moter region of peroxisome proliferator-activated recep-
+gut and circulation have been linked to increased disease                    tor alpha (PPARα), thereby attenuating NF-κB-mediated
+severity, highlighting the therapeutic potential of restor-                  inflammatory signaling. These findings underscore butyr-
+ing a balanced microbiota and its metabolic outputs in                       ate’s role as both a metabolic substrate and an epigenetic
+allogeneic HCT recipients [88].                                              regulator, contributing to hepatic homeostasis and resil-
+  Dysbiosis—an imbalance in the gut microbial com-                           ience against inflammatory insults [72, 91].
+munity—can compromise the integrity of the intestinal                           Disruption of this axis, as seen in early-life microbial
+barrier, allowing microbial products such as lipopolysac-                    dysbiosis—often precipitated by antibiotic exposure—
+charide (LPS) and other PAMPs to translocate into the                        can have profound downstream effects on hepatic immu-
+circulation. This translocation activates innate immune                      nity, including the functional maturation of liver-resident
+cells via pattern recognition receptors (e.g., Toll-like                     natural killer (LrNK) cells [92]. Recent studies demon-
+receptors), which in turn release pro-inflammatory                           strate that early antibiotic treatment reduces hepatic
+cytokines (TNF-α, IL-1β, IL-6) and chemokines (IL-8),                        butyrate levels, impairing IL-18 production in Kupffer
+thereby amplifying systemic inflammation—a central                           cells and hepatocytes via a GPR109A-dependent mecha-
+hallmark in the pathogenesis of GVHD [85]. Further-                          nism. The resultant deficiency in IL-18 signaling under-
+more, dysbiosis may disturb the balance between regula-                      mines mitochondrial function and arrests the maturation
+tory and effector T cells. For instance, a reduction in Treg                 of LrNK cells, thereby compromising their capacity for
+cells along with an increase in Th1 cells leads to elevated                  immunosurveillance and tolerance. In the context of
+IFN-γ levels and a concomitant decrease in anti-inflam-                      GVHD, where aberrant donor T cell activation drives
+matory cytokines like IL-10. This skewed cytokine envi-                      systemic inflammation and liver injury, impaired LrNK
+ronment further fuels systemic inflammation in GVHD                          cell function may exacerbate hepatic damage. Thus, strat-
+[89]. These findings underscore that strategic modulation                    egies aimed at restoring butyrate levels—for instance,
+of the intestinal microbiota and its metabolites holds sig-                  through dietary supplementation or administration of
+nificant promise in attenuating donor T cell activation,                     butyrogenic probiotics—could potentially re-establish
+
+Table 4 Microbial factors and their impact on GVHD. Summarizes how different microbial components influence GVHD severity, their
+mechanisms, and potential therapeutic strategies
+Microbial Factor                            Effect on GVHD                Mechanism                                 Therapeutic Potential
+Microbial Diversity                         High diversity reduces sever- Maintains gut barrier, immune homeostasis FMT to restore diversity
+                                            ity; low increases mortality
+Beneficial Bacteria (e.g., Lactobacillus,   Suppress progression          Inhibit pathobionts, enhance Tregs        Probiotics with these strains
+Barnesiella)
+Pathobionts (e.g., Enterococcus,            Exacerbate severity           Trigger inflammation via LPS translocation    Antibiotics (e.g., vancomycin)
+Streptococcus)
+SCFAs (e.g., Butyrate)                      Reduced levels worsen;        Repair gut barrier, induce Tregs, reduce      Prebiotics to boost SCFA
+                                            supplementation mitigates     inflammation                                  production
+MHC-II Inducing Bacteria                    Enhance severity              Increase IEC MHC-II, activate donor T cells   Selective antibiotic depletion
+

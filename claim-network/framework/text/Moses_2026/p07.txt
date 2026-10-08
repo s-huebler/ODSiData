@@ -1,0 +1,57 @@
+6      A. B. MOSES AND A. C. YEH
+
+
+higher risk of GvHD. For MHC-matched transplants, exposure of naïve donor T cells to novel microbial
+antigens in the recipient risk pathologic microbial T-cell expansion. With improvements in GvHD
+outcomes and prophylaxis,60 particularly with regimens that blunt the initial expansion and activation
+of alloreactive donor T cells across both donor-recipient matched and mismatched settings,61-64 the
+microbial-driven donor T-cell response may play an increasingly significant role in restoring immune
+homeostasis in the intestinal tract.
+
+
+Phase 3: impact of the microbiota on host tissue injury and susceptibility
+The final effector phase of GvHD pathogenesis amplifies local tissue injury, further propagating the
+underlying inflammatory cycle.28 Several microbial-related mechanisms have been shown to contribute to
+host tissue injury or protection (Figure 1C). Microbial byproducts such as LPS that stimulate macrophage-
+dependent TNF release can directly result in tissue injury.65 Metalloprotease secretion found in taxa such
+as Enterococcus, which can degrade tight junction proteins and increase intestinal permeability,13,66 can
+also increase susceptibility to tissue injury. Microbe-derived bile acids that mitigate farnesoid X receptor
+activation was shown to inhibit proliferation and cytokine production of donor T cells in pre-clinical
+transplant models, and GVHD patients harbored a reduction in microbe-derived bile acids upon disease
+onset.67
+   Understanding the spatialtemporal axis of exposure to microbial byproducts along the cycle of GvHD is
+needed for effective clinical translation. Production of butyrate, a microbial SCFA metabolite that is
+particularly abundant in Clostridia has perhaps received the most attention for promising its ability to
+preserve epithelial cell integrity as an energy source for enterocytes12,68 and induce intestinal Tregs,69
+which have been recently reviewed.70,71 However, butyrate can also suppress intestinal stem cells prolifer-
+ation and its potentially beneficial effect blunted if exposed to the intestinal crypts.72 Microbial catabolism
+of dietary tryptophan generates indole derivatives that activate the aryl hydrocarbon receptor (AhR), a
+transcription factor that promotes IL-22 production by innate lymphoid and T cells to enhances epithelial
+regeneration and barrier repair.73 Preclinical models suggested that absence of the enzyme indoleamine 2,
+3-dioxygenase worsened GvHD and augmented the donor T-cell response, but production of urinary
+indole metabolites have also been associated with worse GvHD outcomes in a study of 54 patients74 and
+was correlated with steroid-refractory disease.
+   Another major challenge that confronts studying complex microbial ecosystems in GvHD is under-
+standing how individual bacterial mechanisms that influence susceptibility to tissue injury interact in
+concert. Recent studies have demonstrated that degradation of the protective mucus layer in the intestinal
+tract provides another key pathway for aggravating GvHD. Bacteroides thetaiotaomicron, which expands
+in the gastrointestinal tract following treatment with carbapenem antibiotics,15 upregulates the ability to
+degrade mucin glycans and thins the colonic mucosal layer, increasing susceptibility to intestinal injury.15
+Similarly, Akkermansia muciniphilia, another commensal organism that also possesses mucus-degrading
+capabilities, expanded following antibiotic treatment in murine models and was correlated with clinical
+GvHD.75 Conversely, the beneficial effects of Bacteroides ovatus were linked to its ability to metabolize
+dietary polysaccharides, which suppress the mucus-degrading capabilities of other bacteria, including B.
+thetaiotaomicron and A. muciniphilia and reduce GvHD-related mortality.11
+   Compounding the complexity of this process, the tug-of-war between individual microbial species exist
+can vary across multiple phenotypic axes. For example, bacteria taxa increases sensitivity to GvHD by
+inducing MHC class II expression in the intestinal epithelium, while other taxa can suppress MHC class II
+expression.76 MHC class II inducers include well-studied species such as C. savagella in murine models
+that would align with previously observed phenotypes. However, B. thetaiotaomicron in this context was
+shown to suppress epithelial MHC class II expression and therefore diminish the risk of tissue injury,
+contrary to its role as a mucin-degrader.
+   Clinically, it would be most practical to focus on reconstituting the posttransplant microbiota based on
+the functional classification of taxa that maximize beneficial effects (e.g. SCFA producers) and minimize
+known detrimental effects such as the ability to degrade mucin or augment the antigen presentation
+machinery, as exemplified above. Rather than focusing on reconstituting individual microbial strains
+where durable engraftment can often pose a challenge, a functional emphasis provides a strong rationale
+

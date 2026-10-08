@@ -1,0 +1,160 @@
+NatureReviewsCancer|Volume26|May2026|328–350 348
+Reviewarticle
+81. Hülsdünker, J. et al. Neutrophilsprovide cellularcommunicationbetweenileum and
+mesenteric lymph nodes at graft-versus-hostdisease onset.Blood 131,1858–1869(2018).
+82. Rückert, T. et al. Human β-defensin2amelioratesacute GVHD bylimitingileal neutrophil
+infiltration and restraining Tcellreceptorsignaling.Sci.Transl.Med. 14,eabp9675
+(2022).
+83. Peng, L., Li, Z. R., Green, R. S.,Holzman,I.R.&Lin,J.Butyrate enhancesthe intestinal
+barrier by facilitating tight junctionassemblyviaactivationofAMP-activated protein
+kinasein Caco-2 cell monolayers.J.Nutr. 139,1619–1625(2009).
+84. Rooks, M. G. & Garrett, W. S.Gutmicrobiota,metabolitesandhostimmunity.Nat.Rev.
+Immunol. 16, 341–352 (2016).
+85. Chelakkot, C., Ghim, J. & Ryu,S.H.Mechanismsregulatingintestinalbarrier integrityand
+itspathological implications. Exp.Mol.Med. 50,1–9(2018).
+86. Du,Y. et al. The role of shortchainfattyacidsininflammationandbodyhealth.
+Int.J. Mol. Sci. 25, 7379 (2024).
+87. Kim, C. H. Control of lymphocyte functionsbygutmicrobiota-derivedshort-chainfatty
+acids. Cell. Mol. Immunol. 18,1161–1171(2021).
+88. Golob, J. L. et al. Butyrogenic bacteriaafteracute graft-versus-hostdisease(GVHD)are
+associated with the developmentofsteroid-refractoryGVHD.BloodAdv. 3, 2866–2869
+(2019).
+89. Kaiko, G. E. et al. The colonic cryptprotectsstemcellsfrommicrobiota-derived
+metabolites. Cell 165, 1708–1720(2016).
+90. Scott, S. A., Fu, J. & Chang, P.V.Microbialtryptophanmetabolitesregulate gut barrier
+function via the aryl hydrocarbonreceptor.Proc.NatlAcad.Sci.USA 117, 19376–19387
+(2020).
+91. Zelante, T. et al. Tryptophancatabolitesfrommicrobiotaengage arylhydrocarbon
+receptor and balance mucosalreactivityviainterleukin-22.Immunity 39,372–385
+(2013).
+92. Collins, S. L., Stine, J. G., Bisanz,J.E.,Okafor,C.D.&Patterson,A.D.Bile acids and the
+gutmicrobiota: metabolic interactionsandimpactsondisease.Nat.Rev.Microbiol. 21,
+236–247 (2023).
+93. Sinha, S. R. et al. Dysbiosis-inducedsecondarybile aciddeficiencypromotes intestinal
+inflammation. Cell Host Microbe 27,659–670.e5(2020).
+94. Cipriani, S. et al. The bile acidreceptorGPBAR-1(TGR5) modulatesintegrityof
+intestinal barrier and immune response toexperimentalcolitis.PLoSONE 6,e25637
+(2011).
+95. Fathima, A. & Jamma, T.UDCAamelioratesinflammationdrivenEMTbyinducing
+TGR5 dependent SOCS1 expressioninmouse macrophages.Sci.Rep. 14,24285
+(2024).
+96. Holter, M. M., Chirikjian, M. K.,Govani,V.N.&Cummings,B.P.TGR5signaling inhepatic
+metabolic health. Nutrients 12,2598(2020).
+97. Mueller, M. et al. Ursodeoxycholic acidexertsfarnesoidXreceptor-antagonisticeffects
+onbile acid and lipid metabolisminmorbidobesity.J.Hepatol. 62,1398–1404 (2015).
+98. Prayitno, K. & Bhat, M. RepurposingUDCA,anFXRinhibitor,topreventSARS-Cov-2
+infection. Gastroenterology 164,1019–1020(2023).
+99. Brevini, T. et al. FXR inhibitionmayprotectfromSARS-CoV-2infectionbyreducingACE2.
+Nature 615, 134–142 (2023).
+100. Michonneau, D. et al. Metabolomicsanalysisofhumanacute graft-versus-host disease
+reveals changes in host andmicrobiota-derivedmetabolites.Nat.Commun. 10, 5695
+(2019).
+101. Haring, E. et al. Bile acids regulate intestinalantigenpresentationandreduce
+graft-versus-host disease withoutimpairingthe graft-versus-leukemiaeffect.
+Haematologica 106, 2131–2146(2021).
+102. Lindner, S. et al. Altered microbialbile acidmetabolismexacerbatesTcell-driven
+inflammation during graft-versus-hostdisease.Nat.Microbiol. 9,614–630(2024).
+Thisstudyisthefirsttoshowthatthemedicationursidiol(UDCA),anSBA,positively
+correlateswithimprovedsurvivalpostallo-HCTandelucidatesthatUDCAcanreduce
+proliferationofprimaryhumanTcells,contributingamechanisticinsightintobile
+acidsandtheirimmunomodulatoryproperties.
+103. Han, L. etal. Multi-omics analysisrevealsafeedbackloopamplifyingimmuneresponses
+inacute graft-versus-host disease due toimbalancedgutmicrobiotaandbileacid
+metabolism. J. Transl. Med. 22,746(2024).
+104. Kovtonyuk, L. V. et al. IL-1 mediatesmicrobiome-inducedinflammagingofhematopoietic
+stem cells in mice. Blood 139,44–58(2022).
+105. Storb, R. et al. Graft-versus-hostdisease andsurvivalinpatientswithaplasticanemia
+treatedbymarrowgraftsfromHLA-identicalsiblings.N.Engl.J.Med.308,302–307
+(1983).
+106. Beelen, D. W., Elmaagacli, A.,Müller,K.D.,Hirche,H.&Schaefer,U.W.Influence
+ofintestinal bacterial decontaminationusingmetronidazoleandciprofloxacinor
+ciprofloxacin alone on the developmentofacute graft-versus-hostdisease after marrow
+transplantation inpatients withhematologic malignancies:finalresultsand long-term
+follow-up of an open-label prospective randomizedtrial.Blood 93,3267–3275 (1999).
+107. Beelen, D. W. et al. Evidence thatsustainedgrowthsuppressionofintestinalanaerobic
+bacteria reduces the risk of acute graft-versus-hostdisease aftersiblingmarrow
+transplantation. Blood 80, 2668–2676(1992).
+108. Vossen, J. M. et al. Preventionofinfectionandgraft-versus-hostdisease bysuppression
+ofintestinal microflora in childrentreatedwithallogeneic bone marrowtransplantation.
+Eur. J. Clin. Microbiol. Infect.Dis. 9,14–23(1990).
+109. Severyn, C. J. etal. Microbiotadynamicsinarandomizedtrialofgutdecontamination
+during allogeneic hematopoietic celltransplantation.JCIInsight 7,e154344(2022).
+110. Farowski,F.et al.Impact ofchoice,timing,sequenceand combinationof
+broad-spectrum antibiotics ontheoutcomeofallogeneichaematopoietic stemcell
+transplantation. Bone Marrow Transplant. 53,52–57 (2018).
+111. Han,L.et al.Intestinal microbiotacanpredict acutegraft-versus-host disease following
+allogeneichematopoieticstem cell transplantation.Biol.BloodMarrow Transplant. 25,
+1944–1955 (2019).
+112. Weber,D.et al.Detrimental effect ofbroad-spectrum antibiotics onintestinal
+microbiomediversity inpatients after allogeneicstem cell transplantation:
+lackofcommensal sparing antibiotics.Clin.Infect.Dis. 68,1303–1310(2018).
+113. Tanaka,J.S.et al.Anaerobicantibiotics and theriskofgraft-versus-hostdisease after
+allogeneichematopoieticstem cell transplantation.Biol.BloodMarrow Transplant. 26,
+2053–2060(2020).
+114. Rashidi,A.et al.Analysis ofantibioticexposureanddevelopment ofacute graft-vs-host
+diseasefollowing allogeneichematopoieticcell transplantation.JAMA Netw.Open 6,
+e2317188 (2023).
+115. Vehreschild,M.et al.Anopenrandomized multicentrephase2trial toassess the
+safety ofDAV132and its efficacy toprotect gut microbiotadiversity inhospitalized
+patients treated withfluoroquinolones.J.Antimicrob.Chemother. 77,1155–1165
+(2022).
+116. Messaoudene,M.et al.TheDAV132colon-targeted adsorbent does not interfere
+withplasmaconcentrations ofantibiotics but prevents antibiotic-related dysbiosis:
+arandomized phaseI trial inhealthy volunteers.Nat.Commun. 15,8083 (2024).
+117. Kokai-Kun,J.F.et al.Useofribaxamase(SYN-004),aβ-lactamase,toprevent Clostridium
+difficile infectioninβ-lactam-treated patients:adouble-blind,phase2b, randomised
+placebo-controlled trial.Lancet Infect.Dis. 19,487–496 (2019).
+118. Menon,R.et al.Multi-omicprofiling adefined bacterial consortium for treatment of
+recurrent Clostridioides difficile infection.Nat.Med. 31,223–234 (2025).
+119. Fackelmann,G.et al.Gut microbiomesignatures ofvegan,vegetarianand omnivore
+diets and associated healthoutcomes across 21,561individuals.Nat.Microbiol. 10, 41–52
+(2025).
+120. Baumgartner,A.et al.Revisiting nutritional support for allogeneichematologic stemcell
+transplantation—asystematicreview.Bone Marrow Transplant. 52,506–513 (2017).
+121. Arends,J.et al.ESPEN guidelines onnutritionincancer patients.Clin.Nutr. 36, 11–48
+(2017).
+122. Nava,T.et al.Supportivecareduring pediatrichematopoieticstem cell transplantation:
+beyond infectious diseases.A report from workshops onsupportivecare of the
+PediatricDiseases Working Party (PDWP)oftheEuropeanSociety for Bloodand Marrow
+Transplantation(EBMT).Bone Marrow Transplant. 55,1126–1136 (2020).
+123. Peric, Z. et al. Variability of nutritional practices in peritransplant period after
+allogeneic hematopoietic stem cell transplantation: a survey by the complications
+and quality oflifeworking party oftheEBMT.Bone Marrow Transplant. 53, 1030–1037
+(2018).
+124. US National Library ofMedicine.ClinicalTrials.gov https://clinicaltrials.gov/study/
+NCT02763033(2025).
+125. US National Library ofMedicine.ClinicalTrials.gov https://clinicaltrials.gov/study/
+NCT05067595 (2025).
+126. Cohen,S.A.et al.Incidenceand outcomesofbloodstream infections among
+hematopoieticcell transplant recipients from species commonlyreported to be in
+over-the-counter probioticformulations.Transpl.Infect.Dis. 18,699–705(2016).
+127. Jenq,R.R.et al.Regulationofintestinal inflammationby microbiotafollowingallogeneic
+bonemarrowtransplantation. J.Exp.Med. 209,903–911(2012).
+128. Gerbitz,A.et al.Probioticeffects onexperimental graft-versus-host disease: let themeat
+yogurt. Blood 103,4365–4367 (2004).
+129. Ladas,E.J.et al.Thesafety and feasibility ofprobiotics inchildrenand adolescents
+undergoing hematopoieticcell transplantation.Bone MarrowTransplant. 51, 262–266
+(2016).
+130. US National Library ofMedicine.ClinicalTrials.gov https://clinicaltrials.gov/study/
+NCT03057054 (2025).
+131. Fukushima,K.et al.ClostridiumbutyricumMIYAIRI 588 contributes tothe maintenance
+ofintestinal microbiotadiversity earlyafter haematopoieticcelltransplantation. Bone
+Marrow Transplant. 59,795–802(2024).
+132. Ponce,D.M.et al.Preliminary results oftheopen-labelphaseofa2-part phase 1b study
+that evaluates safety,tolerability,pharmacokinetics,and efficacy ofinvestigational
+microbiometherapeuticSER-155 inadults undergoing allogeneichematopoieticcell
+transplantation(allo-HCT).Transplant.Cell.Ther. 30,S266 (2024).
+133. US National Library ofMedicine.ClinicalTrials.gov https://clinicaltrials.gov/study/
+NCT04995653(2024).
+134. Wasilewski,A.,Zielińska,M.,Storr,M.&Fichna,J.Beneficialeffectsofprobiotics,prebiotics,
+synbiotics,and psychobiotics ininflammatory bowel disease.Inflamm.Bowel Dis. 21,
+1674–1682(2015).
+135. Takai,A.et al.Fructo-oligosaccharides amelioratesteatohepatitis,visceraladiposity, and
+associated chronicinflammationviaincreased productionofshort-chain fatty acids in a
+mousemodel ofnon-alcoholicsteatohepatitis.BMC Gastroenterol. 20,46(2020).
+136. Andermann,T.M.et al.A fructo-oligosaccharideprebioticis welltolerated in
+adults undergoing allogeneichematopoieticstem cell transplantation: a phase I
+dose-escalationtrial.Transplant.CellTher. 27,932.e1–932.e11(2021).
+137. Yazdandoust,E.et al.Gut microbiotainterventionby preand probioticscan induce
+regulatory T cells and reducetheriskofsevereacuteGVHD following allogeneic
+hematopoieticstem cell transplantation.Transpl.Immunol. 78,101836 (2023).

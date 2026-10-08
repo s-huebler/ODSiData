@@ -1,0 +1,65 @@
+                                                                                                GUT MICROBES        13
+
+
+38. Girardin SE, Boneca IG, Viala J, Chamaillard M, Labigne A, Thomas G, Philpott DJ, Sansonetti PJ. Nod2 is a
+    general sensor of peptidoglycan through muramyl dipeptide (MDP) detection. J Biol Chem. 2003;278:8869–8872.
+    doi: 10.1074/jbc.C200651200.
+39. Hayashi F, Smith KD, Ozinsky A, Hawn TR, Yi EC, Goodlett DR, Eng JK, Akira S, Underhill DM, Aderem A. The
+    innate immune response to bacterial flagellin is mediated by toll-like receptor 5. Nature. 2001;410:1099–1103. doi:
+    10.1038/35074106.
+40. Hemmi H, Takeuchi O, Kawai T, Kaisho T, Sato S, Sanjo H, Matsumoto M, Hoshino K, Wagner H, Takeda K,
+    et al. A toll-like receptor recognizes bacterial DNA. Nature. 2000;408:740–745. doi: 10.1038/35047123.
+41. Jankovic D, Ganesan J, Bscheider M, Stickel N, Weber FC, Guarda G, Follo M, Pfeifer D, Tardivel A, Ludigs K,
+    et al. The Nlrp3 inflammasome regulates acute graft-versus-host disease. J Exp Med. 2013;210:1899–1910. doi:
+    10.1084/jem.20130084.
+42. Taylor PA, Ehrhardt MJ, Lees CJ, Panoskaltsis-Mortari A, Krieg AM, Sharpe AH, Murphy WJ, Serody JS,
+    Hemmi H, Akira S, et al. TLR agonists regulate alloresponses and uncover a critical role for donor APCs in
+    allogeneic bone marrow rejection. Blood. 2008;112:3508–3516. doi: 10.1182/blood-2007-09-113670.
+43. Schwab L, Goroncy L, Palaniyandi S, Gautam S, Triantafyllopoulou A, Mocsai A, Reichardt W, Karlsson FJ,
+    Radhakrishnan SV, Hanke K, et al. Neutrophil granulocytes recruited upon translocation of intestinal bacteria
+    enhance graft-versus-host disease via tissue damage. Nat Med. 2014;20:648–654. doi: 10.1038/nm.3517.
+44. Hülsdünker J, Ottmüller KJ, Neeff HP, Koyama M, Gao Z, Thomas OS, Follo M, Al-Ahmad A, Prinz G,
+    Duquesne S, et al. Neutrophils provide cellular communication between ileum and mesenteric lymph nodes at
+    graft-versus-host disease onset. Blood. 2018;131:1858–1869. doi: 10.1182/blood-2017-10-812891.
+45. Ley RE, Peterson DA, Gordon JI. Ecological and evolutionary forces shaping microbial diversity in the human
+    intestine. Cell. 2006;124:837–848. doi: 10.1016/j.cell.2006.02.017.
+46. Yeh AC, Koyama M, Waltner OG, Minnie SA, Boiko JR, Shabaneh TB, Takahashi S, Zhang P, Ensbey KS,
+    Schmidt CR, et al. Microbiota dictate T cell clonal selection to augment graft-versus-host disease after stem cell
+    transplantation. Immunity. 2024;57:1648–1664.e9. doi: 10.1016/j.immuni.2024.05.018.
+47. Hand TW, Dos Santos LM, Bouladoux N, Molloy MJ, Pagán AJ, Pepper M, Maynard CL, Elson CO, Belkaid Y.
+    Acute gastrointestinal infection induces long-lived microbiota-specific T cell responses. Science.
+    2012;337:1553–1556. doi: 10.1126/science.1220961.
+48. Chiaranunt P, Tometich JT, Ji J, Hand TW. T cell proliferation and colitis are initiated by defined intestinal
+    microbes. J Immunol. 2018;201:243–250. doi: 10.4049/jimmunol.1800236.
+49. Yang Y, Torchinsky MB, Gobert M, Xiong H, Xu M, Linehan JL, Alonzo F, Ng C, Chen A, Lin X, et al. Focused
+    specificity of intestinal TH17 cells towards commensal bacterial antigens. Nature. 2014;510:152–156. doi:
+    10.1038/nature13279.
+50. Xu M, Pokrovskii M, Ding Y, Yi R, Au C, Harrison OJ, Galan C, Belkaid Y, Bonneau R, Littman DR. c-MAF-
+    dependent regulatory T cells mediate immunological tolerance to a gut pathobiont. Nature. 2018;554:373–377.
+    doi: 10.1038/nature25500.
+51. Linehan JL, Harrison OJ, Han S, Byrd AL, Vujkovic-Cvijin I, Villarino AV, Sen SK, Shaik J, Smelkinson M,
+    Tamoutounour S, et al. Non-classical immunity controls microbiota impact on skin immunity and tissue repair.
+    Cell. 2018;172:784–796.e18. doi: 10.1016/j.cell.2017.12.033.
+52. Ansaldo E, Slayden LC, Ching KL, Koch MA, Wolf NK, Plichta DR, Brown EM, Graham DB, Xavier RJ, Moon
+    JJ, et al. Akkermansia muciniphila induces intestinal adaptive immune responses during homeostasis. Science.
+    2019;364:1179–1184. doi: 10.1126/science.aaw7479.
+53. Nagashima K, Zhao A, Atabakhsh K, Bae M, Blum JE, Weakley A, Jain S, Meng X, Cheng AG, Wang M, et al.
+    Mapping the T cell repertoire to a complex gut bacterial community. Nature. 2023;621:162–170. doi: 10.1038/
+    s41586-023-06431-8.
+54. Kiner E, Willie E, Vijaykumar B, Chowdhary K, Schmutz H, Chandler J, Schnell A, Thakore PI, LeGros G,
+    Mostafavi S, et al. Gut CD4+ T cell phenotypes are a continuum molded by microbes, not by TH archetypes.
+    Nat Immunol. 2021;22:216–228. doi: 10.1038/s41590-020-00836-7.
+55. Hegazy AN, West NR, Stubbington MJ, Wendt E, Suijker KI, Datsi A, This S, Danne C, Campion S, Duncan
+    SH, et al. Circulating and tissue-resident CD4+ T cells with reactivity to intestinal microbiota are abundant in
+    healthy individuals and function is altered during inflammation. Gastroenterology. 2017;153:1320–1337.e16.
+    doi: 10.1053/j.gastro.2017.07.047.
+56. Pedersen TK, Brown EM, Plichta DR, Johansen J, Twardus SW, Delorey TM, Lau H, Vlamakis H, Moon JJ, Xavier
+    RJ, et al. The CD4+ T cell response to a commensal-derived epitope transitions from a tolerant to an inflammatory
+    state in Crohn's disease. Immunity. 2022;S1074-7613(22):00410–00411. doi: 10.1016/j.immuni.2022.08.016.
+57. Zhou L, Zhang M, Wang Y, Dorfman RG, Liu H, Yu T, Chen X, Tang D, Xu L, Yin Y, et al. Faecalibacterium
+    prausnitzii produces butyrate to maintain Th17/Treg balance and to ameliorate colorectal colitis by inhibiting
+    histone deacetylase 1. Inflamm Bowel Dis. 2018;24:1926–1940. doi: 10.1093/ibd/izy182.
+58. Lathrop SK, Bloom SM, Rao SM, Nutsch K, Lio C, Santacruz N, Peterson DA, Stappenbeck TS, Hsieh C.
+    Peripheral education of the immune system by colonic commensal microbiota. Nature. 2011;478:250–254. doi:
+    10.1038/nature10434.
+

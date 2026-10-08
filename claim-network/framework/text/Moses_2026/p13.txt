@@ -1,0 +1,66 @@
+12          A. B. MOSES AND A. C. YEH
+
+
+         hematopoietic stem cell transplantation in human patients and mice. Sci Transl Med. 2016;8:339ra71. doi:
+         10.1126/scitranslmed.aaf2311.
+     17. Fujiwara H, Docampo MD, Riwes M, Peltier D, Toubai T, Henig I, Wu SJ, Kim S, Taylor A, Brabbs S, et al.
+         Microbial metabolite sensor GPR43 controls severity of experimental GVHD. Nat Commun. 2018;9:3674. doi:
+         10.1038/s41467-018-06048-w.
+     18. Weber D, Oefner PJ, Hiergeist A, Koestler J, Gessner A, Hahn J, Wolff D, Stämmler F, Spang R, Herr W, et al.
+         Low urinary indoxyl sulfate levels early after transplantation reflect a disrupted microbiome and are associated
+         with poor outcome. Blood. 2015;126:1723–1728. doi: 10.1182/blood-2015-04-638858.
+     19. Weber D, Oefner PJ, Dettmer K, Hiergeist A, Koestler J, Gessner A, Stämmler F, Hahn J, Wolff D, Herr W, et al.
+         Rifaximin preserves intestinal microbiota balance in patients undergoing allogeneic stem cell transplantation.
+         Bone Marrow Transplant. 2016;51:1087–1092. doi: 10.1038/bmt.2016.66.
+     20. Yoshifuji K, Inamoto K, Kiridoshi Y, Takeshita K, Sasajima S, Shiraishi Y, Yamashita Y, Nisaka Y, Ogura Y,
+         Takeuchi R, et al. Prebiotics protect against acute graft-versus-host disease and preserve the gut microbiota in
+         stem cell transplantation. Blood Adv. 2020;4:4607–4617. doi: 10.1182/bloodadvances.2020002604.
+     21. Riwes MM, Golob JL, Magenau J, Shan M, Dick G, Braun T, Schmidt TM, Pawarode A, Anand S, Ghosh M,
+         et al. Feasibility of a dietary intervention to modify gut microbial metabolism in patients with hematopoietic
+         stem cell transplantation. Nat Med. 2023;29:2805–2813. doi: 10.1038/s41591-023-02587-y.
+     22. Reddi S, Senyshyn L, Ebadi M, Podlesny D, Minot SS, Gooley T, Kabage AJ, Hill GR, Lee SJ, Khoruts A, et al.
+         Fecal microbiota transplantation to prevent acute graft-versus-host disease: pre-planned interim analysis of
+         donor effect. Nat Commun. 2025;16:1034. doi: 10.1038/s41467-025-56375-y.
+     23. DeFilipp Z, Damania AV, Kim HT, Chang C, El-Jawahri A, McAfee SL, Bottoms AS, Toncheva V, Smith MM,
+         Dolaher M, et al. Third-party fecal microbiota transplantation for high-risk treatment-naïve acute GVHD of the
+         lower GI tract. Blood Adv. 2024;8:2074–2084. doi: 10.1182/bloodadvances.2024012556.
+     24. Youngster I, Eshel A, Geva M, Danylesko I, Henig I, Zuckerman T, Fried S, Yerushalmi R, Shem-Tov N, Fein JA,
+         et al. Fecal microbiota transplantation in capsules for the treatment of steroid refractory and steroid dependent acute
+         graft vs. Host disease: a pilot study. Bone Marrow Transplant. 2024;59:409–416. doi: 10.1038/s41409-024-02198-2.
+     25. Kaito S, Toya T, Yoshifuji K, Kurosawa S, Inamoto K, Takeshita K, Suda W, Kakihana K, Honda K, Hattori M,
+         et al. Fecal microbiota transplantation with frozen capsules for a patient with refractory acute gut graft-versus-
+         host disease. Blood Adv. 2018;2:3097–3101. doi: 10.1182/bloodadvances.2018024968.
+     26. Penack O, Marchetti M, Ruutu T, Aljurf M, Bacigalupo A, Bonifazi F, Ciceri F, Cornelissen J, Malladi R,
+         Duarte RF, et al. Prophylaxis and management of graft versus host disease after stem-cell transplantation
+         for haematological malignancies: updated consensus recommendations of the european society for
+         blood and marrow transplantation. Lancet Haematol. 2020;7:e157–e167. doi: 10.1016/S2352-3026(19)
+         30256-X.
+     27. Loren AW, Mielcarek M, Bolaños-Meade J, Brammer J, Cowden M, Di Stasi A, El-Jawahri A, Elmariah H,
+         Gundabolu K, Gutman J, et al. Hematopoietic cell transplantation, version 3.2025, NCCN clinical practice
+         guidelines in oncology. J Natl Compr Canc Netw. 2025;23:e250047. doi: 10.6004/jnccn.2025.0047.
+     28. Ferrara JLM, Levine JE, Reddy P, Holler E. Graft-versus-host disease. Lancet. 2009;373:1550–1561. doi: 10.1016/
+         S0140-6736(09)60237-3.
+     29. Abrams GD, Bauer H, Sprinz H. Influence of the normal flora on mucosal morphology and cellular renewal in
+         the ileum. A comparison of germ-free and conventional mice. Lab Investig. 1963;12:355–364.
+     30. Hill GR, Crawford JM, Cooke KR, Brinson YS, Pan L, Ferrara JL. Total body irradiation and acute graft-versus-
+         host disease: the role of gastrointestinal damage and inflammatory cytokines. Blood. 1997;90:3204–3213. doi:
+         10.1182/blood.V90.8.3204.
+     31. Nestel FP, Price KS, Seemayer TA, Lapp WS. Macrophage priming and lipopolysaccharide-triggered release of
+         tumor necrosis factor alpha during graft-versus-host disease. J Exp Med. 1992;175:405–413. doi: 10.1084/
+         jem.175.2.405.
+     32. Poltorak A, He X, Smirnova I, Liu M, Huffel CV, Du X, Birdwell D, Alejos E, Silva M, Galanos C, et al.
+         Defective LPS signaling in C3H/HeJ and C57BL/10ScCr mice: mutations in Tlr4 gene. Science.
+         1998;282:2085–2088. doi: 10.1126/science.282.5396.2085.
+     33. Cooke KR, Hill GR, Crawford JM, Bungard D, Brinson YS, Delmonte J, Ferrara JL. Tumor necrosis factor-
+         alpha production to lipopolysaccharide stimulation by donor cells predicts the severity of experimental acute
+         graft-versus-host disease. J Clin Investig. 1998;102:1882–1891. doi: 10.1172/JCI4285.
+     34. Akira S, Takeda K. Toll-like receptor signalling. Nat Rev Immunol. 2004;4:499–511. doi: 10.1038/nri1391.
+     35. Takeuchi O, Hoshino K, Kawai T, Sanjo H, Takada H, Ogawa T, Takeda K, Akira S. Differential roles of TLR2
+         and TLR4 in recognition of gram-negative and gram-positive bacterial cell wall components. Immunity.
+         1999;11:443–451. doi: 10.1016/S1074-7613(00)80119-3.
+     36. Schwandner R, Dziarski R, Wesche H, Rothe M, Kirschning CJ. Peptidoglycan- and lipoteichoic acid-induced cell
+         activation is mediated by toll-like receptor 2. J Biol Chem. 1999;274:17406–17409. doi: 10.1074/jbc.274.25.17406.
+     37. Girardin SE, Boneca IG, Carneiro LAM, Antignac A, Jéhanno M, Viala J, Tedin K, Taha M, Labigne A,
+         Zäthringer U, et al. Nod1 detects a unique muropeptide from gram-negative bacterial peptidoglycan. Science.
+         2003;300:1584–1587. doi: 10.1126/science.1084677.
+

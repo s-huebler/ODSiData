@@ -1,0 +1,66 @@
+Review article
+
+
+as through counteracting the pro-inflammatory effects of primary              GVHD-related deaths, suggesting a moderate strength of association.
+bile acid accumulation.                                                       Although causality remains unproven, the magnitude of this effect
+     Han et al.103 also investigated the interplay between the gut micro-     provides a rationale for targeted interventional trials. Such studies will
+biota, bile acid metabolism and immune responses. Using single-cell           also provide further insight into the biological interplay between hosts
+RNA sequencing, they found significant differences in immune cell             and their microbiota that advance efforts to translate observations
+signatures between patients with and without GVHD, as well as genes           from mouse models to humans. Current clinical approaches range from
+related to microbiome-associated immune regulation. Moreover,                 non-invasive, such as antibiotic stewardship and dietary modifications,
+in the GVHD group, a dysregulated IL-1-mediated immune response               to interventional techniques, such as the administration of probiotics
+was identified, characterized by increased expression of IL-1β, IL-1          to introduce beneficial bacteria, prebiotics to promote the growth
+receptor type 1 (IL-1R1) and IL-1 receptor accessory protein (IL-1RAP),       of specific microorganisms, postbiotics to deliver microbial-derived
+and decreased expression of IL-1 receptor antagonist protein (IL-1RN;         metabolites, and FMT and microbiota-based consortia therapies to
+the natural inhibitor of IL-1 signalling) by several immune cell sub-         reconstitute the microbiota.
+sets. Importantly, microbial compounds are known drivers of IL-1
+production104. Furthermore, patients without GVHD exhibited an                Management of antibiotics during allo-HCT
+upregulation of antimicrobial peptides, such as resistin and defensins        As outlined above, patients undergoing allo-HCT typically receive pro-
+on immune effector cells, suggesting antimicrobial efficiency that may        phylactic and often therapeutic antibiotics. In addition, some centres
+have a role in mitigating disease severity.                                   administer gut-restricted, non-absorbable antibiotics for gut decon-
+     In a different cohort of patients who had undergone allo-HCT,            tamination with the aim to prevent aGVHD. This practice is based on
+Han et al.103 found significant changes in the gut microbial composi-         early preclinical studies suggesting that the eradication of intestinal
+tion between patients with and without aGVHD, including a reduced             microorganisms can lessen aGVHD severity37,38,105. However, more recent
+abundance of Bacteroides, key bacterial producers of SBAs, in the GVHD        clinical trials showed no clear advantage106–108, although they were
+group and several Clostridia-affiliated taxa enriched in the non-GVHD         potentially confounded by a lack of treatment standardization across
+group. Furthermore, those patients with aGVHD had disrupted bile              centres, and the most recent randomized phase II trial found no impact
+acid metabolism and reduced levels of SBAs including isochenode-              on GVHD-related outcomes109.
+oxycholic acid (isoCDCA), 6-keto-lithocholic acid (6-keto-LCA) and                  Given that broad-spectrum antibiotic exposure in patients
+3-oxocholic acid (3-oxo-CA). In patients without GVHD, these bile             receiving allo-HCT is associated with severe perturbations of the gut
+acids were ­positively associated with several enriched Clostridia taxa.      microbiome and higher incidences and severity of GVHD19,22,23,50,110–113,
+     Together, the studies outlined in this subsection highlight the role     antibiotic stewardship via evidence-based use of narrow-spectrum
+that the intestinal microbiota and its dysbiosis have in, respectively,       antibiotics, ideally for a short duration of time, is prudent to spare
+maintaining or disrupting bile acid homeostasis, as well as the role          beneficial anaerobic bacteria (for example, Blautia spp.)19,112. There is
+bile acids have in regulating immune responses after allo-HCT. By             also evidence against the use of carbapenems in the first 2 weeks fol-
+identifying mechanistic links between microbiota dysbiosis, bile acid         lowing allo-HCT, which has been associated with higher aGVHD rates in
+metabolism and immune activation (summarized in Table 1), novel,              a large retrospective study114. Furthermore, novel approaches used to
+non-immunosuppressive therapeutic strategies could mitigate aGVHD             mitigate antibiotic-induced dysbiosis leading to C. difficile-associated
+severity and improve outcomes for recipients of allo-HCT.                     diarrhoea may guide the development of microbiome-sparing inter-
+     It could be concluded that there is a bidirectional relationship         ventions in patients receiving allo-HCT. For instance, oral adminis-
+between dysbiosis of the gut microbiota and aGVHD onset when tis-             tration of either polymer-coated activated charcoal (allowing for
+sue injury and immune activation are amplified in a cycle in which            its liberation in the ileum and the inactivation of antibiotics in the
+GVHD and dysbiosis reinforce one another40,68,103. Although dysbio-           colon)115,116 or β-lactamases, which degrade excess antibiotics, can
+sis can predispose to GVHD by promoting loss of barrier integrity,            prevent dysbiosis117, and microbiome-repletion strategies could be
+reduced production of immunoregulatory metabolites and expansion              used to reintroduce defined microbial consortia118.
+of pro-inflammatory microorganisms, aGVHD itself could further
+exacerbate dysbiosis by damaging the intestinal epithelium, increasing        Nutritional support during allo-HCT
+oxygen tension and perpetuating inflammation and microbial loss.              Several recent studies have explored nutrition-based interventions
+                                                                              to mitigate GVHD given the known effects of diet on microbiome
+Clinical interventions                                                        composition119. A systematic review and meta-analysis confirmed the
+Although establishing causality from microbiome-targeted interven-            superiority of enteral nutrition over parenteral nutrition in reduc-
+tions in human studies is complex from a biological, clinical, trial design   ing the incidence of aGVHD and gastrointestinal aGVHD but found
+and regulatory standpoint, ongoing trials are investigating several such      no differences in 100-day overall survival, possibly owing to wide
+therapies for clinical practice (Table 2). These efforts are particularly     heterogeneity among the analysed studies120. Although studies in
+timely and promising, given that currently available non-randomized           larger patient cohorts are needed to confirm these results, they are
+prospective data demonstrate a clinically meaningful effect size with         in line with several international guidelines recommending enteral
+respect to the association between intestinal microbiota diversity            nutrition as the first-line nutritional support for patients undergo-
+and GVHD-related outcomes. For example, the multicentre study of              ing allo-HCT121,122. However, many centres follow traditional clinical
+patients undergoing allo-HCT discussed above24 found that a higher            practice and primarily use parenteral nutrition. Although there are
+intestinal diversity was associated with a significantly reduced risk         barriers to the use of enteral nutrition, such as the potential discomfort
+of GVHD-related mortality (hazard ratio 0.49; 95% confidence inter-           associated with enteral tube insertion, these recent findings highlight
+val 0.26–0.90) over a 24-month follow-up period. This corresponds             the need to increase awareness about the benefits of enteral nutri-
+to an approximate halving of risk and a 7% absolute reduction in              tion and the overall importance of nutrition for favourable outcomes
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                             338
+

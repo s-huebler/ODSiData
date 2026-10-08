@@ -1,0 +1,58 @@
+                                                  Table 2.   Clinical and preclinical studies on microbiota-immune reconstitution interactions.
+                                                  Study                Cohort/Model         Microbial Focus             Immune Metrics            Mechanism/Findings                       Clinical Impact                     Limitations
+                                                  Taur et al. [12]     Humans (allo-        Alpha diversity via         Stem cell source,         Increased OS associated with             Replenishment of commensal          Causal relationships
+                                                                       HSCT, n = 80)        inverse Simpson index       infection, and            higher relative abundance of             bacterial populations may           unclear; control
+                                                                                                                        microbial diversity       Lachnospiraceae and                      improve immune                      interventional studies
+                                                                                                                                                  Actinomycetaceae.                        reconstitution and outcomes         needed.
+                                                                                                                                                  Domination by Enterococcus,              post-HSCT.
+                                                                                                                                                  Streptococcus, Enterobacteriaceae,
+                                                                                                                                                  and Lactobacillus spp. linked to poor
+                                                                                                                                                  outcomes.
+                                                  Iwamura et al.       Murine model         Microbiota in the           NOD1 and NOD2             NOD1 ligand administration               Suggests NOD1 ligands as            Requires further studies
+                                                  [95]                 (NOD1 − / − ,        maintenance of              ligands                   restores hematopoietic precursor         potential therapeutic agents        to ﬁnd the interaction
+                                                                       SPF, GF)             steady-state                                          pools in germ-free mice to levels        to restore hematopoiesis            between immune
+                                                                                            hematopoiesis                                         seen in speciﬁc pathogen-free            post-HSCT.                          pathways
+                                                                                                                                                  animals.
+Bone Marrow Transplantation (2026) 61:385 – 394
+
+
+
+                                                  Staffas et al.       Murine model         Antibiotics, sucrose        Granulocyte/              Depletion of intestinal microbiota       Suggests postbiotics (e.g.,         Preclinical model;
+                                                  [96]                 (antibiotic-         metabolism                  lymphocyte recovery       impairs dietary energy uptake and        sucrose) as potential               relevance to human
+                                                                       treated allo-                                                              visceral fat store.                      therapies for neutrophil            immune reconstitution
+                                                                       HSCT)                                                                      Caloric supplementation via              recovery post-HSCT.                 requires further
+                                                                                                                                                  sucrose restored granulopoiesis                                              validation.
+                                                                                                                                                  post-allo-HSCT.
+                                                  Peled et al. [6]     Humans (allo-        Loss of microbial           OS, neutrophil            Higher diversity of intestinal           Identiﬁes microbial diversity       Retrospective design;
+                                                                       HSCT, n = 1,362)     diversity and               engraftment, GVHD         microbiota at the time of neutrophil     as a biomarker for post-HSCT        heterogeneity in
+                                                                                            domination of single                                  engraftment was associated with          outcomes.                           conditioning regimens.
+                                                                                            taxa                                                  increased OS.
+                                                                                                                                                  Abundance of Enterococcus and
+                                                                                                                                                  Streptococcus spp. linked to
+                                                                                                                                                  increased GVHD risk.
+                                                  Schluter et al.      Humans (allo-        Microbial community         Daily counts of           Higher counts of WBCs in                 Identiﬁes speciﬁc taxa that         Lacks detailed
+                                                  [42]                 HSCT, n = 841;       dynamics                    neutrophils,              individuals receiving auto-FMT in        predict immune kinetics             information on
+                                                                       auto-FMT,                                        lymphocytes, and          the ﬁrst 100 days after neutrophil       during the engraftment              lymphocyte subtypes and            D. Weber et al.
+                                                                       n = 24)                                          monocytes                 engraftment.                             phase post-HSCT.                    other immune cell
+                                                                                                                                                  Enriched microbiota with                                                     populations.
+                                                                                                                                                  Faecalibacterium, Ruminococcus 2,
+                                                                                                                                                  Akkermansia accelerates immune
+                                                                                                                                                  reconstitution.
+                                                  Miltiadous et        Humans (allo-        Early post-HSCT             Day 100 CD4 + /           Increased abundance of                   Identiﬁes key microbiome            Observational study;
+                                                  al. [97]             HSCT, n = 894)       microbiome (d7–21)          CD8 + T cells, B cells,   Staphylococcus associated with poor      taxa associated with immune         heterogeneity in GVHD
+                                                                                                                        NK cells                  CD4 T-cell recovery.                     recovery post-HSCT.                 prophylaxis regimens.
+                                                                                                                                                  Highlights Erysipelotrichaceae as
+                                                                                                                                                  beneﬁcial for immune
+                                                                                                                                                  reconstitution.
+                                                  Thiele Orberg        Humans (allo-        Bacteria and                SCFA biosynthesis         High SCFA-producing pathways in          Supports the development of         Requires validation in
+                                                  et al. [53]          HSCT, n = 78)        bacteriophage               pathways, survival        bacteria/phages associated with          synthetic metabolite                larger cohorts.
+                                                                                            consortia                   outcomes                  improved survival and reduced            formulations as adjunctive
+                                                                                                                                                  relapse post-HSCT.                       therapies post-allo-HSCT.
+                                                  allo-HSCT allogeneic hematopoietic stem cell transplantation, CD cluster of differentiation, FMT fecal microbiota transplantation, GF germ-free, GVHD graft-versus-host disease, NOD nucleotide-binding
+                                                  oligomerization domain, OS overall survival, SCFA short-chain fatty acid, SPF speciﬁc pathogen-free, WBC white blood cell.
+
+
+
+
+                                                                                                                                                                                                                                                            389
+

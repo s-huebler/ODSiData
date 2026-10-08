@@ -1,0 +1,160 @@
+NatureReviewsCancer|Volume26|May2026|328–350 347
+Reviewarticle
+29. Rashidi, A. et al. Gut dysbiosisduringantileukemiachemotherapyversusallogeneic
+hematopoietic cell transplantation.Cancer 126,1434–1447(2020).
+30. Rafei, H. & Jenq, R. R. Microbiome-intestine crosstalkduringacute graft-versus-host
+disease. Blood 136, 401–409(2020).
+31. Weber, D. et al. Lowurinaryindoxylsulfate levelsearlyaftertransplantation reflect a
+disrupted microbiome and are associatedwithpooroutcome.Blood 126,1723–1728
+(2015).
+32. Stohs, E. J., Abbas, A. & Freifeld,A.Approachtofebrile neutropeniainpatients
+undergoing treatments for hematologic malignancies.Transpl.Infect.Dis. 26,e14236
+(2024).
+33. Schwabkey, Z. I. et al. Diet-derivedmetabolitesandmucuslinkthe gutmicrobiome
+tofever after cytotoxic cancertreatment.Sci.Transl.Med. 14,eabo3445(2022).
+34. Rashidi, A. et al. Altered microbiota-hostmetabolic crosstalkprecedingneutropenic
+fever in patients with acute leukemia.BloodAdv. 5,3937–3950(2021).
+35. Spellman, S. R. et al. Currentactivitytrendsandoutcomesinhematopoietic cell
+transplantation and cellulartherapy—areportfromthe CIBMTR.Transplant.Cell.Ther.
+31,505–532 (2025).
+36. Vallet, N. et al. Circulating Tcellprofilesassociate withenterotype signatures underlying
+hematological malignancy relapses.CellHostMicrobe 31,1386–1403.e6(2023).
+37. Jones,J. M., Wilson, R. & Bealmear,P.M.Mortalityandgrosspathologyofsecondary
+disease in germfree mouse radiationchimeras. Radiat.Res. 45,577–588(1971).
+38. Bekkum, D. W. V., Roodenburg,J.,Heidt,P.J.&Waaij,D.V.D.Mitigationofsecondary
+disease of allogeneic mouse radiationchimerasbymodificationofthe intestinal
+microflora. J. Natl Cancer Inst. 52,401–404(1974).
+39. Burgos da Silva,M. et al. Preservationofthe fecalmicrobiomeisassociated withreduced
+severity ofgraft-versus-hostdisease.Blood 140,2385–2397(2022).
+Thisstudydemonstratesthattheabundanceofanaerobesandbutyrateproducersat
+GVHDonsetispositivelyassociatedwithimprovedoverallsurvival,includingpatients
+withlower-gastrointestinalGVHD.
+40. Thiele Orberg, E. et al. Bacteriaandbacteriophage consortiaare associated with
+protective intestinal metabolitesinpatientsreceivingstemcelltransplantation.
+Nat. Cancer 5, 187–208 (2024).
+Thisstudyintegratesmicrobiome,viromeandmetabolomicprofilinginpatients
+undergoingallo-HCTtoidentifyaLachnospiraceaeandOscillospiraceae–
+bacteriophagesignaturelinkedtoIMMproductionandsurvival,andprovides
+evidenceforbacteriophage-encodedbutyratebiosynthesispathways.
+41. Payen, M. etal. Functional andphylogenetic alterationsingutmicrobiome arelinked
+tograft-versus-host disease severity.BloodAdv. 4,1824–1832(2020).
+42. Hayase, E. et al. Bacteroidesovatusalleviatesdysbiotic microbiota-induced
+graft-versus-host disease. CellHostMicrobe 32,1621–1636.e6(2024).
+43. ElJurdi, N. et al. Pre-transplantandlongitudinalchangesinfaecalmicrobiome
+characteristics are associatedwithsubsequentdevelopmentofchronic
+graft-versus-host disease. Br.J.Haematol. 203,288–294(2023).
+44. Markey, K. A. et al. The microbe-derivedshort-chainfattyacidsbutyrate and propionate
+areassociated with protectionfromchronic GVHD.Blood 136,130–136(2020).
+Thisstudydemonstratesthattheconcentrationofbutyrateandproprionateinplasma
+couldbeassociatedwithariskreductionofcGVHD,suggestingthatSCFAscouldbe
+usedasbiomarkers.
+45. Rashidi, A. et al. Oral and gutmicrobiome alterationsinoralchronic GVHD disease:
+results from close assessment and testing for chronic GVHD (CATCH Study).
+Clin. Cancer Res. 30, 4240–4250(2024).
+46. Kambara, Y. et al. Oral inflammationandmicrobiome dysbiosisexacerbate chronic
+graft-versus-host disease. Blood 145,881–896(2025).
+47. Habenicht, K. M. et al. Expansions of circulating plasmablasts producing
+commensal-reactive IgA antibodiesare predictorsforchronic GVHD.Blood
+145, 3178–3188 (2025).
+48. Bergeron, A. et al. Effect of azithromycinonairflowdecline-free survivalafter allogeneic
+hematopoietic stem cell transplant:the ALLOZITHROrandomizedclinicaltrial. Jama 318,
+557–566 (2017).
+49. Elgarten, C. W. et al. Broad-spectrumantibioticsandriskofgraft-versus-host disease
+inpediatric patients undergoingtransplantationforacute leukemia:associationof
+carbapenem use with the riskofacute graft-versus-hostdisease.Transplant.CellTher.
+27,177.e1–177.e8 (2021).
+50. Lee, S. E. et al. Alteration of the intestinalmicrobiotabybroad-spectrumantibioticuse
+correlates with the occurrence ofintestinalgraft-versus-hostdisease.Biol.BloodMarrow
+Transplant. 25, 1933–1943 (2019).
+51. Hayase, E. et al.Mucus-degradingbacteroideslinkcarbapenemstoaggravated
+graft-versus-host disease. Cell 185,3705–3719.e14(2022).
+ThisstudyshowsthatmeropenemtreatmentexacerbatescolonicGVHDinmiceby
+promotingB.thetaiotaomicron-mediatedmucindegradation,whichthinsthemucus
+layer,butoralxylosesupplementationmitigatesthiseffect,suggestinganutritional
+strategytocounterantibiotic-inducedmicrobiomeinjuryinallo-HCT.
+52. Mathewson,N.D.etal.Gutmicrobiome-derivedmetabolitesmodulateintestinalepithelial
+celldamage and mitigate graft-versus-hostdisease.Nat.Immunol. 17,505–513(2016).
+53. Fujiwara, H. et al. Microbial metabolite sensorGPR43controlsseverityofexperimental
+GVHD. Nat. Commun. 9, 3674(2018).
+54. Jørgensen, M. et al. Metabolic potentialofthe gutmicrobiome issignificantly impacted
+by conditioning regimen in allogeneic hematopoietic stemcelltransplantation
+recipients. Int. J. Mol. Sci. 23,11115(2022).
+55. Li,Y.et al.Differences intheestablishment ofgut microbiotaand metabolome
+characteristics between Balb/c and C57BL/6J mice after proton irradiation.
+Front.Microbiology 13,874702(2022).
+56. Nguyen,C.L.et al.High-resolutionanalyses ofassociations betweenmedications,
+microbiome,and mortality incancer patients.Cell 186,2705–2718.e17 (2023).
+ThisstudydevelopsPARADIGM,acomputationalframeworkappliedtolongitudinal
+microbiomeandmedicationdatafrompatientsundergoingallo-HCT,toreveal
+drug–microbiotaassociationsthatpredictclinicaloutcomesanduncoverstrain-level
+dynamicsunderantibioticpressure.
+57. Fuji,S.et al.Severeweight loss in3months after allogeneichematopoietic SCT was
+associated withanincreased riskofsubsequent non-relapsemortality.Bone Marrow
+Transplant. 50,100–105 (2015).
+58. Zama,D.et al.Enteral versus parenteral nutritionas nutritional support after allogeneic
+hematopoieticstem cell transplantation:asystematicreviewand meta-analysis.
+Transplant.CellTher. 27,180.e1–180.e8 (2021).
+59. Andersen,S.et al.Pilot study investigating theeffect ofenteral and parenteralnutrition
+onthegastrointestinal microbiomepost-allogeneictransplantation.Br. J. Haematol. 188,
+570–581(2020).
+60. Schroeder,B.O.et al.Bifidobacteriaor fiber protects against diet-induced
+microbiota-mediated colonicmucus deterioration.CellHost Microbe 23, 27–40.e7
+(2018).
+61. Ng,K.M.et al.Recovery ofthegut microbiotaafter antibiotics depends on hostdiet,
+community context,and environmental reservoirs.CellHost Microbe 28, 628(2020).
+62. Parrish,A.et al.Akkermansiamuciniphilaexacerbates food allergy infibre-deprived
+mice. Nat.Microbiol. 8,1863–1879(2023).
+63. So,D.et al.Dietary fiber interventionongut microbiotacompositioninhealthy adults:
+asystematicreviewand meta-analysis.Am.J.Clin.Nutr. 107,965–983(2018).
+64. Lindner,S.& Peled,J.U.Updateinclinical andmousemicrobiotaresearch in allogeneic
+haematopoieticcell transplantation.Curr.Opin.Hematol. 27,360–367 (2020).
+65. Wastyk,H.C.et al.Gut-microbiota-targeteddiets modulatehumanimmune status. Cell
+184,4137–4153.e14 (2021).
+66. Stein-Thoeringer,C.K.et al.Lactosedrives Enterococcus expansiontopromote
+graft-versus-host disease.Science 366,1143–1149(2019).
+Thisstudyconcludesthatthepresenceoflactose,acarbohydrate,canexacerbatethe
+relativeabundanceofEnterococcus,aproteobacteriaassociatedwithpooroutcomes
+posttransplantation,demonstratingthataspecificmacronutrientcanmodulatethe
+microbiomeandoutcomesinGVHD.
+67. Morello,E.et al.Nutritional strategies toimproveVREcontrol.Transplant. Cell. Ther. 30,
+548.e1–548.e4 (2024).
+68. Seike,K.et al.Ambient oxygenlevels regulateintestinal dysbiosis and GVHDseverity
+after allogeneicstem cell transplantation.Immunity 56,353–368.e6 (2023).
+69. Donohoe,D.R.et al.Themicrobiomeand butyrateregulateenergy metabolismand
+autophagy inthemammaliancolon.CellMetab. 13,517–526 (2011).
+70. Fujiwara,H.et al.Mitochondrial complexII inintestinal epithelial cells regulates
+T cell-mediated immunopathology.Nat.Immunol. 22,1440–1451(2021).
+71. Kelly,C.J.et al.Crosstalkbetweenmicrobiota-derived short-chainfatty acids and
+intestinal epithelial HIFaugments tissuebarrier function.CellHost Microbe 17, 662–671
+(2015).
+72. Lin,D.et al.Roles oftheintestinal microbiotaand microbial metabolitesin acute GVHD.
+Exp.Hematol.Oncol. 10,49(2021).
+73. Koyama,M.et al.Recipient nonhematopoieticantigen-presenting cells are sufficient to
+inducelethal acutegraft-versus-hostdisease.Nat.Med. 18,135–142(2012).
+74. Li,H.et al.Profound depletionofhost conventional dendriticcells,plasmacytoid
+dendriticcells,and Bcells does not prevent graft-versus-host diseaseinduction.
+J.Immunol. 188,3804–3811(2012).
+75. Stephens,W.Z.et al.Epithelial–myeloid exchangeofMHC class II constrains immunity
+and microbiotacomposition.CellRep. 37,109916 (2021).
+76. Koyama,M.et al.MHC class II antigenpresentationby theintestinal epitheliuminitiates
+graft-versus-host diseaseand is influenced by themicrobiota.Immunity 51, 885–898.e7
+(2019).
+77. Koyama,M.et al.Intestinal microbiotacontrols graft-versus-host disease independent
+ofdonor-host geneticdisparity.Immunity 56,1876–1893.e8 (2023).
+Thisstudyshowsthatthepre-transplantintestinalmicrobiotaregulatesilealMHC
+classIIexpressionandGVHDseverity,identifiesvancomycin-sensitivetaxaaskey
+MHCclassIIinducersanddemonstratesthatperi-transplantvancomycinmitigates
+CD4⁺Tcell-mediatedGVHD,withsimilarmicrobiota–HLAclassIIassociations
+observedinalargeclinicalcohort.
+78. Yeh,A.C.et al.MicrobiotadictateT cellclonal selectiontoaugment graft-versus-host
+diseaseafter stem cell transplantation.Immunity 57,1648–1664.e9(2024).
+ThisworkintroducesaBayesianmodeltointerrogatedonorandrecipientTCR
+repertoiresinmousetransplants,uncoveringthatmicrobiota-specificTcellsdrive
+clonotypicexpansionandintensifyGVHDbytargetingmicrobialantigens,revealinga
+microbiota-dependentmechanismforGVHDbeyondgeneticdisparity.
+79. Jarosch,S.etal.Multimodal immunecell phenotyping inGI biopsies reveals
+microbiome-related T cell modulations inhumanGvHD.CellRep.Med. 4, 101125
+(2023).
+80. Schwab,L.et al.Neutrophil granulocytes recruited upontranslocationof intestinal
+bacteriaenhancegraft-versus-host diseaseviatissuedamage.Nat.Med. 20, 648–654
+(2014).

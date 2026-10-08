@@ -1,0 +1,94 @@
+Review article
+
+
+and SBAs by day 28. By contrast, non-responders had higher levels of          References
+                                                                              1.    Zeiser, R. & Blazar, B. R. Acute graft-versus-host disease—biologic process, prevention,
+pathogenic pro-inflammatory bacteria and increased levels of systemic
+                                                                                    and therapy. N. Engl. J. Med. 377, 2167–2179 (2017).
+inflammatory markers. However, severe infectious complications,               2.    Kean, L. S. & Blazar, B. R. Major breakthroughs in hematopoietic stem cell transplantation
+including sepsis, were observed in five patients. Bacteria from the donor           and future challenges in clinical implementation. J. Clin. Invest. 134, e179944 (2024).
+                                                                              3.    Malard, F., Holler, E., Sandmaier, B. M., Huang, H. & Mohty, M. Acute graft-versus-host
+product were not detected in any of these cases, leaving the connection
+                                                                                    disease. Nat. Rev. Dis. Primers 9, 27 (2023).
+to the intervention uncertain. Furthermore, the prospective cohort            4.    Penack, O. et al. Prophylaxis and management of graft-versus-host disease after
+showed lower overall survival (28% at 6 months) compared with both                  stem-cell transplantation for haematological malignancies: updated consensus
+                                                                                    recommendations of the European Society for Blood and Marrow Transplantation.
+the expanded access programme group (49%) and survival estimates
+                                                                                    Lancet Haematol. 11, e147–e159 (2024).
+obtained from an analysis of 25 studies on second-line treatment for          5.    Saliba, R. M. et al. Characteristics of graft-versus-host disease (GvHD) after post-
+steroid-refractory aGVHD (49% weighted average 6-month overall sur-                 transplantation cyclophosphamide versus conventional GvHD prophylaxis.
+                                                                                    Transplant. Cell. Ther. 28, 681–693 (2022).
+vival)167. This discrepancy is likely due to the HERACLES trial enrolling a   6.    Greinix, H. T. et al. Improved outcome of patients with graft-versus-host disease after
+particularly high-risk population with severe gastrointestinal involve-             allogeneic hematopoietic cell transplantation for hematologic malignancies over time:
+ment and high-risk prognostic scores, whereas the expanded access                   an EBMT mega-file study. Haematologica 107, 1054–1063 (2022).
+                                                                              7.    Pidala, J. et al. Randomized multicenter trial of sirolimus vs prednisone as initial therapy
+programme included some patients with less severe disease and may                   for standard-risk acute GVHD: the BMT CTN 1501 trial. Blood 135, 97–107 (2020).
+have benefited from delayed effects of prior treatments such as ruxoli-       8.    Westin, J. R. et al. Steroid-refractory acute GVHD: predictors and outcomes. Adv. Hematol.
+tinib. Following these encouraging results, a phase III, single-arm trial           2011, 601953 (2011).
+                                                                              9.    Jagasia, M. et al. Ruxolitinib for the treatment of steroid-refractory acute GVHD (REACH1):
+was conducted across 50 sites in Europe (ARES (NCT04769895)168), eval-              a multicenter, open-label phase 2 trial. Blood 135, 1739–1749 (2020).
+uating the efficacy of MaaT013 in 66 patients with steroid-refractory         10.   Zeiser, R. et al. Ruxolitinib for glucocorticoid-refractory acute graft-versus-host disease.
+and ruxolitinib-refractory gastrointestinal aGVHD. The findings have                N. Engl. J. Med. 382, 1800–1810 (2020).
+                                                                              11.   Ferrara, J. L. M. & Deeg, H. J. Graft-versus-host disease. N. Engl. J. Med. 324, 667–674
+not yet been peer reviewed but, according to an abstract presented                  (1991).
+at the 2025 annual meeting of the American Society of Hematology,             12.   Vriesendorp, H. M. & Heidt, P. J. History of graft-versus-host disease. Exp. Hematol. 44,
+the primary end-point of the study was met, with a gastrointestinal                 674–688 (2016).
+                                                                              13.   Neuerburg, C. K. F. et al. Antibiotic prophylaxis during allogeneic stem cell
+overall response rate at day 28 of 62%. Furthermore, 12-month overall               transplantation—a comprehensive single center retrospective analysis. Transplant. Cell.
+survival was significantly higher in responders versus non-responders               Ther. 30, 1195.e1–1195.e13 (2024).
+(67% versus 28%, P < 0.0001)169.                                              14.   Zheng, D., Liwinski, T. & Elinav, E. Interaction between microbiota and immunity in health
+                                                                                    and disease. Cell Res. 30, 492–506 (2020).
+                                                                              15.   Taur, Y. et al. Intestinal domination and the risk of bacteremia in patients undergoing
+Conclusion and future perspectives                                                  allogeneic hematopoietic stem cell transplantation. Clin. Infect. Dis. 55, 905–914 (2012).
+Substantial progress has been made in recent years towards under-             16.   Holler, E. et al. Metagenomic analysis of the stool microbiome in patients receiving
+                                                                                    allogeneic stem cell transplantation: loss of diversity is associated with use of
+standing the role of the intestinal microbiota in outcomes following                systemic antibiotics and more pronounced in gastrointestinal graft-versus-host
+allo-HCT, and in particular its influence on GVHD pathogenesis, meta-               disease. Biol. Blood Marrow Transplant. 20, 640–645 (2014).
+                                                                              17.   Taur, Y. et al. The effects of intestinal tract bacterial diversity on mortality following
+bolic homeostasis and immune regulation. The intestinal metabolome
+                                                                                    allogeneic hematopoietic stem cell transplantation. Blood 124, 1174–1182 (2014).
+has emerged as a central mediator in this process, with distinct metabo-      18.   Jenq, R. R. et al. Intestinal blautia is associated with reduced death from graft-versus-host
+lomic shifts linked to GVHD development. Together, these findings                   disease. Biol. Blood Marrow Transplant. 21, 1373–1383 (2015).
+                                                                              19.   Shono, Y. et al. Increased GVHD-related mortality with broad-spectrum antibiotic use
+offer promising avenues for novel therapeutic interventions that target
+                                                                                    after allogeneic hematopoietic stem cell transplantation in human patients and mice.
+the microbiome and its metabolic outputs. Although there is growing                 Sci. Transl. Med. 8, 339ra371 (2016).
+enthusiasm for such microbiota-targeted strategies, the current body          20.   Golob, J. L. et al. Stool microbiota at neutrophil recovery is predictive for severe acute
+                                                                                    graft vs host disease after hematopoietic cell transplantation. Clin. Infect. Dis. 65,
+of evidence remains complex and, at times, contradictory. Although
+                                                                                    1984–1991 (2017).
+several studies have reported associations between microbial diversity,       21.   Peled, J. U. et al. Intestinal microbiota and relapse after hematopoietic-cell transplantation.
+targeted interventions and aGVHD-related outcomes, not all findings                 J. Clin. Oncol. 35, 1650–1659 (2017).
+                                                                              22.   Weber, D. et al. Microbiota disruption induced by early use of broad-spectrum antibiotics
+have been consistent. These discrepancies highlight the need for a
+                                                                                    is an independent risk factor of outcome after allogeneic stem cell transplantation.
+more nuanced understanding of causality and effect size, as well as                 Biol. Blood Marrow Transplant. 23, 845–852 (2017).
+the clinical relevance of microbiota modulation.                              23.   Hidaka, D. et al. The association between the incidence of intestinal graft-vs-host
+                                                                                    disease and antibiotic use after allogeneic hematopoietic stem cell transplantation.
+      Nonetheless, the field is advancing rapidly. Emerging interven-               Clin. Transplant. 32, e13361 (2018).
+tions such as FMT and microbiota-based consortia therapies show               24.   Peled, J. U. et al. Microbiota as predictor of mortality in allogeneic hematopoietic-cell
+promise, although their clinical application remains in the early stages.           transplantation. N. Engl. J. Med. 382, 822–834 (2020).
+                                                                                    This study demonstrates that increased intestinal microbiota diversity during the
+Importantly, several clinical trials are underway and expected to report            peri-engraftment phase is significantly associated with a reduced incidence of both
+results that will elucidate the therapeutic potential of these approaches.          overall mortality and transplant-related mortality following allo-HCT, based on an
+Future multicentre studies incorporating advanced metagenomic and                   extensive analysis of faecal samples collected from four independent patient cohorts.
+                                                                              25.   Shono, Y. & van den Brink, M. R. M. Gut microbiota injury in allogeneic haematopoietic
+metabolomic analyses will also be essential to prospectively character-             stem cell transplantation. Nat. Rev. Cancer 18, 283–295 (2018).
+ize microbiota dynamics and metabolite profiles during allo-HCT and           26.   Rashidi, A. et al. Randomized double-blind phase II trial of fecal microbiota transplantation
+GVHD. In parallel, mechanistic studies are needed to further elucidate              versus placebo in allogeneic hematopoietic cell transplantation and AML. J. Clin. Oncol.
+                                                                                    41, 5306–5319 (2023).
+how the microbiome influences immune responses and tissue homeo-                    This first randomized, double-blind, placebo-controlled trial of FMT in patients with
+stasis. These efforts will pave the way for the development of predic-              acute myeloid leukaemia (AML) undergoing allo-HCT shows that oral encapsulated
+tive biomarkers and personalized, microbiota-modulating therapies.                  FMT safely improves microbiota diversity and restores depleted commensals after
+                                                                                    antibiotics, but does not reduce infection rates, providing key insights for future
+Although challenges remain, we are optimistic that microbiota-centred               microbiome-targeted interventions.
+interventions will ultimately become an integral part of clinical practice    27.   Gorshein, E. et al. Lactobacillus rhamnosus GG probiotic enteric regimen does not
+in allo-HCT.                                                                        appreciably alter the gut microbiome or provide protection against GVHD after
+                                                                                    allogeneic hematopoietic stem cell transplantation. Clin. Transplant. 31, e12947 (2017).
+                                                                              28.   Rashidi, A. et al. Lasting shift in the gut microbiota in patients with acute myeloid
+Published online: 26 February 2026                                                  leukemia. Blood Adv. 6, 3451–3457 (2022).
+
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                                      346
+

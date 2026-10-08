@@ -1,0 +1,60 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine   (2025) 23:832                                       Page 10 of 15
+
+
+
+
+IL-18-mediated NK cell maturation and mitigate liver                  deemed safe during aGVHD, such as Lactobacillus plan-
+pathology in GVHD patients [93].                                      tarum in pediatric patients and Lactobacillus Rhamnosus
+                                                                      GG in murine models, there have been reports of sepsis,
+Therapeutic opportunities                                             bacteremia, and meningitis following probiotic treatment
+GVHD is a major cause of morbidity and mortality post-                in immunocompromised individuals. These incidents
+allo-HSCT, characterized by donor immune cells attack-                highlight the necessity for cautious selection and moni-
+ing recipient tissues, with the gastrointestinal tract being          toring of probiotic use in vulnerable populations [100].
+a primary target. Current treatments, primarily cortico-                Ongoing clinical trials aim to further elucidate the role
+steroids, are effective in only 40–60% of patients, with              of probiotics in GVHD prevention. A randomized phase
+many experiencing steroid dependency or resistance [94].              III trial is currently investigating the efficacy of Lacto-
+The gut microbiota’s role in GVHD pathogenesis has                    bacillus plantarum in preventing aGVHD in children
+spurred interest in microbiota-based interventions. This              undergoing donor stem cell transplantations. The out-
+review evaluates probiotic intervention, prebiotic supple-            comes of such studies are anticipated to provide more
+mentation, and FMT, focusing on their potential to pre-               definitive evidence regarding the safety and effectiveness
+vent and treat GVHD, drawing from recent studies and                  of probiotics in this context(NCT03057054).
+ongoing trials.
+                                                                      Prebiotics
+Probiotics                                                            Prebiotics, non-digestible fibers promoting beneficial
+Probiotics, defined as live microorganisms conferring                 bacteria growth, are investigated for their role in main-
+health benefits, have been explored for their potential               taining gut microbiome homeostasis. Holmes et al. used
+to mitigate GVHD by restoring gut microbiome balance                  Galacto-Oligosaccharides (GOS) in mice, finding it pre-
+and enhancing barrier function. A pilot randomized                    vented antibiotic-induced gut injury post-allo-HCT by
+clinical trial by Yazdandoust et al. (2023) suggested that            expanding butyrogenic bacteria and increasing SCFA
+synbiotic intake (probiotics plus prebiotics) before and              production, potentially modulating alloreactivity [101].
+during conditioning may reduce acute GVHD incidence                   Another review, noted prebiotics like GOS reduced
+and severity by inducing CD4 + CD25 + Foxp3 + regula-                 GVHD severity in murine models, but cautioned that
+tory T cells, potentially improving transplant outcomes               lactose may enhance GVHD by reducing microbiota
+[95]. However, this study was small (n = 30), limiting                diversity [102].
+generalizability.                                                       Clinical studies have also explored the role of prebiot-
+  Safety was assessed in pediatric populations by Ladas               ics in GVHD prevention. A phase I/II trial is currently
+et al. (2016), finding Lactobacillus plantarum adminis-               assessing the safety, optimal dosing, and efficacy of GOS
+tration feasible, with 97% compliance and no bacteremia               in preventing aGVHD in patients undergoing alloge-
+in 30 children and adolescents undergoing HCT, though                 neic HSCT. This study aims to determine whether GOS
+efficacy in GVHD prevention was not evaluated [96].                   supplementation can modulate the gut microbiome and
+Animal studies, such as Sofi et al. (2021), showed Bacte-             reduce the incidence of aGVHD, thereby improving
+roides fragilis improving gut barrier integrity and reduc-            transplant outcomes (NCT04373057).
+ing GVHD in mice by enhancing mucus production and                      Furthermore, the timing of prebiotic administration
+reducing epithelial damage, suggesting strain-specific                appears to be critical. Prebiotics are most effective in
+benefits [97].                                                        individuals with a relatively intact and diverse microbi-
+  Further animal studies have demonstrated the potential              ome, as they serve as substrates for existing beneficial
+of probiotics in GVHD management. For instance, oral                  bacteria. In patients with low microbial diversity prior to
+administration of Lactobacillus Rhamnosus GG before                   transplantation, the benefits of prebiotic supplementa-
+and after transplantation resulted in improved survival               tion may be diminished. Therefore, assessing the baseline
+and reduced aGVHD in murine models [98]. Similarly,                   gut microbiome composition could inform the strategic
+combining Lactobacillus acidophilus with the immuno-                  timing and potential efficacy of prebiotic interventions in
+suppressant FK506 reduced inflammation and the sever-                 the context of HSCT [103].
+ity of GVHD compared to FK506 alone in both in vivo
+and in vitro studies. These findings underscore the poten-            Fecal microbiota transplantation (FMT)
+tial of specific probiotic strains in modulating immune               FMT, which involves transferring fecal matter from
+responses and enhancing gut barrier function to mitigate              healthy donors to patients, has emerged as a promising
+GVHD [99].                                                            approach to restore gut microbiota balance in individu-
+  However, concerns regarding the safety of adminis-                  als with GVHD, particularly those with steroid-refractory
+tering live microorganisms to immunocompromised                       manifestations. A comprehensive meta-analysis by Li et
+patients persist. While some probiotics have been                     al. (2022) pooled data from 79 patients across six studies
+

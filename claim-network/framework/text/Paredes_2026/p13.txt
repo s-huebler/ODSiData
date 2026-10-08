@@ -1,0 +1,84 @@
+Review article
+
+
+Table 1 (continued) | Microbiome-derived metabolites associated with allogeneic hematopoietic cell transplantation
+
+ Microbial-derived         Bacterial taxa          Substrates           Mechanisms of             Therapeutic potential                 Select interventions in the USA,                        Refs.
+ metabolite                                                             action                                                          all diseases includeda
+
+ Tryptophan                Bacteroides             Dietary protein Converted                      Restores microbial diversity          ‘Mechanistic Approach to Preventing                         31
+                           fragilis,                               into bioactive                 and enhances production               Atrophy and Restoring Function in Older
+                           Clostridium                             metabolites                    of immune-modulating                  Adults’ (NCT02145949)
+                           sporogenes,                             that regulate                  metabolites; reduces the
+                           Eubacterium hallii                      immune cells                   severity of GVHD
+
+ Indole-3-propionic        C. sporogenes           Dietary              Activates the PXR         Antioxidant and               ‘Safety and Pharmacology Study of VP                                31
+ acid (IPA)                                        protein,                                       anti-inflammatory properties, 20629 in Adults With Friedreich’s Ataxia’
+                                                   tryptophan                                     protection of the gut         (NCT01898884)
+                                                                                                  lining and modulation of
+                                                                                                  immune responses; immune
+                                                                                                  regulation and tolerance,
+                                                                                                  inflammation reduction
+
+ Indole-3-aldehyde         Lactobacillus           Dietary              Activates the AhR         Promotes IL-22 production             ‘Lactobacillus plantarum for GVHD                           91
+ (IAld)                    reuteri,                protein,                                       by innate lymphoid cells              Prevention’ (NCT03057054)
+                           Lactobacillus           tryptophan                                     (ILC3s), which is the primary
+                           plantarum                                                              driver of intestinal stem cell
+                                                                                                  regeneration
+
+ Isovaleric acid           Bacteroides spp.,       Branched             Influences branched-      Modulation of systemic                ‘A study investigating the interaction                     40
+                           Prevotella spp.         amino acids          chain amino acid          branched-chain amino acids            between gut microbiota and BCAA
+                                                                        metabolism, modu­         homeostasis and attenuation           metabolism to improve metabolic
+                                                                        lates immune cell         of TH1 cell-mediated                  health’ (NCT03239717)
+                                                                        activation                inflammatory responses
+
+ Lactate                   Lactobacillus spp., Carbohydrates Enhances protein                     Maintenance of gut                    ‘Dietary Supplement With and Without a                     40
+                           Bifidobacterium                   expression of tight                  barrier integrity, enhanced           Probiotic’ (NCT04433208)
+                           spp.                              junctions in the                     epithelial cell survival, and
+                                                             epithelium and                       modulation of immune
+                                                             reduces levels of                    responses to reduce
+                                                             pro-inflammatory                     inflammation
+                                                             cytokines
+
+ Human milk                Lactobacillus spp., Carbohydrates Drives the metab­                    Supports redox homeostasis            ‘Dietary Supplement With and Without a                  40,79
+ oligosaccharide           Bifidobacterium                   olic produc­tion of                  by favouring the expansion            Probiotic’ (NCT04433208)
+ (HMO)                     spp.                              SCFAs and lactate,                   of commensal taxa
+                                                             which lower luminal                  that mitigate oxidative
+                                                             pH and provide                       stress-induced dysbiosis
+                                                             essential energy
+                                                             substrates for
+                                                             colono­cytes to
+                                                             maintain intestinal
+                                                             barrier homeostasis
+
+ Urolithins                Akkermansia             Dietary              Acts through the          Modulation of mucus                   ‘Pomegranate-Extract Pill in Preventing                    33
+                           muciniphila,            polyphenols          AhR, regulating           production, immune                    Tumour Growth in Patients With
+                           Eggerthella spp.                             mucosal immunity          response regulation,                  Localized Prostate Cancer Undergoing
+                                                                        and gut barrier           maintenance of epithelial             Active Surveillance’ (NCT02095145)
+                                                                        function                  barrier integrity; promising
+                                                                                                  for GVHD management
+
+ Phenylacetic acid         Clostridium spp.,       Phenylalanine        Interacts with T cells Reduction of inflammatory                ‘The Impact of the Gut Microbiota on                      103
+                           Bacteroides spp.                             and macrophages, signalling in GVHD                             the Metabolism of Branched-chain and
+                                                                        influences Treg cell                                            Aromatic Amino Acids’ (NCT03239717)
+                                                                        differentiation,
+                                                                        modulates cytokine
+                                                                        production and
+                                                                        immune responses
+
+ Methionine-               Bacteroides spp.        Methionine           Regulates redox           Microbial resilience,                 ‘Impact of Gut Microbiota on Methionine                   103
+ derived                                                                balance and               metabolite production;                and One-Carbon Metabolism’
+ metabolites                                                            supports microbial        promising for the mitigation          NCT07283328)
+                                                                        cross-feeding             of GVHD
+This table provides an overview of microbial-derived metabolites and their roles in the development and mitigation of graft-versus-host disease (GVHD) post allogeneic hematopoietic cell
+transplantation (allo-HCT). It highlights key metabolites, the bacterial taxa that produce them and the substrates involved in their synthesis. In addition, the table lists the mechanisms of
+action by which these metabolites regulate immune responses, maintain epithelial barrier integrity and suppress inflammation, as well as their therapeutic potential in alleviating GVHD. AhR,
+aryl hydrocarbon receptor; BCAA, branched chain amino acid; CDCA, chenodeoxycholic acid; FDA, US Food and Drug Administration; FXR, farnesoid X receptor; GPCR, G-protein-coupled
+receptor; HDAC, histone deacetylase; IL-22, interleukin-22; ILC3, group 3 innate lymphoid cell; NA, not applicable; PXR, pregnane X receptor; SCFA, short-chain fatty acid; TGR5, Takeda
+G-protein-coupled receptor 5; TH1 cell, T helper 1 cell; Treg cell, regulatory T cell. aThese trials were selected and included to provide proof of concept for the potential use of these interventions
+in the clinical setting of allo-HCT.
+
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                                                            340
+

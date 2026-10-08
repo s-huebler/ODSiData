@@ -1,0 +1,73 @@
+                                                            D. Weber et al.
+390
+      pathogenesis of GvHD proceeds through direct and indirect                  Given the negative impact of early antibiotic use on transplant
+      mechanisms. They can induce anti-inﬂammatory responses [29],            outcome, clinical strategies for antibiotic stewardship have been
+      improve intestinal epithelial barrier integrity, help maintain          an area of active investigation aiming a more sophisticated use of
+      intestinal homeostasis and they can enhance anti-inﬂammatory            antibiotics in the setting of alloHCT. At a single transplant unit, the
+      Treg and tissue-repair inducing ILC3 [25, 48–51]. Intestinal            change of antibiotic guidelines to a more restrictive use of
+      commensals confer colonization resistance against entero-               antibiotics particularly in cases with a high likelihood of cytokine
+      pathogens by nutrient limitation and the production of bacter-          release syndrome (CRS), e.g., after anti-thymocyte globulin
+      iocins and as such contribute to balanced gut homeostasis [52].         therapy, led to reduced antibiotic administration in general, more
+      Recent data identiﬁed a microbiome signature of Lachnospiraceae         microbiome diversity and a trend towards a reduced incidence of
+      and Oscillospiraceae and their associated bacteriophages, that          severe GI GvHD, without an increase in infectious complications
+      correlated with the production of immunomodulatory metabolites          [57]. Thus, the development of strategies allowing better
+      (IMMs) such as short chain and branch chain fatty acids and             differentiation between fever as a consequence of CRS and fever
+      interferon-I inducing metabolites. The presence of these IMMs           due to real infection would be a valuable clinical approach for
+      strongly correlated with alloHCT outcome [53].                          optimal antibiotic stewardship.
+         Whereas the presence of SCFA-producing bacterial species was            A group of innovative new substances including Beta-lactam
+      found to be associated with protection against acute GvHD-              cleaving enzymes, charcoal-based adsorbents or engineered
+      related mortality and the development of chronic GvHD [29, 54],         probiotics depict another promising option to maintain micro-
+      other bacterial taxa have been associated with more severe              biome integrity and to mitigate dysbiosis associated risks. These
+      disease. Loss of microbiome diversity is often accompanied with a       antibiotic neutralizing agents selectively decrease antibiotic
+      shift to Enterococcus domination, which is associated with an           concentrations in the gut without affecting their therapeutic
+      increased risk of severe GvHD and GvHD-related mortality [4, 6]. In     efﬁcacy allowing the use of highly effective antibiotics for the
+      murine models enterococcal administration aggravated GvHD               treatment of severe infections [58–62].
+      severity, demonstrating causality. Indeed, a diet free of lactose, a       The clinical signiﬁcance of prophylactic antibiotics during the
+      substrate mainly utilized by enterococci, prevented enterococcal        alloHCT period is still an unsolved issue. After initial beneﬁcial
+      overgrowth and reduced GvHD severity [14]. Similarly, the               reports regarding GvHD severity and OS in a clinical study of the
+      administration of butyrate or butyrate producing bacteria               Essen group using gut decontamination with ciproﬂoxacin and
+      mitigated GvHD severity and improved transplant outcome in              metronidazole [9], these effects could not be conﬁrmed in follow-
+      murine GvHD [21].                                                       up studies. In the meantime, there is an increasing number of
+         These data suggest that the pathophysiology of acute GvHD            smaller clinical studies showing no protective effects of prophy-
+      may depend on a complex interplay among various bacterial               lactic antibiotics on acute GvHD resulting in a heterogeneous use
+      species, their metabolites, intestinal homeostasis, barrier function    of prophylactic gut decontamination across transplant centers, as
+      and immune tolerance. The most sensitive time period to interfere       randomized prospective studies on antibiotic prophylaxis are still
+      is probably when dysbiosis has not yet led to immune                    missing [63–65].
+      dysregulation, most likely in the immediate pre- and post-                 In summary, these data describe paradoxic antibiotic effects in
+      transplant period. This is suggested amongst others by the impact       alloHCT: broad-spectrum antibiotics induces luminal and mucosal
+      of timing of antibiotics.                                               dysbiosis with negative effects on epithelial barrier integrity,
+                                                                              containment of pathobionts, and transplant outcome [66]. These
+                                                                              data seem to be contradictory to the old data reporting a reduced
+      MICROBIOME-TARGETED STRATEGIES TO IMPROVE                               incidence of GvHD in germfree mice and also to recent ﬁndings
+      OUTCOMES                                                                indicating that microbiota suppression by antibiotics can posi-
+      Antibiotic stewardship                                                  tively interfere with bacterial translocation. Intensive conditioning
+      Broad-spectrum antibiotics are an integral part of alloHCT care,        damages the intestinal epithelium and facilitates bacterial
+      and frequently used to treat febrile infections, a major complica-      translocation into the intestinal wall, which is ampliﬁed after loss
+      tion especially in the post-transplant neutropenic period. Addi-        of epithelial barrier integrity due to T cell mediated apoptosis in
+      tionally, prophylactic antibiotics have been routinely used aiming      GvHD patients - a hallmark of GvHD initiation [67, 68]. Antibiotics
+      total or selective gut decontamination primarily to prevent             can either enhance or suppress T-cell mediated immunity,
+      infectious complications during aplasia but also to protect patients    depending on the context: While dysbiosis diminishes T-cell
+      from GvHD since early studies suggested that gut decontamina-           regulation and increases GvHD susceptibility, suppression of
+      tion might reduce GvHD severity, improve survival and also              translocated bacteria dampens T-cell activation through reduced
+      reduce neutropenic fever [8, 9].                                        co-stimulation mitigating GvHD. Thus, in alloHCT a more
+         However, the use of broad-spectrum antibiotics is a double-          sophisticated timing of antibiotics may supplement antibiotic
+      edged sword, as it remains a major risk factor driving severe           stewardship in general, and strategies preserving luminal and
+      intestinal dysbiosis, which is clearly associated with poor overall     mucosal eubiosis but preventing translocation may be needed
+      survival and an increased risk for acute GvHD [12, 55]. Antibiotics     [66] allowing a better balance between infection reduction and
+      like carbapenems and piperacillin/tazobactam that suppress              microbiota damage.
+      commensal bacteria have been associated with increased GvHD-
+      related mortality, whereas antibiotics with commensal and               Probiotics, prebiotics, and postbiotics
+      anaerobic sparing effects like cefepime or aztreonam were not           Beside antibiotic stewardship, others strategies are under inves-
+      [56]. In mice, treatment with imipenem-cilastatin led to a              tigation to preserve or repair the microbiome in patients
+      degradation of the protective mucus layer and disruption of the         undergoing alloHCT including prebiotic and dietary changes,
+      intestinal barrier function. This has been attributed to speciﬁc        probiotics and fecal microbiota transfer, and postbiotic
+      bacteria such as Akkermansia muciniphila, a mucus degrading             supplements.
+      bacterium [56]. Interestingly, not only the type of antibiotics in         Prebiotics are indigestible carbohydrates selectively utilized by
+      general but also the timing seems to be critical, as patients who       host microorganisms. Riwes et al. conducted a phase 2 study to
+      received antibiotics prior to the day of transplantation showed         evaluate the use of resistant potato starch (RPS) in 10 adults’
+      loss of protective Clostridia and increased transplant related          patients that received alloHCT [69]. RPS is a form of potato starch
+      mortality, compared to patients with later initiation of antibiotic     that is practically not digested by human enzymes in the small
+      treatment [55].                                                         intestine [70]. It passes through to the large intestine largely intact,
+
+                                                                                                     Bone Marrow Transplantation (2026) 61:385 – 394
+

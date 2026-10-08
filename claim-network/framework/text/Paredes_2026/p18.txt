@@ -1,0 +1,67 @@
+Review article
+
+
+Glossary
+
+
+Alloreactive donor T cells                   Enteral nutrition                            Major histocompatibility                      Prebiotics
+Donor-derived T lymphocytes that             Administration of nutrients to the           complex (MHC) class II                        Dietary substances, typically fibre, that
+recognize recipient human leukocyte          gastrointestinal tract by oral intake        Cell surface glycoproteins                    promote the growth and activity of
+antigen (HLA) as non-self and initiate       or via a tube.                               expressed primarily on professional           beneficial gut bacteria.
+an immune response.                                                                       antigen-presenting cells and that
+                                             Enterotypes                                  present extracellular-derived peptide         Probiotics
+Alpha diversity                              Distinct clusters within the gut             antigens to CD4⁺ T helper cells, initiating   Live microorganisms that, when
+A measure of microbial diversity             microbiota characterized by the              and regulating adaptive immune                administered in sufficient amounts,
+within a single sample, capturing            dominance of certain bacterial               responses.                                    confer a health benefit on the host.
+both the number of taxa present              genera, used to categorize individual
+(richness) and their relative distribution   microbiome profiles.                         Mucositis                                     Secondary bile acids
+(evenness). Commonly quantified                                                           Painful inflammation and ulceration           (SBAs). Bile acids formed in the
+using indices such as the Shannon            Facultative anaerobes                        of the mucus membranes lining the             intestine by microbial modification
+index or Simpson index.                      Microorganisms that can grow in both         digestive tract, frequently caused by         of primary bile acids through
+                                             the presence and absence of oxygen,          chemotherapy or radiation.                    deconjugation and dehydroxylation.
+Bacteraemia                                  allowing them to adapt to varying                                                          SBAs modulate lipid absorption in
+The presence of bacteria in the              oxygen levels in the gut. By contrast,       Mycobiome                                     the host.
+bloodstream.                                 strict anaerobic microorganisms cannot       The community of fungi that reside in
+                                             grow in the presence of oxygen as they       and on the human body.                        Short-chain fatty acids
+Bacteriophages                               lack enzymes to neutralize harmful                                                         (SCFAs). Microbial fermentation
+Viruses that infect and replicate            oxygen by-products.                          Myeloablative regimens                        products, such as butyrate,
+within bacteria, influencing                                                              Treatment regimens involving                  propionate and acetate, which
+bacterial populations and gene               Faecal microbiota                            high-dose chemotherapy or                     support gut health and regulate
+transfer within the gut microbiome.          transplantation                              radiation to destroy bone marrow              immune responses.
+                                             (FMT). The process of transferring           cells, typically used before stem
+Bayesian modelling                           stool from a healthy donor into the          cell transplantation.                         Third-party FMT
+A statistical approach that uses prior       gastrointestinal tract of a patient to                                                     Faecal microbiota transplantation
+knowledge and probability to interpret       restore balance to the microbiome.           Neutropenia                                   (FMT) where the faecal matter
+complex data, commonly used to                                                            A low number of neutrophils                   has been sourced from a donor
+model biological systems such as             Genetic convergence                          (a type of white blood cell) in the           distinct from the patient’s
+immune responses.                            The independent emergence of similar         blood, commonly occurring after               transplant donor.
+                                             genetic traits or functions across           chemotherapy and associated
+Bronchiolitis obliterans                     distinct microbial taxa or communities,      with a high risk of infection. Febrile        Tight junction
+syndrome                                     often driven by shared environmental         neutropenia is also associated                A specialized intercellular junction
+A chronic lung condition involving           pressures or host interactions.              with fever.                                   that seals adjacent epithelial or
+inflammation and scarring of the                                                                                                        endothelial cells, forming a selective
+small airways, which can occur as            Human leukocyte antigen                      Non-myeloablative regimens                    barrier that regulates paracellular
+a complication after allogeneic              (HLA). A group of highly polymorphic         Less intensive pre-transplant regimens        transport of ions, solutes and water.
+haematopoietic cell transplantation.         cell surface proteins that are part of       that do not completely eliminate the          Tight junctions maintain tissue integrity
+                                             the HLA system. These molecules are          recipient’s bone marrow, aiming to            and contribute to barrier function.
+Cholestatic diseases                         the human equivalent of the major            reduce toxicity while allowing donor
+A group of disorders marked by               histocompatibility complex (MHC)             cell engraftment.                             Vancomycin-resistant
+impaired bile formation or flow,             molecules found in other species. HLA                                                      Enterococcus
+leading to cholestasis (reduced or           proteins present peptide antigens to         Parenteral nutrition                          (VRE). A strain of Enterococcus bacteria
+obstructed bile secretion). These            T cells, having a critical role in immune    Intravenous administration of                 resistant to the antibiotic vancomycin,
+conditions may be intrahepatic or            recognition and response.                    nutrients.                                    capable of causing serious infections,
+extrahepatic and often progress to                                                                                                      particularly in patients who are
+liver injury.                                Indoles                                      Postbiotics                                   immunocompromised.
+                                             A class of aromatic heterocyclic             Non-living microbial products or
+Endogenous pyrogens                          compounds derived from the amino             metabolites that confer health benefits       Virome
+Fever-producing factors that originate       acid tryptophan. Indoles are produced        to the host without containing viable         The collection of all viruses, including
+from within the human body, often in         by bacterial metabolism and act as           organisms.                                    bacteriophages and eukaryotic viruses,
+response to inflammation.                    signalling molecules that can influence                                                    that inhabit the human body.
+                                             host immunity, intestinal barrier function
+                                             and microbial ecology.
+
+
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                                         345
+

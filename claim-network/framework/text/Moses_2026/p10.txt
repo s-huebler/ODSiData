@@ -1,0 +1,57 @@
+                                                                                               GUT MICROBES        9
+
+
+supplementation during the peritransplant period, although the definitive improvement in intestinal GvHD
+outcomes remains unclear. An early retrospective study of 44 patients comparing the impact of ingesting the
+commercial enteral supplementation product glutamine, fiber, and oligosaccharides (GFO) demonstrated a
+decreased duration of oral mucositis and a trend towards reduced Enterococcus translocation.87 Ingestion of
+resistant starch improved mean fecal butyrate levels in 20 healthy patients, although individual responses varied
+widely.88 A follow-up prospective study including 49 patients demonstrated that oral intake of resistant starch
+(Amylofiber SH) and a prebiotic mixture containing glutamine, polydextrose and lactosucrose from condition-
+ing until 28 days posttransplant decreased the duration of oral mucositis and reduced grade II-IV GvHD
+incidence,89 although improvement in GvHD outcomes was significant for skin GvHD but not gut and liver
+GvHD. Secondary analyses suggested that patients taking prebiotics were more likely to have maintained or
+increased microbial diversity and luminal butyrate concentrations by day 28. In a recent feasibility study, 10
+patients undergoing allogeneic transplant received resistant potato starch (RPS) from day −7 to day 100, with
+significantly higher fecal butyrate levels in participants on RPS.21 The corresponding phase II study with a target
+enrollment of 70 patients and primary outcome of incidence of aGVHD is currently pending (NCT 06784336).
+   The use of probiotics has yielded mixed results. While murine studies have suggested that the introduction
+of Lactobacillus rhamnosus reduced bacterial translocation and improved GvHD outcomes,90 a randomized
+study of 31 adults comparing L. rhamnosus supplementation starting at the time of engraftment to no
+probiotic exposure did not show a difference in aGvHD incidence nor in Lactobacillus colonization,
+suggesting a lack of effective microbial engraftment.91 Another recent large clinical trial (ACCL1633) including
+161 patients found that the administration of Lactiplantibacillus plantarum from the start of conditioning to
+56 days post-transplant period to be safe but ineffective at preventing GI GvHD.92 However, there was
+insufficient data to assess the efficacy of microbial engraftment. If engraftment can be more convincingly
+achieved, it is possible that probiotics could represent a viable approach with proper bacterial strain selection. A
+pilot study utilizing stool from patients without GvHD demonstrated strain-to-strain variability in the capacity
+of Clostridium bolteae, Blautia spp., and Bifidobacterium longum to produce SCFAs,93 and that optimiza-
+tion of SCFA production through strain selection could mitigate GvHD more effectively than a standard
+consortium of the same species in a mismatched murine transplant model.
+
+
+Part 3: ecosystem restoration
+Fecal microbiota transplantation (FMT) has emerged as a promising therapeutic strategy to improve transplant
+outcomes and is already well-established as a safe therapeutic option for refractory Clostridium difficile
+infection.94 The potential advantage of FMT over pre- and probiotics is the ability to directly deliver desired
+bacterial species of interest and potentially shorter treatment interval compared to the former, as well as overall
+superior engraftment rates compared to the latter. Initial case series in patients with steroid-refractory (SR) GI
+GvHD demonstrated that FMT from healthy adult donors transferred as homogenized stool solution through a
+colonoscope could lead to a reduction of GI symptoms and ultimately resolution of GvHD but required
+administration at repeat intervals (up to 6 times reported at interval of 2–3 weeks).95 Soon after, it was
+demonstrated that FMT administered as a frozen capsule could also be effective at restoring bacterial diversity
+and treating SR aGvHD,25 and a larger prospective study treating 21 patients at the time of SR aGvHD
+diagnosis demonstrated that the restoration of taxa associated with favorable GvHD outcomes (Clostridiales,
+SCFA-producers) alongside a decrease in taxa associated with poor outcomes (Enterobacteriaceae).24 The trial
+demonstrated an overall response rate of 52.4%, though sustained responses were rare24 and likely could have
+improved with repeated treatment administration. The combined use of FMT with ruxolitinib to treat patients
+with steroid-refractory GI GvHD in a small cohort of 21 patients led to a high overall response rate of 71.4% by
+day 28, with an associated decline in the serum IL-2, IL-17A and fraction of CD69+ T cells.96 Another study
+including 10 patients with high-risk, treatment-naive acute lower GI GvHD demonstrated the feasibility and
+efficacy of using FMT in combination with corticosteroids as initial treatment,23 with an organ-specific
+complete response rate of 70% at day 28 that correlated with the production of metabolites, including
+tryptophan and SCFAs.
+    The success of FMT in treating GvHD has led to efforts at employing FMT as a prophylactic measure to
+improve transplant outcomes, including both infection prevention and reduction in GvHD risk. In a
+recent prospective randomized trial enrolling 74 patients comparing healthy donor FMT to placebo
+

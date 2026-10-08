@@ -1,0 +1,78 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine                        (2025) 23:832                                                            Page 13 of 15
+
+
+
+
+7.    Tawara I, Liu C, Tamaki H, et al. Influence of donor microbiota on the sever-        33. Chunxi L, Haiyue L, Yanxia L, Jianbing P, Jin S. The gut microbiota and respira-
+      ity of experimental graft-versus-host-disease. Biol Blood Marrow Transpl.                tory diseases: new evidence. J Immunol Res. 2020;2020:2340670.
+      2013;19(1):164–8.                                                                    34. Postler TS, Ghosh S. Understanding the holobiont: how microbial metabo-
+8.    Yue X, Zhou H, Wang S, Chen X, Xiao H. Gut microbiota, microbiota-derived                lites affect human health and shape the immune system. Cell Metab.
+      metabolites, and graft-versus-host disease. Cancer Med. 2024;13(3):e6799.                2017;26(1):110–30.
+9.    Galloway-Peña JR, Shi Y, Peterson CB, et al. Gut Microbiome signatures are           35. Mathewson ND, Jenq R, Mathew AV, et al. Corrigendum: gut microbiome-
+      predictive of infectious risk following induction therapy for acute myeloid              derived metabolites modulate intestinal epithelial cell damage and mitigate
+      leukemia. Clin Infect Dis. 2020;71(1):63–71.                                             graft-versus-host disease. Nat Immunol. 2016;17(10):1235.
+10.   Montassier E, Gastinne T, Vangay P, et al. Chemotherapy-driven dysbiosis in          36. Takahashi D, Hoshina N, Kabumoto Y, et al. Microbiota-derived butyrate limits
+      the intestinal Microbiome. Aliment Pharmacol Ther. 2015;42(5):515–28.                    the autoimmune response by promoting the differentiation of follicular
+11.   Liang J, Liu G, Wang W, Xue H. Causal relationships between gut microbiota               regulatory T cells. EBioMedicine. 2020;58:102913.
+      and lymphoma: a bidirectional Mendelian randomization study. Front Cell              37. Biliński J, Jasiński M, Basak GW. The role of fecal microbiota transplantation in
+      Infect Microbiol. 2024;14:1374775.                                                       the treatment of acute Graft-versus-Host disease. Biomedicines. 2022;10(4).
+12.   Rafei H, Jenq RR. Microbiome-intestine cross talk during acute graft-versus-         38. Gavriilaki E, Christoforidi M, Ouranos K, et al. Alteration of gut microbiota
+      host disease. Blood. 2020;136(4):401–9.                                                  composition and diversity in acute and/or chronic Graft-versus-Host disease
+13.   Stein-Thoeringer CK, Nichols KB, Lazrak A, et al. Lactose drives Entero-                 following hematopoietic stem cell transplantation: A prospective cohort
+      coccus expansion to promote graft-versus-host disease. Science.                          study. Int J Mol Sci. 2024;25(11):5789.
+      2019;366(6469):1143–9.                                                               39. Gao F, Wu H, Wang L, Zhao Y, Huang H. Altered intestinal Microbiome
+14.   Weber D, Jenq RR, Peled JU, et al. Microbiota disruption induced by early                and epithelial damage aggravate intestinal graft-versus-host disease. Gut
+      use of Broad-Spectrum antibiotics is an independent risk factor of outcome               Microbes. 2023;15(1):2221821.
+      after allogeneic stem cell transplantation. Biol Blood Marrow Transpl.               40. Hill GR, Betts BC, Tkachev V, Kean LS, Blazar BR. Current concepts and
+      2017;23(5):845–52.                                                                       advances in Graft-Versus-Host disease immunology. Annu Rev Immunol.
+15.   Li Z, Ke X, Zuo D, Wang Z, Fang F, Li B. New insights into the relationship              2021;39:19–49.
+      between gut microbiota and radiotherapy for Cancer. Nutrients. 2022;15(1).           41. Tang J, Xu L, Zeng Y, Gong F. Effect of gut microbiota on LPS-induced acute
+16.   Köhler N, Zeiser R. Intestinal microbiota influence immune tolerance post                lung injury by regulating the TLR4/NF-kB signaling pathway. Int Immuno-
+      allogeneic hematopoietic cell transplantation and intestinal GVHD. Front                 pharmacol. 2021;91:107272.
+      Immunol. 2018;9:3179.                                                                42. Eriguchi Y, Takashima S, Oka H, et al. Graft-versus-host disease disrupts intes-
+17.   Staffas A, Burgos da Silva M, van den Brink MR. The intestinal microbiota in             tinal microbial ecology by inhibiting Paneth cell production of α-defensins.
+      allogeneic hematopoietic cell transplant and graft-versus-host disease. Blood.           Blood. 2012;120(1):223–31.
+      2017;129(8):927–33.                                                                  43. Maleknia M, Ahmadirad N, Golab F, Katebi Y. Haj Mohamad Ebrahim Ketabfo-
+18.   Peled JU, Gomes ALC, Devlin SM, et al. Microbiota as predictor of mor-                   roush A. DNA methylation in cancer: epigenetic view of dietary and lifestyle
+      tality in allogeneic Hematopoietic-Cell transplantation. N Engl J Med.                   factors. Epigenetics Insights. 2023;16:25168657231199893.
+      2020;382(9):822–34.                                                                  44. Wu J, Wang K, Wang X, Pang Y, Jiang C. The role of the gut Microbiome and its
+19.   Duarte LRF, Pinho V, Rezende BM, Teixeira MM. Resolution of inflammation in              metabolites in metabolic diseases. Protein Cell. 2021;12(5):360–73.
+      acute Graft-Versus-Host-Disease: advances and perspectives. Biomolecules.            45. Fujiwara H. Crosstalk between intestinal microbiota derived metabolites
+      2022;12(1).                                                                              and tissues in allogeneic hematopoietic cell transplantation. Front Immunol.
+20.   Panahi P, Hashemian AH, Payandeh M, Taghadosi M, Nomanpour B. Gut                        2021;12:703298.
+      microbiota and graft-versus-host disease in hematopoietic stem cell trans-           46. Kiriyama Y, Nochi H. The role of gut Microbiota-Derived lithocholic acid,
+      plant patients. Iran J Microbiol. 2024;16(5):648–54.                                     deoxycholic acid and their derivatives on the function and differentiation of
+21.   Hu X, Ma C, Kong X. Gut dysbiosis and fecal microbiota transplantation in                immune cells. Microorganisms. 2023;11(11).
+      pancreatic cancer: current status and perspectives. Cancer Screen Prev.              47. Reddi S, Senyshyn L, Ebadi M, et al. Fecal microbiota transplantation to pre-
+      2024;3(3):170–83.                                                                        vent acute graft-versus-host disease: pre-planned interim analysis of donor
+22.   Yamamoto A, Kambara Y, Fujiwara H. Impact of oral microbiota on patho-                   effect. Nat Commun. 2025;16(1):1034.
+      physiology of GVHD. Front Immunol. 2023;14:1132983.                                  48. Ilett EE, Jørgensen M, Noguera-Julian M, et al. Associations of the gut Microbi-
+23.   Häcker G. GVHD prediction based on the Microbiome. Blood.                                ome and clinical factors with acute GVHD in allogeneic HSCT recipients.
+      2022;140(22):2313–4.                                                                     Blood Adv. 2020;4(22):5797–809.
+24.   van Lier YF, Vos J, Blom B, Hazenberg MD. Allogeneic hematopoietic cell              49. Han L, Jin H, Zhou L et al. Intestinal microbiota at engraftment influence
+      transplantation, the microbiome, and graft-versus-host disease. Gut                      acute Graft-Versus-Host disease via the Treg/Th17 balance in Allo-HSCT
+      Microbes. 2023;15(1):2178805.                                                            recipients. Front Immunol. 2018;9.
+25.   Schluter J, Peled JU, Taylor BP, et al. The gut microbiota is associated with        50. Khuat LT, Dave M, Murphy WJ. The emerging roles of the gut Microbiome
+      immune cell dynamics in humans. Nature. 2020;588(7837):303–7.                            in allogeneic hematopoietic stem cell transplantation. Gut Microbes.
+26.   Biagi E, Zama D, Nastasi C, et al. Gut microbiota trajectory in pediatric patients       2021;13(1):1966262.
+      undergoing hematopoietic SCT. Bone Marrow Transplant. 2015;50(7):992–8.              51. Kaźmierczak-Siedlecka K, Skonieczna-Żydecka K, Biliński J, et al. Gut Microbi-
+27.   Biennier S, Fontaine M, Duquenoy A, Schwintner C, Doré J, Corvaia N. Nar-                ome modulation and faecal microbiota transplantation following allogenic
+      rative review: advancing dysbiosis treatment in Onco-Hematology with                     hematopoietic stem cell transplantation. Cancers (Basel). 2021;13:18.
+      Microbiome-Based therapeutic approach. Microorganisms. 2024;12(11):2256.             52. Zhang D, Gao X, Li H, et al. The microbiota regulates hematopoietic stem cell
+28.   Faraci M, Bonaretti C, Dell’Orso G, et al. Association between oral and fecal            fate decisions by controlling iron availability in bone marrow. Cell Stem Cell.
+      Microbiome dysbiosis and treatment complications in pediatric patients                   2022;29(2):232–e247237.
+      undergoing allogeneic hematopoietic stem cell transplantation. Sci Rep.              53. Li Y, Toothaker JM, Ben-Simon S et al. In utero human intestine harbors
+      2024;14(1):6708.                                                                         unique metabolome, including bacterial metabolites. JCI Insight. 2020;5(21).
+29.   Portincasa P, Bonfrate L, Vacca M et al. Gut microbiota and short chain fatty        54. Pessa-Morikawa T, Husso A, Kärkkäinen O, et al. Maternal microbiota-derived
+      acids: implications in glucose homeostasis. Int J Mol Sci. 2022;23(3).                   metabolic profile in fetal murine intestine, brain and placenta. BMC Microbiol.
+30.   Chi M, Jiang T, He X, et al. Role of gut microbiota and oxidative stress in the          2022;22(1):46.
+      progression of Transplant-Related complications following hematopoietic              55. Kimura I, Miyamoto J, Ohue-Kitano R et al. Maternal gut microbiota in
+      stem cell transplantation. Oxidative Med Cell Longev. 2023;2023(1):3532756.              pregnancy influences offspring metabolic phenotype in mice. Science.
+31.   Rooks MG, Garrett WS. Gut microbiota, metabolites and host immunity. Nat                 2020;367(6481).
+      Rev Immunol. 2016;16(6):341–52.                                                      56. van de Pavert SA, Ferreira M, Domingues RG, et al. Maternal retinoids
+32.   Shono Y, Docampo MD, Peled JU, et al. Increased GVHD-related mortal-                     control type 3 innate lymphoid cells and set the offspring immunity. Nature.
+      ity with broad-spectrum antibiotic use after allogeneic hematopoietic                    2014;508(7494):123–7.
+      stem cell transplantation in human patients and mice. Sci Transl Med.                57. Donald K, Finlay BB. Early-life interactions between the microbiota and
+      2016;8(339):ra339371–339371.                                                             immune system: impact on immune system development and atopic
+                                                                                               disease. Nat Rev Immunol. 2023;23(11):735–48.
+

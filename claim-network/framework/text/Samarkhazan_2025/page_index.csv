@@ -1,0 +1,16 @@
+page,has_figure,has_table,has_box,is_references,words
+1,False,False,False,False,574
+2,False,True,False,False,691
+3,False,True,False,False,729
+4,False,True,False,False,685
+5,False,False,False,False,755
+6,False,True,False,False,717
+7,True,False,False,False,755
+8,True,False,False,False,229
+9,False,True,False,False,725
+10,False,False,False,False,749
+11,False,True,False,False,759
+12,False,False,False,False,761
+13,False,False,False,True,1263
+14,False,False,False,True,1262
+15,False,False,False,True,81

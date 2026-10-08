@@ -1,0 +1,32 @@
+                                                                                                      GUT MICROBES        5
+
+
+
+
+Figure 2. Donor and recipient microbiota modulate the adaptive T-cell response. Naïve T cells that potentially recognize
+cognate microbial antigens in the recipient as well as microbe-specific memory T cells are found in the donor graft. The
+resulting impact in the recipient is illustrated here, assuming an MCH-matched setting. In the MHC-mismatched setting,
+the naïve T-cell compartment plays a more significant role. (A) Naïve T cells shown here have the potential ability to
+recognize microbial peptides in transplant recipients. (B) Donor microbiota–derived peptides promote Th1 (red), Th17
+(yellow), or Treg (green) polarization of donor memory T cells prior to transplantation. While initially primed in the
+gastrointestinal tract, these microbe-specific memory T cells can also be found in the peripheral blood and thus constitute
+part of the donor graft. (C) Transfer of donor naïve and microbe-specific memory T cells to the recipient. (D) Conditioning-
+induced mucosal injury enables access to recipient microbiota peptides presented by host antigen-presenting cells (APCs),
+driving the de novo differentiation of naïve T cells into pathogenic Th1 and Th17 cells due to the proinflammatory
+cytokine environment characterized by elevated levels of IL-12, IL-1beta, IL-6, and IFNγ. (E) Microbe-specific memory
+T cells rapidly exert effector functions, including pro- and anti-inflammatory responses, upon recognition of cognate
+antigens in the proper MHC II context, with the resulting cytokine milieu depending on initial priming in the donor.
+
+
+
+the transfer of Helicobacter hepaticus-specific T cells induced RORγT+ Foxp3+ Tregs in the colon of H.
+hepaticus colonized wild-type mice but transfer of the same cells into IL-10−/− mice or mice exposed to an
+IL-10 blockade antibody resulted in the generation of microbiota-specific Th17 cells that drive severe
+colitis.50 In a CD4+ T-cell driven model of allogeneic transplantation, the cotransfer of H-Y-targeting
+(alloreactive) donor T cells into male hosts augmented IFNγ expression of transferred flagellin-targeting
+CD4+ T cells.46 In the clinical setting, SusC, a membrane protein epitope derived from the Bacteroides
+genus, elicits an IL-10 tolerant response from CD4+ T cells in healthy individuals. However, during
+Crohn's disease, T-cell responses toward SusC shift to a proinflammatory Th17 phenotype.59
+   From a clinical perspective, it would be logical to therefore minimize naïve T-cell recognition of cognate
+microbial antigens, a hypothesis consistent with the observation that MHC-mismatched transplants carry a
+

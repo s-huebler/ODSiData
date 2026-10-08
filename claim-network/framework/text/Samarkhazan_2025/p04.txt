@@ -1,0 +1,65 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine                 (2025) 23:832                                                              Page 4 of 15
+
+
+
+
+Table 2 Immunoregulatory functions of the recipient’s microbiota and impact on HSCT outcomes
+Immunological                Microbial Components Mechanisms                                    Outcomes                                     Effect on           Ref.
+Functions                                                                                                                                    GVHD
+Innate                       Polysaccharide A (B.         TLR2/IL-10 axis, TLR4/NLRP3/    Induction of regulatory MQ dif-                    Protective          [27–
+Immunomodulation             fragilis), LPS (E. coli)     IL-1β axis                      ferentiation; Reduced inflammatory                                     31]
+                                                                                          responses
+                             Butyrate (Clostridia);       GPCRs interaction; Upregulation Reduced pro-inflammatory cytokine
+                             Acetate; Propionate          of ROS-generating enzymes       production; Enhanced anti-inflamma-
+                                                          (NADPH oxidase)                 tory responses
+Adaptive                     Butyrate-producing           HDAC inhibition; Enhancement Increased colonic Foxp3+ Treg expan-                  Protective          [36–
+Immunomodulation             Clostridia (IV, XIVa); F.    of tight junction proteins      sion; Induction of immune tolerance                                    38]
+                             prausnitzii
+                             Intestinal bacteria          Microbiota-derived antigen pre- Increased IgA production and muco-
+                             (Bifidobacterium,            sentation; MHC-II-dependent T sal immunity
+                             Lactobacillus)               cell activation
+                             IAld                         AhRs activation on ILC3         Induction of IL-22; Increased mucosal
+                                                                                          repair and epithelial homeostasis
+                             Bacteroides thetaiotao-      Succinate-dependent MQ          Increased inflammatory responses in                Detrimental         [44]
+                             micron (succinate)           activation                      dysbiotic conditions
+                             Clostridium scindens         BA transformation; FXR          Suppression of TH1 differentiation                 Protective          [45,
+                                                          signaling                                                                                              46]
+Abbreviations: AhR: aryl hydrocarbon receptor; BA: bile acid; DC: dendritic cell; FXR: farnesoid X receptor; GVHD: graft-versus-host disease; HDAC: histone deacetylase;
+HSCT: hematopoietic stem cell transplantation; IL: interleukin; ILC3: group 3 innate lymphoid cell; LPS: lipopolysaccharide; MHC-II: major histocompatibility complex
+class II; NHL: non-Hodgkin’s lymphoma; NLRP3: NOD-, LRR- and pyrin domain-containing protein 3; PSA: polysaccharide A; SCFA: short-chain fatty acid; TH: T helper
+cell; TLR: toll-like receptor; Treg: regulatory T cell
+
+
+
+reducing pro-inflammatory cytokine production while                                   induces TGF-β and retinoic acid in DCs, fostering Foxp3+
+enhancing anti-inflammatory responses [31]. In HSCT,                                  Treg expansion [37]. In HSCT recipients with dysbio-
+the depletion of SCFA-producing microorganisms due to                                 sis, the depletion of these beneficial bacteria results in
+dysbiosis may lead to uncontrolled inflammation, thereby                              reduced Treg frequencies and functions, compromising
+facilitating the development of GVHD [32].                                            immune tolerance mechanisms [13]. In contrast, Entero-
+  The microbiome signals also regulate the trafficking                                coccus-dominated microbiota upregulate IL-6 and IL-23,
+and function of various immune cells, including alveolar                              skewing CD4+ T cells toward TH17 and TH1 subsets
+macrophages, B-cells, DCs, T-cells, and group 3 innate                                [38]. Han et al. (2020) demonstrated that Enterobacteri-
+lymphoid cells (ILC3s), through complex bidirectional                                 aceae enrichment reduced the Treg/TH17 ratio by 40%
+interactions, shaping adaptive immune responses [33].                                 in acute GVHD patients, correlating with histone H3
+Intestinal DCs represent key mediators between the                                    hyperacetylation in CD4+ T cells [39]. Similarly, murine
+microbiome and adaptive immunity. These cells sample                                  models revealed that Lactobacillus-enriched microbiota
+microbial antigens and migrate to mesenteric lymph                                    exacerbate GVHD via MHC-II-dependent activation
+nodes, where they present these antigens to naïve T cells                             of alloreactive T cells [40]. Beyond T cells, the microbi-
+[34]. Microbiome-derived signals heavily influence the                                ome shapes B cell development and antibody production.
+phenotype and function of DCs. Butyrate-producing                                     Intestinal bacteria, especially those in the small intestine,
+bacteria, for example, induce tolerogenic CD103+ DCs                                  promote the development of IgA-producing plasma cells
+that promote Treg differentiation through retinoic acid                               through T cell-dependent and independent mechanisms.
+production [35]. Conversely, pathobionts like Enterococ-                              IgA translocates across the epithelium into mucus secre-
+cus faecium induce inflammatory DCs that drive TH1                                    tions that are swallowed and transported up the trachea
+and TH17 differentiation, exacerbating GVHD [25].                                     to the lungs, providing immune protection [41]. Dysbio-
+The recipient microbiome also directly influences T cell                              sis-associated reductions in IgA contribute to increased
+development and function, pivotal in GVHD pathogen-                                   bacterial translocation and systemic inflammation during
+esis. Commensal bacteria such as Clostridium species,                                 HSCT [42].
+particularly those belonging to Clostridia clusters IV                                   The balanced microbiome is increasingly recognized
+and XIVa, have been shown to promote the differentia-                                 as a potential contributor to immunomodulation and
+tion and expansion of colonic Tregs through the produc-                               a promising area for intervention, inspiring the future
+tion of SCFAs [36]. These Tregs express high levels of                                of immunology and transplant medicine. Upset of the
+the transcription factor Foxp3 and exhibit potent immu-                               balanced microbiota composition disrupts this equi-
+nosuppressive functions. With a similar protective and                                librium, skewing immune cell populations toward pro-
+anti-inflammatory capacity, Faecalibacterium prausnitzii                              inflammatory phenotypes that exacerbate GVHD. As
+

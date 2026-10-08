@@ -1,0 +1,87 @@
+Review article
+
+
+138. Iyama, S. et al. Efficacy of enteral supplementation enriched with glutamine, fiber, and            165. Rashidi, A. et al. Potential of fecal microbiota transplantation to prevent acute GVHD:
+     oligosaccharide on mucosal injury following hematopoietic stem cell transplantation.                     analysis from a phase II trial. Clin. Cancer Res. 29, 4920–4929 (2023).
+     Case Rep. Oncol. 7, 692–699 (2014).                                                                 166. Reddi, S. et al. Fecal microbiota transplantation to prevent acute graft-versus-host
+139. Upadhyaya, B. et al. Impact of dietary resistant starch type 4 on human gut microbiota                   disease: pre-planned interim analysis of donor effect. Nat. Commun. 16, 1034 (2025).
+     and immunometabolic functions. Sci. Rep. 6, 28797 (2016).                                           167. Malard, F. et al. Pooled allogeneic faecal microbiota MaaT013 for steroid-resistant
+140. Venkataraman, A. et al. Variable responses of human microbiomes to dietary                               gastrointestinal acute graft-versus-host disease: a single-arm, multicentre phase 2 trial.
+     supplementation with resistant starch. Microbiome 4, 33 (2016).                                          EClinicalMedicine 62, 102111 (2023).
+141. Yoshifuji, K. et al. Prebiotics protect against acute graft-versus-host disease and                      This HERACLES trial prospective phase II study evaluates MaaT013, a pooled
+     preserve the gut microbiota in stem cell transplantation. Blood Adv. 4, 4607–4617                        allogeneic faecal microbiota product, in steroid-refractory gastrointestinal
+     (2020).                                                                                                  aGVHD, showing that treatment is safe and associated with clinical responses and
+142. Riwes, M. M. et al. Feasibility of a dietary intervention to modify gut microbial                        increased microbiota richness in some patients, supporting further investigation of
+     metabolism in patients with hematopoietic stem cell transplantation. Nat. Med.                           microbiome-based therapy for allo-HCT.
+     29, 2805–2813 (2023).                                                                               168. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     This clinical trial is the first to show feasibility of the use of a dietary supplement,                 NCT04769895 (2024).
+     resistant starch (fibre), to modulate the intestinal microbiome and the metabolome                  169. Malard, F. et al. MaaT013 for ruxolitinib-refractory acute graft-versus-host disease with
+     of patients undergoing allo-HCT.                                                                         gastrointestinal involvement: results from the ARES phase III trial. Blood 146, 817–817
+143. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/                    (2025).
+     NCT06102213 (2024).                                                                                 170. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+144. Russo, E. et al. Immunomodulating activity and therapeutic effects of short chain fatty                  NCT03078010 (2025).
+     acids and tryptophan post-biotics in inflammatory bowel disease. Front. Immunol. 10,                171. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     2754 (2019).                                                                                             NCT06026371?cond=GVHD,Acute&term=Prevention&intr=FMT&rank=4 (2026).
+145. Gill, P. A., van Zelm, M. C., Muir, J. G. & Gibson, P. R. Review article: short chain fatty acids   172. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     as potential therapeutic agents in human gastrointestinal and inflammatory disorders.                    NCT04745221 (2025).
+     Aliment. Pharmacol. Ther. 48, 15–34 (2018).                                                         173. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+146. Feuerstadt, P. et al. SER-109, an oral microbiome therapy for recurrent Clostridioides                   NCT03819803 (2025).
+     difficile infection. N. Engl. J. Med. 386, 220–229 (2022).                                          174. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+147. Khanna, S. et al. Efficacy and safety of RBX2660 in PUNCH CD3, a phase III,                              NCT04935684 (2023).
+     randomized, double-blind, placebo-controlled trial with a bayesian primary                          175. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     analysis for the prevention of recurrent Clostridioides difficile infection. Drugs 82,                   NCT02269150 (2025).
+     1527–1538 (2022).                                                                                   176. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+148. Webb, B. J. et al. Fecal microbiota transplantation for recurrent Clostridium difficile                  NCT03719092 (2025).
+     infection in hematopoietic stem cell transplant recipients. Transpl. Infect. Dis. 18,               177. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     628–633 (2016).                                                                                          NCT05111834 (2025).
+149. Innes, A. J. et al. Fecal microbiota transplant mitigates adverse outcomes seen in patients         178. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     colonized with multidrug-resistant organisms undergoing allogeneic hematopoietic cell                    NCT04373057 (2025).
+     transplantation. Front. Cell. Infect. Microbiol. 11, 684659 (2021).                                 179. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+150. Su, F. et al. Tandem fecal microbiota transplantation cycles in an allogeneic                            NCT04263597 (2025).
+     hematopoietic stem cell transplant recipient targeting carbapenem-resistant                         180. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     Enterobacteriaceae colonization: a case report and literature review. Eur. J. Med. Res.                  NCT04177004 (2025).
+     26, 37 (2021).                                                                                      181. Ubeda, C. et al. Vancomycin-resistant Enterococcus domination of intestinal microbiota
+151. DeFilipp, Z. et al. Drug-resistant E. coli bacteremia transmitted by fecal microbiota                    is enabled by antibiotic treatment in mice and precedes bloodstream invasion in
+     transplant. N. Engl. J. Med. 381, 2043–2050 (2019).                                                      humans. J. Clin. Invest. 120, 4332–4341 (2010).
+152. DeFilipp, Z. et al. Third-party fecal microbiota transplantation for high-risk                      182. Harris, B. et al. Gut microbiota predict pulmonary infiltrates after allogeneic
+     treatment-naïve acute GVHD of the lower GI tract. Blood Adv. 8, 2074–2084                                hematopoietic cell transplantation. Am. J. Respir. Crit. Care Med. 194, 450–463 (2016).
+     (2024).                                                                                             183. Schluter, J. et al. The gut microbiota is associated with immune cell dynamics in humans.
+153. Taur, Y. et al. Reconstitution of the gut microbiota of antibiotic-treated patients by                   Nature 588, 303–307 (2020).
+     autologous fecal microbiota transplant. Sci. Transl. Med. 10, eaap9489 (2018).                      184. Andrlová, H. et al. MAIT and Vδ2 unconventional T cells are supported by a diverse
+154. van Lier, Y. F. et al. Donor fecal microbiota transplantation ameliorates intestinal                     intestinal microbiome and correlate with favorable patient outcome after allogeneic
+     graft-versus-host disease in allogeneic hematopoietic cell transplant recipients.                        HCT. Sci. Transl. Med. 14, eabj2829 (2022).
+     Sci. Transl. Med. 12, eaaz8926 (2020).                                                              185. Miltiadous, O. et al. Early intestinal microbial features are associated with CD4
+155. Zhao, Y. et al. Safety and efficacy of fecal microbiota transplantation for grade IV steroid             T-cell recovery after allogeneic hematopoietic transplant. Blood 139, 2758–2769
+     refractory GI-GvHD patients: interim results from FMT2017002 trial. Front. Immunol. 12,                  (2022).
+     678476 (2021).                                                                                      186. Bunnett, N. W. Neuro-humoral signalling by bile acids and the TGR5 receptor in the
+156. Kakihana, K. et al. Fecal microbiota transplantation for patients with steroid-resistant                 gastrointestinal tract. J. Physiol. 592, 2943–2950 (2014).
+     acute graft-versus-host disease of the gut. Blood 128, 2083–2088 (2016).                            187. Parks, O. B., Pociask, D. A., Hodzic, Z., Kolls, J. K. & Good, M. Interleukin-22 signaling in the
+157. Spindelboeck, W. et al. Antibiotic use and ileocolonic immune cells in patients receiving                regulation of intestinal health and disease. Front. Cell Dev. Biol. 3, 85 (2015).
+     fecal microbiota transplantation for refractory intestinal GvHD: a prospective cohort               188. Zhang, F., Aschenbrenner, D., Yoo, J. Y. & Zuo, T. The gut mycobiome in health, disease,
+     study. Ther. Adv. Hematol. 12, 20406207211058333 (2021).                                                 and clinical applications in association with the gut bacterial microbiome assembly.
+158. Goeser, F. et al. Fecal microbiota transfer for refractory intestinal graft-versus-host                  Lancet Microbe 3, e969–e983 (2022).
+     disease—experience from two German tertiary centers. Eur. J. Haematol. 107, 229–245                 189. Pargin, E. et al. The human gut virome: composition, colonization, interactions, and
+     (2021).                                                                                                  impacts on human health. Front. Microbiol. 14, 963173 (2023).
+159. Battipaglia, G. et al. Fecal microbiota transplantation before or after allogeneic                  190. Cao, Z. et al. The gut virome: a new microbiome component in health and disease.
+     hematopoietic transplantation in patients with hematologic malignancies carrying                         eBioMedicine 81, 104113 (2022).
+     multidrug-resistance bacteria. Haematologica 104, 1682–1688 (2019).                                 191. Iliev, I. D. & Cadwell, K. Effects of intestinal fungi and viruses on immune responses and
+160. Spindelboeck, W. et al. Repeated fecal microbiota transplantations attenuate                             inflammatory bowel diseases. Gastroenterology 160, 1050–1066 (2021).
+     diarrhea and lead to sustained changes in the fecal microbiota in acute, refractory                 192. Legoff, J. et al. The eukaryotic gut virome in hematopoietic stem cell transplantation:
+     gastrointestinal graft-versus-host-disease. Haematologica 102, e210–e213 (2017).                         new clues in enteric graft-versus-host disease. Nat. Med. 23, 1080–1085 (2017).
+161. Liu, Y. et al. Fecal microbiota transplantation combined with ruxolitinib as a salvage              193. Neri, U. et al. Expansion of the global RNA virome reveals diverse clades of
+     treatment for intestinal steroid-refractory acute GVHD. Exp. Hematol. Oncol. 11, 96                      bacteriophages. Cell 185, 4023–4037.e18 (2022).
+     (2022).                                                                                             194. Hsu, B. B. et al. Dynamic modulation of the gut microbiota and metabolome by
+162. DeFilipp, Z. et al. Third-party fecal microbiota transplantation following allo-HCT                      bacteriophages in a mouse model. Cell Host Microbe 25, 803–814.e5 (2019).
+     reconstitutes microbiome diversity. Blood Adv. 2, 745–753 (2018).                                   195. Zuo, T. et al. Bacteriophage transfer during faecal microbiota transplantation in
+163. Zheng, Y. Y. et al. Clinical study of 19 cases of steroid-refractory gastrointestinal acute              Clostridium difficile infection is associated with treatment outcome. Gut 67, 634–643
+     graft-versus-host disease after allogeneic hematopoietic stem cell transplantation with                  (2018).
+     fecal microbiota transplantation [Chinese]. Zhonghua Xue Ye Xue Za Zhi 44, 401–407                  196. Rolling, T. et al. Haematopoietic cell transplantation outcomes are linked to intestinal
+     (2023).                                                                                                  mycobiota dynamics and an expansion of Candida parapsilosis complex species.
+164. Goloshchapov, O. et al. Fecal microbiota transplantation for graft-versus-host disease in                Nat. Microbiol. 6, 1505–1515 (2021).
+     children and adults: methods, clinical effects, safety. Terapevticheskii arkhiv 92, 43–54           197. van der Velden, W. J. F. M. et al. Role of the mycobiome in human acute graft-versus-host
+     (2020).                                                                                                  disease. Biol. Blood Marrow Transplant. 19, 329–332 (2013).
+
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                                                                  349
+

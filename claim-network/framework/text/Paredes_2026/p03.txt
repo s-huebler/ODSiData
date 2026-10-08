@@ -1,0 +1,66 @@
+Review article
+
+
+
+ Box 1 | The role of the virome and mycobiome in graft-versus-host disease
+ In addition to bacteria, the human gut harbours a wide variety of          the gene, providing intriguing evidence for a clinical benefit derived
+ viruses and fungi, many of which remain unexplored188,189. Recent          from bacteriophage-mediated modulation of gut bacteria40.
+ studies indicate that the virome and mycobiome interact with               Another recent study analysed a multi-omics dataset consisting of
+ the bacterial community to influence host immunity and overall             bacteriome, virome, metabolome and drug intake data from patients
+ physiology190,191. Little is known regarding their impact on allogeneic    receiving allo-HCT and found correlations between metabolic
+ haematopoietic cell transplantation (allo-HCT) outcomes, but some          pathways, bacteriophage species and bacterial taxa, which in turn
+ studies point to potential roles in shaping graft-versus-host disease      associated with relapse or remission36. Overall, the impact of the
+ (GVHD) pathology and faecal microbiota transplantation (FMT)               virome on the microbiome composition and metabolic function
+ efficacy.                                                                  during allo-HCT needs to be better understood, but these findings
+     The gut virome is primarily composed of bacteriophages — viruses       thus far suggest underappreciated interactions and may provide the
+ that propagate via infection of bacteria — which vastly outnumber          basis for bacteriophage therapy to target specific bacterial taxa. In
+ other viral types in both diversity and abundance189. By contrast,         patients with Clostridioides difficile infections treated with FMT, the
+ eukaryotic viruses, which infect human cells, typically represent          transfer of Caudovirales bacteriophages has been associated with
+ a minor fraction of the virome under healthy conditions but can            positive treatment outcomes195.
+ become more prominent in disease or immunocompromised                          Even less is known to date about the role of resident gut fungi
+ states. One study longitudinally evaluated the virome of 44 patients       during allo-HCT. Allo-HCT likely impacts the fungal community,
+ undergoing allo-HCT, finding a significant increase in the proportion      with two studies involving 78 patients and 156 patients obtaining
+ of vertebrate viral sequences following transplantation192. In this        measurements of stable density and diversity, but the latter
+ same study, a positive association between levels of the eukaryotic        study reported changes in species composition upon detailed
+ Picobirnaviridae and acute gastrointestinal GVHD was found192,             longitudinal analysis40,196. Arguing that mycobiota dysbiosis may not
+ although these viruses may now be classified as bacteriophages193.         be reflected in summary metrics of bacterial composition obtained
+ Bacteriophages can modulate bacterial metabolism by imparting              from sequencing analyses, the researchers of this latter study
+ metabolite-encoding genes on their hosts, altering the gut                 also performed culture-based studies, finding that faecal samples
+ metabolome for their own benefit and affecting the mammalian               collected post transplant were more likely to yield culturable fungi
+ host’s physiology194. How these shifts impact clinical outcomes after      compared with pre-transplant samples, and identifying patients
+ allo-HCT is just beginning to be explored: Thiele Orberg et al.40          with fungal dysbiosis based on culture positivity and expansion of
+ longitudinally studied the intestinal microbiome, mycobiome                Candida parapsilosis complex species. These patients had lower
+ and virome along with targeted metabolic profiling in 78 patients          overall survival and higher transplant-related mortality196. Another
+ undergoing allo-HCT. The study uncovered a microbial signature             culture-based study of 153 patients undergoing allo-HCT found
+ of Lachnospiraceae and Oscillospiraceae and associated                     that oral or gastrointestinal colonization with Candida species was
+ bacteriophages correlating with immunomodulatory metabolites               positively associated with the development of acute GVHD and,
+ (IMMs). A risk score based on IMM abundance was developed,                 specifically, gastrointestinal GVHD197.
+ associating low IMM levels with higher risks for reduced overall               Together, these findings suggest that the composition of the
+ survival, GVHD and relapse. In patients classified as low risk for these   virome and mycobiome is altered during collapse of the gut
+ complications by the score, short-chain fatty acid (SCFA) synthesis        ecosystem associated with allo-HCT, and that fungi and viruses may
+ pathways, and specifically the butyric acid-synthesis gene BCoAT,          impact GVHD pathology and FMT treatment in ways that are not yet
+ were enriched. The authors identified two bacteriophages encoding          understood.
+
+
+
+to mismatched histocompatibility of the recipient’s tissue11,12. Since      bile acids (SBAs) has been comprehensively studied in recent years.
+then, factors influencing this complex immune reaction have been            Moreover, dysbiosis, which is the disruption of the function and com-
+intensely studied, including the recipient’s intestinal microbiota.         position of the microbiome characterized by loss of microbial diversity
+During allo-HCT, severe immunocompromisation results from pro-              and expansion of individual taxa, has been associated with allo-HCT
+found neutropenia occurring after bone marrow depletion and before          outcomes, including GVHD14–24.
+engraftment of donor haematopoietic cells. Patients also receive                 Since our previous review in 2018 (ref. 25), mechanistic studies in
+GVHD prophylaxis, which is immunosuppressive, and thus patients             mouse models have elucidated complex interactions between the gut
+become highly susceptible to infections. Therefore, to mitigate these       microbiome and the immune system in GVHD, including how altered
+effects patients are subsequently treated with prophylactic and often       microbial communities influence immune regulation, epithelial barrier
+therapeutic antibiotics13, with detrimental effects on the intestinal       integrity and metabolite-mediated signalling pathways. Several clinical
+microbiome. The intestinal microbiome comprises a community of              trials have explored microbiome interventions, including randomized
+microorganisms, which is dominated by bacteria but also includes            controlled trials with the potential to demonstrate a cause-and-effect
+viruses and fungi. However, although our current understanding of           relationship between the composition and diversity of the gut micro-
+the impact of the gut mycobiome and virome on allo-HCT outcomes is          biome and clinical outcomes. Although some trials have yielded unex-
+limited (Box 1), the role of gut bacteria in maintaining immune balance,    pected or null results26,27, these studies have refined our understanding
+supporting the intestinal barrier and producing immunoregulatory            and will guide further study design towards translating findings from
+metabolites such as short-chain fatty acids (SCFAs) and secondary           controlled animal models to the dynamic post-transplant human setting.
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                           330
+

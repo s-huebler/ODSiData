@@ -1,0 +1,66 @@
+Review article
+
+
+with resident microorganisms and impact intestinal GVHD sever-               gene expression and, consequently, synthesis and secretion of mucus;
+ity. One mouse study demonstrated that ileal neutrophil infiltration         and also upregulate tight junction proteins, strengthening the barrier
+post allo-HCT is microbiota-dependent and contributes to GVHD                against pathogens84,85. Furthermore, SCFAs modulate immune cell func-
+severity through the production of reactive oxygen species (ROS)             tion by promoting anti-inflammatory properties, such as by inhibiting
+and T cell activation, with germ-free conditions or neutrophil deple-        histone deacetylases (HDACs) in Treg cells to promote their differen-
+tion significantly reducing disease severity80. A second study traced        tiation and thereby suppress excessive immune responses86,87 (Fig. 3).
+neutrophils from the ileum to mesenteric lymph nodes, where they             The role of butyrate in GVHD has been validated in preclinical mod-
+presented antigen via MHC class II and promoted T cell expansion.            els, in which its administration mitigates both aGVHD and cGVHD44.
+This process likely relied on bacterial translocation after allo-HCT, as     Therefore, targeting SCFA production, particularly that of butyrate,
+antibiotic pretreatment of mice reduced the bacterial load in the ileum      or administering SCFAs directly holds therapeutic potential for the
+and abrogated neutrophil migration81. A third study found in a mouse         management of GVHD. However, the protective effects of SCFAs may
+model of allo-HCT that the administration of human β-defensin 2,             also vary with the degree of intestinal damage and the concentration of
+an endogenous, epithelial cell-derived peptide with antimicrobial            butyrate available, potentially limiting the efficacy of SCFA administra-
+qualities, reduced neutrophil infiltration into the ileum and local T cell   tion in the management of GVHD88,89. For instance, Golob et al.88 found
+activation by modulating the microbiota and dampening TCR signal-            that higher levels of butyrogenic bacteria post GVHD were associated
+ling, resulting in reduced GVHD severity and mortality82. Although           with steroid refractoriness. This highlights the complex role of SCFAs in
+corroborating studies have yet to be conducted in humans, this work          GVHD as this finding also aligns with studies that have shown that loss
+highlights the influence of the microbiome on neutrophil behaviour           of microbial diversity, and not just butyrogenic bacteria, is associated
+and its downstream effects on T cell activation in aGVHD. These studies      with GVHD severity and outcomes24, emphasizing the importance of
+also point to neutrophil–microbiota interactions as an underexplored         personalized microbiome-based interventions.
+and potentially promising therapeutic target, alongside established                Metabolites derived from amino acids, including indoles such
+T cell-focused approaches.                                                   as indole-3-aldehyde (I3A), also promote intestinal barrier function
+      Vallet et al.36 investigated the relationship between gut microbiota   and prevent epithelial damage90. Indoles are derived from trypto-
+composition, immune cell profiles and relapse risk following allo-HCT.       phan catabolism performed by the gut microbiota and can modulate
+This longitudinal study of patients receiving allo-HCT revealed that dis-    immune responses by influencing the balance of the secretion between
+tinct gut enterotypes and their associated metabolomes correlated with       pro-inflammatory and anti-inflammatory cytokines, as well as prevent-
+T cell exhaustion and relapse risk. Specifically, B. fragilis and related    ing secondary infections by promoting epithelial homeostasis and
+phylotypes were positively associated with relapse and an increase in        barrier integrity and, therefore, preventing bacterial translocation
+the numbers of exhausted peripheral T cells, suggesting impaired anti-       from the large intestine90. To maintain mucosal integrity, many indole
+tumour immunity. Patients with an Enterococcus-dominant enterotype           derivatives, including I3A, engage the aryl hydrocarbon receptor (AhR)
+that associated with higher relapse risk showed increased primary bile       in innate lymphoid cells and other immune cells, which in turn activates
+acid metabolism, suggesting impaired metabolic functioning. This             the transcription of interleukin-22 (IL-22). IL-22 then promotes the
+study also implicated the gut virome in these processes, as bacterio-        production of antimicrobial peptides and the repair of damaged epithe-
+phages co-occurred with enterotypes associated with T cell exhaustion.       lial cells, suppressing the excessive immune responses ­characteristic
+These findings highlight a gut–immune axis in which microbial com-           of GVHD to prevent tissue damage91.
+munities influence systemic T cell function and dysbiosis exacerbates              Bile acids facilitate the absorption of lipids in the small intestine
+immune exhaustion and relapse risk.                                          but also impact various other biological functions, notably includ-
+      Together, these findings redefine our understanding of GVHD by         ing the modulation of immune signalling92. Studies in patients with
+identifying the microbiome as a major regulator of immune-regulated          ulcerative colitis have found significantly reduced levels of the SBAs
+pathology. Microbiota-targeted interventions, such as modulation of          lithocholic acid (LCA) and deoxycholic acid (DCA), which in turn are
+gut bacterial species or inhibition of microbial antigen presentation,       also associated with decreased levels of Ruminococcaceae, a fam-
+could therefore serve as novel therapeutic strategies to mitigate GVHD       ily of bacteria known to produce SBAs93. SBAs activate the bile acid
+while preserving beneficial immune responses.                                receptor Takeda G-protein-coupled receptor 5 (TGR5; also known as
+                                                                             GPBAR1), leading to the suppression of pro-inflammatory cytokines
+GVHD is associated with distinct alterations in                              and chemokines and contributing to an anti-inflammatory environ-
+metabolomic profiles                                                         ment in the gut94. Furthermore, in vitro studies have found that SBAs
+The metabolome encompasses all small molecules produced and used             can suppress pro-inflammatory cytokine production from human
+both by host cells and by the host’s microbiota. Research has primarily      peripheral blood-derived macrophages, key mediators of intestinal
+focused on metabolites such as SCFAs, indoles and bile acids in GVHD         inflammation in irritable bowel disease93. LCA specifically has been
+owing to their reported efficacy in protecting the gastrointestinal          shown to impair T helper 1 cell (TH1 cell) activation, reducing their
+tract and their potent immunomodulatory properties. Recent stud-             secretion of the pro-inflammatory cytokines tumour necrosis factor
+ies have also linked distinct alterations in metabolomic profiles to the     (TNF) and interferon-γ (IFNγ)93. It is worth mentioning that ursodeoxy-
+­pathogenesis of GVHD, offering potential novel therapeutic targets.         cholic acid (UDCA), another SBA derived from microbial metabolism
+       SCFAs, the primary metabolic products of dietary fibre fermen-        that activates the TGR5 receptor, has demonstrated the capacity to
+ tation by gut bacteria, are a crucial energy source for colonic epithe-     regulate the pro-inflammatory responses of antigen-presenting cells
+ lial cells (colonocytes), for which butyrate oxidation in particular        and, in doing so, contribute to intestinal health and homeostasis95.
+ provides up to 70% of the energy needs in maintaining a healthy gut         In alignment with previous research indicating that TGR5 signalling can
+ barrier83. SCFAs enhance the production of protective mucus by              inhibit nuclear factor-κB (NF-κB) activation through the cAMP–protein
+ stimulating goblet cells in the intestinal epithelium to increase mucin     kinase A (PKA) pathway96, UDCA markedly decreased the production
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                             336
+

@@ -1,0 +1,57 @@
+10       A. B. MOSES AND A. C. YEH
+
+
+control FMT delivered as a capsule for 2 days following neutrophil recovery posttransplant, exposure to
+FMT resulted in a lower 4-month infection density (0.74 vs. 0.91 events per 100 patient days) but
+numerically increased GvHD risk.97 Optimization of FMT also involves judicious donor selection. A
+preplanned interim analysis revealed a donor-specific effect with respect to microbiota engraftment from
+three different donors for 20 recipients, as all cases of severe aGvHD were attributed to a single donor.22
+While a reduction in GvHD risk has not yet been demonstrated for FMT prophylaxis, a reduction in
+infectious risk highlights several potential positive attributes of FMT: (1) the restoration of colonization
+resistance by diversifying the anaerobic community and preventing domination by pathogenic taxa, which
+is a major predictor of bloodstream infection, and (2) the improvement of mucosal immunity through the
+augmentation of luminal SCFA production and the restoration of the epithelial barrier.
+    Investigational studies with microbiome therapeutics SER-155 (comprising 16 bacterial Firmicutes
+strains) extend these concepts beyond conventional FMT by delivering a defined consortium of cultivated
+bacterial strains designed to restore gut microbiota diversity, strengthen epithelial barrier integrity, and
+reduce bacterial bloodstream infections and GvHD in allo-HSCT patients.98-100 Similar to FMT, this type of
+approach has been shown to be effective at reducing recurrent C. difficile infection (SER-109, Firmicutes
+spores comprising 77 bacterial genera).101 A phase 1b study of SER-155 demonstrated its safety, durable
+engraftment of bacterial strains, significant reduction in bloodstream infections by 77%, decreased antibiotic
+exposure, and lower severity of febrile neutropenia,98,99 with final analysis pending (NCT04995653).
+Successful engineering of defined consortia to achieve clinical end points has the added benefit of bypassing
+donor selection variability that poses a significant challenge to FMT delivery.
+
+
+Future directions
+The collective evidence reviewed here establishes a central principle: the microbiota is not an accessory
+variable in GvHD, but a core determinant of how epithelial injury, antigen presentation, and donor T-cell
+programming unfold after transplantation. The convergence of data across epithelial biology, innate
+sensing, microbial metabolite signaling, and adaptive T-cell response highlights microbial cues that
+shape both the magnitude and character of the alloreactive response and thus directly influence GvHD
+severity and clinical outcomes. Microbiome-directed interventions ranging from antibiotic stewardship to
+FMT and defined bacterial consortia are most effective when they preserve or restore microbial functions
+rather than target individual taxa, emphasizing the need to transition from the polarized classification of
+“good” vs. “bad” microbes towards an understanding of protective ecological and metabolic activities.
+Interventions must be seen as the sum of altering multiple phenotypic axes that modulate innate and
+adaptive immunity as well as host tissue susceptibility.
+   Several challenges in the field remain. From a mechanistic standpoint, the immunologic impact of the
+donor-derived microbiota on donor graft T-cell responsiveness, as well as subsequent reactivity to the
+recipient microbiota, remains largely unexplored. From a translational perspective, defining donor and
+recipient characteristics that maximize FMT efficacy and optimizing defined commensal consortia to
+improve infectious and GvHD outcomes would substantially advance microbiota-based therapeutic
+strategies. Additional clinical data are also needed to determine whether prebiotic approaches can reliably
+expand beneficial commensal anaerobes and meaningfully impact transplant outcomes, particularly as an
+alternative to direct ecosystem replacement. Ultimately, by emphasizinga microbiota-integrated model of
+GvHD, the field is poised to move beyond reactive damage control and toward therapies that proactively
+shape the immunologic and epithelial environment that govern GvHD and transplant outcomes.
+
+
+Disclosure of potential conflicts of interest
+No potential conflicts of interest were disclosed.
+
+
+Funding
+This study was funded by the American Society of Hematology (2025 ASH Scholar Award), the National Heart Lung
+and Blood Institute (K08HL167161), and the University of Washington (Chair of Medicine Award).
+

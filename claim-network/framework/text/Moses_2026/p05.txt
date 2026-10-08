@@ -1,0 +1,57 @@
+4      A. B. MOSES AND A. C. YEH
+
+
+pool of antigens presented to donor T cells (Figure 1B). An estimated 1012 commensal microbes reside in
+the human gastrointestinal tract,45 and insights over the past two decades have proven that microbes not
+only shape how T cells are polarized but also dictate the clonotypic response in the gastrointestinal tract
+during homeostasis, infection, and inflammation.46-54 However, much of the understanding of T-cell
+responses to microbes has been derived outside of the HSCT context. Allogeneic transplantation is unique
+due to the introduction of donor T cells, which are primed by the donor but not the recipient microbiota.
+Recent evidence has demonstrated that the recognition of microbial peptides can directly impact GvHD, as
+the expansion of microbiota-specific T cells from the donor graft, which target MHC II peptides derived
+from bacterial flagellin or Clostridium savagella in the recipient GI tract, exacerbated GvHD in murine
+models harboring respective commensal organisms.46 How donor T cells respond to recipient microbial
+antigens in the clinical setting and the subsequent impact on clinical outcomes remain poorly understood.
+Here,we propose a framework in thinking about how microbes shape the donor T-cell response by first
+examining microbiota-reactive T cells in the donor graft (Figure 2).
+
+Donor memory T cells are shaped by the donor microbiota
+Peripheral blood CD4 T-cell reactivity to bacterial species is normal and has been demonstrated in both
+murine and human context covering multiple microbial taxa.53,55,56 Microbiota-specific memory T cells in
+circulation that react to heat-inactivated Escherichia, Lactobacillus, Bifidobaterium, Faecalibacterium,
+Bacteroides, Roseburia, Ruminococcus, Salmonela, and Clostridium comprising up to 0.4% of CD4+
+T cells per taxa have been reported in healthy inividuals.55 Phenotypic diversity in this setting can also be
+seen by a broad range of T-cell responses to microbial peptides, in which numerous predicted bacterial
+epitopes were identified to elicit a combination of IFNγ, IL-10, or IL-17 responses from 40 patient
+peripheral blood samples.56
+   Following introduction of the donor graft in HSCT, we posit that microbiota-specific memory T cells
+may thus play a protective or pathogenic role depending on whether they encounter cognate peptide
+presented on the proper MHC II allele and their polarization state (Figure 2). For the first to occur, the
+cognate donor MHC II allele must also be present in the recipient. Second, T-cell polarization depends on
+the donor environment and exposure to specific microbes. For example, anaerobic bacteria such as
+Faecalibacterium prausnitzii that produce short-chain fatty acids (SCFA) experimentally induce Treg
+differentiation,57 and IL-10 producing CD4+ T cells have been identified reactive to F. prausnitzii in
+human peripheral blood.55 Thus, a donor graft containing F. Prausnitzii-specific T cells could play an
+immunosuppressive/protective role in GvHD biology if they encounter cognate antigens in the recipient
+microbiota. Clinically, this hypothesis is consistent with the observation that reconstitution of commensal
+anaerobes known to produce SCFA appears to reduce GvHD risk. Additionally, the optimal donor with
+regards to harboring regulatory microbiota-specific T cells may be the one with the most similar
+commensal microbiota composition in the proper HLA context (e.g. matched transplant), as this would
+maximize the chance of cognate recognition.
+
+Naïve donor T-cell recognition of microbial peptides is likely to promote GVHD during HSCT
+The majority of donor T cells are naïve, and a subset of these could be activated by commensal microbial
+peptides in the recipient in an MHC-matched or mismatched context. As the peri-transplant phase is
+characterized by excess inflammatory cytokine production, including IL-12, IFNγ, and IL-6 from macro-
+phages, DCs, and other alloreactive T cells, in response to tissue injury and DAMP/MAMP exposure, naïve
+T cells that recognize cognate microbial antigens are most likely to be skewed toward Th1 or Th17
+phenotypes that contribute to GvHD pathology (Figure 2).
+   This hypothesis is well-supported by evidence outside of the HSCT literature. T-cell mediated tolerance
+to commensal organisms is contextual, as proinflammatory cues shift the balance towards a pathogenic
+response. Acute gastrointestinal infection with orally administered Toxoplasma gondii elicited the
+activation and Th1 differentiation of flagellin-targeting intestinal T cells directed at commensal
+Clostridium XIVa bacteria that persist as long-term memory T cells.47 Peripheral induction of colonic
+Tregs with TCR repertoires distinct from those of Tregs of other tissue types was demonstrated for
+Clostridiales and Paraacteroides, for example, although the same Treg clonotypes, when adoptively
+transferred predominantly as Foxp3− T cells, induced experimental colitis in Rag1−/− hosts.58 Similarly,
+

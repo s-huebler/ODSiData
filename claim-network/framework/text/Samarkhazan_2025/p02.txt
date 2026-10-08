@@ -1,0 +1,63 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine                 (2025) 23:832                                                             Page 2 of 15
+
+
+
+
+characterized by the loss of beneficial microbial taxa and                            diversity declines further due to repeated cycles of remis-
+the overgrowth of pathobionts, disrupts immune homeo-                                 sion-induction chemotherapy, often combined with total
+stasis, impairs barrier function, and amplifies pro-inflam-                           body irradiation (TBI), aimed at reducing tumor burden
+matory responses, thereby exacerbating GVHD severity                                  and suppressing the recipient’s adaptive immune system
+[6]. Conversely, the donor microbiome, introduced via                                 to prevent graft rejection [9]. Chemotherapeutic agents,
+the graft, holds potential to influence post-transplant                               while targeting malignant cells, also damage intestinal
+immune reconstitution and disease progression [7]. This                               epithelial cells, disrupting the gut barrier and facilitat-
+narrative review explores the “tale of two ecosystems,”                               ing microbial translocation into the systemic circulation.
+delving into the mechanisms by which recipient and                                    Montassier et al. (2015) demonstrated that patients with
+donor microbiomes converge to influence GVHD. By                                      non-Hodgkin’s lymphoma (NHL) receiving high-dose
+examining the immunological and microbial crosstalk,                                  chemotherapy experienced a 70% reduction in Firmicutes
+we highlight emerging therapeutic strategies—such as                                  and Actinobacteria alongside a 15-fold increase in Proteo-
+probiotics, prebiotics, and fecal microbiota transplanta-                             bacteria [10]linked to impaired nucleotide metabolism
+tion—that aim to restore microbial balance and mitigate                               and compromised mucosal repair pathways, heightening
+GVHD, paving the way for personalized, microbiome-                                    susceptibility to bacterial translocation [11]. Similarly,
+targeted interventions to enhance HSCT success.                                       radiation therapy exacerbates mucosal injury, diminish-
+                                                                                      ing Clostridiales populations essential for maintaining
+The recipient microbiome: A disrupted ecosystem                                       anaerobic conditions and suppressing pro-inflammatory
+Pre-transplant disruptions                                                            γ-Proteobacteria [8, 12].
+The recipient’s microbiome undergoes significant altera-                                Myeloablative conditioning regimens, including anti-
+tions well before hematopoietic stem cell transplantation                             biotics and antifungals, inflict collateral damage on
+(HSCT), driven by multiple factors such as underlying                                 commensal microbes. Broad-spectrum antibiotics such
+hematologic malignancies, prior treatments including                                  as fluoroquinolones deplete Blautia and Faecalibacte-
+chemotherapy and radiation, and pre-transplant condi-                                 rium—genera essential for producing short-chain fatty
+tioning regimens. These disruptions collectively foster                               acids (SCFAs) like butyrate, which regulate regulatory
+a dysbiotic state with profound implications for trans-                               T (Treg) cell differentiation and epithelial homeostasis
+plant outcomes and the development of graft-versus-host                               [2]. The loss of obligate anaerobes creates an ecological
+disease (GVHD) (Table 1). Patients undergoing HSCT,                                   niche for pathogenic organisms, such as Enterococcus
+often diagnosed with conditions like leukemia, lym-                                   species, which are implicated in GVHD development
+phoma, or myelodysplastic syndromes (MDS), exhibit                                    and increased post-transplant mortality [13]. Prophylac-
+baseline dysbiosis prior to therapeutic interventions,                                tic and empiric broad-spectrum antibiotics, commonly
+characterized by reduced microbial diversity and an                                   administered to prevent systemic infections or manage
+enrichment of pathobionts. For instance, leukemic cells                               neutropenic fever, exacerbate this dysbiosis. A retro-
+secrete inflammatory cytokines such as tumor necro-                                   spective study reported that early use of broad-spectrum
+sis factor-alpha (TNF-α) and interleukin-6 (IL-6), which                              antibiotics between days − 7 and 0 prior to allogeneic
+compromise epithelial integrity and promote the prolif-                               HSCT reduced Clostridiales abundance and was asso-
+eration of opportunistic pathogens like Enterococcus and                              ciated with elevated transplant-related mortality [14].
+Escherichia [8]. Additionally, the recipient’s microbial                              Antifungal prophylaxis with azoles selectively suppresses
+
+Table 1 Key factors in pre-transplant disruptions of recipient microbiota
+Disruptive Factor Key Examples             Mechanisms                                             Microbial Impact                                               Ref.
+Underlying        Leukemia; lym-           Inflammatory cytokine secretion (TNF-α, IL-6); Disruption
+                                                                                                  Reduced diversity; Enrichment of op-                           [8]
+Malignancies      phoma, MDS               of epithelial integrity                                portunistic pathobionts (Enterococcus,
+                                                                                                  Escherichia)
+Chemotherapy           HDC in NHL       Mucosal injury; Impaired nucleotide metabolism; Bacterial 70% decrease in Firmicutes and Actinobac-                      [10,
+                       patients         translocation                                             teria; 15-fold increase in Proteobacteria                      11]
+Radiation Therapy      TBI in allo-HCT Amplified mucosal injury; Disruption of anaerobic condi- Reduction in Clostridiales                                       [8,
+                       recipients       tions; Expansion of pro-inflammatory γ-proteobacteria                                                                    12]
+Antibiotics            Fluoroquino-     Reduced SCFA production (butyrate); Epithelial barrier    Loss of Blautia, Faecalibacterium; Dysregu-                    [2,
+                       lones, β-lactams dysfunction                                               lation of Treg differentiation and epithe-                     13]
+                                                                                                  lial homeostasis; Overgrowth of resistant
+                                                                                                  pathogens (Enterococcus)
+Antifungal             Azoles           Suppression of Saccharomyces species; Impaired TH17       Increased risk of Candida overgrowth                           [15,
+Prophylaxis                             response                                                                                                                 16]
+Abbreviations: MDS: myelodysplastic syndrome; TNF-α: tumor necrosis factor-alpha; IL-6: interleukin-6; HDC: high-dose chemotherapy; NHL: non-Hodgkin’s
+lymphoma; TBI: total body irradiation; allo-HCT: allogeneic hematopoietic cell transplantation; SCFA: short-chain fatty acid; Treg: regulatory T cell; TH17: T helper 17
+

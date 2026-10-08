@@ -1,0 +1,62 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine            (2025) 23:832                                                        Page 6 of 15
+
+
+
+
+this ecological vacuum to settle into the recipient’s gut.                      The Microbiome-GVHD Axis
+However, this process is not passive; donor and recipi-                         Early Immune-Microbiome interactions
+ent microbes compete for nutrients and ecological niches                        The interaction between the immune system and
+(Table 3). Studies have revealed that specific bacterial                        microbes, including the microbiome, dates back to the
+taxa, like Enterococcus, often at the expense of help-                          prenatal period. Although the existence of a placental
+ful commensals like Lactobacillus and Bifidobacterium,                          microbiome remains a contentious issue—with studies
+can dominate the gut microbiota of allo-HSCT patients                           often yielding conflicting results—metabolites and anti-
+[51]. Residual recipient Enterococcus may exploit the                           gens derived from maternal microbes have been shown
+post-transplant niche to dominate the gut, exacerbating                         to traverse the placenta, thereby influencing immune sys-
+mucosal damage and systemic inflammation [50]. In con-                          tem development in both humans and mice [53, 54]. In
+trast, Clostridiales species from donors can modulate the                       murine models, these metabolites include AhR ligands,
+recipient’s immune system through various mechanisms,                           retinoic acid, and fatty acids. Notably, AhR ligands and
+including producing SCFAs like butyrate, which reinforce                        retinoic acid stimulate the development of ILC3 and
+intestinal epithelial integrity and suppress pro-inflamma-                      lymphoid tissue inducer cells, both of which play pivotal
+tory T cell responses [5]. Linked to GVHD severity, this                        roles in establishing mucosal barrier [55, 56].
+microbial imbalance suggests that the competing dynam-                            At birth, the neonate’s alternative programed immune
+ics between donor and recipient microbiota can directly                         system is exposed to a vast array of microbes, yet this
+affect disease outcomes, highlighting the therapeutic                           encounter does not precipitate harmful inflammation
+potential of modulating microbial composition to favor                          or exaggerated immune responses; rather, it reprograms
+beneficial metabolites. Interventions such as prebiotics                        the immune system in preparation for postnatal life [57].
+or synbiotics that favor donor microbiota colonization                          Early postnatal phenomena thus pave the way for the
+could tilt the balance toward a tolerogenic microbiome.                         immune system’s adaptation to the external environ-
+Additionally, targeting microbial metabolic pathways,                           ment. For instance, immunosuppressive erythroid cells
+such as SCFA production, might synergize with immuno-                           are abundant in early life [58]neutrophil numbers decline
+suppressive therapies to reduce GVHD severity.                                  after birth [59]neonatal T cells exhibit a more innate-like
+  On the other hand, the potential for donor-derived                            behavior without establishing robust memory popula-
+microbes to influence recipient immune responses                                tions [60]and high expression levels of IL-10 and IL-27
+extends beyond direct microbial interactions. Zhang et                          are observed in neonates [59]. Furthermore, the develop-
+al. (2022) demonstrated that donor microbiota regulates                         ing microbiota plays a crucial role in shaping the adaptive
+erythrophagocytosis by BM macrophages, influenc-                                immune response during this period. Clostridia, which
+ing local iron levels critical for HSC differentiation [52].                    become established at weaning, are primary producers of
+Microbiota-depleted mice exhibited impaired iron recy-                          SCFAs that promote the differentiation of RORγt regula-
+cling, which skewed HSC fate toward self-renewal rather                         tory T cells. These RORγt+ Tregs modulate Th2 responses
+than differentiation, potentially delaying immune recon-                        in the intestine and help regulate immune interactions
+stitution [52]. This finding suggests that donor micro-                         with the microbiota throughout life [61, 62]. Additionally,
+biota compete with resident microbes and systemically                           Bifidobacterium longum subsp. infantis colonizes the
+influence hematopoietic recovery.                                               infant intestine and produces indole-3-lactic acid, which
+
+Table 3 Microbial dominance dynamics in host colonization post-HSCT
+Microbial            Dominance Pattern          Competitive Advantage              Host Response                          GVHD Implications           Ref.
+Contestant
+Enterococcus         Frequent post-HSCT         Exploitation of ecological         Exacerbation of mucosal damage;        Increased GVHD severity     [50]
+                     domination                 vacuum; Antibiotic resistance      Systemic inflammation
+Clostridiales        Beneficial colonizers      SCFA production; Metabolic         Reinforcement of intestinal            Reduced GVHD severity       [5]
+species              from donor                 versatility                        epithelial integrity; Suppression of
+                                                                                   pro-inflammatory T cell responses
+Lactobacillus        Competitive with ben-      Niche occupation in disrupted      Variable host responses   GVHD exacerbation via        [51]
+                     eficial commensals         gut environments                                             MHC-II-dependent activa-
+                                                                                                             tion of alloreactive T cells
+Bifidobacterium      Often displaced          Limited competitive advantage Loss associated with reduced im- Loss correlates with
+                     post-HSCT                in disrupted environment      mune regulation                  increased inflammatory
+                                                                                                             complications
+Residual recipient   Exploits post-transplant Adaptation to disrupted gut   Increased inflammation and muco- Exacerbation of GVHD         [50]
+Enterococcus         niche                    ecology                       sal damage                       severity
+Abbreviations: GVHD: graft-versus-host disease; HSC: hematopoietic stem cell; HSCT: hematopoietic stem cell transplantation; MHC-II: major histocompatibility
+complex class II; SCFA: Short-chain fatty acid
+

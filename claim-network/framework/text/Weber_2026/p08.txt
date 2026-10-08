@@ -1,0 +1,83 @@
+                                                                            D. Weber et al.
+392
+      environmental factors—has been consistently associated with                                18. Muratore E, Leardini D, Baccelli F, Venturelli F, Prete A, Masetti R. Nutritional
+      increased GvHD-related morbidity and impaired immune recov-                                    modulation of the gut microbiome in allogeneic hematopoietic stem cell trans-
+      ery. Clinical trials exploring microbiome-targeted strategies—such                             plantation recipients. Front Nutr. 2022;9:993668. https://doi.org/10.3389/
+      as prebiotics, FMT and microbial-derived therapies, and post-                                  fnut.2022.993668.
+                                                                                                 19. Lindemans CA, Calaﬁore M, Mertelsmann AM, O’Connor MH, Dudakov JA, Jenq
+      biotics —are promising but require conﬁrmation, standardization
+                                                                                                     RR, et al. Interleukin-22 promotes intestinal-stem-cell-mediated epithelial
+      and long-term safety data. Ultimately, integrating microbiome                                  regeneration. Nature. 2015;528:560–4. https://doi.org/10.1038/nature16460.
+      modulation into personalized transplant strategies has the                                 20. Fujiwara H, Docampo MD, Riwes M, Peltier D, Toubai T, Henig I, et al. Microbial
+      potential to reduce complications, enhance immune recovery,                                    metabolite sensor GPR43 controls severity of experimental GVHD. Nature Com-
+      and improve survival after alloHCT.                                                            mun. 2018;9:3674. https://doi.org/10.1038/s41467-018-06048-w.
+                                                                                                 21. Mathewson ND, Jenq R, Mathew AV, Koenigsknecht M, Hanash A, Toubai T, et al.
+                                                                                                     Gut microbiome-derived metabolites modulate intestinal epithelial cell damage
+      REFERENCES                                                                                     and mitigate graft-versus-host disease. Nature Immunol. 2016;17:505–13. https://
+       1. Malard F, Dore J, Gaugler B, Mohty M. Introduction to host microbiome symbiosis            doi.org/10.1038/ni.3400.
+          in health and disease. Mucosal Immunol. 2020: 1–8; https://doi.org/10.1038/            22. Khan N, Lindner S, Gomes ALC, Devlin SM, Shah GL, Sung AD, et al. Fecal
+          s41385-020-00365-4                                                                         microbiota diversity disruption and clinical outcomes after auto-HCT: a multi-
+       2. Mondot S, de Wouters T, Dore J, Lepage P. The human gut microbiome and its                 center observational study. Blood. 2021;137:1527–37. https://doi.org/10.1182/
+          dysfunctions. Dig Dis. 2013;31:278–85. https://doi.org/10.1159/000354678.                  blood.2020006923.
+       3. Malard F, Gasc C, Plantamura E, Dore J. High gastrointestinal microbial diversity      23. Belkaid Y, Harrison OJ. Homeostatic immunity and the microbiota. Immunity.
+          and clinical outcome in graft-versus-host disease patients. Bone Marrow Transpl.           2017;46:562–76. https://doi.org/10.1016/j.immuni.2017.04.008.
+          2018;53:1493–7. https://doi.org/10.1038/s41409-018-0254-x.                             24. Telesford KM, Yan W, Ochoa-Reparaz J, Pant A, Kircher C, Christy MA. A com-
+       4. Holler E, Butzhammer P, Schmid K, Hundsrucker C, Koestler J, Peter K, et al.               mensal symbiotic factor derived from Bacteroides fragilis promotes human
+          Metagenomic analysis of the stool microbiome in patients receiving allogeneic              CD39(+)Foxp3(+) T cells and Treg function. Gut Microbes. 2015;6:234–42.
+          stem cell transplantation: loss of diversity is associated with use of systemic        25. Jarosch S, Köhlen J, Ghimire S, Orberg ET, Hammel M, Gaag D, et al. Multimodal
+          antibiotics and more pronounced in gastrointestinal graft-versus-host disease.             immune cell phenotyping in GI biopsies reveals microbiome-related T cell
+          Biol Blood Marrow Transpl. 2014;20:640–5. https://doi.org/10.1016/                         modulations in human GvHD. Cell Rep Med. 2023;4:101125. https://doi.org/
+          j.bbmt.2014.01.030.                                                                        10.1016/j.xcrm.2023.101125.
+       5. Jenq RR, Ubeda C, Taur Y, Menezes CC, Khanin R, Dudakov JA, et al. Regulation of       26. Ivanov II, Atarashi K, Manel N, Brodie EL, Shima T, Karaoz U. Induction of intestinal
+          intestinal inﬂammation by microbiota following allogeneic bone marrow trans-               Th17 cells by segmented ﬁlamentous bacteria. Cell. 2009;139:485–98.
+          plantation. J Exper Med. 2012;209:903–11. https://doi.org/10.1084/jem.20112408.        27. Wu HJ, Ivanov II, Darce J, Hattori K, Shima T, Umesaki Y. Gut-residing segmented
+       6. Peled JU, Gomes ALC, Devlin SM, Littmann ER, Taur Y, Sung AD, et al. Microbiota            ﬁlamentous bacteria drive autoimmune arthritis via T helper 17 cells. Immunity.
+          as Predictor of Mortality in Allogeneic Hematopoietic-Cell Transplantation. N Engl         2010;32:815–27.
+          J Med. 2020;382:822–34. https://doi.org/10.1056/NEJMoa1900623.                         28. Goto Y, Panea C, Nakato G, Cebula A, Lee C, Diez MG. Segmented Filamentous
+       7. Malard F, Holler E, Sandmaier BM, Huang H, Mohty M. Acute graft-versus-host                Bacteria Antigens Presented by Intestinal Dendritic Cells Drive Mucosal Th17 Cell
+          disease. Nat Rev Dis Primers. 2023;9:27 https://doi.org/10.1038/s41572-023-                Differentiation. Immunity. 2014;40:594–607.
+          00438-1.                                                                               29. Riwes M, Reddy P. Microbial metabolites and graft versus host disease. Am J
+       8. van Bekkum DW, Roodenburg J, Heidt PJ, van der Waaij D. Mitigation of sec-                 Transpl. 2018;18:23–29. https://doi.org/10.1111/ajt.14443.
+          ondary disease of allogeneic mouse radiation chimeras by modiﬁcation of the            30. Hang S, Paik D, Yao L, Kim E, Trinath J, Lu J. Bile acid metabolites control TH17
+          intestinal microﬂora. J Natl Cancer Inst. 1974;52:401–4. https://doi.org/10.1093/          and Treg cell differentiation. Nature. 2019;576:143–8.
+          jnci/52.2.401.                                                                         31. Constantinides MG, McDonald BD, Verhoef PA, Bendelac A. A committed pre-
+       9. Beelen DW, Elmaagacli A, Müller KD, Hirche H, Schaefer UW. Inﬂuence of                     cursor to innate lymphoid cells. Nature. 2014;508:397–401.
+          intestinal bacterial decontamination using metronidazole and ciproﬂoxacin or           32. Chun E, Lavoie S, Fonseca-Pereira D, Bae S, Michaud M, Hoveyda HR. Metabolite-
+          ciproﬂoxacin alone on the development of acute graft-versus-host disease after             Sensing Receptor Ffar2 Regulates Colonic Group 3 Innate Lymphoid Cells and
+          marrow transplantation in patients with hematologic malignancies: ﬁnal results             Gut Immunity. Immunity. 2019;51:871–84.e876.
+          and long-term follow-up of an open-label prospective randomized trial. Blood.          33. Hazenberg MD, Haverkate NJE, van Lier YF, Spits H, Krabbendam L, Bemelman
+          1999;93:3267–75.                                                                           WA, et al. Human ectoenzyme-expressing ILC3: immunosuppressive innate cells
+      10. Gerbitz A, Schultz M, Wilke A, Linde HJ, Schölmerich J, Andreesen R, et al. Pro-           that are depleted in graft-versus-host disease. Blood Adv. 2019;3:3650–60.
+          biotic effects on experimental graft-versus-host disease: Let them eat yogurt.             https://doi.org/10.1182/bloodadvances.2019000176.
+          Blood. 2004;103:4365–7.                                                                34. Guo X, Liang Y, Zhang Y, Lasorella A, Kee BL, Fu YX. Innate Lymphoid Cells Control
+      11. Shono Y, van den Brink MRM. Gut microbiota injury in allogeneic haematopoietic             Early Colonization Resistance against Intestinal Pathogens through ID2-
+          stem cell transplantation. Nat Rev Cancer. 2018;18:283–95. https://doi.org/                Dependent Regulation of the Microbiota. Immunity. 2015;42:731–43.
+          10.1038/nrc.2018.10.                                                                   35. Wolfe AE, Markey KA. The contribution of the intestinal microbiome to immune
+      12. Taur Y, Jenq RR, Perales MA, Littmann ER, Morjaria S, Ling L, et al. The effects of        recovery after HCT. Front Immunol. 2022;13:988121.
+          intestinal tract bacterial diversity on mortality following allogeneic hematopoietic   36. Atarashi K, Tanoue T, Shima T, Imaoka A, Kuwahara T, Momose Y. Induction of
+          stem cell transplantation. Blood. 2014;124:1174–82. https://doi.org/10.1182/               colonic regulatory T cells by indigenous Clostridium species. Science.
+          blood-2014-02-554725.                                                                      2011;331:337–41.
+      13. Weber D, Oefner PJ, Hiergeist A, Koestler J, Gessner A, Weber M, et al. Low urinary    37. Choi SW, Gatza E, Hou G, Sun Y, Whitﬁeld J, Song Y, et al. Histone deacetylase
+          indoxyl sulfate levels early after transplantation reﬂect a disrupted microbiome           inhibition regulates inﬂammation and enhances Tregs after allogeneic hemato-
+          and are associated with poor outcome. Blood. 2015;126:1723–8. https://doi.org/             poietic cell transplantation in humans. Blood. 2015;125:815–9. https://doi.org/
+          10.1182/blood-2015-04-638858.                                                              10.1182/blood-2014-10-605238.
+      14. Stein-Thoeringer CK, Nichols KB, Lazrak A, Docampo MD, Slingerland AE, Sling-          38. Choi SW, Braun T, Henig I, Gatza E, Magenau J, Parkin B, et al. Vorinostat plus
+          erland JB, et al. Lactose drives Enterococcus expansion to promote graft-versus-           tacrolimus/methotrexate to prevent GVHD after myeloablative conditioning,
+          host disease. Science. 2019;366:1143–9. https://doi.org/10.1126/science.aax3760.           unrelated donor HCT. Blood. 2017;130:1760–7. https://doi.org/10.1182/blood-
+      15. Haak BW, Littmann ER, Chaubard JL, Pickard AJ, Fontana E, Adhi F, et al. Impact of         2017-06-790469.
+          gut colonization with butyrate-producing microbiota on respiratory viral infec-        39. Haring E, Uhl FM, Andrieux G, Proietti M, Bulashevska A, Sauer B. Bile acids
+          tion following allo-HCT. Blood. 2018;131:2978–86. https://doi.org/10.1182/blood-           regulate intestinal antigen presentation and reduce graft-versus-host disease
+          2018-01-828996.                                                                            without impairing the graft-versus-leukemia effect. Haematologica.
+      16. Jenq RR, Taur Y, Devlin SM, Ponce DM, Goldberg JD, Ahr KF, et al. Intestinal               2020;106:2131–46.
+          Blautia Is Associated with Reduced Death from Graft-versus-Host Disease.               40. Hubbard TD, Murray IA, Bisson WH, Lahoti TS, Gowda K, Amin SG. Adaptation of
+          Biol Blood Marrow Transpl. 2015;21:1373–83. https://doi.org/10.1016/                       the human aryl hydrocarbon receptor to sense microbiota-derived indoles. Sci
+          j.bbmt.2015.04.016.                                                                        Rep. 2015;5:12689.
+      17. Zama D, Gori D, Muratore E, Leardini D, Rallo F, Turroni S, et al. Enteral versus      41. Ju JM, Nam G, Lee YK, Jung M, Chang H, Kim W et al. IDO1 scavenges reactive
+          Parenteral Nutrition as Nutritional Support after Allogeneic Hematopoietic Stem            oxygen species in myeloid-derived suppressor cells to prevent graft-versus-host
+          Cell Transplantation: a Systematic Review and Meta-Analysis. Transpl Cell Ther.            disease. Proc Natl Acad Sci USA 2021; 118. https://doi.org/10.1073/
+          2021;27:180.e181–180.e188. https://doi.org/10.1016/j.jtct.2020.11.006.                     pnas.2011170118
+
+
+
+                                                                                                                              Bone Marrow Transplantation (2026) 61:385 – 394
+

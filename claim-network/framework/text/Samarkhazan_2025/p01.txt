@@ -1,0 +1,68 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine                        (2025) 23:832                                                     Journal of Translational
+https://doi.org/10.1186/s12967-025-06797-5
+                                                                                                                                                                      Medicine
+
+
+ REVIEW                                                                                                                                                                     Open Access
+
+
+The microbiome in graft-versus-host disease:
+a tale of two ecosystems
+Hamed Soleimani Samarkhazan1 , Sina Nouri2 , Mohsen Maleknia3                                                            and Mojtaba Aghaei4,5*
+
+
+  Abstract
+  Graft-versus-host disease (GVHD), a life-threatening complication of allogeneic hematopoietic stem cell
+  transplantation (HSCT), is shaped by a dynamic interplay between two microbial ecosystems: the recipient’s
+  disrupted microbiome and the donor’s transplanted microbiota. This narrative review unravels the “tale of two
+  ecosystems,” exploring how pre-transplant chemotherapy, radiation, and antibiotics induce recipient dysbiosis—
+  marked by loss of beneficial taxa (Clostridia, Faecalibacterium) and dominance of pathobionts (Enterococcus). These
+  shifts impair barrier integrity, fuel systemic inflammation, and skew immune responses toward pro-inflammatory
+  T-cell subsets, exacerbating GVHD. Conversely, emerging evidence implicates donor microbiota in modulating
+  post-transplant immune reconstitution, though its role remains underexplored. Therapeutic strategies, including
+  probiotics, prebiotics, and fecal microbiota transplantation (FMT), demonstrate promise in restoring microbial
+  balance, enhancing short-chain fatty acid (SCFA)-driven immune regulation, and reducing GVHD severity. However,
+  challenges such as strain-specific efficacy, safety in immunocompromised hosts, and protocol standardization
+  persist. By bridging microbial ecology and immunology, this review underscores the microbiome’s transformative
+  potential in redefining GVHD management and advocates for personalized, microbiome-targeted interventions to
+  improve HSCT outcomes.
+  Keywords GVHD, Graft-versus-host disease, Allogeneic hematopoietic stem cell transplantation, Microbiome,
+  Immune response, Short-chain fatty acid
+
+
+
+                                                                                                  Introduction
+                                                                                                  Graft-versus-host disease (GVHD) remains a formi-
+                                                                                                  dable challenge in allogeneic hematopoietic stem cell
+*Correspondence:                                                                                  transplantation (HSCT), contributing significantly to
+Mojtaba Aghaei                                                                                    morbidity and mortality [1]. This complex immuno-
+mojtabaaghaei745@gmail.com
+1
+  Student Research Committee, Department of Hematology and Blood                                  logical disorder arises when donor immune cells attack
+Banking, School of Allied Medical Sciences, Shahid Beheshti University of                         recipient tissues, with the gastrointestinal tract being
+Medical Sciences, Tehran, Iran                                                                    a primary target. Recent advances have illuminated
+2
+  Department of Immunology, Faculty of medicine, Tabriz university of
+medical science, Tabriz, Iran                                                                     the pivotal role of the gut microbiome in modulating
+3
+  Masih Daneshvari Hospital, National Research Institute of Tuberculosis                          immune responses and shaping GVHD outcomes [2, 3].
+and Lung Diseases (NRITLD), WHO Collaborating Centre (WHOCC), Shahid                              The dynamic interplay between the recipient’s disrupted
+Beheshti University of Medical Sciences, Tehran, Iran
+4
+  Student Research Committee, Ahvaz Jundishapur University of Medical                             microbial ecosystem—altered by pre-transplant thera-
+Sciences, Ahvaz, Iran                                                                             pies such as chemotherapy, radiation, and antibiotics—
+5
+  Thalassemia & Hemoglobinopathy Research Center, Health Research                                 and the donor’s transplanted microbiota introduces a
+Institute, Ahvaz Jundishapur University of Medical Sciences,
+Ahvaz 61357-15794, Iran                                                                           novel dimension to GVHD pathogenesis [4, 5]. Dysbiosis,
+
+
+                                         © The Author(s) 2025. Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+                                         International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you
+                                         give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the
+                                         licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or
+                                         other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the
+                                         material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or
+                                         exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit ​h​t​t​p​:​​​/​​/​c​r​e​a​t​i​​
+                                         v​e​c​​o​m​m​​o​n​​s​​.​o​​r​​g​/​​l​i​c​​e​n​s​​​e​s​​/​​b​y​​-​n​c​​-​​n​d​/​4​.​0​/.
+

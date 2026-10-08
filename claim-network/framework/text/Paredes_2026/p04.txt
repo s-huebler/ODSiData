@@ -1,0 +1,66 @@
+Review article
+
+
+     In this Review, we provide an updated synthesis of the litera-         can be reversed by targeted antibiotic eradication of A. muciniphila or
+ture to explore progress made in our mechanistic understanding of           by administration of the SCFA propionate, which likely inhibits mucin
+dysbiosis-mediated GVHD and in therapeutic translation of these             utilization by the bacteria33.
+findings. We also provide evidence supporting the role that personal-            Relapse of the primary malignancy remains the leading cause of
+ized microbiome-based interventions could have in revolutionizing           death after allo-HCT35. Known associations with the microbiota include
+GVHD management.                                                            a higher risk of relapse with low abundance of Blautia18 and likelier
+                                                                            remission with high abundance of Eubacterium limosum21. A recent
+The intestinal microbiota and allo-HCT                                      study also linked various microbial enterotypes with remission status
+Overall survival following allo-HCT is linked to                            (see further discussion below)36.
+microbial diversity                                                              As early as the 1970s, a link between the microbiome and aGVHD
+Before and during allo-HCT, chemotherapy, changes in diet, inflam-          pathology was established, with studies in germ-free mice and
+matory processes and exposure to drugs such as antibiotics can lead         antibiotic-treated transplant mouse models suggesting that gut bacte-
+to intestinal dysbiosis15,28,29. In addition, GVHD can induce intestinal    ria have a key role37,38. Several microbiome signatures and specific bac-
+inflammation, in turn affecting microbiota composition30. Several           terial taxa have since been linked to both the incidence and the severity
+single-centre analyses have found that microbial dysbiosis is negatively    of aGVHD in humans (Fig. 2). For instance, Burgos da Silva et al.39 found
+associated with overall survival after allo-HCT15,17,20,31.                 that recipients of allo-HCT with lower-gastrointestinal aGVHD had
+     In a landmark study in 2020, Peled et al.24 found that gut microbial   worse survival outcomes and reduced levels of strict anaerobic bac-
+diversity predicted mortality after allo-HCT. In this study, 16S riboso-    teria, particularly members of the class Clostridia and genera that
+mal RNA sequencing analysis of faecal samples from a large cohort of        produce the SCFA butyrate, such as Blautia, Anaerostipes, Eubacterium
+patients at four centres in the USA, Germany and Japan revealed loss        and Ruminococcus. Following the onset of aGVHD, butyrate-producing
+of microbiota diversity during transplantation, commonly including          bacteria continue to decline, whereas facultative anaerobes such as
+domination by bacterial taxa such as Enterococcus and Klebsiella. Dysbi-    Enterococcus expand. Patients with lower-gastrointestinal aGVHD
+osis patterns were comparable across geographical locations. Patients       also exhibit decreased microbial pathways for SCFA fermentation,
+with higher versus lower gut diversity, particularly during the neutro-     particularly butyrate production, and increased pathways for antibiotic
+phil peri-engraftment period (days 7–21 post transplant), had a 29–51%      resistance and nucleotide biosynthesis as demonstrated by functional
+lower risk of mortality. Those patients receiving broad-spectrum anti-      metagenomic analysis. These shifts reflect broader metabolic changes
+biotics such as the penicillin and β-lactamase inhibitor combination        resulting from the dysbiotic state of the gut. Furthermore, the enrich-
+piperacillin–tazobactam and the carbapenem drug meropenem for               ment of antibiotic resistance genes suggests selection for resistant
+the treatment of infectious complications had lower microbiota diver-       strains following prior antibiotic exposure, contributing to persistent
+sity and increased mortality risk. Similarly, those patients with lower     dysbiosis and limiting the effectiveness of standard antimicrobial
+microbiota diversity had a higher risk of transplantation-related and       therapies. In line with other analyses40, the noted increased abun-
+GVHD-related mortality, but not a higher risk of relapse, suggesting that   dance of microbial nucleotide biosynthesis pathways likely reflects a
+microbial diversity largely influences immune-mediated complications        shift towards rapidly proliferating, inflammation-associated bacteria
+rather than tumour control. Interestingly, patients in the study exhib-     that dominate the gut ecosystem in aGVHD39. Another study similarly
+ited microbiota disruption even before transplantation when compar-         linked reduced levels of Blautia and Ruminococcaceae, as well as low
+ing the composition of their baseline faecal sample with that of healthy    levels of SCFAs, with severe aGVHD41. More recently, Hayase et al.42
+volunteers. Although higher microbial diversity before allo-HCT was         reported a lower abundance of Bacteroides ovatus in patients with
+associated with lower risk of death in only one of the four cohorts, the    steroid-refractory lower-gastrointestinal aGVHD and showed in a
+authors suggest that this time point could present an early opportunity     mouse model that reintroducing this bacterial species led to reduced
+for microbiota restoration strategies. Furthermore, the study identified    GVHD severity and improved survival.
+a predictive signature of microbiota (that is, ­Enterococcus dominance)          The connection between dysbiosis and cGVHD is a more recent
+associated with a higher risk of mortality.                                 focus of investigation, with growing evidence supporting its relevance.
+                                                                            A small study (11 patients with cGVHD and 13 patients without GVHD)
+The gut microbiome is associated with key adverse outcomes                  found a greater loss of alpha diversity after allo-HCT in patients who
+after allo-HCT                                                              went on to develop cGVHD. In addition, butyrate-producing Clostrid-
+Besides overall survival, the gut microbiome has been linked to other       ium was present in a higher abundance at pre-transplant baseline in
+adverse outcomes of allo-HCT, such as neutropenic fever, relapse and        patients with cGVHD and showed a significantly greater decline post
+aGVHD and chronic GVHD (cGVHD). Up to 80% of patients undergoing            engraftment compared with controls43. Another study found a positive
+allo-HCT experience at least one episode of neutropenic fever during        association between the lower circulation of SCFAs such as butyrate
+the prolonged neutropenic phase induced by cytotoxic chemotherapy           at 3 months post transplant and the development of cGVHD following
+and/or total body radiation32. Neutropenic fever after allo-HCT has been    allo-HCT44. The oral microbiome is also gaining attention in cGVHD
+positively associated with an increased abundance of Akkermansia            studies. A longitudinal analysis of 29 patients with cGVHD versus 51
+muciniphila33, mirroring findings in patients with acute leukaemia          individuals without GVHD revealed an oral expansion of Streptococcus
+who had a higher risk for neutropenic fever following Akkermansia           salivarius and Veillonella parvula and a high degree of overlap between
+expansion34. A. muciniphila breaks down mucin, the main component           oral and gut bacterial species, suggesting ectopic gut colonization45.
+of the intestinal mucus layer, as its primary nutrient source. In mouse     Another recent study found that oral dysbiosis induced by mucositis
+models of neutropenic fever, the expansion of A. muciniphila leads to       secondary to conditioning therapy was associated with increased
+thinning of the colonic mucus layer and increased abundance of inflam-      cGHVD severity. In a mouse model, bilateral molar ligatures (an ortho-
+matory cytokines, which can act as endogenous pyrogens. The effect          dontic technique) in recipients of allo-HCT disrupted the oral flora,
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                          331
+

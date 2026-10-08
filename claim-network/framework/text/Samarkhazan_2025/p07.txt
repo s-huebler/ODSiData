@@ -1,0 +1,60 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine   (2025) 23:832                                       Page 7 of 15
+
+
+
+
+upregulates the immunomodulatory molecule galec-                      local and systemic cellular functions. SCFAs are fatty
+tin-1 in CD4+ T cells, thereby reducing their differentia-            acids containing 1–6 carbon atoms, notably acetic acid
+tion into Th2 and Th17 phenotypes [63]. Other specific                (acetate), propionic acid (propionate), and butyric acid
+Bifidobacterium species similarly suppress monocyte-                  (butyrate) [72]. Butyrate is predominantly absorbed by
+derived inflammatory cytokines via indole acid pro-                   the gut epithelium, propionate by the liver, and acetate
+duction and enhance gut barrier integrity through AhR                 by peripheral tissues [31]. Once absorbed, these metab-
+activation [64].                                                      olites modulate intracellular signaling by binding to G
+   Interactions between the immune system and the                     protein-coupled receptors (GPCRs), including GPR41,
+microbiome are profoundly reciprocal, with each shaping               GPR43, and GPR109A. These receptors are expressed
+the other’s function. This dynamic crosstalk establishes              across diverse tissues and display variable affinities for
+critical pathways by which both endogenous and exog-                  individual SCFAs, thereby mediating distinct physi-
+enous factors modulate systemic physiology [65]. Exoge-               ological functions. For instance, GPR41 is ubiquitously
+nous influences, notably dietary components, can perturb              expressed, whereas GPR43 is primarily confined to lym-
+these interactions and thereby impact various organs. For             phoid tissues and immune cells; both bind acetate, pro-
+instance, a diet enriched in saturated fats fosters the pro-          pionate, and butyrate, although GPR109A predominantly
+liferation of Bilophila wadsworthia via the accumulation              recognizes butyrate [72, 73]. Engagement of these recep-
+of taurocholic acid—a secondary bile acid that promotes               tors represses cAMP-dependent signaling pathways
+Th1-type immune responses and predisposes IL-10−/−                    while activating alternative cascades such as mTOR and
+deficient mice to colitis [66]. Conversely, intermittent              pSTAT3 [74]. Consequently, SCFA-induced signaling
+fasting enriches the gut microbiota with members of                   promotes activation of the NLRP3 inflammasome and
+the Lactobacillaceae, Bacteroidaceae, and Prevotella-                 IL-18 release by colonic epithelial cells, and enhances
+ceae families while enhancing antioxidative microbial                 the differentiation and regulatory functions of FOXP3⁺ T
+metabolic pathways that decrease IL-17–producing T                    cells [73].
+cells and promote regulatory T cell induction, ultimately               SCFAs enter cells either by passive diffusion or via
+ameliorating experimental autoimmune encephalomy-                     specialized transporters, including the sodium-coupled
+elitis (EAE) and multiple sclerosis (MS) [67]. Moreover,              monocarboxylate transporter 1 (SMCT1, encoded by
+secondary bile acids generated from primary bile acids                SLC5A8) and the monocarboxylate transporter 1 (MCT1,
+in the colon act as critical endogenous regulators of gut             encoded by SLC16A1), exerting concentration-depen-
+RORγt⁺ regulatory T cell homeostasis [68].                            dent effects. At low concentrations, butyrate and pro-
+                                                                      pionate are metabolized to acetyl-CoA, which serves as
+Microbial metabolites and immune modulation                           an acetyl donor for histone acetyltransferases such as
+Microbiota do not typically interact directly with epithe-            p300, thereby enhancing histone acetylation [75]. Intra-
+lial cells through attachment—as seen in the gut, where               cellularly, butyrate and propionate also inhibit HDAC
+mucosal layers provide a protective barrier—but rather                activity, further promoting an open chromatin state that
+influence both local and systemic physiology. The pri-                modulates gene expression. This epigenetic reprogram-
+mary mediators of these effects are microbiota-derived                ming influences diverse cellular processes—including
+products, including metabolites, short-chain fatty acids,             differentiation, cell cycle regulation, oxidative stress
+long-chain fatty acids, and various antigens [65]. For                responses, inflammation, antimicrobial defense, and fatty
+instance, polysaccharide A from the commensal Bacteroi-               acid metabolism—in macrophages, dendritic cells, lym-
+des fragilis is recognized by a Toll-like receptor (TLR)1/2           phocytes (particularly regulatory T cells), and intestinal
+heterodimer in conjunction with Dectin-1. This interac-               epithelial cells [76–79]. Moreover, additional epigenetic
+tion activates downstream phosphoinositide 3-kinase                   modifications, such as propionylation, butyrylation, and
+(PI3K) signaling, leading to the inactivation of glycogen             crotonylation mediated by butyrate, can alter transcrip-
+synthase kinase 3β (GSK3β) and subsequent induction of                tion factor binding to chromatin [80, 81]. Recent stud-
+cAMP response element binding protein (CREB)-depen-                   ies have demonstrated that butyrate’s HDAC inhibitory
+dent anti-inflammatory gene expression [69, 70]. More-                activity modulates lysine acetylation of the NF-κB sub-
+over, the gut microbiome finely tunes immune system                   unit p65 via HDAC3 and HDAC6, thereby influencing
+function, culminating in widespread systemic changes.                 the recruitment of NF-κB to pro-inflammatory gene pro-
+For example, segmented filamentous bacteria (SFB)                     moters both in vitro and in vivo (Fig. 1) [82].
+promote non-inflammatory Th17 cell differentiation,
+whereas certain Citrobacter-derived components drive                  Microbiome disruption and GVHD development
+an inflammatory Th17 phenotype [71].                                  The intestinal microbiota exerts a profound influence
+   Colonic and intestinal bacteria ferment dietary fibers             on the development and severity of acute GVHD by
+to produce SCFAs, key metabolites that impact both                    shaping the host’s immune environment even before
+

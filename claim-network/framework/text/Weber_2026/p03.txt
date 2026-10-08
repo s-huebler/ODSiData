@@ -1,0 +1,59 @@
+                                                  Table 1.   Interactions between immune cells and gut microbiota.
+                                                  Immune Cell            Crosstalk with Gut Microbiota             Key Metabolites/                Functional Impact                       Therapeutic Relevance                   References
+                                                  Type                                                             Mechanisms
+                                                  Macrophages            Bacteroides fragilis enhances             SCFAs (butyrate, propionate),   Balances inﬂammation; promotes          FMT to restore SCFA-producing taxa;     [30, 90]
+                                                                         phagocytic function via                   PSA, LPS                        tissue repair and pathogen clearance.   engineered probiotics targeting M2
+                                                                         polysaccharide A (PSA).                                                                                           polarization.
+                                                                         SCFAs (e.g., butyrate) reduce NF-κB
+                                                                         signaling and promote anti-
+                                                                         inﬂammatory M2 macrophages.
+                                                                         LPS from Enterobacteriaceae induces
+                                                                         pro-inﬂammatory M1 polarization.
+                                                  Dendritic Cells        SFB (Segmented Filamentous Bacteria)      AhR ligands (indole             Enhances antigen presentation;          AhR agonists (e.g., tryptophan          [28, 90]
+                                                  (DCs)                  induce Th17 differentiation via IL-23.    derivatives), ﬂagellin          balances Th17/Treg responses;           metabolites); microbial consortia
+                                                                         Lactobacillus spp. prime tolerogenic                                      maintains intestinal homeostasis.       targeting DC maturation.
+                                                                         DCs through AhR ligands (e.g., indole
+Bone Marrow Transplantation (2026) 61:385 – 394
+
+
+
+
+                                                                         derivatives).
+                                                  NK Cells               Akkermansia muciniphila enhances NK       TLR2 ligands, SCFAs             Improves anti-tumor immunity;           Akkermansia supplementation; TLR2       [91]
+                                                                         cytotoxicity via TLR2 signaling.                                          maintains mucosal barrier integrity.    agonists.
+                                                                         Dysbiosis reduces NK cell-mediated
+                                                                         tumor surveillance.
+                                                  B Cells                Microbiota-driven IgA class-switching     IgA, polysaccharide A (PSA),    Neutralizes pathobionts; reduces        IgA-boosting probiotics; engineered     [92]
+                                                                         via Peyer’s patches.                      SCFAs                           systemic autoimmunity; promotes         IgA-coated microbes.
+                                                                         Biﬁdobacterium spp. promote IL-10+                                        gut homeostasis.
+                                                                         regulatory B cells (Bregs).
+                                                  CD8 + T Cells          Butyrate inhibits HDACs, enhancing        Butyrate, isoDCA, PD-1          Enhances anti-tumor cytotoxicity;       Butyrate supplements; PD-1/PD-L1        [92, 93]
+                                                                         memory CD8 + T cell differentiation.      ligands                         mitigates exhaustion in chronic         inhibitors.
+                                                                         Dysbiosis exacerbates CD8+                                                infections.
+                                                                         exhaustion via PD-1 upregulation.
+                                                  Th17 Cells             SFB and Citrobacter rodentium drive       SCFAs, 3-oxoLCA                 Protects against fungal infections;     RORγt antagonists; SFB-targeted         [26, 27]
+                                                                                                                                                                                                                                                        D. Weber et al.
+
+                                                                         RORγt + Th17 cells via IL-6/IL-23.                                        exacerbates GVHD if dysregulated.       antibiotics.
+                                                                         SCFAs and lithocholic acid derivatives
+                                                                         (e.g., 3-oxoLCA) suppress pathogenic
+                                                                         Th17 differentiation by inhibiting
+                                                                         RORγt activity.
+                                                  Treg Cells             Clostridia clusters produce butyrate,     Butyrate, PSA, isoalloLCA,      Suppresses GVHD; maintains              Postbiotics (e.g., butyrate analogs);   [24, 25, 36]
+                                                                         expanding colonic Foxp3+ Tregs.           SCFAs (butyrate), tryptophan    intestinal tolerance; enhances          FMT for Treg expansion; microbiome-
+                                                                         Bacteroides fragilis PSA induces IL-10+   catabolites, secondary bile     mucosal repair; suppress alloreactive   preserving therapies may maintain
+                                                                         Tregs via TLR2.                           acids.                          CD8 T cell proliferation and tissue     Treg–CD8 balance
+                                                                                                                                                   damage.
+                                                                         Secondary bile acids like isoalloLCA
+                                                                         promote mitochondrial ROS for Foxp3
+                                                                         expression.
+                                                                         Dysbiosis and antibiotics reduce Treg
+                                                                         numbers and alter their crosstalk with
+                                                                         CD8 T cells, tipping balance
+                                                                         toward GvHD.
+
+
+
+
+                                                                                                                                                                                                                                                  387
+

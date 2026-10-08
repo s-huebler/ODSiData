@@ -1,0 +1,69 @@
+GUT MICROBES
+2026, VOL. 18, NO. 1, 2631224
+https://doi.org/10.1080/19490976.2026.2631224
+
+
+REVIEW ARTICLE
+
+The gut microbiome in graft-versus-host disease: mechanisms of immune
+modulation and therapeutic approaches
+Adonai Blessington Mosesa,b                         and Albert C. Yehb,c
+a
+ Department of Microbiology, University of Washington, Seattle, WA, USA; bTranslational Science and Therapeutics Division, Fred
+Hutchinson Cancer Center, Seattle, WA, USA; cDivision of Hematology and Oncology, University of Washington, Seattle, WA, USA
+
+
+    ABSTRACT                                                                                                                        ARTICLE HISTORY
+                                                                                                                                    Received 17 October 2025
+    Graft-versus-host disease (GvHD) remains a major complication of allogeneic hemato-
+                                                                                                                                    Revised 1 January 2026
+    poietic stem cell transplantation and occurs when T cells from the donor graft target                                           Accepted 9 February 2026
+    recipient-derived antigen on host tissue. The involvement of the gastrointestinal (GI)
+    tract drives morbidity and mortality—not coincidentally, the GI tract also harbors the                                          KEYWORDS
+    most complex and abundant human microbial reservoir. In this review, we first revisit                                           Graft-versus-host disease;
+    how the microbiota initiates, propagates, and protects against GvHD in the context of                                           GVHD; stem cell
+                                                                                                                                    transplantation; bone
+    both innate and adaptive immunity. Historically, the impact of the microbiota on GvHD
+                                                                                                                                    marrow transplantation; gut
+    has been ascribed primarily to the activation of innate immunity, setting the stage for                                         microbiota; microbiome
+    donor alloreactivity. Although established models of GvHD focus on donor–host
+    genetic disparity as the principal driver of donor T-cell activation, commensal microbes
+    in the GI tract, whose collective gene content exceeds that of the human genome by
+    more than two orders of magnitude, constitutes an immense and poorly understood
+    source of potential T-cell antigens. We next discuss the evolution of therapeutic
+    approaches aimed at modifying the microbiota to improve GvHD outcomes, incorpo-
+    rating over 40 clinical studies spanning the last 40 years, from broad decontamination
+    strategies to pre/probiotic approaches and targeted ecosystem replacement, including
+    fecal microbiota transplantation.
+
+
+
+
+Introduction
+Allogeneic hematopoietic stem cell transplantation (HSCT) represents a curative approach for a range of
+hematologic malignancies. However, its clinical use is often limited by graft-versus-host disease (GvHD), a
+potentially life-threatening complication that results from major and minor histocompatibility mismatches
+between the donor and host,1 culminating in the attack of host tissue by the adaptive immune response of
+the donor. Involvement of the gastrointestinal (GI) tract represents the most morbid form of acute
+GvHD,2 and initial observations over half a century ago demonstrated that depletion of the GI flora in
+gnotobiotic mice significantly decreased GI GvHD.3,4 Early enthusiasm for GI decontamination as a
+preventative approach led to several single-center clinical studies in the 1980s and 1990s that demonstrated
+the potential impact of environmental decontamination including the use of oral antibiotics to reduce
+GvHD risk.5-8 However, with the adopotion of calcineurin inhibitiors to prevent GvHD, the practical
+difficulty of achieving strict decontamination in the clinical setting, lack of nuanced mechanistic insight
+and limited ability to examine individual microbial taxa, and push for antibiotic stewardship hindered
+sustained adoption of using broad spectrum antibiotics as a preventative measure.
+   With the increasing availability of bacterial genomic sequencing in the mid-2000s, the initial brute force
+approach of depleting the microbiota as a single entity would yield to the concept of preventing dysbiosis,
+characterized by the loss of apparently beneficial, often anaerobic commensal bacteria associated with
+favorable GvHD outcomes9-12 and expansion of pathobionts associated with increased GvHD.13-15 Broad
+GI decontamination that impact anaerobic bacteria was thought to reduce beneficial commensal
+
+
+CONTACT Albert C. Yeh      ayeh@fredhutch.org       Fred Hutchinson Cancer Center, 1100 Fairview Ave N. S2-204, Seattle, 98109, WA, USA
+  Supplemental data for this article can be accessed online at https://doi.org/10.1080/19490976.2026.2631224.
+© 2026 The Author(s). Published with license by Taylor & Francis Group, LLC.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), which permits
+unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. The terms on which this article has been published allow
+the posting of the Accepted Manuscript in a repository by the author(s) or with their consent.
+

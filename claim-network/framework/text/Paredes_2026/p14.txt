@@ -1,0 +1,63 @@
+                                                         Table 2 | Select, published and ongoing clinical trials investigating microbiota-centred interventions to improve graft-versus-host disease-related
+                                                         outcomes after allogeneic haematopoietic cell transplantation
+
+                                                         Intervention Status of      Clinical trial title             Specific intervention      No. of       No. of   Clinical trial    Primary outcome       Results         Phase   Clinical trial   Ref.
+                                                         type         clinical trial                                                             patients     control design                                                           identifier
+                                                                                                                                                 treated      patients
+                                                         Antibiotics    Published     ‘Microbiota dynamics            Vancomycin–polymyxin       10           10        Prospective,     Gut microbiome        No difference II        NCT02641236      109
+                                                                                      in a randomized trial of        B vs no treatment                                 randomized,      composition           in microbial
+                                                                                      gut decontamination                                                               open label                             diversity
+                                                                                      during allogeneic                                                                                                        or GVHD
+                                                                                      hematopoietic cell                                                                                                       outcomes
+                                                                                                                                                                                                                                                               Review article
+                                                                                      transplantation’                                                                                                         between
+                                                                                                                                                                                                               treatment and
+                                                                                                                                                                                                               control arm
+                                                         Antibiotics    Active, not   ‘Choosing the best antibiotic Piperacillin–tazobactam      NA           NA        Prospective,     Relative              NA              II      NCT03078010      170
+                                                                        recruiting    to protect friendly gut       vs cefepime for febrile                             randomized,      abundance of
+                                                                                      bacteria during the course    neutropenia                                         open label       Clostridiales
+                                                                                      of stem cell transplant’
+                                                         Microbiota-    Published     ‘Treatment of steroid           Pooled allogeneic faecal   24            NA       Prospective or   Gastrointestinal      Overall         II      NCT03359980      167
+                                                         based                        refractory gastrointestinal     microbiota (MaaT013)       (HERACLES              compassionate    and overall GVHD      response
+                                                         consortia                    acute GVHD after allogeneic     for the treatment of       study)/52              use, single      response on           rate 38%
+                                                         therapies                    hematopoietic stem cell         steroid-refractory         (additional            arm, open        day 28                (HERACLES)/
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350
+
+
+
+
+                                                                                      transplantation with faecal     gastrointestinal GVHD      patients from          label                                  58%
+                                                                                      microbiota transfer                                        expanded                                                      (expanded
+                                                                                      (HERACLES)’                                                access                                                        access
+                                                                                                                                                 programme)                                                    prog­ramme)
+                                                         Microbiota-    Active, not   ‘MaaT013 as salvage therapy     Pooled allogeneic faecal NA             NA        Prospective,     Gastrointestinal      NA              III     NCT04769895      168
+                                                         based          recruiting    in patients with ruxolitinib    microbiota (MaaT013) for                          single arm,      and overall GVHD
+                                                         consortia                    refractory gastrointestinal     the treatment of steroid-                         open label       response on
+                                                         therapies                    acute GVHD (ARES)’              or ruxolitinib-refractory                                          day 29
+                                                                                                                      gastrointestinal GVHD
+                                                         FMT            Published     ‘Randomized double-blind        FMT in two independent     26 (AML      NA        Prospective,     Number of          No significant     II      NCT03678493       26
+                                                                                      phase II trial of fecal         cohorts (patients          cohort)/74             randomized,      infections until   reduction in
+                                                                                      microbiota transplantation      with AML undergoing        (allo-HCT              double-blind,    4 months after the infections
+                                                                                      versus placebo in allogeneic    intensive chemotherapy     cohort)                placebo-         first intervention
+                                                                                      hematopoietic cell              and patients undergoing                           controlled
+                                                                                      transplantation and AML’        allo-HCT)
+                                                         FMT            Published     ‘Donor fecal microbiota         FMT in patients with       15           NA        Prospective,     Gastrointestinal      Complete        I       ISRCTN14530574   154
+                                                                                      transplantation ameliorates     steroid-dependent                                 single arm,      and overall GVHD      clinical
+                                                                                      intestinal graft-versus-        or refractory                                     open label       response up to        response in
+                                                                                      host disease in allogeneic      gastrointestinal GVHD                                              6 months after        10 out of 15
+                                                                                      hematopoietic cell                                                                                 FMT                   patients
+                                                                                      transplantation recipients’
+                                                         FMT            Published     ‘Safety and efficacy of fecal   FMT vs no treatment        23           18        Prospective,     Event-free survival   Increased       I/II    NCT03148743      155
+                                                                                      microbiota transplantation      in patients with grade                            non-             time and overall      median
+                                                                                      for patients with grade IV      IV steroid-refractory                             randomized,      survival on day 90    survival time
+                                                                                      steroid refractory GI-GVHD:     gastrointestinal GVHD                             open label       after the diagnosis   in FMT group
+                                                                                      interim results from                                                                               of steroid-           (P = 0.02)
+                                                                                      FMT2017002 trial’                                                                                  refractory
+                                                                                                                                                                                         gastrointestinal
+                                                                                                                                                                                         GVHD
+                                                         FMT            Active, not   ‘FMT for the prevention         FMT in patients            NA           NA        Prospective,     Incidence of          NA              II      NCT06026371       171
+                                                                        recruiting    of acute GVHD in adults         undergoing allo-HCT                               randomized,      grade III–IV GVHD
+                                                                                      undergoing allo-HCT’                                                              double-blind,    up to 6 months
+                                                                                                                                                                        placebo-         after allo-HCT
+341                                                                                                                                                                     controlled
+

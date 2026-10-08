@@ -1,0 +1,85 @@
+Review article
+
+
+ Lachnospiraceae           Lachnoclostridium     Ruminococcus     Faecalibacterium       Ruminococcaceae     Oscillospiraceae       Clostridia
+ Associated with           Associated with       Associated       Associated with        Associated with     Associated with        Low abundance is
+ longer survival and       decreased GVHD        with increased   increased numbers      high 3-IS levels    higher protective      associated with
+ higher protective         development*          numbers of       of neutrophils and     and decreased       immunomodulatory       shorter overall survival
+ immunomodulatory                                neutrophils      monocytes              GVHD                metabolites            and higher GVHD-
+ metabolites                                     and monocytes                                                                      related mortality*
+
+
+
+                                                                                                                                           Clostridium
+                                                                                                                                           Low abundance is associated
+ Blautia                                                                                                                                   with decreased numbers of
+ Associated with higher intestinal MAIT                                                                                                    neutrophils and monocytes*
+ cell frequency, lower lethality from GVHD
+
+     Staphylococcus              Bacilli                                                                                                              Clostridiales
+     Associated with worse       Associated                                                                                                           Depleted in mouse
+     CD4+ T cell recovery        with low                                                                                                             models of GVHD*
+                                 3-IS levels
+ Enterococcus                                                                                                                                         Actinomycetaceae
+ Associated with                                                                                                                                      Associated with
+ bloodstream                                                                                                                                          longer survival
+ infections, GVHD
+ and poor survival
+
+ Streptococcus
+ Abundant after
+ allo-HCT                                                                                                                                             Thomasclavelia
+                                                                                                                                                      Associated with
+ Lactobacillales                                                                                                                                      severe GVHD,
+ Associated                                                                                                                                           abundant
+ with increased                                                                                                                                       following high-risk
+ severe GVHD                                                                                                                                          antibiotic exposure
+
+                                                                                    Unfavourable
+ Akkermansia
+ Associated with
+ GVHD development                                                                   Favourable
+
+
+ Bacteroidota
+ Associated with
+ higher intestinal
+ MAIT cell frequency
+
+
+ Bacteroides ovatus
+ Depleted after
+ high-risk antibiotic
+ exposure, low
+ abundance
+ associated with
+ steroid-refractory
+ GVHD
+
+
+
+
+                        Pseudomonadota                                                                                        Gammaproteobacteria
+                        Associated with                                                                                       Associated with
+                        bloodstream infections                                                                                pulmonary complications
+
+Fig. 2 | The impact of the microbiome on allogeneic haematopoietic cell                 transplantation (allo-HCT). *Beneficial commensals that when present in lower
+transplantation outcomes. Phylogenetic tree illustrating the common                     relative abundance have been associated with unfavourable outcomes. The 20
+gut bacterial species, with shaded clades representing different taxonomic              publications that encompass this figure were published between 2010 and 2024
+classifications. Bacteria are associated with favourable effects (blue clades) or       (refs. 15–21,24,31,39,40,42,44,66,127,181–185). 3-IS, 3-indoxyl sulfate; GVHD,
+unfavourable outcomes (red clades) following allogeneic haematopoietic cell             graft-versus-host disease; MAIT cell, mucosal-associated invariant T cell.
+
+
+
+
+exacerbated cGVHD and led to an expansion of Enterococcaceae in the                     producing SCFAs, suggesting that dysregulated mucosal immune
+oral cavity and the gut, also indicative of ectopic gut colonization46.                 responses to gut microbiota may contribute to cGVHD pathogenesis.
+Habenicht et al.47 recently explored whether dysbiosis has a role in                        Overall, these findings suggest that gut microbiota diversity and
+cGVHD pathogenesis via B cell dysregulation, finding that patients who                  composition before transplantation and during the peri-engraftment
+went on to develop cGVHD already showed an increase in CD20–CD38hi                      period is a robust predictor of treatment outcomes in patients under-
+plasmablasts by day 90 after allo-HCT. These plasmablasts generated                     going allo-HCT, independent of geographical location and clinical
+antibodies targeting specific commensal bacteria, particularly those                    practices.
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                               332
+

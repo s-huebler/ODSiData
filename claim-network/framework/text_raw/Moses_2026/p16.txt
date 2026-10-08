@@ -1,0 +1,63 @@
+79. Darwin A, Xie J, Smith M. Antibiotic use: impact on the microbiome and cellular therapy outcomes. Blood Adv.
+2025;9:3356–3367. doi: 10.1182/bloodadvances.2024013809.
+80. Skinhøj P, Jacobsen N, Høiby N, Faber V. Strict protective isolation in allogenic bone marrow transplantation:
+effect on infectious complications, fever and graft versus host disease. Scand J Infect Dis. 1987;19:91–96. doi:
+10.3109/00365548709032383.
+81. Severyn CJ, Siranosian BA, Kong ST, Moreno A, Li MM, Chen N, Duncan CN, Margossian SP, Lehmann LE,
+Sun S, et al. Microbiota dynamics in a randomized trial of gut decontamination during allogeneic hematopoietic
+cell transplantation. JCI Insight. 2022;7:e154344. doi: 10.1172/jci.insight.154344.
+82. Weber D, Jenq RR, Peled JU, Taur Y, Hiergeist A, Koestler J, Dettmer K, Wolff D, Hahn J, Pamer EG, et al.
+Microbiota disruption induced by early use of broad-spectrum antibiotics is an independent risk factor of
+outcome after allogeneic stem cell transplantation. Biol Blood Marrow Transplant. 2017;23:845–852. doi:
+10.1016/j.bbmt.2017.02.006.
+83. Routy B, Letendre C, Enot D, Chénard-Poirier M, Mehraj V, Séguin NC, Guenda K, Gagnon K, Woerther P,
+Ghez D, et al. The influence of gut-decontamination prophylactic antibiotics on acute graft-versus-host disease
+and survival following allogeneic hematopoietic stem cell transplantation. Oncoimmunology. 2017;6:e1258506.
+doi: 10.1080/2162402X.2016.1258506.
+84. Tanaka JS, Young RR, Heston SM, Jenkins K, Spees LP, Sung AD, Corbet K, Thompson JC, Bohannon L,
+Martin PL, et al. Anaerobic antibiotics and the risk of graft-versus-host disease after allogeneic hematopoietic
+stem cell transplantation. Biol Blood Marrow Transplant. 2020;26:2053–2060. doi: 10.1016/j.bbmt.2020.07.011.
+85. Turner AM, Li L, Monk IR, Lee JYH, Ingle DJ, Portelli S, Sherry NL, Isles N, Seemann T, Sharkey LK, et al.
+Rifaximin prophylaxis causes resistance to the last-resort antibiotic daptomycin. Nature. 2024;635:969–977. doi:
+10.1038/s41586-024-08095-4.
+86. Gavriilaki E, Mallouri D, Laspa E, Papakonstantinou A, Lazaridou A, Varelas C, Baldoumi E, Giannakopoulou A,
+Demosthenous C, Vardi A, et al. Open-label randomized controlled study of ciprofloxacin vs rifaximin as neutropenia
+prophylaxis in allogeneic hematopoietic stem cell transplantation. Transplant Proc. 2024;56:380–385. doi: 10.1016/
+j.transproceed.2023.12.010.
+87. Iyama S, Sato T, Tatsumi H, Hashimoto A, Tatekoshi A, Kamihara Y, Horiguchi H, Ibata S, Ono K, Murase K,
+et al. Efficacy of enteral supplementation enriched with glutamine, fiber, and oligosaccharide on mucosal injury
+following hematopoietic stem cell transplantation. Case Rep Oncol. 2014;7:692–699. doi: 10.1159/000368714.
+88. Venkataraman A, Sieber JR, Schmidt AW, Waldron C, Theis KR. Variable responses of human microbiomes to
+dietary supplementation with resistant starch. Microbiome. 2016;4:33. doi: 10.1186/s40168-016-0178-x.
+89. Yoshifuji K, Inamoto K, Kiridoshi Y, Takeshita K, Sasajima S, Shiraishi Y, Yamashita Y, Nisaka Y, Ogura Y,
+Takeuchi R, et al. Prebiotics protect against acute graft-versus-host disease and preserve the gut microbiota in
+stem cell transplantation. Blood Adv. 2020;4:4607–4617. doi: 10.1182/bloodadvances.2020002604.
+90. Gerbitz A, Schultz M, Wilke A, Linde H, Schölmerich J, Andreesen R, Holler E. Probiotic effects on
+experimental graft-versus-host disease: let them eat yogurt. Blood. 2004;103:4365–4367. doi: 10.1182/blood-
+2003-11-3769.
+91. Gorshein E, Wei C, Ambrosy S, Budney S, Vivas J, Shenkerman A, Manago J, McGrath MK, Tyno A, Lin Y,
+et al. Lactobacillus rhamnosus GG probiotic enteric regimen does not appreciably alter the gut microbiome or
+provide protection against GVHD after allogeneic hematopoietic stem cell transplantation. Clin Transplant.
+2017;31:e12947. doi: 10.1111/ctr.12947.
+92. Ladas EJ, Collier W, Park H, Auletta J, Dvorak C, August A, Esbenshade A, Bhatia M, Fisher B, Levine J, et al. A
+randomized clinical trial evaluating Lactiplantibacillus plantarum for the prevention of GI aGvHD: a report
+from the children's oncology group (ACCL1633). Transplant Cell Ther. 2025;31:452.e1–452.e12. doi: 10.1016/
+j.jtct.2025.04.009.
+93. Ebigbo N, Long A, Do P, Coughlin L, Poulides N, Jewell T, Gan S, Zhan X, Koh AY. Optimizing precision probiotics
+for mitigating graft-versus-host disease. Microorganisms. 2025;13:706. doi: 10.3390/microorganisms13040706.
+94. van Nood E, Vrieze A, Nieuwdorp M, Fuentes S, Zoetendal EG, de Vos WM, Visser CE, Kuijper EJ, Bartelsman
+JF, Tijssen JG, et al. Duodenal infusion of donor feces for recurrent Clostridium difficile. N Engl J Med.
+2013;368:407–415. doi: 10.1056/NEJMoa1205037.
+95. Spindelboeck W, Schulz E, Uhl B, Kashofer K, Aigelsreiter A, Zinke-Cerwenka W, Mulabecirovic A, Kump PK,
+Halwachs B, Gorkiewicz G, et al. Repeated fecal microbiota transplantations attenuate diarrhea and lead to
+sustained changes in the fecal microbiota in acute, refractory gastrointestinal graft-versus-host-disease.
+Haematologica. 2017;102:e210–e213. doi: 10.3324/haematol.2016.154351.
+96. Liu Y, Zhao Y, Qi J, Ma X, Wu D, Xu Y. Fecal microbiota transplantation combined with ruxolitinib as a
+salvage treatment for intestinal steroid-refractory acute GVHD. Exp Hematol Oncol. 2022;11:96. doi: 10.1186/
+s40164-022-00350-6.
+97. Rashidi A, Ebadi M, Rehman TU, Elhusseini H, Kazadi D, Halaweish H, Khan MH, Hoeschen A, Cao Q, Luo X,
+et al. Randomized double-blind phase II trial of fecal microbiota transplantation versus placebo in allogeneic
+hematopoietic cell transplantation and AML. J Clin Oncol. 2023;41:5306–5319. doi: 10.1200/JCO.22.02366.
+98. Walsh E, Peled JU, Ponce D, Kosuri S, Khera N, Lichter DI, Brady K, Hasson BR, Pandian S, Hicks ND, et al.
+Exploratory analyses of immune reconstitution biomarkers from a Ph1b study of an investigational, oral, live
+GUT MICROBES 15

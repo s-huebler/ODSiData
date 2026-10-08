@@ -1,0 +1,58 @@
+nature reviews cancer                                                                              https://doi.org/10.1038/s41568-026-00910-6
+
+
+
+
+Review article                                                                                                               Check for updates
+
+
+
+
+The intestinal microbiota
+as a key modulator of acute
+graft-versus-host disease
+Jenny Paredes1,2, Maren Schmiester              , Robert Jenq1
+                                              1,2
+                                                                    & Marcel R. M. van den Brink        1
+
+
+Abstract                                                                                                      Sections
+
+
+Although allogeneic haematopoietic cell transplantation (allo-HCT) is                                         Introduction
+
+a curative therapy for various malignant diseases, severe complications                                       The intestinal microbiota
+such as graft-versus-host disease (GVHD) limit its use. The intestinal                                        and allo-HCT
+
+microbiome has long been known to modulate allo-HCT outcomes.                                                 Mechanisms of
+                                                                                                              dysbiosis-mediated GVHD
+Studies in the past two decades alone have uncovered a complex
+interplay between the microbial repertoire and the host immune                                                Clinical interventions
+
+system during allo-HCT. Preclinical studies have characterized the                                            Conclusion and future
+                                                                                                              perspectives
+crosstalk between the microbiome and the immune response of
+the host, discovered associations between microbial taxa and the
+integrity of the mucosal intestinal barrier, and investigated the role of
+microbial metabolites in GVHD. Clinical studies have demonstrated that
+dysbiosis is an independent predictor of both transplantation-related
+and GVHD-related mortality, and ongoing trials are investigating
+microbiota-focused approaches to improve clinical outcomes and
+reduce GVHD severity after allo-HCT, paving the way for therapeutic
+applications of microbiome research. We anticipate that these insights
+will support the development of personalized therapies for patients
+receiving allo-HCT, integrating microbiome profiles with individual
+risk data. In this Review, we summarize current preclinical and clinical
+studies, providing a comprehensive account of translational efforts in
+this highly dynamic field.
+
+
+
+
+1
+ Comprehensive Cancer Center, City of Hope, Los Angeles, CA, USA. 2These authors contributed equally:
+Jenny Paredes, Maren Schmiester.   e-mail: rjenq@coh.org; mvandenbrink@coh.org
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                    328
+

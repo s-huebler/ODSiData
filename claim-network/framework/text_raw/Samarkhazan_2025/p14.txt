@@ -1,0 +1,139 @@
+Page 14 of 15 Soleimani Samarkhazan et al. Journal of Translational Medicine (2025) 23:832
+58. Elahi S, Ertelt JM, Kinder JM, et al. Immunosuppressive CD71+erythroid
+cells compromise neonatal host defence against infection. Nature.
+2013;504(7478):158–62.
+59. Olin A, Henckel E, ChenY, et al. Stereotypic immune system development in
+newborn children. Cell. 2018;174(5):1277–e12921214.
+60. Smith NL,Wissink E,Wang J, et al. Rapid proliferation and differentiation
+impairs the development of memory CD8+T cells in early life. J Immunol.
+2014;193(1):177–84.
+61. Arpaia N, Campbell C, Fan X, et al. Metabolites produced by commen-
+sal bacteria promote peripheral regulatoryT-cell generation. Nature.
+2013;504(7480):451–5.
+62. Pandiyan P, Bhaskaran N, Zou M, Schneider E, Jayaraman S, Huehn J. Micro-
+biome dependent regulation ofT(regs) andTh17 cells in mucosa. Front
+Immunol. 2019;10:426.
+63. Henrick BM, Rodriguez L, LakshmikanthT, et al. Bifidobacteria-mediated
+immune system imprinting early in life. Cell. 2021;184(15):3884–e38983811.
+64. Laursen MF, Sakanaka M, von Burg N, et al. Bifidobacterium species associ-
+ated with breastfeeding produce aromatic lactic acids in the infant gut. Nat
+Microbiol. 2021;6(11):1367–82.
+65. Zheng D, LiwinskiT, Elinav E. Interaction between microbiota and immunity
+in health and disease. Cell Res. 2020;30(6):492–506.
+66. Devkota S,WangY, Musch MW, et al. Dietary-fat-induced taurocholic
+acid promotes pathobiont expansion and colitis in Il10-/- mice. Nature.
+2012;487(7405):104–8.
+67. Cignarella F, Cantoni C, Ghezzi L, et al. Intermittent fasting confers protec-
+tion in CNS autoimmunity by altering the gut microbiota. Cell Metab.
+2018;27(6):1222–e12351226.
+68. Song X, Sun X, Oh SF, et al. Microbial bile acid metabolites modulate gut
+RORγ(+) regulatoryT cell homeostasis. Nature. 2020;577(7790):410–5.
+69. Erturk-Hasdemir D, Oh SF, Okan NA, et al. Symbionts exploit complex
+signaling to educate the immune system. Proc Natl Acad Sci U S A.
+2019;116(52):26157–66.
+70. Ramakrishna C, Kujawski M, Chu H, Li L, Mazmanian SK, Cantin EM. Bacteroi-
+des fragilis polysaccharide A induces IL-10 secreting B andT cells that prevent
+viral encephalitis. Nat Commun. 2019;10(1):2153.
+71. Omenetti S, Bussi C, Metidji A, et al.The intestine harbors functionally
+distinct homeostaticTissue-Resident and inflammatoryTh17 cells. Immunity.
+2019;51(1):77–e8976.
+72. Mann ER, LamYK, Uhlig HH. Short-chain fatty acids: linking diet, the Microbi-
+ome and immunity. Nat Rev Immunol. 2024;24(8):577–95.
+73. Sun M,WuW, Liu Z, CongY. Microbiota metabolite short chain fatty acids,
+GPCR, and inflammatory bowel diseases. J Gastroenterol. 2017;52(1):1–8.
+74. ZhaoY, Chen F,WuW, et al. GPR43 mediates microbiota metabolite SCFA
+regulation of antimicrobial peptide expression in intestinal epithelial cells via
+activation of mTOR and STAT3. Mucosal Immunol. 2018;11(3):752–62.
+75. Thomas SP, Denu JM. Short-chain fatty acids activate acetyltransferase p300.
+Elife. 2021;10.
+76. Chang PV, Hao L, Offermanns S, Medzhitov R.The microbial metabolite
+butyrate regulates intestinal macrophage function via histone deacetylase
+Inhibition. Proc Natl Acad Sci U S A. 2014;111(6):2247–52.
+77. Elce A, Amato F, Zarrilli F, et al. Butyrate modulating effects on pro-inflam-
+matory pathways in human intestinal epithelial cells. Benef Microbes.
+2017;8(5):841–7.
+78. Grouls M, Janssen AWF, Duivenvoorde LPM, Hooiveld G, Bouwmeester H, van
+der Zande M. Differential gene expression in iPSC-derived human intestinal
+epithelial cell layers following exposure to two concentrations of butyrate,
+propionate and acetate. Sci Rep. 2022;12(1):13988.
+79. Schulthess J, Pandey S, Capitani M, et al.The short chain fatty acid
+butyrate imprints an antimicrobial program in macrophages. Immunity.
+2019;50(2):432–e445437.
+80. Fellows R, Denizot J, Stellato C, et al. Microbiota derived short chain fatty
+acids promote histone crotonylation in the colon through histone deacety-
+lases. Nat Commun. 2018;9(1):105.
+81. Goudarzi A, Zhang D, Huang H, et al. Dynamic competing histone H4 K5K8
+acetylation and butyrylation are hallmarks of highly active gene promoters.
+Mol Cell. 2016;62(2):169–80.
+82. Sarkar A, Mitra P, Lahiri A, et al. Butyrate limits inflammatory macrophage
+niche in NASH. Cell Death Dis. 2023;14(5):332.
+83. Jenq RR, Ubeda C,TaurY, et al. Regulation of intestinal inflammation by
+microbiota following allogeneic bone marrow transplantation. J Exp Med.
+2012;209(5):903–11.
+84. Markey KA, MacDonald KP, Hill GR.The biology of graft-versus-host disease:
+experimental systems instructing clinical practice. Blood. 2014;124(3):354–62.
+85. Lin D, Hu B, Li P, ZhaoY, XuY,Wu D. Roles of the intestinal microbiota and
+microbial metabolites in acute GVHD. Exp Hematol Oncol. 2021;10(1):49.
+86. Koyama M, Mukhopadhyay P, Schuster IS, et al. MHC class II antigen presenta-
+tion by the intestinal epithelium initiates Graft-versus-Host disease and is
+influenced by the microbiota. Immunity. 2019;51(5):885–e898887.
+87. Koyama M, Hippe DS, Srinivasan S, et al. Intestinal microbiota controls graft-
+versus-host disease independent of donor-host genetic disparity. Immunity.
+2023;56(8):1876–e18931878.
+88. Payen M, Nicolis I, Robin M, et al. Functional and phylogenetic alterations in
+gut Microbiome are linked to graft-versus-host disease severity. Blood Adv.
+2020;4(9):1824–32.
+89. WangY, Huang L, HuangT, et al.The gut Bacteria dysbiosis contributes to
+chronic Graft-Versus-Host disease associated with aTreg/Th1 ratio imbalance.
+Front Microbiol. 2022;13:813576.
+90. Ye J, Lv L,WuW, et al. Butyrate protects mice against Methionine-Choline-
+Deficient Diet-Induced Non-alcoholic steatohepatitis by improving gut bar-
+rier function, attenuating inflammation and reducing endotoxin levels. Front
+Microbiol. 2018;9:1967.
+91. Sun B, JiaY, Hong J, et al. Sodium butyrate ameliorates High-Fat-Diet-Induced
+Non-alcoholic fatty liver disease through peroxisome Proliferator-Activated
+receptor α-Mediated activation of β oxidation and suppression of inflamma-
+tion. J Agric Food Chem. 2018;66(29):7633–42.
+92. Pabst O, Hornef MW, Schaap FG, CerovicV, ClavelT, BrunsT. Gut-liver
+axis: barriers and functional circuits. Nat Rev Gastroenterol Hepatol.
+2023;20(7):447–61.
+93. Tian P,YangW, Guo X, et al. Early life gut microbiota sustains liver-resident
+natural killer cells maturation via the butyrate-IL-18 axis. Nat Commun.
+2023;14(1):1710.
+94. Jamil MO, Mineishi S. State-of-the-art acute and chronic GVHD treatment. Int
+J Hematol. 2015;101(5):452–66.
+95. Yazdandoust E, Hajifathali A, Roshandel E, et al. Gut microbiota intervention
+by pre and probiotics can induce regulatoryT cells and reduce the risk of
+severe acute GVHD following allogeneic hematopoietic stem cell transplan-
+tation.Transpl Immunol. 2023;78:101836.
+96. Ladas EJ, Bhatia M, Chen L, et al.The safety and feasibility of probiotics in
+children and adolescents undergoing hematopoietic cell transplantation.
+Bone MarrowTranspl. 2016;51(2):262–6.
+97. Sofi MH,WuY,TicerT et al. A single strain of Bacteroides fragilis protects gut
+integrity and reduces GVHD. JCI Insight. 2021;6(3).
+98. Gerbitz A, Schultz M,Wilke A, et al. Probiotic effects on experimental graft-
+versus-host disease: let them eat yogurt. Blood. 2004;103(11):4365–7.
+99. Beak JA, Park MJ, Kim SY, et al. FK506 and Lactobacillus acidophilus ameliorate
+acute graft-versus-host disease by modulating theT helper 17/regulatory
+T-cell balance. JTransl Med. 2022;20(1):104.
+100. HongT,Wang R,Wang X, et al. Interplay between the intestinal microbiota
+and acute graft-versus-host disease: experimental evidence and clinical
+significance. Front Immunol. 2021;12:644982.
+101. Holmes ZC,Tang H, Liu C, et al. Prebiotic galactooligosaccharides interact
+with mouse gut microbiota to attenuate acute graft-versus-host disease.
+Blood. 2022;140(21):2300–4.
+102. Muratore E, Leardini D, Baccelli F,Venturelli F, Prete A, Masetti R. Nutritional
+modulation of the gut Microbiome in allogeneic hematopoietic stem cell
+transplantation recipients. Front Nutr. 2022;9:993668.
+103. Lakshmanan AP, Deola S,Terranegra A.The promise of precision nutrition for
+modulation of the gut microbiota as a novel therapeutic approach to acute
+Graft-versus-host disease.Transplantation. 2023;107(12):2497–509.
+104. Qiao X, Biliński J,Wang L, et al. Safety and efficacy of fecal microbiota
+transplantation in the treatment of graft-versus-host disease. Bone Marrow
+Transpl. 2023;58(1):10–9.
+105. Weber D, Meedt E, Poeck H, et al. Fecal microbiota transfer in acute Graft-
+versus-Host disease following allogeneic stem cell transplantation.Visc Med.
+2024;40(4):1–6.
+106. Liu C, Frank DN, Horch M, et al. Associations between acute Gastrointestinal
+GvHD and the baseline gut microbiota of allogeneic hematopoietic stem cell
+transplant recipients and donors. Bone MarrowTranspl. 2017;52(12):1643–50.

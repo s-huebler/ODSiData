@@ -1,0 +1,66 @@
+Review article
+
+
+Allo-HCT-associated factors modulate the gut microbiome                          Furthermore, dietary components such as fibre have been linked
+and affect clinical outcomes                                                to changes in the gut microbiota that influence outcomes of allo-HCT.
+During allo-HCT treatment, patients receive many medications that           For example, in mice, a fibre-free ‘Western’ diet leads to decreased
+influence both the composition and the function of the intestinal           microbiota diversity and increased A. muciniphila abundance60–62.
+microbiome. Antibiotics are administered to prevent and control infec-      In humans, a high-fibre diet has been linked to higher bifidobacteria
+tions during allo-HCT. However, antibiotics increase the risk for major     abundance and faecal butyrate concentrations63, which are both posi-
+adverse outcomes, including, but not limited to, GVHD. For instance,        tively associated with favourable outcomes following allo-HCT15,64. By
+the anaerobe-targeting antibiotic metronidazole has been positively         contrast, a diet high in fermented foods has been reported to have a
+associated with intestinal domination by Enterococcus, which is a risk      positive association with microbiota diversity and a negative asso-
+factor for vancomycin-resistant Enterococcus (VRE) bacteraemia15. Early     ciation with inflammatory markers65. A multicentre study found that
+administration of azithromycin to prevent bronchiolitis obliterans syn-     dietary lactose promoted the expansion of Enterococcus, which can
+drome after allo-HCT has been positively associated with Bacteroides        metabolize lactose and thrives in a lactose-rich environment, contribut-
+fragilis abundance and risk of tumour relapse36,48. Finally, treatment      ing to increased gut permeability and inflammation. Correspondingly,
+with broad-spectrum antibiotics such as β-lactams and carbapenems           in mouse models of allo-HCT, dietary interventions such as lactose
+has been consistently and reproducibly associated with increased inci-      restriction have been found to reduce the expansion of Enterococ-
+dence of intestinal aGVHD and steroid-refractory GVHD19,23,42,49,50. The    cus and alleviate GVHD severity66. In a recent clinical study, patients
+respective gastrointestinal environment often shows an expansion of         undergoing allo-HCT and following a lactose-free diet had significantly
+Bacteroides and low concentrations of butyrate and propionate in the        reduced colonization with VRE67. Together, these findings highlight
+colonic lumen42,51–53.                                                      how diet shapes gut microbial composition and suggest that nutritional
+     Intestinal microbial diversity declines after conditioning treat-      strategies could mitigate GVHD.
+ment, particularly in patients receiving myeloablative regimens rather
+than non-myeloablative regimens54. Total body irradiation, which is         Mechanisms of dysbiosis-mediated GVHD
+sometimes used in conditioning, has also been found to reduce micro-        Microbial dysbiosis shapes the development and progression of
+bial diversity in mouse models33,55. Nguyen et al.56 recently developed     GVHD by exacerbating gut permeability and creating a permis-
+PARADIGM (parameters associated with dynamics of gut microbiota),           sive environment for inflammation. These effects are mediated by
+an algorithm that integrates faecal microbiome profiles and daily medi-     microbiota-driven pathways that regulate host immune responses,
+cation records. In addition to identifying the expected negative associa-   including through modulating major histocompatibility complex (MHC)
+tion between broad-spectrum antibiotics and microbial diversity, the        class II molecule expression and T cell clonal selection. The intesti-
+model also revealed several non-antibiotic drugs that adversely affect      nal metabolome is also a key mediator of GVHD, with microbial and
+microbial diversity. Antiemetics and opioids, which are frequently          host-derived metabolites influencing allogeneic immune cell reactivity.
+administered to respectively counteract chemotherapy-induced nau-           Figure 3 summarizes the interplay between the gut microbiota and the
+sea and pain due to mucositis, were associated with increased Entero-       host immune system at the intestinal barrier.
+coccus abundance and decreased gut microbial diversity. Whether
+these medications directly impact the microbiome, or whether the            The cause and consequence relationship between intestinal
+microbiome is perturbed by reductions in oral food intake that occurs       damage and dysbiosis during GVHD
+as a result of nausea and oral pain, is an open question. Importantly,      Several recent studies have explored the interplay between allo-HCT-
+however, the observed microbiota shifts correlated with poorer treat-       related dysbiosis, intestinal barrier integrity, immune responses and
+ment outcomes, including higher rates of GVHD and infection-related         GVHD-related outcomes. Microbiome-mediated degradation of mucus
+complications in independent validation cohorts. This study also            in the colon is a key factor contributing to damage to the intestinal
+demonstrated a link between antibiotic use and increased genetic            barrier in GVHD. Hayase et al.51 found that administration of merope-
+convergence within dominant bacterial strains; that is, different strains   nem during –10 to +30 days relative to allo-HCT positively associates
+became genetically more similar over time, indicating reduced compe-        with acute intestinal GVHD incidence in patients, and that meropenem
+tition between subspecies that could result in the selection of resistant   treatment leads to a dysbiotic state with an expansion of Bacteroides.
+and potentially pathogenic bacteria. Together, these findings highlight     This finding was recapitulated in a mouse model: meropenem-treated
+the importance of carefully managing pharmacological exposures in           mice had aggravated intestinal GVHD, severe epithelial damage and
+patients receiving allo-HCT to preserve microbiota diversity and reduce     a thinner intestinal mucus layer compared with controls. Moreover,
+the risk of immune-mediated complications.                                  these mice exhibited an expansion of Bacteroides thetaiotaomicron in
+     Patients undergoing allo-HCT often experience mucositis, loss of       the gut, decreased levels of luminal xylose and upregulated expression
+appetite, nausea and vomiting, all of which negatively impact nutri-        of glycoside hydrolases from B. thetaiotaomicron, which are enzymes
+tional status57. Many patients therefore receive parenteral nutrition       responsible for breaking down mucin glycoproteins in the intestinal
+or enteral nutrition. Enteral nutrition is increasingly linked to better    mucus layer. Oral supplementation of xylose improved GVHD-related
+clinical outcomes, and changes in microbial composition may mediate         survival and prevented thinning of the colonic mucus layer, sug-
+these effects58. For example, in a recent randomized study, patients        gesting that xylose suppresses the mucus-degrading behaviour of
+receiving primarily enteral nutrition compared with parenteral nutri-       B. thetaiotaomicron51. In this same model, the introduction of B. ovatus
+tion had higher abundance of taxa associated with protection from           reduced GVHD-related mortality. However, this treatment made no
+GVHD, such as Ruminococcus bromii and Faecalibacterium prausnitzii59.       difference in meropenem-untreated mice, suggesting that B. ovatus
+By contrast, long-term use of total parenteral nutrition (≥10 days) was     only ameliorates GVHD when the gut is in a dysbiotic state. This ben-
+associated with a loss of Blautia, whereas increased levels of Blautia      eficial effect was also only observed when B. ovatus was able to degrade
+were found to be associated with reduced GVHD-related mortality18.          xylose-containing polysaccharides and produce xylose, thus improving
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                         333
+

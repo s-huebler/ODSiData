@@ -1,0 +1,57 @@
+2      A. B. MOSES AND A. C. YEH
+
+
+organisms,16 and the emphasis shifted away from antibiotic utilization toward selective microbial
+reconstitution. A 2020 landmark study with the largest patient cohort to date—examining 8,767 fecal
+samples from 1,362 patients undergoing allogeneic transplant—highlighted this concept and demonstrated
+that a reduction of alpha diversity in the GI microbiota and domination of specific taxa at the time of
+neutrophil engraftment were linked to GvHD mortality. The challenge now became clarifying cause–effect
+relationships of individual bacterial taxa's effects on outcomes. Additional studies examining specific
+enzymatic11,13,15 and metabolic pathways9,17,18 have identified novel mechanisms by which individual
+microbes mediate or protect from GvHD. Modern clinical approaches emphasize targeted microbial
+interventions aimed at preserving or expanding beneficial commensal anaerobes and include the utiliza-
+tion of narrow-spectrum antibiotics,19 prebiotic support,20,21 and post-transplant microbiota manipula-
+tion, including fecal-microbiome transplantation,22-25 to mitigate GvHD risk.
+   Despite extensive preclinical insight and efforts at clinical translation over the past several decades, however,
+standard practice guidelines for GvHD prophylaxis in the United States and Europe do not currently
+recommend routine modulation of the GI microbiota,26,27 reflecting the complexity in deconvoluting the
+multiple mechanisms that co-exist in promoting or reducing GvHD risk as well as therapeutic challenges in
+implementing and sustaining targeted microbiota changes. In this review, we summarize recent mechanistic
+insights into how the microbiota shapes GvHD pathogenesis as well as current therapeutic strategies, high-
+lighting the need to understand the microbiota composition in the context of donor and recipient immunity.
+
+
+Microbial mechanisms of immune modulation
+The broad impact that microbial organisms have on acute GvHD is illustrated by augmenting the widely
+cited three-step model of acute GvHD pathophysiology proposed by Ferrara et al.28 While this decades-old
+paradigm has primarily attributed the role of the microbiota in activating the innate immune response (phase
+1), we now understand that the microbiota affects all three phases in the GvHD pathway, including
+stimulating antigen presentation, shaping the T-cell response, and exacerbating host tissue injury (Figure 1).
+
+
+Phase 1: microbial exposure and the innate immune response
+Cytotoxic conditioning prior to transplantation remains critical for successful donor cell engraftment and
+prevention of graft rejection but also results in tissue damage. The subsequent release of damage-associated
+molecular patterns (DAMPs) and exposure to microbial-associated molecular patterns (MAMPs) is central
+to the pathogenesis of GvHD and the initiation of the innate immune response28 (Figure 1A). Evidence
+that the gastrointestinal microbiota can impact tissue integrity following total body irradiation (TBI) was
+reported as early as the 1960s, when work in murine models demonstrated that the lifespan of the
+intestinal epithelium is reduced in conventional vs. germ-free mice.29 Mechanistic insight gleaned from
+murine experiments in the 1990s demonstrated that tissue injury following TBI enabled the translocation
+of lipopolysaccharide (LPS), a prototypical MAMP, from damaged intestinal mucosa, which directly
+amplified GvHD. Conditioning regimen intensity augments the host innate immune response by increas-
+ing macrophage production of tumor necrosis factor alpha (TNF),5 which is further amplified by LPS
+exposure30,31 via toll-like receptor (TLR) 4 signaling.32 Exposure to LPS also drives donor cell production
+of TNF, as the utilization of LPS-resistant donor grafts results in diminished GvHD.33
+   Concurrently, other MAMPs were identified that activate the innate immune response through pattern
+recognition receptors34 including the cell wall components lipoteichoic acid and peptidoglycan, which
+activate TLR235,36 and intracellular stimulation of NOD1/2,37,38 flagellin/TLR5,39 and CpG-containing
+DNA/TLR9.40 Commensal bacteria subsequently drive the expression of IL-1β, a potent immune-
+stimulatory cytokine, which lies downstream of the TLR/NF-kB axis.41 IL-1β is expressed predominantly
+by host dendritic cells (DCs) early post-transplant followed by donor DCs, and its production was abrogated
+following gut decontamination prior to transplant. DNA-mimicking CpG substrates also accelerated GvHD
+via TLR9 ligation of host antigen-presenting cells42 and were not shown to have an effect on TLR9- or
+MyD88-knockout mice. Neutrophil infiltration in the ileum following transplantation was dependent on
+local microbial flora and was absent in germ-free mice.43 In contrast to the introduction of wild-type
+neutrophils, TLR-deficient neutrophils mitigated GvHD severity. Similarly, gut decontamination prevented
+

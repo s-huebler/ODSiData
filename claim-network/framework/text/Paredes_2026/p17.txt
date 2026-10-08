@@ -1,0 +1,66 @@
+Review article
+
+
+recipients of allo-HCT, supporting the feasibility of supplementation for    for bacterial translocation from FMTs. Indeed, a documented transmis-
+modulation of the gut microbiota136. Additionally, a pilot randomized        sion of a multidrug-resistant Escherichia coli from a single FMT donor
+clinical trial of the commercially available probiotic supplement Fami-      to two recipients of allo-HCT resulted in one death, underscoring the
+Lact (comprising seven beneficial bacterial strains) in combination          need for strict donor screening151. Nevertheless, multiple pilot studies
+with FOS found a reduced risk of severe aGVHD and increased levels of        have shown that, in most cases, administration of either autologous or
+Treg cells in a small intervention group undergoing allo-HCT137. Build-      healthy donor faecal material to patients after allo-HCT is feasible and
+ing on single-centre retrospective and preclinical studies indicating        safe, and can restore microbial diversity while reducing the abundance
+a beneficial effect of glutamine, fibre and oligosaccharide (GFO) and        of potentially pathogenic taxa152,153.
+resistant starch supplementation138–140, a non-randomized prospec-                 Early studies of FMT lacked standardization of patient and treat-
+tive study of these supplements demonstrated significantly reduced           ment variables. Historically, FMT has often relied on loosely regulated,
+GVHD severity in patients receiving allo-HCT relative to a historical        heterogeneous preparations. Combined with inconsistent criteria for
+control group141. GFO and resistant starch may promote beneficial            recipient selection, this variability may help explain the range of out-
+gut bacteria, particularly Bifidobacterium, increasing the production        comes reported across studies. Furthermore, a substantial proportion
+of SCFAs and enhancing integrity of the gut barrier. Furthermore, a          of human data to date come from retrospective or non-randomized
+recent pilot study found administration of resistant starch alone to be      prospective designs, which limits causal interpretation. Nonetheless,
+feasible and well tolerated in patients receiving allo-HCT, and that the     several single-arm studies have indicated potential for clinical ben-
+intervention may mitigate disruption of the microbiome and associated        efit for some steroid-refractory or high-risk, therapy-naive patients
+metabolites142. A phase II trial is now ongoing (NCT02763033)124. Results    with aGVHD154–162. Two studies that included a control group also pro-
+from another randomized, multicentre, phase IIa study investigating          vide some evidence of a benefit from treatment163,164, but reasons for
+the safety and efficacy of orally administered B. infantis combined          response or non-response in recipients of FMT remain largely elusive.
+with human milk oligosaccharides in patients undergoing allo-HCT             Notably, the first randomized, double-blind, placebo-controlled study
+are awaited (NCT06102213), but it should be noted that the sponsor           of third-party FMT administered at the time of neutrophil recovery
+made the business decision to terminate the trial early143. The second-      following allo-HCT found a generally favourable impact on the com-
+ary outcome measures of the trial include incidence of bloodstream           position of the microbiome, but no improvement in clinical outcomes.
+infections, neutropenic fever and aGVHD. Several other clinical trials       Furthermore, the 4-month all-cause infection rate, which was the
+investigating various prebiotic strategies are also ongoing (Table 2).       primary end-point, did not improve, and the study even reported a
+                                                                             numerically higher incidence of grade III–IV aGVHD after FMT, although
+Postbiotics                                                                  differences in prophylactic regimens for GVHD likely confounded these
+Postbiotic strategies involve the direct administration of beneficial        results26. A subset analysis by the researchers revealed variability in
+metabolites or molecules of bacterial origin, thus reducing the risk of      the engraftment of donor FMT-derived bacterial strains and identi-
+infection compared with live probiotics. This could make postbiotics         fied low microbial diversity pre-FMT as a predictor of engraftment,
+a safer therapeutic alternative, particularly in patients who are immu-      suggesting that patients with lower diversity might particularly ben-
+nocompromised receiving allo-HCT. As discussed above, preclinical            efit from FMT165. Another recent study indicated that donor choice
+studies have demonstrated beneficial effects of several postbiotics          can be critical for FMT engraftment and clinical outcomes166. There-
+in mouse models of GVHD, such as the alleviation of GVHD severity            fore, a paradigm shift is likely needed: FMT must become a rigorously
+after restoration of butyrate or propionate levels52,53. Although no         developed, standardized and regulated therapeutic modality, akin to
+clinical studies examining the effects of SCFA administration during         any other pharmaceutical product. This includes adherence to Good
+allo-HCT have yet been published, these postbiotics have shown ben-          Manufacturing Practice standards, stringent donor screening, quality
+eficial immunomodulatory effects in gastrointestinal inflammatory            control and regulatory oversight. Such a transition is essential not only
+disorders144,145. Other promising approaches based on findings from          to ensure product consistency and patient safety but also to allow for
+mouse studies are the supplementation of xylose (a B. ovatus product         the integration of FMT into standard medical care.
+inhibiting mucus-degrading bacteria that compromise the intestinal
+barrier)42 and SBAs100,101,103, but clinical trials are needed to evaluate   Microbiota-based consortia therapies
+these hypotheses.                                                            Microbiota-based consortia therapies represent an advancement in
+                                                                             the field of microbiota interventions: products such as MaaT013 are
+Faecal microbiota transplantation                                            derived from pooled donors and standardized to capture a broader
+FMT, involving the introduction of processed stool from a donor              and more diverse microbial ecosystem. Their composition is more
+(often a healthy volunteer) into the gastrointestinal tract of a recipi-     complex than LBPs, aiming to replicate the functional resilience of a
+ent, is perhaps the best-studied microbiota-centred intervention for         healthy microbiome rather than targeting specific pathways or dis-
+preventing and treating GVHD. First used to treat severe C. difficile        eases. The clinical relevance is exemplified by the HERACLES trial, a
+infections, an FMT product is approved by the US Food and Drug Admin-        prospective, international, single-arm, phase II study of the safety and
+istration (FDA) for this purpose146,147. It is also a promising approach     efficacy of MaaT013 (ref. 167). Among 24 patients with steroid-resistant
+to prevent dysbiosis or to reconstitute a perturbed gut microbiome           gastrointestinal aGVHD taking part in the trial, the gastrointestinal
+in patients undergoing allo-HCT and has been used to treat refrac-           overall response rate (defined as complete resolution of gastrointes-
+tory C. difficile-associated diarrhoea and to decolonize the gut of          tinal aGVHD symptoms) was 38%, whereas an additional 52 patients
+multidrug-resistant bacteria in these patients148–150. However, chal-        treated under a French expanded access programme showed an overall
+lenges with respect to safety and standardization must be addressed to       response rate of 58%. Responders in both cohorts exhibited increased
+ensure clinical efficacy of FMT for patients receiving allo-HCT, particu-    microbiota diversity and higher abundances of beneficial bacteria,
+larly because they are severely immunocompromised and at high risk           particularly producers of butyrate, along with elevated levels of SCFAs
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                           344
+

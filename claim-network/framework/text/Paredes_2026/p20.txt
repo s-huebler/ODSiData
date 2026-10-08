@@ -1,0 +1,87 @@
+Review article
+
+
+29. Rashidi, A. et al. Gut dysbiosis during antileukemia chemotherapy versus allogeneic             55. Li, Y. et al. Differences in the establishment of gut microbiota and metabolome
+    hematopoietic cell transplantation. Cancer 126, 1434–1447 (2020).                                   characteristics between Balb/c and C57BL/6J mice after proton irradiation.
+30. Rafei, H. & Jenq, R. R. Microbiome-intestine cross talk during acute graft-versus-host              Front. Microbiology 13, 874702 (2022).
+    disease. Blood 136, 401–409 (2020).                                                             56. Nguyen, C. L. et al. High-resolution analyses of associations between medications,
+31. Weber, D. et al. Low urinary indoxyl sulfate levels early after transplantation reflect a           microbiome, and mortality in cancer patients. Cell 186, 2705–2718.e17 (2023).
+    disrupted microbiome and are associated with poor outcome. Blood 126, 1723–1728                     This study develops PARADIGM, a computational framework applied to longitudinal
+    (2015).                                                                                             microbiome and medication data from patients undergoing allo-HCT, to reveal
+32. Stohs, E. J., Abbas, A. & Freifeld, A. Approach to febrile neutropenia in patients                  drug–microbiota associations that predict clinical outcomes and uncover strain-level
+    undergoing treatments for hematologic malignancies. Transpl. Infect. Dis. 26, e14236                dynamics under antibiotic pressure.
+    (2024).                                                                                         57. Fuji, S. et al. Severe weight loss in 3 months after allogeneic hematopoietic SCT was
+33. Schwabkey, Z. I. et al. Diet-derived metabolites and mucus link the gut microbiome                  associated with an increased risk of subsequent non-relapse mortality. Bone Marrow
+    to fever after cytotoxic cancer treatment. Sci. Transl. Med. 14, eabo3445 (2022).                   Transplant. 50, 100–105 (2015).
+34. Rashidi, A. et al. Altered microbiota-host metabolic cross talk preceding neutropenic           58. Zama, D. et al. Enteral versus parenteral nutrition as nutritional support after allogeneic
+    fever in patients with acute leukemia. Blood Adv. 5, 3937–3950 (2021).                              hematopoietic stem cell transplantation: a systematic review and meta-analysis.
+35. Spellman, S. R. et al. Current activity trends and outcomes in hematopoietic cell                   Transplant. Cell Ther. 27, 180.e1–180.e8 (2021).
+    transplantation and cellular therapy—a report from the CIBMTR. Transplant. Cell. Ther.          59. Andersen, S. et al. Pilot study investigating the effect of enteral and parenteral nutrition
+    31, 505–532 (2025).                                                                                 on the gastrointestinal microbiome post-allogeneic transplantation. Br. J. Haematol. 188,
+36. Vallet, N. et al. Circulating T cell profiles associate with enterotype signatures underlying       570–581 (2020).
+    hematological malignancy relapses. Cell Host Microbe 31, 1386–1403.e6 (2023).                   60. Schroeder, B. O. et al. Bifidobacteria or fiber protects against diet-induced
+37. Jones, J. M., Wilson, R. & Bealmear, P. M. Mortality and gross pathology of secondary               microbiota-mediated colonic mucus deterioration. Cell Host Microbe 23, 27–40.e7
+    disease in germfree mouse radiation chimeras. Radiat. Res. 45, 577–588 (1971).                      (2018).
+38. Bekkum, D. W. V., Roodenburg, J., Heidt, P. J. & Waaij, D. V. D. Mitigation of secondary        61. Ng, K. M. et al. Recovery of the gut microbiota after antibiotics depends on host diet,
+    disease of allogeneic mouse radiation chimeras by modification of the intestinal                    community context, and environmental reservoirs. Cell Host Microbe 28, 628 (2020).
+    microflora. J. Natl Cancer Inst. 52, 401–404 (1974).                                            62. Parrish, A. et al. Akkermansia muciniphila exacerbates food allergy in fibre-deprived
+39. Burgos da Silva, M. et al. Preservation of the fecal microbiome is associated with reduced          mice. Nat. Microbiol. 8, 1863–1879 (2023).
+    severity of graft-versus-host disease. Blood 140, 2385–2397 (2022).                             63. So, D. et al. Dietary fiber intervention on gut microbiota composition in healthy adults:
+    This study demonstrates that the abundance of anaerobes and butyrate producers at                   a systematic review and meta-analysis. Am. J. Clin. Nutr. 107, 965–983 (2018).
+    GVHD onset is positively associated with improved overall survival, including patients          64. Lindner, S. & Peled, J. U. Update in clinical and mouse microbiota research in allogeneic
+    with lower-gastrointestinal GVHD.                                                                   haematopoietic cell transplantation. Curr. Opin. Hematol. 27, 360–367 (2020).
+40. Thiele Orberg, E. et al. Bacteria and bacteriophage consortia are associated with               65. Wastyk, H. C. et al. Gut-microbiota-targeted diets modulate human immune status. Cell
+    protective intestinal metabolites in patients receiving stem cell transplantation.                  184, 4137–4153.e14 (2021).
+    Nat. Cancer 5, 187–208 (2024).                                                                  66. Stein-Thoeringer, C. K. et al. Lactose drives Enterococcus expansion to promote
+    This study integrates microbiome, virome and metabolomic profiling in patients                      graft-versus-host disease. Science 366, 1143–1149 (2019).
+    undergoing allo-HCT to identify a Lachnospiraceae and Oscillospiraceae–                             This study concludes that the presence of lactose, a carbohydrate, can exacerbate the
+    bacteriophage signature linked to IMM production and survival, and provides                         relative abundance of Enterococcus, a proteobacteria associated with poor outcomes
+    evidence for bacteriophage-encoded butyrate biosynthesis pathways.                                  post transplantation, demonstrating that a specific macronutrient can modulate the
+41. Payen, M. et al. Functional and phylogenetic alterations in gut microbiome are linked               microbiome and outcomes in GVHD.
+    to graft-versus-host disease severity. Blood Adv. 4, 1824–1832 (2020).                          67. Morello, E. et al. Nutritional strategies to improve VRE control. Transplant. Cell. Ther. 30,
+42. Hayase, E. et al. Bacteroides ovatus alleviates dysbiotic microbiota-induced                        548.e1–548.e4 (2024).
+    graft-versus-host disease. Cell Host Microbe 32, 1621–1636.e6 (2024).                           68. Seike, K. et al. Ambient oxygen levels regulate intestinal dysbiosis and GVHD severity
+43. El Jurdi, N. et al. Pre-transplant and longitudinal changes in faecal microbiome                    after allogeneic stem cell transplantation. Immunity 56, 353–368.e6 (2023).
+    characteristics are associated with subsequent development of chronic                           69. Donohoe, D. R. et al. The microbiome and butyrate regulate energy metabolism and
+    graft-versus-host disease. Br. J. Haematol. 203, 288–294 (2023).                                    autophagy in the mammalian colon. Cell Metab. 13, 517–526 (2011).
+44. Markey, K. A. et al. The microbe-derived short-chain fatty acids butyrate and propionate        70. Fujiwara, H. et al. Mitochondrial complex II in intestinal epithelial cells regulates
+    are associated with protection from chronic GVHD. Blood 136, 130–136 (2020).                        T cell-mediated immunopathology. Nat. Immunol. 22, 1440–1451 (2021).
+    This study demonstrates that the concentration of butyrate and proprionate in plasma            71. Kelly, C. J. et al. Crosstalk between microbiota-derived short-chain fatty acids and
+    could be associated with a risk reduction of cGVHD, suggesting that SCFAs could be                  intestinal epithelial HIF augments tissue barrier function. Cell Host Microbe 17, 662–671
+    used as biomarkers.                                                                                 (2015).
+45. Rashidi, A. et al. Oral and gut microbiome alterations in oral chronic GVHD disease:            72. Lin, D. et al. Roles of the intestinal microbiota and microbial metabolites in acute GVHD.
+    results from close assessment and testing for chronic GVHD (CATCH Study).                           Exp. Hematol. Oncol. 10, 49 (2021).
+    Clin. Cancer Res. 30, 4240–4250 (2024).                                                         73. Koyama, M. et al. Recipient nonhematopoietic antigen-presenting cells are sufficient to
+46. Kambara, Y. et al. Oral inflammation and microbiome dysbiosis exacerbate chronic                    induce lethal acute graft-versus-host disease. Nat. Med. 18, 135–142 (2012).
+    graft-versus-host disease. Blood 145, 881–896 (2025).                                           74. Li, H. et al. Profound depletion of host conventional dendritic cells, plasmacytoid
+47. Habenicht, K. M. et al. Expansions of circulating plasmablasts producing                            dendritic cells, and B cells does not prevent graft-versus-host disease induction.
+    commensal-reactive IgA antibodies are predictors for chronic GVHD. Blood                            J. Immunol. 188, 3804–3811 (2012).
+    145, 3178–3188 (2025).                                                                          75. Stephens, W. Z. et al. Epithelial–myeloid exchange of MHC class II constrains immunity
+48. Bergeron, A. et al. Effect of azithromycin on airflow decline-free survival after allogeneic        and microbiota composition. Cell Rep. 37, 109916 (2021).
+    hematopoietic stem cell transplant: the ALLOZITHRO randomized clinical trial. Jama 318,         76. Koyama, M. et al. MHC class II antigen presentation by the intestinal epithelium initiates
+    557–566 (2017).                                                                                     graft-versus-host disease and is influenced by the microbiota. Immunity 51, 885–898.e7
+49. Elgarten, C. W. et al. Broad-spectrum antibiotics and risk of graft-versus-host disease             (2019).
+    in pediatric patients undergoing transplantation for acute leukemia: association of             77. Koyama, M. et al. Intestinal microbiota controls graft-versus-host disease independent
+    carbapenem use with the risk of acute graft-versus-host disease. Transplant. Cell Ther.             of donor-host genetic disparity. Immunity 56, 1876–1893.e8 (2023).
+    27, 177.e1–177.e8 (2021).                                                                           This study shows that the pre-transplant intestinal microbiota regulates ileal MHC
+50. Lee, S. E. et al. Alteration of the intestinal microbiota by broad-spectrum antibiotic use          class II expression and GVHD severity, identifies vancomycin-sensitive taxa as key
+    correlates with the occurrence of intestinal graft-versus-host disease. Biol. Blood Marrow          MHC class II inducers and demonstrates that peri-transplant vancomycin mitigates
+    Transplant. 25, 1933–1943 (2019).                                                                   CD4⁺ T cell-mediated GVHD, with similar microbiota–HLA class II associations
+51. Hayase, E. et al. Mucus-degrading bacteroides link carbapenems to aggravated                        observed in a large clinical cohort.
+    graft-versus-host disease. Cell 185, 3705–3719.e14 (2022).                                      78. Yeh, A. C. et al. Microbiota dictate T cell clonal selection to augment graft-versus-host
+    This study shows that meropenem treatment exacerbates colonic GVHD in mice by                       disease after stem cell transplantation. Immunity 57, 1648–1664.e9 (2024).
+    promoting B. thetaiotaomicron-mediated mucin degradation, which thins the mucus                     This work introduces a Bayesian model to interrogate donor and recipient TCR
+    layer, but oral xylose supplementation mitigates this effect, suggesting a nutritional              repertoires in mouse transplants, uncovering that microbiota-specific T cells drive
+    strategy to counter antibiotic-induced microbiome injury in allo-HCT.                               clonotypic expansion and intensify GVHD by targeting microbial antigens, revealing a
+52. Mathewson, N. D. et al. Gut microbiome-derived metabolites modulate intestinal epithelial           microbiota-dependent mechanism for GVHD beyond genetic disparity.
+    cell damage and mitigate graft-versus-host disease. Nat. Immunol. 17, 505–513 (2016).           79. Jarosch, S. et al. Multimodal immune cell phenotyping in GI biopsies reveals
+53. Fujiwara, H. et al. Microbial metabolite sensor GPR43 controls severity of experimental             microbiome-related T cell modulations in human GvHD. Cell Rep. Med. 4, 101125
+    GVHD. Nat. Commun. 9, 3674 (2018).                                                                  (2023).
+54. Jørgensen, M. et al. Metabolic potential of the gut microbiome is significantly impacted        80. Schwab, L. et al. Neutrophil granulocytes recruited upon translocation of intestinal
+    by conditioning regimen in allogeneic hematopoietic stem cell transplantation                       bacteria enhance graft-versus-host disease via tissue damage. Nat. Med. 20, 648–654
+    recipients. Int. J. Mol. Sci. 23, 11115 (2022).                                                     (2014).
+
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                                                         347
+

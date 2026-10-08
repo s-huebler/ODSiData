@@ -1,0 +1,22 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine          (2025) 23:832                                                      Page 8 of 15
+
+
+
+
+Fig. 1 SCFAs regulate immune responses in the gut through GPCR signaling and HDACs modulation. SCFAs produced by gut bacteria are absorbed by
+intestinal epithelial cells via GPCR41/43 and GPCR109A, affecting epithelial stem cells and columnar epithelial cells. These metabolites shape immune
+homeostasis by interacting with GPCR43 and HDACs on dendritic cells (DCs), monocytes, B cells, plasma cells, Th1/2/17 cells, and regulatory T cells, con-
+tributing to immune modulation in the gut
+
+
+transplantation. Conditioning therapies—including che-                        mortality, underscoring the critical role of a healthy
+motherapy and radiotherapy—cause significant mucosal                          microbiome in mitigating GVHD severity [85].
+injury and inflammation that compromise the intestinal                          Recent investigations have revealed that the compo-
+barrier, thereby allowing bacterial translocation [83, 84].                   sition of the intestinal microbiota directly modulates
+This disruption not only triggers local immune activa-                        immune responses through effects on antigen presen-
+tion but also leads to a loss of microbial diversity and a                    tation by intestinal epithelial cells (IECs). Studies have
+reduction in key metabolites such as SCFAs, which are                         shown that specific bacterial taxa can act as MHC-II
+essential for barrier repair and anti-inflammatory sig-                       inducers or suppressors, thereby influencing the expres-
+naling. Reduced microbial diversity has been correlated                       sion of MHC-II molecules on IECs [86]. Enhanced
+with increased transplant-related and GVHD-related                            MHC-II expression—driven by microbiota-induced local
+

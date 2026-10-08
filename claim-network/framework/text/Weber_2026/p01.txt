@@ -1,0 +1,72 @@
+                                                                                                                                                                www.nature.com/bmt
+
+
+
+
+                  REVIEW ARTICLE
+                  Microbiome, GvHD, and immune reconstitution in allogeneic
+                  hematopoietic cell transplantation
+                                                                                                                                         5✉
+                  Daniela Weber1, Misbah Tariq1, Mette Hazenberg2,3, Hendrik Poeck                        1,4
+                                                                                                                and Florent Malard
+
+                  © The Author(s), under exclusive licence to Springer Nature Limited 2026
+
+
+
+                     The gut microbiota has emerged as a critical factor inﬂuencing outcomes following allogeneic hematopoietic cell transplantation
+                     (alloHCT). Notably, disruptions to the intestinal microbiome—referred to as dysbiosis—have been strongly linked to the
+                     development of acute graft-versus-host disease (aGVHD). The gut microbiome interacts closely with the host immune system,
+                     inﬂuencing both immune reconstitution and alloHCT complications. As a result, microbiome-targeted strategies are being
+                     investigated to improve outcomes and include antibiotic stewardship, prebiotic and diet intervention, probiotics including fecal
+                     microbiota transfer (FMT) and postbiotics. These approaches are being investigated not only as a therapeutic intervention in
+                     particular for aGVHD, but also as preventive strategies.
+
+                     Bone Marrow Transplantation (2026) 61:385–394; https://doi.org/10.1038/s41409-026-02798-0
+
+1234567890();,:
+
+
+
+                  INTRODUCTION                                                                          that alloHCT in germ-free mice as well as total or selective
+                  Human microbiota, deﬁned as the community of microorganisms                           decontamination with broad-spectrum antibiotics resulted in a
+                  that colonize humans and their collective genomes (the micro-                         signiﬁcant reduction of GvHD-related mortality [8, 9]. Subsequent
+                  biome), is in close relationship with health and disease.                             experimental studies showed that manipulation of the intestinal
+                  Importantly, microbiota and host coevolve from birth, leading to                      microbiota composition either by antibiotics such as Ampicillin or
+                  a unique host–microbiome symbiosis in healthy individuals [1].                        by introducing potentially beneﬁcial bacteria such as Lactobacillus
+                  The 100 trillion bacteria of the human microbiota interact daily                      signiﬁcantly modiﬁed intestinal inﬂammation and outcome of
+                  with the skin, mouth, pharynx, respiratory system, urogenital tract,                  transplant recipients [5, 10]. The progress of the research was
+                  and the digestive tract. The latter contains by far the largest                       however impeded by the absence of methodologies to culture the
+                  density and diversity of microorganisms. Gut microbiota dysbiosis,                    whole spectrum of anaerobic and aerobic bacteria. The recent
+                  the imbalance in the normal composition, diversity, or function of                    introduction of culture-independent techniques involving riboso-
+                  the gut microbial communities, is associated with the disruption                      mal RNA (rRNA) gene sequencing ﬁnally enabled us to untangle
+                  of the host–microbiome symbiosis, that leads to alteration of the                     the complex relationship between gut microbiota, bacterial-
+                  gut barrier (most often permeability) [2] and disruption of                           derived metabolites and host tissues and their signiﬁcant impact
+                  immunologic homeostasis. In the setting of hematological                              on immune cells, immune reconstitution and GvHD pathogenesis
+                  malignancies this is particularly relevant since those patients                       [11] the topic of this review.
+                  often experience numerous insults to the microbiome, such as
+                  impaired nutritional intake and exposure to chemotherapy and
+                  broad-spectrum antibiotics, that can lead to dysbiosis, disruption                    RISK FACTORS IMPACTING MICROBIOME DYSBIOSIS AND
+                  of symbiosis and local and systemic inﬂammation [3]. In the last                      IMPACT OF MICROBIOME ON PATIENTS’ OUTCOME AFTER
+                  decade, numerous studies investigated the interplay between gut                       ALLOHCT
+                  microbiome dysbiosis and outcomes of patients with hematolo-                          Before and after alloHCT, the diversity of the intestinal microbiome
+                  gical malignancies. It became clear that there is a close relation-                   signiﬁcantly decreases over time. Disruption of the homeostatic
+                  ship between the gut microbiota and outcome after allogeneic                          microbiota composition and, particularly, early intestinal dysbiosis,
+                  hematopoietic cell transplantation (alloHCT) [4–6].                                   is strongly associated with poor outcome [6, 12, 13]. In a large-
+                     Acute GvHD is an immunological complication of alloHCT,                            scaled multicenter study, similar microbial patterns characterized
+                  associated with high morbidity and mortality, particularly when                       by loss of commensals and domination by single bacterial taxa
+                  the gastrointestinal (GI) tract is affected [7]. In the early 1970s and               such as Enterococci were associated with high transplant-related
+                  1980s, data in murine models and later in clinical studies                            mortality, independent of the institutes’ geographic locations and
+                  suggested that intestinal microbiota play an important role in                        practices [6, 14]. Intestinal dysbiosis creates a pro-inﬂammatory
+                  the pathophysiology of acute GvHD [8, 9]. It was demonstrated                         milieu and leads to disruption of epithelial integrity. Epithelial
+
+
+                  1
+                   Clinic and polyclinic for Internal Medicine III, University Hospital Regensburg, Regensburg, Germany. 2Department of Hematology, Amsterdam University Medical Centres,
+                  University of Amsterdam, Amsterdam, Netherlands. 3Department of Hematopoiesis, Sanquin Research, Amsterdam, The Netherlands. 4Leibniz Institute for Immunotherapy (LIT),
+                  Regensburg, Germany. 5Service d’Hématologie Clinique et Thérapie Cellulaire, Hôpital Saint-Antoine, Sorbonne Université, INSERM UMRs 938, Paris, France.
+                  ✉email: ﬂorent.malard@inserm.fr
+
+                  Received: 16 September 2025 Revised: 5 December 2025 Accepted: 27 January 2026
+                  Published online: 4 February 2026
+

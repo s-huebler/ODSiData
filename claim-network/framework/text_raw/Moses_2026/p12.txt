@@ -1,0 +1,58 @@
+Author contributions
+CRediT: Adonai Blessington Moses: Conceptualization, Writing – original draft, Writing – review & editing; Albert
+C. Yeh: Conceptualization, Data curation, Resources, Supervision, Writing – original draft, Writing – review &
+editing.
+ORCID
+Adonai Blessington Moses 0009-0008-4792-2383
+Albert C. Yeh 0000-0003-3455-7360
+References
+1. Zeiser R, Blazar BR. Acute graft-versus-host disease – biologic process, prevention, and therapy. N Engl J Med.
+2017;377:2167–2179. doi: 10.1056/NEJMra1609337.
+2. Johnson BH, Taylor A, Kim G, Drahos J, Yang J, Akbari M, Shah NN. Clinical outcomes and healthcare
+resource utilization for gastrointestinal acute graft-versus-host disease after allogeneic transplantation for
+hematologic malignancy: a retrospective US administrative claims database analysis. Biol Blood Marrow
+Transplant. 2019;25:834–841. doi: 10.1016/j.bbmt.2018.12.839.
+3. Jones JM, Wilson R, Bealmear PM. Mortality and gross pathology of secondary disease in germfree mouse
+radiation chimeras. Radiat Res. 1971;45:577–588. doi: 10.2307/3573066.
+4. van Bekkum DW, Roodenburg J, Heidt PJ, van der Waaij D. Mitigation of secondary disease of allogeneic
+mouse radiation chimeras by modification of the intestinal microflora. J Natl Cancer Inst. 1974;52:401–404. doi:
+10.1093/jnci/52.2.401.
+5. Storb R, Prentice RL, Buckner CD, Clift RA, Appelbaum F, Deeg J, Doney K, Hansen JA, Mason M, Sanders JE,
+et al. Graft-versus-host disease and survival in patients with aplastic anemia treated by marrow grafts from
+HLA-identical siblings. Beneficial effect of a protective environment. N Engl J Med. 1983;308:302–307. doi:
+10.1056/NEJM198302103080602.
+6. Beelen DW, Haralambie E, Brandt H, Linzenmeier G, Muller K, Quabeck K, Sayer H, Graeven U, Mahmoud H,
+Schaefer U. Evidence that sustained growth suppression of intestinal anaerobic bacteria reduces the risk of acute
+graft-versus-host disease after sibling marrow transplantation. Blood. 1992;80:2668–2676. doi: 10.1182/
+blood.V80.10.2668.2668.
+7. Vossen JM, Heidt PJ, Berg H, Gerritsen EJA, Hermans J, Dooren LJ. Prevention of infection and graft-versus-
+host disease by suppression of intestinal microflora in children treated with allogeneic bone marrow transplan-
+tation. Eur J Clin Microbiol Infect Dis. 1990;9:14–23. doi: 10.1007/BF01969527.
+8. Beelen DW, Elmaagacli A, Müller KD, Hirche H, Schaefer UW. Influence of intestinal bacterial decontamination
+using metronidazole and ciprofloxacin or ciprofloxacin alone on the development of acute graft-versus-host
+disease after marrow transplantation in patients with hematologic malignancies: final results and long-term
+follow-up of an open-label prospective randomized trial. Blood. 1999;93:3267–3275.
+9. Mathewson ND, Jenq R, Mathew AV, Koenigsknecht M, Hanash A, Toubai T, Oravecz-Wilson K, Wu S, Sun Y,
+Rossi C, et al. Gut microbiome-derived metabolites modulate intestinal epithelial cell damage and mitigate
+graft-versus-host disease. Nat Immunol. 2016;17:505–513. doi: 10.1038/ni.3400.
+10. Jenq RR, Ubeda C, Taur Y, Menezes CC, Khanin R, Dudakov JA, Liu C, West ML, Singer NV, Equinda MJ,
+et al. Regulation of intestinal inflammation by microbiota following allogeneic bone marrow transplantation. J
+Exp Med. 2012;209:903–911. doi: 10.1084/jem.20112408.
+11. Hayase E, Mukherjee A, Stinson SC, Jamal MA, Ortega MR, Sanchez CA, Ahmed SS, Karmouch JL, Chang C,
+Flores II, et al. Bacteroides ovatus alleviates dysbiotic microbiota-induced graft-versus-host disease. Cell Host
+Microbe. 2024;32:1621–1636. doi: 10.1016/j.chom.2024.08.004.
+12. Jenq RR, Taur Y, Devlin SM, Ponce DM, Goldberg JD, Ahr KF, Littmann ER, Ling L, Gobourne AC, Miller LC,
+et al. Intestinal blautia is associated with reduced death from graft-versus-host disease. Biol Blood Marrow
+Transplant. 2015;21:1373–1383. doi: 10.1016/j.bbmt.2015.04.016.
+13. Stein-Thoeringer CK, Nichols KB, Lazrak A, Docampo MD, Slingerland AE, Clurman AG, Armijo G, Gomes
+ALC, Shono Y, Staffas A, et al. Lactose drives enterococcus expansion to promote graft-versus-host disease.
+Science. 2019;366:1143–1149. doi: 10.1126/science.aax3760.
+14. Peled JU, Gomes AL, Devlin SM, Littmann ER, Taur Y, Sung AD, Weber D, Hashimoto D, Slingerland AE,
+Maloy M, et al. Microbiota as predictor of mortality in allogeneic hematopoietic-cell transplantation. N Engl J
+Med. 2020;382:822–834. doi: 10.1056/NEJMoa1900623.
+15. Hayase E, Jamal MA, Miyama T, Chang C, Ortega MR, Ahmed SS, Karmouch JL, Sanchez CA, Brown AN, El-
+Himri RK, et al. Mucus-degrading bacteroides link carbapenems to aggravated graft-versus-host disease. Cell.
+2022;185:3705–3719. doi: 10.1016/j.cell.2022.09.007.
+16. Shono Y, Docampo MD, Peled JU, Perobelli SM, Velardi E, Tsai JJ, Slingerland AE, Smith OM, Young LF,
+Gupta J, et al. Increased GVHD-related mortality with broad-spectrum antibiotic use after allogeneic
+GUT MICROBES 11

@@ -1,0 +1,60 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine   (2025) 23:832                                       Page 5 of 15
+
+
+
+
+mentioned in HSCT recipients, loss of variety correlates              body irradiation, among other conditioning treatments,
+with immune dysregulation, which is marked by exag-                   drastically alter the recipient’s microbiota, producing an
+gerated inflammation and compromised tolerance [13].                  ecological void that helps donor-derived bacteria colo-
+For instance, the association of lower microbial diver-               nization [24]. Broad-spectrum antibiotics aggravate this
+sity with increased pro-inflammatory cytokines levels                 dysbiosis by depleting commensal bacteria and lower-
+and GVHD key mediators, including IL-6 and TNF-α,                     ing colonizing resistance, allowing donor microbiota to
+has been underscored [18]. Conversely, higher micro-                  spread in the gastrointestinal tract (GI) [5].
+bial diversity has been correlated with reduced GVHD
+severity and improved survival outcomes, reinforcing the              The arrival of the donor microbiota
+importance of the recipient microbiome as the media-                  The primary source of donor microbiota introduction
+tor of immunologic tolerance and keeper of homeostasis                is through the hematopoietic graft itself. HSC grafts,
+[18, 22]. In addition, microbial metabolites, particularly            whether harvested from bone marrow (BM), peripheral
+butyrate, acetate, and propionate produced by fermenta-               blood stem cells (PBSCs), or umbilical cord (UC) blood,
+tion of dietary fiber by Clostridia species, exhibit potent           are not sterile and contain microbial components reflec-
+immunomodulatory effects. Butyrate inhibits histone                   tive of the donor’s microbiome. Recent studies have
+deacetylases (HDACs) in colonocytes, promoting bar-                   highlighted the presence of microbial DNA and viable
+rier function through increased tight junction protein                microorganisms in stem cell products, which are intro-
+expression, and in immune cells, enhancing Treg differ-               duced into the recipient alongside immune cells and
+entiation while suppressing pro-inflammatory cytokine                 other cellular components [24]. For example, recent
+production [43]. Beyond SCFAs, tryptophan derivatives                 investigations demonstrated that bacterial taxa such
+like indole-3-aldehyde (IAld) activate aryl hydrocarbon               as Enterococcus and Staphylococcus can be detected in
+receptors (AhRs) on ILC3s, promoting epithelial homeo-                grafts prepared for allo-HSCT [48]. These microbial enti-
+stasis and stimulating IL-22 production for mucosal                   ties may derive from the donor’s microbiota or from con-
+repair [8]. Conversely, certain bacterial species produce             tamination during the harvest or processing of the graft.
+metabolites that exacerbate inflammation. For instance,               Upon transplantation, these microbes enter a recipient
+Bacteroides thetaiotaomicron generates succinate dur-                 environment characterized by immunosuppression, dam-
+ing dysbiosis, which enhances inflammatory macrophage                 aged mucosal barriers, and extensive microbial depletion,
+activation [44]. Besides, dysbiosis-associated trimethyl-             allowing donor-associated bacteria the opportunity to
+amine N-oxide (TMAO) inhibits HDAC3 in DCs, ampli-                    establish themselves within the host [49]. The arrival of
+fying NF-κB-driven inflammation [45]. Bile acids (BAs)                donor microbiota is not limited to FMT. Emerging data
+transformed by Clostridium scindens suppress TH1 dif-                 suggest that donor immune cells, preconditioned by
+ferentiation via FXR signaling, while primary BAs from                their native microbiota, may indirectly transfer micro-
+Bacteroides-deficient microbiota promote CXCL10-                      bial metabolites or microbial-associated molecular pat-
+mediated T-cell recruitment to the gut [46]. These find-              terns (MAMPs) during transplantation. One example
+ings converge that the recipient microbiome profoundly                is the potential for DCs derived from donors with
+influences immune function through complex interac-                   diverse microbiomes to induce regulatory phenotypic
+tions with innate and adaptive immune components.                     in recipient T cells, followed by decreasing inflamma-
+Dysbiosis before and during HSCT disrupts these inter-                tory responses [50]. These avenues for donor microbiota
+actions, creating a pro-inflammatory environment con-                 introduction emphasize the possibility of donor micro-
+ducive to GVHD development.                                           biota’s influences on recipient immune responses and
+                                                                      GVHD development. Nevertheless, the extent to which
+The donor microbiome: A new contender                                 donor microbiota persists and integrates into the recipi-
+Traditionally, the focus has been on the immunological                ent’s microbiome remains an area of active investigation.
+compatibility between donor and recipient to mitigate
+risks such as GVHD. However, the introduction of donor                The battle for dominance
+microbiota during allogeneic HCT (alloHCT) has led to                 The competitive interactions between recipient and
+a paradigm shift in understanding GVHD pathophysiol-                  donor bacteria occur inside a host environment, which
+ogy. Emerging data points to a possible major influence               experiences fast immunological and bacterial altera-
+on post-transplant outcomes of the donor’s microbiota                 tions. Conditioning regimens and antibiotics diminish
+introduced during transplantation [24]. Although the                  colonization resistance, a phenomenon where resident
+transplant procedure itself involves the infusion of donor            microbes inhibit pathogen overgrowth, thereby creat-
+HSCs and immune cells, new research indicates that                    ing an environment conducive to donor microbiota
+microbial components linked with the donor might affect               establishment [12]. Introduced via the graft or intimate
+post-transplant results [47]. Chemotherapy and total                  donor-receiver contact, donor-derived bacteria may use
+

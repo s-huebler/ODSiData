@@ -1,0 +1,66 @@
+Review article
+
+
+and release of pro-inflammatory cytokines, including TNF, IL-6, IL-12           bile acid metabolite and demonstrated in vitro that it protected IECs
+and IL-1β by lipopolysaccharide (LPS)-stimulated macrophages95.                 from TNF-induced and IFNγ-induced apoptosis. In preclinical models
+However, the precise mechanism by which UDCA modulates the                      of allo-HCT, mice treated with TUDCA had improved survival, lower
+immune response remains unclear, as UDCA can also interact with                 histopathological GVHD scores in various target organs and lower
+the farnesoid X receptor (FXR), which is implicated in cholestatic              serum cytokine levels. TUDCA also modulated antigen presentation
+diseases97. Nonetheless, there are conflicting reports regarding the            by IECs by downregulating MHC class II expression. Despite these
+effect of UDCA on FXR activation. Some studies suggest that UDCA                immunomodulatory effects, TUDCA preserved graft-versus-leukaemia
+acts as an antagonist to FXR activation, whereas others have reported           activity, as donor cytotoxic T lymphocytes maintained their ability to
+UDCA as an agonist98,99.                                                        eliminate leukaemic cells. Unlike other bile acid derivatives, and con-
+     The numerous metabolites that derive from the gut microbiota               sidering the direct administration of this bile acid in this experimental
+and influence GVHD interact through complex mechanisms that                     model, TUDCA did not significantly alter gut microbiota composition
+must be fully understood to develop targeted therapeutic strategies             or diversity, indicating that the observed effects were independent of
+to mitigate GVHD. Thiele Orberg et al.40 investigated how bacterial             the gut bacteria and could instead be the result of a direct interaction
+and bacteriophage compositions influence the production of immu-                with the epithelium. Overall, this study highlights the translational
+nomodulatory metabolites (IMMs) in patients undergoing allo-HCT.                potential of TUDCA as a therapeutic for preventing GVHD-related
+They developed the IMM risk index, based on levels of five microbial            intestinal injury that may offer protection against gut inflammation
+metabolites positively associated with outcome or of biological rel-            while maintaining anti-leukaemia immunity.
+evance for overall survival, severe GVHD, treatment-related mortality                Lindner et al.102 expanded our understanding of the role of
+and disease relapse. Low versus high IMM risk index scores indicate             microorganism-derived SBAs in regulating immune responses dur-
+high or depleted IMM levels and are associated with lower versus                ing GVHD. Using both mouse models of allo-HCT and patient samples,
+higher rates of GVHD-related complications, respectively. Butyrate              they demonstrated pronounced losses of microorganism-derived
+biosynthesis pathways were enriched in patients with a low IMM risk             metabolites during GVHD. Furthermore, mice exhibiting GVHD had
+index, in particular the butyryl-coenzyme A (CoA):acetate CoA trans-            significantly reduced abundance of the gene encoding microbial bile
+ferase (BCoAT) pathway, which has a central role in SCFA production             salt hydrolase (BSH), the protein product of which helps transform
+by gut microbiota (Box 1). Bacteriophages encoding genes for butyrate           primary bile acids into secondary ones. Metagenomic analysis of fae-
+production were also identified, suggesting that the gut virome may             cal samples from patients with GVHD revealed a loss of key bacterial
+contribute to beneficial metabolite synthesis by introducing genetic            taxa responsible for bile acid metabolism. In line with the mouse data,
+pathways associated with SCFA generation to microorganisms through              functional metagenomic analysis confirmed the downregulation of
+transduction, a process in which bacteriophages infect host bacteria            the gene encoding BSH, and uncovered the downregulation of genes
+and integrate their genetic material, including genes such as those for         such as baiA, baiB, baiCD and baiE, which catalyse 7α-dehydroxylation,
+butyrate production, into the bacterial genome (Box 1). A key finding           another key reaction in SBA production. These reductions in specific
+of the study was that patients who had received broad-spectrum anti-            bacterial enzymes could lead to a decrease in the overall pool of SBAs
+biotics during allo-HCT exhibited disruptions in bacterial and viral            and their binding to host cell receptors such as FXR and TGR5. By reduc-
+communities and decreased levels of SCFAs. As low levels of intestinal          ing the signalling through these anti-inflammatory receptors, the loss
+SCFAs have been linked to severe aGVHD41, this finding further supports         of microorganism-derived SBAs contributes directly to the immune
+the hypothesis that interventions promoting metabolite-producing                responses and intestinal damage observed in GVHD.
+bacterial consortia or supplementation with SCFA formulations could                  Lindner et al.102 also tested in vitro how several bile acids affect FXR
+mitigate GVHD.                                                                  signalling, finding that the host-derived primary bile acid chenode-
+     Another recent study analysed the serum metabolomic profiles               oxycholic acid (CDCA) induced strong FXR signalling, whereas various
+of two cohorts of HLA-matched related donor and recipient pairs,                microorganism-derived SBAs lowered CDCA-induced FXR activation,
+revealing marked differences in the metabolome between patients                 suggesting that microbial bile acid metabolism impacts FXR activation.
+who developed GVHD and those who remained GVHD-free100. The                     In accordance with this, T cell-specific FXR ablation reduced GVHD
+tryptophan-derived metabolites, indoles, were higher in recipients              histopathology scores in the large intestine and liver, but not in other
+without GVHD compared with those with GVHD, and these differences               organs, suggesting that FXR signalling may modulate allogenic T cell
+were especially evident at the onset of GVHD, suggesting that changes           functions in organs exposed to microorganism-derived bile acids.
+in metabolites might have a role in GVHD development. However,                  Furthermore, in mice with GVHD, pharmacological activation of FXR
+it remains to be explored whether this phenomenon contributes                   led to increased mortality, whereas genetic ablation of FXR in donor
+to the severity of aGVHD, as the imbalance in gut bacterial species             T cells decreased mortality.
+observed in GVHD might be both a cause and a result of the alloge-                   Finally, Lindner et al.102 also revealed associations between the
+neic immune response. Overall, this suggests that both dysbiosis and            purported FXR antagonist UDCA and both reduced T cell proliferation
+allo-HCT-induced changes in host metabolism may impact GVHD                     and lower risk of GVHD-related mortality in patients, indicating the
+pathology.                                                                      therapeutic potential of inhibiting FXR activity to restore microbial
+     Haring et al.101 investigated the role of various bile acids in mitigat-   bile acid metabolism and mitigate GVHD. Possible approaches would
+ing aGVHD while preserving graft-versus-leukaemia effects. They found           include replenishing bacterial strains capable of bile acid metabo-
+that allo-HCT disrupted bile acid metabolism, reducing the intestinal           lism, such as Clostridium cluster XIVa and Ruminococcus species, or
+pool of bile acids and increasing the expression of FXR while decreas-          supplementation with specific SBAs such as UDCA. Lindner et al.102
+ing the expression of TGR5 in the IECs, both of which, as mentioned             showed that supplementation with UDCA in patients with GVHD
+above, are crucial for epithelial homeostasis and immune function.              restored bile acid balance and limited T cell-driven inflammation, in
+They identified tauroursodeoxycholic acid (TUDCA) as the most potent            part, by inhibiting FXR activation via its antagonistic activity as well
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                  337
+

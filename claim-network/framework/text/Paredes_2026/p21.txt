@@ -1,0 +1,87 @@
+Review article
+
+
+81.  Hülsdünker, J. et al. Neutrophils provide cellular communication between ileum and                110. Farowski, F. et al. Impact of choice, timing, sequence and combination of
+     mesenteric lymph nodes at graft-versus-host disease onset. Blood 131, 1858–1869 (2018).                broad-spectrum antibiotics on the outcome of allogeneic haematopoietic stem cell
+82. Rückert, T. et al. Human β-defensin 2 ameliorates acute GVHD by limiting ileal neutrophil               transplantation. Bone Marrow Transplant. 53, 52–57 (2018).
+     infiltration and restraining T cell receptor signaling. Sci. Transl. Med. 14, eabp9675            111. Han, L. et al. Intestinal microbiota can predict acute graft-versus-host disease following
+     (2022).                                                                                                allogeneic hematopoietic stem cell transplantation. Biol. Blood Marrow Transplant. 25,
+83. Peng, L., Li, Z. R., Green, R. S., Holzman, I. R. & Lin, J. Butyrate enhances the intestinal            1944–1955 (2019).
+     barrier by facilitating tight junction assembly via activation of AMP-activated protein           112. Weber, D. et al. Detrimental effect of broad-spectrum antibiotics on intestinal
+     kinase in Caco-2 cell monolayers. J. Nutr. 139, 1619–1625 (2009).                                      microbiome diversity in patients after allogeneic stem cell transplantation:
+84. Rooks, M. G. & Garrett, W. S. Gut microbiota, metabolites and host immunity. Nat. Rev.                  lack of commensal sparing antibiotics. Clin. Infect. Dis. 68, 1303–1310 (2018).
+     Immunol. 16, 341–352 (2016).                                                                      113. Tanaka, J. S. et al. Anaerobic antibiotics and the risk of graft-versus-host disease after
+85. Chelakkot, C., Ghim, J. & Ryu, S. H. Mechanisms regulating intestinal barrier integrity and             allogeneic hematopoietic stem cell transplantation. Biol. Blood Marrow Transplant. 26,
+     its pathological implications. Exp. Mol. Med. 50, 1–9 (2018).                                          2053–2060 (2020).
+86. Du, Y. et al. The role of short chain fatty acids in inflammation and body health.                 114. Rashidi, A. et al. Analysis of antibiotic exposure and development of acute graft-vs-host
+     Int. J. Mol. Sci. 25, 7379 (2024).                                                                     disease following allogeneic hematopoietic cell transplantation. JAMA Netw. Open 6,
+87. Kim, C. H. Control of lymphocyte functions by gut microbiota-derived short-chain fatty                  e2317188 (2023).
+     acids. Cell. Mol. Immunol. 18, 1161–1171 (2021).                                                  115. Vehreschild, M. et al. An open randomized multicentre phase 2 trial to assess the
+88. Golob, J. L. et al. Butyrogenic bacteria after acute graft-versus-host disease (GVHD) are               safety of DAV132 and its efficacy to protect gut microbiota diversity in hospitalized
+     associated with the development of steroid-refractory GVHD. Blood Adv. 3, 2866–2869                    patients treated with fluoroquinolones. J. Antimicrob. Chemother. 77, 1155–1165
+     (2019).                                                                                                (2022).
+89. Kaiko, G. E. et al. The colonic crypt protects stem cells from microbiota-derived                  116. Messaoudene, M. et al. The DAV132 colon-targeted adsorbent does not interfere
+     metabolites. Cell 165, 1708–1720 (2016).                                                               with plasma concentrations of antibiotics but prevents antibiotic-related dysbiosis:
+90. Scott, S. A., Fu, J. & Chang, P. V. Microbial tryptophan metabolites regulate gut barrier               a randomized phase I trial in healthy volunteers. Nat. Commun. 15, 8083 (2024).
+     function via the aryl hydrocarbon receptor. Proc. Natl Acad. Sci. USA 117, 19376–19387            117. Kokai-Kun, J. F. et al. Use of ribaxamase (SYN-004), a β-lactamase, to prevent Clostridium
+     (2020).                                                                                                difficile infection in β-lactam-treated patients: a double-blind, phase 2b, randomised
+91. Zelante, T. et al. Tryptophan catabolites from microbiota engage aryl hydrocarbon                       placebo-controlled trial. Lancet Infect. Dis. 19, 487–496 (2019).
+     receptor and balance mucosal reactivity via interleukin-22. Immunity 39, 372–385                  118. Menon, R. et al. Multi-omic profiling a defined bacterial consortium for treatment of
+     (2013).                                                                                                recurrent Clostridioides difficile infection. Nat. Med. 31, 223–234 (2025).
+92. Collins, S. L., Stine, J. G., Bisanz, J. E., Okafor, C. D. & Patterson, A. D. Bile acids and the   119. Fackelmann, G. et al. Gut microbiome signatures of vegan, vegetarian and omnivore
+     gut microbiota: metabolic interactions and impacts on disease. Nat. Rev. Microbiol. 21,                diets and associated health outcomes across 21,561 individuals. Nat. Microbiol. 10, 41–52
+     236–247 (2023).                                                                                        (2025).
+93. Sinha, S. R. et al. Dysbiosis-induced secondary bile acid deficiency promotes intestinal           120. Baumgartner, A. et al. Revisiting nutritional support for allogeneic hematologic stem cell
+     inflammation. Cell Host Microbe 27, 659–670.e5 (2020).                                                 transplantation—a systematic review. Bone Marrow Transplant. 52, 506–513 (2017).
+94. Cipriani, S. et al. The bile acid receptor GPBAR-1 (TGR5) modulates integrity of                   121. Arends, J. et al. ESPEN guidelines on nutrition in cancer patients. Clin. Nutr. 36, 11–48
+     intestinal barrier and immune response to experimental colitis. PLoS ONE 6, e25637                     (2017).
+     (2011).                                                                                           122. Nava, T. et al. Supportive care during pediatric hematopoietic stem cell transplantation:
+95. Fathima, A. & Jamma, T. UDCA ameliorates inflammation driven EMT by inducing                            beyond infectious diseases. A report from workshops on supportive care of the
+     TGR5 dependent SOCS1 expression in mouse macrophages. Sci. Rep. 14, 24285                              Pediatric Diseases Working Party (PDWP) of the European Society for Blood and Marrow
+     (2024).                                                                                                Transplantation (EBMT). Bone Marrow Transplant. 55, 1126–1136 (2020).
+96. Holter, M. M., Chirikjian, M. K., Govani, V. N. & Cummings, B. P. TGR5 signaling in hepatic        123. Peric, Z. et al. Variability of nutritional practices in peritransplant period after
+     metabolic health. Nutrients 12, 2598 (2020).                                                           allogeneic hematopoietic stem cell transplantation: a survey by the complications
+97. Mueller, M. et al. Ursodeoxycholic acid exerts farnesoid X receptor-antagonistic effects                and quality of life working party of the EBMT. Bone Marrow Transplant. 53, 1030–1037
+     on bile acid and lipid metabolism in morbid obesity. J. Hepatol. 62, 1398–1404 (2015).                 (2018).
+98. Prayitno, K. & Bhat, M. Repurposing UDCA, an FXR inhibitor, to prevent SARS-Cov-2                  124. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     infection. Gastroenterology 164, 1019–1020 (2023).                                                     NCT02763033 (2025).
+99. Brevini, T. et al. FXR inhibition may protect from SARS-CoV-2 infection by reducing ACE2.          125. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     Nature 615, 134–142 (2023).                                                                            NCT05067595 (2025).
+100. Michonneau, D. et al. Metabolomics analysis of human acute graft-versus-host disease              126. Cohen, S. A. et al. Incidence and outcomes of bloodstream infections among
+     reveals changes in host and microbiota-derived metabolites. Nat. Commun. 10, 5695                      hematopoietic cell transplant recipients from species commonly reported to be in
+     (2019).                                                                                                over-the-counter probiotic formulations. Transpl. Infect. Dis. 18, 699–705 (2016).
+101. Haring, E. et al. Bile acids regulate intestinal antigen presentation and reduce                  127. Jenq, R. R. et al. Regulation of intestinal inflammation by microbiota following allogeneic
+     graft-versus-host disease without impairing the graft-versus-leukemia effect.                          bone marrow transplantation. J. Exp. Med. 209, 903–911 (2012).
+     Haematologica 106, 2131–2146 (2021).                                                              128. Gerbitz, A. et al. Probiotic effects on experimental graft-versus-host disease: let them eat
+102. Lindner, S. et al. Altered microbial bile acid metabolism exacerbates T cell-driven                    yogurt. Blood 103, 4365–4367 (2004).
+     inflammation during graft-versus-host disease. Nat. Microbiol. 9, 614–630 (2024).                 129. Ladas, E. J. et al. The safety and feasibility of probiotics in children and adolescents
+     This study is the first to show that the medication ursidiol (UDCA), an SBA, positively                undergoing hematopoietic cell transplantation. Bone Marrow Transplant. 51, 262–266
+     correlates with improved survival post allo-HCT and elucidates that UDCA can reduce                    (2016).
+     proliferation of primary human T cells, contributing a mechanistic insight into bile              130. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+     acids and their immunomodulatory properties.                                                           NCT03057054 (2025).
+103. Han, L. et al. Multi-omics analysis reveals a feedback loop amplifying immune responses           131. Fukushima, K. et al. Clostridium butyricum MIYAIRI 588 contributes to the maintenance
+     in acute graft-versus-host disease due to imbalanced gut microbiota and bile acid                      of intestinal microbiota diversity early after haematopoietic cell transplantation. Bone
+     metabolism. J. Transl. Med. 22, 746 (2024).                                                            Marrow Transplant. 59, 795–802 (2024).
+104. Kovtonyuk, L. V. et al. IL-1 mediates microbiome-induced inflammaging of hematopoietic            132. Ponce, D. M. et al. Preliminary results of the open-label phase of a 2-part phase 1b study
+     stem cells in mice. Blood 139, 44–58 (2022).                                                           that evaluates safety, tolerability, pharmacokinetics, and efficacy of investigational
+105. Storb, R. et al. Graft-versus-host disease and survival in patients with aplastic anemia               microbiome therapeutic SER-155 in adults undergoing allogeneic hematopoietic cell
+     treated by marrow grafts from HLA-identical siblings. N. Engl. J. Med. 308, 302–307                    transplantation (allo-HCT). Transplant. Cell. Ther. 30, S266 (2024).
+     (1983).                                                                                           133. US National Library of Medicine. ClinicalTrials.gov https://clinicaltrials.gov/study/
+106. Beelen, D. W., Elmaagacli, A., Müller, K. D., Hirche, H. & Schaefer, U. W. Influence                   NCT04995653 (2024).
+     of intestinal bacterial decontamination using metronidazole and ciprofloxacin or                  134. Wasilewski, A., Zielińska, M., Storr, M. & Fichna, J. Beneficial effects of probiotics, prebiotics,
+     ciprofloxacin alone on the development of acute graft-versus-host disease after marrow                 synbiotics, and psychobiotics in inflammatory bowel disease. Inflamm. Bowel Dis. 21,
+     transplantation in patients with hematologic malignancies: final results and long-term                 1674–1682 (2015).
+     follow-up of an open-label prospective randomized trial. Blood 93, 3267–3275 (1999).              135. Takai, A. et al. Fructo-oligosaccharides ameliorate steatohepatitis, visceral adiposity, and
+107. Beelen, D. W. et al. Evidence that sustained growth suppression of intestinal anaerobic                associated chronic inflammation via increased production of short-chain fatty acids in a
+     bacteria reduces the risk of acute graft-versus-host disease after sibling marrow                      mouse model of non-alcoholic steatohepatitis. BMC Gastroenterol. 20, 46 (2020).
+     transplantation. Blood 80, 2668–2676 (1992).                                                      136. Andermann, T. M. et al. A fructo-oligosaccharide prebiotic is well tolerated in
+108. Vossen, J. M. et al. Prevention of infection and graft-versus-host disease by suppression              adults undergoing allogeneic hematopoietic stem cell transplantation: a phase I
+     of intestinal microflora in children treated with allogeneic bone marrow transplantation.              dose-escalation trial. Transplant. Cell Ther. 27, 932.e1–932.e11 (2021).
+     Eur. J. Clin. Microbiol. Infect. Dis. 9, 14–23 (1990).                                            137. Yazdandoust, E. et al. Gut microbiota intervention by pre and probiotics can induce
+109. Severyn, C. J. et al. Microbiota dynamics in a randomized trial of gut decontamination                 regulatory T cells and reduce the risk of severe acute GVHD following allogeneic
+     during allogeneic hematopoietic cell transplantation. JCI Insight 7, e154344 (2022).                   hematopoietic stem cell transplantation. Transpl. Immunol. 78, 101836 (2023).
+
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                                                                  348
+

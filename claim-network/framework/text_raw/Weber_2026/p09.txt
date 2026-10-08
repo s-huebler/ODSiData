@@ -1,0 +1,151 @@
+42. Schluter J, Peled JU, Taylor BP, Markey KA, Smith M, Taur Y, et al. The gut
+microbiota is associated with immune cell dynamics in humans. Nature.
+2020;588:303–7. https://doi.org/10.1038/s41586-020-2971-8.
+43. Munneke JM, Björklund AT, Mjösberg JM, Garming-Legert K, Bernink JH, Blom B,
+et al. Activated innate lymphoid cells are associated with a reduced susceptibility
+to graft-versus-host disease. Blood. 2014;124:812–21. https://doi.org/10.1182/
+blood-2013-11-536888.
+44. Britanova L, Diefenbach A. Interplay of innate lymphoid cells and the microbiota.
+Immunol Rev. 2017;279:36–51. https://doi.org/10.1111/imr.12580.
+45. Alexander T, Snowden JA, Burman J, Chang HD, Del Papa N, Farge D. Intestinal
+Microbiome in Hematopoietic Stem Cell Transplantation For Autoimmune Dis-
+eases: Considerations and Perspectives on Behalf of Autoimmune Diseases
+Working Party (ADWP) of the EBMT. Front Oncol. 2021;11:722436.
+46. Stein-Thoeringer CK, Nichols KB, Lazrak A, Docampo MD, Slingerland AE, Sling-
+erland JB. Lactose drives Enterococcus expansion to promote graft-versus-host
+disease. Science. 2019;366:1143–9.
+47. Jenq RR, Taur Y, Devlin SM, Ponce DM, Goldberg JD, Ahr KF. Intestinal Blautia Is
+Associated with Reduced Death from Graft-versus-Host Disease. Biol Blood
+Marrow Transpl. 2015;21:1373–83.
+48. Swimm A, Giver CR, DeFilipp Z, Rangaraju S, Sharma A, Ulezko Antonova A, et al.
+Indoles derived from intestinal microbiota act via type I interferon signaling to
+limit graft-versus-host disease. Blood. 2018;132:2506–19. https://doi.org/10.1182/
+blood-2018-03-838193.
+49. Hang S, Paik D, Yao L, Kim E, Trinath J, Lu J, et al. Bile acid metabolites control T(H)
+17 and T(reg) cell differentiation. Nature. 2019;576:143–8. https://doi.org/
+10.1038/s41586-019-1785-z.
+50. Arpaia N, Campbell C, Fan X, Dikiy S, van der Veeken J, deRoos P, et al. Meta-
+bolites produced by commensal bacteria promote peripheral regulatory T-cell
+generation. Nature. 2013;504:451–5. https://doi.org/10.1038/nature12726.
+51. Wang R, Cui W, Yang H. The interplay between innate lymphoid cells and
+microbiota. mBio. 2023;14:e0039923 https://doi.org/10.1128/mbio.00399-23.
+52. Kim S, Covington A, Pamer EG. The intestinal microbiota: Antibiotics, colonization
+resistance, and enteric pathogens. Immunol Rev. 2017;279:90–105. https://
+doi.org/10.1111/imr.12563.
+53. Thiele Orberg E, Meedt E, Hiergeist A, Xue J, Heinrich P, Ru J, et al. Bacteria and
+bacteriophage consortia are associated with protective intestinal metabolites in
+patients receiving stem cell transplantation. Nat Cancer. 2024;5:187–208. https://
+doi.org/10.1038/s43018-023-00669-x.
+54. Markey KA, Schluter J, Gomes ALC, Littmann ER, Pickard AJ, Taylor BP, et al. The
+microbe-derived short-chain fatty acids butyrate and propionate are associated
+with protection from chronic GVHD. Blood. 2020;136:130–6. https://doi.org/
+10.1182/blood.2019003369.
+55. Weber D, Jenq RR, Peled JU, Taur Y, Hiergeist A, Koestler J, et al. Microbiota
+Disruption Induced by Early Use of Broad-Spectrum Antibiotics Is an Independent
+Risk Factor of Outcome after Allogeneic Stem Cell Transplantation. Biol Blood
+Marrow Transpl. 2017;23:845–52. https://doi.org/10.1016/j.bbmt.2017.02.006.
+56. Shono Y, Docampo MD, Peled JU, Perobelli SM, Velardi E, Tsai JJ, et al. Increased
+GVHD-related mortality with broad-spectrum antibiotic use after allogeneic
+hematopoietic stem cell transplantation in human patients and mice. Sci Transl
+Med. 2016;8:339ra371 https://doi.org/10.1126/scitranslmed.aaf2311.
+57. Weber D, Hiergeist A, Weber M, Ghimire S, Salzberger B, Wolff D, et al. Restrictive
+Versus Permissive Use of Broad-spectrum Antibiotics in Patients Receiving Allo-
+geneic Stem Cell Transplantation and With Early Fever Due to Cytokine Release
+Syndrome: Evidence for Beneﬁcial Microbiota Protection Without Increase in
+Infectious Complications. Clin Infect Diseases. 2023;77:1432–9. https://doi.org/
+10.1093/cid/ciad389.
+58. Messaoudene M, Ferreira S, Saint-Lu N, Ponce M, Truntzer C, Boidot R, et al. The
+DAV132 colon-targeted adsorbent does not interfere with plasma concentrations
+of antibiotics but prevents antibiotic-related dysbiosis: a randomized phase I trial
+in healthy volunteers. Nature Commun. 2024;15:8083. https://doi.org/10.1038/
+s41467-024-52373-8.
+59. Vehreschild M, Ducher A, Louie T, Cornely OA, Feger C, Dane A, et al. An open
+randomized multicentre Phase 2 trial to assess the safety of DAV132 and its
+efﬁcacy to protect gut microbiota diversity in hospitalized patients treated with
+ﬂuoroquinolones. J Antimicrob Chemother. 2022;77:1155–65. https://doi.org/
+10.1093/jac/dkab474.
+60. Kokai-Kun JF, Le C, Trout K, Cope JL, Ajami NJ, Degar AJ, et al. Ribaxamase, an
+Orally Administered β-Lactamase, Diminishes Changes to Acquired Antimicrobial
+Resistance of the Gut Resistome in Patients Treated with Ceftriaxone. Infect Drug
+Resist. 2020;13:2521–35. https://doi.org/10.2147/idr.S260258.
+61. Cubillos-Ruiz A, Alcantar MA, Donghia NM, Cárdenas P, Avila-Pacheco J, Collins JJ.
+An engineered live biotherapeutic for the prevention of antibiotic-induced dys-
+biosis. Nat Biomed Eng. 2022;6:910–21. https://doi.org/10.1038/s41551-022-
+00871-9.
+62. Saleh M, Heydari R, Ghanbari Boroujeni MR, Abiri R. Engineered probiotics that
+produce antibiotic binding sites: A potential strategy to protect gut microbiome
+and prevent antibiotic resistance. Medical Hypotheses. 2025;195:111558. https://
+doi.org/10.1016/j.mehy.2024.111558.
+63. Toenges R, Lang F, Ghaffar R, Lindner S, Schlipfenbacher V, Riemann J, et al.
+Interventional antibiotic treatment replacing antibiotic prophylaxis during allo-
+geneic hematopoietic stem cell transplantation is safe and leads to a reduction of
+antibiotic administration. Ann Hematol. 2024;103:4687–99. https://doi.org/
+10.1007/s00277-024-05986-4.
+64. Neuerburg CKF, Schmitz F, Schmitz MT, Rehnelt S, Schumacher M, Parčina M,
+et al. Antibiotic Prophylaxis During Allogeneic Stem Cell transplantation-A
+Comprehensive Single Center Retrospective Analysis. Transplant Cell Ther.
+2024;30:1195.e1191–.e1113. https://doi.org/10.1016/j.jtct.2024.09.011.
+65. Routy B, Letendre C, Enot D, Chénard-Poirier M, Mehraj V, Séguin NC, et al. The
+inﬂuence of gut-decontamination prophylactic antibiotics on acute graft-versus-host
+disease and survival following allogeneic hematopoietic stem cell transplantation.
+Oncoimmunology. 2017;6:e1258506 https://doi.org/10.1080/2162402x.2016.1258506.
+66. Weber D, Meedt E, Ghimire S, Hiergeist A, Kern MAG, Höpting M, et al. “The
+antibiotic paradox” in allogeneic stem cell transplantation. Bone Marrow Transpl.
+2025. https://doi.org/10.1038/s41409-025-02706-y.
+67. Hülsdünker J, Ottmüller KJ, Neeff HP, Koyama M, Gao Z, Thomas OS, et al.
+Neutrophils provide cellular communication between ileum and mesenteric
+lymph nodes at graft-versus-host disease onset. Blood. 2018;131:1858–69.
+https://doi.org/10.1182/blood-2017-10-812891.
+68. Hülsdünker J, Thomas OS, Haring E, Unger S, Gonzalo Núñez N, Tugues S, et al.
+Immunization against poly-N-acetylglucosamine reduces neutrophil activation
+and GVHD while sparing microbial diversity. Proc Natl Acad Sci USA.
+2019;116:20700–6. https://doi.org/10.1073/pnas.1908549116.
+69. Riwes MM, Golob JL, Magenau J, Shan M, Dick G, Braun T, et al. Feasibility of a
+dietary intervention to modify gut microbial metabolism in patients with
+hematopoietic stem cell transplantation. Nature medicine. 2023;29:2805–13.
+https://doi.org/10.1038/s41591-023-02587-y.
+70. Venkataraman A, Sieber JR, Schmidt AW, Waldron C, Theis KR, Schmidt TM.
+Variable responses of human microbiomes to dietary supplementation with
+resistant starch. Microbiome. 2016;4:33. https://doi.org/10.1186/s40168-016-
+0178-x.
+71. Yoshifuji K, Inamoto K, Kiridoshi Y, Takeshita K, Sasajima S, Shiraishi Y, et al.
+Prebiotics protect against acute graft-versus-host disease and preserve the gut
+microbiota in stem cell transplantation. Blood advances. 2020;4:4607–17. https://
+doi.org/10.1182/bloodadvances.2020002604.
+72. Andersen SPAAPD, Kennedy GA, Banks M, Flanagan BMBP, Henden AS. Prebiotic
+ﬁbre enteral supplementation post allogeneic transplantation; feasibility and
+impact on the microbiome. Blood Adv. 2025. https://doi.org/10.1182/
+bloodadvances.2024015703.
+73. van Nood E, Vrieze A, Nieuwdorp M, Fuentes S, Zoetendal EG, de Vos WM, et al.
+Duodenal infusion of donor feces for recurrent Clostridium difﬁcile. The New Engl
+J Med. 2013;368:407–15. https://doi.org/10.1056/NEJMoa1205037.
+74. Routy B, Jackson T, Mählmann L, Baumgartner CK, Blaser M, Byrd A, et al. Mel-
+anoma and microbiota: Current understanding and future directions. Cancer Cell.
+2024;42:16–34. https://doi.org/10.1016/j.ccell.2023.12.003.
+75. Kakihana K, Fujioka Y, Suda W, Najima Y, Kuwata G, Sasajima S, et al. Fecal
+microbiota transplantation for patients with steroid-resistant acute graft-versus-
+host disease of the gut. Blood. 2016;128:2083–8. https://doi.org/10.1182/blood-
+2016-05-717652.
+76. Malard F, Gaugler B, Mohty M. Faecal microbiota transplantation in patients with
+haematological malignancies undergoing cellular therapies: from translational
+research to routine clinical practice. Lancet. Haematol. 2022;9:e776–e785. https://
+doi.org/10.1016/s2352-3026(22)00223-x.
+77. van Lier YF, Davids M, Haverkate NJE, de Groot PF, Donker ML, Meijer E et al.
+Donor fecal microbiota transplantation ameliorates intestinal graft-versus-host
+disease in allogeneic hematopoietic cell transplant recipients. Science transla-
+tional medicine 2020; 12. https://doi.org/10.1126/scitranslmed.aaz8926
+78. Malard F, Loschi M, Huynh A, Cluzeau T, Guenounou S, Legrand F, et al. Pooled
+allogeneic faecal microbiota MaaT013 for steroid-resistant gastrointestinal acute
+graft-versus-host disease: a single-arm, multicentre phase 2 trial. EClinicalMedi-
+cine. 2023;62:102111. https://doi.org/10.1016/j.eclinm.2023.102111.
+79. DeFilipp Z, Damania AV, Kim HT, Chang CC, El-Jawahri A, McAfee SL, et al. Third-
+party fecal microbiota transplantation for high-risk treatment-naïve acute GVHD
+of the lower GI tract. Blood advances. 2024;8:2074–84. https://doi.org/10.1182/
+bloodadvances.2024012556.
+80. DeFilipp Z, Peled JU, Li S, Mahabamunuge J, Dagher Z, Slingerland AE, et al.
+Third-party fecal microbiota transplantation following allo-HCT reconstitutes
+microbiome diversity. Blood Adv. 2018;2:745–53. https://doi.org/10.1182/
+bloodadvances.2018017731.
+D. Weber et al.
+393
+Bone Marrow Transplantation (2026) 61:385–394

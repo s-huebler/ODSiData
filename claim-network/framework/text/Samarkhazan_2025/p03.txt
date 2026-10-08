@@ -1,0 +1,60 @@
+Soleimani Samarkhazan et al. Journal of Translational Medicine   (2025) 23:832                                        Page 3 of 15
+
+
+
+
+Saccharomyces species, impairing T helper 17 (TH17)-                  responses, particularly in pediatric and adult HSCT
+mediated defenses against Candida overgrowth [15].                    recipients. Schluter et al. (2020) demonstrated that age-
+These interventions create a “vacuum effect,” enabling                dependent immune profiling in HSCT recipients is
+antibiotic-resistant pathogens like vancomycin-resistant              influenced by the gut microbiota, with younger patients
+Enterococcus (VRE) to dominate [16]. A meta-analysis                  exhibiting distinct immune cell dynamics, such as higher
+of 1,362 HSCT recipients revealed that pre-transplant                 baseline frequencies of naïve T cells, which correlate with
+enterococcal dominance increased the risk of grade III-               unique microbial taxa [25]. Similarly, Galloway-Peña et
+IV acute GVHD by 3.2-fold [17].                                       al. (2020) reported age-specific microbial differences,
+  The clinical consequences of pre-transplant dysbiosis               where pediatric patients showed reduced diversity of
+are multifaceted, predisposing patients to opportunistic              butyrate-producing bacteria compared to adults, poten-
+infections and disrupting immune regulation. The loss of              tially increasing susceptibility to GVHD due to impaired
+microbial diversity and overgrowth of pathogenic bacte-               Treg differentiation [9]. These age-related variations
+ria activate pattern recognition receptors (PRRs), such as            underscore the need to consider developmental differ-
+Toll-like receptors (TLRs), on host immune cells, elicit-             ences in microbiome-immune interactions when design-
+ing an exaggerated inflammatory response [18]. This                   ing interventions for GVHD.
+inflammatory cascade amplifies GVHD by enhancing                         The intestinal microbiota’s role in GVHD exhibits
+donor-derived T-cell activation and exacerbating tissue               age-specific patterns, particularly in pediatric patients
+damage in target organs, including the skin, gut, and liver           undergoing allogeneic HSCT, where unique microbial
+[19]. Furthermore, dysbiosis-driven microbial transloca-              and immune dynamics influence disease outcomes. Biagi
+tion into the bloodstream contributes to systemic inflam-             et al. (2015) characterized gut microbiota trajectories in
+mation, sepsis, and poorer transplant outcomes [13].                  pediatric HSCT patients, revealing distinct microbial
+Reduced microbial diversity correlates with increased                 shifts post-transplant, including a decline in Faecalibac-
+intestinal permeability, evidenced by elevated serum lev-             terium and an increase in Proteobacteria, which correlate
+els of citrulline and zonulin [20]promoting endotoxin                 with GVHD severity and prolonged immune reconstitu-
+translocation and systemic inflammation via TLR4/                     tion [26]. These findings highlight the unique susceptibil-
+NF-κB signaling [21]. The depletion of SCFA-producing                 ity of pediatric patients to microbiome-driven GVHD,
+Clostridia also diminishes IL-22 production by innate                 driven by developmental differences in microbial ecology
+lymphoid cells (ILCs), impairing mucosal wound healing                and immune maturation. Tailored interventions, such as
+[22]. Clinically, these disruptions heighten susceptibility           age-specific probiotic regimens or FMT, may mitigate
+to bloodstream infections (BSIs) and non-relapse mor-                 these risks by restoring microbial diversity and promot-
+tality (NRM), with one study reporting a 67% increase in              ing tolerogenic immune responses in this vulnerable
+1-year NRM among patients with pre-HSCT dysbiosis                     population.
+[20].                                                                    The complex microbiome community supports
+  Insights into pre-transplant microbial disruptions                  homeostasis and plays a crucial role in shaping immune
+highlight opportunities for therapeutic intervention.                 responses through several vital mechanisms (Table 2).
+Strategies such as administering Clostridia-enriched                  Commensal microbes directly influence innate immu-
+probiotics or fecal microbiota transplantation (FMT)                  nity through pathogen-associated molecular patterns
+during the pre-transplant period may restore epithelial               (PAMPs) and metabolites. For instance, Bacteroides
+integrity and mitigate GVHD risk [23]. Similarly, narrow-             fragilis-derived polysaccharide A (PSA) activates TLR2
+spectrum antibiotics, such as fidaxomicin for Clostridi-              on dendritic cells (DCs), inducing IL-10 production and
+oides difficile, could preserve commensal diversity while             regulatory macrophage differentiation [27]. Conversely,
+targeting specific pathogens [24]. Future clinical studies            dysbiosis-driven LPS from Escherichia activates TLR4,
+are essential to validate these approaches and elucidate              promoting NLRP3 inflammasome assembly and IL-1β
+their impact on the microbiome-immune axis in HSCT                    release, which drive neutrophil infiltration and muco-
+recipients.                                                           sal damage [28]. Commensal microbes also metabo-
+                                                                      lize dietary fibers and host mucins into SCFAs such as
+The recipient Microbiome and immune function                          butyrate, propionate, and acetate [29]. These SCFAs
+The microbiome of the recipient is the main regulator of              enter the circulation and interfere with immune cell
+immunological homeostasis, therefore influencing both                 activation and pro-inflammatory cytokine production.
+innate and adaptive responses before and during HSCT.                 For instance, butyrate, a keystone metabolite from Clos-
+This balance is upset by dysbiosis, which drives immune               tridia, enhances the phagocytic capacity of neutrophils
+cell numbers toward pro-inflammatory phenotypes,                      by upregulating ROS-generating enzymes like NADPH
+aggravating GVHD. Notably, age-specific differences                   oxidase [30]. SCFAs interact with G-protein-coupled
+in microbiome composition further modulate immune                     receptors (GPCRs) located on macrophages and DCs,
+

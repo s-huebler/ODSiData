@@ -1,0 +1,66 @@
+Review article
+
+
+despite a reduction in microbial diversity. The gut is normally a hypoxic       the researchers identified bacterial taxa that positively and negatively
+environment, and intestinal epithelial cells (IECs) rely on microbial           influence MHC class II expression. Accordingly, mice receiving an oral
+metabolites, such as SCFAs, as their main energy source for oxidative           antibiotic treatment to specifically abrogate MHC class II-inducing
+phosphorylation (OXPHOS)69. However, allogenic T cells can disrupt              bacteria prior to allo-HCT had attenuated GVHD severity, confirm-
+OXPHOS in IECs70, reducing physiological hypoxia in the intestinal              ing the direct involvement of the microbiota. Finally, Koyama et al.77
+lumen and, in turn, suppressing obligate anaerobes while promoting              reported a similar relationship between gut microbiome composi-
+facultative anaerobes68. In the Seike et al.68 study, oral chelation of iron    tion, human leukocyte antigen (HLA) class II expression and GVHD in
+reduced intestinal ambient oxygen levels, alleviated dysbiosis and              a cohort of patients undergoing allo-HCT. These results underscore
+decreased the severity of gastrointestinal GVHD, but did not alter donor        the key regulatory role of the microbiota in modulating alloreactive
+T cell immune responses. Intestinal oxygen levels also impacted GVHD            immune responses during GVHD, independent of genetic factors such
+severity via direct effects on IECs by disrupting hypoxia-inducible             as donor–recipient HLA mismatch, which are traditionally viewed as the
+factor 1α (HIF1α) signalling68, which crucially regulates intestinal            primary drivers of GVHD1,3. Thus, these studies highlight the microbiota
+homeostasis under low oxygen conditions71. Furthermore, IEC-specific            as an additional, non-genetic determinant of disease severity.
+Hif1a-knockout mice showed greater GVHD severity and mortality                        Yeh et al.78 also challenged the prevailing view that GVHD is pri-
+than their wild-type counterparts, despite being co-housed together             marily driven by donor–recipient genetic disparity by demonstrating
+to harmonize their microbiomes. This study provides critical mecha-             that recipient microbiota dictate donor T cell expansion and its role
+nistic insights into how preserving gut hypoxia and restoring microbial         in GVHD severity. Using Bayesian modelling to analyse T cell receptor
+­balance could mitigate GVHD-associated intestinal injury.                      (TCR) clonality across genetically identical donor–recipient pairs,
+                                                                                they identified a subset of donor CD4+ T cell clonotypes that under-
+Interplay between the intestinal microbiome and immune                          went differential expansion despite identical recipient genetics. How-
+cell functions                                                                  ever, these selective T cell expanders were enriched and reduced,
+The immune system is a key player in GVHD pathology via the activation          respectively, in mice with an intact microbiota versus those receiving
+of alloreactive T cells. The complex crosstalk between the gut micro-           broad-spectrum antibiotics. Thus, microbial-derived antigens drive
+biome and the host’s immune system during GVHD has recently been                specific T cell responses. Furthermore, microbiota-specific donor
+reviewed elsewhere14,30,72, and we therefore highlight only a selection         T cells exacerbated GVHD severity when recognizing microbial antigens
+of recent and noteworthy studies here.                                          presented by the gastrointestinal epithelium. To validate the role of
+      Several groups have previously shown that in addition to                  the microbiota in shaping T cell responses, the researchers introduced
+haematopoietic antigen-presenting cells, non-haematopoietic                     transgenic donor T cells specific for known microbial antigens, includ-
+antigen-presenting cells are potent inducers of GVHD73,74. Stephens             ing segmented filamentous bacteria and flagellin-expressing commen-
+et al.75 investigated the role of MHC class II expression on IECs, given        sals. These T cells expanded preferentially in recipients harbouring the
+that IECs form the primary barrier between the gut microbiome and               cognate microorganisms and augmented GVHD-mediated lethality
+the host and were likely to be involved in microbiota-specific immu-            when co-transplanted with alloreactive T cells. Moreover, this study
+nity. Using conditional knockout mice lacking MHC class II expression           found that microbial antigen presentation by gut epithelial cells is
+specifically in IECs, it was shown that IEC-derived MHC class II supports       MHC class II-dependent, further implicating the microbiota in driving
+gut immune homeostasis by increasing levels of microbial-bound                  pathogenic T cell expansion.
+immunoglobulin A, maintaining regulatory T cell (Treg cell) populations               Jarosch et al.79 investigated the relationship between gut micro-
+and shaping gut microbiota composition. This study also revealed                biota composition and T cell responses in GVHD. Using multimodal
+that intestinal mononuclear phagocytes can acquire MHC class II mol-            single-cell immune cell phenotyping of gastrointestinal biopsies com-
+ecules from IECs, suggesting that myeloid–epithelial interactions               bined with microbiome analyses, they found that the severity of aGVHD
+shape the adaptive immune response in the gut. Although this study              and exposure to antibiotics with subsequent dysbiosis were positively
+was not conducted in the context of GVHD, the findings are relevant             associated with clonal enrichment of activated CD8+ T cells and a rela-
+to gastrointestinal GVHD pathology as they suggest that disruption              tive reduction of Treg cells in the gastrointestinal tract. Through analy-
+of IEC function, for instance during damage to the intestinal barrier,          ses of differential gene expression and relative abundance of surface
+may impair local immune regulation and contribute to dysbiosis and              proteins, this study identified a reduced functionality phenotype in
+excessive T cell activation, which is characteristic of GVHD.                   gut-infiltrating Treg cells from patients exposed to antibiotics. Addi-
+      In line with these findings, Koyama et al.76,77 found that MHC class II   tionally, SCFA-producing bacterial taxa, including F. prausnitzii, were
+expression by IECs in the ileum impacts the severity of GVHD, regulated         associated with increased numbers of Treg cells, and these functional
+in part by the microbiota. The researchers showed that germ-free mice           Treg cells were able to reduce the clonal expansion of CD8+ T cells that are
+and mice treated with broad-spectrum antibiotics exhibit reduced MHC            likely to drive GVHD. Finally, the researchers analysed one clinical case
+class II expression and linked dysbiosis during allo-HCT with increased         of steroid-refractory gastrointestinal GVHD with complete response to
+MHC class II expression on IECs, as well as increased donor CD4+ T cell         faecal microbiota transplantation (FMT). Treg cell infiltration into the
+expansion. Furthermore, mice with IEC-specific deletion of MHC class II         gastrointestinal tract of this patient increased after FMT, potentially
+had significantly reduced GVHD-related mortality and T cell expansion           indicating increased interactions between Treg cells and CD8+ T cells.
+in the gut, demonstrating that MHCII+ IECs can induce CD4+-dependent            Overall, this study supports a direct role for gut dysbiosis in immune
+lethal GVHD76. They next showed that genetically identical mice from            dysregulation in GVHD by promoting a pro-inflammatory immune
+different vendors (harbouring different microbiota) had different               environment that exacerbates disease severity.
+expression levels of MHC class II in the ileum, which were positively cor-            Although T cells are clearly the primary inducers of GVHD, evi-
+related with CD4+ T cell-mediated GVHD severity when respective mice            dence from mouse models indicates that ileal neutrophils, which
+served as recipients in preclinical models of allo-HCT77. Furthermore,          reach sites of inflammatory GVHD before T cells do, also interact
+
+
+Nature Reviews Cancer | Volume 26 | May 2026 | 328–350                                                                                                 335
+
