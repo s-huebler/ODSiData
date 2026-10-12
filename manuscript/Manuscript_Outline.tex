@@ -210,7 +210,7 @@ The remainder of the paper is organized as follows. Section~\ref{sec:search} des
 \todoitem{Conceptualization: Criteria required studies that discussed GVHD in the allo-SCT (human) cohort, where GVHD was either a main focus or a set of post-transplant outcomes, and there was some way of measuring the gut microbiome (16S, shotgun, fecal cultures). This was designed to catch reviews and primary human studies, while excluding follow-up investigational studies in murine models.}
 \todoitem{Databases, date range, search strings (full strings in Supplement~\ref{sup:search}).}
 \todoitem{Eligibility criteria for reviews vs.\ primary studies.}
-\todoitem{AI-assisted screening and validation, reported per PRISMA-trAIce (prompts and checklist in Supplement).}
+\todoitem{AI-assisted screening and validation, reported per PRISMA-trAIce (prompts and checklist in Supplement~\ref{sup:traice}).}
 \todoitem{Human full-text eligibility; reasons for exclusion.}
 \todoitem{Classification of included records by design; reviews routed to networks, 16S primaries routed to analytic cohort screening.}
 \todoitem{Report total records identified, deduplicated, screened, included.}
@@ -421,7 +421,7 @@ automated deduplication \\(n~=~\textcolor{red}{837}) \\ and cleaning manually \\
 \label{sec:citation-methods}
 The literature review identified 119 review articles published between xx and 2025. To characterize which primary studies have been most influential in shaping the review literature, we constructed a citation network that links each review to every source it cites, allowing the number of reviews citing each source to be recorded.
 
-The reference lists of all reviews were combined into a single file, and each reference was assigned a persistent identifier through a two stage procedure. A DOI was first extracted directly from the reference text where one was present, and otherwise was retrieved by cross referencing the citation metadata. References for which no DOI could be identified were assigned a PMID or Pxxx instead. References were imported into the Zotero reference manager by identifier, populated through its metadata lookup, and merged and deduplicated using its native functions. The resulting bibliography was exported in BibTeX format and imported into R, where each reference was assigned a unique random identifier and the reference dictionaries were cleaned. Quality control (Supplement xx) corrected references that resolved to Faculty Opinions recommendations rather than to the original article, as well as references with broken links. Citations of preprints that were subsequently published were updated to the published version, whereas citations of conference presentations were retained as cited even when a corresponding publication could be identified.
+The reference lists of all reviews were combined into a single file, and each reference was assigned a persistent identifier through a two stage procedure. A DOI was first extracted directly from the reference text where one was present, and otherwise was retrieved by cross referencing the citation metadata. References for which no DOI could be identified were assigned a PMID or Pxxx instead. References were imported into the Zotero reference manager by identifier, populated through its metadata lookup, and merged and deduplicated using its native functions. The resulting bibliography was exported in BibTeX format and imported into R, where each reference was assigned a unique random identifier and the reference dictionaries were cleaned. Quality control (Supplement~\ref{sup:citation-qc}) corrected references that resolved to Faculty Opinions recommendations rather than to the original article, as well as references with broken links. Citations of preprints that were subsequently published were updated to the published version, whereas citations of conference presentations were retained as cited even when a corresponding publication could be identified.
 
 In total, the 119 reviews cited 5,694 unique sources. The full citation network is available at xxx.
 
@@ -487,7 +487,7 @@ Whereas the citation network records which sources the review literature draws o
 \paragraph{Claim extraction and synthesis.}
 \todoitem{Atomize review statements into subject--relation--outcome units; normalize; cluster into canonical directional claims.}
 \todoitem{Valence (favourable / unfavourable / context); association and causation in either direction treated equivalently. Effort to simplify, no design specification.}
-\todoitem{Concordance between extraction passes (maybe describe in supplement).}
+\todoitem{Concordance between extraction passes (maybe describe in Supplement~\ref{sup:codebook}).}
 
 \paragraph{Taxonomic normalization.}
 \todoitem{GTDB (current release) as taxonomy backbone; claims attached at the rank the review reported. GTDB contains most up to date changes. Claims made in orginal paper that points to outdated classification repointed towards the current classification. }
@@ -497,7 +497,7 @@ Whereas the citation network records which sources the review literature draws o
 \todoitem{Functional groups and therapeutic claims assigned to mechanism bubbles.}
 
 \paragraph{Evidence attribution.}
-\todoitem{Mapping each claim to the cited primary source; evidence type (murine, human observational, clinical trial, unspecified) as edge attribute. See supplemental xx for examples.}
+\todoitem{Mapping each claim to the cited primary source; evidence type (murine, human observational, clinical trial, unspecified) as edge attribute. See Supplement~\ref{sup:codebook} for examples.}
 \todoitem{Relationship to citation network (review $\to$ primary edges are a subgraph; claim nodes come from review content).}
 
 \paragraph{Network assembly and interactive tool.}
@@ -757,6 +757,7 @@ demultiplexing (original) and after trimming and denoising (retained).}
 \todoitem{Likelihood function.}
 \todoitem{Modeling covariates.}
 \todoitem{Use of log DEBIAS-M and rationale.}
+\todoitem{Full model specification and fitting details in Supplement~\ref{sup:debiasm}.}
 \todoitem{Diagnostics: weighted UniFrac ordination and PERMANOVA by study before and after correction (Figure~\ref{fig:seq-batch}C--D).}
 
 \begin{figure}[htbp]
@@ -908,12 +909,11 @@ Taxon & Rank & Network claim & Valence & Pooled estimate \\
 \section{Supplementary Material}
 \label{sec:supplement}
 %=====================================================================
+% Supplement sections are ordered as they are first referenced in the main text.
 \subsection{Full Search Strategy}\label{sup:search} \placeholder{}
-\subsection{PRISMA-ScR Checklist}\label{sup:prisma-scr} \placeholder{}
 \subsection{PRISMA-trAIce Checklist and AI Prompts}\label{sup:traice} \placeholder{}
 \subsection{Citation Network Quality Control}\label{sup:citation-qc} \placeholder{}
-\subsection{Claims Extraction Codebook and Mechanism Framework}\label{sup:codebook} \placeholder{}
-\subsection{Harmonized Metadata Dictionary}\label{sup:dictionary} \placeholder{}
+\subsection{Claims Extraction Codebook and Mechanism Framework}\label{sup:codebook} \placeholder{Codebook, concordance between extraction passes, and examples of evidence attribution.}
 \subsection{GVHD Ascertainment by Study}\label{sup:gvhd}
 \begin{table}[htbp]
 \centering
@@ -939,7 +939,15 @@ Vallet2023         & \tbd & \tbd & \tbd & \tbd \\
 \end{tblr}
 \end{table}
 
+\subsection{Harmonized Metadata Dictionary}\label{sup:dictionary} \placeholder{}
 \subsection{Per-Study Sequence Processing}\label{sup:processing} \placeholder{Adapted from the per-study Processing subsections of AnalysisSubCohort.tex.}
-\subsection{Alpha Rarefaction Curves}\label{sup:rarefaction} \placeholder{}
+
+\subsection{DEBIAS-M Model Details}\label{sup:debiasm}
+\todoitem{Model specification~\cite{Austin2025}.}
+\todoitem{Imputation method.}
+\todoitem{Likelihood function.}
+\todoitem{Modeling covariates.}
+\todoitem{Log DEBIAS-M formulation.}
+\todoitem{Fitting details (software version, hyperparameters, convergence).}
 
 \end{document}
