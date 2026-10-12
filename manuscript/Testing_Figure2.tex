@@ -80,75 +80,74 @@
 
 %-------- IDENTIFICATION --------
 \node[box, fill=blue!8] (id) {Records from database search\\(PubMed, Web of Science)\\(n~=~\textcolor{red}{330 (PubMed) + 993 (Web of Science)})};
-\node[box, fill=blue!8, right=2.4cm of id] (other) {Additional records\\(reference list hand-search)\\(n~=~\textcolor{red}{37})};
+\node[box, fill=blue!8, right=2.4cm of id] (other) {Additional records\\(reference list hand-search)\\(n~=~\textcolor{red}{49})};
 \node[box, below=1.3cm of $(id)!0.5!(other)$] (dedup) {Records after \\
-automated deduplication \\(n~=~\textcolor{red}{837}) \\ and cleaning manually \\ (n~=~\textcolor{red}{657})};
+automated deduplication \\(n~=~\textcolor{red}{839}) \\ and cleaning manually \\ (n~=~\textcolor{red}{668})};
 
 %-------- SCREENING: AI STAGE --------
 \node[aibox, below=1.6cm of dedup] (aiscreen)
     {\textbf{[AI]} Title/abstract screening\\
      Claude [version], prompt v1\\
-     (n~=~\textcolor{red}{481})};
+     (n~=~\textcolor{red}{493})};
 \node[aiexcbox, right=2.6cm of aiscreen] (aiexcl)
     {\textbf{[AI] Excluded}\\
-     (n~=~\textcolor{red}{176})\\
+     (n~=~\textcolor{red}{175})\\
      {\footnotesize Does not meet eligibility\\criteria per AI assessment}};
 \node[notebox, below=0.55cm of aiexcl] (aiperf)
-    {\textbf{AI validation} (10\% sample):\\
-     Sensitivity~=~\textcolor{red}{0.875}\\
-     Specificity~=~\textcolor{red}{1}\\
-     $\kappa$~=~\textcolor{red}{0.737}};
+    {\textbf{Human validation} (10\% sample):\\
+     Sensitivity~=~\textcolor{red}{1}\\
+     Specificity~=~\textcolor{red}{.875}
+     };
 
 %-------- SCREENING: FULL-TEXT REVIEW (AI) --------
 % Placed well below aiscreen so the (tall) exclusion box clears the AI-validation note.
 \node[box, fill=violet!8, below=4.7cm of aiscreen] (humanscreen)
     {\textbf{[AI]} Review of Fulltext includes\\
      + uncertain cases\\
-     (n~=~\textcolor{red}{247 + 78})};
+     (n~=~\textcolor{red}{350})};
 % Top-aligned to its source so the tall box grows downward (no overlap with aiperf).
 \node[excbox, anchor=north west] (humanexcl) at ($(humanscreen.north east)+(0.7,0)$)
     {\textbf{[AI] Excluded}\\
-     (n~=~\textcolor{red}{156})\\
-     {\footnotesize No full text / Conference Abstract / Correction Notice (n~=~\textcolor{red}{13})\\
-     Wrong cohort (n~=~\textcolor{red}{3})\\
-     No GVHD outcome or passing mention (n~=~\textcolor{red}{40})\\
+     (n~=~\textcolor{red}{144})\\
+     {\footnotesize No full text / Conference Abstract / Correction Notice (n~=~\textcolor{red}{16})\\
+     Non GVHD Focus (n~=~\textcolor{red}{18})\\
      Non-Human (n~=~\textcolor{red}{49})\\
-     Unmeasured gut microbiome (n~=~\textcolor{red}{102})}};
+     Unmeasured gut microbiome (n~=~\textcolor{red}{61})}};
 
 %-------- ELIGIBILITY: FULL-TEXT --------
 \node[box, fill=blue!5, below=5.2cm of humanscreen] (elig)
     {\textbf{[Human]} Full-text assessed\\
      for eligibility\\
-     (n~=~\textcolor{red}{267})};
+     (n~=~\textcolor{red}{253})};
 \node[excbox, anchor=north west] (excl2) at ($(elig.north east)+(0.7,0)$)
     {\textbf{[Human] Excluded}\\
-     (n~=~\textcolor{red}{58})\\
+     (n~=~\textcolor{red}{85})\\
      {\footnotesize Extended Abstracts (n~=~\textcolor{red}{23})\\
-     No microbiome measured (n~=~\textcolor{red}{15})\\
+     No microbiome measured (n~=~\textcolor{red}{37})\\
      Study Protocol (n~=~\textcolor{red}{2})\\
-     No GVHD Outcome (n~=~\textcolor{red}{1})\\
+     No GVHD Outcome (n~=~\textcolor{red}{6})\\
      Not English (n~=~\textcolor{red}{17})}};
 
 %-------- INCLUDED --------
 \node[box, fill=green!10, below=1.6cm of elig] (incl)
-    {Studies included in scoping review\\(n~=~\textcolor{red}{267})};
+    {Studies included in scoping review\\(n~=~\textcolor{red}{253})};
 
 %-------- STUDY-DESIGN CATEGORY BOXES --------
 % Seven categories branching from the included pool.
 \node[catbox] (cc)   at ($(incl.south)+(-7.2,-2.1)$) {Case\\Control\\
-     (n~=~\textcolor{red}{8})\\};
+     (n~=~\textcolor{red}{7})\\};
 \node[catbox] (cs)   at ($(incl.south)+(-4.8,-2.1)$) {Case\\Series\\
      (n~=~\textcolor{red}{5})\\};
 \node[catbox] (coh)  at ($(incl.south)+(-2.4,-2.1)$) {Cohort\\
-     (n~=~\textcolor{red}{128})\\};
-\node[catbox] (rct)  at ($(incl.south)+(0,-2.1)$)    {RCT\\
-     (n~=~\textcolor{red}{14})\\};
-\node[catbox] (meta) at ($(incl.south)+(2.4,-2.1)$)  {Meta-\\analysis\\
-     (n~=~\textcolor{red}{6})\\};
-\node[catbox] (oth)  at ($(incl.south)+(4.8,-2.1)$)  {Other\\
-     (n~=~\textcolor{red}{5})\\};
-\node[catbox] (rev)  at ($(incl.south)+(7.2,-2.1)$)  {Reviews\\
      (n~=~\textcolor{red}{100})\\};
+\node[catbox] (rct)  at ($(incl.south)+(0,-2.1)$)    {RCT\\
+     (n~=~\textcolor{red}{13})\\};
+\node[catbox] (meta) at ($(incl.south)+(2.4,-2.1)$)  {Meta-\\analysis\\
+     (n~=~\textcolor{red}{5})\\};
+\node[catbox] (oth)  at ($(incl.south)+(4.8,-2.1)$)  {Other\\
+     (n~=~\textcolor{red}{3})\\};
+\node[catbox] (rev)  at ($(incl.south)+(7.2,-2.1)$)  {Reviews\\
+     (n~=~\textcolor{red}{107})\\};
 
 %-------- DOWNSTREAM RESULT BOXES --------
 % Wide collector under the six primary-study designs.

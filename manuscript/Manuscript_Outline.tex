@@ -176,9 +176,16 @@ A Literature Network and Harmonized 16S Resource\\for Identifying Translational 
 
 
 \subsection*{Aim of this review}
-\todoitem{Many narrative reviews exist which put into perspective the pathways and mechanisms by which the microbiome-gvhd axis operates. There has been a lot of work to contextualize observational findings which can be translated to therapeutic strategies. However, as the body of literature grows, primary evidence that doesn't fit into existing theory may be lost or ignored.}
-\todoitem{We performed a scoping literature review, with a two part objective to analyze reviews as well as primary sources. For the first part of the review specific analysis, we present a citation network which offers a comprehensive cataloged library of work in the field. Further, we present a structured map of which taxa-specific claims rest on which evidence, categorizing the taxa by the suspected mechanism and current step in the suspected pipeline to identify translational gaps, as well as taxa with GVHD related signal that is currently unattributed to any known mechanism to identify knowledge gaps. Next we analyze primary sources of 16S human studies to discuss common study designs and make recommendations on the types of structural decisions that will allow future research to be comparable. We present a harmonized analytic subcohort and a differential abundance metaanalysis to analyze whether the most prominent signals correspond to the most prominent claims, and to see if any unattributable signal is strongly present. }
-\todoitem{Brief roadmap of the paper's sections.}
+
+Narrative reviews of the gut microbiome and GVHD have multiplied alongside the primary literature, and they have been valuable in organizing observational and experimental findings into mechanistic accounts that can guide therapeutic development. Each review, however, necessarily selects which findings to carry forward. As the literature grows, a small set of foundational studies tends to be cited repeatedly, while primary observations that do not fit an established mechanism may be cited rarely or not at all. It is therefore difficult for a reader to determine which taxon level claims rest on independent primary evidence, how far along the therapeutic pipeline that evidence has progressed, and which reported associations remain without a proposed mechanism. A parallel difficulty applies to the primary data themselves, because differences in study design, sampling schedule, and outcome definition limit the extent to which findings can be compared across cohorts.
+
+To address both problems, we conducted a scoping review with two linked objectives. The search was designed to capture review articles on the gut microbiome and GVHD as well as human primary studies that profiled the gut microbiome by 16S rRNA gene sequencing. Because the search returned a large body of review literature (\ph{98} reviews alongside \ph{169} primary studies), we treated the reviews as an object of analysis in their own right rather than as background. From the reviews we constructed two networks. The first is a citation network linking each review to the sources it cites, which serves as a cataloged library of the field and identifies the primary studies on which reviews most often rely. The second is a claims network that takes a subset of the most recent reviews and records each claim made about a specific taxon, the primary evidence attributed to that claim, and the context of that evidence. Claims are organized by the mechanism through which the taxon is proposed to act and by the furthest stage of the therapeutic pipeline that the supporting evidence has reached. This structure exposes two kinds of gaps. Translational gaps are taxa with a proposed mechanism but little evidence beyond association or animal models, and knowledge gaps are taxa with a recurring signal for GVHD that has not been attributed to any mechanism.
+
+From the primary studies we characterized the current design of human 16S studies in GVHD, including the clinical metadata recorded, the definition and grading of GVHD, and the timing of longitudinal sampling, with the aim of identifying design choices that would make future studies comparable. Among these studies we identified those with publicly available sequence data and sample level clinical metadata, and we processed and harmonized them into a single analytic cohort. Using this cohort, we performed a pooled differential abundance meta-analysis to assess whether the taxa most frequently invoked in the claims network show corresponding signal in primary data, and whether taxa with conflicting or unattributed claims show a consistent association with GVHD.
+
+Together these components offer complementary views of a single evidence base. The citation network describes what the field cites, the claims network describes what the field asserts and on what basis, and the harmonized cohort describes what the available primary data show. Considered jointly, they are intended as a tool for identifying where claims have outpaced evidence and where evidence has outpaced theory. The linked library of literature is available at xx, and the harmonized cohort is available at xx for future quantitative work.
+
+The remainder of the paper is organized as follows. Section~\ref{sec:search} describes the search strategy. Sections~\ref{sec:citation} and~\ref{sec:claims} present the citation and claims networks. Section~\ref{sec:primary} summarizes the primary 16S literature, Section~\ref{sec:cohort} describes construction of the analytic cohort, and Section~\ref{sec:da} compares network claims with pooled differential abundance results. Section~\ref{sec:discussion} discusses translational and knowledge gaps, recommendations for study design, and limitations.
 
 % \begin{figure}[htbp]
 % \centering
@@ -198,15 +205,18 @@ A Literature Network and Harmonized 16S Resource\\for Identifying Translational 
 \subsection{Search Strategy}
 \label{sec:search}
 %---------------------------------------------------------------------
-\writingnote{Make explicit that the search had two purposes: (a) capture review papers that feed the citation and claims networks, and (b) capture primary studies with 16S data that could form the analytic cohort.}
-
+\writingnote{Outline two main purposes: (a) capture review papers that feed the citation and claims networks, and (b) capture primary studies with 16S data that could form the analytic cohort.}
+\todoitem{Conceptualization: Criteria required studies that discussed GVHD in the allo-SCT (human) cohort, where GVHD was either a main focus or a set of post-transplant outcomes, and there was some way of measuring the gut microbiome (16S, shotgun, fecal cultures). This was designed to catch reviews and primary human studies, while excluding follow-up investigational studies in murine models.}
 \todoitem{Databases, date range, search strings (full strings in Supplement~\ref{sup:search}).}
 \todoitem{Eligibility criteria for reviews vs.\ primary studies.}
 \todoitem{AI-assisted screening and validation, reported per PRISMA-trAIce (prompts and checklist in Supplement).}
 \todoitem{Human full-text eligibility; reasons for exclusion.}
 \todoitem{Classification of included records by design; reviews routed to networks, 16S primaries routed to analytic cohort screening.}
+\todoitem{Report total records identified, deduplicated, screened, included.}
+\todoitem{Breakdown by study design.}
+\todoitem{Common exclusion reasons.}
+\todoitem{Maybe: mention the 16S vs shotgun ratio in primary studies?}
 
-\placeholder{Note: caption/arrow labels in Fig.~\ref{fig:prisma} still reference ``time-to-GVHD''; update to the current scope when we work on this section.}
 
 % --- Spliced verbatim from Testing_Figure2.tex ---
 %%% FIGURE 1: PRISMA-trAIce MODIFIED FLOW DIAGRAM %%%
@@ -387,20 +397,19 @@ automated deduplication \\(n~=~\textcolor{red}{837}) \\ and cleaning manually \\
 
 \end{tikzpicture}
 }% end resizebox
-\caption{\textbf{PRISMA-trAIce modified flow diagram.}
-Study identification, screening, and inclusion process following PRISMA-ScR guidelines with the PRISMA-trAIce extension for transparent AI reporting.
-Violet nodes represent steps performed by AI (Claude); blue nodes represent human-performed steps.
-The screening stage is split per PRISMA-trAIce requirements: AI exclusions and human exclusions are tracked separately.
-The AI validation box reports screening performance on a random 10\% human gold-standard subsample.
-Numbers to be filled after search and screening are complete.
-Included studies are categorized by design (case--control, case series, cohort, RCT, meta-analysis, other) and reviews; the primary-study designs feed the analytic sub-cohort, which additionally requires time-to-GVHD outcomes and publicly available 16S data, while reviews feed a separate citation-network analysis.}
+\caption{\textbf{PRISMA-trAIce modified flow diagram. Needs to be updated.}
+%Study identification, screening, and inclusion process following PRISMA-ScR guidelines with the PRISMA-trAIce extension for transparent AI reporting.
+%Violet nodes represent steps performed by AI (Claude); blue nodes represent human-performed steps.
+% The screening stage is split per PRISMA-trAIce requirements: AI exclusions and human exclusions are tracked separately.
+% The AI validation box reports screening performance on a random 10\% human gold-standard subsample.
+% Numbers to be filled after search and screening are complete.
+% Included studies are categorized by design (case--control, case series, cohort, RCT, meta-analysis, other) and reviews; the primary-study designs feed the analytic sub-cohort, which additionally requires time-to-GVHD outcomes and publicly available 16S data, while reviews feed a separate citation-network analysis.
+}
 \label{fig:prisma}
 \end{figure}
 % --- end splice ---
 
-\todoitem{Report total records identified, deduplicated, screened, included.}
-\todoitem{Breakdown by study design.}
-\todoitem{Common exclusion reasons.}
+
 
 %---------------------------------------------------------------------
 \subsection{Citation Network}
@@ -409,24 +418,22 @@ Included studies are categorized by design (case--control, case series, cohort, 
 
 \subsubsection{Construction}
 \label{sec:citation-methods}
-\carried
-The literature review included 98 review papers between the years xx and 2025. We sought to determine which papers in the literature were the most impactful on the field by creating a citation network that examined how often each paper was cited.
+The literature review identified 119 review articles published between xx and 2025. To characterize which primary studies have been most influential in shaping the review literature, we constructed a citation network that links each review to every source it cites, allowing the number of reviews citing each source to be recorded.
 
-The references for each review were coalesced into a single document and a 2-stage identification procedure was constructed to extract DOIs directly from the reference or identify them by cross-reference. Papers for which a DOI was not available were identified by PMID or Pxxx. References were then imported into Zotero reference manager by the ID, and the metadata lookup was used. From there, records were merged and deduplicated using the native Zotero capabilities. The full bibliography was exported as a .bib file and imported into R where each reference was given a random id and the dictionaries were cleaned. Quality control steps (see supplement xx) were taken to correct references that pointed towards faculty opinion DOIs or broken links. Citations pointing towards pre-prints that have since been published were updated with the most up to date version of the article. Citations pointing towards conference presentations were not updated even if a resulting publication could be found.
+The reference lists of all reviews were combined into a single file, and each reference was assigned a persistent identifier through a two stage procedure. A DOI was first extracted directly from the reference text where one was present, and otherwise was retrieved by cross referencing the citation metadata. References for which no DOI could be identified were assigned a PMID or Pxxx instead. References were imported into the Zotero reference manager by identifier, populated through its metadata lookup, and merged and deduplicated using its native functions. The resulting bibliography was exported in BibTeX format and imported into R, where each reference was assigned a unique random identifier and the reference dictionaries were cleaned. Quality control (Supplement xx) corrected references that resolved to Faculty Opinions recommendations rather than to the original article, as well as references with broken links. Citations of preprints that were subsequently published were updated to the published version, whereas citations of conference presentations were retained as cited even when a corresponding publication could be identified.
 
-We found 5,694 sources cited across the 98 reviews. The full citation network can be accessed at xxx.
+In total, the 119 reviews cited 5,694 unique sources. The full citation network is available at xxx.
 
-\todoitem{Reconcile Zotero wording with current workflow (corrected R dictionaries as reference source).}
 \todoitem{Define node and edge types; definition of ``times cited'' (number of reviews citing a source).}
-\todoitem{Where the interactive network is hosted.}
+\todoitem{Host interactive network on a github project?}
 
 \begin{figure}[htbp]
 \centering
-\figbox{7cm}{[OPTIONAL] Citation network overview: reviews and cited sources, node size by number of citing reviews, top 10 sources labelled.}
-\caption{\textcolor{red}{[Optional]} Citation network of \placeholder{N} reviews and \placeholder{N} cited sources.}
+\includegraphics[width=0.5\linewidth]{figures/Ex_citation_network.png}
+\caption{\textcolor{red}{Placeholder, will be updated.} Citation network of 119 reviews and 5,694 cited sources.}
 \label{fig:citation}
 \end{figure}
-\choice{Added an optional static citation network figure. A screenshot of the interactive network or a degree distribution plot could also go here.}
+
 
 \subsubsection{Most Cited Sources}
 \label{sec:top10}
