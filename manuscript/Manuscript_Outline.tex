@@ -437,16 +437,19 @@ In total, the 119 reviews cited 5,694 unique sources. The full citation network 
 
 \subsubsection{Most Cited Sources}
 \label{sec:top10}
-\todoitem{Top 10 most cited papers in table \ref{tab:top10}: design, species (human/mouse), central claim, and why each is foundational.}
+\todoitem{Top 10 most cited papers in table \ref{tab:top10}}
+\todoitem{Summarize chronologically: Bekkum has foundational work, Taur \& Jenq \& Peled \& Stein-Thoeringer (all from MSK?) observe strongest evidence towards individual targets, Mathewson demonstrates mechanism in mice (metabolite pathway), then Shono \& Holler investigate anti-biotics and Kakihana investigates FMT. }
 
 
+
+\begin{landscape}
 \begin{table}[htbp]
 \centering
 \caption{The ten primary sources most frequently cited across the 119 included reviews.}
 \label{tab:top10}
 \begin{tblr}{
   width = \linewidth,
-  colspec = {Q[c,m,0.05\linewidth] Q[l,m,0.20\linewidth] Q[c,m,0.10\linewidth] Q[l,m,0.15\linewidth] Q[l,m,0.40\linewidth]},
+  colspec = {Q[c,m,0.05\linewidth] Q[l,m,0.20\linewidth] Q[c,m,0.08\linewidth] Q[l,m,0.20\linewidth] X[l,m]},
   row{1} = {font=\bfseries},
   hline{1,2,Z} = {0.8pt},
   cells = {font=\small},
@@ -464,6 +467,7 @@ Rank & Source & No.\ reviews citing & Design / model & Central finding \\
 10 & Kakihana et al.~\cite{kakihana2016fecal-41c} (2016) & 42 & Human, pilot intervention (n = 4) & Fecal microbiota transplantation produced three complete and one partial response in steroid-resistant or steroid-dependent gut GVHD. \\
 \end{tblr}
 \end{table}
+\end{landscape}
 
 
 
@@ -474,26 +478,25 @@ Rank & Source & No.\ reviews citing & Design / model & Central finding \\
 Whereas the citation network records which sources the review literature draws on, the claims network records what the reviews assert. We selected a subset of recent reviews whose primary focus was the relationship between individual taxa or microbial functional groups and GVHD, and from these we extracted each claim linking a specific taxon or functional group to GVHD. The aim was to identify claims that conflict across reviews, translational gaps where a proposed mechanism has not progressed beyond early evidence, and knowledge gaps where a recurring association has not been attributed to any mechanism.
 
 \subsubsection{Construction}
-\label{sec:claims-methods}
-\writingnote{Network construction is still in progress; fill in once the framework is finalized. The bullets below reflect the current design decisions.}
 
 \paragraph{Source reviews.}
-\todoitem{Selection of the \placeholder{N} taxa-focused reviews; anchor reviews used to define the mechanism framework.}
+\todoitem{Selection of the n taxa-focused reviews; anchor reviews used to define the mechanism framework.}
+\todoitem{\textcolor{red}{Move Current theories of the microbiome-GVHD connection from intro here?}}
 
 \paragraph{Claim extraction and synthesis.}
 \todoitem{Atomize review statements into subject--relation--outcome units; normalize; cluster into canonical directional claims.}
-\todoitem{Valence (favourable / unfavourable / context); association and causation in either direction treated equivalently.}
-\todoitem{Concordance between extraction passes.}
+\todoitem{Valence (favourable / unfavourable / context); association and causation in either direction treated equivalently. Effort to simplify, no design specification.}
+\todoitem{Concordance between extraction passes (maybe describe in supplement).}
 
 \paragraph{Taxonomic normalization.}
-\todoitem{GTDB (current release) as taxonomy backbone; claims attached at the rank the review reported; rationale for GTDB.}
+\todoitem{GTDB (current release) as taxonomy backbone; claims attached at the rank the review reported. GTDB contains most up to date changes. Claims made in orginal paper that points to outdated classification repointed towards the current classification. }
 
 \paragraph{Mechanism framework.}
 \todoitem{Two-level scheme: broad class $\to$ specific mechanism; unattributed group; community state (diversity/dysbiosis) not treated as a mechanism.}
 \todoitem{Functional groups and therapeutic claims assigned to mechanism bubbles.}
 
 \paragraph{Evidence attribution.}
-\todoitem{Mapping each claim to the cited primary source; evidence type (murine, human observational, clinical trial, unspecified) as edge attribute.}
+\todoitem{Mapping each claim to the cited primary source; evidence type (murine, human observational, clinical trial, unspecified) as edge attribute. See supplemental xx for examples.}
 \todoitem{Relationship to citation network (review $\to$ primary edges are a subgraph; claim nodes come from review content).}
 
 \paragraph{Network assembly and interactive tool.}
@@ -501,80 +504,104 @@ Whereas the citation network records which sources the review literature draws o
 
 \subsubsection{Network Views and the Questions They Answer}
 \label{sec:claims-views}
-\carried
-The full interactive network can be found at xx. One use case for the network is to find claims with the most primary evidence (show example of clostridia). This demonstrates well established hypotheses. Alternatively, we can use this network to identify conflicting claims, which show that more study is needed or that differences at lower taxonomic levels might be driving conflicts of evidence.
 
-Another use case for the network is to find primary sources which are often cited in literature reviews. This can be useful in terms of identifying sources of oft-stated claims to gain valuable context. For example, (insert example of perhaps a directional claim or something in mice but not humans).
+The full interactive claims network is available at \ph{URL}. Because each claim is recorded together with its direction, evidence type, mechanism, citing review, and attributed primary source, the network can be filtered and highlighted to address different questions about the literature. Figure~\ref{fig:claims-views} illustrates four such views, and Table~\ref{tab:views} summarizes the setting that produces each view and the question it addresses.
 
-Another use case for the network is to find implementation gaps. By toggling on the mechanism explorer view, we can identify whether some microbial taxa have been explored in depth or are in need of more study.
+The first view displays the taxa at a chosen taxonomic rank together with every claim directed toward them (Figure~\ref{fig:claims-views}A). Taxa that receive many claims of consistent direction from many primary sources correspond to well supported associations that underpin current mechanistic theory. For example, at the class level, claims directed toward Clostridia are almost uniformly protective.
+
+The second view identifies taxa that receive claims of opposing direction (Figure~\ref{fig:claims-views}B). Such conflicts may indicate that further study is needed, that the effect of a taxon depends on context, or that differences at lower taxonomic ranks are obscured when claims are made at a higher rank. Selecting a taxon opens a table of the claims directed toward it, listing the primary source, mechanism, and direction of each claim. For example, \textit{Lactobacillus} have both protective and exacerbating claims attributed to different mechanisms.
+
+The third view filters the network by evidence type (Figure~\ref{fig:claims-views}C). Restricting the display to claims supported by clinical trials shows which taxa have been examined in an interventional setting. Taxa with substantial observational or murine evidence that do not appear in this view represent candidate translational gaps.
+
+The fourth view traces a claim to its primary source (Figure~\ref{fig:claims-views}D). Hovering over an edge displays the attributed primary source, the direction and evidence type of the claim, and the reviews that made it. A claim repeated across many reviews may rest on a single primary study. The exacerbating claim directed toward \textit{Enterococcus}, for example, was attributed to Peled et al.~\cite{peled2020microbiota-644} by each of the \ph{n} reviews that made it.
 
 \begin{table}[htbp]
 \centering
-\caption{Views of the claims network, the toggles that produce them, and the research questions each view addresses.}
+\caption{Views of the claims network, the settings that produce them, and the question each view addresses.}
 \label{tab:views}
 \begin{tblr}{
   width = \linewidth,
-  colspec = {Q[c,m,0.07\linewidth] Q[l,m,0.20\linewidth] Q[l,m,0.30\linewidth] Q[l,m,0.35\linewidth]},
+  colspec = {Q[c,m,0.07\linewidth] Q[l,m,0.18\linewidth] Q[l,m,0.30\linewidth] X[l,m]},
   row{1} = {font=\bfseries},
   hline{1,2,Z} = {0.8pt},
   cells = {font=\small},
 }
-Panel & View & Toggle / highlight & Question answered \\
-A & Evidence weight      & \tbd & Which claims rest on the most primary evidence? \\
-B & Conflicting claims   & \tbd & Which taxa carry claims of opposing valence? \\
-C & Source tracing       & \tbd & Which primary sources underlie frequently repeated claims? \\
-D & Mechanism explorer   & \tbd & Which taxa recur but lack an attributed mechanism or later-stage evidence? \\
+Panel & View & Setting & Question addressed \\
+A & Evidence weight    & Rank set to taxonomic level of interest, all evidence types shown & Which claims rest on the most primary evidence, and how consistent is their direction? \\
+B & Conflicting claims & Taxon selected, claims table opened & Which taxa receive claims of opposing direction, and through which mechanisms? \\
+C & Translational gaps & Evidence filter set to clinical trial & Which taxa have progressed to clinical trials, and which have not? \\
+D & Source tracing     & Hover over an edge & Which primary sources underlie a frequently repeated claim? \\
 \end{tblr}
 \end{table}
 
-\begin{figure}[htbp]
+\begin{figure}[p]
 \centering
-\begin{minipage}[t]{0.49\linewidth}
-  \textbf{A}\\ \figbox{5.5cm}{Evidence weight view\\(e.g.\ Clostridia example)}
+\begin{minipage}[c]{0.40\linewidth}
+  \textbf{A}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/claims_viewA_evidence.png}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.49\linewidth}
-  \textbf{B}\\ \figbox{5.5cm}{Conflicting claims view}
-\end{minipage}\\[0.6em]
-\begin{minipage}[t]{0.49\linewidth}
-  \textbf{C}\\ \figbox{5.5cm}{Source tracing view\\(e.g.\ claim supported only in mice)}
+\begin{minipage}[c]{0.57\linewidth}
+  \textbf{B}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/claims_viewB_conflict.png}
+\end{minipage}\\[1.2em]
+\begin{minipage}[c]{0.46\linewidth}
+  \textbf{C}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/claims_viewC_gaps.png}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.49\linewidth}
-  \textbf{D}\\ \figbox{5.5cm}{Mechanism explorer view\\(translational gaps)}
+\begin{minipage}[c]{0.51\linewidth}
+  \textbf{D}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/claims_viewD_source.png}
 \end{minipage}
 \caption{\textbf{Views of the claims network.}
-\textbf{(A)} \placeholder{panel description}
-\textbf{(B)} \placeholder{panel description}
-\textbf{(C)} \placeholder{panel description}
-\textbf{(D)} \placeholder{panel description}}
+Edge color indicates direction (green, protective; red, exacerbating; grey, context dependent or unspecified).
+\textbf{(A)} Evidence weight. Class level view of all claims; claims directed toward Clostridia are predominantly protective.
+\textbf{(B)} Conflicting claims. Protective and exacerbating claims directed toward \textit{Lactobacillus}, with an excerpt of the claims table showing a protective claim attributed to tryptophan and indole signaling and an exacerbating claim attributed to adaptive T cell responses.
+\textbf{(C)} Translational gaps. Genus level view restricted to claims supported by clinical trials.
+\textbf{(D)} Source tracing. The exacerbating claim directed toward \textit{Enterococcus}, attributed by the citing reviews to Peled et al.\ (2020).}
 \label{fig:claims-views}
 \end{figure}
-\choice{Four panels (A--D) mapped to the four use cases in the draft text, with a companion table linking each panel to its toggle and question. Panel count and the table are easy to change once the views are finalized.}
+
 
 \subsubsection{Claims Discussion}
 \label{sec:claims-discussion}
-\writingnote{Sophie's interpretation of what each view shows. Results-style discussion; the broader interpretation goes in Sec.~\ref{sec:discussion}.}
-\paragraph{Most cited claims.} \todoitem{}
-\paragraph{Conflicting claims.} \todoitem{}
-\paragraph{Frequently cited primary sources.} \todoitem{}
-\paragraph{Implementation gaps.} \todoitem{}
+\writingnote{Interpretation of each view, in the same order as Figure~\ref{fig:claims-views}. Need to decide whether to use this section to explain just how to use the tool and leave interpretation to ~\ref{sec:discussion}, or include specific examples here (currently listed) and write the discussion as the more general case.}
+
+\paragraph{Evidence weight.}
+\todoitem{Clostridia: predominantly protective claims supported by many primary sources.}
+\todoitem{Link to the SCFA and butyrate signaling mechanism (1a); which butyrate producing taxa drive the class level signal and which primary sources support them.}
+\todoitem{Ruminococcaceae.}
+\todoitem{Enterococcaceae.}
+\todoitem{Enterobacteriaceae.}
+
+\paragraph{Conflicting claims.}
+\todoitem{\textit{Lactobacillus}: protective claims (e.g.\ tryptophan and indole signaling, 1c) versus exacerbating claims (e.g.\ adaptive T cell responses, 2b).}
+\todoitem{Possible explanations for the conflict (e.g.\ species or strain differences, GTDB reclassification of \textit{Lactobacillus} into several genera, murine versus human evidence, supplemented versus endogenous taxa).}
+\todoitem{Bacteroidaceae.}
+\todoitem{Akkermansiaceae.}
+
+\paragraph{Translational gaps.}
+\todoitem{Clinical trial evidence: which taxa have been examined in trials and with what result.}
+\todoitem{Human observational evidence: taxa with recurring human associations but no trial evidence.}
+\todoitem{Murine evidence: taxa with mechanistic murine support not yet examined in humans.}
+\todoitem{Unspecified evidence: claims whose evidence type could not be determined from the review.}
+\todoitem{Many more clinical trials exist than appear here; trials of FMT or proprietary consortia without a reported microbial composition could not be attributed to individual taxa and therefore do not appear in this view.}
+
+\paragraph{Source tracing.}
+\todoitem{\textit{Enterococcus}: the exacerbating claim attributed to Peled et al.~\cite{peled2020microbiota-644} across the citing reviews; what Peled 2020 actually reported and how the claim is phrased in the reviews.}
+
 
 
 %=====================================================================
 \section{Primary Sources}
 \label{sec:primary}
 %=====================================================================
-\carried
-We examined each of the xx papers identified in the literature review.
-
-\writingnote{Descriptive synthesis of the 16S primary literature found by the search (all eligible primaries, not only those in the analytic cohort).}
+\writingnote{Descriptive synthesis of the 16S primary literature found by the search (all eligible primaries, not only those in the analytic cohort). Need to decide, do we keep only the primary sources found from the scoping literature review, or do we instead take the primary sources that represent the nodes in the claims network? Currently only planning on discussing what was found in the scoping literature review that I can formalize.}
 
 \subsection{Study Designs}
 \label{sec:primary-design}
 \todoitem{Common study designs (cohort, case--control, RCT substudy, etc.); single vs.\ multi-centre; sample sizes.}
-
-\subsection{Pediatric and Adult Populations}
-\label{sec:primary-age}
 \todoitem{Pediatric vs.\ adult cohorts; how age shapes the microbiome and transplant course.}
+\todoitem{Number of studies measuring using shotgun vs 16S.}
 
 \subsection{Exploratory and Therapeutic Aims}
 \label{sec:primary-aim}
@@ -585,21 +612,13 @@ We examined each of the xx papers identified in the literature review.
 \todoitem{If longitudinal, what was used as baseline (pre-conditioning, admission, day of infusion, donor stool).}
 \todoitem{Sampling frequency and windows relative to transplant.}
 
-\begin{figure}[htbp]
-\centering
-\figbox{6cm}{[OPTIONAL] Landscape of 16S primary studies: e.g.\ design, population, aim, and sampling timepoints relative to day 0, one row per study.}
-\caption{\textcolor{red}{[Optional]} Characteristics of 16S primary studies identified in the literature review.}
-\label{fig:primary}
-\end{figure}
-\choice{Split the four topics from Manuscript.tex Section~3 into subsections and added an optional summary figure.}
-
 
 %=====================================================================
 \section{Analytic Cohort}
 \label{sec:cohort}
 %=====================================================================
-\carried
-We identified an analytic cohort where the 16S samples were available on an open source biorepository and clinical metadata
+\todoitem{We identified an analytic cohort where the 16S samples were available on an open source biorepository and clinical metadata.} 
+\todoitem{Justify 16S?}
 
 \subsection{Inclusion and Exclusion Criteria}
 \label{sec:cohort-criteria}
@@ -637,7 +656,6 @@ Spindelboeck2021   & \tbd & \tbd & \tbd & \tbd \\
 Vallet2023         & \tbd & \tbd & \tbd & \tbd \\
 \end{tblr}
 \end{table}
-\choice{Added a GVHD ascertainment table; could instead be folded into Table~\ref{tab:study_summary} or the Supplement.}
 
 \subsection{Included Studies}
 \label{sec:cohort-studies}
