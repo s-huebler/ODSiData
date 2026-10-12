@@ -99,6 +99,7 @@
   \small\textbf{Writing note:} #1}}\par\medskip}
 \newcommand{\placeholder}[1]{\par\medskip\noindent\colorbox{gray!15}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
   \small\textit{#1}}}\par\medskip}
+\newcommand{\ph}[1]{\textcolor{red}{[#1]}}  % inline placeholder (safe in captions)
 \newcommand{\choice}[1]{\par\noindent\textcolor{magenta!80!black}{\small\textbf{[Outline choice]} #1}\par}
 \newcommand{\carried}{\par\noindent\textcolor{gray}{\small\textit{Carried over from Manuscript.tex (rough draft):}}\par}
 \newcommand{\figbox}[2]{%
@@ -130,7 +131,7 @@ A Literature Network and Harmonized 16S Resource\\for Identifying Translational 
 \todoitem{Search strategy, network construction, harmonization, batch correction, differential abundance.}
 
 \noindent\textbf{Results:}
-\placeholder{N reviews, N cited sources, N claims, N taxa; N studies / N patients / N samples in analytic cohort; key DA findings.}
+\ph{N reviews, N cited sources, N claims, N taxa; N studies / N patients / N samples in analytic cohort; key DA findings.}
 
 \noindent\textbf{Conclusions:}
 \todoitem{We have created a tool for identifying translational gaps; harmonized resource for future work.}
@@ -631,35 +632,13 @@ Edge color indicates direction (green, protective; red, exacerbating; grey, cont
 \todoitem{Acute vs.\ chronic GVHD; timing conventions.}
 \todoitem{Grading systems (e.g.\ Glucksberg, IBMTR, MAGIC, NIH consensus for chronic).}
 \todoitem{Organ involvement (skin, liver, GI; upper vs.\ lower GI).}
-\todoitem{How each cohort reports these and what is lost when harmonizing.}
+\todoitem{How each cohort reports these and what is lost when harmonizing (Supplementary Table~\ref{tab:gvhd-ascertainment}).}
 
-\begin{table}[htbp]
-\centering
-\caption{GVHD ascertainment in each cohort.}
-\label{tab:gvhd-ascertainment}
-\begin{tblr}{
-  width = \linewidth,
-  colspec = {Q[l,m,0.18\linewidth] Q[l,m,0.14\linewidth] Q[l,m,0.18\linewidth] Q[l,m,0.18\linewidth] Q[l,m,0.20\linewidth]},
-  row{1} = {font=\bfseries},
-  hline{1,2,Z} = {0.8pt},
-  cells = {font=\small},
-}
-Study & aGVHD / cGVHD & Grading system & Organ detail & Timing available \\
-Artacho2024        & \tbd & \tbd & \tbd & \tbd \\
-DAmico2019         & \tbd & \tbd & \tbd & \tbd \\
-Fujimoto2024       & \tbd & \tbd & \tbd & \tbd \\
-Ingham2019         & \tbd & \tbd & \tbd & \tbd \\
-Jarosch2023        & \tbd & \tbd & \tbd & \tbd \\
-Liu2017            & \tbd & \tbd & \tbd & \tbd \\
-Simms-Waldrip2017  & \tbd & \tbd & \tbd & \tbd \\
-Spindelboeck2021   & \tbd & \tbd & \tbd & \tbd \\
-Vallet2023         & \tbd & \tbd & \tbd & \tbd \\
-\end{tblr}
-\end{table}
+
 
 \subsection{Included Studies}
 \label{sec:cohort-studies}
-\todoitem{Brief narrative introducing the \placeholder{N} studies, \placeholder{N} patients, \placeholder{N} samples.}
+\todoitem{Brief narrative introducing the \ph{N} studies, \ph{N} patients, \ph{N} samples.}
 \todoitem{Refer to Table~\ref{tab:study_summary} (study summary) and Table~\ref{tab:seq} (sequencing).}
 
 % --- Spliced from AnalysisSubCohort.tex (Table 1), rotated to landscape ---
@@ -748,32 +727,64 @@ demultiplexing (original) and after trimming and denoising (retained).}
 
 \subsection{Metadata Harmonization}
 \label{sec:harmonization}
-\todoitem{Variables harmonized and canonical coding (binary indicators, timepoint bins relative to transplant, outcome triples).}
+\todoitem{Overview: variables harmonized and canonical coding (binary indicators, outcome triples); data dictionary in Supplement~\ref{sup:dictionary}.}
+\todoitem{Timeline: all dates re-expressed as days relative to transplant (day 0 = day of transplant); timepoint bins for samples; how studies reporting only relative days or only bins were handled.}
+\todoitem{Conditioning regimen: intensity (myeloablative, reduced intensity, nonmyeloablative), regimen, TBI, and serotherapy.}
+\todoitem{GVHD prophylaxis: agents recorded and calcineurin inhibitor indicator.}
+\todoitem{Outcomes: acute GVHD (overall, grade, onset day), organ involvement and stage, chronic GVHD, engraftment, survival and relapse, secondary outcomes; coding of the outcome triples (indicator, grade or stage, day relative to transplant).}
 \todoitem{Per-study overrides and decisions where source coding was ambiguous.}
-\todoitem{Missingness by variable and study.}
-\todoitem{Data dictionary in Supplement~\ref{sup:dictionary}.}
-
-\begin{table}[htbp]
-\centering
-\caption{Harmonized clinical metadata variables and their availability across cohorts.}
-\label{tab:harmonized}
-\placeholder{Variable $\times$ study availability grid (e.g.\ age, sex, conditioning intensity, donor type, antibiotics, aGVHD, cGVHD, grade, organ, survival, timepoint).}
-\end{table}
-
-\subsection{Sequence Processing and Batch Correction}
-\label{sec:batch}
-\todoitem{Uniform QIIME2 processing: primer removal, denoising, taxonomy assignment; study-specific deviations (detailed per study in Supplement).}
-\todoitem{Sources of batch effects: platform, hypervariable region, primers, read structure, depth.}
-\todoitem{Batch-correction methods compared (e.g.\ uncorrected, ComBat-seq, DEBIAS-M) and rationale for the final choice.}
-\todoitem{Diagnostics: ordination and PERMANOVA by study before and after correction.}
+\todoitem{Missingness by variable and study (Figure~\ref{fig:missingness}); distinguish variables not recorded by a study from values missing for individual samples.}
 
 \begin{figure}[htbp]
 \centering
-\figbox{6cm}{[OPTIONAL] Batch-correction diagnostics: ordination coloured by study, uncorrected vs.\ corrected, with PERMANOVA $R^2$ annotations.}
-\caption{\textcolor{red}{[Optional]} Effect of batch correction on between-study separation.}
-\label{fig:batch}
+\includegraphics[width=\linewidth]{figures/harmonization_missingness.png}
+\caption{\textbf{Missingness in the harmonized metadata.} Percentage of each study's samples with no value for each harmonized variable, grouped by domain. A cross marks a variable that the study does not record.}
+\label{fig:missingness}
 \end{figure}
-\choice{Sequence processing folded into the batch-correction subsection, since the per-study processing detail lives in the Supplement.}
+
+\subsection{Sequence Processing and Batch Correction}
+\label{sec:batch}
+\todoitem{Uniform QIIME2 processing: primer removal, denoising, taxonomy assignment; study-specific deviations (detailed per study in Supplement~\ref{sup:processing}).}
+\todoitem{Read retention through each processing step by study (Figure~\ref{fig:seq-batch}A).}
+\todoitem{Taxonomic overlap across cohorts at the species level (Figure~\ref{fig:seq-batch}B).}
+\todoitem{Sample selection: how samples were chosen for the analytic dataset (e.g.\ adult versus pediatric split, timepoint window, one sample per patient, minimum read depth).}
+\todoitem{Sources of batch effects: platform, hypervariable region, primers, read structure, depth.}
+
+\subsubsection{Batch Correction with DEBIAS-M}
+\label{sec:debiasm}
+\todoitem{Overview of DEBIAS-M~\cite{Austin2025} and why it suits cross-study 16S data with differing processing pipelines.}
+\todoitem{Imputation method.}
+\todoitem{Likelihood function.}
+\todoitem{Modeling covariates.}
+\todoitem{Use of log DEBIAS-M and rationale.}
+\todoitem{Diagnostics: weighted UniFrac ordination and PERMANOVA by study before and after correction (Figure~\ref{fig:seq-batch}C--D).}
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[t]{\linewidth}
+  \textbf{A}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/seq_read_attrition.png}
+\end{minipage}\\[1em]
+\begin{minipage}[c]{0.30\linewidth}
+  \textbf{B}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/seq_species_tree.png}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.34\linewidth}
+  \textbf{C}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/batch_beta_uncorrected.png}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.34\linewidth}
+  \textbf{D}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/batch_beta_debiasm.png}
+\end{minipage}
+\caption{\textbf{Sequence processing and batch correction.}
+\textbf{(A)} Read counts (log scale) retained at each processing step for each sample, grouped by study.
+\textbf{(B)} Presence of species across cohorts, shown on the taxonomic tree.
+\textbf{(C)} Weighted UniFrac ordination of samples rarefied to 900 reads, before batch correction.
+\textbf{(D)} Weighted UniFrac ordination after DEBIAS-M correction~\cite{Austin2025}.
+PERMANOVA statistics test separation by study.}
+\label{fig:seq-batch}
+\end{figure}
 
 
 %=====================================================================
@@ -826,8 +837,8 @@ Taxon & Rank & Network claim & Valence & Pooled estimate \\
   \textbf{B}\\ \figbox{6cm}{Panel B\\(to be described)}
 \end{minipage}
 \caption{\textbf{Differential abundance in the harmonized cohort compared with network claims.}
-\textbf{(A)} \placeholder{panel description}
-\textbf{(B)} \placeholder{panel description}}
+\textbf{(A)} \ph{panel description}
+\textbf{(B)} \ph{panel description}}
 \label{fig:da}
 \end{figure}
 
@@ -903,6 +914,31 @@ Taxon & Rank & Network claim & Valence & Pooled estimate \\
 \subsection{Citation Network Quality Control}\label{sup:citation-qc} \placeholder{}
 \subsection{Claims Extraction Codebook and Mechanism Framework}\label{sup:codebook} \placeholder{}
 \subsection{Harmonized Metadata Dictionary}\label{sup:dictionary} \placeholder{}
+\subsection{GVHD Ascertainment by Study}\label{sup:gvhd}
+\begin{table}[htbp]
+\centering
+\caption{GVHD ascertainment in each cohort.}
+\label{tab:gvhd-ascertainment}
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[l,m,0.18\linewidth] Q[l,m,0.14\linewidth] Q[l,m,0.18\linewidth] Q[l,m,0.18\linewidth] Q[l,m,0.20\linewidth]},
+  row{1} = {font=\bfseries},
+  hline{1,2,Z} = {0.8pt},
+  cells = {font=\small},
+}
+Study & aGVHD / cGVHD & Grading system & Organ detail & Timing available \\
+Artacho2024        & \tbd & \tbd & \tbd & \tbd \\
+DAmico2019         & \tbd & \tbd & \tbd & \tbd \\
+Fujimoto2024       & \tbd & \tbd & \tbd & \tbd \\
+Ingham2019         & \tbd & \tbd & \tbd & \tbd \\
+Jarosch2023        & \tbd & \tbd & \tbd & \tbd \\
+Liu2017            & \tbd & \tbd & \tbd & \tbd \\
+Simms-Waldrip2017  & \tbd & \tbd & \tbd & \tbd \\
+Spindelboeck2021   & \tbd & \tbd & \tbd & \tbd \\
+Vallet2023         & \tbd & \tbd & \tbd & \tbd \\
+\end{tblr}
+\end{table}
+
 \subsection{Per-Study Sequence Processing}\label{sup:processing} \placeholder{Adapted from the per-study Processing subsections of AnalysisSubCohort.tex.}
 \subsection{Alpha Rarefaction Curves}\label{sup:rarefaction} \placeholder{}
 
