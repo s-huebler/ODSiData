@@ -170,6 +170,7 @@ A Literature Network and Harmonized 16S Resource\\for Identifying Translational 
 \todoitem{Some of these strategies focus on broad community based aspects of the gut microbiome (FMT), but others require a more nuanced understanding of the the role of individual taxa within the gut modulated host response. }
 \todoitem{There are numerous completed and ongoing trials (described in \cite{paredes2026intestinal-400}, \cite{moses2026gut-cdb}). Include brief history according to Moses Figure 3}
 \todoitem{Use Fujimoto \cite{Fujimoto2024} as motivating example for even more targeted/specific interventions. As targeted therapeutics and designer microbiomes/consortia become more feasible, and pre/pro/post biotics continue to be developed, there is appeal in identifying candidate targets from previous literature.}
+\todoitem{Cite Villa2018 \cite{villa2018virotherapy-7ed} for some other therapeutic strategies. }
 
 \subsection*{Microbiome studies}
 \todoitem{Current evidence comes from studies -- Desirable to add work that may be compared to previous studies. Choices on 16S vs metagenomic shotgun; study design (longitudinal); latency.}
@@ -215,7 +216,7 @@ The remainder of the paper is organized as follows. Section~\ref{sec:search} des
 \todoitem{Classification of included records by design; reviews routed to networks, 16S primaries routed to analytic cohort screening.}
 \todoitem{Report total records identified, deduplicated, screened, included.}
 \todoitem{Breakdown by study design.}
-\todoitem{Common exclusion reasons.}
+\todoitem{Common exclusion reasons. (For the unmeasured gut microbiome the main source was therapeutic or prophylactic stragies (including antibiotics and FMT) without directly measuring the gut microbiome. Also mechanism discussion without upstream bacteria discussion. For non human (in human step) all removed because only the mice models had gut microbiome sequenced. For non-GVHD, removed mostly studies with bacteremia outcomes. }
 \todoitem{Maybe: mention the 16S vs shotgun ratio in primary studies?}
 
 
@@ -910,7 +911,136 @@ Taxon & Rank & Network claim & Valence & Pooled estimate \\
 \label{sec:supplement}
 %=====================================================================
 % Supplement sections are ordered as they are first referenced in the main text.
-\subsection{Full Search Strategy}\label{sup:search} \placeholder{}
+\subsection{Full Search Strategy}\label{sup:search} \begingroup
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}p{0.06\linewidth} p{0.88\linewidth}@{}}
+\caption{Full Boolean search queries, line-by-line, for each
+database. Retrieval counts ($n$) to be populated after the search is
+executed. Quotation marks are rendered typographically; transcribe
+as straight double quotes (\texttt{"}) when copying into database
+interfaces. Deduplication across databases was performed in Zotero
+using its built-in rule-based deduplication algorithm (an automated
+tool distinct from the evaluative AI systems documented in
+§\ref{sec:ai_use}).\label{tab:S1}}\\
+\toprule
+\textbf{Line} & \textbf{Query} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l@{}}{\textit{Table S1 continued from previous page.}}\\
+\toprule
+\textbf{Line} & \textbf{Query}\\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{2}{r@{}}{\textit{continued on next page}}\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+% ---- Panel A: PubMed ----
+\multicolumn{2}{@{}p{0.95\linewidth}@{}}{%
+\textbf{Panel A. PubMed/MEDLINE.}~
+Interface: \url{https://pubmed.ncbi.nlm.nih.gov}.~
+Search date: \textcolor{red}{[date, 2026]}.~
+Filters at retrieval: none beyond the human-species restriction
+included as Line~\#5.}\\
+\addlinespace
+
+\#1 & Transplantation type (HSCT / BMT / PBSCT / CBT / SCT).\newline
+``Hematopoietic Stem Cell Transplantation''[Mesh] OR
+``Bone Marrow Transplantation''[Mesh] OR
+``Cord Blood Stem Cell Transplantation''[Mesh] OR
+``hematopoietic stem cell transplant*''[tiab] OR
+``haematopoietic stem cell transplant*''[tiab] OR
+``bone marrow transplant*''[tiab] OR
+``stem cell transplant*''[tiab] OR
+``cord blood transplant*''[tiab] OR
+``peripheral blood stem cell transplant*''[tiab] OR
+HSCT[tiab] OR HCT[tiab] OR BMT[tiab] OR PBSCT[tiab] OR CBT[tiab] OR
+SCT[tiab] OR ``allo-SCT''[tiab] OR ``allo-HSCT''[tiab] OR
+``allo-HCT''[tiab]\\
+
+\#2 & Allogeneic modifier.\newline
+``Transplantation, Homologous''[Mesh] OR allogen*[tiab]\\
+
+\#3 & Gut microbiome concept (C2).\newline
+``Gastrointestinal Microbiome''[Mesh] OR ``Microbiota''[Mesh] OR
+``Metagenomics''[Mesh] OR ``RNA, Ribosomal, 16S''[Mesh] OR
+``Dysbiosis''[Mesh] OR
+microbiom*[tiab] OR microbiota[tiab] OR microflora[tiab] OR
+``microbial communit*''[tiab] OR ``microbial divers*''[tiab] OR
+``microbial compos*''[tiab] OR ``microbial signature*''[tiab] OR
+``microbial profile*''[tiab] OR ``microbial ecolog*''[tiab] OR
+``gut flora''[tiab] OR ``gut bacteri*''[tiab] OR
+``intestinal flora''[tiab] OR ``intestinal bacteri*''[tiab] OR
+``fecal microbi*''[tiab] OR ``faecal microbi*''[tiab] OR
+``stool microbi*''[tiab] OR ``16S rRNA''[tiab] OR
+``16S ribosomal''[tiab] OR metagenom*[tiab] OR dysbiosis[tiab]\\
+
+\#4 & Graft-versus-host disease (C3).\newline
+``Graft vs Host Disease''[Mesh] OR ``graft versus host''[tiab] OR
+``graft vs host''[tiab] OR ``graft-versus-host''[tiab] OR
+GVHD[tiab] OR GvHD[tiab] OR aGVHD[tiab] OR cGVHD[tiab]\\
+
+\#5 & Human-species restriction (C4).\newline
+humans[MeSH]\\
+
+\#6 & \textbf{Final retrieval:} (\#1 AND \#2) AND \#3 AND \#4 AND \#5\\
+
+\addlinespace
+% ---- Panel B: Web of Science ----
+\multicolumn{2}{@{}p{0.95\linewidth}@{}}{%
+\textbf{Panel B. Web of Science Core Collection.}~
+Interface: \url{https://www.webofscience.com}.~
+Database selection: Web of Science Core Collection (all indices
+available to the University of Utah institutional subscription).~
+Search date: \textcolor{red}{[date, 2026]}.~
+Filters at retrieval: none beyond the title-only animal exclusion
+included as Line~\#5.}\\
+\addlinespace
+
+\#1 & Transplantation type (HSCT / BMT / PBSCT / CBT / SCT).\newline
+TS=(``hematopoietic stem cell transplant*'' OR
+``haematopoietic stem cell transplant*'' OR
+``bone marrow transplant*'' OR ``stem cell transplant*'' OR
+``cord blood transplant*'' OR
+``peripheral blood stem cell transplant*'' OR
+HSCT OR HCT OR BMT OR PBSCT OR CBT OR SCT OR
+``allo-SCT'' OR ``allo-HSCT'' OR ``allo-HCT'')\\
+
+\#2 & Allogeneic modifier.\newline
+TS=(allogen*)\\
+
+\#3 & Gut microbiome concept (C2).\newline
+TS=(microbiom* OR microbiota OR microflora OR
+``microbial communit*'' OR ``microbial divers*'' OR
+``microbial compos*'' OR ``microbial signature*'' OR
+``microbial profile*'' OR ``microbial ecolog*'' OR
+``gut flora'' OR ``gut bacteri*'' OR
+``intestinal flora'' OR ``intestinal bacteri*'' OR
+``fecal microbi*'' OR ``faecal microbi*'' OR
+``stool microbi*'' OR ``16S rRNA'' OR ``16S ribosomal'' OR
+metagenom* OR dysbiosis)\\
+
+\#4 & Graft-versus-host disease (C3).\newline
+TS=(``graft versus host'' OR ``graft vs host'' OR
+``graft-versus-host'' OR GVHD OR GvHD OR aGVHD OR cGVHD)\\
+
+\#5 & Title-only animal exclusion (human-species proxy, C4).\newline
+%NOT TI=(mouse OR mice OR murine OR rat OR rats OR ``animal model'')
+TS=(human* OR patient* OR clinical)
+\\
+
+\#6 & \textbf{Final retrieval:} (\#1 AND \#2) AND \#3 AND \#4 AND \#5\\
+
+\end{longtable}
+\endgroup
+
 \subsection{PRISMA-trAIce Checklist and AI Prompts}\label{sup:traice} \placeholder{}
 \subsection{Citation Network Quality Control}\label{sup:citation-qc} \placeholder{}
 \subsection{Claims Extraction Codebook and Mechanism Framework}\label{sup:codebook} \placeholder{Codebook, concordance between extraction passes, and examples of evidence attribution.}
