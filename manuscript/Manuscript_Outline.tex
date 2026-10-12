@@ -437,12 +437,12 @@ In total, the 119 reviews cited 5,694 unique sources. The full citation network 
 
 \subsubsection{Most Cited Sources}
 \label{sec:top10}
-\todoitem{Describe the top 10 most cited papers: design, species (human/mouse), central claim, and why each is foundational.}
-\todoitem{Note any pattern (e.g.\ dominance of a few centres, murine vs.\ human, age of the sources).}
+\todoitem{Top 10 most cited papers in table \ref{tab:top10}: design, species (human/mouse), central claim, and why each is foundational.}
+
 
 \begin{table}[htbp]
 \centering
-\caption{The ten primary sources most frequently cited across the \placeholder{N} included reviews.}
+\caption{The ten primary sources most frequently cited across the 119 included reviews.}
 \label{tab:top10}
 \begin{tblr}{
   width = \linewidth,
@@ -452,26 +452,26 @@ In total, the 119 reviews cited 5,694 unique sources. The full citation network 
   cells = {font=\small},
 }
 Rank & Source & No.\ reviews citing & Design / model & Central finding \\
-1  & Taur 2014              & \tbd & \tbd & \tbd \\
-2  & Jenq 2015              & \tbd & \tbd & \tbd \\
-3  & Mathewson 2016         & \tbd & \tbd & \tbd \\
-4  & Shono 2016             & \tbd & \tbd & \tbd \\
-5  & Holler 2014            & \tbd & \tbd & \tbd \\
-6  & Peled 2020             & \tbd & \tbd & \tbd \\
-7  & Taur 2012              & \tbd & \tbd & \tbd \\
-8  & van Bekkum 1974        & \tbd & \tbd & \tbd \\
-9  & Stein-Thoeringer 2019  & \tbd & \tbd & \tbd \\
-10 & Kakihana 2016          & \tbd & \tbd & \tbd \\
+1 & Taur et al.~\cite{taur2014effects-60e} (2014) & 67 & Human, prospective cohort (n = 80) & Low microbiota diversity at engraftment predicted higher transplant-related mortality (adjusted hazard ratio 5.25). \\
+2 & Jenq et al.~\cite{blautiajenq2015} (2015) & 65 & Human, two-cohort study (n = 115) & Higher \textit{Blautia} abundance was associated with lower GVHD-related mortality (adjusted hazard ratio 0.18). \\
+3 & Mathewson et al.~\cite{mathewson2016gut-463} (2016) & 60 & Murine BMT models (n = \tbd) & Restoring intestinal butyrate improved epithelial integrity and reduced GVHD severity and mortality. \\
+4 & Shono et al.~\cite{shono2016increased-2e3} (2016) & 54 & Human retrospective cohort and mice (n = 857) & Broad-spectrum antibiotics increased 5-year GVHD-related mortality and worsened murine GVHD. \\
+5 & Holler et al.~\cite{holler2014metagenomic-1ae} (2014) & 53 & Human, prospective cohort (n = 31) & Antibiotics and gastrointestinal GVHD were associated with diversity loss and increased \textit{Enterococcus} abundance. \\
+6 & Peled et al.~\cite{peled2020microbiota-644} (2020) & 48 & Human, four-center cohort (n = 1,362) & Higher diversity at engraftment was associated with lower mortality in validation patients (adjusted hazard ratio 0.49). \\
+7 & Taur et al.~\cite{taur2012intestinal-88d} (2012) & 43 & Human, longitudinal cohort (n = 94) & \textit{Enterococcus} domination increased VRE bacteremia ninefold, and Proteobacteria domination increased gram-negative bacteremia fivefold. \\
+8 & van Bekkum et al.~\cite{bekkum1977bone-83a} (1974) & 43 & Murine experimental study (n = \tbd) & Germ-free or colonization-resistant conditions virtually eliminated delayed secondary disease and mortality otherwise reaching 95\%. \\
+9 & Stein-Thoeringer et al.~\cite{steinthoeringer2019lactose-703} (2019) & 42 & Human multicenter cohort and mice (n = 1,325) & Early \textit{Enterococcus} domination predicted more acute GVHD and GVHD-related mortality; lactose restriction reduced murine GVHD. \\
+10 & Kakihana et al.~\cite{kakihana2016fecal-41c} (2016) & 42 & Human, pilot intervention (n = 4) & Fecal microbiota transplantation produced three complete and one partial response in steroid-resistant or steroid-dependent gut GVHD. \\
 \end{tblr}
 \end{table}
-\choice{Top 10 presented as a table using the order listed in Manuscript.tex; confirm ranks and add \textbackslash cite keys.}
+
+
 
 %---------------------------------------------------------------------
 \subsection{Claims Network}
 \label{sec:claims}
 %---------------------------------------------------------------------
-\carried
-Beyond examining citations, we also sought to identify which ideas were most impactful to the field. Specifically, we chose reviews which focused primarily on examining individual microbes or microbial functional groups on GVHD and identified claims about the association between each microbe and GVHD. The goal was to identify potential implementation gaps or conflicting evidence.
+Whereas the citation network records which sources the review literature draws on, the claims network records what the reviews assert. We selected a subset of recent reviews whose primary focus was the relationship between individual taxa or microbial functional groups and GVHD, and from these we extracted each claim linking a specific taxon or functional group to GVHD. The aim was to identify claims that conflict across reviews, translational gaps where a proposed mechanism has not progressed beyond early evidence, and knowledge gaps where a recurring association has not been attributed to any mechanism.
 
 \subsubsection{Construction}
 \label{sec:claims-methods}
