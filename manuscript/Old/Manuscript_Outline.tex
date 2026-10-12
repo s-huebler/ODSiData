@@ -1,0 +1,945 @@
+% =====================================================================
+% Manuscript_Outline.tex
+% Working skeleton for the GVHD microbiome review manuscript (Project 1).
+% Supersedes the structure of ScopingReview_Outline.tex (left untouched).
+% Draft prose from Manuscript.tex has been carried into the matching
+% sections and is marked with a "Carried over" note.
+%
+% Compile with: pdflatex -> biber -> pdflatex -> pdflatex
+%
+% ---------------------------------------------------------------------
+% FIGURE / TABLE MAP (update as panels are designed)
+%   Fig. 1  PRISMA-trAIce flow diagram (from Testing_Figure2.tex)
+%   Fig. 2  Citation network overview                     [optional]
+%   Fig. 3  Claims network views, multipanel (A--D)
+%   Fig. 4  Primary-source landscape summary              [optional]
+%   Fig. 5  Batch-correction diagnostics                  [optional]
+%   Fig. 6  Differential abundance vs. network claims, 2 panels
+%   Tab. 1  Top 10 most-cited primary sources
+%   Tab. 2  Claims-network views and the questions they answer
+%   Tab. 3  Analytic cohort study summary (from AnalysisSubCohort.tex, landscape)
+%   Tab. 4  Sequencing characteristics (from AnalysisSubCohort.tex)
+%   Tab. 5  GVHD ascertainment by study
+%   Tab. 6  Harmonized metadata variables
+%   Tab. 7  Claims tested quantitatively
+% ---------------------------------------------------------------------
+% OUTLINE MACROS
+%   \todoitem{}     blue bullet: content to write
+%   \writingnote{}  yellow box: structural or style guidance
+%   \placeholder{}  grey box: missing number / text / table body
+%   \choice{}       magenta: a structural decision made while drafting
+%                   the outline; confirm or revise, then delete
+%   \figbox{h}{txt} framed empty box standing in for a figure panel
+% =====================================================================
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{tabularray}
+\usepackage{enumitem}
+\usepackage{pdflscape}   % landscape pages (rotated Table 3)
+\usepackage{placeins}    % \FloatBarrier
+\usepackage{xspace}      % required by taxa-dictionary.tex
+
+% ------------------------------------------------------------------
+% Bibliography
+% ------------------------------------------------------------------
+\usepackage[backend=biber, style=numeric, sorting=none, autocite=superscript, maxnames=10]{biblatex}
+\addbibresource{references.bib}
+
+% ------------------------------------------------------------------
+% Hyperlinks (+ pdfcomment for taxon hover tooltips)
+% ------------------------------------------------------------------
+\usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{pdfcomment}
+
+% ------------------------------------------------------------------
+% Taxonomic-rank colors and commands (same as AnalysisSubCohort.tex)
+% ------------------------------------------------------------------
+\definecolor{TaxPhylum}{HTML}{C62828} % red
+\definecolor{TaxClass}{HTML}{EF6C00}  % orange
+\definecolor{TaxOrder}{HTML}{F9A825}  % yellow
+\definecolor{TaxFamily}{HTML}{2E7D32} % green
+\definecolor{TaxGenus}{HTML}{1565C0}  % blue
+\definecolor{TaxSpecies}{HTML}{6A1B9A}% purple
+\newcommand{\taxPhylum}[1]{\textcolor{TaxPhylum}{#1}}
+\newcommand{\taxClass}[1]{\textcolor{TaxClass}{#1}}
+\newcommand{\taxOrder}[1]{\textcolor{TaxOrder}{#1}}
+\newcommand{\taxFamily}[1]{\textcolor{TaxFamily}{#1}}
+\newcommand{\taxGenus}[1]{\textcolor{TaxGenus}{#1}}
+\newcommand{\taxSpecies}[1]{\textcolor{TaxSpecies}{#1}}
+\input{taxa-dictionary}
+% \TaxTooltipsfalse   % uncomment to disable taxon tooltips
+
+\newcommand{\up}{\ensuremath{\uparrow}}
+\newcommand{\down}{\ensuremath{\downarrow}}
+
+% ------------------------------------------------------------------
+% Table helpers (same as AnalysisSubCohort.tex)
+% ------------------------------------------------------------------
+\newcommand{\tbd}{\textcolor{gray}{\emph{[TBD]}}}
+\newcommand{\refcell}[3]{%
+  \shortstack[l]{#1~\cite{#2}\\[2pt]{\scriptsize #3}}%
+}
+
+% ------------------------------------------------------------------
+% Outline-mode commands
+% ------------------------------------------------------------------
+\newcommand{\todoitem}[1]{\par\noindent\textcolor{blue!70!black}{\textbullet~#1}}
+\newcommand{\writingnote}[1]{\par\medskip\noindent\colorbox{yellow!30}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+  \small\textbf{Writing note:} #1}}\par\medskip}
+\newcommand{\placeholder}[1]{\par\medskip\noindent\colorbox{gray!15}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+  \small\textit{#1}}}\par\medskip}
+\newcommand{\ph}[1]{\textcolor{red}{[#1]}}  % inline placeholder (safe in captions)
+\newcommand{\choice}[1]{\par\noindent\textcolor{magenta!80!black}{\small\textbf{[Outline choice]} #1}\par}
+\newcommand{\carried}{\par\noindent\textcolor{gray}{\small\textit{Carried over from Manuscript.tex (rough draft):}}\par}
+\newcommand{\figbox}[2]{%
+  \fbox{\parbox[c][#1][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\centering\small\textit{#2}}}}
+
+\graphicspath{{Bilder/}{figures/}{images/}{../AnalyticCohort/images/}{../AnalyticCohort/}{../AnalyticCohort/Uncorrected/}{../AnalyticCohort/CombatSeq/}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\title{Mapping Claims About the Gut Microbiome and GVHD:\\
+A Literature Network and Harmonized 16S Resource\\for Identifying Translational Gaps}
+\author{Sophie Huebler\thanks{\href{mailto:sophie.huebler@utah.edu}{sophie.huebler@utah.edu}}}
+\date{\today}
+\maketitle
+
+
+\begin{abstract}
+\noindent\textbf{Background:}
+\todoitem{GVHD burden; gut microbiome as modifiable risk factor; growing therapeutic pipeline.}
+
+\noindent\textbf{Objectives:}
+\todoitem{(1) Map the review literature as a citation network and a claims network linking taxa, mechanisms, and evidence type.}
+\todoitem{(2) Describe the 16S primary literature and assemble a harmonized, open analytic cohort.}
+\todoitem{(3) Test whether the most frequently stated claims are reproduced quantitatively in the pooled cohort.}
+
+\noindent\textbf{Methods:}
+\todoitem{Search strategy, network construction, harmonization, batch correction, differential abundance.}
+
+\noindent\textbf{Results:}
+\ph{N reviews, N cited sources, N claims, N taxa; N studies / N patients / N samples in analytic cohort; key DA findings.}
+
+\noindent\textbf{Conclusions:}
+\todoitem{We have created a tool for identifying translational gaps; harmonized resource for future work.}
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+
+%=====================================================================
+\section{Introduction}
+\label{sec:introduction}
+%=====================================================================
+
+\writingnote{Arc: clinical problem $\to$ microbiome link $\to$ current mechanistic theory $\to$ therapeutic pipeline and where microbiome therapeutics currently sit $\to$ the gap this review fills. }
+
+\subsection*{GVHD after allogeneic stem cell transplantation}
+\label{par:intro-gvhd}
+\todoitem{Allo-SCT as curative therapy for hematologic malignancies; statistics on burden of GVHD (mortality and morbidity); \cite{Gratwohl2010} \cite{Ferrara2009} \cite{Gooley2010} \cite{Singh2016}.}
+\todoitem{Acute vs. chronic GVHD; gut as a primary target organ (brief, detailed in Sec.~\ref{sec:gvhd-ascertainment}); graft-vs-host compared to graft-vs-leukemia effect.}
+\todoitem{Incidence figures and current standard prophylaxis/treatment.}
+
+\subsection*{The gut microbiome and GVHD}
+\todoitem{Transplant timeline: preconditioning, conditioning, antibiotics (prophylactic and therapeutic); engraftment.}
+\todoitem{Peri-transplant disruption: conditioning, antibiotics, nutrition, loss of diversity, domination events.}
+\todoitem{Landmark associations (diversity and survival; domination and infection/GVHD) \cite{jenq2012regulation-65d} \cite{taur2015role-b42}, \cite{blautiajenq2015}.}
+
+\subsection*{Current theories of the microbiome--GVHD connection}
+\todoitem{Mechanistic themes that will later define the claims-network mechanism classes (Sec.~\ref{sec:claims-methods}).}
+\todoitem{e.g.\ barrier integrity, metabolite signalling (SCFA, bile acids, indoles), immune tone / Treg balance, pathobiont expansion.}
+\todoitem{Final list to match the broad mechanism classes chosen for the claims network from the anchor reviews \cite{paredes2026intestinal-400}, \cite{samarkhazan2025microbiome-4bd}; \cite{weber2026microbiome-023}; \cite{moses2026gut-cdb}}
+
+
+\subsection*{The therapeutic pipeline}
+\todoitem{Microbiome based therapeutics strategies include decontamination (selective antibiotics and GVHD prophylaxis), pre/pro/postbiotics (individual supplementation), ecosystem restoration (FMT, consortium), nutritional support, and specific elimination of pathobiants \cite{moses2026gut-cdb} \cite{paredes2026intestinal-400} \cite{Fujimoto2024}.}
+\todoitem{Some of these strategies focus on broad community based aspects of the gut microbiome (FMT), but others require a more nuanced understanding of the the role of individual taxa within the gut modulated host response. }
+\todoitem{There are numerous completed and ongoing trials (described in \cite{paredes2026intestinal-400}, \cite{moses2026gut-cdb}). Include brief history according to Moses Figure 3}
+\todoitem{Use Fujimoto \cite{Fujimoto2024} as motivating example for even more targeted/specific interventions. As targeted therapeutics and designer microbiomes/consortia become more feasible, and pre/pro/post biotics continue to be developed, there is appeal in identifying candidate targets from previous literature.}
+
+\subsection*{Microbiome studies}
+\todoitem{Current evidence comes from studies -- Desirable to add work that may be compared to previous studies. Choices on 16S vs metagenomic shotgun; study design (longitudinal); latency.}
+\todoitem{Present the what is baseline question.}
+
+
+\subsection*{Aim of this review}
+
+Narrative reviews of the gut microbiome and GVHD have multiplied alongside the primary literature, and they have been valuable in organizing observational and experimental findings into mechanistic accounts that can guide therapeutic development. Each review, however, necessarily selects which findings to carry forward. As the literature grows, a small set of foundational studies tends to be cited repeatedly, while primary observations that do not fit an established mechanism may be cited rarely or not at all. It is therefore difficult for a reader to determine which taxon level claims rest on independent primary evidence, how far along the therapeutic pipeline that evidence has progressed, and which reported associations remain without a proposed mechanism. A parallel difficulty applies to the primary data themselves, because differences in study design, sampling schedule, and outcome definition limit the extent to which findings can be compared across cohorts.
+
+To address both problems, we conducted a scoping review with two linked objectives. The search was designed to capture review articles on the gut microbiome and GVHD as well as human primary studies that profiled the gut microbiome by 16S rRNA gene sequencing. Because the search returned a large body of review literature (\ph{98} reviews alongside \ph{169} primary studies), we treated the reviews as an object of analysis in their own right rather than as background. From the reviews we constructed two networks. The first is a citation network linking each review to the sources it cites, which serves as a cataloged library of the field and identifies the primary studies on which reviews most often rely. The second is a claims network that takes a subset of the most recent reviews and records each claim made about a specific taxon, the primary evidence attributed to that claim, and the context of that evidence. Claims are organized by the mechanism through which the taxon is proposed to act and by the furthest stage of the therapeutic pipeline that the supporting evidence has reached. This structure exposes two kinds of gaps. Translational gaps are taxa with a proposed mechanism but little evidence beyond association or animal models, and knowledge gaps are taxa with a recurring signal for GVHD that has not been attributed to any mechanism.
+
+From the primary studies we characterized the current design of human 16S studies in GVHD, including the clinical metadata recorded, the definition and grading of GVHD, and the timing of longitudinal sampling, with the aim of identifying design choices that would make future studies comparable. Among these studies we identified those with publicly available sequence data and sample level clinical metadata, and we processed and harmonized them into a single analytic cohort. Using this cohort, we performed a pooled differential abundance meta-analysis to assess whether the taxa most frequently invoked in the claims network show corresponding signal in primary data, and whether taxa with conflicting or unattributed claims show a consistent association with GVHD.
+
+Together these components offer complementary views of a single evidence base. The citation network describes what the field cites, the claims network describes what the field asserts and on what basis, and the harmonized cohort describes what the available primary data show. Considered jointly, they are intended as a tool for identifying where claims have outpaced evidence and where evidence has outpaced theory. The linked library of literature is available at xx, and the harmonized cohort is available at xx for future quantitative work.
+
+The remainder of the paper is organized as follows. Section~\ref{sec:search} describes the search strategy. Sections~\ref{sec:citation} and~\ref{sec:claims} present the citation and claims networks. Section~\ref{sec:primary} summarizes the primary 16S literature, Section~\ref{sec:cohort} describes construction of the analytic cohort, and Section~\ref{sec:da} compares network claims with pooled differential abundance results. Section~\ref{sec:discussion} discusses translational and knowledge gaps, recommendations for study design, and limitations.
+
+% \begin{figure}[htbp]
+% \centering
+% \figbox{6cm}{[OPTIONAL] Conceptual schematic: mechanism classes along the therapeutic pipeline, with example taxa and current therapeutics placed at their pipeline stage.}
+% \caption{\textcolor{red}{[Optional]} Conceptual overview of microbiome--GVHD mechanisms and the therapeutic pipeline.}
+% \label{fig:concept}
+% \end{figure}
+% \choice{Added an optional conceptual intro figure (not requested). Delete if not wanted; figure numbers will shift.}
+
+
+%=====================================================================
+\section{Literature Review}
+\label{sec:litreview}
+%=====================================================================
+
+%---------------------------------------------------------------------
+\subsection{Search Strategy}
+\label{sec:search}
+%---------------------------------------------------------------------
+\writingnote{Outline two main purposes: (a) capture review papers that feed the citation and claims networks, and (b) capture primary studies with 16S data that could form the analytic cohort.}
+\todoitem{Conceptualization: Criteria required studies that discussed GVHD in the allo-SCT (human) cohort, where GVHD was either a main focus or a set of post-transplant outcomes, and there was some way of measuring the gut microbiome (16S, shotgun, fecal cultures). This was designed to catch reviews and primary human studies, while excluding follow-up investigational studies in murine models.}
+\todoitem{Databases, date range, search strings (full strings in Supplement~\ref{sup:search}).}
+\todoitem{Eligibility criteria for reviews vs.\ primary studies.}
+\todoitem{AI-assisted screening and validation, reported per PRISMA-trAIce (prompts and checklist in Supplement).}
+\todoitem{Human full-text eligibility; reasons for exclusion.}
+\todoitem{Classification of included records by design; reviews routed to networks, 16S primaries routed to analytic cohort screening.}
+\todoitem{Report total records identified, deduplicated, screened, included.}
+\todoitem{Breakdown by study design.}
+\todoitem{Common exclusion reasons.}
+\todoitem{Maybe: mention the 16S vs shotgun ratio in primary studies?}
+
+
+% --- Spliced verbatim from Testing_Figure2.tex ---
+%%% FIGURE 1: PRISMA-trAIce MODIFIED FLOW DIAGRAM %%%
+% Modified per PRISMA-trAIce (2025): AI exclusions and human exclusions tracked separately.
+% AI steps shown in purple/violet; human steps in standard blue/green.
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    % Standard PRISMA boxes (human decisions)
+    box/.style={rectangle, draw=black!70, thick, rounded corners=3pt,
+                text width=5.2cm, minimum height=1.3cm, align=center, font=\small},
+    % AI-step boxes (violet border, light fill)
+    aibox/.style={rectangle, draw=violet!80, thick, rounded corners=3pt,
+                  text width=5.2cm, minimum height=1.3cm, align=center,
+                  font=\small, fill=violet!8},
+    % Exclusion side-boxes
+    excbox/.style={rectangle, draw=gray!60, thick, rounded corners=3pt,
+                   text width=4.2cm, minimum height=1.1cm, align=center,
+                   font=\small, fill=gray!8},
+    % AI exclusion side-boxes (violet)
+    aiexcbox/.style={rectangle, draw=violet!60, thick, rounded corners=3pt,
+                     text width=4.2cm, minimum height=1.1cm, align=center,
+                     font=\small, fill=violet!8},
+    % Performance note box
+    notebox/.style={rectangle, draw=violet!50, dashed, rounded corners=3pt,
+                    text width=4.5cm, align=center, font=\footnotesize,
+                    fill=violet!5},
+    % Study-design category boxes
+    catbox/.style={rectangle, draw=black!70, thick, rounded corners=3pt,
+                   text width=1.8cm, minimum height=1.2cm, align=center,
+                   font=\footnotesize, fill=green!12},
+    % Downstream result boxes
+    resultbox/.style={rectangle, draw=black!70, thick, rounded corners=3pt,
+                      minimum height=1.2cm, align=center, font=\small,
+                      fill=green!30},
+    arrow/.style={-{Stealth[length=2.8mm]}, thick, black!70},
+    aiarrow/.style={-{Stealth[length=2.8mm]}, thick, violet!70},
+    node distance=1.3cm
+]
+
+%-------- IDENTIFICATION --------
+\node[box, fill=blue!8] (id) {Records from database search\\(PubMed, Web of Science)\\(n~=~\textcolor{red}{330 (PubMed) + 993 (Web of Science)})};
+\node[box, fill=blue!8, right=2.4cm of id] (other) {Additional records\\(reference list hand-search)\\(n~=~\textcolor{red}{37})};
+\node[box, below=1.3cm of $(id)!0.5!(other)$] (dedup) {Records after \\
+automated deduplication \\(n~=~\textcolor{red}{837}) \\ and cleaning manually \\ (n~=~\textcolor{red}{657})};
+
+%-------- SCREENING: AI STAGE --------
+\node[aibox, below=1.6cm of dedup] (aiscreen)
+    {\textbf{[AI]} Title/abstract screening\\
+     Claude [version], prompt v1\\
+     (n~=~\textcolor{red}{481})};
+\node[aiexcbox, right=2.6cm of aiscreen] (aiexcl)
+    {\textbf{[AI] Excluded}\\
+     (n~=~\textcolor{red}{176})\\
+     {\footnotesize Does not meet eligibility\\criteria per AI assessment}};
+\node[notebox, below=0.55cm of aiexcl] (aiperf)
+    {\textbf{AI validation} (10\% sample):\\
+     Sensitivity~=~\textcolor{red}{0.875}\\
+     Specificity~=~\textcolor{red}{1}\\
+     $\kappa$~=~\textcolor{red}{0.737}};
+
+%-------- SCREENING: FULL-TEXT REVIEW (AI) --------
+% Placed well below aiscreen so the (tall) exclusion box clears the AI-validation note.
+\node[box, fill=violet!8, below=4.7cm of aiscreen] (humanscreen)
+    {\textbf{[AI]} Review of Fulltext includes\\
+     + uncertain cases\\
+     (n~=~\textcolor{red}{247 + 78})};
+% Top-aligned to its source so the tall box grows downward (no overlap with aiperf).
+\node[excbox, anchor=north west] (humanexcl) at ($(humanscreen.north east)+(0.7,0)$)
+    {\textbf{[AI] Excluded}\\
+     (n~=~\textcolor{red}{156})\\
+     {\footnotesize No full text / Conference Abstract / Correction Notice (n~=~\textcolor{red}{13})\\
+     Wrong cohort (n~=~\textcolor{red}{3})\\
+     No GVHD outcome or passing mention (n~=~\textcolor{red}{40})\\
+     Non-Human (n~=~\textcolor{red}{49})\\
+     Unmeasured gut microbiome (n~=~\textcolor{red}{102})}};
+
+%-------- ELIGIBILITY: FULL-TEXT --------
+\node[box, fill=blue!5, below=5.2cm of humanscreen] (elig)
+    {\textbf{[Human]} Full-text assessed\\
+     for eligibility\\
+     (n~=~\textcolor{red}{267})};
+\node[excbox, anchor=north west] (excl2) at ($(elig.north east)+(0.7,0)$)
+    {\textbf{[Human] Excluded}\\
+     (n~=~\textcolor{red}{58})\\
+     {\footnotesize Extended Abstracts (n~=~\textcolor{red}{23})\\
+     No microbiome measured (n~=~\textcolor{red}{15})\\
+     Study Protocol (n~=~\textcolor{red}{2})\\
+     No GVHD Outcome (n~=~\textcolor{red}{1})\\
+     Not English (n~=~\textcolor{red}{17})}};
+
+%-------- INCLUDED --------
+\node[box, fill=green!10, below=1.6cm of elig] (incl)
+    {Studies included in scoping review\\(n~=~\textcolor{red}{267})};
+
+%-------- STUDY-DESIGN CATEGORY BOXES --------
+% Seven categories branching from the included pool.
+\node[catbox] (cc)   at ($(incl.south)+(-7.2,-2.1)$) {Case\\Control\\
+     (n~=~\textcolor{red}{8})\\};
+\node[catbox] (cs)   at ($(incl.south)+(-4.8,-2.1)$) {Case\\Series\\
+     (n~=~\textcolor{red}{5})\\};
+\node[catbox] (coh)  at ($(incl.south)+(-2.4,-2.1)$) {Cohort\\
+     (n~=~\textcolor{red}{128})\\};
+\node[catbox] (rct)  at ($(incl.south)+(0,-2.1)$)    {RCT\\
+     (n~=~\textcolor{red}{14})\\};
+\node[catbox] (meta) at ($(incl.south)+(2.4,-2.1)$)  {Meta-\\analysis\\
+     (n~=~\textcolor{red}{6})\\};
+\node[catbox] (oth)  at ($(incl.south)+(4.8,-2.1)$)  {Other\\
+     (n~=~\textcolor{red}{5})\\};
+\node[catbox] (rev)  at ($(incl.south)+(7.2,-2.1)$)  {Reviews\\
+     (n~=~\textcolor{red}{100})\\};
+
+%-------- DOWNSTREAM RESULT BOXES --------
+% Wide collector under the six primary-study designs.
+\node[resultbox, text width=13cm] (sub)
+    at ($(incl.south)+(-1.2,-4.8)$) {Analytic sub-cohort\\(n~=~\textcolor{red}{??} studies, \textcolor{red}{??} patients)};
+% Citation network sits under Reviews only.
+\node[resultbox, text width=1.8cm] (cite)
+    at ($(incl.south)+(7.2,-4.8)$) {Citation\\network};
+
+%-------- ARROWS: main flow --------
+\draw[arrow]   (id)          -- (dedup);
+\draw[arrow]   (other)       -- (dedup);
+\draw[arrow]   (dedup)       -- (aiscreen);
+\draw[aiarrow] (aiscreen)    -- (humanscreen);
+\draw[arrow]   (humanscreen) -- (elig);
+\draw[arrow]   (elig)        -- (incl);
+
+%-------- ARROWS: exclusions --------
+% Horizontal '-|' routing keeps the arrows level with their source node, so none
+% cuts through the AI-validation note or any neighbouring box.
+\draw[aiarrow] (aiscreen.east)    -- (aiscreen.east -| aiexcl.west);
+\draw[arrow]   (aiexcl)           -- (aiperf);
+\draw[arrow]   (humanscreen.east) -- (humanscreen.east -| humanexcl.west);
+\draw[arrow]   (elig.east)        -- (elig.east -| excl2.west);
+
+%-------- ARROWS: included -> categories --------
+\draw[arrow] (incl.south) -- (cc.north);
+\draw[arrow] (incl.south) -- (cs.north);
+\draw[arrow] (incl.south) -- (coh.north);
+\draw[arrow] (incl.south) -- (rct.north);
+\draw[arrow] (incl.south) -- (meta.north);
+\draw[arrow] (incl.south) -- (oth.north);
+\draw[arrow] (incl.south) -- (rev.north);
+
+%-------- ARROWS: categories -> downstream --------
+\draw[arrow] (cc.south)   -- (cc.south   |- sub.north);
+\draw[arrow] (cs.south)   -- (cs.south   |- sub.north);
+\draw[arrow] (coh.south)  -- (coh.south  |- sub.north);
+\draw[arrow] (rct.south)  -- (rct.south  |- sub.north);
+\draw[arrow] (meta.south) -- (meta.south |- sub.north);
+\draw[arrow] (oth.south)  -- (oth.south  |- sub.north);
+\draw[arrow] (rev.south)  -- (cite.north);
+
+%-------- PHASE LABELS --------
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60]
+    at ($(id.west)+(-1.5,0)$)          {Identification};
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=violet!70]
+    at ($(aiscreen.west)+(-1.5,0)$)    {AI Screening};
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60]
+    at ($(humanscreen.west)+(-1.5,0)$) {Human Screening};
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60]
+    at ($(elig.west)+(-1.5,0)$)        {Eligibility};
+\node[rotate=90, anchor=south, font=\footnotesize\bfseries, text=blue!60]
+    at ($(incl.west)+(-1.5,0)$)        {Included};
+
+%-------- LEGEND --------
+% Moved to the clear space at the top-right of the diagram.
+\node[box, fill=violet!8, draw=violet!80, text width=3.2cm, minimum height=0.7cm,
+      font=\footnotesize, anchor=north west] (leg_ai)
+    at ($(other.north east)+(1.0,0)$)
+    {\textcolor{violet}{$\blacksquare$} AI-performed step};
+\node[box, fill=blue!5, draw=black!70, text width=3.2cm, minimum height=0.7cm,
+      font=\footnotesize, anchor=north west]
+    at ($(leg_ai.south west)+(0,-0.15)$)
+    {$\square$ Human-performed step};
+
+\end{tikzpicture}
+}% end resizebox
+\caption{\textbf{PRISMA-trAIce modified flow diagram. Needs to be updated.}
+%Study identification, screening, and inclusion process following PRISMA-ScR guidelines with the PRISMA-trAIce extension for transparent AI reporting.
+%Violet nodes represent steps performed by AI (Claude); blue nodes represent human-performed steps.
+% The screening stage is split per PRISMA-trAIce requirements: AI exclusions and human exclusions are tracked separately.
+% The AI validation box reports screening performance on a random 10\% human gold-standard subsample.
+% Numbers to be filled after search and screening are complete.
+% Included studies are categorized by design (case--control, case series, cohort, RCT, meta-analysis, other) and reviews; the primary-study designs feed the analytic sub-cohort, which additionally requires time-to-GVHD outcomes and publicly available 16S data, while reviews feed a separate citation-network analysis.
+}
+\label{fig:prisma}
+\end{figure}
+% --- end splice ---
+
+
+
+%---------------------------------------------------------------------
+\subsection{Citation Network}
+\label{sec:citation}
+%---------------------------------------------------------------------
+
+\subsubsection{Construction}
+\label{sec:citation-methods}
+The literature review identified 119 review articles published between xx and 2025. To characterize which primary studies have been most influential in shaping the review literature, we constructed a citation network that links each review to every source it cites, allowing the number of reviews citing each source to be recorded.
+
+The reference lists of all reviews were combined into a single file, and each reference was assigned a persistent identifier through a two stage procedure. A DOI was first extracted directly from the reference text where one was present, and otherwise was retrieved by cross referencing the citation metadata. References for which no DOI could be identified were assigned a PMID or Pxxx instead. References were imported into the Zotero reference manager by identifier, populated through its metadata lookup, and merged and deduplicated using its native functions. The resulting bibliography was exported in BibTeX format and imported into R, where each reference was assigned a unique random identifier and the reference dictionaries were cleaned. Quality control (Supplement xx) corrected references that resolved to Faculty Opinions recommendations rather than to the original article, as well as references with broken links. Citations of preprints that were subsequently published were updated to the published version, whereas citations of conference presentations were retained as cited even when a corresponding publication could be identified.
+
+In total, the 119 reviews cited 5,694 unique sources. The full citation network is available at xxx.
+
+\todoitem{Define node and edge types; definition of ``times cited'' (number of reviews citing a source).}
+\todoitem{Host interactive network on a github project?}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\linewidth]{figures/Ex_citation_network.png}
+\caption{\textcolor{red}{Placeholder, will be updated.} Citation network of 119 reviews and 5,694 cited sources.}
+\label{fig:citation}
+\end{figure}
+
+
+\subsubsection{Most Cited Sources}
+\label{sec:top10}
+\todoitem{Top 10 most cited papers in table \ref{tab:top10}}
+\todoitem{Summarize chronologically: Bekkum has foundational work, Taur \& Jenq \& Peled \& Stein-Thoeringer (all from MSK?) observe strongest evidence towards individual targets, Mathewson demonstrates mechanism in mice (metabolite pathway), then Shono \& Holler investigate anti-biotics and Kakihana investigates FMT. }
+
+
+
+\begin{landscape}
+\begin{table}[htbp]
+\centering
+\caption{The ten primary sources most frequently cited across the 119 included reviews.}
+\label{tab:top10}
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[c,m,0.05\linewidth] Q[l,m,0.20\linewidth] Q[c,m,0.08\linewidth] Q[l,m,0.20\linewidth] X[l,m]},
+  row{1} = {font=\bfseries},
+  hline{1,2,Z} = {0.8pt},
+  cells = {font=\small},
+}
+Rank & Source & No.\ reviews citing & Design / model & Central finding \\
+1 & Taur et al.~\cite{taur2014effects-60e} (2014) & 67 & Human, prospective cohort (n = 80) & Low microbiota diversity at engraftment predicted higher transplant-related mortality (adjusted hazard ratio 5.25). \\
+2 & Jenq et al.~\cite{blautiajenq2015} (2015) & 65 & Human, two-cohort study (n = 115) & Higher \textit{Blautia} abundance was associated with lower GVHD-related mortality (adjusted hazard ratio 0.18). \\
+3 & Mathewson et al.~\cite{mathewson2016gut-463} (2016) & 60 & Murine BMT models (n = \tbd) & Restoring intestinal butyrate improved epithelial integrity and reduced GVHD severity and mortality. \\
+4 & Shono et al.~\cite{shono2016increased-2e3} (2016) & 54 & Human retrospective cohort and mice (n = 857) & Broad-spectrum antibiotics increased 5-year GVHD-related mortality and worsened murine GVHD. \\
+5 & Holler et al.~\cite{holler2014metagenomic-1ae} (2014) & 53 & Human, prospective cohort (n = 31) & Antibiotics and gastrointestinal GVHD were associated with diversity loss and increased \textit{Enterococcus} abundance. \\
+6 & Peled et al.~\cite{peled2020microbiota-644} (2020) & 48 & Human, four-center cohort (n = 1,362) & Higher diversity at engraftment was associated with lower mortality in validation patients (adjusted hazard ratio 0.49). \\
+7 & Taur et al.~\cite{taur2012intestinal-88d} (2012) & 43 & Human, longitudinal cohort (n = 94) & \textit{Enterococcus} domination increased VRE bacteremia ninefold, and Proteobacteria domination increased gram-negative bacteremia fivefold. \\
+8 & van Bekkum et al.~\cite{bekkum1977bone-83a} (1974) & 43 & Murine experimental study (n = \tbd) & Germ-free or colonization-resistant conditions virtually eliminated delayed secondary disease and mortality otherwise reaching 95\%. \\
+9 & Stein-Thoeringer et al.~\cite{steinthoeringer2019lactose-703} (2019) & 42 & Human multicenter cohort and mice (n = 1,325) & Early \textit{Enterococcus} domination predicted more acute GVHD and GVHD-related mortality; lactose restriction reduced murine GVHD. \\
+10 & Kakihana et al.~\cite{kakihana2016fecal-41c} (2016) & 42 & Human, pilot intervention (n = 4) & Fecal microbiota transplantation produced three complete and one partial response in steroid-resistant or steroid-dependent gut GVHD. \\
+\end{tblr}
+\end{table}
+\end{landscape}
+
+
+
+%---------------------------------------------------------------------
+\subsection{Claims Network}
+\label{sec:claims}
+%---------------------------------------------------------------------
+Whereas the citation network records which sources the review literature draws on, the claims network records what the reviews assert. We selected a subset of recent reviews whose primary focus was the relationship between individual taxa or microbial functional groups and GVHD, and from these we extracted each claim linking a specific taxon or functional group to GVHD. The aim was to identify claims that conflict across reviews, translational gaps where a proposed mechanism has not progressed beyond early evidence, and knowledge gaps where a recurring association has not been attributed to any mechanism.
+
+\subsubsection{Construction}
+
+\paragraph{Source reviews.}
+\todoitem{Selection of the n taxa-focused reviews; anchor reviews used to define the mechanism framework.}
+\todoitem{\textcolor{red}{Move Current theories of the microbiome-GVHD connection from intro here?}}
+
+\paragraph{Claim extraction and synthesis.}
+\todoitem{Atomize review statements into subject--relation--outcome units; normalize; cluster into canonical directional claims.}
+\todoitem{Valence (favourable / unfavourable / context); association and causation in either direction treated equivalently. Effort to simplify, no design specification.}
+\todoitem{Concordance between extraction passes (maybe describe in supplement).}
+
+\paragraph{Taxonomic normalization.}
+\todoitem{GTDB (current release) as taxonomy backbone; claims attached at the rank the review reported. GTDB contains most up to date changes. Claims made in orginal paper that points to outdated classification repointed towards the current classification. }
+
+\paragraph{Mechanism framework.}
+\todoitem{Two-level scheme: broad class $\to$ specific mechanism; unattributed group; community state (diversity/dysbiosis) not treated as a mechanism.}
+\todoitem{Functional groups and therapeutic claims assigned to mechanism bubbles.}
+
+\paragraph{Evidence attribution.}
+\todoitem{Mapping each claim to the cited primary source; evidence type (murine, human observational, clinical trial, unspecified) as edge attribute. See supplemental xx for examples.}
+\todoitem{Relationship to citation network (review $\to$ primary edges are a subgraph; claim nodes come from review content).}
+
+\paragraph{Network assembly and interactive tool.}
+\todoitem{Software, layout rules (higher taxonomic ranks further out), hosting and access.}
+
+\subsubsection{Network Views and the Questions They Answer}
+\label{sec:claims-views}
+
+The full interactive claims network is available at \ph{URL}. Because each claim is recorded together with its direction, evidence type, mechanism, citing review, and attributed primary source, the network can be filtered and highlighted to address different questions about the literature. Figure~\ref{fig:claims-views} illustrates four such views, and Table~\ref{tab:views} summarizes the setting that produces each view and the question it addresses.
+
+The first view displays the taxa at a chosen taxonomic rank together with every claim directed toward them (Figure~\ref{fig:claims-views}A). Taxa that receive many claims of consistent direction from many primary sources correspond to well supported associations that underpin current mechanistic theory. For example, at the class level, claims directed toward Clostridia are almost uniformly protective.
+
+The second view identifies taxa that receive claims of opposing direction (Figure~\ref{fig:claims-views}B). Such conflicts may indicate that further study is needed, that the effect of a taxon depends on context, or that differences at lower taxonomic ranks are obscured when claims are made at a higher rank. Selecting a taxon opens a table of the claims directed toward it, listing the primary source, mechanism, and direction of each claim. For example, \textit{Lactobacillus} have both protective and exacerbating claims attributed to different mechanisms.
+
+The third view filters the network by evidence type (Figure~\ref{fig:claims-views}C). Restricting the display to claims supported by clinical trials shows which taxa have been examined in an interventional setting. Taxa with substantial observational or murine evidence that do not appear in this view represent candidate translational gaps.
+
+The fourth view traces a claim to its primary source (Figure~\ref{fig:claims-views}D). Hovering over an edge displays the attributed primary source, the direction and evidence type of the claim, and the reviews that made it. A claim repeated across many reviews may rest on a single primary study. The exacerbating claim directed toward \textit{Enterococcus}, for example, was attributed to Peled et al.~\cite{peled2020microbiota-644} by each of the \ph{n} reviews that made it.
+
+\begin{table}[htbp]
+\centering
+\caption{Views of the claims network, the settings that produce them, and the question each view addresses.}
+\label{tab:views}
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[c,m,0.07\linewidth] Q[l,m,0.18\linewidth] Q[l,m,0.30\linewidth] X[l,m]},
+  row{1} = {font=\bfseries},
+  hline{1,2,Z} = {0.8pt},
+  cells = {font=\small},
+}
+Panel & View & Setting & Question addressed \\
+A & Evidence weight    & Rank set to taxonomic level of interest, all evidence types shown & Which claims rest on the most primary evidence, and how consistent is their direction? \\
+B & Conflicting claims & Taxon selected, claims table opened & Which taxa receive claims of opposing direction, and through which mechanisms? \\
+C & Translational gaps & Evidence filter set to clinical trial & Which taxa have progressed to clinical trials, and which have not? \\
+D & Source tracing     & Hover over an edge & Which primary sources underlie a frequently repeated claim? \\
+\end{tblr}
+\end{table}
+
+\begin{figure}[p]
+\centering
+\begin{minipage}[c]{0.40\linewidth}
+  \textbf{A}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/claims_viewA_evidence.png}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.57\linewidth}
+  \textbf{B}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/claims_viewB_conflict.png}
+\end{minipage}\\[1.2em]
+\begin{minipage}[c]{0.46\linewidth}
+  \textbf{C}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/claims_viewC_gaps.png}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.51\linewidth}
+  \textbf{D}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/claims_viewD_source.png}
+\end{minipage}
+\caption{\textbf{Views of the claims network.}
+Edge color indicates direction (green, protective; red, exacerbating; grey, context dependent or unspecified).
+\textbf{(A)} Evidence weight. Class level view of all claims; claims directed toward Clostridia are predominantly protective.
+\textbf{(B)} Conflicting claims. Protective and exacerbating claims directed toward \textit{Lactobacillus}, with an excerpt of the claims table showing a protective claim attributed to tryptophan and indole signaling and an exacerbating claim attributed to adaptive T cell responses.
+\textbf{(C)} Translational gaps. Genus level view restricted to claims supported by clinical trials.
+\textbf{(D)} Source tracing. The exacerbating claim directed toward \textit{Enterococcus}, attributed by the citing reviews to Peled et al.\ (2020).}
+\label{fig:claims-views}
+\end{figure}
+
+
+\subsubsection{Claims Discussion}
+\label{sec:claims-discussion}
+\writingnote{Interpretation of each view, in the same order as Figure~\ref{fig:claims-views}. Need to decide whether to use this section to explain just how to use the tool and leave interpretation to ~\ref{sec:discussion}, or include specific examples here (currently listed) and write the discussion as the more general case.}
+
+\paragraph{Evidence weight.}
+\todoitem{Clostridia: predominantly protective claims supported by many primary sources.}
+\todoitem{Link to the SCFA and butyrate signaling mechanism (1a); which butyrate producing taxa drive the class level signal and which primary sources support them.}
+\todoitem{Ruminococcaceae.}
+\todoitem{Enterococcaceae.}
+\todoitem{Enterobacteriaceae.}
+
+\paragraph{Conflicting claims.}
+\todoitem{\textit{Lactobacillus}: protective claims (e.g.\ tryptophan and indole signaling, 1c) versus exacerbating claims (e.g.\ adaptive T cell responses, 2b).}
+\todoitem{Possible explanations for the conflict (e.g.\ species or strain differences, GTDB reclassification of \textit{Lactobacillus} into several genera, murine versus human evidence, supplemented versus endogenous taxa).}
+\todoitem{Bacteroidaceae.}
+\todoitem{Akkermansiaceae.}
+
+\paragraph{Translational gaps.}
+\todoitem{Clinical trial evidence: which taxa have been examined in trials and with what result.}
+\todoitem{Human observational evidence: taxa with recurring human associations but no trial evidence.}
+\todoitem{Murine evidence: taxa with mechanistic murine support not yet examined in humans.}
+\todoitem{Unspecified evidence: claims whose evidence type could not be determined from the review.}
+\todoitem{Many more clinical trials exist than appear here; trials of FMT or proprietary consortia without a reported microbial composition could not be attributed to individual taxa and therefore do not appear in this view.}
+
+\paragraph{Source tracing.}
+\todoitem{\textit{Enterococcus}: the exacerbating claim attributed to Peled et al.~\cite{peled2020microbiota-644} across the citing reviews; what Peled 2020 actually reported and how the claim is phrased in the reviews.}
+
+
+
+%=====================================================================
+\section{Primary Sources}
+\label{sec:primary}
+%=====================================================================
+\writingnote{Descriptive synthesis of the 16S primary literature found by the search (all eligible primaries, not only those in the analytic cohort). Need to decide, do we keep only the primary sources found from the scoping literature review, or do we instead take the primary sources that represent the nodes in the claims network? Currently only planning on discussing what was found in the scoping literature review that I can formalize.}
+
+\subsection{Study Designs}
+\label{sec:primary-design}
+\todoitem{Common study designs (cohort, case--control, RCT substudy, etc.); single vs.\ multi-centre; sample sizes.}
+\todoitem{Pediatric vs.\ adult cohorts; how age shapes the microbiome and transplant course.}
+\todoitem{Number of studies measuring using shotgun vs 16S.}
+
+\subsection{Exploratory and Therapeutic Aims}
+\label{sec:primary-aim}
+\todoitem{Exploratory association studies vs.\ studies investigating a therapeutic strategy (FMT, nutrition, antibiotics, drugs).}
+
+\subsection{Longitudinal Sampling and Baseline Definition}
+\label{sec:primary-baseline}
+\todoitem{If longitudinal, what was used as baseline (pre-conditioning, admission, day of infusion, donor stool).}
+\todoitem{Sampling frequency and windows relative to transplant.}
+
+
+%=====================================================================
+\section{Analytic Cohort}
+\label{sec:cohort}
+%=====================================================================
+\todoitem{We identified an analytic cohort where the 16S samples were available on an open source biorepository and clinical metadata.} 
+\todoitem{Justify 16S?}
+
+\subsection{Inclusion and Exclusion Criteria}
+\label{sec:cohort-criteria}
+\todoitem{Publicly available raw 16S reads; linkable sample-level clinical metadata; GVHD outcome; human allo-SCT.}
+\todoitem{Exclusion reasons and counts (link back to Fig.~\ref{fig:prisma}).}
+\todoitem{Data retrieval (ENA/SRA), contact with authors where metadata were incomplete.}
+
+\subsection{GVHD Ascertainment}
+\label{sec:gvhd-ascertainment}
+\todoitem{Acute vs.\ chronic GVHD; timing conventions.}
+\todoitem{Grading systems (e.g.\ Glucksberg, IBMTR, MAGIC, NIH consensus for chronic).}
+\todoitem{Organ involvement (skin, liver, GI; upper vs.\ lower GI).}
+\todoitem{How each cohort reports these and what is lost when harmonizing (Supplementary Table~\ref{tab:gvhd-ascertainment}).}
+
+
+
+\subsection{Included Studies}
+\label{sec:cohort-studies}
+\todoitem{Brief narrative introducing the \ph{N} studies, \ph{N} patients, \ph{N} samples.}
+\todoitem{Refer to Table~\ref{tab:study_summary} (study summary) and Table~\ref{tab:seq} (sequencing).}
+
+% --- Spliced from AnalysisSubCohort.tex (Table 1), rotated to landscape ---
+\begin{landscape}
+% =====================================================================
+% TABLE 1 — Study-level summary
+% Columns: Reference | Microbiome Cohort | Study design | Main results
+% Reference cell (rightmost) stacks: cohort name + \cite, BioProject underneath.
+% Data cells left as \tbd — fill in paper-by-paper.
+% =====================================================================
+\begin{longtblr}[
+  caption = {Human studies of the association between the gut microbiota and GVHD with publicly available 16S sequencing and clinical metadata included in the analytic sub-cohort.},
+  label = {tab:study_summary},
+]{
+  width = \linewidth,
+  colspec = {Q[l,m,0.15\linewidth] Q[l,m,0.15\linewidth] Q[l,m,0.30\linewidth] Q[l,m,0.36\linewidth] },
+  row{1} = {font=\bfseries}, % Bold header row
+  hline{1,2,Z} = {0.8pt},    % Rules at top, below header, and bottom
+  cells = {font=\small},
+  column{4} = {font=\footnotesize}, % Results column smaller
+  rowhead = 1
+}
+
+Reference & Microbiome Cohort & Study design & Main results  \\
+\refcell{Artacho2024}{artacho2024multimodal-9e5}{PRJNA1088414} & 105 adults undergoing allo-SCT & Longitudinal multi-omics cohort comparing stool collected shortly before stem-cell infusion and around engraftment, before GVHD onset, to identify taxonomic, functional, metabolomic, and bacterial-metabolite changes associated with allo-HSCT and subsequent moderate-to-severe acute GVHD. & Allo-HSCT was followed by reduced microbiota diversity, depletion of Clostridiales and short-chain fatty acids, and expansion of \textit{Staphylococcus}. Patients who later developed moderate-to-severe acute GVHD showed greater depletion of specific Clostridiales taxa, greater expansion of \textit{Enterococcus faecium} and \textit{Parabacteroides}, and more pronounced disruption of microbiome-encoded functions, metabolites, and bacterial-metabolite interactions.  \\
+\refcell{DAmico2019}{.}{PRJNA592853} & 20 children undergoing allo-SCT & Longitudinal cohort examining whether enteral or parenteral nutrition affects gut microbiome recovery after allo-SCT.  & Both nutritional groups experienced early microbiome disruption, but only patients receiving enteral nutrition recovered pre-HSCT-like diversity, community composition, and short-chain fatty acid production. Parenteral nutrition was associated with persistent dysbiosis and all documented bloodstream infections. Acute GVHD occurred at a similar frequency in both groups, and the study did not establish that enteral nutrition reduced aGVHD incidence. \\ % TODO: add DAmico2019 to references.bib
+\refcell{Fujimoto2024}{Fujimoto2024}{PRJNA1109929} & 45 adults undergoing allo-SCT & Prospective longitudinal observational cohort with serial stool 16S profiling, enterococcal culture, and isolate whole-genome and prophage analysis, followed by recombinant production and in vitro and gnotobiotic mouse testing of an \textit{E. faecalis}-specific phage-derived endolysin.  & \textit{Enterococcus} domination was common during allo-HCT, and fecal cytolysin positivity among Enterococcus-dominated cases was associated with aGVHD. A phage-derived endolysin selectively targeted biofilm-forming \textit{E. faecalis} and improved survival in preclinical aGVHD mouse models. \\
+\refcell{Ingham2019}{ingham2019specific-2d2}{PRJEB25221} & 30 children undergoing allo-SCT & Prospective longitudinal cohort investigating exploratory high dimensional clustering of the gut microbiome, immune markers, and clinical outcomes.    &  Severe GVHD and death were associated with a lack of commensal bacteria like \textit{Clostridiales}, high plasma hBD2 levels post-transplant, and increased \textit{Lactobacillaceae} at all time points. NK and B cell reconstitution was associated with mild to no GVHD and better survival, and was associated with high abundance of obligate anaerobes.  \\
+\refcell{Jarosch2023}{jarosch2023multimodal-0f7}{PRJEB60178} & 46 adults who underwent allo-SCT & Longitudinal multi-modal analysis relating the gut microbiome, immune cell function, and GVHD.  & Broad-spectrum antibiotic exposure was associated with lower microbial diversity and fewer, less suppressive intestinal Tregs. SCFA-producing taxa, particularly Clostridia and Bacteroidia, were associated with suppressive Treg phenotypes, while severe GI-GVHD was associated with persistent, clonally expanded activated CD8 T cells. Overall microbial community composition did not separate according to GI-GVHD severity.  \\
+\refcell{Liu2017}{Liu2017}{PRJEB16057} & 57 adults undergoing allo-SCT; 22 healthy SCT donors & Prospective cohort examining allo-SCT recipient and paired sibling-donor gut microbiota, at the time of pre-conditioning, in relation to GI-GVHD and mortality. & Recipients had lower baseline diversity and different composition than healthy donors. Lower recipient diversity was associated with higher overall mortality but not GI-GVHD. Donor-recipient dissimilarity was not associated with GI-GVHD, whereas higher donor diversity was associated with lower GI-GVHD odds.  \\
+\refcell{Simms-Waldrip2017}{.}{PRJNA283642} & 8 children undergoing allo-SCT & Prospective study characterizing the gut microbiome after allo-SCT using different assay techniques. & Patients who developed GVHD showed significant decline in anti-inflammatory \textit{Clostridia}.\\
+\refcell{Spindelboeck2021}{.}{ PRJEB39834} & 10 adults with GI-GVHD after allo-SCT, 14 healthy FMT donors & Prospective cohort of adults undergoing repeated colonoscopic FMT for severe treatment-refractory GI-GVHD after allo-SCT. &  Patients who responded to FMT with full or partial GI-GVHD remission at 90 days had longer overall and GI-GVHD-related survival. Responders developed a more donor-like microbiota, with restored diversity and enrichment of anaerobic butyrate-producing taxa. Ongoing broad-spectrum antibiotics were associated with persistent dysbiosis, failed engraftment, and non-response to FMT.  \\
+\refcell{Vallet2023}{.}{PRJNA902819}  & 55 adults undergoing allo-SCT  & Longidudinal multi-omics substudy of an RCT where stool samples were used to form bacterial enterotypes which interacted with viral and metabolic pathways and were investigated for association with receipt of the drug and allo-SCT outcomes.   & One specific enterotype was associated with greater odds of remission, and changing enterotypes generally was associated with greater odds of remission. Enterotype distribution was not associated with acute or chronic GVHD. \\ % TODO: add Vallet2023 to references.bib
+\end{longtblr}
+\vspace{2pt}
+\begin{flushleft}
+\footnotesize \textit{*Patients refers to the number of patients with 16S microbiome
+measurements included here. Main results give a brief description of the primary
+findings of the original study.}
+\end{flushleft}
+\end{landscape}
+% --- end splice ---
+
+% --- Spliced from AnalysisSubCohort.tex (Table 2) ---
+% =====================================================================
+% TABLE 2 — Sample generation / sequencing characteristics
+% Columns: Reference | Platform | Region | Primers | Reads | Avg. depth
+% (Platform = Illumina/454 pyro/etc.; Region = V4, V3-V4, etc.;
+%  Reads = paired / single-end; Avg. depth = mean reads per sample.)
+% Data cells left as \tbd — fill in paper-by-paper.
+% =====================================================================
+\begin{table}[htbp]
+\centering
+\caption{Sample generation and 16S sequencing characteristics for each cohort.}
+\label{tab:seq}
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[l,m,0.16\linewidth] Q[l,m,0.14\linewidth] Q[l,m,0.08\linewidth] Q[l,m,0.24\linewidth] Q[l,m,0.12\linewidth] Q[l,m,0.12\linewidth]},
+  row{1} = {font=\bfseries},
+  hline{1,2,Z} = {0.8pt},
+  cells = {font=\small},
+  column{1} = {font=\footnotesize},
+}
+
+Reference & Platform & Region & Primers & Reads & Avg. depth (Original/ Retained) \\
+Artacho2024 & Illumina MiSeq & V1-V3 & 341 F; 805 R & Paired-end & (15,3674.6/ \tbd) \\
+DAmico2019 & Illumina MiSeq & V3-V4 & 341 F; 785 R & Single-end pre-merged & (23,431.2/ \tbd) \\
+Fujimoto2024 & Illumina MiSeq & V3-V4 & 341 F; 785 R & Paired-end & (105,943.9/ \tbd) \\
+Ingham2019 & Roche 454 & V4-V5 &  519 F; 926 R & Single-end pyro & (8,141.5/ \tbd) \\
+Jarosch2023 & Ion Torrent & V1-V3 & S-D-Bact-0008-c-S-20 F; S-D-Bact-0517-a-A-18 R & Single-end pyro & (61,285.5/ \tbd) \\
+Liu2017 & Illumina MiSeq & V4 & 534 F; 806 R & Single-end & (288,174.7/ \tbd) \\
+Simms-Waldrip2017 & Roche 454 \& Illumina HiSeq & V4 %Need to check whether this is actually V4-V5 
+& 563 F; 926BS R & Single-end pyro \& single-end & (\tbd/ \tbd)\\
+Spindelboeck2021 & Ion Torrent  & V4 & 515-S3 F; 806-S2 R & Single-end pyro  & (91,788.4/ \tbd) \\
+Vallet2023 & Illumina MiSeq & V3-V4 & 343 F; 800R & Paired-end & (52,013.6/ \tbd) \\
+\end{tblr}
+\vspace{2pt}
+\begin{flushleft}
+\footnotesize \textit{Platform: sequencing platform (e.g.\ Illumina MiSeq, 454
+pyrosequencing). Region: 16S hypervariable region targeted (e.g.\ V4, V3--V4).
+Reads: paired-end or single-end. Avg.\ depth: mean reads per sample after
+demultiplexing (original) and after trimming and denoising (retained).}
+\end{flushleft}
+\end{table}
+% --- end splice ---
+
+\subsection{Metadata Harmonization}
+\label{sec:harmonization}
+\todoitem{Overview: variables harmonized and canonical coding (binary indicators, outcome triples); data dictionary in Supplement~\ref{sup:dictionary}.}
+\todoitem{Timeline: all dates re-expressed as days relative to transplant (day 0 = day of transplant); timepoint bins for samples; how studies reporting only relative days or only bins were handled.}
+\todoitem{Conditioning regimen: intensity (myeloablative, reduced intensity, nonmyeloablative), regimen, TBI, and serotherapy.}
+\todoitem{GVHD prophylaxis: agents recorded and calcineurin inhibitor indicator.}
+\todoitem{Outcomes: acute GVHD (overall, grade, onset day), organ involvement and stage, chronic GVHD, engraftment, survival and relapse, secondary outcomes; coding of the outcome triples (indicator, grade or stage, day relative to transplant).}
+\todoitem{Per-study overrides and decisions where source coding was ambiguous.}
+\todoitem{Missingness by variable and study (Figure~\ref{fig:missingness}); distinguish variables not recorded by a study from values missing for individual samples.}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/harmonization_missingness.png}
+\caption{\textbf{Missingness in the harmonized metadata.} Percentage of each study's samples with no value for each harmonized variable, grouped by domain. A cross marks a variable that the study does not record.}
+\label{fig:missingness}
+\end{figure}
+
+\subsection{Sequence Processing and Batch Correction}
+\label{sec:batch}
+\todoitem{Uniform QIIME2 processing: primer removal, denoising, taxonomy assignment; study-specific deviations (detailed per study in Supplement~\ref{sup:processing}).}
+\todoitem{Read retention through each processing step by study (Figure~\ref{fig:seq-batch}A).}
+\todoitem{Taxonomic overlap across cohorts at the species level (Figure~\ref{fig:seq-batch}B).}
+\todoitem{Sample selection: how samples were chosen for the analytic dataset (e.g.\ adult versus pediatric split, timepoint window, one sample per patient, minimum read depth).}
+\todoitem{Sources of batch effects: platform, hypervariable region, primers, read structure, depth.}
+
+\subsubsection{Batch Correction with DEBIAS-M}
+\label{sec:debiasm}
+\todoitem{Overview of DEBIAS-M~\cite{Austin2025} and why it suits cross-study 16S data with differing processing pipelines.}
+\todoitem{Imputation method.}
+\todoitem{Likelihood function.}
+\todoitem{Modeling covariates.}
+\todoitem{Use of log DEBIAS-M and rationale.}
+\todoitem{Diagnostics: weighted UniFrac ordination and PERMANOVA by study before and after correction (Figure~\ref{fig:seq-batch}C--D).}
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[t]{\linewidth}
+  \textbf{A}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/seq_read_attrition.png}
+\end{minipage}\\[1em]
+\begin{minipage}[c]{0.30\linewidth}
+  \textbf{B}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/seq_species_tree.png}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.34\linewidth}
+  \textbf{C}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/batch_beta_uncorrected.png}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.34\linewidth}
+  \textbf{D}\\[2pt]
+  \includegraphics[width=\linewidth]{figures/batch_beta_debiasm.png}
+\end{minipage}
+\caption{\textbf{Sequence processing and batch correction.}
+\textbf{(A)} Read counts (log scale) retained at each processing step for each sample, grouped by study.
+\textbf{(B)} Presence of species across cohorts, shown on the taxonomic tree.
+\textbf{(C)} Weighted UniFrac ordination of samples rarefied to 900 reads, before batch correction.
+\textbf{(D)} Weighted UniFrac ordination after DEBIAS-M correction~\cite{Austin2025}.
+PERMANOVA statistics test separation by study.}
+\label{fig:seq-batch}
+\end{figure}
+
+
+%=====================================================================
+\section{Investigating Network Claims Quantitatively}
+\label{sec:da}
+%=====================================================================
+\writingnote{Question: are the most cited claims from the claims network visible in the pooled, harmonized data? Do taxa with conflicting claims show a strong signal in either direction?}
+
+\subsection{Selecting Claims to Test}
+\label{sec:da-selection}
+\todoitem{Criteria for selecting claims (e.g.\ top claims by evidence weight; taxa flagged as in conflict).}
+\todoitem{Mapping claim taxa (GTDB, reported rank) to the taxonomy used in the cohort.}
+
+\begin{table}[htbp]
+\centering
+\caption{Claims from the claims network selected for quantitative testing.}
+\label{tab:claims-tested}
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[l,m,0.18\linewidth] Q[l,m,0.10\linewidth] Q[l,m,0.24\linewidth] Q[c,m,0.12\linewidth] Q[l,m,0.24\linewidth]},
+  row{1} = {font=\bfseries},
+  hline{1,2,Z} = {0.8pt},
+  cells = {font=\small},
+}
+Taxon & Rank & Network claim & Valence & Pooled estimate \\
+\tbd & \tbd & \tbd & \tbd & \tbd \\
+\end{tblr}
+\end{table}
+
+\subsection{Differential Abundance Methods}
+\label{sec:da-methods}
+\todoitem{Outcome definition(s) and timepoint window used.}
+\todoitem{Model and handling of study heterogeneity; covariates.}
+\todoitem{Multiple-testing approach; sensitivity analyses.}
+
+\subsection{Most Cited Claims}
+\label{sec:da-cited}
+\todoitem{Results for the most cited claims.}
+
+\subsection{Taxa with Conflicting Claims}
+\label{sec:da-conflict}
+\todoitem{Results for taxa listed as in conflict.}
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[t]{0.49\linewidth}
+  \textbf{A}\\ \figbox{6cm}{Panel A\\(to be described)}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\linewidth}
+  \textbf{B}\\ \figbox{6cm}{Panel B\\(to be described)}
+\end{minipage}
+\caption{\textbf{Differential abundance in the harmonized cohort compared with network claims.}
+\textbf{(A)} \ph{panel description}
+\textbf{(B)} \ph{panel description}}
+\label{fig:da}
+\end{figure}
+
+
+%=====================================================================
+\section{Discussion}
+\label{sec:discussion}
+%=====================================================================
+
+\subsection{What the Claims Network Shows}
+\label{sec:disc-network}
+\todoitem{How the network illustrates where different microbes fit into the current scientific theory.}
+\todoitem{Well-supported vs.\ thinly supported claims; role of a few foundational sources.}
+
+\subsection{Open Questions and Translational Gaps}
+\label{sec:disc-gaps}
+\todoitem{Taxa that appear often but have not been attributed to a mechanism.}
+\todoitem{Taxa with mechanism but no human or trial evidence; conflicts that may reflect lower-rank heterogeneity.}
+
+\subsection{The Current Landscape of 16S Studies in GVHD}
+\label{sec:disc-landscape}
+\todoitem{Types of studies currently being done with 16S data.}
+\todoitem{Clinical metadata that is (and is not) recorded.}
+\todoitem{How GVHD is determined (acute vs.\ chronic, grade, organ).}
+\todoitem{Longitudinal timepoints used and lack of a common baseline.}
+\todoitem{Recommendations for reporting and data deposition.}
+
+\subsection{Revisiting the Investigated Claims}
+\label{sec:disc-claims}
+\todoitem{Reiterate which claims were and were not reproduced; interpretation.}
+
+\subsection{Future Uses of the Harmonized Dataset}
+\label{sec:disc-future}
+\todoitem{Bayesian hierarchical meta-analysis; time-to-event and competing-risks models; integrating new cohorts; extending the network.}
+
+\subsection{Limitations}
+\label{sec:limitations}
+\todoitem{Search and screening (language, databases, AI-assisted screening).}
+\todoitem{Claims network built from review-reported claims rather than verified against primary sources.}
+\todoitem{Analytic cohort: small number of studies, heterogeneous platforms/regions, residual batch effects, metadata loss in harmonization.}
+\todoitem{16S resolution (genus-level limits; species and strain claims not testable).}
+
+
+%=====================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%=====================================================================
+\todoitem{Restate the contribution and the resources released.}
+
+
+
+%=====================================================================
+\section*{Declarations}
+%=====================================================================
+\paragraph{Data and code availability.}\mbox{}
+\placeholder{GitHub (s-huebler/ODSiData), harmonized dataset location, interactive network URLs.}
+\paragraph{Use of artificial intelligence.}\mbox{}
+\placeholder{Statement consistent with PRISMA-trAIce reporting.}
+\paragraph{Funding and conflicts of interest.}\mbox{}
+\placeholder{}
+
+\printbibliography
+
+
+%=====================================================================
+\appendix
+\section{Supplementary Material}
+\label{sec:supplement}
+%=====================================================================
+\subsection{Full Search Strategy}\label{sup:search} \placeholder{}
+\subsection{PRISMA-ScR Checklist}\label{sup:prisma-scr} \placeholder{}
+\subsection{PRISMA-trAIce Checklist and AI Prompts}\label{sup:traice} \placeholder{}
+\subsection{Citation Network Quality Control}\label{sup:citation-qc} \placeholder{}
+\subsection{Claims Extraction Codebook and Mechanism Framework}\label{sup:codebook} \placeholder{}
+\subsection{Harmonized Metadata Dictionary}\label{sup:dictionary} \placeholder{}
+\subsection{GVHD Ascertainment by Study}\label{sup:gvhd}
+\begin{table}[htbp]
+\centering
+\caption{GVHD ascertainment in each cohort.}
+\label{tab:gvhd-ascertainment}
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[l,m,0.18\linewidth] Q[l,m,0.14\linewidth] Q[l,m,0.18\linewidth] Q[l,m,0.18\linewidth] Q[l,m,0.20\linewidth]},
+  row{1} = {font=\bfseries},
+  hline{1,2,Z} = {0.8pt},
+  cells = {font=\small},
+}
+Study & aGVHD / cGVHD & Grading system & Organ detail & Timing available \\
+Artacho2024        & \tbd & \tbd & \tbd & \tbd \\
+DAmico2019         & \tbd & \tbd & \tbd & \tbd \\
+Fujimoto2024       & \tbd & \tbd & \tbd & \tbd \\
+Ingham2019         & \tbd & \tbd & \tbd & \tbd \\
+Jarosch2023        & \tbd & \tbd & \tbd & \tbd \\
+Liu2017            & \tbd & \tbd & \tbd & \tbd \\
+Simms-Waldrip2017  & \tbd & \tbd & \tbd & \tbd \\
+Spindelboeck2021   & \tbd & \tbd & \tbd & \tbd \\
+Vallet2023         & \tbd & \tbd & \tbd & \tbd \\
+\end{tblr}
+\end{table}
+
+\subsection{Per-Study Sequence Processing}\label{sup:processing} \placeholder{Adapted from the per-study Processing subsections of AnalysisSubCohort.tex.}
+\subsection{Alpha Rarefaction Curves}\label{sup:rarefaction} \placeholder{}
+
+\end{document}
