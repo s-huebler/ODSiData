@@ -171,6 +171,10 @@ cat > .git/info/sparse-checkout <<'EOF'
 /Orberg2024/Metadata/
 /Orberg2024/QiimeData/
 /Orberg2024/Mapped/
+/Spindelboek2021/RawData/
+/Spindelboek2021/Metadata/
+/Spindelboek2021/QiimeData/
+/Spindelboek2021/Mapped/
 EOF
 git sparse-checkout reapply
 ```
@@ -191,7 +195,7 @@ Rules for this prompt:
 - **Update this canonical list in CLAUDE.md every time** a study is added, so the block
   above always reflects the current CHPC checkout. Studies currently tracked:
   Artacho2024, DAmico2019, Ingham2019, Vallet2023, Liu2017, Jarosch2023, Fujimoto2024,
-  Orberg2024.
+  Orberg2024, Spindelboek2021.
 - The study's RawData/Metadata must already be committed and pushed to the branch CHPC
   tracks, or `reapply` will materialize nothing — flag this if the study is new to the repo.
 
