@@ -1,0 +1,25 @@
+---
+title: "Parsing OrbergMO Metadata"
+format: html
+editor: visual
+---
+
+# Coding Set Up
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(lubridate)
+```
+
+# Reading
+
+The clinical data comes from supplementary table 2 (detailed patient characteristics) from the publication.
+
+```{r}
+fuji_samples_raw <- read.csv("~/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/Raw_metadata/meta_samples.csv",
+                     stringsAsFactors = FALSE, check.names = FALSE)
+```
+
+# Cleaning Samples
