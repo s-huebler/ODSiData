@@ -131,35 +131,69 @@ the chpc", "track Fujimoto2024 on chpc", or any similar phrasing — respond wit
 full sparse-checkout rewrite prompt for her to copy-paste, as a single plain-text
 fenced code block with no surrounding commentary inside the block. The block rewrites
 `.git/info/sparse-checkout` with the entire canonical pattern list **plus the new
-study's folder**, then reapplies:
+study's four pipeline folders**, then reapplies:
 
 ```
 cat > .git/info/sparse-checkout <<'EOF'
 /CLAUDE.md
-/Artacho2024/
-/DAmico2019/
-/Ingham2019/
 /chpc/
-/Vallet2023/
-/Liu2017/
-/Jarosch2023/
-/Fujimoto2024/
 /Greengenes2/
 /Merging/
+/Artacho2024/RawData/
+/Artacho2024/Metadata/
+/Artacho2024/QiimeData/
+/Artacho2024/Mapped/
+/DAmico2019/RawData/
+/DAmico2019/Metadata/
+/DAmico2019/QiimeData/
+/DAmico2019/Mapped/
+/Ingham2019/RawData/
+/Ingham2019/Metadata/
+/Ingham2019/QiimeData/
+/Ingham2019/Mapped/
+/Vallet2023/RawData/
+/Vallet2023/Metadata/
+/Vallet2023/QiimeData/
+/Vallet2023/Mapped/
+/Liu2017/RawData/
+/Liu2017/Metadata/
+/Liu2017/QiimeData/
+/Liu2017/Mapped/
+/Jarosch2023/RawData/
+/Jarosch2023/Metadata/
+/Jarosch2023/QiimeData/
+/Jarosch2023/Mapped/
+/Fujimoto2024/RawData/
+/Fujimoto2024/Metadata/
+/Fujimoto2024/QiimeData/
+/Fujimoto2024/Mapped/
+/Orberg2024/RawData/
+/Orberg2024/Metadata/
+/Orberg2024/QiimeData/
+/Orberg2024/Mapped/
 EOF
 git sparse-checkout reapply
 ```
 
 Rules for this prompt:
-- Use a trailing slash on every study folder (e.g. `/NewStudy/`) so the whole tree
-  is included; keep `/CLAUDE.md` as a bare file entry.
-- Append the new study to the END of the list, preserving the existing order.
+- CHPC gets only what the pipeline needs. Each study contributes exactly four folders:
+  `RawData/` and `Metadata/` (inputs read by the jobs: `run_accessions.txt`,
+  `ENA_samples.tsv`, `*_meta_qiime.tsv`) and `QiimeData/` and `Mapped/` (outputs the
+  jobs write back into the repo). Everything else in a study folder (Preprocessing.qmd,
+  `images/`, `Manuscript/`, `FilteredData/`, `Old/`, etc.) stays tracked on GitHub and
+  local only. `/chpc/`, `/Greengenes2/` and `/Merging/` are included whole.
+- Use a trailing slash on every folder so the whole subtree is included; keep
+  `/CLAUDE.md` as a bare file entry.
+- Append the new study's four lines to the END of the list, in the order RawData,
+  Metadata, QiimeData, Mapped, preserving the existing order.
+- If a new pipeline stage starts reading or writing another per-study folder under
+  `$REPO_ROOT/$STUDY/`, add that folder for every study here, or CHPC will not see it.
 - **Update this canonical list in CLAUDE.md every time** a study is added, so the block
-  above always reflects the current CHPC checkout. The list currently tracks:
-  CLAUDE.md, Artacho2024, DAmico2019, Ingham2019, chpc, Vallet2023, Liu2017,
-  Jarosch2023, Fujimoto2024, Greengenes2, Merging.
-- The study folder must already be committed and pushed to the branch CHPC tracks, or
-  `reapply` will materialize nothing — flag this if the study is new to the repo.
+  above always reflects the current CHPC checkout. Studies currently tracked:
+  Artacho2024, DAmico2019, Ingham2019, Vallet2023, Liu2017, Jarosch2023, Fujimoto2024,
+  Orberg2024.
+- The study's RawData/Metadata must already be committed and pushed to the branch CHPC
+  tracks, or `reapply` will materialize nothing — flag this if the study is new to the repo.
 
 ## Known gotchas
 
