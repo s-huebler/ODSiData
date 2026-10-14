@@ -99,7 +99,7 @@ METADATA=""
 # Walltime hints (edit per dataset size). Used by submit.sh — one per stage.
 # DENOISE_TIME covers whichever denoiser this study selects (DADA2 / Deblur /
 # pyro / dada2-single). TRIM_TIME is the cutadapt primer-removal stage.
-FETCH_TIME="12:00:00"
+FETCH_TIME="4:00:00"
 IMPORT_TIME="04:00:00"
 TRIM_TIME="04:00:00"
 DENOISE_TIME="24:00:00"

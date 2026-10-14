@@ -7,7 +7,7 @@
 *sklearn*
 *asv.nwk*
 *id.nwk*
-*seqs.fna.qza
+*seqs.fna.qza*
 **/demux.qza
 *.fastq
 *.sra
@@ -24,5 +24,14 @@ archive-claim-network/2026-07_zotero-plugins/zotero-zotadata-main/
 archive-claim-network/**/*.xpi
 archive-claim-network/**/*.pdf
 **/node_modules/
+
 # Excel lock files
 ~$*
+
+# Local HPC/test directories
+/chpc/logs/
+/Liu_Merging_Test/
+
+# Ignore QIIME artifacts anywhere in the repository
+*.qza
+*.qzv
