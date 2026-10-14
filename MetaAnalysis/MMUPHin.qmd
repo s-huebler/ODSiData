@@ -1,0 +1,446 @@
+---
+title: "Metaanalysis"
+format: html
+editor: visual
+---
+
+# Load scripts and data
+
+```{r}
+library(phyloseq)
+library(qiime2R)
+library(biomformat)
+library(readr)
+library(tidyverse)
+library(ape)
+library(Biostrings)
+library(sva)
+library(vegan)
+library(ggExtra)
+```
+
+```{r}
+source("~/Documents/ODSi/ODSiData/Functions/check_phyloseq.R")
+source("~/Documents/ODSi/ODSiData/Functions/beta_pipe.R")
+source("~/Documents/ODSi/ODSiData/Functions/parse_taxonomy.R")
+source("~/Documents/ODSi/ODSiData/Functions/filter_by_prevalence.R")
+source("~/Documents/ODSi/ODSiData/Functions/plot_rarefaction_curves.R")
+source("~/Documents/ODSi/ODSiData/Functions/debiasm.R")
+source("~/Documents/ODSi/ODSiData/Functions/build_phyloseq.R")
+source("~/Documents/ODSi/ODSiData/Functions/plot_beta_correction.R")
+source("~/Documents/ODSi/ODSiData/Functions/suppress_all.R")
+source("~/Documents/ODSi/ODSiData/Functions/agglomerate_rank.R")
+source("~/Documents/ODSi/ODSiData/Functions/persistence_tree.R")
+```
+
+```{r}
+ps <- build_phyloseq("~/Documents/ODSi/ODSiData/Merging/full_cohort",
+                     prefix   = "merged-",
+                     meta_tsv = "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
+```
+
+# Choosing subsamples
+
+-   Filter for ASV which appear in more than 10% of samples and in at least 2 studies
+
+    ```{r}
+    ps_01 <- filter_by_prevalence(0.1, ps)
+
+    otu_mat <- as(otu_table(ps_01), "matrix")
+    if (taxa_are_rows(ps_01)) otu_mat <- t(otu_mat)
+
+    study <- as.character(sample_data(ps_01)$study)
+
+    n_studies_per_asv <- apply(otu_mat > 0, 2, function(present){
+      sum(tapply(present, study, any))
+    })
+
+    ps_02 <- prune_taxa(names(n_studies_per_asv)[n_studies_per_asv>=2], ps_01)
+    ```
+
+-   Filter for when agvhd is a known outcome
+
+    ```{r}
+    ps_03 <- subset_samples(ps_02, agvhd %in% c(0,1))
+    ```
+
+-   Choose all timepoints pre-graftment
+
+    ```{r}
+    ps_04 <- subset_samples(ps_03, timepoint %in% c("pre-conditioning", "transplant", "pre-engraftment", "conditioning"))
+    ```
+
+-   Clean
+
+    ```{r}
+    ps_filtered <- prune_taxa(taxa_sums(ps_04)>0, ps_04)
+    ```
+
+## Agglomerate to higher taxonomic ranks
+
+Each rank is collapsed from the full unfiltered table `ps` and then put through the same filters as the ASV table. Collapsing `ps_filtered` instead would undercount every genus by the reads of its rare ASVs that the prevalence filter removed. A parent taxon is always at least as prevalent (and present in at least as many studies) as any of its members, so every ASV in `ps_filtered` keeps its genus, family, and so on through filtering, and the lineage join further down never hits a missing parent. Samples are restricted to those in `ps_filtered` so every rank is modeled on the identical analytic sample set.
+
+```{r}
+# Same steps as the bullets above, as a function so they can be applied per rank
+analytic_filter <- function(x, keep_samples = NULL) {
+  x <- filter_by_prevalence(0.1, x)
+
+  m <- as(otu_table(x), "matrix")
+  if (taxa_are_rows(x)) m <- t(m)
+  st   <- as.character(sample_data(x)$study)
+  n_st <- apply(m > 0, 2, function(p) sum(tapply(p, st, any)))
+  x <- prune_taxa(names(n_st)[n_st >= 2], x)
+
+  x <- subset_samples(x, agvhd %in% c(0, 1))
+  x <- subset_samples(x, timepoint %in% c("pre-conditioning", "transplant",
+                                          "pre-engraftment", "conditioning"))
+  if (!is.null(keep_samples))
+    x <- prune_samples(intersect(sample_names(x), keep_samples), x)
+  prune_taxa(taxa_sums(x) > 0, x)
+}
+
+# Drift guard: the function must reproduce the ASV-level filtering exactly
+stopifnot(setequal(taxa_names(analytic_filter(ps)), taxa_names(ps_filtered)))
+
+ranks_to_test <- c("Species", "Genus", "Family", "Order", "Class", "Phylum")
+rank_levels   <- c("ASV", ranks_to_test)
+
+ps_by_rank <- c(
+  list(ASV = ps_filtered),
+  lapply(setNames(ranks_to_test, ranks_to_test), function(r)
+    analytic_filter(agglomerate_rank(ps, r),
+                    keep_samples = sample_names(ps_filtered)))
+)
+
+# ASV -> taxon label at every rank (labels match taxa_names(ps_by_rank[[r]]))
+lineage <- lineage_labels(ps_filtered, ranks_to_test)
+
+sapply(ps_by_rank, ntaxa)
+sapply(ps_by_rank, nsamples)
+```
+
+```{r}
+rm(ps, ps_01, ps_02, ps_03, ps_04)
+gc()
+```
+
+```{r}
+ps_filtered
+```
+
+# Correction
+
+```{r}
+ps_debiasm <- debiasm_correct(ps_filtered)
+```
+
+# MMUPHin
+
+## Setup
+
+```{r}
+library(MMUPHin)
+
+# MMUPHin has two active API layers that differ in their DA engine and effect scale:
+#   Layer B (≤ 1.25.x): lm_meta → MaAsLin2, arcsine-square-root (AST) scale
+#   Layer C (≥ 1.99.x): maaslin_meta → maaslin3, log scale
+# Coefficients are NOT comparable across layers. Record which one is running.
+packageVersion("MMUPHin")
+use_maaslin_meta <- exists("maaslin_meta", envir = asNamespace("MMUPHin"))
+message("DA function: ", if (use_maaslin_meta) "maaslin_meta (layer C, log scale)"
+                         else "lm_meta (layer B, AST scale)")
+```
+
+## Extract inputs from phyloseq
+
+```{r}
+# MMUPHin requires:
+#   feature_abd — features × samples matrix (taxa as rows)
+#   data        — sample metadata data.frame with rownames == colnames(feature_abd)
+
+feature_abd <- as(otu_table(ps_filtered), "matrix")
+if (!taxa_are_rows(ps_filtered)) feature_abd <- t(feature_abd)
+
+meta <- as(sample_data(ps_filtered), "data.frame")
+
+# Defensive alignment check: mismatched order silently corrupts the model
+stopifnot(identical(colnames(feature_abd), rownames(meta)))
+
+# agvhd must be numeric (0/1); study must be a factor for batch arguments
+meta$agvhd <- as.numeric(as.character(meta$agvhd))
+meta$study  <- as.factor(meta$study)
+```
+
+## Batch correction with MMUPHin
+
+```{r}
+# adjust_batch extends ComBat (empirical Bayes location/scale) for zero-inflated
+# microbiome counts. It estimates batch parameters for each feature and removes
+# the study-level mean and variance shift while leaving biological covariates intact.
+#
+# NOTE: ps_debiasm is already DEBIASM-corrected, so this applies a second correction.
+# The paper (section 6 of the code companion) notes that MetaDA per-study fits
+# already absorb batch; running adjust_batch before MetaDA is conservative but
+# double-counts the study effect. Include these corrected profiles for comparison
+# with the DEBIASM-only approach.
+#
+# agvhd is listed as a covariate so ComBat does NOT absorb disease signal.
+
+fit_adj <- adjust_batch(
+  feature_abd = feature_abd,
+  batch       = "study",
+  covariates  = "agvhd",
+  data        = meta,
+  control     = list(
+    diagnostic_plot = NULL  # suppress PDF; set a path to save the diagnostic plot
+  )
+)
+
+feature_abd_adj <- fit_adj$feature_abd_adj
+```
+
+## Differential abundance meta-analysis
+
+```{r}
+# MetaDA fits a separate per-study model for each feature, then pools the
+# exposure (agvhd) coefficient across studies with a normal–normal random-effects
+# model (REML). FDR is Benjamini–Hochberg across features (qval.fdr).
+#
+# MaAsLin output (one folder per study) is written to a temp directory to avoid
+# cluttering the working directory.
+
+maaslin_out <- file.path(tempdir(), "mmuphin_meta_da")
+
+if (use_maaslin_meta) {
+  # Layer C: maaslin3 engine, log-scale coefficients
+  # Returns meta_fits_abundance (non-zero abundance model) and
+  # meta_fits_prevalence (presence/absence logistic model) — both pooled.
+  fit_meta <- maaslin_meta(
+    feature_abd       = feature_abd_adj,
+    batch             = "study",
+    exposure          = "agvhd",
+    data              = meta,
+    control           = list(
+      output       = maaslin_out,
+      forest_plot  = NULL
+    )
+  )
+  # Use the abundance stream as the primary result (analogous to layer B)
+  meta_fits <- fit_meta$meta_fits_abundance
+
+} else {
+  # Layer B: MaAsLin2 engine, AST-scale coefficients (matches the paper)
+  fit_meta <- lm_meta(
+    feature_abd = feature_abd_adj,
+    batch       = "study",
+    exposure    = "agvhd",
+    data        = meta,
+    control     = list(
+      output      = maaslin_out,
+      forest_plot = NULL
+    )
+  )
+  meta_fits <- fit_meta$meta_fits
+}
+```
+
+## Results
+
+```{r}
+# Significant features after FDR correction (q < 0.05)
+# coef: pooled effect size (AST scale in layer B; log scale in layer C)
+# tau2: between-study variance; large tau2 means the association is inconsistent
+# I2:   proportion of total variance that is between-study heterogeneity
+
+sig_hits <- meta_fits[meta_fits$pval < 0.05, ]
+sig_hits <- sig_hits[order(sig_hits$pval), ] %>%
+  left_join(as.data.frame(ps_filtered@tax_table) %>%
+              rownames_to_column("feature"),
+            by = "feature")
+
+cat(sprintf("Features tested: %d\nSignificant (p < 0.05): %d\n",
+            nrow(meta_fits), nrow(sig_hits)))
+
+sig_hits[, c("feature", "coef", "stderr", "pval", "qval.fdr", "k", "tau2", "I2")]
+```
+
+```{r}
+# Per-study estimates for each significant feature are in fit_meta$maaslin_fits
+# These can be passed to metafor::rma.uni() for moderator / interaction analyses.
+```
+
+# Across taxonomic ranks
+
+## Pipeline
+
+```{r}
+# Runs batch adjustment AND the meta-analytic DA model on whatever table it is
+# given, and returns every tested feature (not only hits) so non-significant
+# parents can still be shown in the persistence figure.
+mmuphin_pipeline <- function(ps, rank = "ASV") {
+  feature_abd <- as(otu_table(ps), "matrix")
+  if (!taxa_are_rows(ps)) feature_abd <- t(feature_abd)
+
+  meta <- as(sample_data(ps), "data.frame")
+  stopifnot(identical(colnames(feature_abd), rownames(meta)))
+  meta$agvhd <- as.numeric(as.character(meta$agvhd))
+  meta$study <- as.factor(meta$study)
+
+  # MaAsLin sanitizes feature names (spaces, brackets, parentheses, leading
+  # digits), which would break the join back to taxonomy. Model on safe IDs.
+  ids    <- sprintf("F%05d", seq_len(nrow(feature_abd)))
+  id_map <- tibble(feature_id = ids, feature = rownames(feature_abd))
+  rownames(feature_abd) <- ids
+
+  fit_adj <- adjust_batch(
+    feature_abd = feature_abd,
+    batch       = "study",
+    covariates  = "agvhd",
+    data        = meta,
+    control     = list(diagnostic_plot = NULL)
+  )
+
+  out_dir <- file.path(tempdir(), "mmuphin_meta_da", rank)
+
+  if (use_maaslin_meta) {
+    fit_meta  <- maaslin_meta(
+      feature_abd = fit_adj$feature_abd_adj,
+      batch       = "study",
+      exposure    = "agvhd",
+      data        = meta,
+      control     = list(output = out_dir, forest_plot = NULL)
+    )
+    meta_fits <- fit_meta$meta_fits_abundance
+  } else {
+    fit_meta  <- lm_meta(
+      feature_abd = fit_adj$feature_abd_adj,
+      batch       = "study",
+      exposure    = "agvhd",
+      data        = meta,
+      control     = list(output = out_dir, forest_plot = NULL)
+    )
+    meta_fits <- fit_meta$meta_fits
+  }
+
+  tax <- as.data.frame(as(tax_table(ps), "matrix")) %>%
+    rownames_to_column("feature")
+
+  as_tibble(meta_fits) %>%
+    dplyr::rename(feature_id = feature) %>%
+    left_join(id_map, by = "feature_id") %>%
+    dplyr::select(-feature_id) %>%
+    mutate(rank = rank, .before = 1) %>%
+    left_join(tax, by = "feature") %>%
+    arrange(pval)
+}
+```
+
+## Run at every rank
+
+```{r}
+# qval.fdr is BH within each rank. Switch sig_col to "pval" for exploration.
+sig_col <- "pval"
+sig_cut <- 0.1
+
+results_by_rank <- imap(ps_by_rank, ~ mmuphin_pipeline(.x, rank = .y))
+results_all <- bind_rows(results_by_rank) %>%
+  mutate(rank = factor(rank, levels = rank_levels),
+         sig  = .data[[sig_col]] < sig_cut)
+
+results_all %>%
+  group_by(rank) %>%
+  summarise(tested = n(), significant = sum(sig, na.rm = TRUE), .groups = "drop")
+```
+
+```{r}
+# Hits at each rank. `assigned == "FALSE"` rows are pooled unassigned groups
+# (e.g. "Lachnospiraceae (unassigned Genus)"), not real taxa at that rank.
+results_all %>%
+  filter(sig) %>%
+  dplyr::select(rank, feature, any_of(c("assigned", "coef", "stderr", "pval",
+                                        "qval.fdr", "k", "tau2", "I2")))
+```
+
+## Persistence along lineages
+
+```{r}
+# One row per ASV x rank: the result for the taxon that ASV belongs to at that rank
+fit_cols <- c("coef", "stderr", "pval", "qval.fdr", "tau2", "I2", "sig")
+
+persistence <- lineage %>%
+  dplyr::rename(asv = feature) %>%
+  mutate(ASV = asv) %>%
+  pivot_longer(all_of(rank_levels), names_to = "rank", values_to = "feature") %>%
+  mutate(rank = factor(rank, levels = rank_levels)) %>%
+  left_join(results_all %>% dplyr::select(rank, feature, any_of(fit_cols)),
+            by = c("rank", "feature"))
+
+# Seed ASVs: significant at the ASV level
+seed_asvs <- results_all %>%
+  filter(rank == "ASV", sig) %>%
+  pull(feature)
+
+# How far up the lineage the effect persists: consecutive ranks, starting at
+# the ASV, that are significant with the same sign as the ASV effect
+persist_summary <- persistence %>%
+  filter(asv %in% seed_asvs) %>%
+  arrange(asv, rank) %>%
+  group_by(asv) %>%
+  mutate(same_sign = sign(coef) == sign(coef[rank == "ASV"]),
+         persists  = cumall(coalesce(sig, FALSE) & coalesce(same_sign, FALSE))) %>%
+  summarise(genus       = feature[rank == "Genus"],
+            class       = feature[rank == "Class"],
+            asv_coef    = coef[rank == "ASV"],
+            persists_to = last(as.character(rank)[persists]),
+            .groups     = "drop") %>%
+  arrange(factor(persists_to, levels = rev(rank_levels)))
+
+persist_summary
+```
+
+```{r}
+#| fig-height: 8
+# First pass at the persistence figure: one row per seed ASV, one column per
+# rank, tile colour = pooled effect of the taxon that ASV belongs to there,
+# star = significant. Horizontal runs of stars are persistence.
+plot_df <- persistence %>%
+  filter(asv %in% seed_asvs) %>%
+  left_join(lineage %>% dplyr::select(asv = feature, Genus), by = "asv") %>%
+  mutate(row = paste0(Genus, " | ", substr(asv, 1, 8)))
+
+ggplot(plot_df, aes(rank, row, fill = coef)) +
+  geom_tile(colour = "white") +
+  geom_text(data = filter(plot_df, coalesce(sig, FALSE)), label = "*", size = 6) +
+  scale_fill_gradient2(low = "#2166ac", mid = "grey95", high = "#b2182b",
+                       midpoint = 0, name = "Pooled\neffect") +
+  labs(x = NULL, y = NULL) +
+  theme_minimal() +
+  theme(panel.grid = element_blank())
+```
+
+## Persistence tree
+
+```{r}
+#| fig-height: 9
+# Taxonomy tree from phylum to ASV. Filled points are significant taxa (colour =
+# direction); dark edges join a significant parent and child with the same sign,
+# so a dark path is an effect that persists up the lineage.
+# keep = "all" draws every lineage, not only those touching a significant taxon.
+td <- persistence_tree_data(lineage, results_all, ranks = rev(rank_levels),  keep = "all")
+plot_persistence_tree(td, circular = TRUE)
+```
+
+## Do the taxonomic groups match clades of the phylogeny?
+
+```{r}
+# If a taxon is monophyletic on the GG2 tree, collapsing to that rank is the
+# same as collapsing its clade. Pooled unassigned groups are not expected to be.
+mono <- check_monophyly(phy_tree(ps_filtered), lineage, ranks_to_test)
+
+mono %>%
+  filter(!unassigned, n_leaves > 1) %>%
+  count(rank, monophyletic) %>%
+  pivot_wider(names_from = monophyletic, values_from = n, values_fill = 0)
+
+mono %>% filter(!unassigned, n_leaves > 1, !monophyletic)
+```
