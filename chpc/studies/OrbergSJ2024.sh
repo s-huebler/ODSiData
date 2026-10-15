@@ -42,54 +42,58 @@
 # empty and truncation at PYRO_TRUNC_LEN (<= ~400) removes it instead.
 # =============================================================================
 
-STUDY="OrbergSJ2024"
-ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
+echo "ERROR: Orberg2024 is retired; use OrbergMO2024." >&2
+return 1 2>/dev/null || exit 1
 
-LAYOUT="single"
-DENOISER="pyro"
+#Previous attempt
+#STUDY="OrbergSJ2024"
+#ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
+
+#LAYOUT="single"
+#DENOISER="pyro"
 
 # --- Primers: 27F still on, preceded by the 3-nt 'GAT' barcode adaptor -------
 # 27F with position 12 as N: the published M (A/C) does not match the G seen in
 # 99.6% of SJ hits. cutadapt --p-front is non-anchored, so it removes GAT + 27F
 # together; --p-discard-untrimmed (default true) drops the V3-V4 reads, which
 # carry no 27F. Run `./chpc/submit.sh OrbergSJ2024 trim` before denoise.
-FWD_PRIMER="AGAGTTTGATCNTGGCTCAG"
-REV_PRIMER_RC=""
-CUTADAPT_OVERLAP=15               # require (nearly) the whole primer
-# CUTADAPT_DISCARD_UNTRIMMED="true"  # default; keep — this is what removes V3-V4
+#FWD_PRIMER="AGAGTTTGATCNTGGCTCAG"
+#REV_PRIMER_RC=""
+#CUTADAPT_OVERLAP=15               # require (nearly) the whole primer
+## CUTADAPT_DISCARD_UNTRIMMED="true"  # default; keep — this is what removes V3-V4
 
 # --- DADA2 denoise-pyro parameters (KEEP IDENTICAL in OrbergMO2024/OrbergSJ2024)
 # PYRO_TRUNC_LEN provisional from a simulated pyro filter on the sampled reads
 # (reads kept after max-ee 2: MO 77.9/71.7/64.6/57.0%, SJ 43.3/39.4/34.5/30.9%
 # of ALL reads, V3-V4 included, at 200/250/300/350). Confirm against
 # demux_trimmed_viz.qzv (SJ) / demux_viz.qzv (MO) before the denoise run.
-PYRO_TRUNC_LEN=250
-PYRO_TRIM_LEFT=0
-PYRO_MAX_LEN=0
-PYRO_MAX_EE=2.0
-PYRO_TRUNC_Q=2
-PYRO_CHIMERA="consensus"
-PYRO_THREADS=16
+#PYRO_TRUNC_LEN=250
+#PYRO_TRIM_LEFT=0
+#PYRO_MAX_LEN=0
+#PYRO_MAX_EE=2.0
+#PYRO_TRUNC_Q=2
+#PYRO_CHIMERA="consensus"
+#PYRO_THREADS=16
 
 # Optional QIIME sample-metadata TSV for feature-table summarize. Leave "" to
 # skip the metadata-annotated summary (import + DADA2 don't need it).
-METADATA=""
+#METADATA=""
 
 # Walltime hints (edit per dataset size). Used by submit.sh — one per stage.
 # DENOISE_TIME covers whichever denoiser this study selects (DADA2 / Deblur /
 # pyro / dada2-single). TRIM_TIME is the cutadapt primer-removal stage.
-FETCH_TIME="12:00:00"
-IMPORT_TIME="04:00:00"
-TRIM_TIME="04:00:00"
-DENOISE_TIME="24:00:00"
+#FETCH_TIME="12:00:00"
+#IMPORT_TIME="04:00:00"
+#TRIM_TIME="04:00:00"
+#DENOISE_TIME="24:00:00"
 
 # Memory per stage — passed to sbatch --mem, overriding each job script's
 # #SBATCH --mem default (import 8G, denoise 32G). Right-size to the dataset:
 # over-asking memory lengthens your Slurm queue wait. Defaults if unset:
 # IMPORT_MEM=8G, TRIM_MEM=8G, DENOISE_MEM=32G.
-IMPORT_MEM="8G"
-TRIM_MEM="8G"
-DENOISE_MEM="32G"
+#IMPORT_MEM="8G"
+#TRIM_MEM="8G"
+#DENOISE_MEM="32G"
 
 # =============================================================================
 # Greengenes2 mapping — qc + map stages (05_qc.slurm / 06_gg2_map.slurm)

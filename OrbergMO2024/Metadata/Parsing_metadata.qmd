@@ -59,3 +59,13 @@ names(orbergMO_qiime)[1]<- "sample-id"
 ```{r}
 write_tsv(orbergMO_qiime, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv")
 ```
+
+# Check against processed data
+
+```{r}
+og_ps_orberg <- read_rds("/Users/sophiehuebler/Documents/ODSi/ODSiData/OrbergMO2024/Metadata/Raw_metadata/processed.rds")
+```
+
+```{r}
+og_orberg <- unclass(og_ps_orberg@sam_data)%>%as.data.frame()
+```

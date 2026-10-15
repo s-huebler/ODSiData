@@ -43,7 +43,7 @@ DENOISER="pyro"
 PYRO_TRUNC_LEN=257
 PYRO_TRIM_LEFT=0          # 5' trim; 0 — primers already removed by trim
 PYRO_MAX_LEN=0            # drop reads longer than this pre-trim; 0 = off
-PYRO_MAX_EE=2.0          # max expected errors (DADA2 default 2.0)
+PYRO_MAX_EE=3          # max expected errors (DADA2 default 2.0)
 PYRO_TRUNC_Q=2          # truncate at first base <= this quality (default 2)
 PYRO_THREADS=16          # match 04_dada2_pyro --cpus-per-task
 

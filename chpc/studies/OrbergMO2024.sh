@@ -44,6 +44,7 @@
 
 STUDY="OrbergMO2024"
 ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
+METADATA="$REPO_ROOT/$STUDY/Metadata/orbergMO_meta_qiime.tsv"
 
 LAYOUT="single"
 DENOISER="pyro"
@@ -61,25 +62,22 @@ REV_PRIMER_RC=""
 # (reads kept after max-ee 2: MO 77.9/71.7/64.6/57.0%, SJ 43.3/39.4/34.5/30.9%
 # of ALL reads, V3-V4 included, at 200/250/300/350). Confirm against
 # demux_trimmed_viz.qzv (SJ) / demux_viz.qzv (MO) before the denoise run.
-PYRO_TRUNC_LEN=250
-PYRO_TRIM_LEFT=0
+PYRO_TRUNC_LEN=350
+PYRO_TRIM_LEFT=17
 PYRO_MAX_LEN=0
-PYRO_MAX_EE=2.0
+PYRO_MAX_EE=5.0
 PYRO_TRUNC_Q=2
 PYRO_CHIMERA="consensus"
 PYRO_THREADS=16
 
-# Optional QIIME sample-metadata TSV for feature-table summarize. Leave "" to
-# skip the metadata-annotated summary (import + DADA2 don't need it).
-METADATA=""
 
 # Walltime hints (edit per dataset size). Used by submit.sh — one per stage.
 # DENOISE_TIME covers whichever denoiser this study selects (DADA2 / Deblur /
 # pyro / dada2-single). TRIM_TIME is the cutadapt primer-removal stage.
-FETCH_TIME="12:00:00"
+FETCH_TIME="4:00:00"
 IMPORT_TIME="04:00:00"
 TRIM_TIME="04:00:00"
-DENOISE_TIME="24:00:00"
+DENOISE_TIME="12:00:00"
 
 # Memory per stage — passed to sbatch --mem, overriding each job script's
 # #SBATCH --mem default (import 8G, denoise 32G). Right-size to the dataset:
