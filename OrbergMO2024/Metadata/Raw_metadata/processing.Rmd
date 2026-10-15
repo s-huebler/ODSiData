@@ -1,0 +1,2843 @@
+---
+title: "GvHD 16S ITS"
+author: "Andreas Hiergeist"
+output:
+  html_document:
+    keep_md:  TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE,message = FALSE,error=FALSE,results="hide",dev="png",dpi=600)
+#knitr::opts_chunk$set(echo = TRUE,dev="svg")
+
+#Cran
+library(ape)
+library(corrplot)
+library(compositions)
+library(cowplot)
+library(dplyr)
+library(forcats)
+library(ggcorrplot)
+library(ggfortify)
+library(ggprism)
+library(ggpubr)
+library(ggforce)
+library(ggrepel)
+library(Hmisc)
+library(knitr)
+library(kableExtra)
+library(mice)
+library(pheatmap)
+library(plotly)
+library(rmarkdown)
+library(rstatix)
+library(RColorBrewer)
+library(readxl)
+library(tidyverse)
+library(vegan)
+
+
+
+# Needs bioconductor
+library(DESeq2)
+library(EnhancedVolcano)
+library(Maaslin2)
+#library(MOFA2)
+library(PCAtools)
+library(SEtools)
+library(ggtree)
+library(metagenomeSeq)
+library(microbiome)
+library(phyloseq)
+library(scater)
+
+#Outdated
+#library(mia)
+#library(microbiomeMarker)
+
+
+#Original list
+
+library(pairwiseAdonis)
+library(microbiomeutilities)
+library(microViz)
+library(ggord)
+
+
+
+
+
+colours=c("dodgerblue2", "#E31A1C","green4", "#6A3D9A", "#FF7F00", "brown", "gold1", "skyblue2", "palegreen2", "#FDBF6F", "gray70", "maroon", "orchid1","darkturquoise", "darkorange4", "lightblue", "green", "yellow", "black", "lightgrey")
+
+palette8<-c("#87794e","#76608a","#647687","#6d8764","#825a2c","#e3c800","#f0a30a","#fa6800","#a20025","#6a00ff","#008a00","#f472d0","#1ba1e2","#a4c400","#e51400","#aa00ff","#00aba9","#d80073","#0050ef","#60a917")
+
+
+palette9<-c("#006347","#97d0a7","#bbdaf6","#56187d","#ac0123","#ef9f26","#e6cd69","#89b524","#af9f01","#5173bd","#eea187","#db2879","#411c01","#b2b3b5","#215517","#abd6a8","#7aa6d7","#79127f","#cd0027","#f7c003","#fef8d4","#509d28","#0091a0","#1d57a9","#de8277","#dd6ba7","#654634","#6a6a68","#425d10","#bcda78","#386373","#9c581a","#dd3f4e","#ffe001","#857868","#019477","#54b9c1","#082f6d","#eda7c1","#df4018","#dec990","#3d3d3f","#608921","#e7e84f","#5c589d","#a8a2d2","#b91655","#fee469","#cfc98d","#63ba97","#aedcda","#411747","#d38895","#e47a0a","#e2b53e","#010101")
+getPalette=colorRampPalette(palette9)
+
+colours.list.erik.timepoints<-c("IDX" = "#0095ff","COND" = "#4d8e00","d0" = "#fed478","d7" = "#ff9300","d14" = "#ff7e78","d21" = "#ff2500","d28" = "#ff2f91","POST" = "#942192")
+
+colours.erik.timepoints<-c("#0095ff","#4d8e00","#fed478","#ff9300","#ff7e78","#ff2500","#ff2f91","#942192")
+
+
+colours.list.erik.timepoints2<-c("IDX" = "#0095ff",
+                                 "Day -7" = "#4d8e00",
+                                 "Day 0" = "#fed478",
+                                 "Day +7" = "#ff9300",
+                                 "Day +14" = "#ff7e78",
+                                 "Day +21" = "#ff2500",
+                                 "Day +28" = "#ff2f91",
+                                 "≥ Day +35" = "#942192")
+
+
+
+colours.list.Day<-c("Day -7" = "#4d8e00",
+                    "Day 0" = "#fed478",
+                    "Day +7" = "#ff9300",
+                    "Day +14" = "#ff7e78",
+                    "Day +21" = "#ff2500",
+                    "Day +28" = "#ff2f91"
+                    )
+
+
+
+colours.erik.gvhd<-c("#0095ff","#ff2500")
+
+
+colours.list.erik.gvhd<-c("GVHD"="#ff2500","CTRL"="#0095ff")
+
+dominant.taxa<-c("Enterococcus","Streptococcus","Staphylococcus","Klebsiella","Lactobacillus","Escherichia-Shigella")
+
+colours.center<-c("MUC" = "#FFB562",
+                  "REG" = "#F87474")
+
+
+#colours_center_antifungals<-c("#ffb562","#f9f2ed","#f87474","#3ab0ff")
+
+
+colours_center_antifungals<-c("no Antifungals.REG"="#498bca",
+                              "Antifungals.REG" = "#ee3224",
+                              "no Antifungals.MUC" = "#008082",
+                              "Antifungals.MUC" = "#f9bfcb"
+                              )
+
+
+
+colours.erik.antifungals<-c("#F9F2ED","#FFB562")
+  
+temp.colours1<-colours.erik.timepoints[2:8]
+names(temp.colours1)=group.order
+
+
+temp.colours2<-colours.erik.gvhd
+names(temp.colours2)<-c("0","1")
+
+ann_colors.bachup<-list(Timepoint2=temp.colours1,GVHD_01=temp.colours2)
+ann_colors<-list(Day=temp.colours1,Diagnosis=temp.colours2)
+
+
+# import phyloseq datasets
+
+psV1V3.counts<-readRDS("./data/psV1V3_counts.rds")
+psITS.counts<-readRDS("./data/psITS_counts.rds")
+
+metabolome.bile.raw<-readRDS("./data/metabolome_bile_raw.rds")
+metabolome.scfa.raw<-readRDS("./data/metabolome_scfa_raw.rds")
+
+
+```
+
+
+```{r precompute alphaDiv, include=FALSE}
+
+#Alpha Diversity Measures
+alpha_meas = c("Observed", "Chao1", "ACE", "Shannon", "Simpson", "InvSimpson")
+
+#Make Alpha Diversity Table V1V3 region
+alphaDiv.V1V3<-estimate_richness(psV1V3.counts, measures=alpha_meas)
+alphaDiv.V1V3$Shannon.effective<-exp(alphaDiv.V1V3$Shannon)
+alphaDiv.V1V3<-cbind(alphaDiv.V1V3, sample_data(psV1V3.counts))
+
+#Make Alpha Diversity Table ITS region
+alphaDiv.ITS<-estimate_richness(psITS.counts, measures=alpha_meas)
+alphaDiv.ITS$Shannon.effective<-exp(alphaDiv.ITS$Shannon)
+alphaDiv.ITS<-cbind(alphaDiv.ITS, sample_data(psITS.counts))
+
+```
+
+
+
+# Metabolome
+
+
+```{r prepare data, eval=TRUE}
+
+#metabolome.bile.raw
+#metabolome.scfa.raw
+
+#correct names of columns
+colnames(metabolome.bile.raw)<-make.names(colnames(metabolome.bile.raw))
+colnames(metabolome.scfa.raw)<-make.names(colnames(metabolome.scfa.raw))
+
+#remove unclear samples
+samples.idx.donor<-c("M-AI-1","M-AQ-1","R-AA-0","R-AG-0","R-AL-0","R-BD-0","M-AZ-1","R-BA-0")
+samples.removed<-c("M-AY-2-post","M-AY-2-pre","M-AY-5-1","M-AY-5-2")
+samples.remove<-c(samples.idx.donor,samples.removed)
+
+metabolome.bile.prep<-metabolome.bile.raw[!metabolome.bile.raw$Sample%in%samples.remove,]
+metabolome.scfa.prep<-metabolome.scfa.raw[!metabolome.scfa.raw$Sample%in%samples.remove,]
+
+
+
+#make patient ids
+metabolome.bile.prep$Patient<-substr(metabolome.bile.prep$Sample,1,4)
+metabolome.scfa.prep$Patient<-substr(metabolome.scfa.prep$Sample,1,4)
+
+
+ab.test<-antibiotics1[match(metabolome.bile.prep$Sample,antibiotics1$Project_ID),]
+
+#add antibiotics to metadata 
+metabolome.bile.prep$Antibiotic_therapy<-ab.test$Antibiotic_therapy
+metabolome.bile.prep$Antifungal_therapy<-ab.test$Antifungal_therapy
+metabolome.bile.prep$Day<-ab.test$Day
+metabolome.scfa.prep$Antibiotic_therapy<-ab.test$Antibiotic_therapy
+metabolome.scfa.prep$Antifungal_therapy<-ab.test$Antifungal_therapy
+metabolome.scfa.prep$Day<-ab.test$Day
+
+#match ab information with patients
+antibiotics2.matched.metabolome<-antibiotics2[match(metabolome.bile.prep$Patient,antibiotics2$Project_ID),]
+metabolome.bile.prep$NY<-antibiotics2.matched.metabolome$NY
+metabolome.scfa.prep$NY<-antibiotics2.matched.metabolome$NY
+
+
+
+#samples.idx.donor<-metabolome.bile.raw[metabolome.bile.raw$Timepoint=="IDX"|metabolome.bile.raw$Timepoint=="DONOR","Sample"]
+
+metabolome.bile.prep.data<-metabolome.bile.prep[,3:46]
+metabolome.scfa.prep.data<-metabolome.scfa.prep[,3:15]
+
+# SCFA Dataset
+#remove metabolites with >75% NA values
+colnames(metabolome.scfa.prep.data)[sapply(metabolome.scfa.prep.data, function(y) sum(length(which(is.na(y)))))<round(nrow(metabolome.scfa.prep.data)/100*75)]
+temp.scfa<-metabolome.scfa.prep.data[sapply(metabolome.scfa.prep.data, function(y) sum(length(which(is.na(y)))))<round(nrow(metabolome.scfa.prep.data)/100*75)]
+
+#imputed missing values
+temp.scfa.imputed<-mice(temp.scfa,m=50, method = 'pmm', seed = 101)
+#centered log ratio normalization
+temp.scfa.imputed.clr<-data.frame(log1p(complete(temp.scfa.imputed)))
+# principal component analyis
+temp.scfa.pca<-prcomp(temp.scfa.imputed.clr, scale = FALSE)
+# merge with metadata
+temp.scfa.imputed.clr.pca<-cbind(temp.scfa.pca$x,metabolome.scfa.prep[,c(1,2,16,17,18,19,20,21)])
+
+
+# Bile Acid Dataset
+#remove metabolites with >75% NA values
+colnames(metabolome.bile.prep.data)[sapply(metabolome.bile.prep.data, function(y) sum(length(which(is.na(y)))))<round(nrow(metabolome.bile.prep.data)/100*75)]
+temp.bile<-metabolome.bile.prep.data[sapply(metabolome.bile.prep.data, function(y) sum(length(which(is.na(y)))))<round(nrow(metabolome.bile.prep.data)/100*75)]
+
+#imputed missing values
+temp.bile.imputed<-mice(temp.bile,m=50, method = 'pmm', seed = 101)
+#centered log ratio normalization
+temp.bile.imputed.clr<-data.frame(log1p(complete(temp.bile.imputed)))
+# principal component analyis
+temp.bile.pca<-prcomp(temp.bile.imputed.clr, scale = FALSE)
+# merge with metadata
+temp.bile.imputed.clr.pca<-cbind(temp.bile.pca$x,metabolome.bile.prep[,c(1,2,47,48,49,50,51,52)])
+
+group.order<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28")
+```
+
+
+```{r pairwise adonis,results="asis"}
+
+temp.scfa<-pairwise.adonis2(temp.scfa.imputed.clr ~ Timepoint + Patient,data = metabolome.scfa.prep,method="euclidean",p.adjust="BH")
+
+pander::pander(temp.scfa)
+
+pander::pander(as_tibble(lapply(temp.scfa[2:length(temp.scfa)], FUN=function(x) data.frame(x[5]))))
+
+
+temp.bile<-pairwise.adonis2(temp.bile.imputed.clr ~ Timepoint + Patient,data = metabolome.bile.prep,method="euclidean",p.adjust="BH")
+
+pander::pander(temp.bile)
+
+pander::pander(as_tibble(lapply(temp.bile[2:length(temp.bile)], FUN=function(x) data.frame(x[5]))))
+
+
+```
+
+
+## Principal Component Analysis, Metabolome
+
+- Removed Metabolites with >75% NA's
+- Multiple Imputation by Predictive Mean Matching (PMM)
+- LOG transformation (log1p)
+
+
+### SCFA
+
+```{r PCA metabolome scfa timepoints,eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+
+temp<-temp.scfa.imputed.clr.pca %>% 
+  filter(Day!="≥ Day +35") %>% 
+  mutate(Day=factor(Day,levels=group.order))
+gg.pca.metabolome.scfa<-ggscatter(temp, x = "PC1", y = "PC2",color = "Day", palette = colours.list.Day,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,title="SCFA",
+#label="Sample",
+repel=TRUE)
+ggpar(gg.pca.metabolome.scfa,legend="right")
+```
+
+## Analysis of PCA Loadings (Biplot)
+
+```{r PCA metabolome Loadings scfa,eval=FALSE,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+p<-autoplot(temp.scfa.pca, data=metabolome.scfa.prep, colour = 'Timepoint2', scale=F, center=F, shape = FALSE, label=F, label.size = 5, frame=FALSE,frame.type="t",loadings = TRUE, loadings.colour = 'blue',loadings.label = TRUE, loadings.label.size = 5,loadings.label.repel=T) + theme_classic() +
+scale_colour_manual(values=colours) +scale_fill_manual(values=colours)
+p
+```
+
+
+### Bile Acids
+
+```{r PCA metabolome bile timepoints,eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+
+temp<-temp.bile.imputed.clr.pca%>% 
+  filter(Day!="≥ Day +35") %>% 
+  mutate(Day=factor(Day,levels=group.order))
+
+
+gg.pca.metabolome.bile<-ggscatter(temp, x = "PC1", y = "PC2",color = "Day", palette = colours.list.Day,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,title="Bile Acids",
+#label="Sample",
+repel=TRUE)
+ggpar(gg.pca.metabolome.bile,legend="right")
+```
+
+### Analysis of PCA Loadings (Biplot)
+
+```{r PCA metabolome Loadings bile,eval=FALSE,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+p<-autoplot(temp.bile.pca, data=metabolome.bile.prep, colour = 'Timepoint2', scale=F, center=F, shape = FALSE, label=F, label.size = 5, frame=FALSE,frame.type="t",loadings = TRUE, loadings.colour = 'blue',loadings.label = TRUE, loadings.label.size = 5,loadings.label.repel=T) + theme_classic() +
+scale_colour_manual(values=colours) +scale_fill_manual(values=colours)
+p
+```
+
+
+## SCFA and Antibiotics
+
+
+```{r PCA metabolome scfa antibiotics,eval=FALSE,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+gg.pca.metabolome.scfa<-ggscatter(temp.scfa.imputed.clr.pca, x = "PC1", y = "PC2",color = "Antibiotic_therapy", palette = colours.erik.gvhd[c(2,1)],ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,
+#label="Sample",
+repel=TRUE)
+ggpar(gg.pca.metabolome.scfa,legend="right")
+```
+
+
+```{r PCA metabolome scfa NY,echo=FALSE,eval=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+gg.pca.metabolome.scfa<-ggscatter(temp.scfa.imputed.clr.pca, x = "PC1", y = "PC2",color = "NY", palette = colours,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,
+#label="Sample",
+repel=TRUE)
+ggpar(gg.pca.metabolome.scfa,legend="right")
+```
+
+
+### Bile Acids
+
+```{r PCA metabolome bile antibiotics,eval=FALSE,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+gg.pca.metabolome.bile<-ggscatter(temp.bile.imputed.clr.pca, x = "PC1", y = "PC2",color = "Antibiotic_therapy", palette = colours.erik.gvhd[c(2,1)],ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,
+#label="Sample",
+repel=TRUE)
+ggpar(gg.pca.metabolome.bile,legend="right")
+```
+
+
+
+```{r PCA metabolome bile NY,echo=FALSE,eval=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+gg.pca.metabolome.bile<-ggscatter(temp.bile.imputed.clr.pca, x = "PC1", y = "PC2",color = "NY", palette = colours,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,
+#label="Sample",
+repel=TRUE)
+ggpar(gg.pca.metabolome.bile,legend="right")
+```
+
+
+
+```{r composition stool V1V3 tp,eval=FALSE,echo=FALSE,warning=FALSE,message=FALSE,error=FALSE,fig.dim=c(7,4),out.width="100%"}
+
+temp<-tax_glom(psV1V3.counts,taxrank="Genus")
+temp<-phyloseq::subset_samples(temp,Timepoint2!="IDX"&Timepoint2!="DONOR")
+temp<-prune_taxa(taxa_sums(temp)>1,temp)
+colourCount = length(unique(psmelt(temp)$Genus))
+temp<- transform_sample_counts(temp,function(x) x/sum(x))
+df<-psmelt(temp)
+
+#group order
+#group.order<-c("COND","0","7","14","21","28","POST")
+group.order<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+# sum the abundance for each Genus, across all Sorts, & sort the result
+sort.Genus <- df %>%
+  dplyr::count(Genus, wt = Abundance) %>%
+  dplyr::arrange(desc(n)) %>%
+  dplyr::pull(Genus)
+
+# get Sort order, sorted by each Sort's abundance in the most abundant Genus
+Sort.order <- df %>%
+  dplyr::filter(Genus == sort.Genus[1]) %>%
+  dplyr::arrange(desc(Abundance)) %>%
+  dplyr::pull(ProjectID)
+
+
+
+# factor Sort / Genus in the desired order
+g<-df %>%
+  mutate(ProjectID = factor(ProjectID, levels = Sort.order)) %>%
+  mutate(Genus = factor(Genus, levels = rev(sort.Genus))) %>%
+  mutate(Timepoint2 = factor(Timepoint2, levels=group.order)) %>%
+  ggplot(aes(x = ProjectID, y = Abundance, fill = fct_reorder(Genus,Abundance))) +
+  geom_bar(stat="identity",position="fill") +
+  facet_grid(~Timepoint2,space="fixed",scales="free",labeller = labeller(Timepoint2 = label_wrap_gen(10)))+
+  theme_classic() +
+    theme(strip.text = element_text(size=6),legend.text=element_text(size=rel(0.8)),axis.title.x=element_blank(),axis.text.x=element_blank()) +
+    scale_fill_manual(values = colorRampPalette(palette9)(colourCount))
+gpy.tp=ggplotly(g)
+gpy.tp
+```
+
+
+
+
+
+
+# Alpha Diversity
+
+* Richness = Observed Amplicon Sequence Variants (ASV),
+* Inverse Simpson Diversity Index,
+* Effective Shannon Diversity Index
+
+### Observed Species
+
+```{r alpha diversity obs, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(4,4),out.width = "100%"}
+
+alphaDiversity<-alphaDiv.V1V3 %>% 
+  filter(!Timepoint2 %in% c("DONOR","IDX", "≥ Day +35"))
+
+
+group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28")
+
+stat.test1 <- alphaDiversity %>%
+  mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  wilcox_test(Observed ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2")
+#https://github.com/kassambara/rstatix/issues/24
+
+
+
+#group.order<-unique(mapping[["Timepoint2"]])
+
+p<-ggplot(alphaDiversity%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Time.num,Observed))
+gg.alpha.obs<-p+
+  #geom_boxplot(outlier.shape = NA)+
+  geom_smooth(colour="black")+
+  geom_smooth(alpha=0.1,aes(colour=Center,fill=Center),method="loess",se=T)+
+  geom_jitter(colour="grey",size=2)+
+  theme_classic() +
+  theme(axis.text.x=element_text(angle=60,hjust=1),legend.position='none') +
+  xlab("") +
+  ylab("Richness") +
+  #stat_pvalue_manual(stat.test1[2,], label = "p.adj.signif",step.increase = 0.1)+
+  scale_colour_manual(values=colours.center)+
+  scale_fill_manual(values=colours.center)+
+  scale_y_continuous(limits=c(0,700),expand = expansion(mult = c(0, 0.1)))
+gg.alpha.obs
+```
+
+
+
+
+### Inverse Simpson
+
+
+```{r alpha diversity is, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(4,4),out.width = "100%"}
+
+
+stat.test1 <- alphaDiversity %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  #group_by(date_of_sample) %>%
+  wilcox_test(InvSimpson ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2")
+#https://github.com/kassambara/rstatix/issues/24
+
+
+
+p<-ggplot(alphaDiversity%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Time.num,InvSimpson))
+gg.alpha.se<-p+
+ geom_smooth(colour="black")+
+  geom_smooth(aes(colour=Center),method="loess",se=F)+
+  geom_jitter(colour="grey",size=2)+
+     theme_classic()+theme(axis.text.x=element_text(angle=60,hjust=1),legend.position='none') +
+    xlab("") +
+    ylab("Inverse Simpson")+
+    #stat_pvalue_manual(stat.test1[2,], label = "p.adj.signif",step.increase = 0.1)+
+    scale_colour_manual(values=colours.center)+
+    scale_fill_manual(values=colours.center)+
+    scale_y_continuous(limits=c(0,90),expand = expansion(mult = c(0, 0.1)))
+gg.alpha.se
+```
+
+
+
+### Observed Species, GVHD_01
+
+```{r alpha diversity obs gvhd, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(4,4),out.width = "100%"}
+
+alphaDiversity<-alphaDiv.V1V3[!alphaDiv.V1V3[["Timepoint2"]]%in%c("DONOR","IDX"),]
+#group.order.alpha<-c("COND","0","7","14","21","28","POST")
+group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+stat.test1 <- alphaDiversity %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  wilcox_test(Observed ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2")
+#https://github.com/kassambara/rstatix/issues/24
+
+
+
+
+#group.order<-unique(mapping[["Timepoint2"]])
+my_comparisons<-combn(unique(alphaDiversity$Timepoint2),m=2,simplify=F)
+
+p<-ggplot(alphaDiversity%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Timepoint2,Observed,colour=Timepoint2))
+gg.alpha.obs<-p+geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+    #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position='none') +
+    xlab("") +
+    ylab("Richness") +
+    stat_pvalue_manual(stat.test1[2,], label = "p.adj.signif",y.position = 1000)+       scale_colour_manual(values=colours.erik.timepoints[2:8])+
+    facet_wrap(~GVHD_01,scales="free_x")+
+    scale_y_continuous(limits=c(0,1000),expand = expansion(mult = c(0, 0.1)))
+gg.alpha.obs
+```
+
+### Observed Species - Controls, lateTP
+
+```{r alpha diversity obs lateTP, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(3,4),out.width = "100%"}
+
+alphaDiversity.lateTP<-alphaDiv.V1V3[alphaDiv.V1V3$lateTP,]
+
+#group.order.lateTP<-unique(mapping[["Control"]])
+group.order.lateTP<-c("1","0")
+
+stat.test1 <- alphaDiversity.lateTP %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.lateTP))   %>% 
+  wilcox_test(Observed ~ Control) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Control")
+
+
+
+p<-ggplot(alphaDiversity.lateTP%>% mutate(Control = factor(Control, levels=group.order.lateTP)),aes(Control,Observed,colour=Control))
+gg.alpha.obs.lateTP<-p+geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+    #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position='none') +
+    xlab("") +
+    ylab("Richness") +
+    stat_pvalue_manual(stat.test1, label = "p.adj.signif")+
+    scale_colour_manual(values=colours.erik.gvhd)+
+    #facet_wrap(~Center,scales="free_x")+
+    scale_y_continuous(limits=c(0,500),expand = expansion(mult = c(0, 0.1)))+
+    scale_x_discrete(label=c("no GI-GVHD","GI-GvHD"))
+gg.alpha.obs.lateTP
+```
+
+
+
+# Antibiotics
+
+
+### Bacterial Load - Antibiotics
+
+```{r load bacteria antibiotics, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+alphaDiversity<-alphaDiv.V1V3[!alphaDiv.V1V3[["Timepoint2"]]%in%c("DONOR","IDX"),]
+
+#group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+group.order.ab<-c("No ABX","ABX")
+
+stat.test1 <- alphaDiversity %>%
+   mutate(Antibiotic_therapy = factor(Antibiotic_therapy, levels=group.order.ab))   %>% 
+  wilcox_test(copies16S ~ Antibiotic_therapy) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Antibiotic_therapy",y.trans = log10)
+#https://github.com/kassambara/rstatix/issues/24
+
+
+
+#group.order<-unique(mapping[["Antibiotic_therapy"]])
+
+p<-ggplot(alphaDiversity%>% mutate(Antibiotic_therapy = factor(Antibiotic_therapy, levels=group.order.ab)),aes(Antibiotic_therapy,copies16S,colour=Antibiotic_therapy))
+gg.alpha.obs<-p+geom_boxplot(outlier.shape = NA)+
+  geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+  theme_classic() +
+  theme(axis.text.x=element_text(angle=60,hjust=1),legend.position='none') +
+  xlab("") +
+  ylab("16S rDNA copies per gram stool") + 
+  stat_pvalue_manual(stat.test1, label = "p.adj.signif",step.increase = 0.1)+
+  scale_colour_manual(values=colours.erik.gvhd)+
+  #facet_wrap(~Center,scales="free_x")+
+  scale_y_log10()
+gg.alpha.obs
+
+```
+
+
+
+# Antibiotics and GvHD
+
+## Bacteria
+
+### Antibiotics
+
+```{r alpha diversity obs mean antibiotics, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+
+alphaDiversity<-alphaDiv.V1V3[!alphaDiv.V1V3[["Timepoint2"]]%in%c("DONOR","IDX"),]
+
+#group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+group.order.ab<-c("No ABX","ABX")
+
+
+alphaDiversity %>% 
+  group_by(Patient,Antibiotic_therapy) %>% 
+  dplyr::summarize(obs_mean=mean(Observed),.groups = "drop") %>% 
+  mutate(Antibiotic_therapy = factor(Antibiotic_therapy, levels=group.order.ab)) %>% 
+  ggplot(aes(Antibiotic_therapy,obs_mean,colour=Antibiotic_therapy))+
+    geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_blank(),legend.position='none') +
+    xlab("") +
+    ylab("Richness") +
+    #stat_pvalue_manual(stat.test1, label = "p.adj.signif",step.increase = 0.1)+
+    scale_colour_manual(values=colours.erik.gvhd)+
+    stat_compare_means(method = "wilcox.test",
+                       paired=F,label = "p.signif",
+                       comparisons=list(unique(alphaDiversity$Antibiotic_therapy)))+
+    #facet_wrap(~Center,scales="free_x")+
+    scale_y_continuous(limits=c(0,800),expand = expansion(mult = c(0, 0.1)))
+  
+
+```
+
+
+```{r alpha diversity InvSimpson mean antibiotics, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+
+alphaDiversity<-alphaDiv.V1V3[!alphaDiv.V1V3[["Timepoint2"]]%in%c("DONOR","IDX"),]
+
+#group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+group.order.ab<-c("No ABX","ABX")
+
+
+alphaDiversity %>% 
+  group_by(Patient,Antibiotic_therapy) %>% 
+  dplyr::summarize(is_mean=mean(InvSimpson),.groups = "drop") %>% 
+  mutate(Antibiotic_therapy = factor(Antibiotic_therapy, levels=group.order.ab)) %>% 
+  ggplot(aes(Antibiotic_therapy,is_mean,colour=Antibiotic_therapy))+
+    geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_blank(),legend.position='none') +
+    xlab("") +
+    ylab("Inverse Simpson") +
+    #stat_pvalue_manual(stat.test1, label = "p.adj.signif",step.increase = 0.1)+
+    scale_colour_manual(values=colours.erik.gvhd)+
+    stat_compare_means(method = "wilcox.test",
+                       paired=F,label = "p.signif",
+                       comparisons=list(unique(alphaDiversity$Antibiotic_therapy)))+
+    #facet_wrap(~Center,scales="free_x")+
+    scale_y_continuous(limits=c(0,100),expand = expansion(mult = c(0, 0.1)))
+  
+
+```
+
+
+
+```{r alpha diversity copies16S mean antibiotics, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+
+alphaDiversity<-alphaDiv.V1V3[!alphaDiv.V1V3[["Timepoint2"]]%in%c("DONOR","IDX"),]
+
+#group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+group.order.ab<-c("No ABX","ABX")
+
+
+alphaDiversity %>% 
+  group_by(Patient,Antibiotic_therapy) %>% 
+  dplyr::summarize(copies16S_mean=mean(copies16S*33.3),.groups = "drop") %>% 
+  mutate(Antibiotic_therapy = factor(Antibiotic_therapy, levels=group.order.ab)) %>% 
+  ggplot(aes(Antibiotic_therapy,copies16S_mean,colour=Antibiotic_therapy))+
+    geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_blank(),legend.position='none') +
+    xlab("") +
+    ylab("16S rDNA copies per gram stool") +
+    #stat_pvalue_manual(stat.test1, label = "p.adj.signif",step.increase = 0.1)+
+    scale_colour_manual(values=colours.erik.gvhd)+
+    stat_compare_means(method = "wilcox.test",
+                       paired=F,label = "p.signif",
+                       comparisons=list(unique(alphaDiversity$Antibiotic_therapy)))+
+  scale_y_log10()
+    #facet_wrap(~Center,scales="free_x")+
+   # scale_y_continuous(limits=c(0,800),expand = expansion(mult = c(0, 0.1)))
+  
+
+```
+
+
+
+
+
+
+
+
+
+
+
+### GvHD
+
+
+
+```{r alpha diversity obs mean GvHD lateTP, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+
+alphaDiversity.lateTP<-alphaDiv.V1V3[alphaDiv.V1V3$lateTP,]
+
+#group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+group.order.lateTP<-c("1","0")
+
+
+alphaDiversity.lateTP %>% 
+  group_by(Patient,Control) %>% 
+  dplyr::summarize(obs_mean=mean(Observed),.groups = "drop") %>% 
+  mutate(Control = factor(Control, levels=group.order.lateTP)) %>% 
+  ggplot(aes(Control,obs_mean,colour=Control))+
+  geom_boxplot(outlier.shape = NA)+
+  geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+  theme_classic() +
+  theme(axis.text.x=element_blank(),legend.position='none') +
+  xlab("") +
+  ylab("Richness") +
+  #stat_pvalue_manual(stat.test1, label = "p.adj.signif",step.increase = 0.1)+
+  scale_colour_manual(values=colours.erik.gvhd)+
+  stat_compare_means(method = "wilcox.test",
+                     paired=F,label = "p.signif",
+                     comparisons=list(unique(alphaDiversity.lateTP$Control)))+
+  #facet_wrap(~Center,scales="free_x")+
+  scale_y_continuous(limits=c(0,370),expand = expansion(mult = c(0, 0.1)))+
+  scale_x_discrete(label=c("no GI-GVHD","GI-GvHD"))
+
+```
+
+
+
+
+```{r alpha diversity InvSimpson mean GvHD lateTP, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+
+alphaDiversity.lateTP<-alphaDiv.V1V3[alphaDiv.V1V3$lateTP,]
+
+#group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+group.order.lateTP<-c("1","0")
+
+
+alphaDiversity.lateTP %>% 
+  group_by(Patient,Control) %>% 
+  dplyr::summarize(is_mean=mean(InvSimpson),.groups = "drop") %>% 
+  mutate(Control = factor(Control, levels=group.order.lateTP)) %>% 
+  ggplot(aes(Control,is_mean,colour=Control))+
+  geom_boxplot(outlier.shape = NA)+
+  geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+  theme_classic() +
+  theme(axis.text.x=element_blank(),legend.position='none') +
+  xlab("") +
+  ylab("Inverse Simpson") +
+  #stat_pvalue_manual(stat.test1, label = "p.adj.signif",step.increase = 0.1)+
+  scale_colour_manual(values=colours.erik.gvhd)+
+  stat_compare_means(method = "wilcox.test",
+                     paired=F,label = "p.signif",
+                     comparisons=list(unique(alphaDiversity.lateTP$Control)))+
+  #facet_wrap(~Center,scales="free_x")+
+  scale_y_continuous(limits=c(0,70),expand = expansion(mult = c(0, 0.1)))+
+  scale_x_discrete(label=c("no GI-GVHD","GI-GvHD"))
+
+```
+
+
+
+```{r alpha diversity copies16S mean GvHD lateTP, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+
+alphaDiversity.lateTP<-alphaDiv.V1V3[alphaDiv.V1V3$lateTP,]
+
+#group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+group.order.lateTP<-c("1","0")
+
+
+alphaDiversity.lateTP %>% 
+  group_by(Patient,Control) %>% 
+  dplyr::summarize(copies16S_mean=mean(copies16S*33.3),.groups = "drop") %>% 
+  mutate(Control = factor(Control, levels=group.order.lateTP)) %>% 
+  ggplot(aes(Control,copies16S_mean,colour=Control))+
+  geom_boxplot(outlier.shape = NA)+
+  geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+  theme_classic() +
+  theme(axis.text.x=element_blank(),legend.position='none') +
+  xlab("") +
+  ylab("16S rDNA copies per gram stool") +
+  #stat_pvalue_manual(stat.test1, label = "p.adj.signif",step.increase = 0.1)+
+  scale_colour_manual(values=colours.erik.gvhd)+
+  stat_compare_means(method = "wilcox.test",
+                     paired=F,label = "p.signif",
+                     comparisons=list(unique(alphaDiversity.lateTP$Control)))+
+  scale_y_log10()+
+  #facet_wrap(~Center,scales="free_x")+
+  #scale_y_continuous(limits=c(0,370),expand = expansion(mult = c(0, 0.1)))+
+  scale_x_discrete(label=c("no GI-GVHD","GI-GvHD"))
+
+```
+
+
+
+
+
+### Antifungals
+
+
+
+```{r alpha diversity Observed mean antifungals, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+#group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+group.order.af<-c("no Antifungals","Antifungals")
+
+temp<-alphaDiv.V1V3 %>% filter(!Day%in%c("≥ Day +35")) %>% 
+  dplyr::filter(!is.na(Antifungal_therapy)) %>% 
+  dplyr::group_by(Patient,Antifungal_therapy) %>% 
+  dplyr::summarize(obs_mean=mean(Observed),.groups = "drop") %>% 
+  dplyr::mutate(Antifungal_therapy = factor(Antifungal_therapy, levels=group.order.af))
+
+temp %>% ggplot(aes(Antifungal_therapy,obs_mean,colour=Antifungal_therapy))+
+  geom_boxplot(outlier.shape = NA)+
+  geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+  theme_classic() +
+  theme(axis.text.x=element_blank(),legend.position='none') +
+  xlab("") +
+  ylab("Richness") +
+  #stat_pvalue_manual(stat.test1, label = "p.adj.signif",step.increase = 0.1)+
+  scale_colour_manual(values=colours.erik.antifungals)+
+  stat_compare_means(method = "wilcox.test",
+                     paired=F,label = "p.signif",
+                     comparisons=list(unique(alphaDiversity$Antifungal_therapy)))+
+  #facet_wrap(~Center,scales="free_x")+
+  scale_y_continuous(limits=c(0,600),expand = expansion(mult = c(0, 0.1)))
+
+
+```
+
+
+
+```{r alpha diversity InvSimpson mean antifungals, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+#group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+group.order.af<-c("no Antifungals","Antifungals")
+
+temp<-alphaDiv.V1V3 %>% filter(!Day%in%c("≥ Day +35")) %>% 
+  dplyr::filter(!is.na(Antifungal_therapy)) %>% 
+  dplyr::group_by(Patient,Antifungal_therapy) %>% 
+  dplyr::summarize(is_mean=mean(InvSimpson),.groups = "drop") %>% 
+  dplyr::mutate(Antifungal_therapy = factor(Antifungal_therapy, levels=group.order.af))
+
+temp %>% ggplot(aes(Antifungal_therapy,is_mean,colour=Antifungal_therapy))+
+  geom_boxplot(outlier.shape = NA)+
+  geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+  theme_classic() +
+  theme(axis.text.x=element_blank(),legend.position='none') +
+  xlab("") +
+  ylab("Inverse Simpson") +
+  #stat_pvalue_manual(stat.test1, label = "p.adj.signif",step.increase = 0.1)+
+  scale_colour_manual(values=colours.erik.antifungals)+
+  stat_compare_means(method = "wilcox.test",
+                     paired=F,label = "p.signif",
+                     comparisons=list(unique(alphaDiversity$Antifungal_therapy)))+
+  #facet_wrap(~Center,scales="free_x")+
+  scale_y_continuous(limits=c(0,100),expand = expansion(mult = c(0, 0.1)))
+
+
+```
+
+
+
+
+
+
+## Fungi
+
+### Antibiotics
+
+
+
+
+## Bacterial and Fungal Load
+
+```{r bacterial load means, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(5,4),out.width = "200%"}
+
+alphaDiversity<-alphaDiv.V1V3[!alphaDiv.V1V3[["Timepoint2"]]%in%c("DONOR","IDX"),]
+group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+stat.test1 <- alphaDiversity %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  wilcox_test(copies16S ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2",y.trans = log10)
+#https://github.com/kassambara/rstatix/issues/24
+
+
+p<-ggplot(alphaDiversity%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Time.num,copies16S))
+gg.16S<-p+
+geom_smooth(colour="black")+
+  geom_smooth(alpha=0.1,aes(colour=Center,fill=Center),method="loess",se=T)+
+  geom_jitter(colour="grey",size=2)+
+  theme_classic() +
+  theme(axis.text.x=element_text(angle=60,hjust=1),legend.position='none') +
+   xlab("") +
+    ylab("16S rDNA copies per gram stool") +
+    #stat_pvalue_manual(stat.test1[2,], label = "p.adj.signif")+
+    scale_colour_manual(values=colours.center)+
+   scale_fill_manual(values=colours.center)+
+  #facet_wrap(~Center,scales="free_x")+
+    #scale_y_continuous(expand = expansion(mult = c(0, 0.1)))+
+    scale_y_log10()
+gg.16S
+```
+
+
+### Bacterial Load, GVHD_01
+
+```{r bacterial load gvhd, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(4,4),out.width = "100%"}
+
+alphaDiversity<-alphaDiv.V1V3[!alphaDiv.V1V3[["Timepoint2"]]%in%c("DONOR","IDX"),]
+#group.order.alpha<-c("COND","0","7","14","21","28","POST")
+group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+stat.test1 <- alphaDiversity %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  wilcox_test(copies16S ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2",y.trans = log10)
+#https://github.com/kassambara/rstatix/issues/24
+
+
+p<-ggplot(alphaDiversity%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Timepoint2,copies16S,colour=Timepoint2))
+gg.16S.gvhd<-p+geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+    #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+    xlab("") +
+    ylab("16S rDNA copies per gram stool") +
+    stat_pvalue_manual(stat.test1[2,],label="p.adj.signif")+
+    scale_colour_manual(values=colours.erik.timepoints[2:8])+
+    facet_wrap(~GVHD_01,scales="free_x")+
+    scale_y_log10()
+gg.16S.gvhd
+```
+
+### Bacterial Load, GVHD_01
+
+```{r BCoAT load gvhd, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(4,4),out.width = "100%"}
+
+alphaDiversity<-alphaDiv.V1V3[!alphaDiv.V1V3[["Timepoint2"]]%in%c("DONOR","IDX"),]
+#group.order.alpha<-c("COND","0","7","14","21","28","POST")
+group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+stat.test1 <- alphaDiversity %>%
+  mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  wilcox_test(copiesBCoAT ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2",y.trans = log10)
+#https://github.com/kassambara/rstatix/issues/24
+
+
+p<-ggplot(alphaDiversity%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Timepoint2,copiesBCoAT+1,colour=Timepoint2))
+gg.bcoat.gvhd<-p+geom_boxplot(outlier.shape = NA)+
+  geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+  theme_classic() +
+  theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+  xlab("") +
+  ylab("Gene copies per gram stool") +
+  stat_pvalue_manual(stat.test1[2,],label="p.adj.signif")+
+  scale_colour_manual(values=colours.erik.timepoints[2:8])+
+  facet_wrap(~GVHD_01,scales="free_x")+
+  scale_y_log10()
+gg.bcoat.gvhd
+```
+
+
+### Fungal load, GvHD
+
+```{r fungal load gvhd, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(4,4),out.width = "100%"}
+
+alphaDiversity<-alphaDiv.V1V3[!alphaDiv.V1V3[["Timepoint2"]]%in%c("DONOR","IDX"),]
+#group.order.alpha<-c("COND","0","7","14","21","28","POST")
+group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+stat.test1 <- alphaDiversity %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  wilcox_test(copies28S ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2",y.trans = log10)
+#https://github.com/kassambara/rstatix/issues/24
+
+p<-ggplot(alphaDiversity%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Timepoint2,copies28S,colour=Timepoint2))
+gg.28S.gvhd<-p+geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+    #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+    xlab("") +
+    ylab("Richness") +
+    stat_pvalue_manual(stat.test1[2,],label="p.adj.signif")+
+      scale_colour_manual(values=colours.erik.timepoints[2:8])+
+    facet_wrap(~GVHD_01,scales="free_x")+
+    scale_y_log10()
+gg.28S.gvhd
+```
+
+
+### Bacterial Load - Controls, lateTP
+
+```{r bacterial load lateTP, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+alphaDiversity.lateTP<-alphaDiv.V1V3[alphaDiv.V1V3$lateTP,]
+
+#group.order.lateTP<-unique(mapping[["Control"]])
+group.order.lateTP<-c("1","0")
+
+stat.test1 <- alphaDiversity.lateTP %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.lateTP))   %>% 
+  wilcox_test(copies16S ~ Control) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Control",y.trans = log10)
+
+p<-ggplot(alphaDiversity.lateTP%>% mutate(Control = factor(Control, levels=group.order.lateTP)),aes(Control,copies16S,colour=Control))
+gg.16S.lateTP<-p+geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+    #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+    xlab("") +
+    ylab("16S rDNA copies per gram stool") +
+    stat_pvalue_manual(stat.test1,label="p.adj.signif")+
+    scale_colour_manual(values=colours.erik.gvhd)+
+    #facet_wrap(~Center,scales="free_x")+
+    scale_y_log10()+
+    scale_x_discrete(label=c("no GI-GVHD","GI-GvHD"))
+gg.16S.lateTP
+```
+
+
+### Bacterial Load - Controls, lateTP
+
+```{r BCoAT load lateTP, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+alphaDiversity.lateTP<-alphaDiv.V1V3[alphaDiv.V1V3$lateTP,]
+
+#group.order.lateTP<-unique(mapping[["Control"]])
+group.order.lateTP<-c("1","0")
+
+stat.test1 <- alphaDiversity.lateTP %>%
+  mutate(Timepoint2 = factor(Timepoint2, levels=group.order.lateTP))   %>% 
+  wilcox_test(copiesBCoAT ~ Control) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Control",y.trans = log10)
+
+p<-ggplot(alphaDiversity.lateTP%>% mutate(Control = factor(Control, levels=group.order.lateTP)),aes(Control,copiesBCoAT+1,colour=Control))
+gg.bcoat.lateTP<-p+geom_boxplot(outlier.shape = NA)+
+  geom_jitter(width = 0.2,height=0.1,size=1)+
+  #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+  theme_classic() +
+  theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+  xlab("") +
+  ylab("Gene copies per gram stool") +
+  stat_pvalue_manual(stat.test1,label="p.adj.signif")+
+  scale_colour_manual(values=colours.erik.gvhd)+
+  #facet_wrap(~Center,scales="free_x")+
+  scale_y_log10()+
+  scale_x_discrete(label=c("no GI-GVHD","GI-GvHD"))
+gg.bcoat.lateTP
+```
+
+
+
+### Fungal Load - Controls, lateTP
+
+```{r fungal load lateTP, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+alphaDiversity.lateTP<-alphaDiv.V1V3[alphaDiv.V1V3$lateTP,]
+
+
+#group.order.lateTP<-unique(mapping[["Control"]])
+group.order.lateTP<-c("1","0")
+
+stat.test1 <- alphaDiversity.lateTP %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.lateTP))   %>% 
+  wilcox_test(copies28S ~ Control) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Control",y.trans = log10)
+
+p<-ggplot(alphaDiversity.lateTP%>% mutate(Control = factor(Control, levels=group.order.lateTP)),aes(Control,copies28S,colour=Control))
+gg.28S.lateTP<-p+geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+    #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+    xlab("") +
+    ylab("28S rDNA copies per gram stool") +
+    stat_pvalue_manual(stat.test1,label="p.adj.signif")+
+      scale_colour_manual(values=colours.erik.gvhd)+
+    #facet_wrap(~Center,scales="free_x")+
+    scale_y_log10()+
+    scale_x_discrete(label=c("no GI-GVHD","GI-GvHD"))
+gg.28S.lateTP
+```
+
+
+
+
+
+
+
+
+
+## Fungi
+
+### Richness ITS Fungi
+
+```{r alpha diversity obs ITS, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(5,4),out.width = "100%"}
+
+alphaDiversity.ITS<-alphaDiv.ITS[!alphaDiv.ITS[["Timepoint2"]]%in%c("DONOR","IDX","≥ Day +35"),]
+#group.order.alpha<-c("IDX","COND","0","7","14","21","28","POST")
+group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28")
+
+
+stat.test1 <- alphaDiversity.ITS %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  wilcox_test(Observed ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2")
+#https://github.com/kassambara/rstatix/issues/24
+
+
+p<-ggplot(alphaDiversity.ITS%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Time.num,Observed))
+gg.alpha.obs<-p+
+ geom_smooth(colour="black")+
+  geom_smooth(aes(colour=Center),method="loess",se=F)+
+  geom_jitter(colour="grey",size=2)+
+      theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+    xlab("") +
+    ylab("Richness") +
+    #stat_pvalue_manual(stat.test1[2,],label="p.adj.signif")+
+    scale_colour_manual(values=colours.center)+
+  scale_fill_manual(values=colours.center)+
+   scale_y_continuous(expand = expansion(mult = c(0, 0.1)))
+gg.alpha.obs
+```
+
+
+### Richness ITS centers Fungi
+
+```{r alpha diversity obs ITS centers, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(5,4),out.width = "100%"}
+
+alphaDiversity.ITS<-alphaDiv.ITS[!alphaDiv.ITS[["Timepoint2"]]%in%c("DONOR","IDX"),]
+#group.order.alpha<-c("IDX","COND","0","7","14","21","28","POST")
+group.order.alpha<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+
+stat.test1 <- alphaDiversity.ITS %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  wilcox_test(Observed ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2")
+#https://github.com/kassambara/rstatix/issues/24
+
+
+
+p<-ggplot(alphaDiversity.ITS%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Timepoint2,Observed,colour=Timepoint2))
+gg.alpha.obs<-p+geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+    #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+    xlab("") +
+    ylab("Richness") +
+    stat_pvalue_manual(stat.test1[2,],label="p.adj.signif")+
+  scale_colour_manual(values=colours.erik.timepoints[2:8])+
+    facet_wrap(~Center,scales="free_x")+
+    scale_y_continuous(expand = expansion(mult = c(0, 0.1)))
+gg.alpha.obs
+```
+
+
+### Inverse Simpson Index, ITS Fungi
+
+
+```{r alpha diversity is ITS, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(5,4),out.width = "100%"}
+p<-ggplot(alphaDiversity.ITS%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha)),aes(Time.num,InvSimpson))
+
+
+
+stat.test1 <- alphaDiversity.ITS %>%
+   mutate(Timepoint2 = factor(Timepoint2, levels=group.order.alpha))   %>% 
+  wilcox_test(InvSimpson ~ Timepoint2) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Timepoint2")
+#https://github.com/kassambara/rstatix/issues/24
+
+
+
+
+
+gg.alpha.is<-p+
+  geom_smooth(colour="black")+
+  geom_smooth(aes(colour=Center),method="loess",se=F)+
+  geom_jitter(colour="grey",size=2)+
+     theme_classic()+theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+    xlab("") +
+    ylab("Inverse Simpson")+
+    #stat_pvalue_manual(stat.test1[2,],label="p.adj.signif") +
+    scale_colour_manual(values=colours.center)+
+  scale_fill_manual(values=colours.center)+
+  scale_y_continuous(expand = expansion(mult = c(0, 0.1)))
+gg.alpha.is
+```
+
+
+### Observed Species - Controls, lateTP Fungi
+
+```{r alpha diversity ITS obs lateTP, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+alphaDiversity.ITS.lateTP<-alphaDiv.ITS[alphaDiv.ITS$lateTP,]
+#remove na values
+alphaDiversity.ITS.lateTP<-alphaDiversity.ITS.lateTP[!is.na(alphaDiversity.ITS.lateTP$Control),]
+
+
+stat.test1 <- alphaDiversity.ITS.lateTP %>%
+   mutate(Control = factor(Control, levels=group.order.lateTP))   %>% 
+  wilcox_test(Observed ~ Control) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="Control")
+#https://github.com/kassambara/rstatix/issues/24
+
+
+p<-ggplot(alphaDiversity.ITS.lateTP%>% mutate(Control = factor(Control, levels=group.order.lateTP)),aes(Control,Observed,colour=Control))
+gg.alpha.obs.lateTP<-p+geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+    #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+    xlab("") +
+    ylab("Richness") +
+    stat_pvalue_manual(stat.test1,label="p.adj.signif")+
+      scale_colour_manual(values=colours.erik.gvhd)+
+    #facet_wrap(~Center,scales="free_x")+
+    scale_y_continuous(expand = expansion(mult = c(0, 0.1)))+
+    scale_x_discrete(label=c("no GI-GvHD","GI-GvHD"))
+gg.alpha.obs.lateTP
+```
+
+
+
+### Richness - GVHD_012, lateTP Fungi
+
+
+```{r alpha diversity ITS obs lateTP_GVHD012, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE, results='hide',fig.dim=c(3,5),out.width = "100%"}
+
+alphaDiversity.ITS.lateTP<-alphaDiv.ITS[alphaDiv.ITS$lateTP,]
+#remove na values
+alphaDiversity.ITS.lateTP<-alphaDiversity.ITS.lateTP[!is.na(alphaDiversity.ITS.lateTP$GVHD_012),]
+
+group.order.lateTP.GVHD012<-c("0","1","2")
+
+stat.test1 <- alphaDiversity.ITS.lateTP %>%
+   mutate(GVHD_012 = factor(GVHD_012, levels=group.order.lateTP.GVHD012))   %>% 
+  wilcox_test(Observed ~ GVHD_012) %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  add_significance("p.adj")
+
+stat.test1<-stat.test1 %>%
+  add_xy_position(x="GVHD_012")
+#https://github.com/kassambara/rstatix/issues/24
+
+p<-ggplot(alphaDiversity.ITS.lateTP%>% mutate(GVHD_012 = factor(GVHD_012, levels=group.order.lateTP.GVHD012)),aes(GVHD_012,Observed,colour=GVHD_012))
+gg.alpha.se.lateTP<-p+geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width = 0.2,height=0.1,size=1)+
+    #stat_summary(fun= mean, fun.min=mean, fun.max=mean, geom="crossbar",size=0.2, width=0.5, color="black",) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle=60,hjust=1),legend.position="none") +
+    xlab("") +
+    ylab("Richness") +
+    stat_pvalue_manual(stat.test1,label="p.adj.signif")+
+    scale_colour_manual(values=colours)+
+    #facet_wrap(~Center,scales="free_x")+
+    scale_y_continuous(expand = expansion(mult = c(0, 0.1)))+
+    scale_x_discrete(label=c("no GI-GvHD","GI-GvHD", "severe GI-GvHD"))
+gg.alpha.se.lateTP
+
+```
+
+
+
+
+
+### PCoA weighted UniFrac - Bacteria
+
+```{r PCoA stool V1V3,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Timepoint2!="IDX"&Timepoint2!="DONOR"&Timepoint2!=""&Timepoint2!="≥ Day +35")
+temp1<-prune_taxa(taxa_sums(temp1)>0,temp1)
+
+ordpcoa.V1V3 = phyloseq::ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.V1V3 = phyloseq::plot_ordination(temp1, ordpcoa.V1V3, color="Timepoint2",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.V1V3$data%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order)), x = "Axis.1", y = "Axis.2",color = "Timepoint2", palette = colours.erik.timepoints[2:8],ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.V1V3$labels$x,ylab=p.ordpcoa.V1V3$labels$y)
+ggpar(p,legend="right",legend.title = "")
+```
+
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool V1V3,eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,error=FALSE,results="asis",out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Timepoint2,data=data.frame(colData(makeTreeSummarizedExperimentFromPhyloseq(temp1))))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+
+```
+
+
+### PCoA weighted UniFrac - Fungi
+
+```{r PCoA stool ITS,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,results="asis",fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psITS.counts,"compositional"),Timepoint2!="IDX"&Timepoint2!="DONOR"&Timepoint2!=""&Timepoint2!="≥ Day +35")
+temp1<-prune_taxa(taxa_sums(temp1)>0,temp1)
+ordpcoa.ITS = phyloseq::ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.ITS = phyloseq::plot_ordination(temp1, ordpcoa.ITS, color="Timepoint2",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.ITS$data%>% mutate(Timepoint2 = factor(Timepoint2, levels=group.order)), x = "Axis.1", y = "Axis.2",color = "Timepoint2", palette = colours.erik.timepoints[2:8],ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,,xlab=p.ordpcoa.ITS$labels$x,ylab=p.ordpcoa.ITS$labels$y)
+ggpar(p,legend="right")
+
+```
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool ITS,eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,results="asis",error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Timepoint2,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+# GVHD
+
+### PCoA weighted UniFrac - Bacteria
+
+```{r PCoA stool V1V3 gvhd,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Timepoint2!="IDX"&Timepoint2!="DONOR"&Timepoint2!=""&Timepoint2!="≥ Day +35")
+ordpcoa.V1V3 = phyloseq::ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.V1V3 = phyloseq::plot_ordination(temp1, ordpcoa.V1V3, color="GVHD_01",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.V1V3$data, x = "Axis.1", y = "Axis.2",color = "GVHD_01", palette = colours.erik.gvhd,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.V1V3$labels$x,ylab=p.ordpcoa.V1V3$labels$y)
+ggpar(p,legend="right",legend.title = "")
+```
+
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool V1V3 ghvd,eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,results="asis",error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ GVHD_01,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+### PCoA weighted UniFrac - Fungi
+
+```{r PCoA stool ITS gvhd,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(psITS.counts,Timepoint2!="IDX"&Timepoint2!="DONOR"&ProjectID!="M-AZ-1"&ProjectID!="M-AZ-2"&ProjectID!="M-AZ-3"&ProjectID!="M-AZ-4"&Timepoint2!="≥ Day +35")
+
+ordpcoa.ITS = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.ITS = plot_ordination(temp1, ordpcoa.ITS, color="GVHD_01",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.ITS$data, x = "Axis.1", y = "Axis.2",color = "GVHD_01", palette = colours.erik.gvhd,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,,xlab=p.ordpcoa.ITS$labels$x,ylab=p.ordpcoa.ITS$labels$y)
+ggpar(p,legend="right")
+
+```
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool ITS gvhd,eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,results="asis",error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ GVHD_01,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+```
+
+
+
+# GVHD - Control
+
+### PCoA weighted UniFrac - Bacteria
+
+```{r PCoA stool V1V3 control,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),lateTP==TRUE)
+
+ordpcoa.V1V3 = phyloseq::ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+
+p.ordpcoa.V1V3 = phyloseq::plot_ordination(temp1, ordpcoa.V1V3, color="Control",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.V1V3$data, x = "Axis.1", y = "Axis.2",color = "Control", palette = colours.erik.gvhd[c(2,1)],ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.V1V3$labels$x,ylab=p.ordpcoa.V1V3$labels$y)
+ggpar(p,legend="right",legend.title = "")
+```
+
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool V1V3 control,eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,results="asis",error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Control ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+### PCoA weighted UniFrac - Fungi
+
+```{r PCoA stool ITS control,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+#temp1<-phyloseq::subset_samples(psITS.counts,Timepoint2!="IDX"&Timepoint2!="DONOR"&ProjectID!="M-AZ-1"&ProjectID!="M-AZ-2"&ProjectID!="M-AZ-3"&ProjectID!="M-AZ-4"&Timepoint2!="≥ Day +35")
+
+temp1<-phyloseq::subset_samples(psITS.counts,lateTP==TRUE)
+
+ordpcoa.ITS = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.ITS = plot_ordination(temp1, ordpcoa.ITS, color="Control",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.ITS$data, x = "Axis.1", y = "Axis.2",color = "Control", palette = colours.erik.gvhd[c(2,1)],ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,,xlab=p.ordpcoa.ITS$labels$x,ylab=p.ordpcoa.ITS$labels$y)
+ggpar(p,legend="right")
+
+```
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool ITS control,eval=TRUE,echo=FALSE,warning=FALSE,results="asis",message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Control ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+
+
+## Maaslin2 Controls
+
+
+
+```{r maaslin2 Control}
+
+temp<-phyloseq::subset_samples(psV1V3.counts,lateTP==TRUE)
+
+
+tse.temp<-makeTreeSummarizedExperimentFromPhyloseq(temp)
+
+#subset TSE by colData
+tse.subset<-tse.temp
+
+#remove zOTUs with zero counts after subsetting
+tse.subset<-tse.subset[rowSums(assay(tse.subset, "counts")) > 10, ]
+
+
+# maaslin2
+
+# maaslin expects features as columns and samples as rows 
+# for both the asv/otu table as well as meta data 
+asv <- t(assay(tse.subset))
+meta_data <- data.frame(colData(tse.subset))
+# you can specifiy different GLMs/normalizations/transforms. We used similar
+# settings as in Nearing et al. (2021) here:
+fit_Control <- Maaslin2(
+  asv,
+  meta_data,
+  cores=50,
+  output = "maaslin2_Control",
+  transform = "LOG",
+  fixed_effects = "Control",
+  random_effects = c("Patient"), # you can also fit MLM by specifying random effects
+  # specifying a ref is especially important if you have more than 2 levels
+  #reference = "post_allo_metab_post,high_7_14",  
+  normalization = "TSS",
+  standardize = FALSE,
+  min_prevalence = 0 # prev filterin already done
+)
+
+```
+
+```{r Control kable,results="asis"}
+
+tax<-rowData(tse.subset)
+tax$feature<-rownames(tax)
+res<-dplyr::left_join(data.frame(fit_Control$results),tax,by="feature",copy=TRUE)
+
+kable(data.frame(filter(res, qval<0.25)),format = "html") %>% kable_styling(latex_options = "scale_down",font_size = 11) %>%kable_classic(full_width = F, html_font = "Cambria")
+
+```
+
+```{r maaslin2 sig features Control,results=T,eval=TRUE,fig.dim=c(10,7),out.width="100%"}
+
+
+sig_maaslin2<-filter(res, qval<0.25)
+mat<-assay(tse.subset,"counts")
+mat.selected<-mat[row.names(mat) %in% sig_maaslin2$feature,]
+mat_mapping<-cbind(t(mat.selected),data.frame(colData(tse.subset)))
+test<-pivot_longer(mat_mapping,cols = starts_with("zOTU"))
+
+
+
+
+p<-ggplot(test,aes(name,log(value+1),fill=Control))
+p+geom_boxplot(outlier.shape = NA) +
+  coord_flip()+
+  #facet_wrap(~name,scales="free")+
+  geom_jitter()+
+  theme_classic()+
+  theme(axis.text.x=element_text(angle=60,hjust=1))+
+  xlab("Group")+
+  ylab("Relative Abundance")
+
+```
+
+
+```{r maaslin2 sig features COEF Control wText,results=T,eval=TRUE,fig.dim=c(10,6),out.width="100%"}
+
+res %>% 
+  filter(qval<0.25) %>%
+  filter(Species!="unidentified") %>% 
+  filter(!between(coef, 0, 0.0075)) %>% 
+  mutate(feature = fct_reorder(feature, coef,.desc = T)) %>% 
+  ggplot(aes(coef,feature,fill=coef>0)) + 
+  geom_bar(stat="identity",position="dodge" )+
+  scale_fill_manual(values=colours.erik.gvhd[c(2,1)])+
+  geom_text(aes(label = Species), vjust = 0.5,hjust=0)+
+  theme_classic()+
+  theme(axis.text.y=element_text(size=6))+
+  expand_limits(x=c(-1,6))
+
+```
+
+```{r maaslin2 sig features COEF Control woText,results=T,eval=TRUE,fig.dim=c(10,6),out.width="100%"}
+
+res %>% 
+  filter(qval<0.25) %>%
+  filter(Species!="unidentified") %>% 
+  filter(!between(coef, 0, 0.0075)) %>% 
+  mutate(feature = fct_reorder(feature, coef,.desc = T)) %>% 
+  ggplot(aes(coef,feature,fill=coef>0)) + 
+  geom_bar(stat="identity",position="dodge" )+
+  scale_fill_manual(values=colours.erik.gvhd[c(2,1)])+
+  #geom_text(aes(label = Species), vjust = 0.5,hjust=0)+
+  theme_classic()+
+  theme(axis.text.y=element_text(size=6))+
+  expand_limits(x=c(-1,6))
+
+```
+
+
+```{r VolcanoPlot GvHD_Controls Maaslin2,fig.dim=c(9,11),out.width="100%"}
+
+abs_log <- function(x){
+  x[x==0] <- 1
+  si <- sign(x)
+  si * log2(si*x)
+}
+
+res$log2FC<-abs_log(exp(res$coef))
+
+EnhancedVolcano(res,
+                x = 'log2FC',
+                y = 'qval',
+                title = 'GvHD', subtitle = 'GI-GvHD vs no GI-GvHD',
+                xlab = bquote(~Log[2]~ 'Fold Change'),
+                ylab = bquote(~-Log[10]~italic(P)),
+                cutoffLineType = 'longdash', cutoffLineCol = 'black',
+                lab = res$Species,
+                FCcutoff = 2,
+                pCutoff = 0.01,
+                labSize = 4,
+                #legend=c("NS", "Log2 FC", "padj", "padj & Log2 FC"),
+                legendLabels = c('NS', expression(Log[2]~FC),
+                                 "padj", expression(padj~and~Log[2]~FC)),
+                legendPosition = 'top',
+                legendLabSize = 10, legendIconSize = 10,
+                gridlines.major = F, gridlines.minor = F,
+                border = 'full', borderWidth = 2, borderColour = 'black',
+                pointSize = c(ifelse(abs(res$log2FC) > 0.585 & res$qval < 0.05, 5, 1))
+)
+
+
+```
+
+# Antibiotics
+
+
+### PCoA weighted UniFrac - Bacteria , NY
+
+```{r PCoA stool V1V3 antibiotics.NY,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Timepoint2!="IDX"&Timepoint2!="DONOR"&NY!=""&Timepoint2!="≥ Day +35")
+ordpcoa.V1V3 = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.V1V3 = plot_ordination(temp1, ordpcoa.V1V3, color="NY",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.V1V3$data, x = "Axis.1", y = "Axis.2",color = "NY", palette = colours,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.V1V3$labels$x,ylab=p.ordpcoa.V1V3$labels$y)
+ggpar(p,legend="right")
+```
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool V1V3 NY,eval=FALSE,echo=FALSE,warning=FALSE,message=FALSE,results="asis",error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ NY ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+# Bacteria and Antibiotic_therapy
+
+
+```{r PCoA stool V1V3 antibiotics,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Antibiotic_therapy!="IDX"&Antibiotic_therapy!="DONOR"&Antibiotic_therapy!=""&Timepoint2!="≥ Day +35")
+ordpcoa.V1V3 = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.V1V3 = plot_ordination(temp1, ordpcoa.V1V3, color="Antibiotic_therapy",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.V1V3$data, x = "Axis.1", y = "Axis.2",color = "Antibiotic_therapy", palette = colours,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.8,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.V1V3$labels$x,ylab=p.ordpcoa.V1V3$labels$y)
+ggpar(p,legend="right")
+#dev.print(svg,"PCoA_BrayCurtis_V1V3_groups.svg")
+```
+
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool V1V3 Antibiotic_therapy,eval=FALSE,echo=FALSE,warning=FALSE,results="asis",message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Antibiotic_therapy ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+# Bacteria and Antibiotic_pairs
+
+
+```{r PCoA stool V1V3 antibiotics pairs,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Antibiotic_therapy!="IDX"&Antibiotic_therapy!="DONOR"&Antibiotic_therapy!=""&Timepoint2!="≥ Day +35"&!is.na(Antibiotic_pairs))
+ordpcoa.V1V3 = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.V1V3 = plot_ordination(temp1, ordpcoa.V1V3, color="Antibiotic_therapy",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.V1V3$data, x = "Axis.1", y = "Axis.2",color = "Antibiotic_therapy", palette = colours,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.8,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.V1V3$labels$x,ylab=p.ordpcoa.V1V3$labels$y)
+ggpar(p,legend="right")
+#dev.print(svg,"PCoA_BrayCurtis_V1V3_groups.svg")
+```
+
+
+#pw adonis
+
+```{r pairwiseAdonis PCoA stool V1V3 antibiotics pairs,eval=TRUE,echo=FALSE,results="asis",warning=FALSE,message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Antibiotic_therapy ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+# Bacteria and Antifungal_therapy
+
+
+```{r PCoA stool V1V3 antifungals,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Antifungal_therapy!="IDX"&Antifungal_therapy!="DONOR"&Antifungal_therapy!=""&Timepoint2!="≥ Day +35"&Timepoint2!="Day +7")
+ordpcoa.V1V3 = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.V1V3 = plot_ordination(temp1, ordpcoa.V1V3, color="Antifungal_therapy",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.V1V3$data, x = "Axis.1", y = "Axis.2",color = "Antifungal_therapy", palette = colours.erik.antifungals,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=1,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.V1V3$labels$x,ylab=p.ordpcoa.V1V3$labels$y)
+ggpar(p,legend="right")
+#dev.print(svg,"PCoA_BrayCurtis_V1V3_groups.svg")
+```
+
+
+# Pairwise Adonis PcoA weighted UniFrac - Bacteria
+
+```{r pairwiseAdonis PCoA stool V1V3 Antifungal_therapy,eval=TRUE,echo=FALSE,results="asis",warning=FALSE,message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Antifungal_therapy ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+# Bacteria and Antifungal_sel
+
+
+```{r PCoA stool V1V3 antifungals pairs,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+#temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Timepoint2!="≥ Day +35"&!is.na(Antifungal_sel))
+
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Antifungal_therapy!="IDX"&Antifungal_therapy!="DONOR"&Antifungal_therapy!=""&Timepoint2!="≥ Day +35")
+
+
+ordpcoa.V1V3 = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.V1V3 = plot_ordination(temp1, ordpcoa.V1V3, color="Antifungal_therapy",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.V1V3$data, x = "Axis.1", y = "Axis.2",color = "Antifungal_therapy", palette = colours.erik.antifungals,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=1,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.V1V3$labels$x,ylab=p.ordpcoa.V1V3$labels$y)
+ggpar(p,legend="right")
+#dev.print(svg,"PCoA_BrayCurtis_V1V3_groups.svg")
+```
+
+
+# Pairwise Adonis PcoA weighted UniFrac - Bacteria
+
+```{r pairwiseAdonis PCoA stool 16S Antifungal_therapy,eval=TRUE,echo=FALSE,results="asis",warning=FALSE,message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Antifungal_therapy ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+
+## Antifungals Bacteria Centers pairs
+
+```{r PCoA stool V1V3 center_antifungals pairs,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Timepoint2!="≥ Day +35"&!is.na(Antifungal_sel))
+
+#temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Antifungal_therapy!="IDX"&Antifungal_therapy!="DONOR"&Antifungal_therapy!=""&Timepoint2!="≥ Day +35")
+
+temp1@sam_data$Antifungal_therapy.Center<-paste(temp1@sam_data$Antifungal_therapy,temp1@sam_data$Center,sep=".")
+
+ordpcoa.V1V3 = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.V1V3 = plot_ordination(temp1, ordpcoa.V1V3, color="Antifungal_therapy.Center",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.V1V3$data, x = "Axis.1", y = "Axis.2",color = "Antifungal_therapy.Center", palette = colours_center_antifungals,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.8,xlab=p.ordpcoa.V1V3$labels$x,ylab=p.ordpcoa.V1V3$labels$y)
+ggpar(p,legend="right")
+#dev.print(svg,"PCoA_BrayCurtis_V1V3_groups.svg")
+```
+
+```{r pairwiseAdonis PCoA stool V1V3 Antifungal_therapy centers,eval=TRUE,echo=FALSE,results="asis",warning=FALSE,message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Antifungal_therapy.Center ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+
+
+### PCoA weighted UniFrac - Fungi
+
+```{r PCoA stool ITS antifungals,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+#temp1<-phyloseq::subset_samples(microbiome::transform(psITS.counts,"compositional"),Timepoint2!="≥ Day +35"&!is.na(Antifungal_sel))
+
+temp1<-phyloseq::subset_samples(microbiome::transform(psITS.counts,"compositional"),Antifungal_therapy!="IDX"&Antifungal_therapy!="DONOR"&Antifungal_therapy!=""&Timepoint2!="≥ Day +35")
+
+
+ordpcoa.ITS = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.ITS = plot_ordination(psITS.counts, ordpcoa.ITS, color="Antifungal_therapy",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.ITS$data, x = "Axis.1", y = "Axis.2",color = "Antifungal_therapy", palette = colours.erik.antifungals,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=1,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.ITS$labels$x,ylab=p.ordpcoa.ITS$labels$y)
+ggpar(p,legend="right")
+#dev.print(svg,"PCoA_BrayCurtis_V1V3_groups.svg")
+```
+
+
+
+
+
+
+# Pairwise Adonis PcoA weighted UniFrac - Fungi
+
+```{r pairwiseAdonis PCoA stool ITS Antifungal_therapy,eval=TRUE,echo=FALSE,results="asis",warning=FALSE,message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Antifungal_therapy ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+## Antifungals Fungi Centers pairs
+
+
+```{r PCoA stool ITS center_antifungals pairs,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psITS.counts,"compositional"),Timepoint2!="≥ Day +35"&!is.na(Antifungal_sel))
+
+#temp1<-phyloseq::subset_samples(microbiome::transform(psITS.counts,"compositional"),Antifungal_therapy!="IDX"&Antifungal_therapy!="DONOR"&Antifungal_therapy!=""&Timepoint2!="≥ Day +35")
+
+
+
+temp1@sam_data$Antifungal_therapy.Center<-paste(temp1@sam_data$Antifungal_therapy,temp1@sam_data$Center,sep=".")
+
+ordpcoa.ITS = ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.ITS = plot_ordination(temp1, ordpcoa.ITS, color="Antifungal_therapy.Center",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.ITS$data, x = "Axis.1", y = "Axis.2",color = "Antifungal_therapy.Center", palette = colours_center_antifungals,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.ITS$labels$x,ylab=p.ordpcoa.ITS$labels$y)
+ggpar(p,legend="right")
+#dev.print(svg,"PCoA_BrayCurtis_V1V3_groups.svg")
+```
+
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool ITS Antibiotic_therapy pairs,eval=TRUE,echo=FALSE,results="asis",warning=FALSE,message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Antifungal_therapy.Center ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+### PCoA weighted UniFrac - Antibiotics Fungi pairs
+
+```{r PCoA stool ITS antibiotics,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+#temp1<-phyloseq::subset_samples(microbiome::transform(psITS.counts,"compositional"),Antibiotic_therapy!="IDX"&Antibiotic_therapy!="DONOR"&Antibiotic_therapy!=""&Timepoint2!="≥ Day +35")
+
+temp1<-phyloseq::subset_samples(microbiome::transform(psITS.counts,"compositional"),Antifungal_therapy!="IDX"&Antifungal_therapy!="DONOR"&!is.na(Antibiotic_pairs)&Timepoint2!="≥ Day +35")
+
+
+ordpcoa.ITS = phyloseq::ordinate(temp1, "PCoA", "unifrac", weighted=TRUE)
+p.ordpcoa.ITS = phyloseq::plot_ordination(psITS.counts, ordpcoa.ITS, color="Antibiotic_therapy",axes = c(1,2,3))
+p<-ggscatter(p.ordpcoa.ITS$data, x = "Axis.1", y = "Axis.2",color = "Antibiotic_therapy", palette = colours.erik.gvhd,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordpcoa.ITS$labels$x,ylab=p.ordpcoa.ITS$labels$y)
+ggpar(p,legend="right")
+#dev.print(svg,"PCoA_BrayCurtis_V1V3_groups.svg")
+```
+
+
+# Pairwise Adonis PcoA weighted UniFrac
+
+```{r pairwiseAdonis PCoA stool ITS Antibiotic_therapy,eval=TRUE,echo=FALSE,results="asis",warning=FALSE,message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Antibiotic_therapy ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+```
+
+
+
+# PCoA unweighted - Antibiotics  Bacteria
+
+```{r PCoA stool V1V3 antibiotics unweighted,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp1<-phyloseq::subset_samples(microbiome::transform(psV1V3.counts,"compositional"),Antibiotic_therapy!="IDX"&Antibiotic_therapy!="DONOR"&Antibiotic_therapy!=""&Timepoint2!="≥ Day +35")
+ordunifrac.V1V3 = ordinate(temp1, "PCoA", "unifrac", weighted=FALSE)
+p.ordunifrac.V1V3 = plot_ordination(psV1V3.counts, ordunifrac.V1V3, color="Antibiotic_therapy",axes = c(1,2,3))
+p<-ggscatter(p.ordunifrac.V1V3$data, x = "Axis.1", y = "Axis.2",color = "Antibiotic_therapy", palette = colours,ellipse = TRUE,ellipse.type = "confidence",ellipse.alpha=0.4,ellipse.border.remove=TRUE,star.plot.lty="dotted",star.plot=T,mean.point=T,mean.point.size=0.3,xlab=p.ordunifrac.V1V3$labels$x,ylab=p.ordunifrac.V1V3$labels$y)
+ggpar(p,legend="right")
+
+```
+
+## Pairwise Adonis PcoA unweighted UniFrac - Antibiotics Bacteria
+
+```{r pairwiseAdonis PCoA unweihted stool V1V3 Antibiotic_therapy,eval=TRUE,results="asis",echo=FALSE,warning=FALSE,message=FALSE,error=FALSE,out.width="250%"}
+mat<-t(assay(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+pw_adonis_wunifrac<-pairwise.adonis2(mat ~ Antibiotic_therapy ,data=colData(makeTreeSummarizedExperimentFromPhyloseq(temp1)))
+
+pander::pander(pw_adonis_wunifrac)
+
+pander::pander(as_tibble(lapply(pw_adonis_wunifrac[2:length(pw_adonis_wunifrac)], FUN=function(x) data.frame(x[5]))))
+
+
+```
+
+
+
+
+## Maaslin2: Antibiotic therapy
+
+```{r maaslin2 Antibiotic_therapy}
+
+temp<-phyloseq::subset_samples(psV1V3.counts,Timepoint2!="IDX"&Timepoint2!="DONOR"&Timepoint2!="≥ Day +35")
+
+
+tse.temp<-makeTreeSummarizedExperimentFromPhyloseq(temp)
+
+#subset TSE by colData
+tse.subset<-tse.temp
+
+#remove zOTUs with zero counts after subsetting
+tse.subset<-tse.subset[rowSums(assay(tse.subset, "counts")) > 10, ]
+
+
+# maaslin2
+
+# maaslin expects features as columns and samples as rows 
+# for both the asv/otu table as well as meta data 
+asv <- t(assay(tse.subset))
+meta_data <- data.frame(colData(tse.subset))
+# you can specifiy different GLMs/normalizations/transforms. We used similar
+# settings as in Nearing et al. (2021) here:
+fit_Antibiotic_therapy_V1V3 <- Maaslin2(
+  asv,
+  meta_data,
+  cores = 50,
+  output = "maaslin2_Antibiotic_therapy",
+  transform = "LOG",
+  fixed_effects = "Antibiotic_therapy",
+  random_effects = c("Patient"), # you can also fit MLM by specifying random effects
+  # specifying a ref is especially important if you have more than 2 levels
+  #reference = "post_allo_metab_post,high_7_14",  
+  normalization = "TSS",
+  standardize = FALSE,
+  min_prevalence = 0 # prev filterin already done
+)
+
+```
+
+```{r Antibiotic_therapy kable,results="asis"}
+
+tax<-rowData(tse.subset)
+tax$feature<-rownames(tax)
+res<-dplyr::left_join(data.frame(fit_Antibiotic_therapy_V1V3$results),tax,by="feature",copy=TRUE)
+
+kable(data.frame(filter(res, qval<0.0001)),format = "html") %>% kable_styling(latex_options = "scale_down",font_size = 11) %>%kable_classic(full_width = F, html_font = "Cambria")
+
+```
+
+```{r maaslin2 sig features Antibiotic_therapy,results=T,eval=TRUE,fig.dim=c(10,7),out.width="100%"}
+
+
+sig_maaslin2<-filter(res, qval<0.0001)
+mat<-assay(tse.subset,"counts")
+mat.selected<-mat[row.names(mat) %in% sig_maaslin2$feature,]
+mat_mapping<-cbind(t(mat.selected),data.frame(colData(tse.subset)))
+test<-pivot_longer(mat_mapping,cols = starts_with("zOTU"))
+
+
+
+
+p<-ggplot(test,aes(name,log(value+1),fill=Antibiotic_therapy))
+p+geom_boxplot(outlier.shape = NA) +
+  coord_flip()+
+  #facet_wrap(~name,scales="free")+
+  geom_jitter()+
+  theme_classic()+
+  theme(axis.text.x=element_text(angle=60,hjust=1))+
+  xlab("Group")+
+  ylab("Relative Abundance")
+
+```
+
+
+```{r maaslin2 sig features COEF Antibiotic_therapy wText,results=T,eval=TRUE,fig.dim=c(8,7),out.width="100%"}
+
+res %>% 
+  filter(qval<0.05) %>%
+  filter(Species!="unidentified") %>% 
+  filter(!between(abs(coef), 0, 2)) %>% 
+  mutate(feature = fct_reorder(feature, coef,.desc = T)) %>% 
+  ggplot(aes(coef,feature,fill=coef>0)) + 
+  geom_bar(stat="identity",position="dodge" )+
+  scale_fill_manual(values=colours.erik.gvhd[c(2,1)])+
+  geom_text(aes(label = Species), vjust = 0.5,hjust=0)+
+  theme_classic()+
+  theme(axis.text.y=element_text(size=6))+
+  expand_limits(x=c(-5,10))
+
+```
+
+
+```{r maaslin2 sig features COEF Antibiotic_therapy woText,results=T,eval=TRUE,fig.dim=c(8,7),out.width="100%"}
+
+res %>% 
+  filter(qval<0.05) %>%
+  filter(Species!="unidentified") %>% 
+  filter(!between(abs(coef), 0, 2)) %>% 
+  mutate(feature = fct_reorder(feature, coef,.desc = T)) %>% 
+  ggplot(aes(coef,feature,fill=coef>0)) + 
+  geom_bar(stat="identity",position="dodge" )+
+  scale_fill_manual(values=colours.erik.gvhd[c(2,1)])+
+  #geom_text(aes(label = Species), vjust = 0.5,hjust=0)+
+  theme_classic()+
+  theme(axis.text.y=element_text(size=6))+
+  expand_limits(x=c(-0.14,0.14))
+
+```
+
+
+
+```{r VolcanoPlot Antibiotics Maaslin2 woText,fig.dim=c(6,4),out.width="100%"}
+
+abs_log <- function(x){
+  x[x==0] <- 1
+  si <- sign(x)
+  si * log2(si*x)
+}
+
+res$log2FC<-abs_log(exp(res$coef))
+
+de<-res
+
+
+# The significantly differentially expressed genes are the ones found in the upper-left and upper-right corners.
+# Add a column to the data frame to specify if they are UP- or DOWN- regulated (log2FoldChange respectively positive or negative)
+
+# add a column of NAs
+de$diffexpressed <- "NO"
+# if log2Foldchange > 0.6 and pvalue < 0.05, set as "UP" 
+de$diffexpressed[de$log2FC > 2 & de$qval < 0.05] <- "UP"
+# if log2Foldchange < -0.6 and pvalue < 0.05, set as "DOWN"
+de$diffexpressed[de$log2FC < -2 & de$qval < 0.05] <- "DOWN"
+
+
+
+
+top <- 30
+top_genes <- bind_rows(de %>% 
+    filter(diffexpressed == 'UP') %>% 
+    arrange(qval, desc(abs(log2FC))) %>% 
+    head(top),
+  de %>% 
+    filter(diffexpressed == 'DOWN') %>% 
+    arrange(qval, desc(abs(log2FC))) %>% 
+    head(top)
+)
+
+top_genes$delabel <- NA
+top_genes$delabel[top_genes$diffexpressed != "NO"] <- top_genes$Species[top_genes$diffexpressed != "NO"]
+
+
+# 2. to automate a bit: ceate a named vector: the values are the colors to be used, the names are the categories they will be assigned to:
+mycolors <- c("#ff2500", "#0095ff", "gray50")
+names(mycolors) <- c("DOWN", "UP", "NO")
+
+# Now write down the name of genes beside the points...
+# Create a new column "delabel" to de, that will contain the name of genes differentially expressed (NA in case they are not)
+de$delabel <- NA
+de$delabel[de$diffexpressed != "NO"] <- de$Species[de$diffexpressed != "NO"]
+
+
+# plot adding up all layers we have seen so far
+ggplot(data=de, aes(x=log2FC, y=-log10(qval), col=diffexpressed, label=delabel)) +
+  geom_point() + 
+  theme_classic() +
+  #geom_text_repel() +
+  scale_color_manual(values=mycolors) +
+  geom_vline(xintercept=c(-2.0, 2.0), col="black",linetype="dashed") +
+  geom_hline(yintercept=-log10(0.05), col="black",linetype="dashed")+
+  theme(legend.position = "none")+
+  #xlab(label="log2FoldChange")+
+  xlab(label=bquote(~Log[2]~ 'Fold Change'))+
+  ylab(label= bquote(~-Log[10]~italic(P[adj])))#+
+  #geom_label_repel(data = top_genes,
+  #                 mapping = aes(log2FC, -log(qval,10), label = delabel),
+  #                 size = 2)
+
+
+
+```
+
+
+
+## Dominant Taxa
+
+```{r dominant taxa V1V3,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(10,6),out.width="100%"}
+
+temp<-phyloseq::subset_samples(psV1V3.counts.dominant,Timepoint2!="IDX"&Timepoint2!="DONOR"&Timepoint2!="≥ Day +35")
+temp@tax_table<-psV1V3.counts.dominant@tax_table[,2:7]
+temp<-tax_glom(temp,taxrank="Genus")
+temp<-ps_arrange(temp,Time)
+test<-plot_taxa_heatmap(temp,subset.top=6,
+                  transformation="clr",
+                  VariableA = c("Timepoint2","GVHD_01"),
+                  cluster_rows = F,
+                  cluster_cols = F,
+                  scale = "none",
+                  show_colnames = F,
+                  heatcolors = colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(100))
+test
+```
+
+
+```{r composition stool V1V3 tp dominant,eval=FALSE,echo=FALSE,warning=FALSE,message=FALSE,error=FALSE,fig.dim=c(7,5),out.width="80%"}
+
+temp<-tax_glom(psV1V3.counts.dominant,taxrank="Genus")
+temp<-phyloseq::subset_samples(temp,Timepoint2!="IDX"&Timepoint2!="DONOR")
+temp<-prune_taxa(taxa_sums(temp)>1,temp)
+colourCount = length(unique(psmelt(temp)$Genus))
+temp<- transform_sample_counts(temp,function(x) x/sum(x))
+df<-psmelt(temp)
+
+#group order
+#group.order<-c("COND","0","7","14","21","28","POST")
+group.order<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+# sum the abundance for each Genus, across all Sorts, & sort the result
+sort.Genus <- df %>%
+  dplyr::count(Genus, wt = Abundance) %>%
+  dplyr::arrange(desc(n)) %>%
+  dplyr::pull(Genus)
+
+# get Sort order, sorted by each Sort's abundance in the most abundant Genus
+Sort.order <- df %>%
+  dplyr::filter(Genus == sort.Genus[1]) %>%
+  dplyr::arrange(desc(Abundance)) %>%
+  dplyr::pull(ProjectID)
+
+
+
+# factor Sort / Genus in the desired order
+g<-df %>%
+  mutate(ProjectID = factor(ProjectID, levels = Sort.order)) %>%
+  mutate(Genus = factor(Genus, levels = rev(sort.Genus))) %>%
+  mutate(Timepoint2 = factor(Timepoint2, levels=group.order)) %>%
+  ggplot(aes(x = ProjectID, y = Abundance, fill = fct_reorder(Genus,Abundance))) +
+  geom_bar(stat="identity",position="fill") +
+  facet_grid(~Timepoint2,space="fixed",scales="free",labeller = labeller(Timepoint2 = label_wrap_gen(10)))+
+  theme_classic() +
+    theme(strip.text = element_text(size=10),legend.text=element_text(size=rel(0.8)),axis.title.x=element_blank(),axis.text.x=element_blank()) +
+    scale_fill_manual(values = colorRampPalette(palette9)(colourCount))
+gpy.tp=ggplotly(g)
+gpy.tp
+```
+
+### Dominant Taxa (Definition = maximal genus relative abundance > 30 percent )
+
+```{r dominant taxa grouped barplot,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(8,6),out.width="100%"}
+temp<-phyloseq::subset_samples(psV1V3.counts,Timepoint2!="IDX"&Timepoint2!="DONOR"&Timepoint2!="≥ Day +35")
+temp<-tax_glom(temp,taxrank="Genus")
+temp<-microbiome::transform(temp,"compositional")
+temp<-prune_taxa(apply(otu_table(temp),MARGIN = 1,max)>0.3, temp)
+
+df<-psmelt(temp)
+
+colourCount = length(unique(df$Genus))
+
+
+group.order<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+g<-df %>%
+  mutate(Timepoint2 = factor(Timepoint2, levels=group.order)) %>%
+  ggplot(aes(x = Timepoint2, y = Abundance, fill = fct_reorder(Genus,Abundance))) +
+  geom_bar(stat="summary",fun="mean") +
+  theme_classic() +
+  theme(strip.text = element_text(size=10),legend.title=element_blank(),legend.text=element_text(size=rel(0.8)),axis.title.x=element_blank(),axis.text.x=element_text(angle=60,hjust=1)) +
+  scale_fill_manual(values = colorRampPalette(palette9)(colourCount))
+
+g
+
+```
+
+
+### Dominant Taxa (Definition = maximal genus relative abundance > 30 percent ) - GVHD
+
+```{r dominant taxa grouped barplot GVHD,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(9,6),out.width="100%"}
+temp<-phyloseq::subset_samples(psV1V3.counts,Timepoint2!="IDX"&Timepoint2!="DONOR"&Timepoint2!="≥ Day +35")
+temp<-tax_glom(temp,taxrank="Genus")
+temp<-microbiome::transform(temp,"compositional")
+temp<-prune_taxa(apply(otu_table(temp),MARGIN = 1,max)>0.3, temp)
+
+df<-psmelt(temp)
+
+colourCount = length(unique(df$Genus))
+
+
+group.order<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+g<-df %>%
+  mutate(Timepoint2 = factor(Timepoint2, levels=group.order)) %>%
+  ggplot(aes(x = Timepoint2, y = Abundance, fill = fct_reorder(Genus,Abundance))) +
+  geom_bar(stat="summary",fun="mean") +
+  facet_grid(~ GVHD_01,scales="free")+
+  theme_classic() +
+  theme(strip.text = element_text(size=10),legend.title=element_blank(),legend.text=element_text(size=rel(0.8)),axis.title.x=element_blank(),axis.text.x=element_text(angle=60,hjust=1)) +
+  scale_fill_manual(values = colorRampPalette(palette9)(colourCount))
+g
+
+```
+
+
+
+
+
+
+### Dominant Fungal Taxa (Definition = maximal genus relative abundance > 30 percent ) - GVHD
+
+```{r dominant fungi grouped barplot all,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(9,6),out.width="100%"}
+temp<-phyloseq::subset_samples(psITS.counts,Timepoint2!="IDX"&Timepoint2!="DONOR"&ProjectID!="M-AZ-2"&ProjectID!="M-AZ-3"&ProjectID!="M-AZ-4"&Timepoint2!="≥ Day +35")
+temp<-tax_glom(temp,taxrank="Genus")
+temp<-microbiome::transform(temp,"compositional")
+temp<-prune_taxa(apply(otu_table(temp),MARGIN = 1,max)>0.3, temp)
+
+df<-psmelt(temp)
+
+colourCount = length(unique(df$Genus))
+
+
+group.order<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+g<-df %>%
+  mutate(Timepoint2 = factor(Timepoint2, levels=group.order)) %>%
+  ggplot(aes(x = Timepoint2, y = Abundance, fill = fct_reorder(Genus,Abundance))) +
+  geom_bar(stat="summary",fun="mean") +
+  #facet_grid(~ GVHD_01,scales="free")+
+  theme_classic() +
+  theme(strip.text = element_text(size=10),legend.title=element_blank(),legend.text=element_text(size=rel(0.8)),axis.title.x=element_blank(),axis.text.x=element_text(angle=60,hjust=1)) +
+  scale_fill_manual(values = colorRampPalette(palette8)(colourCount))
+g
+
+```
+
+
+```{r dominant fungi grouped barplot GVHD,echo=FALSE,warning=FALSE,message=FALSE,results='hide',error=FALSE,fig.dim=c(9,6),out.width="100%"}
+temp<-phyloseq::subset_samples(psITS.counts,Timepoint2!="IDX"&Timepoint2!="DONOR"&ProjectID!="M-AZ-2"&ProjectID!="M-AZ-3"&ProjectID!="M-AZ-4"&Timepoint2!="≥ Day +35")
+temp<-tax_glom(temp,taxrank="Genus")
+temp<-microbiome::transform(temp,"compositional")
+temp<-prune_taxa(apply(otu_table(temp),MARGIN = 1,max)>0.3, temp)
+
+df<-psmelt(temp)
+
+colourCount = length(unique(df$Genus))
+
+
+group.order<-c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28","≥ Day +35")
+
+
+g<-df %>%
+  mutate(Timepoint2 = factor(Timepoint2, levels=group.order)) %>%
+  ggplot(aes(x = Timepoint2, y = Abundance, fill = fct_reorder(Genus,Abundance))) +
+  geom_bar(stat="summary",fun="mean") +
+  facet_grid(~ GVHD_01,scales="free")+
+  theme_classic() +
+  theme(strip.text = element_text(size=10),legend.title=element_blank(),legend.text=element_text(size=rel(0.8)),axis.title.x=element_blank(),axis.text.x=element_text(angle=60,hjust=1)) +
+  scale_fill_manual(values = colorRampPalette(palette8)(colourCount))
+g
+
+```
+
+
+# Heatmaps
+
+
+## Genus Heatmap (40 most abundant genera)
+
+
+### Bacteria Timepoints Genus
+
+```{r pheatmap genus bacteria,eval=TRUE,fig.dim=c(7,7),out.width="100%"}
+
+tse.subset<-tse.V1V3[,colData(tse.V1V3)$Timepoint2 %in% c("Day -7","Day 0", "Day +7","Day +14", "Day +21","Day +28")]
+
+#remove zOTUs with zero counts after subsetting
+tse.subset<-tse.subset[rowSums(assay(tse.subset, "counts")) > 10, ]
+
+# Collapse the tree
+tree <- ape::keep.tip(phy = rowTree(tse.subset), tip = rowLinks(tse.subset)$nodeNum)
+
+#replace tree in TSE
+rowTree(tse.subset) <- tree
+
+#  Pheatmap
+
+
+
+# Agglomerate tse.V3V4 by genus
+tse_genus <- agglomerateByRank(tse.subset,
+                                rank = "Genus",
+                                onRankOnly = TRUE)
+# Add clr-transformation on samples
+tse_genus <- transformSamples(tse_genus, method = "relabundance", pseudocount = 1)
+tse_genus <- transformSamples(tse_genus, method = "clr", abund_values = "relabundance")
+# Add z-transformation on features (taxa)
+tse_genus <- transformFeatures(tse_genus, abund_values = "clr", method = "z", name = "clr_z")
+
+                                
+# Takes subset: only samples from feces, skin, or tongue
+#tse_genus_subset <- tse_genus[ , colData(tse_genus)$sample_type %in% c("Feces", "Skin", "Tongue") ]
+tse_genus_subset<-tse_genus
+
+# Get n most abundant taxa, and subsets the data by them
+top_taxa <- getTopTaxa(tse_genus_subset, top = 28)
+tse_genus_subset <- tse_genus_subset[top_taxa, ]
+
+# Gets the assay table
+mat <- assay(tse_genus_subset, "relabundance")
+
+temp<-as_tibble(t(mat))
+temp$Day<-colData(tse_genus_subset)$Day
+
+t1<-temp %>%
+  dplyr::group_by(Day) %>%
+  dplyr::summarise(dplyr::across(-starts_with("Day"), mean, na.rm = TRUE))
+
+mat.grouped<-t(t1[,-1])
+
+mat.grouped<-mat.grouped %>% clr() %>% 
+  #scale(center=FALSE,scale=TRUE) %>%  
+  as.data.frame()
+
+# Cluster Features / Taxa
+colnames(mat.grouped)<-t1$Day
+
+# Hierarchical clustering
+taxa_hclust <- hclust(dist(mat), method = "complete")
+
+# Creates a phylogenetic tree
+taxa_tree <- ape::as.phylo(taxa_hclust)
+
+# Plot taxa tree
+taxa_tree <- ggtree(taxa_tree) + 
+  theme(plot.margin=margin(0,0,0,0)) # removes margins
+
+# Get order of taxa in plot
+taxa_ordered <- get_taxa_name(taxa_tree)
+
+# to view the tree, run
+# taxa_tree
+
+
+
+# Creates clusters (e.g. 3 clusters)
+taxa_clusters <- cutree(tree = taxa_hclust, k = 10)
+
+# Converts into data frame
+taxa_clusters <- data.frame(clusters = taxa_clusters)
+taxa_clusters$clusters <- factor(taxa_clusters$clusters)
+
+# Order data so that it's same as in phylo tree
+taxa_clusters <- taxa_clusters[taxa_ordered, , drop = FALSE] 
+
+# Prints taxa and their clusters
+taxa_clusters
+
+
+# Adds information to rowData
+rowData(tse_genus_subset)$clusters <- taxa_clusters[order(match(rownames(taxa_clusters), 
+                                                                 rownames(tse_genus_subset))), ]
+
+
+# Get order of samples in plot
+samples_ordered <- c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28")
+
+# Converts into data frame
+sample_data <- data.frame(Day = samples_ordered)
+rownames(sample_data)<-sample_data$Day
+
+# Order data based on 
+mat.grouped <- mat.grouped[,samples_ordered]
+
+
+# Determines the scaling of colorss
+# Scale colors
+breaks <- seq(-ceiling(max(abs(mat))), ceiling(max(abs(mat))), 
+              length.out = ifelse( max(abs(mat))>5, 2*ceiling(max(abs(mat))), 10 ) )
+colors <- colorRampPalette(c("darkblue", "blue", "white", "red", "darkred"))(length(breaks)-1)
+
+#ann_colours<-list(Timepoints=Timepoints.colours,Center = Center.colours)
+
+pheatmap(mat.grouped, 
+        #annotation_row = taxa_clusters, 
+        annotation_col = sample_data,
+        #breaks = breaks,
+        #color = colors,
+        cluster_cols = FALSE,
+        show_colnames=TRUE,scale = "row",
+        annotation_colors = list(Day=colours.list.Day)
+      )
+         
+```
+
+```{r pheatmap species bacteria,eval=TRUE,fig.dim=c(7,7),out.width="100%"}
+
+tse.subset<-tse.V1V3[,colData(tse.V1V3)$Timepoint2 %in% c("Day -7","Day 0", "Day +7","Day +14", "Day +21","Day +28")]
+
+#remove zOTUs with zero counts after subsetting
+tse.subset<-tse.subset[rowSums(assay(tse.subset, "counts")) > 0, ]
+
+# Collapse the tree
+tree <- ape::keep.tip(phy = rowTree(tse.subset), tip = rowLinks(tse.subset)$nodeNum)
+
+#replace tree in TSE
+rowTree(tse.subset) <- tree
+
+#  Pheatmap
+
+
+
+# Agglomerate tse.V3V4 by genus
+tse_genus <- agglomerateByRank(tse.subset,
+                                rank = "Species",
+                                onRankOnly = TRUE)
+# Add clr-transformation on samples
+tse_genus <- transformSamples(tse_genus, method = "relabundance", pseudocount = 1)
+tse_genus <- transformSamples(tse_genus, method = "clr", abund_values = "relabundance")
+# Add z-transformation on features (taxa)
+tse_genus <- transformFeatures(tse_genus, abund_values = "clr", method = "z", name = "clr_z")
+
+                                
+# Takes subset: only samples from feces, skin, or tongue
+#tse_genus_subset <- tse_genus[ , colData(tse_genus)$sample_type %in% c("Feces", "Skin", "Tongue") ]
+tse_genus_subset<-tse_genus
+
+# Get n most abundant taxa, and subsets the data by them
+top_taxa <- getTopTaxa(tse_genus_subset, top = 38)
+tse_genus_subset <- tse_genus_subset[top_taxa, ]
+
+# Gets the assay table
+mat <- assay(tse_genus_subset, "relabundance")
+
+temp<-as_tibble(t(mat))
+temp$Day<-colData(tse_genus_subset)$Day
+
+t1<-temp %>%
+  dplyr::group_by(Day) %>%
+  dplyr::summarise(dplyr::across(-starts_with("Day"), mean, na.rm = TRUE))
+
+mat.grouped<-t(t1[,-1])
+mat.grouped<-mat.grouped %>% clr() %>% 
+  #scale(center=FALSE,scale=TRUE) %>%  
+  as.data.frame()
+# Cluster Features / Taxa
+colnames(mat.grouped)<-t1$Day
+
+# Hierarchical clustering
+taxa_hclust <- hclust(dist(mat), method = "complete")
+
+# Creates a phylogenetic tree
+taxa_tree <- ape::as.phylo(taxa_hclust)
+
+# Plot taxa tree
+taxa_tree <- ggtree(taxa_tree) + 
+  theme(plot.margin=margin(0,0,0,0)) # removes margins
+
+# Get order of taxa in plot
+taxa_ordered <- get_taxa_name(taxa_tree)
+
+# to view the tree, run
+# taxa_tree
+
+
+
+# Creates clusters (e.g. 3 clusters)
+taxa_clusters <- cutree(tree = taxa_hclust, k = 10)
+
+# Converts into data frame
+taxa_clusters <- data.frame(clusters = taxa_clusters)
+taxa_clusters$clusters <- factor(taxa_clusters$clusters)
+
+# Order data so that it's same as in phylo tree
+taxa_clusters <- taxa_clusters[taxa_ordered, , drop = FALSE] 
+
+# Prints taxa and their clusters
+taxa_clusters
+
+
+# Adds information to rowData
+rowData(tse_genus_subset)$clusters <- taxa_clusters[order(match(rownames(taxa_clusters), 
+                                                                 rownames(tse_genus_subset))), ]
+
+
+# Get order of samples in plot
+samples_ordered <- c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28")
+
+# Converts into data frame
+sample_data <- data.frame(Day = samples_ordered)
+rownames(sample_data)<-sample_data$Day
+
+# Order data based on 
+mat.grouped <- mat.grouped[,samples_ordered]
+
+
+# Determines the scaling of colorss
+# Scale colors
+breaks <- seq(-ceiling(max(abs(mat))), ceiling(max(abs(mat))), 
+              length.out = ifelse( max(abs(mat))>5, 2*ceiling(max(abs(mat))), 10 ) )
+colors <- colorRampPalette(c("darkblue", "blue", "white", "red", "darkred"))(length(breaks)-1)
+
+#ann_colours<-list(Timepoints=Timepoints.colours,Center = Center.colours)
+
+pheatmap(mat.grouped, 
+        #annotation_row = taxa_clusters, 
+        annotation_col = sample_data,
+        #breaks = breaks,
+        #color = colors,
+        cluster_cols = FALSE,
+        show_colnames=TRUE,
+        scale="row",
+        annotation_colors = list(Day=colours.list.Day)
+      )
+         
+```
+
+
+
+### Fungi Timepoints Genus
+
+```{r pheatmap genus fungi,eval=TRUE,fig.dim=c(7,7),out.width="100%"}
+
+tse.subset<-tse.ITS[,colData(tse.ITS)$Timepoint2 %in% c("Day -7","Day 0", "Day +7","Day +14", "Day +21","Day +28")]
+
+#remove zOTUs with zero counts after subsetting
+tse.subset<-tse.subset[rowSums(assay(tse.subset, "counts")) > 0, ]
+
+# Collapse the tree
+tree <- ape::keep.tip(phy = rowTree(tse.subset), tip = rowLinks(tse.subset)$nodeNum)
+
+#replace tree in TSE
+rowTree(tse.subset) <- tree
+
+#  Pheatmap
+
+
+
+# Agglomerate tse.V3V4 by genus
+tse_genus <- agglomerateByRank(tse.subset,
+                                rank = "Genus",
+                                onRankOnly = TRUE)
+# Add clr-transformation on samples
+tse_genus <- transformSamples(tse_genus, method = "relabundance", pseudocount = 1)
+tse_genus <- transformSamples(tse_genus, method = "clr", abund_values = "relabundance")
+# Add z-transformation on features (taxa)
+tse_genus <- transformFeatures(tse_genus, abund_values = "clr", method = "z", name = "clr_z")
+
+                                
+# Takes subset: only samples from feces, skin, or tongue
+#tse_genus_subset <- tse_genus[ , colData(tse_genus)$sample_type %in% c("Feces", "Skin", "Tongue") ]
+tse_genus_subset<-tse_genus
+
+# Get n most abundant taxa, and subsets the data by them
+top_taxa <- getTopTaxa(tse_genus_subset, top = 30)
+tse_genus_subset <- tse_genus_subset[top_taxa, ]
+
+# Gets the assay table
+mat <- assay(tse_genus_subset, "relabundance")
+
+temp<-as_tibble(t(mat))
+temp$Day<-colData(tse_genus_subset)$Day
+
+t1<-temp %>%
+  dplyr::group_by(Day) %>%
+  dplyr::summarise(dplyr::across(-starts_with("Day"), mean, na.rm = TRUE))
+
+mat.grouped<-t(t1[,-1])
+mat.grouped<-mat.grouped %>% clr() %>%
+  #scale() %>%  
+  as.data.frame()
+# Cluster Features / Taxa
+colnames(mat.grouped)<-t1$Day
+
+# Hierarchical clustering
+taxa_hclust <- hclust(dist(mat), method = "complete")
+
+# Creates a phylogenetic tree
+taxa_tree <- ape::as.phylo(taxa_hclust)
+
+# Plot taxa tree
+taxa_tree <- ggtree(taxa_tree) + 
+  theme(plot.margin=margin(0,0,0,0)) # removes margins
+
+# Get order of taxa in plot
+taxa_ordered <- get_taxa_name(taxa_tree)
+
+# to view the tree, run
+# taxa_tree
+
+
+
+# Creates clusters (e.g. 3 clusters)
+taxa_clusters <- cutree(tree = taxa_hclust, k = 10)
+
+# Converts into data frame
+taxa_clusters <- data.frame(clusters = taxa_clusters)
+taxa_clusters$clusters <- factor(taxa_clusters$clusters)
+
+# Order data so that it's same as in phylo tree
+taxa_clusters <- taxa_clusters[taxa_ordered, , drop = FALSE] 
+
+# Prints taxa and their clusters
+taxa_clusters
+
+
+# Adds information to rowData
+rowData(tse_genus_subset)$clusters <- taxa_clusters[order(match(rownames(taxa_clusters), 
+                                                                 rownames(tse_genus_subset))), ]
+
+
+# Get order of samples in plot
+samples_ordered <- c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28")
+
+# Converts into data frame
+sample_data <- data.frame(Day = samples_ordered)
+rownames(sample_data)<-sample_data$Day
+
+# Order data based on 
+mat.grouped <- mat.grouped[,samples_ordered]
+
+
+# Determines the scaling of colorss
+# Scale colors
+breaks <- seq(-ceiling(max(abs(mat))), ceiling(max(abs(mat))), 
+              length.out = ifelse( max(abs(mat))>5, 2*ceiling(max(abs(mat))), 10 ) )
+colors <- colorRampPalette(c("darkblue", "blue", "white", "red", "darkred"))(length(breaks)-1)
+
+#ann_colours<-list(Timepoints=Timepoints.colours,Center = Center.colours)
+
+pheatmap(mat.grouped, 
+        #annotation_row = taxa_clusters, 
+        annotation_col = sample_data,
+        #breaks = breaks,
+        #color = colors,
+        cluster_cols = FALSE,
+        show_colnames=TRUE,
+        scale="row",
+        annotation_colors = list(Day=colours.list.Day)
+      )
+         
+```
+
+
+```{r pheatmap species fungi,eval=TRUE,fig.dim=c(7,7),out.width="100%"}
+
+tse.subset<-tse.ITS[,colData(tse.ITS)$Timepoint2 %in% c("Day -7","Day 0", "Day +7","Day +14", "Day +21","Day +28")]
+
+#remove zOTUs with zero counts after subsetting
+tse.subset<-tse.subset[rowSums(assay(tse.subset, "counts")) > 0, ]
+
+# Collapse the tree
+tree <- ape::keep.tip(phy = rowTree(tse.subset), tip = rowLinks(tse.subset)$nodeNum)
+
+#replace tree in TSE
+rowTree(tse.subset) <- tree
+
+#  Pheatmap
+
+
+
+# Agglomerate tse.V3V4 by genus
+tse_genus <- agglomerateByRank(tse.subset,
+                                rank = "Species",
+                                onRankOnly = TRUE)
+# Add clr-transformation on samples
+tse_genus <- transformSamples(tse_genus, method = "relabundance", pseudocount = 1)
+tse_genus <- transformSamples(tse_genus, method = "clr", abund_values = "relabundance")
+# Add z-transformation on features (taxa)
+tse_genus <- transformFeatures(tse_genus, abund_values = "clr", method = "z", name = "clr_z")
+
+                                
+# Takes subset: only samples from feces, skin, or tongue
+#tse_genus_subset <- tse_genus[ , colData(tse_genus)$sample_type %in% c("Feces", "Skin", "Tongue") ]
+tse_genus_subset<-tse_genus
+
+# Get n most abundant taxa, and subsets the data by them
+top_taxa <- getTopTaxa(tse_genus_subset, top = 40)
+tse_genus_subset <- tse_genus_subset[top_taxa, ]
+
+# Gets the assay table
+mat <- assay(tse_genus_subset, "relabundance")
+
+temp<-as_tibble(t(mat))
+temp$Day<-colData(tse_genus_subset)$Day
+
+t1<-temp %>%
+  dplyr::group_by(Day) %>%
+  dplyr::summarise(dplyr::across(-starts_with("Day"), mean, na.rm = TRUE))
+
+mat.grouped<-t(t1[,-1])
+mat.grouped<-mat.grouped %>% clr() %>% 
+  #scale() %>%  
+  as.data.frame()
+# Cluster Features / Taxa
+colnames(mat.grouped)<-t1$Day
+
+# Hierarchical clustering
+taxa_hclust <- hclust(dist(mat), method = "complete")
+
+# Creates a phylogenetic tree
+taxa_tree <- ape::as.phylo(taxa_hclust)
+
+# Plot taxa tree
+taxa_tree <- ggtree(taxa_tree) + 
+  theme(plot.margin=margin(0,0,0,0)) # removes margins
+
+# Get order of taxa in plot
+taxa_ordered <- get_taxa_name(taxa_tree)
+
+# to view the tree, run
+# taxa_tree
+
+
+
+# Creates clusters (e.g. 3 clusters)
+taxa_clusters <- cutree(tree = taxa_hclust, k = 10)
+
+# Converts into data frame
+taxa_clusters <- data.frame(clusters = taxa_clusters)
+taxa_clusters$clusters <- factor(taxa_clusters$clusters)
+
+# Order data so that it's same as in phylo tree
+taxa_clusters <- taxa_clusters[taxa_ordered, , drop = FALSE] 
+
+# Prints taxa and their clusters
+taxa_clusters
+
+
+# Adds information to rowData
+rowData(tse_genus_subset)$clusters <- taxa_clusters[order(match(rownames(taxa_clusters), 
+                                                                 rownames(tse_genus_subset))), ]
+
+
+# Get order of samples in plot
+samples_ordered <- c("Day -7","Day 0","Day +7","Day +14","Day +21","Day +28")
+
+# Converts into data frame
+sample_data <- data.frame(Day = samples_ordered)
+rownames(sample_data)<-sample_data$Day
+
+# Order data based on 
+mat.grouped <- mat.grouped[,samples_ordered]
+
+
+# Determines the scaling of colorss
+# Scale colors
+breaks <- seq(-ceiling(max(abs(mat))), ceiling(max(abs(mat))), 
+              length.out = ifelse( max(abs(mat))>5, 2*ceiling(max(abs(mat))), 10 ) )
+colors <- colorRampPalette(c("darkblue", "blue", "white", "red", "darkred"))(length(breaks)-1)
+
+#ann_colours<-list(Timepoints=Timepoints.colours,Center = Center.colours)
+
+pheatmap(mat.grouped, 
+        #annotation_row = taxa_clusters, 
+        annotation_col = sample_data,
+        #breaks = breaks,
+        #color = colors,
+        cluster_cols = FALSE,
+        show_colnames=TRUE,
+        scale="row",
+        annotation_colors = list(Day=colours.list.Day)
+      )
+         
+```
+
+
