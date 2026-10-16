@@ -22,6 +22,8 @@ The clinical data comes from mapping_wsm from the supplementary material.
 orberg_samples_raw <- read_tsv(file="~/Documents/ODSi/ODSiData/OrbergMO2024/Metadata/Raw_metadata/meta_samples.tsv")%>%
   filter(grepl("16S", sample_alias))
 
+orberg_outcomes <- read_csv(file = "~/Documents/ODSi/ODSiData/OrbergMO2024/Metadata/Raw_metadata/meta_clinical4.csv")
+
 orberg_clinical_raw <- read_xlsx("~/Documents/ODSi/ODSiData/OrbergMO2024/Metadata/Raw_metadata/meta_clinical1.xlsx")
 ```
 
@@ -36,17 +38,20 @@ orberg <- orberg_samples_raw %>%
               select(sample_title = Project_ID,
                      Patient,
                      Center,
-                     Diagnosis,
                      Day = Time.num,
                      Timepoint,
                      Antibiotic_therapy,
                      Antifungal_therapy,
                      Antiviral_therapy,
                      Prophylaxe,
-                     GVHD=GVHD_012,
-                     NY),
+                     Current_GVHD_Grade=GVHD_012),
             by = "sample_title"
-  )
+  ) %>%
+  left_join(orberg_outcomes,
+            by = c("Patient"="Project_ID"))%>%
+  mutate(GVHD_Grade = GvHD,
+         GVHD = ifelse(GvHD == 0, 0, 1))%>%
+  select(-GvHD)
 ```
 
 ```{r}
