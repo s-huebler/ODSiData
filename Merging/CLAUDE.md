@@ -26,7 +26,7 @@ one at a time, never in parallel.
 | A1. Dictionary-ready source table | done (`jarosch_clinical_16s.tsv` written 10-16) | ready (`"missing"` -> NA done 10-16) | ready (`sample-id` added 10-16) |
 | A2. Scaffold rows via `build_data_dictionary.R` | done (10-16) | done (10-16) | done (10-16) |
 | A3. Technical / ID / constant meanings pass | done (10-16) | done (10-16) | done (10-16) |
-| A4. Study meanings pass (`<Study>_parsing.txt`) | todo (prompt written) | done (10-16) | done (10-16) |
+| A4. Study meanings pass (`<Study>_parsing.txt`) | done (10-16) | done (10-16) | done (10-16) |
 | A5. Sophie reviews UNCERTAIN queue | todo | todo | todo |
 | B. Jarosch mapping contract + dummy mapping | todo | n/a | n/a |
 | C1. Labels, prefixes, palette, crosswalk wiring | todo | todo | todo |
