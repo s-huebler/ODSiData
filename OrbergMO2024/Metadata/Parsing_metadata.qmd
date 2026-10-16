@@ -51,7 +51,8 @@ orberg <- orberg_samples_raw %>%
 
 ```{r}
 orbergMO_qiime <- orberg %>%
-  filter(batch == "MO")
+  filter(batch == "MO")%>%
+  mutate(across(where(is.character), ~ na_if(.x, "missing")))
 
 names(orbergMO_qiime)[1]<- "sample-id"
 ```
