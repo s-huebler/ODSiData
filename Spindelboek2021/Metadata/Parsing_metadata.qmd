@@ -1,0 +1,113 @@
+---
+title: "Parsing Spindelboek Metadata"
+format: html
+editor: visual
+---
+
+# Set up
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(lubridate)
+library(stringr)
+```
+
+# Reading
+
+```{r}
+spindelboek_samples_raw <- read.csv(file = "~/Documents/ODSi/ODSiData/Spindelboek2021/Metadata/Raw_metadata/meta_samples.csv", stringsAsFactors = FALSE, check.names = FALSE)
+
+spindelboek_samples2_raw <- read_tsv("~/Documents/ODSi/ODSiData/Spindelboek2021/Metadata/Raw_metadata/meta_samples2.tsv")
+
+spindelboek_clinical_raw <- read_xlsx("~/Documents/ODSi/ODSiData/Spindelboek2021/Metadata/Raw_metadata/meta_clinical.xlsx")
+
+patient_fmts <- data.frame(
+  Patient = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"),
+  Case = 1:10,
+  FMT1 = c(37, 61, 110, 46, 49, 143, 153, 487, 21,  95),
+  FMT2 = c(48, 76,  NA, 54, 60, 176, 160, 493, 28, 111),
+  FMT3 = c(58, NA,  NA, 73, 71,  NA, 166, 503, 35,  NA),
+  FMT4 = c(77, NA,  NA, NA, NA,  NA, 173, 510, 41,  NA),
+  FMT5 = c(89, NA,  NA, NA, NA,  NA, 182, 518, 51,  NA),
+  FMT6 = c(100,NA,  NA, NA, NA,  NA,  NA,  NA, NA,  NA))
+```
+
+# Samples
+
+```{r}
+spindelboek_samples <- spindelboek_samples_raw %>%
+  select(Run, Sample_Name = `Sample Name`, 
+         sample_type, case)%>%
+  left_join(spindelboek_samples2_raw %>%
+              select(Run=run_accession,
+                     sample_alias, 
+                     sample_title),
+            by = "Run")%>%
+  separate_wider_delim(
+    cols = `Sample_Name`,
+    delim = "-",
+    names = c("Sample_prefix", "Sample_suffix"),
+    cols_remove = TRUE
+  )%>%
+  transform(Sample_suffix = as.numeric(Sample_suffix))%>%
+ arrange(case, as.numeric(Sample_suffix)) %>%
+  left_join(patient_fmts, by = c("case" = "Case")) %>%
+  rowwise() %>%
+  mutate(
+    # Extract the target FMT string from the title (e.g., "FMT1", "FMT2")
+    fmt_cycle = str_extract(sample_title, "FMT\\d")
+  ) %>%
+  mutate(
+    # Get the base day for that specific FMT cycle 
+    # Use standard if/else instead of if_else to prevent get(NA) evaluation
+    fmt_cycle_day = if (is.na(fmt_cycle)) FMT1 else get(fmt_cycle)
+  ) %>%
+  mutate(
+    # Calculate the Time variable
+    Time = case_when(
+      # Condition 0: donors should have NA
+      sample_type == "donor" ~ NA_character_,
+      
+      # Condition 1: Any "pre" sample gets "<" plus the base day
+      str_detect(sample_title, "pre") ~ paste0("<", fmt_cycle_day),
+      
+      # Condition 2: Any "post" sample adds the extracted day value to the base day
+      str_detect(sample_title, "post") ~ {
+        # Extract the digits between 'd' and '-post' (e.g., 2 from 'd02', 3 from 'd03')
+        day_offset <- as.numeric(str_extract(sample_title, "(?<=d)\\d+(?=-post)"))
+        as.character(fmt_cycle_day + day_offset)
+      },
+      
+      # Fallback for unexpected formats
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  ungroup()%>%
+  select(Run, case, Patient, sample_type, sample_alias, sample_title, fmt_cycle, fmt_cycle_day, Time)
+
+```
+
+# Join
+
+```{r}
+spindelboek_meta <- spindelboek_samples %>%
+  filter(sample_type == "patient")%>%
+  left_join(spindelboek_clinical_raw %>%
+              select(-FMT_day),
+            by = "Patient")%>%
+  bind_rows(
+    spindelboek_samples %>%
+      filter(sample_type == "donor")
+  )%>%
+  arrange(case)
+
+names(spindelboek_meta)[1]<- "sample-id"
+```
+
+# Export
+
+```{r}
+write_tsv(spindelboek_meta, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Spindelboek2021/Metadata/spindelboek_meta_qiime.tsv")
+```
