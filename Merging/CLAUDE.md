@@ -26,7 +26,7 @@ one at a time, never in parallel.
 | A1. Dictionary-ready source table | done (`jarosch_clinical_16s.tsv` written 10-16) | ready (`"missing"` -> NA done 10-16) | ready (`sample-id` added 10-16) |
 | A2. Scaffold rows via `build_data_dictionary.R` | done (10-16) | done (10-16) | done (10-16) |
 | A3. Technical / ID / constant meanings pass | done (10-16) | done (10-16) | done (10-16) |
-| A4. Study meanings pass (`<Study>_parsing.txt`) | todo (prompt written) | todo (prompt written) | todo (prompt written) |
+| A4. Study meanings pass (`<Study>_parsing.txt`) | todo (prompt written) | done (10-16) | todo (prompt written) |
 | A5. Sophie reviews UNCERTAIN queue | todo | todo | todo |
 | B. Jarosch mapping contract + dummy mapping | todo | n/a | n/a |
 | C1. Labels, prefixes, palette, crosswalk wiring | todo | todo | todo |
@@ -80,7 +80,7 @@ Source metadata for the new cohorts:
 | Cohort | Sample table | Clinical / supporting sources |
 |---|---|---|
 | Jarosch | `Jarosch2023/Metadata/Raw_metadata/meta_samples.csv` (53 ENA runs) | `Raw_metadata/meta_clinical.csv` (83 biopsy rows), `jarosch_metadata_mapping.xlsx`, `Manuscript/manuscript.pdf`, `Manuscript/Supplement 1.pdf` |
-| OrbergMO | `OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv` (269 x 15) | `Metadata/Parsing_metadata.qmd`, `Raw_metadata/meta_clinical1.xlsx`, `Raw_metadata/processing.Rmd` (authors' own code, best key for the integer codes), `Raw_metadata/processed.rds`, `Orberg2024/Manuscript/` (paper PDF + `mapping_wsm.xlsx`) |
+| OrbergMO | `OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv` (269 x 15) | `Metadata/Parsing_metadata.qmd`, `Raw_metadata/meta_clinical1.xlsx` / `meta_clinical2.xlsx`, `Orberg2024/Manuscript/` (paper PDF + supplementary `mapping_wsm.xlsx`). `Raw_metadata/processing.Rmd` and `processed.rds` are NOT useful (downstream metabolomics code and the authors' phyloseq, same unlabelled codes); leave them in place, do not use them. |
 | Spindelboek | `Spindelboek2021/Metadata/spindelboek_meta_qiime.tsv` (206 x 31) | `Metadata/Parsing_metadata.qmd` (hand-entered `patient_fmts` FMT-day table), `Raw_metadata/meta_clinical.xlsx`, `Manuscript/` PDF + `sj-doc-2-...doc` supplement |
 
 ---
@@ -147,8 +147,9 @@ the UNCERTAIN queue at the end). Save each as
   `Sceening`). Age and donor age are 5-year bands, not numbers.
 - **OrbergMO**: integer codes with no key in the TSV (`Diagnosis` 0/1, `GVHD`
   from source `GVHD_012`, `NY` 0/1/2, `Prophylaxe` 0/1/2/"missing",
-  `Antiviral_therapy` 0/1/"missing"). `processing.Rmd` and `mapping_wsm.xlsx`
-  are where the codes are defined; read them before the paper. `Day` is source
+  `Antiviral_therapy` 0/1/NA). The paper and its supplement (incl.
+  `mapping_wsm.xlsx`) are the only real key; `processing.Rmd` /
+  `processed.rds` carry the same unlabelled codes. `Day` is source
   `Time.num`; `Timepoint` includes `COND` (Day -7). Two centers, MUC and REG.
 - **Spindelboek**: FMT case series for steroid-refractory aGVHD (so
   `gut_gvhd` is constant 1 by design). `Time` is the sample day; "pre" samples
