@@ -1,0 +1,30 @@
+Read Merging/CLAUDE.md first. Fill in the `meaning` column of the Spindelboek sheet in Merging/data_dictionaries.xlsx. Only `meaning` and `notes`. Leave harmonized_name and harmonized_values empty; harmonization is a separate later step. Skip rows where meaning is already filled. Write with readxl + writexl::write_xlsx (all sheets back), never openxlsx, and confirm the other eight sheets are unchanged.
+
+Spindelboek is an FMT case series in steroid-refractory acute GVHD. The TSV holds both recipient stool samples and FMT donor stool samples (`sample_type`).
+
+Sources, in priority order:
+  1. Spindelboek2021/Metadata/Parsing_metadata.qmd: how the TSV was assembled, including the hand-entered `patient_fmts` table (FMT days per patient) and how `Time` is derived from `sample_title`.
+  2. The paper, Spindelboek2021/Manuscript/*.pdf, and the supplement sj-doc-2-tah-10.1177_20406207211058333.doc (legacy Word; convert to text with `textutil -convert txt` on macOS). Read these first for meanings.
+  3. Spindelboek2021/Metadata/Raw_metadata/meta_clinical.xlsx, meta_samples.csv, meta_samples2.tsv.
+  4. The actual values in Spindelboek2021/Metadata/spindelboek_meta_qiime.tsv. Read the full column, not just the 5 examples.
+
+Each `meaning` entry should contain, where applicable:
+  - what the variable is, in one or two sentences
+  - units or scale (days from HSCT? days from FMT?)
+  - the value key: what every coded level means
+For any day column, state the reference point explicitly (HSCT day 0 vs FMT day), and for any time-to-event column state both the origin and the event.
+
+When the sources do not establish a column, write your best inference in `meaning` and record in `notes`: the prefix "UNCERTAIN:", the basis for the inference, and what you checked and did not find. Do not silently guess; an unflagged meaning is a claim that the source supports it.
+
+Watch for and note:
+  - `Time`: exact days are days from HSCT; values like "<37" are pre-FMT samples where only an upper bound is known (the FMT day). Count both kinds. Verify the `patient_fmts` FMT days against the paper and list any disagreement.
+  - `case` vs `Patient`: cases 40 and 50 are donor-only with no Patient. Explain what they are if the paper or sample names say.
+  - Semicolon-joined values (`Donor sex` "female; male", `Donor match` "HID; HID", `GVHD prophylaxis` with two regimens, the parallel `Infection` / `Infection_day_from_hsct` / `Infection_day_from_fmt` lists). For donor and prophylaxis fields, check the paper for second transplants and name the patients involved.
+  - `GVHD_Onset_Day`, `GVHD_Onset_Organ`, `GVHD_Onset_Grade` vs `gut_gvhd`, `lower_gut_gvhd_day`, `gut_gvhd_grade`: say which grading system, and whether onset grade is overall or organ-specific. Note `upper_gut` vs `lower_gut` organ values (they will be pooled into gut_gvhd later).
+  - `Sirolimus`, `Cyclosporine`, `tacrolimus`: one-hot expansions of what? Name the underlying variable (prophylaxis vs GVHD therapy).
+  - `death_day`, `cause_of_death`: reference point and completeness.
+  - Redundant columns, as in earlier studies. Do not delete anything.
+
+Work through the sheet top to bottom. When done, print a list of every column you flagged UNCERTAIN with a one-line reason.
+
+Commit as: [Spindelboek2021] data dictionary meanings. Update the A4 Spindelboek cell of the Status table in Merging/CLAUDE.md in the same commit.

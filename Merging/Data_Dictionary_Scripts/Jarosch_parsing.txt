@@ -1,0 +1,30 @@
+Read Merging/CLAUDE.md first. Fill in the `meaning` column of the Jarosch sheet in Merging/data_dictionaries.xlsx. Only `meaning` and `notes`. Leave harmonized_name and harmonized_values empty; harmonization is a separate later step. Skip rows where meaning is already filled. Write with readxl + writexl::write_xlsx (all sheets back), never openxlsx, and confirm the other eight sheets are unchanged.
+
+This sheet was built from Jarosch2023/Metadata/jarosch_clinical_16s.tsv: one row per GI BIOPSY with 16S data (52 rows, 39 patients), not per stool sample. The sample to biopsy mapping does not exist yet. Describe each column at the biopsy level.
+
+Sources, in priority order:
+  1. Jarosch2023/Manuscript/manuscript.pdf and Jarosch2023/Manuscript/Supplement 1.pdf (methods, patient characteristics table, figure legends). Read these first.
+  2. Jarosch2023/Metadata/jarosch_metadata_mapping.xlsx, Overview sheet (cohort description).
+  3. Jarosch2023/Metadata/Raw_metadata/meta_clinical.csv (all 83 rows, including biopsies without 16S, which can clarify value sets).
+  4. The actual values in jarosch_clinical_16s.tsv. Read the full column, not just the 5 examples in the scaffold.
+
+Each `meaning` entry should contain, where applicable:
+  - what the variable is, in one or two sentences
+  - units or scale (days from transplant? µmol/mmol creatinine? pg/ml?)
+  - the value key: what every coded level means
+For any day column, state the reference point explicitly.
+
+When the paper does not establish a column, write your best inference in `meaning` and record in `notes`: the prefix "UNCERTAIN:", the basis for the inference, and what you checked and did not find. I will review all UNCERTAIN rows in a batch. Do not silently guess; an unflagged meaning is a claim that the source supports it.
+
+Watch for and note:
+  - Columns that appear redundant with each other (e.g. GvHD vs GvHD (Lerner) vs clinical GvHD total / GI). Say how they differ (histologic vs clinical; overall grade vs GI stage; binary vs graded) and which one is the natural source for an aGVHD grade vs a gut stage. Do not delete anything.
+  - `d after aHSCT` is the biopsy day relative to transplant; confirm from the paper.
+  - `Bx Timepoint`: Screening / Onset / Course. Define each from the paper. One row is misspelled "Sceening"; note it.
+  - `age of patient` and `Donor age` are 5-year bands, not numbers. One patient has two different age bands across biopsies; name the patient in notes.
+  - `Richness`, `Simpson`, `Shannon` are the authors' alpha diversity for the linked 16S sample; `Indoxylsulfate`, `Biopsy ST2`, `Biopsy Reg3a`, `Biopsy MAP` are biomarkers (say urine vs tissue, and expand MAP from the paper).
+  - Decode every abbreviation in `Conditioning`, `GvHD prophylaxis`, `Diagnosis`, `HLA`, `Donor type`, `Stem cell source`, `Origin`, `Type`, `Dataset` from the paper. Flag any you cannot confirm.
+  - `steroid refractory`, `ABX`: state the time window they refer to (at biopsy? ever?) if the paper says.
+
+Work through the sheet top to bottom. When done, print a list of every column you flagged UNCERTAIN with a one-line reason.
+
+Commit as: [Jarosch2023] data dictionary meanings. Update the A4 Jarosch cell of the Status table in Merging/CLAUDE.md in the same commit.

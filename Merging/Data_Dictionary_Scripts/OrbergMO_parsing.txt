@@ -1,0 +1,31 @@
+Read Merging/CLAUDE.md first. Fill in the `meaning` column of the OrbergMO sheet in Merging/data_dictionaries.xlsx. Only `meaning` and `notes`. Leave harmonized_name and harmonized_values empty; harmonization is a separate later step. Skip rows where meaning is already filled. Write with readxl + writexl::write_xlsx (all sheets back), never openxlsx, and confirm the other eight sheets are unchanged.
+
+OrbergMO is the MO16S batch of the Orberg 2024 study (the SJ16S batch is a separate cohort, OrbergSJ2024, not yet parsed). Most clinical columns are integer codes with no key in the TSV, so the code definitions are the main job here.
+
+Sources, in priority order:
+  1. OrbergMO2024/Metadata/Parsing_metadata.qmd: how the TSV was assembled (Day comes from Time.num, GVHD from GVHD_012).
+  2. OrbergMO2024/Metadata/Raw_metadata/processing.Rmd: the authors' own processing code. Search it for where Diagnosis, GVHD_012, NY, Prophylaxe, Antiviral_therapy, Timepoint and Center are created or labelled. This is the most likely place the integer codes are defined.
+  3. OrbergMO2024/Metadata/Raw_metadata/processed.rds: the authors' phyloseq object. Compare its sample_data with our values; labelled factor levels there can confirm a code.
+  4. OrbergMO2024/Metadata/Raw_metadata/meta_clinical1.xlsx and meta_clinical2.xlsx (also Orberg2024/Manuscript/mapping_wsm.xlsx): any header notes or extra columns.
+  5. The paper, Orberg2024/Manuscript/*.pdf, methods and patient table.
+  6. The actual values in OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv. Read the full column, not just the 5 examples.
+
+Each `meaning` entry should contain, where applicable:
+  - what the variable is, in one or two sentences
+  - units or scale (days relative to what?)
+  - the value key: what every coded level means, e.g. "0 = no GVHD, 1 = ..., 2 = ..."
+For any day column, state the reference point explicitly.
+
+When the sources do not establish a column, write your best inference in `meaning` and record in `notes`: the prefix "UNCERTAIN:", the basis for the inference, and what you checked and did not find. Do not silently guess; an unflagged meaning is a claim that the source supports it.
+
+Watch for and note:
+  - `GVHD` (0/1/2) and `NY` (0/1/2): three-level codes. State exactly what level 2 means. If either is a competing-risk style code (e.g. "died / censored before event"), say so plainly; it matters for collapsing to binary later.
+  - `Prophylaxe` (0/1/2) and `Diagnosis` (0/1): what each level is.
+  - `Day` vs `Timepoint`: Timepoint includes "COND" (Day -7). Map every Timepoint level to its Day and note any rows where they disagree.
+  - `Center`: MUC and REG. Expand each.
+  - Antibiotic / antifungal / antiviral columns: what time window they cover (at sample? any time before?).
+  - Redundant columns and one-hot groups, as in earlier studies. Do not delete anything.
+
+Work through the sheet top to bottom. When done, print a list of every column you flagged UNCERTAIN with a one-line reason.
+
+Commit as: [OrbergMO2024] data dictionary meanings. Update the A4 OrbergMO cell of the Status table in Merging/CLAUDE.md in the same commit.
