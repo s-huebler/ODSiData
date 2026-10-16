@@ -24,9 +24,9 @@ one at a time, never in parallel.
 |---|---|---|---|
 | 0. Pre-flight (commit pending work, back up xlsx) | shared: todo (folded into prompt 01) | | |
 | A1. Dictionary-ready source table | done (`jarosch_clinical_16s.tsv` written 10-16) | ready (`"missing"` -> NA done 10-16) | ready (`sample-id` added 10-16) |
-| A2. Scaffold rows via `build_data_dictionary.R` | done (10-16) | done (10-16) | done (10-16) |
-| A3. Technical / ID / constant meanings pass | done (10-16) | done (10-16) | done (10-16) |
-| A4. Study meanings pass (`<Study>_parsing.txt`) | done (10-16) | done (10-16) | done (10-16) |
+| A2. Scaffold rows via `build_data_dictionary.R` | done (10-16) | done (rebuilt 10-16) | done (10-16) |
+| A3. Technical / ID / constant meanings pass | done (10-16) | done (rebuilt 10-16) | done (10-16) |
+| A4. Study meanings pass (`<Study>_parsing.txt`) | done (10-16) | todo | done (10-16) |
 | A5. Sophie reviews UNCERTAIN queue | todo | todo | todo |
 | B. Jarosch mapping contract + dummy mapping | todo | n/a | n/a |
 | C1. Labels, prefixes, palette, crosswalk wiring | todo | todo | todo |
