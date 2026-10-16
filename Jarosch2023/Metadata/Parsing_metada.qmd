@@ -29,3 +29,34 @@ alpha_import <- clinical16S %>%
 ```{r}
 alpha_calc <- read_tsv(file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Jarosch2023/Metadata/jarosch_alpha_diversity.tsv")
 ```
+
+```{r}
+# Build dictionary-ready clinical table for the data dictionary scaffold.
+# Reads meta_clinical.csv with headers kept verbatim (name_repair = "minimal")
+# so special characters such as µ in column names survive.
+clinical_raw <- read_csv(
+  "~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/Raw_metadata/meta_clinical.csv",
+  name_repair = "minimal"
+)
+
+clinical_16s <- clinical_raw %>%
+  filter(`16S data` == "yes")
+
+# assertions
+stopifnot(nrow(clinical_16s) == 52)
+stopifnot(length(unique(clinical_16s$Patient)) == 39)
+stopifnot(!anyDuplicated(clinical_16s$Biopsy))
+
+# check µ survives
+mu_col <- grep("\u00b5", names(clinical_16s), value = TRUE)
+stopifnot(length(mu_col) == 1)
+message("µ column: ", mu_col)
+message("rows: ", nrow(clinical_16s),
+        " | distinct Patient: ", length(unique(clinical_16s$Patient)),
+        " | Biopsy unique: TRUE")
+
+write_tsv(clinical_16s,
+          "~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/jarosch_clinical_16s.tsv",
+          na = "")
+message("wrote jarosch_clinical_16s.tsv")
+```

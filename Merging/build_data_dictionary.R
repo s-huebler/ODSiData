@@ -4,12 +4,15 @@ library(readr)
 
 # ── Study configuration ────────────────────────────────────────────────────────
 studies <- list(
-  Artacho  = list(path = "Artacho2024/Metadata/artacho_meta_qiime.tsv",  patient_key = "Patient"),
-  DAmico   = list(path = "DAmico2019/Metadata/damico_meta_qiime.tsv",    patient_key = "Patient"),
-  Fujimoto = list(path = "Fujimoto2024/Metadata/fuji_meta_qiime.tsv",    patient_key = "Patient"),
-  Ingham   = list(path = "Ingham2019/Metadata/ingham_meta_qiime.tsv",    patient_key = "patient"),
-  Liu      = list(path = "Liu2017/Metadata/liu_meta_qiime.tsv",          patient_key = "host_subject_id"),
-  Vallet   = list(path = "Vallet2023/Metadata/vallet_meta_qiime.tsv",    patient_key = "azimut_id")
+  Artacho     = list(path = "Artacho2024/Metadata/artacho_meta_qiime.tsv",          patient_key = "Patient"),
+  DAmico      = list(path = "DAmico2019/Metadata/damico_meta_qiime.tsv",            patient_key = "Patient"),
+  Fujimoto    = list(path = "Fujimoto2024/Metadata/fuji_meta_qiime.tsv",            patient_key = "Patient"),
+  Ingham      = list(path = "Ingham2019/Metadata/ingham_meta_qiime.tsv",            patient_key = "patient"),
+  Jarosch     = list(path = "Jarosch2023/Metadata/jarosch_clinical_16s.tsv",        patient_key = "Patient"),
+  Liu         = list(path = "Liu2017/Metadata/liu_meta_qiime.tsv",                  patient_key = "host_subject_id"),
+  OrbergMO    = list(path = "OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv",        patient_key = "Patient"),
+  Spindelboek = list(path = "Spindelboek2021/Metadata/spindelboek_meta_qiime.tsv",  patient_key = "Patient"),
+  Vallet      = list(path = "Vallet2023/Metadata/vallet_meta_qiime.tsv",            patient_key = "azimut_id")
 )
 
 output_path <- "Merging/data_dictionaries.xlsx"
