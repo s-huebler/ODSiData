@@ -26,7 +26,7 @@ one at a time, never in parallel.
 | A1. Dictionary-ready source table | done (`jarosch_clinical_16s.tsv` written 10-16) | ready (`"missing"` -> NA done 10-16) | ready (`sample-id` added 10-16) |
 | A2. Scaffold rows via `build_data_dictionary.R` | done (10-16) | done (10-16) | done (10-16) |
 | A3. Technical / ID / constant meanings pass | done (10-16) | done (10-16) | done (10-16) |
-| A4. Study meanings pass (`<Study>_parsing.txt`) | todo (prompt written) | done (10-16) | todo (prompt written) |
+| A4. Study meanings pass (`<Study>_parsing.txt`) | todo (prompt written) | done (10-16) | done (10-16) |
 | A5. Sophie reviews UNCERTAIN queue | todo | todo | todo |
 | B. Jarosch mapping contract + dummy mapping | todo | n/a | n/a |
 | C1. Labels, prefixes, palette, crosswalk wiring | todo | todo | todo |
@@ -159,6 +159,23 @@ the UNCERTAIN queue at the end). Save each as
   (`Donor sex` "female; male", `Donor match` "HID; HID", two prophylaxis
   regimens) suggest second transplants. Infection fields are parallel
   semicolon lists with days from HSCT and from FMT.
+
+**Note tags in `notes` (rule added 2026-10-16 after the OrbergMO `Center` error).**
+The meanings pass on OrbergMO copied the first-pass flag "UNCERTAIN: constant
+in this study but analytically meaningful" onto `Center`, which is
+PATIENT_LEVEL with two values (MUC 90 samples, REG 179). The flag came from
+the `batch` row directly above it, and was used to mean "matters at merge".
+To stop that:
+- `UNCERTAIN:` means only "the meaning is inferred, not confirmed by a source".
+- `CONSTANT-BUT-MEANINGFUL:` replaces the first-pass flag, and is allowed only
+  on rows whose `variation` is CONSTANT.
+- `MERGE NOTE:` is for anything that matters at pooling (site, batch, cohort
+  design) and makes no claim about variation or certainty.
+- The `n_unique` / `variation` columns are computed from the data. Never
+  write a note that contradicts them.
+- Every meanings prompt ends with a consistency check before commit (see the
+  `*_parsing.txt` files): no "constant" wording on non-CONSTANT rows, and
+  every `CONSTANT-BUT-MEANINGFUL:` row is CONSTANT.
 
 **A5. Review.** Sophie clears the UNCERTAIN queue for each study before its
 harmonization starts. Commit each study's dictionary as
