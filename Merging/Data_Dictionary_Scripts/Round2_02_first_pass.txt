@@ -6,7 +6,7 @@ Expected content: sample identifiers (ENA run accessions in sample-id, sample_al
 
 For each row also record in `notes` why it carries no analytic information: "constant across all samples", "unique per sample — identifier", or "all values missing". For CONSTANT columns, state the single value it holds.
 
-Where a CONSTANT column is constant only because this study happened to enroll a homogeneous cohort (rather than because it is a technical field), flag it in notes as "UNCERTAIN: constant in this study but analytically meaningful — may vary across studies at merge". Expected examples: Spindelboek gut_gvhd (every patient is an FMT recipient with gut GVHD), OrbergMO batch (MO, splits from OrbergSJ later). That distinction matters for harmonization.
+Where a CONSTANT column is constant only because this study happened to enroll a homogeneous cohort (rather than because it is a technical field), flag it in notes as "CONSTANT-BUT-MEANINGFUL: constant in this study but analytically meaningful — may vary across studies at merge". Expected examples: Spindelboek gut_gvhd (every patient is an FMT recipient with gut GVHD), OrbergMO batch (MO, splits from OrbergSJ later). That distinction matters for harmonization.
 
 Do not open any manuscript PDFs for this pass.
 

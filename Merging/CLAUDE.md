@@ -59,6 +59,14 @@ one at a time, never in parallel.
 - **Gut GVHD.** Upper and lower gut combine into `gut_gvhd` (same rule as Liu).
 - **OrbergMO.** Sophie replaced the literal `"missing"` with NA in the source
   TSV, so `clean_chr()` is unchanged.
+- **OrbergMO rebuilt (2026-10-16)** with the patient-level outcomes table
+  `meta_clinical4.csv`. Dictionary sheet restarted from scratch
+  (`Data_Dictionary_Scripts/OrbergMO_reset.txt`, then `OrbergMO_parsing.txt`).
+- **OrbergMO GVHD columns.** `Current_GVHD_Grade` (source `GVHD_012`) is GVHD
+  status at the time of the sample, sample-level. `GVHD_Grade` (source `GvHD`)
+  and `GVHD` (0 if `GVHD_Grade == 0`, else 1) are the patient-level outcome the
+  authors use in the paper, and are the harmonization source for the GVHD
+  outcome. `Onset_days` = 365 for 32/34 no-GVHD patients (censoring, mask it).
 
 ---
 
@@ -80,7 +88,7 @@ Source metadata for the new cohorts:
 | Cohort | Sample table | Clinical / supporting sources |
 |---|---|---|
 | Jarosch | `Jarosch2023/Metadata/Raw_metadata/meta_samples.csv` (53 ENA runs) | `Raw_metadata/meta_clinical.csv` (83 biopsy rows), `jarosch_metadata_mapping.xlsx`, `Manuscript/manuscript.pdf`, `Manuscript/Supplement 1.pdf` |
-| OrbergMO | `OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv` (269 x 15) | `Metadata/Parsing_metadata.qmd`, `Raw_metadata/meta_clinical1.xlsx` / `meta_clinical2.xlsx`, `Orberg2024/Manuscript/` (paper PDF + supplementary `mapping_wsm.xlsx`). `Raw_metadata/processing.Rmd` and `processed.rds` are NOT useful (downstream metabolomics code and the authors' phyloseq, same unlabelled codes); leave them in place, do not use them. |
+| OrbergMO | `OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv` (269 x 33, rebuilt 2026-10-16) | `Metadata/Parsing_metadata.qmd`, `Raw_metadata/meta_clinical1.xlsx` (sample-level), `Raw_metadata/meta_clinical4.csv` (patient outcomes; `meta_clinical3.xlsx` is the xlsx copy), `meta_clinical2.xlsx`, `Orberg2024/Manuscript/` (paper PDF + supplementary `mapping_wsm.xlsx`). `Raw_metadata/processing.Rmd` and `processed.rds` are NOT useful (downstream metabolomics code and the authors' phyloseq, same unlabelled codes); leave them in place, do not use them. |
 | Spindelboek | `Spindelboek2021/Metadata/spindelboek_meta_qiime.tsv` (206 x 31) | `Metadata/Parsing_metadata.qmd` (hand-entered `patient_fmts` FMT-day table), `Raw_metadata/meta_clinical.xlsx`, `Manuscript/` PDF + `sj-doc-2-...doc` supplement |
 
 ---
@@ -145,12 +153,10 @@ the UNCERTAIN queue at the end). Save each as
   clinical overall grade and GI stage; `d after aHSCT` is the biopsy day;
   `Bx Timepoint` is Screening / Onset / Course (one row is misspelled
   `Sceening`). Age and donor age are 5-year bands, not numbers.
-- **OrbergMO**: integer codes with no key in the TSV (`Diagnosis` 0/1, `GVHD`
-  from source `GVHD_012`, `NY` 0/1/2, `Prophylaxe` 0/1/2/"missing",
-  `Antiviral_therapy` 0/1/NA). The paper and its supplement (incl.
-  `mapping_wsm.xlsx`) are the only real key; `processing.Rmd` /
-  `processed.rds` carry the same unlabelled codes. `Day` is source
-  `Time.num`; `Timepoint` includes `COND` (Day -7). Two centers, MUC and REG.
+- **OrbergMO**: rebuilt 2026-10-16 (33 columns). Integer codes with no key in
+  the TSV; the paper and supplement (incl. `mapping_wsm.xlsx`) are the only
+  real key. See Decisions for the `Current_GVHD_Grade` vs `GVHD` /
+  `GVHD_Grade` distinction. Full hint list lives in `OrbergMO_parsing.txt`.
 - **Spindelboek**: FMT case series for steroid-refractory aGVHD (so
   `gut_gvhd` is constant 1 by design). `Time` is the sample day; "pre" samples
   are stored as `<FMT day` (86 rows) and are upper bounds, not days.
@@ -281,8 +287,9 @@ Resolved items moved to Decisions above. Still to raise when reached:
 - **Jarosch outcome source.** Histologic Lerner grade vs clinical grade/GI
   stage for `agvhd_grade` / `gut_gvhd_stage`; these are status at biopsy, not
   onset events with days (only `Bx Timepoint == "Onset"` approximates onset).
-- **OrbergMO three-level `GVHD` (0/1/2) and `NY`**: confirm the key before
-  collapsing to binary (Vallet competing-risk precedent).
+- **OrbergMO three-level codes** (`GVHD_Grade`, `Steroidrefractory`,
+  `survival_1yr_overall`, `Donor_type`): confirm the key before collapsing to
+  binary (Vallet competing-risk precedent).
 
 ---
 

@@ -1,30 +1,43 @@
-Read Merging/CLAUDE.md first. Fill in the `meaning` column of the OrbergMO sheet in Merging/data_dictionaries.xlsx. Only `meaning` and `notes`. Leave harmonized_name and harmonized_values empty; harmonization is a separate later step. Skip rows where meaning is already filled. Write with readxl + writexl::write_xlsx (all sheets back), never openxlsx, and confirm the other eight sheets are unchanged.
+Read Merging/CLAUDE.md first, including the "Note tags" rule. Fill in the `meaning` column of the OrbergMO sheet in Merging/data_dictionaries.xlsx. Only `meaning` and `notes`. Leave harmonized_name and harmonized_values empty; harmonization is a separate later step. Skip rows where meaning is already filled (the technical rows from the reset prompt). Write with readxl + writexl::write_xlsx (all sheets back), never openxlsx, and confirm the other eight sheets are unchanged.
 
-OrbergMO is the MO16S batch of the Orberg 2024 study (the SJ16S batch is a separate cohort, OrbergSJ2024, not yet parsed). Most clinical columns are integer codes with no key in the TSV, so the code definitions are the main job here.
+OrbergMO is the MO16S batch of the Orberg 2024 study (the SJ16S batch is a separate cohort, OrbergSJ2024, not yet parsed). The TSV joins three things: ENA sample fields, sample-level clinical fields from meta_clinical1.xlsx, and a patient-level outcomes table from meta_clinical4.csv. Many columns are integer codes with no key in the TSV, so the code definitions are the main job here. If the paper does not define a code, say so with UNCERTAIN rather than inferring from a single cross-tab.
 
 Sources, in priority order:
-  1. OrbergMO2024/Metadata/Parsing_metadata.qmd: how the TSV was assembled (Day comes from Time.num, GVHD from GVHD_012).
-  2. OrbergMO2024/Metadata/Raw_metadata/processing.Rmd: the authors' own processing code. Search it for where Diagnosis, GVHD_012, NY, Prophylaxe, Antiviral_therapy, Timepoint and Center are created or labelled. This is the most likely place the integer codes are defined.
-  3. OrbergMO2024/Metadata/Raw_metadata/processed.rds: the authors' phyloseq object. Compare its sample_data with our values; labelled factor levels there can confirm a code.
-  4. OrbergMO2024/Metadata/Raw_metadata/meta_clinical1.xlsx and meta_clinical2.xlsx (also Orberg2024/Manuscript/mapping_wsm.xlsx): any header notes or extra columns.
-  5. The paper, Orberg2024/Manuscript/*.pdf, methods and patient table.
-  6. The actual values in OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv. Read the full column, not just the 5 examples.
+  1. OrbergMO2024/Metadata/Parsing_metadata.qmd: how the TSV was assembled, which source file and source column each field comes from, and what was derived (Day from Time.num; Current_GVHD_Grade from GVHD_012; GVHD_Grade from GvHD; GVHD derived as 0 if GvHD == 0, else 1).
+  2. The paper and its supplementary material, Orberg2024/Manuscript/*.pdf (methods, patient characteristics table, outcome definitions, figure legends). Orberg2024/Manuscript/mapping_wsm.xlsx is from the supplement. This is the main source for the integer codes and outcome definitions.
+  3. OrbergMO2024/Metadata/Raw_metadata/meta_clinical4.csv (patient outcomes, 20 columns) and meta_clinical3.xlsx (sheet Tabelle1, the same table in xlsx form with 19 columns; say which column differs). Also meta_clinical1.xlsx and meta_clinical2.xlsx: header notes, extra sheets, or companion columns.
+  4. The actual values in OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv. Read the full column, not just the 5 examples. Cross-tabulating coded columns against each other can constrain what a code means, but a cross-tab alone does not confirm a code.
+
+Do NOT use OrbergMO2024/Metadata/Raw_metadata/processing.Rmd or processed.rds. They are downstream metabolomics processing and the authors' phyloseq object, which carries the same unlabelled encodings. Leave both files where they are.
 
 Each `meaning` entry should contain, where applicable:
-  - what the variable is, in one or two sentences
+  - what the variable is, in one or two sentences, and whether it is sample-level or patient-level
   - units or scale (days relative to what?)
   - the value key: what every coded level means, e.g. "0 = no GVHD, 1 = ..., 2 = ..."
-For any day column, state the reference point explicitly.
+For any day column, state the reference point explicitly, and for any time-to-event column state both the origin and the event.
 
-When the sources do not establish a column, write your best inference in `meaning` and record in `notes`: the prefix "UNCERTAIN:", the basis for the inference, and what you checked and did not find. Do not silently guess; an unflagged meaning is a claim that the source supports it.
+GVHD columns. Make this distinction explicit in meaning and notes of all three rows:
+  - `Current_GVHD_Grade` (source GVHD_012, meta_clinical1.xlsx) is the GVHD status/grade AT THE TIME OF THAT SAMPLE. It is sample-level and changes within patient (37 patients have more than one value). It describes the sample's state, not the patient's outcome. Notes: "MERGE NOTE: sample-time GVHD status; not the outcome used for harmonization."
+  - `GVHD_Grade` (source GvHD, meta_clinical4.csv) and `GVHD` (binary, derived from GVHD_Grade in Parsing_metadata.qmd) are the patient-level GVHD outcome the authors analyse in the paper. These are the columns used for harmonizing the GVHD outcome. Notes: "MERGE NOTE: patient-level GVHD outcome used by the authors; harmonization source." Establish from the paper what GVHD_Grade levels 0 / 1 / 2 are (e.g. none / grade I-II / grade III-IV, or something else) and whether it is acute GVHD, and within what window (the outcomes table looks like 1-year follow-up).
+  - `Onset_days`: say whether it is days from transplant to GVHD onset. 32 of the 34 patients with GVHD_Grade 0 have Onset_days = 365, which looks like censoring at one year; say what the other two hold (check against survival_1yr_days) and state plainly that non-event values are censoring times, not onset days.
 
-Watch for and note:
-  - `GVHD` (0/1/2) and `NY` (0/1/2): three-level codes. State exactly what level 2 means. If either is a competing-risk style code (e.g. "died / censored before event"), say so plainly; it matters for collapsing to binary later.
-  - `Prophylaxe` (0/1/2) and `Diagnosis` (0/1): what each level is.
+Also watch for and note:
+  - Three-level codes: `Steroidrefractory` (0/1/2), `survival_1yr_overall` (0/1/2), `Donor_type` (0/1/2). State exactly what level 2 means. If any is a competing-risk or not-applicable code (e.g. "2 = no GVHD, so not assessable"; "2 = lost to follow-up"), say so plainly; it matters for collapsing to binary later.
+  - Binary codes: `Male_Sex`, `Graft_type`, `Conditioning_Regimen` (MAC vs RIC?), `TBI`, `Relapse`, `TRM_1yr`, `Relapse_days_only_approx`. Give the meaning of 1 and 0 for each.
+  - `survival_1yr_days`, `Relapse_days`: origin, event, and what non-event rows hold (365?). `Relapse_days_only_approx` flags approximate relapse days; say which rows and how approximate.
+  - `Patient_Age` (years, at transplant?), `HCT_CI` (scale and range; 90 rows missing), `Disease` (expand every abbreviation).
   - `Day` vs `Timepoint`: Timepoint includes "COND" (Day -7). Map every Timepoint level to its Day and note any rows where they disagree.
-  - `Center`: MUC and REG. Expand each.
-  - Antibiotic / antifungal / antiviral columns: what time window they cover (at sample? any time before?).
+  - `Center`: patient-level, MUC and REG. Expand each. Use MERGE NOTE, not a constant flag.
+  - Antibiotic / antifungal / antiviral columns and `Prophylaxe`: what each level means and what time window they cover (at sample? any time before?).
   - Redundant columns and one-hot groups, as in earlier studies. Do not delete anything.
+
+Note tags (see "Note tags" in Merging/CLAUDE.md). `UNCERTAIN:` means only that the meaning is inferred rather than confirmed by a source. Use `MERGE NOTE:` for anything that matters when pooling (site, batch, cohort design, which column is the harmonization source). Do not copy wording from neighbouring rows' notes. The n_unique and variation columns are computed from the data; never write a note that contradicts them, and never call a column constant unless variation is CONSTANT.
+
+Before committing, run this check on the sheet and print the result. It must be empty; if not, fix the rows and re-run:
+  - rows where notes mention "constant" (case-insensitive) but variation != "CONSTANT"
+  - rows tagged `CONSTANT-BUT-MEANINGFUL:` where variation != "CONSTANT"
+  - rows whose meaning or notes state a number of distinct levels that differs from n_unique
+  - rows whose meaning says "patient-level" but variation is SAMPLE_LEVEL, or the reverse
 
 Work through the sheet top to bottom. When done, print a list of every column you flagged UNCERTAIN with a one-line reason.
 

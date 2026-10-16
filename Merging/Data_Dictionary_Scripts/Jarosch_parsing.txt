@@ -25,6 +25,13 @@ Watch for and note:
   - Decode every abbreviation in `Conditioning`, `GvHD prophylaxis`, `Diagnosis`, `HLA`, `Donor type`, `Stem cell source`, `Origin`, `Type`, `Dataset` from the paper. Flag any you cannot confirm.
   - `steroid refractory`, `ABX`: state the time window they refer to (at biopsy? ever?) if the paper says.
 
+Note tags (see "Note tags" in Merging/CLAUDE.md). `UNCERTAIN:` means only that the meaning is inferred rather than confirmed by a source. Use `MERGE NOTE:` for anything that matters when pooling (site, batch, cohort design). Do not copy wording from neighbouring rows' notes. The n_unique and variation columns are computed from the data; never write a note that contradicts them, and never call a column constant unless variation is CONSTANT.
+
+Before committing, run this check on the sheet you edited and print the result. It must be empty; if not, fix the rows and re-run:
+  - rows where notes mention "constant" (case-insensitive) but variation != "CONSTANT"
+  - rows tagged `CONSTANT-BUT-MEANINGFUL:` where variation != "CONSTANT"
+  - rows whose meaning or notes state a number of distinct levels that differs from n_unique
+
 Work through the sheet top to bottom. When done, print a list of every column you flagged UNCERTAIN with a one-line reason.
 
 Commit as: [Jarosch2023] data dictionary meanings. Update the A4 Jarosch cell of the Status table in Merging/CLAUDE.md in the same commit.
