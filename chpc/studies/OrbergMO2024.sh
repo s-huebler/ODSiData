@@ -120,6 +120,8 @@ DENOISE_MEM="32G"
 # MAP_INPUT_SEQS="$REPO_ROOT/$STUDY/Mapped/qc-seqs.qza"
 #
 # --- Resources (override chpc/submit.sh defaults) ----------------------------
-# QC_TIME="04:00:00";  QC_MEM="16G";  QC_THREADS=8
+# OOM at 16G (job 9625663, MaxRSS 16.0G after 10h): 7,794 ASVs vs 4,510 in
+# Spindelboek2021, which peaked at 15.1G. QC_TIME left at submit.sh default.
+QC_MEM="64G";  QC_THREADS=8
 # MAP_TIME="04:00:00"; MAP_MEM="24G"; MAP_THREADS=8
 # =============================================================================
