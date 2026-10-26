@@ -63,6 +63,11 @@ names(orbergMO_qiime)[1]<- "sample-id"
 ```
 
 ```{r}
+# antibiotic, antifungal, antiviral, and prolaxye all vary by time
+patients <- orbergMO_qiime %>% select(-c(`sample-id`, sample_alias, sample_title, Current_GVHD_Grade, Day, Timepoint, Antibiotic_therapy, Antifungal_therapy))%>%distinct()%>%arrange(Patient)
+```
+
+```{r}
 write_tsv(orbergMO_qiime, file = "/Users/sophiehuebler/Documents/ODSi/ODSiData/OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv")
 ```
 
