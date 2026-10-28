@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# chpc/merging/full_cohort.sh — all seven GG2-mapped studies
+# chpc/merging/full_cohort.sh — all nine GG2-mapped studies
 # =============================================================================
 # The full harmonized cohort: every study that has completed the qc + map stages
 # (06_gg2_map.slurm), merged in the GG2 backbone namespace. Sourced AFTER
@@ -32,7 +32,12 @@ declare -A TABLE_OVERRIDE=()
 declare -A SEQS_OVERRIDE=()
 
 # --- Merge / taxonomy parameters ---------------------------------------------
-METADATA="$REPO_ROOT/Merging/merged_metadata.tsv"
+# Overridable from the environment. qiime feature-table summarize and taxa barplot
+# both error if a table sample is missing from the metadata, so while
+# merged_metadata.tsv lags behind STUDIES, skip the metadata-aware summaries with
+#   METADATA= ./chpc/merge.sh full_cohort
+# (set-but-empty is kept; the jobs skip metadata when the path is empty).
+METADATA="${METADATA-$REPO_ROOT/Merging/merged_metadata.tsv}"
 CLASSIFIER_CONFIDENCE="0.9"
 
 # --- Per-stage resources: use merge.sh defaults (uncomment to override) -------

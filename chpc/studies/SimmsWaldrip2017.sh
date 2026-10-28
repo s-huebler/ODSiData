@@ -9,7 +9,7 @@
 # =============================================================================
 
 # Folder name under the repo root (e.g. Fujimoto2024, Artacho2024).
-STUDY="ChangeMe2024"
+STUDY="SimmsWaldrip2017"
 
 # Accession list — one SRR per line (already committed under <Study>/RawData/).
 ACCESSIONS="$REPO_ROOT/$STUDY/RawData/run_accessions.txt"
