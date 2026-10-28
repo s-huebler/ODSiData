@@ -1,0 +1,374 @@
+---
+title: "Minimum merged metadata"
+format: html
+editor: visual
+---
+
+# Set up/Goal
+
+The goal of this is to set up a minimum relevant merged metadataset to be able to use in a phyloseq or read attrition plot where the goal is just to visualize the samples.
+
+This file is deliberately independent of `Harmonization/harmonize_gvhd_metadata.R`. Each study gets one short block that returns the six target columns, so adding a study means adding one block and one line in the combine step. It writes `Merging/merged_minimal_metadata.tsv`. The full harmonized metadata stays in `Merging/merged_metadata.tsv`.
+
+```{r}
+library(tidyverse)
+
+# `studies` (the canonical labels) comes from here; used only in the checks.
+source("~/Documents/ODSi/ODSiData/Functions/study_colors.R")
+```
+
+# Helpers
+
+These two helpers copy the rules in `harmonize_gvhd_metadata.R` (`harmonize_timepoint()` and `make_person_crosswalk()`) rather than sourcing that file, so this notebook stays independent of it. The cross-check at the bottom confirms they still agree for the harmonized studies.
+
+```{r}
+# Day relative to transplant (day 0 = graft infusion) -> coarse phase.
+#            day < -7   pre-conditioning
+#      -7 <= day < -1   conditioning
+#      -1 <= day <=  1  transplant
+#       1 <  day < 14   pre-engraftment
+#      14 <= day < 21   engraftment
+#      21 <= day        follow-up
+timepoint_levels <- c("pre-conditioning", "conditioning", "transplant",
+                      "pre-engraftment", "engraftment", "follow-up")
+
+bin_timepoint <- function(day) {
+  day <- as.numeric(day)
+  case_when(
+    is.na(day) ~ NA_character_,
+    day < -7   ~ "pre-conditioning",
+    day < -1   ~ "conditioning",
+    day <= 1   ~ "transplant",
+    day < 14   ~ "pre-engraftment",
+    day < 21   ~ "engraftment",
+    TRUE       ~ "follow-up"
+  )
+}
+
+# Source patient ID -> "<Prefix>_01", "<Prefix>_02", ... Unique IDs are sorted
+# with numeric-aware ordering, so "10" sorts after "9".
+person_ids <- function(x, prefix) {
+  keys <- str_squish(as.character(x))
+  keys[keys %in% c("", "NA")] <- NA_character_
+  levels <- str_sort(unique(keys[!is.na(keys)]), numeric = TRUE)
+  width <- max(2L, nchar(length(levels)))
+  out <- sprintf(paste0(prefix, "_%0", width, "d"), match(keys, levels))
+  out[is.na(keys)] <- NA_character_
+  out
+}
+```
+
+# Reading from each individual study
+
+```{r}
+artacho_raw <- read_tsv("~/Documents/ODSi/ODSiData/Artacho2024/Metadata/artacho_meta_qiime.tsv")
+
+damico_raw <- read_tsv("~/Documents/ODSi/ODSiData/DAmico2019/Metadata/damico_meta_qiime.tsv")
+fujimoto_raw <- read_tsv("~/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv")
+ingham_raw <- read_tsv("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/ingham_meta_qiime.tsv")
+liu_raw  <- read_tsv("~/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv")
+vallet_raw <- read_tsv("~/Documents/ODSi/ODSiData/Vallet2023/Metadata/vallet_meta_qiime.tsv")
+
+jarosch_raw <- read_csv("~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/Raw_metadata/meta_samples.csv")%>%
+  dplyr::rename(
+    `sample-id` = Run
+  )
+
+orberg_raw <- read_tsv("~/Documents/ODSi/ODSiData/OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv")
+
+spindelboek_raw <- read_tsv("~/Documents/ODSi/ODSiData/Spindelboek2021/Metadata/spindelboek_meta_qiime.tsv")
+
+```
+
+# Target columns
+
+```{r}
+
+
+target_cols <- c(
+  "sample-id",
+  "study",
+  "person",
+  "timepoint",
+  "child_or_adult",
+  "patient_or_donor"
+)
+
+```
+
+# Per-study blocks
+
+Each block returns one row per sample with exactly the target columns. `child_or_adult` is assigned by study: DAmico and Ingham are pediatric cohorts, every other study is adult.
+
+## Artacho
+
+`Timepoint` is the sample day relative to transplant, so the shared day rule applies.
+
+```{r}
+artacho <- artacho_raw %>%
+  transmute(
+    `sample-id`      = `sample-id`,
+    study            = "Artacho",
+    person           = person_ids(Patient, "Artacho"),
+    timepoint        = bin_timepoint(Timepoint),
+    child_or_adult   = "Adult",
+    patient_or_donor = "Patient"
+  )
+```
+
+## DAmico
+
+`Timepoint` is days relative to transplant; shared day rule.
+
+```{r}
+damico <- damico_raw %>%
+  transmute(
+    `sample-id`      = `sample-id`,
+    study            = "DAmico",
+    person           = person_ids(Patient, "DAmico"),
+    timepoint        = bin_timepoint(Timepoint),
+    child_or_adult   = "Child",
+    patient_or_donor = "Patient"
+  )
+```
+
+## Fujimoto
+
+`Timepoint` is `"pre"` or `"dayN"`. `"pre"` is the preconditioning baseline sample and has no numeric day, so it is assigned pre-conditioning directly. Every `"dayN"` goes through the shared day rule.
+
+```{r}
+fujimoto <- fujimoto_raw %>%
+  mutate(
+    tp  = str_to_lower(str_squish(Timepoint)),
+    day = as.numeric(if_else(str_detect(tp, "^day-?[0-9]+$"),
+                             str_remove(tp, "^day"), NA_character_))
+  ) %>%
+  transmute(
+    `sample-id`      = `sample-id`,
+    study            = "Fujimoto",
+    person           = person_ids(Patient, "Fujimoto"),
+    timepoint        = if_else(tp == "pre", "pre-conditioning", bin_timepoint(day)),
+    child_or_adult   = "Adult",
+    patient_or_donor = "Patient"
+  )
+```
+
+## Ingham
+
+Source `timepoint` is days relative to transplant; shared day rule.
+
+One row (ERR2666947, `sample_title` "negative_control") is a sequencing negative control, not a person. It survives QC and mapping, so it is in the merged table. It gets `patient_or_donor = "Control"` and NA for `person` and `timepoint`; filter it out with `patient_or_donor != "Control"`.
+
+```{r}
+ingham <- ingham_raw %>%
+  mutate(control = str_detect(str_to_lower(sample_title), "negative_control")) %>%
+  transmute(
+    `sample-id`      = `sample-id`,
+    study            = "Ingham",
+    person           = person_ids(patient, "Ingham"),
+    timepoint        = bin_timepoint(timepoint),
+    child_or_adult   = "Child",
+    patient_or_donor = if_else(control, "Control", "Patient")
+  )
+```
+
+## Jarosch
+
+There is no sample to patient link yet (waiting on the authors' mapping), so each run is treated as its own individual, Jarosch_01 to Jarosch_53 in run-accession order. All samples are labelled follow-up for now. Replace this block when the real mapping arrives.
+
+```{r}
+jarosch <- jarosch_raw %>%
+  transmute(
+    `sample-id`      = `sample-id`,
+    study            = "Jarosch",
+    person           = person_ids(`sample-id`, "Jarosch"),
+    timepoint        = "follow-up",
+    child_or_adult   = "Adult",
+    patient_or_donor = "Patient"
+  )
+```
+
+## Liu
+
+Every subject was sampled once, before conditioning, with no sample day recorded, so every row is pre-conditioning by design (the harmonizer applies the same rule to Liu's donors). `donor_or_patient` gives the sample source.
+
+```{r}
+liu <- liu_raw %>%
+  transmute(
+    `sample-id`      = `sample-id`,
+    study            = "Liu",
+    person           = person_ids(host_subject_id, "Liu"),
+    timepoint        = "pre-conditioning",
+    child_or_adult   = "Adult",
+    patient_or_donor = str_to_title(str_squish(donor_or_patient))
+  )
+```
+
+## Orberg
+
+`Day` is the sample day relative to transplant and goes through the shared day rule. The source `Timepoint` labels map as COND = day -7 (conditioning), IDX = day -25 (pre-conditioning), POST = day 35 (follow-up).
+
+Two samples are `Timepoint == "DONOR"` (coded Day -50). They are stool from the transplant donor of the patient named in `Patient` (sample titles `R-AL-0`, `R-AG-0`), so they get `patient_or_donor = "Donor"` and a person ID of their own (the patient's ID plus `_donor`), so they don't count as samples from the patient. Their timepoint falls out of the day rule as pre-conditioning, the same way Liu's donors are handled.
+
+```{r}
+orberg <- orberg_raw %>%
+  mutate(
+    donor  = str_to_upper(str_squish(Timepoint)) == "DONOR",
+    pid    = person_ids(Patient, "Orberg")
+  ) %>%
+  transmute(
+    `sample-id`      = `sample-id`,
+    study            = "Orberg",
+    person           = if_else(donor, paste0(pid, "_donor"), pid),
+    timepoint        = bin_timepoint(Day),
+    child_or_adult   = "Adult",
+    patient_or_donor = if_else(donor, "Donor", "Patient")
+  )
+```
+
+## Spindelboeck
+
+FMT case series in patients who already had steroid-refractory aGVHD, so every sample is follow-up.
+
+`sample_type` gives the sample source. There are two kinds of donor sample.
+
+-   22 rows (`sample_title` "aGvHD_donor-FMTn") are the FMT material given to a patient. They carry the recipient's `Patient` letter, so they get the recipient's person ID plus `_donor`. These are not samples from the patient.
+-   4 rows (cases 40 and 50, `sample_title` "aGvHD_donor-1" / "aGvHD_donor-2") have no `Patient` and are labelled `Spindelboeck_donor1` and `Spindelboeck_donor2`.
+
+Patients are numbered from the `Patient` letter (A = Spindelboeck_01 ... J = Spindelboeck_10).
+
+```{r}
+spindelboeck <- spindelboek_raw %>%
+  mutate(
+    donor = str_to_lower(str_squish(sample_type)) == "donor",
+    pid   = person_ids(Patient, "Spindelboeck"),
+    standalone_donor = str_extract(sample_title, "(?<=donor-)[0-9]+$")
+  ) %>%
+  transmute(
+    `sample-id`      = `sample-id`,
+    study            = "Spindelboeck",
+    person           = case_when(
+      !donor                         ~ pid,
+      !is.na(pid)                    ~ paste0(pid, "_donor"),
+      !is.na(standalone_donor)       ~ paste0("Spindelboeck_donor", standalone_donor),
+      TRUE                           ~ NA_character_
+    ),
+    timepoint        = "follow-up",
+    child_or_adult   = "Adult",
+    patient_or_donor = if_else(donor, "Donor", "Patient")
+  )
+```
+
+## Vallet
+
+`j.hsct` is the sample day relative to transplant. From day -1 onward the shared day rule applies. Before that, Vallet records the actual conditioning start date (`dat.cond`), so pre-conditioning vs conditioning is decided by whether the sample was drawn before conditioning began, not by the shared day -7 cutoff (same override as the harmonizer).
+
+```{r}
+vallet <- vallet_raw %>%
+  mutate(
+    day         = as.numeric(j.hsct),
+    sample_date = as.Date(sample.time),
+    cond_date   = as.Date(dat.cond),
+    tp = case_when(
+      is.na(day)                             ~ NA_character_,
+      day >= -1                              ~ bin_timepoint(day),
+      is.na(sample_date) | is.na(cond_date)  ~ bin_timepoint(day),
+      sample_date < cond_date                ~ "pre-conditioning",
+      TRUE                                   ~ "conditioning"
+    )
+  ) %>%
+  transmute(
+    `sample-id`      = `sample-id`,
+    study            = "Vallet",
+    person           = person_ids(allozithro_id, "Vallet"),
+    timepoint        = tp,
+    child_or_adult   = "Adult",
+    patient_or_donor = "Patient"
+  )
+```
+
+# Combine
+
+To add a study: write its block above, then add it here.
+
+```{r}
+meta <- bind_rows(
+  artacho,
+  damico,
+  fujimoto,
+  ingham,
+  jarosch,
+  liu,
+  orberg,
+  spindelboeck,
+  vallet
+) %>%
+  select(all_of(target_cols))
+```
+
+# Checks
+
+```{r}
+raw_n <- c(Artacho = nrow(artacho_raw), DAmico = nrow(damico_raw),
+           Fujimoto = nrow(fujimoto_raw), Ingham = nrow(ingham_raw),
+           Jarosch = nrow(jarosch_raw), Liu = nrow(liu_raw),
+           Orberg = nrow(orberg_raw), Spindelboeck = nrow(spindelboek_raw),
+           Vallet = nrow(vallet_raw))
+
+# 1. one row per sample, and no sample lost or added per study
+stopifnot(!anyDuplicated(meta$`sample-id`), !anyNA(meta$`sample-id`))
+stopifnot(identical(c(table(meta$study))[names(raw_n)], raw_n))
+
+# 2. study labels are exactly the canonical set in Functions/study_colors.R
+stopifnot(setequal(unique(meta$study), studies))
+
+# 3. controlled vocabularies
+stopifnot(all(meta$child_or_adult %in% c("Child", "Adult")))
+stopifnot(all(meta$patient_or_donor %in% c("Patient", "Donor", "Control")))
+stopifnot(all(meta$timepoint %in% c(timepoint_levels, NA)))
+
+# 4. every non-control sample has a person; donors never share a person ID
+#    with a patient
+stopifnot(!anyNA(meta$person[meta$patient_or_donor != "Control"]))
+stopifnot(length(intersect(meta$person[meta$patient_or_donor == "Donor"],
+                           meta$person[meta$patient_or_donor == "Patient"])) == 0)
+
+# 5. the only missing timepoint is the Ingham negative control
+stopifnot(identical(which(is.na(meta$timepoint)),
+                    which(meta$patient_or_donor == "Control")))
+```
+
+Cross-check against the harmonized file for the six studies it fully covers. `person` and `timepoint` here should match `harmonize_gvhd_metadata.R` exactly. If this fails after a harmonizer change, one of the two rule sets has drifted.
+
+```{r}
+harmonized <- read_tsv("~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv",
+                       col_types = cols(.default = col_character())) %>%
+  filter(study %in% c("Artacho", "DAmico", "Fujimoto", "Ingham", "Liu", "Vallet")) %>%
+  select(`sample-id`, study, person, timepoint)
+
+disagree <- meta %>%
+  inner_join(harmonized, by = c("sample-id", "study"), suffix = c("", "_harmonized")) %>%
+  filter(person != person_harmonized |
+           xor(is.na(timepoint), is.na(timepoint_harmonized)) |
+           (!is.na(timepoint) & timepoint != timepoint_harmonized))
+
+stopifnot(nrow(harmonized) == sum(raw_n[c("Artacho", "DAmico", "Fujimoto",
+                                          "Ingham", "Liu", "Vallet")]))
+if (nrow(disagree) > 0) print(disagree)
+stopifnot(nrow(disagree) == 0)
+```
+
+# Summary
+
+```{r}
+meta %>%
+  count(study, child_or_adult, patient_or_donor,
+        timepoint = factor(timepoint, levels = timepoint_levels)) %>%
+  pivot_wider(names_from = timepoint, values_from = n, values_fill = 0)
+```
+
+# Write
+
+```{r}
+write_tsv(meta, "~/Documents/ODSi/ODSiData/Merging/merged_minimal_metadata.tsv", na = "NA")
+```
