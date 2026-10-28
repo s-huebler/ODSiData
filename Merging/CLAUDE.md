@@ -62,6 +62,13 @@ one at a time, never in parallel.
 - **OrbergMO rebuilt (2026-10-16)** with the patient-level outcomes table
   `meta_clinical4.csv`. Dictionary sheet restarted from scratch
   (`Data_Dictionary_Scripts/OrbergMO_reset.txt`, then `OrbergMO_parsing.txt`).
+- **Study labels (2026-10-28).** Canonical `study` values are `Orberg` (folder
+  `OrbergMO2024`) and `Spindelboeck` (folder `Spindelboek2021` misspells the
+  author). `Functions/study_colors.R` maps the folder spellings through
+  `study_aliases`, so `study_key("OrbergMO2024")` gives `Orberg` and
+  `study_key("Spindelboek2021")` gives `Spindelboeck`. Colors: Orberg `#882255`,
+  Spindelboeck `#999933` (Tol muted); the original 7 Okabe-Ito hues unchanged;
+  `#332288` held for OrbergSJ, which will need a label distinct from `Orberg`.
 - **OrbergMO GVHD columns.** `Current_GVHD_Grade` (source `GVHD_012`) is GVHD
   status at the time of the sample, sample-level. `GVHD_Grade` (source `GvHD`)
   and `GVHD` (0 if `GVHD_Grade == 0`, else 1) are the patient-level outcome the
@@ -237,9 +244,10 @@ analysis.
 **C1. Wiring.** Add to `study_labels`, `person_prefixes`, `harmonize_all()`
 (arguments, `ensure_sample_id`, crosswalk, `bind_rows`), and
 `Functions/study_colors.R` (Jarosch already exists there; OrbergMO and
-Spindelboek need hues, and `study_key()` must accept them). Proposed labels:
-`Jarosch`, `OrbergMO`, `Spindelboek`. `OrbergMO` keeps its suffix because
-`OrbergSJ` will join later as a separate cohort; confirm with Sophie. Write any
+Spindelboek need hues, and `study_key()` must accept them). Labels decided
+2026-10-28: `Jarosch`, `Orberg`, `Spindelboeck` (see Decisions). The palette
+and `study_key()` part of this step is done; `study_labels` / `person_prefixes`
+in the harmonizer are not. Write any
 Orberg helper so OrbergSJ can reuse it.
 
 **C2. Core columns** for each study: `sample-id`, `study`, `person`,

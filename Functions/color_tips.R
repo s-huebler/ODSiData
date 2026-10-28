@@ -1,12 +1,12 @@
 # color_tips.R
 # -----------------------------------------------------------------------------
-# Tip-coloring for the merged 7-cohort tree.
+# Tip-coloring for the merged multi-cohort tree.
 #
 # Coloring logic:
 #   * A tip found in EXACTLY ONE study is given that study's individual color
 #     (so studies with more/fewer one-off tips are easy to spot).
 #   * A tip SHARED by 2+ studies is grayscale, keyed by how many studies share
-#     it: lightest gray = shared by 2, black = shared by all 7.
+#     it: lightest gray = shared by 2, black = shared by all of them.
 #
 # Successor to Functions/tree_coloring.R (which handled only 3 cohorts).
 # -----------------------------------------------------------------------------

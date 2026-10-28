@@ -1,6 +1,6 @@
 # color_tips_alt.R
 # -----------------------------------------------------------------------------
-# Alternate tip annotation for the merged 7-cohort tree.
+# Alternate tip annotation for the merged multi-cohort tree.
 #
 # Instead of encoding "how many studies share this tip" in a single tip color
 # (see Functions/color_tips.R), each tip gets a RING of dots outside the tree:
