@@ -21,6 +21,8 @@ STUDIES=(
     Ingham2019
     Jarosch2023
     Vallet2023
+    Spindelboek2021
+    OrbergMO2024
 )
 
 # --- Per-study input artifact selection (defaults to each study's map output) -
