@@ -9,10 +9,10 @@
 #
 # Cohorts are named files (like chpc/studies/<Study>.sh) so you can keep several
 # side by side — e.g. a full set and an Illumina-only sensitivity set — and rerun
-# any of them independently. Outputs are namespaced by COHORT under Merging/.
+# any of them independently. Outputs are namespaced by COHORT under Merging/Samples/.
 # =============================================================================
 
-# Cohort name — also the output subfolder: Merging/<COHORT>/
+# Cohort name — also the output subfolder: Merging/Samples/<COHORT>/
 COHORT="ChangeMe"
 
 # Studies to merge (folder names under the repo root). Order doesn't matter.
@@ -34,7 +34,7 @@ declare -A SEQS_OVERRIDE=(
 # --- Merge / taxonomy parameters ---------------------------------------------
 # Sample metadata for feature-table summarize + taxa barplots (leave "" to skip
 # the metadata-annotated summaries).
-METADATA="$REPO_ROOT/merged_metadata.tsv"
+METADATA="$REPO_ROOT/Merging/merged_metadata.tsv"
 # Naive-Bayes confidence for the classifier taxonomy stage (matches Merging.qmd).
 CLASSIFIER_CONFIDENCE="0.9"
 # GG2 references (phylogeny / taxonomy tree / classifier) come from config.sh.

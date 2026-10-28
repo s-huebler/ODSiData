@@ -9,9 +9,32 @@ those rules; it records the plan, the state, and the per-study facts.
 
 Update the **Status** table as each step finishes.
 
+---
+
+## Folder layout
+
+```
+Merging/
+  CLAUDE.md                         this file
+  merged_metadata.tsv               final harmonized metadata (all studies, all columns)
+  merged_minimal_metadata.tsv       reserved — 6-column working file (sample-id, study,
+                                    person, timepoint, age, agvhd); not created yet
+  Samples/                          microbiome data
+    full_cohort/                    QIIME2 merged artifacts (table, seqs, taxonomy, tree)
+    ReadCounts/                     per-study read-attrition TSVs from extract_read_counts.py
+    output_figures/                 figures written by Merging.qmd and Read_Attrition.qmd
+    Merging.qmd                     phyloseq assembly, harmonization provenance, batch correction
+    Read_Attrition.qmd              read-attrition barplots
+  Metadata/                         clinical metadata
+    Merging_Metadata.qmd            builds merged_metadata.tsv from harmonize_gvhd_metadata.R
+    output_figures/                 figures written by Merging_Metadata.qmd
+    Harmonization/                  harmonizer, tests, decision log, provenance
+    Data_Dictionaries/              per-study raw dictionaries and builder scripts
+```
+
 Work is driven by **Claude Code prompts** Sophie pastes into the Positron
 terminal (root CLAUDE.md "Prompt Requests"). Phase A prompts are saved in
-`Merging/Data_Dictionary_Scripts/` as `Round2_01_scaffold.txt`,
+`Merging/Metadata/Data_Dictionaries/Data_Dictionary_Scripts/` as `Round2_01_scaffold.txt`,
 `Round2_02_first_pass.txt`, `Jarosch_parsing.txt`, `OrbergMO_parsing.txt`,
 `Spindelboek_parsing.txt`. They all write `data_dictionaries.xlsx`, so run them
 one at a time, never in parallel.
@@ -81,13 +104,13 @@ one at a time, never in parallel.
 
 | Role | Path |
 |---|---|
-| Per-study raw dictionaries (scaffold + meanings) | `Merging/data_dictionaries.xlsx` |
-| Scaffold builder | `Merging/build_data_dictionary.R` |
-| Dictionary prompts from round 1 (reuse as templates) | `Merging/Data_Dictionary_Scripts/First_pass.txt`, `*_parsing.txt` |
-| Harmonized workbook (Canonical_Schema, Value_Map, Coverage, Harmonization_Summary + study sheets) | `Merging/Harmonization/data_dictionaries_harmonized.xlsx` |
-| Harmonizer / tests / decision log | `Merging/Harmonization/harmonize_gvhd_metadata.R`, `test_harmonize_gvhd_metadata.R`, `to_log/harmonization_decisions.md` |
-| Variable-addition prompt template | `Merging/Harmonization/PROMPT_TEMPLATE.md` |
-| Writes `Merging/merged_metadata.tsv` | `Merging/Merging_Metadata.qmd` (currently has a Jarosch stub: sample-id + study only) |
+| Per-study raw dictionaries (scaffold + meanings) | `Merging/Metadata/Data_Dictionaries/data_dictionaries.xlsx` |
+| Scaffold builder | `Merging/Metadata/Data_Dictionaries/build_data_dictionary.R` |
+| Dictionary prompts from round 1 (reuse as templates) | `Merging/Metadata/Data_Dictionaries/Data_Dictionary_Scripts/First_pass.txt`, `*_parsing.txt` |
+| Harmonized workbook (Canonical_Schema, Value_Map, Coverage, Harmonization_Summary + study sheets) | `Merging/Metadata/Harmonization/data_dictionaries_harmonized.xlsx` |
+| Harmonizer / tests / decision log | `Merging/Metadata/Harmonization/harmonize_gvhd_metadata.R`, `test_harmonize_gvhd_metadata.R`, `to_log/harmonization_decisions.md` |
+| Variable-addition prompt template | `Merging/Metadata/Harmonization/PROMPT_TEMPLATE.md` |
+| Writes `Merging/merged_metadata.tsv` | `Merging/Metadata/Merging_Metadata.qmd` (currently has a Jarosch stub: sample-id + study only) |
 | Palette / study labels | `Functions/study_colors.R` |
 
 Source metadata for the new cohorts:
@@ -102,7 +125,7 @@ Source metadata for the new cohorts:
 
 ## Step 0 — Pre-flight
 
-1. **Commit the placeholder sheets.** `Merging/data_dictionaries.xlsx` is modified
+1. **Commit the placeholder sheets.** `Merging/Metadata/Data_Dictionaries/data_dictionaries.xlsx` is modified
    and uncommitted (empty `Jarosch`, `OrbergMO`, `Spindelboek` sheets added).
    `Spindelboek2021/Metadata/Parsing_metadata.qmd` and its `Raw_metadata/`
    inputs are untracked. Commit both before anything rewrites them.
@@ -151,10 +174,11 @@ fill `meaning` + `notes` for CONSTANT / UNIQUE_ID / ALL_MISSING rows, with the
 "UNCERTAIN: constant in this study but analytically meaningful" flag.
 
 **A4. Meanings pass, one prompt per study,** modeled on
-`Data_Dictionary_Scripts/Vallet_parsing.txt` (meaning + units + value key;
-UNCERTAIN prefix with basis; flag redundant columns and one-hot groups; print
-the UNCERTAIN queue at the end). Save each as
-`Data_Dictionary_Scripts/<Study>_parsing.txt`. Study-specific hints to include:
+`Merging/Metadata/Data_Dictionaries/Data_Dictionary_Scripts/Vallet_parsing.txt`
+(meaning + units + value key; UNCERTAIN prefix with basis; flag redundant columns
+and one-hot groups; print the UNCERTAIN queue at the end). Save each as
+`Merging/Metadata/Data_Dictionaries/Data_Dictionary_Scripts/<Study>_parsing.txt`.
+Study-specific hints to include:
 - **Jarosch**: German center (Regensburg). `GvHD (Lerner)` is the histologic
   Lerner grade of the biopsy; `clinical GvHD total` / `clinical GvHD GI` are the
   clinical overall grade and GI stage; `d after aHSCT` is the biopsy day;
@@ -231,7 +255,7 @@ analysis.
 - QA table `jarosch_mapping_status` (mapping_source, n mapped, n unmapped, runs
   mapped to more than one clinical row). Empty-when-correct table
   `jarosch_unmapped_runs`.
-- `Merging_Metadata.qmd` refuses to write `merged_metadata.tsv` while
+- `Merging/Metadata/Merging_Metadata.qmd` refuses to write `merged_metadata.tsv` while
   `mapping_source == "DUMMY"`.
 - Tests split into mapping-agnostic assertions (vocabularies, masking, column
   set) and mapping-dependent counts in one clearly marked block, so the real
@@ -255,7 +279,7 @@ Orberg helper so OrbergSJ can reuse it.
 `disease`, `sample_date`, `sample_day_rel_transplant`, `timepoint`.
 
 **C3. Variable families**, one prompt per family across all three cohorts,
-filled in from `PROMPT_TEMPLATE.md`, in round 1 order:
+filled in from `Merging/Metadata/Harmonization/PROMPT_TEMPLATE.md`, in round 1 order:
 1. aGVHD triple + organ triples (gut, skin, liver), cGVHD triple
 2. death (+ `death_date`, `cause_of_death`), relapse
 3. transplant_type

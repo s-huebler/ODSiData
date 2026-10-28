@@ -17,7 +17,7 @@
 #   tax-classifier -> 09_taxonomy_classifier.slurm (classify-sklearn, full-length)
 #
 # The cohort (which studies, which artifact per study, resources) is defined in
-# chpc/merging/<cohort>.sh. Outputs go to Merging/<cohort>/.
+# chpc/merging/<cohort>.sh. Outputs go to Merging/Samples/<cohort>/.
 #
 # Usage (run from the repo root on CHPC):
 #   ./chpc/merge.sh full_cohort            # 'all' = merge -> phylogeny -> tax-gg -> tax-classifier
@@ -116,4 +116,4 @@ if [[ "$STAGE" == "all" || "$STAGE" == "tax-classifier" ]]; then
 fi
 
 echo
-echo "Outputs -> Merging/$COHORT_NAME/    Track: squeue -M ${MERGE_CLUSTER:-all} -u \$USER    Logs: chpc/logs/"
+echo "Outputs -> Merging/Samples/$COHORT_NAME/    Track: squeue -M ${MERGE_CLUSTER:-all} -u \$USER    Logs: chpc/logs/"

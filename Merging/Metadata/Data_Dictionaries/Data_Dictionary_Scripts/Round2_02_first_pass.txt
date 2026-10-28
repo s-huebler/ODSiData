@@ -1,0 +1,13 @@
+Read Merging/CLAUDE.md first. In Merging/Metadata/Data_Dictionaries/data_dictionaries.xlsx, fill the `meaning` column ONLY for rows where variation is CONSTANT, UNIQUE_ID, or ALL_MISSING, on the Jarosch, OrbergMO and Spindelboek sheets only. Do not touch the other six sheets, PATIENT_LEVEL or SAMPLE_LEVEL rows, harmonized_name, or harmonized_values. Skip rows where meaning is already filled.
+
+Write the workbook by reading every sheet with readxl and writing all of them back with writexl::write_xlsx. Never openxlsx. Afterwards confirm the six untouched sheets are cell-for-cell unchanged.
+
+Expected content: sample identifiers (ENA run accessions in sample-id, sample_alias / sample_title on OrbergMO and Spindelboek, Biopsy on Jarosch), batch labels, and columns that happen to be constant. Write what the field is and, for identifiers, what it is 1:1 with (e.g. "ENA run accession; unique per sequencing run, 1:1 with sample-id").
+
+For each row also record in `notes` why it carries no analytic information: "constant across all samples", "unique per sample — identifier", or "all values missing". For CONSTANT columns, state the single value it holds.
+
+Where a CONSTANT column is constant only because this study happened to enroll a homogeneous cohort (rather than because it is a technical field), flag it in notes as "CONSTANT-BUT-MEANINGFUL: constant in this study but analytically meaningful — may vary across studies at merge". Expected examples: Spindelboek gut_gvhd (every patient is an FMT recipient with gut GVHD), OrbergMO batch (MO, splits from OrbergSJ later). That distinction matters for harmonization.
+
+Do not open any manuscript PDFs for this pass.
+
+Print the rows you filled, grouped by sheet. Commit as: [Merging] round 2 data dictionary — technical and identifier columns. Update the A3 row of the Status table in Merging/CLAUDE.md in the same commit.

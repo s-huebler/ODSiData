@@ -11,7 +11,7 @@
 # merge.sh to notchpeak-shared-short so the AVX2 scikit-learn stack doesn't SIGILL
 # on old lonepeak cores (same lesson as the qc stage).
 #
-# Outputs -> Merging/<cohort>/ :
+# Outputs -> Merging/Samples/<cohort>/ :
 #   taxonomy-classifier.qza        per-feature classifier lineages
 #   taxonomy-classifier_viz.qzv    tabulated taxonomy
 #   taxa-bar-classifier.qzv        stacked barplot (if METADATA set)
@@ -49,7 +49,7 @@ trap 'rm -rf "$TMPDIR" 2>/dev/null || true' EXIT
 
 : "${COHORT:?set COHORT in the cohort file}"
 MW="$WORK_BASE/Merging/$COHORT"
-MDEST="$REPO_ROOT/Merging/$COHORT"
+MDEST="$REPO_ROOT/Merging/Samples/$COHORT"
 mkdir -p "$MW" "$MDEST"
 
 MERGED_SEQS="$MDEST/merged-seqs.qza"

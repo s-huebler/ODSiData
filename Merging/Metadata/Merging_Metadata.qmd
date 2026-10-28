@@ -1,0 +1,111 @@
+---
+title: "Merging_Metadata"
+format: html
+editor: visual
+---
+
+# Set up
+
+```{r}
+library(tidyverse)
+```
+
+# Target schema
+
+-   Identifying information: sample-id, study, person, and timepoint of the sample.
+
+-   Demographics: age, sex, disease
+
+-   Outcome: gut-gvhd, death, relpse
+
+# Reading in data
+
+```{r}
+source("~/Documents/ODSi/ODSiData/Merging/Metadata/Harmonization/harmonize_gvhd_metadata.R")
+```
+
+Each block reads a study's parsed metadata (produced by that study's `Parsing_metadata.qmd`) and maps its columns into the target schema. Comments note what the study does and does NOT provide.
+
+```{r}
+artacho_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/Artacho2024/Metadata/artacho_meta_qiime.tsv"))
+damico_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/DAmico2019/Metadata/damico_meta_qiime.tsv"))
+fujimoto_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv"))
+ingham_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/ingham_meta_qiime.tsv"))
+liu_raw  <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv")) 
+vallet_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/Vallet2023/Metadata/vallet_meta_qiime.tsv"))
+
+jarosch_raw <- read_csv("~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/Raw_metadata/meta_samples.csv")%>%
+  dplyr::rename(
+    `sample-id` = Run
+  )
+```
+
+## Person Crosswalk
+
+```{r}
+person_crosswalk <- bind_rows(
+    make_person_crosswalk(
+      artacho_raw[["Patient"]], study_labels[["artacho"]],
+      person_prefixes[["artacho"]], "Patient"
+    ),
+    make_person_crosswalk(
+      damico_raw[["Patient"]], study_labels[["damico"]],
+      person_prefixes[["damico"]], "Patient"
+    ),
+    make_person_crosswalk(
+      fujimoto_raw[["Patient"]], study_labels[["fujimoto"]],
+      person_prefixes[["fujimoto"]], "Patient"
+    ),
+    make_person_crosswalk(
+      ingham_raw[["patient"]], study_labels[["ingham"]],
+      person_prefixes[["ingham"]], "patient"
+    ),
+    make_person_crosswalk(
+      liu_raw[["host_subject_id"]], study_labels[["liu"]],
+      person_prefixes[["liu"]], "host_subject_id"
+    ),
+    make_person_crosswalk(
+      vallet_raw[["allozithro_id"]], study_labels[["vallet"]],
+      person_prefixes[["vallet"]], "allozithro_id"
+    )
+  )
+```
+
+# Harmonizing
+
+```{r}
+source("~/Documents/ODSi/ODSiData/Merging/Metadata/Harmonization/harmonize_gvhd_metadata.R")
+```
+
+```{r}
+artacho <- harmonize_artacho(artacho_raw, person_crosswalk)
+damico <- harmonize_damico(damico_raw, person_crosswalk)
+fujimoto <- harmonize_fujimoto(fujimoto_raw, person_crosswalk)
+ingham <- harmonize_ingham(ingham_raw, person_crosswalk)
+liu <- harmonize_liu(liu_raw, person_crosswalk)
+vallet <- harmonize_vallet(vallet_raw, person_crosswalk)
+```
+
+```{r}
+jarosch <- jarosch_raw %>%
+  select(`sample-id`)%>%
+  mutate(study = "Jarosch")%>%
+  to_schema()
+```
+
+```{r}
+harmonized_meta <- bind_rows(artacho,
+                             damico,
+                             fujimoto,
+                             ingham,
+                             jarosch,
+                             liu,
+                             vallet)
+```
+
+## Setting up final data frame
+
+```{r}
+write_tsv(harmonized_meta,
+          file = "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
+```

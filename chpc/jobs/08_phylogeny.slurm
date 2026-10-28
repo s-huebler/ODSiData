@@ -23,7 +23,7 @@
 #
 # Depends only on the merge output; taxonomy (09) is independent of this step.
 #
-# Outputs -> Merging/<cohort>/ :
+# Outputs -> Merging/Samples/<cohort>/ :
 #   merged-tree.nwk    GG2 tree pruned to the cohort features (Newick)
 #   merged-tree.qza    same tree wrapped as Phylogeny[Rooted]
 #
@@ -60,7 +60,7 @@ trap 'rm -rf "$TMPDIR" 2>/dev/null || true' EXIT
 
 : "${COHORT:?set COHORT in the cohort file}"
 MW="$WORK_BASE/Merging/$COHORT"
-MDEST="$REPO_ROOT/Merging/$COHORT"
+MDEST="$REPO_ROOT/Merging/Samples/$COHORT"
 mkdir -p "$MW" "$MDEST"
 
 MERGED_TABLE="$MDEST/merged-table.qza"

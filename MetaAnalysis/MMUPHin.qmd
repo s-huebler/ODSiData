@@ -34,7 +34,7 @@ source("~/Documents/ODSi/ODSiData/Functions/persistence_tree.R")
 ```
 
 ```{r}
-ps <- build_phyloseq("~/Documents/ODSi/ODSiData/Merging/full_cohort",
+ps <- build_phyloseq("~/Documents/ODSi/ODSiData/Merging/Samples/full_cohort",
                      prefix   = "merged-",
                      meta_tsv = "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
 ```

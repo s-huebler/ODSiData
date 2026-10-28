@@ -5,9 +5,9 @@
 #
 # Keys are the capitalized author surname with no year ("Artacho", "DAmico",
 # ...), matching the `study` column emitted by
-# Merging/Harmonization/harmonize_gvhd_metadata.R.
+# Merging/Metadata/Harmonization/harmonize_gvhd_metadata.R.
 #
-# Some older artifacts (the CHPC read-count TSVs in Merging/ReadCounts/, iTOL
+# Some older artifacts (the CHPC read-count TSVs in Merging/Samples/ReadCounts/, iTOL
 # exports) still carry the "StudyYYYY" form, and two study folders are not
 # spelled like their canonical label (see study_aliases). Run those through
 # study_key() before joining or plotting.

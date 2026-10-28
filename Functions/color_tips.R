@@ -54,7 +54,7 @@ asv_mapping_func <- function(phylo_obj,
       save_file_name = "Merged7_ASVs.txt",
       id_col_name = "sample.id",
       cohort_col_name = "study",
-      save_path = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/MergedTree/TreeColors"
+      save_path = "/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/Samples/output_figures/TreeColors"
       ){
   # Extract OTUs
   if(taxa_are_rows(phylo_obj@otu_table)){

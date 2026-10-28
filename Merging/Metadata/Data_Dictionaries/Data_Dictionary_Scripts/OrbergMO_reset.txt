@@ -1,0 +1,22 @@
+Read Merging/CLAUDE.md first, including the "Note tags" rule. The OrbergMO metadata has been rebuilt with a new patient-level outcomes table, so the OrbergMO dictionary sheet starts over from scratch. This prompt rebuilds the scaffold and does the technical pass for OrbergMO only. The meanings pass is the next prompt.
+
+Step 0. Commit pending work, as separate commits:
+  - Merging/CLAUDE.md and the edited prompt files in Merging/Metadata/Data_Dictionaries/Data_Dictionary_Scripts/ (including this one, OrbergMO_reset.txt) -> "[Merging] separate note tags from UNCERTAIN; consistency check in meanings prompts"
+  - OrbergMO2024/Metadata/Parsing_metadata.qmd, OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv, and the new OrbergMO2024/Metadata/Raw_metadata/meta_clinical3.xlsx and meta_clinical4.csv -> "[OrbergMO2024] rebuild metadata with patient outcomes table"
+Before committing the TSV, confirm it has 269 rows and 33 columns and that sample-id is unique. If not, stop and tell me.
+Then copy Merging/Metadata/Data_Dictionaries/data_dictionaries.xlsx to Merging/Metadata/Data_Dictionaries/Backups/data_dictionaries_backup_pre_orberg_reset.xlsx. Do not commit the backup.
+
+Step 1. Reset the OrbergMO sheet. build_data_dictionary.R carries meaning / harmonized_name / harmonized_values / notes forward by column_name, so the old OrbergMO annotations (including the wrong Center note and a GVHD meaning that no longer applies) would survive a rebuild. Prevent that: read every sheet of Merging/Metadata/Data_Dictionaries/data_dictionaries.xlsx with readxl, replace the OrbergMO sheet with an empty placeholder data frame, and write all sheets back with writexl::write_xlsx. Never openxlsx.
+
+Step 2. Run `Rscript Merging/Metadata/Data_Dictionaries/build_data_dictionary.R` from the repo root. Verify with readxl:
+  - OrbergMO has 33 rows, one per TSV column, and meaning / harmonized_name / harmonized_values / notes are all empty;
+  - the other eight sheets are cell-for-cell identical to Merging/Metadata/Data_Dictionaries/Backups/data_dictionaries_backup_pre_orberg_reset.xlsx (print any difference; there should be none);
+  - print the OrbergMO variation counts and the column_name / n_unique / variation table.
+
+Step 3. Technical pass on OrbergMO only: fill `meaning` and `notes` for rows where variation is CONSTANT, UNIQUE_ID or ALL_MISSING, exactly as in Merging/Metadata/Data_Dictionaries/Data_Dictionary_Scripts/Round2_02_first_pass.txt (no PDFs; state the single value for CONSTANT; use "CONSTANT-BUT-MEANINGFUL:" for a column that is constant only because of this cohort, e.g. batch). For ALL_MISSING columns (expected: AlloTx_2nd, RefractoryDisease) say what the column is named after in Raw_metadata/meta_clinical4.csv and that it is empty in the source, not lost in parsing; check this.
+
+Step 4. On the Jarosch and Spindelboek sheets, change any note that starts with "UNCERTAIN: constant in this study but analytically meaningful" to start with "CONSTANT-BUT-MEANINGFUL:" instead, keeping the rest of the text, only on rows where variation is CONSTANT. List what changed.
+
+Step 5. Run the consistency check on the Jarosch, OrbergMO and Spindelboek sheets and print it: rows where notes mention "constant" (case-insensitive) but variation != "CONSTANT", and rows tagged CONSTANT-BUT-MEANINGFUL where variation != "CONSTANT". It must be empty.
+
+Commit Merging/Metadata/Data_Dictionaries/data_dictionaries.xlsx as "[OrbergMO2024] rebuild data dictionary scaffold and technical pass". In the same commit, set the Status table in Merging/CLAUDE.md to A2 / A3 OrbergMO = done (rebuilt 2026-10-16), A4 OrbergMO = todo.

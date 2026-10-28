@@ -199,7 +199,7 @@ assembles a cohort. It is driven by **`chpc/merge.sh`** (a sibling of
 `submit.sh`, not an extension of it): `submit.sh` is per-study, `merge.sh` is
 per-cohort. A "cohort" — which studies, which artifact per study, resources — is
 defined in **`chpc/merging/<cohort>.sh`** (see `_template.sh`; `full_cohort.sh`
-is the 7-study set). Outputs are namespaced under **`Merging/<cohort>/`**, so
+is the 7-study set). Outputs are namespaced under **`Merging/Samples/<cohort>/`**, so
 reruns and alternate subsets never collide.
 
 | Stage | Script | Produces |
@@ -221,11 +221,17 @@ only if the previous succeeds. The stages are kept sequential for clarity even
 though phylogeny and the two taxonomies don't strictly depend on each other.
 
 Notes:
+- **Output vs scratch:** committed artifacts land in `Merging/Samples/<cohort>/`
+  (the `MDEST` variable in each job script). The scratch working directory is
+  `$WORK_BASE/Merging/<cohort>` (the `MW` variable) — it is on cluster scratch
+  and is never committed.
+- **Read-count TSVs** are written to `Merging/Samples/ReadCounts/` by
+  `chpc/lib/extract_read_counts.py` (run on a login node after the job completes).
 - **Compute target:** `merge.sh` defaults every stage to `notchpeak-shared-short`
   (modern AVX2 nodes, free, <=8h) to avoid the lonepeak Nehalem SIGILL that hit
   qc/map. Override with `MERGE_PARTITION`/`MERGE_CLUSTER`/`MERGE_ACCOUNT`.
 - **References** (`config.sh`): `tax-gg` needs `<version>.taxonomy.asv.nwk.qza`
   in `Greengenes2/` (download from the GG2 FTP); `phylogeny` and `tax-classifier`
   use artifacts already present.
-- **Sparse-checkout:** `Merging/` is a new top-level tree — add `/Merging/` to the
-  CHPC sparse-checkout (see the root `CLAUDE.md`) so the outputs materialize/pull.
+- **Sparse-checkout:** `/Merging/` is included whole (see root `CLAUDE.md`); it
+  covers `Merging/Samples/` and `Merging/Metadata/` automatically.

@@ -15,6 +15,10 @@ Curation and harmonization of open-source 16S rRNA microbiome datasets from allo
 stem cell transplant / GVHD studies. QIIME2-based processing pipeline, R/phyloseq
 downstream analysis. GitHub: https://github.com/s-huebler/ODSiData
 
+The `Merging/` folder is split into `Merging/Samples/` (QIIME2 merged artifacts,
+read-attrition TSVs, analysis notebooks) and `Merging/Metadata/` (clinical metadata
+harmonization, data dictionaries). Layout details are in `Merging/CLAUDE.md`.
+
 ### Project 2 — bhCRR (`../bhCRR`)
 Bayesian Hierarchical Competing Risks Regression — R package implementing a semi-
 supervised spike-and-slab lasso method for high-dimensional competing risks data.
@@ -208,6 +212,8 @@ Rules for this prompt:
   processed as OrbergMO2024 + OrbergSJ2024.)
 - The study's RawData/Metadata must already be committed and pushed to the branch CHPC
   tracks, or `reapply` will materialize nothing — flag this if the study is new to the repo.
+- `/Merging/` is a prefix match and covers the whole tree, including the new
+  `Merging/Samples/` and `Merging/Metadata/` subfolders — no pattern change needed.
 
 ## Known gotchas
 
@@ -237,10 +243,10 @@ rule below applies automatically and should not be restated in the prompt.
 
 | Role | Path |
 |---|---|
-| Harmonizer | `Merging/Harmonization/harmonize_gvhd_metadata.R` |
-| Tests | `Merging/Harmonization/test_harmonize_gvhd_metadata.R` |
-| Decision log | `Merging/Harmonization/to_log/harmonization_decisions.md` |
-| Data dictionary | `Merging/Harmonization/data_dictionaries_harmonized.xlsx` |
+| Harmonizer | `Merging/Metadata/Harmonization/harmonize_gvhd_metadata.R` |
+| Tests | `Merging/Metadata/Harmonization/test_harmonize_gvhd_metadata.R` |
+| Decision log | `Merging/Metadata/Harmonization/to_log/harmonization_decisions.md` |
+| Data dictionary | `Merging/Metadata/Harmonization/data_dictionaries_harmonized.xlsx` |
 
 **Never edit the xlsx during a variable addition.** It is updated in one batch at
 the end of a round. Instead, end each decision-log entry with a "Workbook edits
@@ -329,7 +335,7 @@ assertions (cross-tabulate the harmonized column against the source column, per
 study) to `test_harmonize_gvhd_metadata.R`. Then run it and paste the output.
 
 ```
-Rscript Merging/Harmonization/test_harmonize_gvhd_metadata.R
+Rscript Merging/Metadata/Harmonization/test_harmonize_gvhd_metadata.R
 ```
 
 **Never report a variable addition as done without a passing run against the real
@@ -346,7 +352,7 @@ apt-get update && apt-get install -y r-base-core r-cran-dplyr r-cran-lubridate \
 
 ### Decision log entry structure
 
-Append to `to_log/harmonization_decisions.md` using this shape:
+Append to `Merging/Metadata/Harmonization/to_log/harmonization_decisions.md` using this shape:
 
 ```
 ## YYYY-MM-DD — <short title>

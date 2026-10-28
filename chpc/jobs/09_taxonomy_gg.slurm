@@ -10,7 +10,7 @@
 # Needs the q2-greengenes2 plugin, so it activates the personal GG2 conda env
 # (load_qiime2_gg2_env) rather than the qiime2 module.
 #
-# Outputs -> Merging/<cohort>/ :
+# Outputs -> Merging/Samples/<cohort>/ :
 #   taxonomy-gg.qza        per-feature tree-derived lineages
 #   taxonomy-gg_viz.qzv    tabulated taxonomy
 #   taxa-bar-gg.qzv        stacked barplot (if METADATA set)
@@ -49,7 +49,7 @@ trap 'rm -rf "$TMPDIR" 2>/dev/null || true' EXIT
 
 : "${COHORT:?set COHORT in the cohort file}"
 MW="$WORK_BASE/Merging/$COHORT"
-MDEST="$REPO_ROOT/Merging/$COHORT"
+MDEST="$REPO_ROOT/Merging/Samples/$COHORT"
 mkdir -p "$MW" "$MDEST"
 
 MERGED_TABLE="$MDEST/merged-table.qza"

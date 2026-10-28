@@ -191,7 +191,7 @@ barplot_04 <- barplot_03 %>%
 ## Greengenes Reference
 
 ```{r}
-tree <- qiime2R::read_qza("~/Documents/ODSi/ODSiData/Merging/merged-table.qza")
+tree <- qiime2R::read_qza("~/Documents/ODSi/ODSiData/Merging/Samples/full_cohort/merged-table.qza")
 tree <- tree$data
 tree <- data.frame(sample.id = colnames(tree),
                    GreengenesTree = colSums(tree))

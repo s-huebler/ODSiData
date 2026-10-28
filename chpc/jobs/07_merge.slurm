@@ -11,7 +11,7 @@
 # The cohort — which studies, and which artifact per study — is defined in
 # chpc/merging/<cohort>.sh (STUDIES=(...), TABLE_OVERRIDE / SEQS_OVERRIDE).
 #
-# Outputs -> Merging/<cohort>/ :
+# Outputs -> Merging/Samples/<cohort>/ :
 #   merged-table.qza   cohort feature table (GG2 backbone namespace)
 #   merged-seqs.qza    cohort representative sequences
 #   *.qzv              table summary + rep-seqs tabulation
@@ -56,7 +56,7 @@ declare -p TABLE_OVERRIDE >/dev/null 2>&1 || declare -A TABLE_OVERRIDE=()
 declare -p SEQS_OVERRIDE  >/dev/null 2>&1 || declare -A SEQS_OVERRIDE=()
 
 MW="$WORK_BASE/Merging/$COHORT"      # scratch working dir
-MDEST="$REPO_ROOT/Merging/$COHORT"   # committed cohort outputs
+MDEST="$REPO_ROOT/Merging/Samples/$COHORT"   # committed cohort outputs
 mkdir -p "$MW" "$MDEST"
 
 # --- Resolve per-study inputs (override wins; else <Study>/Mapped/<name>) -----

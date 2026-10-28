@@ -32,7 +32,7 @@ Usage:
 Defaults: --repo-root = `git rev-parse --show-toplevel` (falls back to the
 parent of this script's chpc/ dir, same rule chpc/config.sh uses); --work-base =
 $WORK_BASE (falls back to $SCRATCH_BASE/ODSiData, mirroring config.sh's own
-default); --out-dir = Merging/ReadCounts (resolved under --repo-root if
+default); --out-dir = Merging/Samples/ReadCounts (resolved under --repo-root if
 relative).
 
 Writes, under --out-dir:
@@ -351,8 +351,8 @@ def main() -> int:
     ap.add_argument("study", help="Study directory name, e.g. Fujimoto2024")
     ap.add_argument("--repo-root", help="Default: git rev-parse --show-toplevel")
     ap.add_argument("--work-base", help="Default: $WORK_BASE ($SCRATCH_BASE/ODSiData if unset)")
-    ap.add_argument("--out-dir", default="Merging/ReadCounts",
-                     help="Default: Merging/ReadCounts (resolved under --repo-root if relative)")
+    ap.add_argument("--out-dir", default="Merging/Samples/ReadCounts",
+                     help="Default: Merging/Samples/ReadCounts (resolved under --repo-root if relative)")
     args = ap.parse_args()
 
     repo_root = Path(args.repo_root).resolve() if args.repo_root else default_repo_root()
