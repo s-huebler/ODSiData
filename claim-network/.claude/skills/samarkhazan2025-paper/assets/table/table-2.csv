@@ -1,0 +1,8 @@
+Immunological Functions,Microbial Components,Mechanisms,Outcomes,Effect on GVHD,Ref.
+Innate Immunomodulation,"Polysaccharide A (B. fragilis), LPS (E. coli)","TLR2/IL-10 axis, TLR4/NLRP3/IL-1β axis",Induction of regulatory MQ differentiation; Reduced inflammatory responses,Protective,[27–31]
+Innate Immunomodulation,Butyrate (Clostridia); Acetate; Propionate,GPCRs interaction; Upregulation of ROS-generating enzymes (NADPH oxidase),Reduced pro-inflammatory cytokine production; Enhanced anti-inflammatory responses,,
+Adaptive Immunomodulation,"Butyrate-producing Clostridia (IV, XIVa); F. prausnitzii",HDAC inhibition; Enhancement of tight junction proteins,Increased colonic Foxp3+ Treg expansion; Induction of immune tolerance,Protective,[36–38]
+Adaptive Immunomodulation,"Intestinal bacteria (Bifidobacterium, Lactobacillus)",Microbiota-derived antigen presentation; MHC-II-dependent T cell activation,Increased IgA production and mucosal immunity,,
+Adaptive Immunomodulation,IAld,AhRs activation on ILC3,Induction of IL-22; Increased mucosal repair and epithelial homeostasis,,
+Adaptive Immunomodulation,Bacteroides thetaiotaomicron (succinate),Succinate-dependent MQ activation,Increased inflammatory responses in dysbiotic conditions,Detrimental,[44]
+Adaptive Immunomodulation,Clostridium scindens,BA transformation; FXR signaling,Suppression of TH1 differentiation,Protective,"[45, 46]"

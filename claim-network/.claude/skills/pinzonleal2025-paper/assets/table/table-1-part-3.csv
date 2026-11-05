@@ -1,0 +1,12 @@
+"Patient No, Population",Pathology,HSCT Characteristics +,Antimicrobial Prophylaxis,Microbiota Findings,Outcomes,Ref
+"n = 141, adults","AML 60%, ALL 35%, MDS 5%","- MSD 45%, Haplo 50%, MUD 5%
+- High intensity conditioning 43%",Oral sulfamethoxazole and norfloxacin,"- aGVHD profile: lower diversity (p = 0.018) and ↓ Clostridia (e.g., the Lachnospiraceae and Ruminococcaceae families) and ↑ Gammaproteobacteria (e.g., the Enterobacteriaceae family).
+- Higher conditioning intensity and b-lactam AB associated with lower diversity and Treg/Th17.",- Accumulated intestinal microbiota correlated with aGVHD grade and could predict development of aGVHD.,[28]
+"n = 1324, adults","AML 36%, MDS/MPN 18%, NHL 17%, ALL 9%, MM 9%, CLL 3%, CML 2%, HL 2%, AA 1%, Other 3%","- BM/PBSC 50%, CBU 15%, PBSC T cell depleted 35%
+- MAC 56%, RIC 35%, NMA 9%",Not reported,"- Depletion of lactose in vitro and in vivo inhibited Enterococcal expansion and mitigated GVHD.
+- GVHD profile: ↑ Enterococcus domination.","- Enterococcus domination increases risk for GVHD and overall GVHD-related mortality.
+- Lactose-free diet could attenuate the outgrowth of pathobionts",[29]
+"n = 1362, adults","AML 36%, MPN/MDS 19%, NHL 17%, ALL 9%, MM 8%, CLL 2%, HL 2%, CML 2%, AA 1%, other 3%.","BM 8%, CBU 15%, PBSCs unmodified 43%, PBSCs T cell depleted 33%
+MAC 57%, RIC 34%, NMA 9%",- Cipro/levofloxacin; one center used rifaximin,"- Before HSCT samples already showed microbiome disruption.
+- HSCT causes loss of diversity (p < 0.001) and domination of a single taxa.","- Lower diversity associated with lower OS (HR 0.75), TRM (HR 0.63), and GVHD-related mortality (HR 0.89).
+- Lower mortality if higher diversity at time of Neutrophil engraftment.",[30]

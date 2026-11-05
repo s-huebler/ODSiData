@@ -1,0 +1,28 @@
+"Author, year
+N",Samples Timing,Intestinal Diversity
+,,"When compared to samples collected prior to conditioning regimen, samples at D+30 had a significant decrease in alpha diversity metrics:
+Shannon index: 4.65±1.36 vs. 2.62±1.62; p < 0.001.
+Inverse Simpson index: 0.85±0.13 vs. 0.58±0.26; p < 0.001.
+Observed OTU: 231.61±126.49 vs. 95.77±90.50; p < 0.001.
+Chao1: 477.49±330.06 vs. 180.56; p < 0.001.
+D+10 vs. D+30
+When compared to samples collected at D+10, samples at D+30 had a significant decrease in alpha diversity metrics:
+Shannon index: 3.08±1.77 vs. 2.62±1.62; p = 0.020.
+Inverse Simpson index: 0.65±0.27 vs. 0.58±0.26; p = 0.041.
+Observed OTU: 120.23±104.95 vs. 95.77±90.50; p = 0.016.
+Chao1: 229.51±227.31 vs. 180.56; p = 0.027."
+"Masetti 2023[6]β
+90",Samples were collected 1) prior to allo-HSCT; and 2) at neutrophil engraftment,"Prior to allo-HSCT vs. Neutrophil engraftment
+The intestinal diversity significantly decreased from prior to allo-HSCT to neutrophil engraftment (p < 0.0001)."
+"Messina 2024[12]
+98","Samples were collected once prior to HSCT, weekly until D+30 and then at days D+45, D+90 and D+180","Prior vs. After allo-HSCT
+In patients undergoing allo-HSCT, there is a decline in alpha diversity of the course of therapy, with the lowest values around D+14. Patients demonstrated a subsequent gradual increase in alpha diversity over time, though it does not normalize to baseline alpha diversity even in samples from D+100."
+"Taur 2014[13]
+80",Samples were collected at engraftment,"Patients were grouped into 3 levels of microbial diversity based on the inverse Simpson index: high (>4), intermediate (2-4) and low (<2).
+At the time of stem cell engraftment, high microbial diversity was maintained in 26 (32.5%) patients, intermediate diversity was observed in 20 (25.0%) patient, and low diversity was observed in 34 (42.5%) of patients.
+Patients who developed acute kidney injury, received any of several antibiotics (intravenous vancomycin, metronidazole, B-lactams), or were diagnosed with C difficile infection more frequently fell into the low diversity group."
+"Gu 2022[14]
+100","Samples were collected at 1) D-10, 2) D-4, and 3) every 4 days until D+60 (or hospital discharge).
+Samples were grouped into the following timepoints 1)","The intestinal diversity decreased to the lowest at approximately D+12 after allo-HSCT and then increased over time.
+Baseline vs. Pre-HSCT
+When compared to baseline samples, pre-HSCT samples had a significant decrease in intestinal diversity (p < 0.05)."

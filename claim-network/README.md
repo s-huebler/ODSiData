@@ -1,64 +1,64 @@
-# Claims network (current)
+# Claims network
 
-Directional microbe → GVHD claims extracted from GVHD-microbiome **review papers**, linked to
-the **primary studies** each review cites, and rendered as an interactive Cytoscape network.
-Current version: **Batch 2** (10 reviews, 109 canonical claims, 118 primary papers; built 2026-07-15).
+Directional microbe → GVHD claims taken from GVHD-microbiome **review papers**, each linked to
+the primary study the review cites for it, and drawn as a taxonomy ring. Claims are drafted by
+Claude paper by paper under `CODEBOOK.md` and every row is approved by hand in a local viewer.
 
-Earlier attempts and superseded versions are in `../archive-claim-network/` (see its README).
+Earlier pipelines (the July synthesis network and the anchor-review mechanism framework) are in
+`../archive-claim-network/`; see the 2026-11 folders there.
 
-## Pipeline
+## Layout
 
-```
-data/Claims_15July.xlsx  (Quotes sheet: verbatim quotes pulled from each review)
-   │  1. Parse quotes → Claims / Studies rows          docs/PARSING_INSTRUCTIONS.md (manual + Claude)
-   │  2. Reference-link the "Cited" column             ../scripts/bash/call_reflink_claims.sh
-   │       (one ref per row; adds citing_id/ref_id)       + ../citation-network/Full_Network/citing_dictionary.csv
-   ▼
-data/Claims_15July_reflinked.xlsx                    (first 5 reviews reflinked)
-   │  3. Remaining reviews parsed + linked; Citing-column autofill error fixed
-   ▼
-data/parsed2_Claims_15July.xlsx                      (222 claim rows, 70 study rows, 10 reviews)
-   │  4. Synthesis: atomize taxa → taxonomic rank → canonical claim (subject@rank + valence),
-   │     mechanism → controlled vocabulary. Done in a Claude session following the
-   │     claim-synthesis procedure; no standalone script. Method is documented in the
-   │     workbook's README sheet.
-   ▼
-data/Claims_Synthesis2.xlsx                          (README, Canonical_Claims, Atomic_Claims, Nodes, Edges, Claims_annotated, Flags)
-   │  5. python3 scripts/build_graph_json_from_synthesis.py
-   ▼
-data/graph_data2.json                                (237 nodes, 443 edges)
-   │  6. python3 scripts/render_network_html.py   (uses scripts/network_html_template.py)
-   ▼
-output/gvhd_claims_network2_alt.html
-```
-
-Steps 5–6 are scripted and verified to reproduce the current HTML byte-for-byte (2026-10-06).
-Run them from anywhere; paths are relative to the script folder.
-
-## Files
-
-| Path | Role |
+| Path | What |
 |---|---|
-| `data/Claims_15July.xlsx` | Master workbook: Quotes, Claims, Studies sheets (hand-curated) |
-| `data/Claims_15July_reflinked.xlsx` | Output of the reflink step for the first 5 reviews |
-| `data/parsed2_Claims_15July.xlsx` | Final parsed + linked claims/studies; input to synthesis |
-| `data/Claims_Synthesis2.xlsx` | Canonical claim synthesis; input to the graph script |
-| `data/graph_data2.json` | Cytoscape elements (nodes/edges) |
-| `data/Checking_Claims.xlsx` | Manual QA workbook for spot-checking claims against sources (in progress) |
-| `scripts/build_graph_json_from_synthesis.py` | Synthesis workbook → graph JSON (formerly `gen2.py`) |
-| `scripts/render_network_html.py` | Graph JSON + template → HTML; puts reviews in the centre, papers in the middle and claims on the outer ring (formerly `render2.py`) |
-| `scripts/network_html_template.py` | Cytoscape HTML template (copy of batch-1 `build_html.py`) |
-| `output/gvhd_claims_network2_alt.html` | Current network; open in a browser |
-| `docs/PARSING_INSTRUCTIONS.md` | Procedure for parsing the Quotes sheet into Claims/Studies |
+| `CODEBOOK.md` | Rules, controlled values, mechanism classes, worked examples, changelog. Versioned. |
+| `reviews/<paper>/proposals.json` | Claude's proposed rows for one review (frozen once reviewed) |
+| `reviews/<paper>/decisions.json` | Every decision, including discussion outcomes (source of truth); `decisions.csv` mirrors it |
+| `reviews/<paper>/refs.csv` | The review's reference list, cross-checked against the citation dictionary |
+| `reviews/claims.csv` | All approved rows from all reviews, one row per cited reference |
+| `reviews/claims_linked.csv` | `claims.csv` plus citation-network IDs (`citing_id`, `ref_id`, `ref_label`) and GTDB `taxon`, `taxon_rank` |
+| `reviews/taxa.csv` | GTDB lineage for each cited taxon (input to the ring) |
+| `scripts/viewer/` | The review viewer (`review_server.py`, `viewer.html`, `marked.min.js`) |
+| `scripts/validate_proposals.py` | Checks a proposals file against the codebook and the paper text |
+| `scripts/parse_refs.py` | Writes `reviews/<paper>/refs.csv` from the paper skill |
+| `scripts/assemble_claims.py`, `link_refs.py`, `harmonize_taxa.py` | decisions → `claims.csv` → `claims_linked.csv` (+ `taxa.csv`); `run_pipeline.py` runs all three |
+| `scripts/ring/` | Builds the taxonomy ring from `claims_linked.csv` and `taxa.csv` |
+| `lookups/taxonomy_lookup.csv` | Name → GTDB lineage. Curated rows plus every automatic match (`match_method auto_*`); edit a row here to correct a mapping |
+| `lookups/taxon_synonyms.csv` | NCBI → GTDB name changes applied before matching (Firmicutes → Bacillota, ...) |
+| `lookups/gtdb_cache/` | GTDB r232 taxonomy files (not in git; see `gtdb_release.txt` to re-download) |
+| `output/` | Published pages. Untouched by the new scripts unless `--force` is passed |
+| `.claude/skills/<paper>-paper/` | Converted text, tables and figures of each review; the viewer and scripts read these |
+| `Presentation/` | Lab-update slides |
 
-## Graph model
+External input: `../citation-network/Full_Network/citing_dictionary.csv`, keyed by
+(`citing_bibtex`, `local_number`). It is read, never written.
 
-- Nodes: review papers (centre), primary papers (middle ring), canonical claims (outer ring).
-- Edges: `CITES` review → primary; `SUPPORTS` primary → claim; coloured by valence
-  (favourable = reduces GVHD, unfavourable = exacerbates GVHD, context).
+## Workflow for one review
 
-## Notes
+All commands run from the ODSiData repo root.
 
-- Shared helpers live outside this folder: `scripts/reflink_claims.py`,
-  `scripts/bash/call_reflink_claims.sh`, `citation-network/Full_Network/citing_dictionary.csv`.
-- Folder was `claim-network2/` until the 2026-10-06 reorganization.
+1. **Draft.** Start a fresh Claude session and load the `claim-review` skill for the paper
+   (e.g. "claim-review godefroy2025"). Claude reads `CODEBOOK.md` and the paper skill, writes
+   `reviews/<paper>/proposals.json`, and runs `python3 claim-network/scripts/validate_proposals.py <paper>`.
+2. **Review.** `python3 claim-network/scripts/viewer/review_server.py <paper>` and click through
+   the highlights. Every click is saved immediately.
+3. **Discuss.** In the same Claude session, go through the Discuss items. Outcomes are written to
+   `decisions.json` (`discussion` field). Any new rule goes into `CODEBOOK.md` with a version bump.
+4. **Build.**
+
+       python3 claim-network/scripts/parse_refs.py <paper>
+       python3 claim-network/scripts/run_pipeline.py
+
+   Check the printed exceptions: unresolved references, `ref_check FALSE`, unmatched taxa.
+5. **Ring (when wanted).**
+
+       python3 claim-network/scripts/ring/build_tree_data.py
+       python3 claim-network/scripts/ring/render_tree_html.py --force    # replaces output/gvhd_taxonomy_ring.html
+
+Scripts need only Python 3 except the ring builder, which uses pandas.
+
+## Progress
+
+| Review | Proposals | Approved | Codebook |
+|---|---|---|---|
+| guo2024 | 39 (+13 skipped) | 34 | pre-1.0, resolved to 1.0 |

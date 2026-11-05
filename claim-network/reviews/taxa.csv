@@ -1,0 +1,25 @@
+taxon,taxon_rank,taxon_as_cited,taxon_rank_as_cited,domain,phylum,class,order,family,genus,species,match_method,note
+Lactobacillales,order,Lactobacillales,order,Bacteria,Bacillota,Bacilli,Lactobacillales,,,,exact_gtdb,
+Staphylococcaceae,family,Staphylococcaceae,family,Bacteria,Bacillota,Bacilli,Staphylococcales,Staphylococcaceae,,,auto_exact,
+Enterobacterales,order,Enterobacteriales,order,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,,,,auto_exact,name normalized Enterobacteriales -> Enterobacterales
+Pasteurellaceae,family,Pasteurellales,order,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Pasteurellaceae,,,manual,Order absent in GTDB; its only family Pasteurellaceae sits in Enterobacterales. Mapped to the family to keep it distinct from Enterobacterales
+Enterococcus,genus,Enterococcus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,,exact_gtdb,
+Lactobacillus,genus,Lactobacillus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Lactobacillus,,exact_gtdb,
+Pasteurella,genus,Pasteurella,genus,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Pasteurellaceae,Pasteurella,,auto_exact,
+Clostridiales,order,Clostridiales,order,Bacteria,Bacillota,Clostridia,Clostridiales,,,,exact_gtdb,
+Bacteroidota,phylum,Bacteroidetes,phylum,Bacteria,Bacteroidota,,,,,,ncbi_reclassified,NCBI Bacteroidetes → GTDB p__Bacteroidota
+Actinomycetaceae,family,Actinomycetaceae,family,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Actinomycetaceae,,,exact_gtdb,
+Bacteroides fragilis,species,Bacteroides fragilis,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fragilis,exact_gtdb,
+Blautia,genus,Blautia,genus,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Blautia,,exact_gtdb,
+Fusobacterium,genus,Fusobacterium,genus,Bacteria,Fusobacteriota,Fusobacteriia,Fusobacteriales,Fusobacteriaceae,Fusobacterium,,exact_gtdb,
+Lachnospiraceae,family,Lachnospiraceae,family,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,,,exact_gtdb,
+Lachnoclostridium,genus,Lachnoclostridium,genus,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Lachnoclostridium,,exact_gtdb,
+Thomasclavelia,genus,Erysipelatoclostridium,genus,Bacteria,Bacillota_I,Bacilli_A,Erysipelotrichales,Coprobacillaceae,Thomasclavelia,,manual,Erysipelatoclostridium (type species E. ramosum) is Thomasclavelia in GTDB r232; old name absent
+Eubacterium,genus,Eubacterium,genus,Bacteria,Bacillota,Clostridia,Eubacteriales,Eubacteriaceae,Eubacterium,,exact_gtdb,
+Clostridia,class,Clostridia,class,Bacteria,Bacillota,Clostridia,,,,,exact_gtdb,
+Ruminococcaceae,family,Ruminococcaceae,family,Bacteria,Bacillota,Clostridia,Oscillospirales,Ruminococcaceae,,,exact_gtdb,
+Gammaproteobacteria,class,Gammaproteobacteria,class,Bacteria,Pseudomonadota,Gammaproteobacteria,,,,,exact_gtdb,
+Enterobacteriaceae,family,Enterobacteriaceae,family,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,,,exact_gtdb,
+Eubacterium limosum,species,Eubacterium limosum,species,Bacteria,Bacillota,Clostridia,Eubacteriales,Eubacteriaceae,Eubacterium,Eubacterium limosum,auto_exact,
+Clostridium,genus,Clostridium,genus,Bacteria,Bacillota,Clostridia,Clostridiales,Clostridiaceae,Clostridium,,exact_gtdb,
+Desulfovibrionaceae,family,Desulfovibrionaceae,family,Bacteria,Desulfobacterota,Desulfovibrionia,Desulfovibrionales,Desulfovibrionaceae,,,auto_exact,

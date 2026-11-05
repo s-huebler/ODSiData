@@ -1,0 +1,24 @@
+Fingerprint,"Author, year
+N",Findings
+Streptococcus abundance,90,Higher relative abundance of Streptococcus was associated with grade 3 to 4 aGvHD (p < 0.05).
+Actinomyces abundance[6],"Masetti 2023[6]β
+90","↑aGvHD
+Higher relative abundance of Actinomyces was associated with grade 3 to 4 aGvHD (p < 0.05)."
+Lacticaseibacillus abundance[6],"Masetti 2023[6]β
+90","↑aGvHD
+Higher relative abundance of Lacticaseibacillus was associated with grade 3 to 4 aGvHD (p < 0.05)."
+Rothia abundance[6],"Masetti 2023[6]β
+90","↑aGvHD
+Higher relative abundance of Rothia was associated with grade 3 to 4 aGvHD (p < 0.05)."
+Firmicutes abundance[8],"Doki 2017[8]
+107","↑aGvHD
+Higher abundance of Firmicutes was associated with aGvHD (p < 0.001)"
+Faecalbacterium abundance[8],"Doki 2017[8]
+107","↑aGvHD
+Higher abundance of Faecalbacterium was associated with aGvHD (p < 0.05)"
+Eubacterium abundance[8],"Doki 2017[8]
+107","↑aGvHD
+Higher abundance of Eubacterium was associated with aGvHD (p < 0.05)"
+Fusobacterium abundance[11],"Biagi 2019[11]
+36","↑aGvHD
+Individuals who developed a more severe aGvHD had a higher relative abundance of Fusobacterium (0% [no GvHD and skin GvHD] vs. 0.05% [gut GvHD]; p = 0,01). Fusobacterium positive association with aGvHD was confirmed by Random Forest analysis (p = 0.006)"

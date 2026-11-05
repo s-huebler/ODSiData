@@ -1,0 +1,6 @@
+Microbial Factor,Effect on GVHD,Mechanism,Therapeutic Potential
+Microbial Diversity,High diversity reduces severity; low increases mortality,"Maintains gut barrier, immune homeostasis",FMT to restore diversity
+"Beneficial Bacteria (e.g., Lactobacillus, Barnesiella)",Suppress progression,"Inhibit pathobionts, enhance Tregs",Probiotics with these strains
+"Pathobionts (e.g., Enterococcus, Streptococcus)",Exacerbate severity,Trigger inflammation via LPS translocation,"Antibiotics (e.g., vancomycin)"
+"SCFAs (e.g., Butyrate)",Reduced levels worsen; supplementation mitigates,"Repair gut barrier, induce Tregs, reduce inflammation",Prebiotics to boost SCFA production
+MHC-II Inducing Bacteria,Enhance severity,"Increase IEC MHC-II, activate donor T cells",Selective antibiotic depletion

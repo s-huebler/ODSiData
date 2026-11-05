@@ -1,0 +1,18 @@
+"Author, year
+N","Sample Timing
+Control Group",Intestinal Diversity,Microbiota Composition
+,22 paired HLA-matched sibling donors.,,"anaerobic bacteria such as Enterobacteriaceae, Lactobacillacea, Enterococcaceae and Streptococcacea."
+"Kusakabe 2020[3]
+16","Baseline fecal samples collected prior to conditioning regimens (D-8).
+10 healthy volunteers
+8 patients undergoing auto-HSCT","By using conventional alpha diversity methods, such as Simpson’s index or the Shannon-Wiener index, the intestinal diversity appeared to be similar between allo-HSCT and healthy volunteers.","Among the 16 patients undergoing allo-HSCT, 2 received antimicrobial therapy at the time of the baseline fecal specimen collection. In these two patients, major phyla in the gut microbiota were Actinobacteria and Firmicutes. For the other patients with antimicrobial exposure, the major phyla were Bacteroidetes.
+Unweighted UniFrac
+The unweighted uniFrac distance analysis showed significant differences in microbial components between allo-HSCT and healthy controls (p < 0.001).
+Weighted uniFrac
+The weighted uniFrac distance analysis revealed significant differences in the microbial structure between allo-HSCT and healthy controls (p < 0.001)
+In patients undergoing allo-HSCT, the abundance of genera categorized as butyrate-producing bacteria, such as Anaerostipes, Butyricimonas, Coprococcus, Faecalibacterium and Lachnospiraceae, were significantly lower compared to those in the healthy control group."
+"Sardzikova 2024[4]
+18β","Samples were collected prior to allo-HSCT
+14 healthy children","When compared to healthy children, patients undergoing allo-HSCT had significantly lower alpha diversity (p < 0.001).",N/A
+"Mancini 2017[5]
+96",Samples were collected prior,Alpha diversity was significantly reduced in patients who used the following antibiotics in the 3 months,Use of any antibiotics in the 3 months prior to allo-HSCT was associated with a significant decrease in families with the

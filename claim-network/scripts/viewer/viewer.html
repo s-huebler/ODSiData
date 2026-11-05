@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claim Review</title>
+<script src="/marked.min.js"></script>
+<style>
+:root{
+  --bg:#f7f6f2; --paper:#fffefb; --ink:#1d1c1a; --muted:#6b675f; --line:#e3e0d8;
+  --pending:#fde68a; --pending-b:#d4a72c; --approve:#bbf7d0; --approve-b:#2f9e5b;
+  --reject:#fecaca; --reject-b:#c2410c; --discuss:#fed7aa; --discuss-b:#ea7a12;
+  --skip:#e7e5e4; --skip-b:#a8a29e; --focus:#2563eb;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+#app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);height:100vh}
+#paperwrap{overflow-y:auto;padding:16px 14px 120px}
+#paper{max-width:760px;margin:0 auto;background:var(--paper);padding:22px 24px;border:1px solid var(--line);border-radius:6px;font:14.5px/1.55 Charter,"Iowan Old Style",Georgia,serif}
+#paper h1{font-size:20px;line-height:1.25}#paper h2{font-size:16.5px;margin-top:1.8em}#paper h3{font-size:15px}
+#paper table{border-collapse:collapse;font:12px/1.4 -apple-system,Helvetica,Arial,sans-serif;margin:1em 0;width:100%}
+#paper th,#paper td{border:1px solid var(--line);padding:4px 6px;vertical-align:top}
+#paper th{background:#f3f1ec;text-align:left}
+#paper img{max-width:100%;border:1px solid var(--line);border-radius:4px;margin:12px 0 4px}
+#paper sup{font-size:.68em;color:var(--muted)}
+mark.q{background:var(--pending);border-bottom:2px solid var(--pending-b);cursor:pointer;color:inherit;padding:0 1px;border-radius:2px}
+mark.q.s-skip{background:transparent;border-bottom:2px dashed var(--skip-b)}
+mark.q.s-skip_ok{background:transparent;border-bottom:1px dotted var(--skip-b)}
+mark.q.s-approve{background:var(--approve);border-bottom-color:var(--approve-b)}
+mark.q.s-reject{background:var(--reject);border-bottom-color:var(--reject-b);text-decoration:line-through;text-decoration-color:#c2410c80}
+mark.q.s-discuss{background:var(--discuss);border-bottom-color:var(--discuss-b)}
+mark.q.sel{border-bottom:3px solid var(--focus)!important}
+#panel{border-left:1px solid var(--line);background:#fff;overflow-y:auto;min-height:0}
+#top{padding:12px 18px 10px;border-bottom:1px solid var(--line);background:#fbfaf7}
+#top h2{font-size:14px;margin:0 0 6px;line-height:1.3}
+.bar{height:6px;background:#eee;border-radius:3px;overflow:hidden;display:flex;margin:6px 0}
+.bar span{display:block;height:100%}
+.counts{font-size:12px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap}
+.row{display:flex;gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap}
+button{font:inherit;font-size:13px;border:1px solid var(--line);background:#fafaf9;border-radius:5px;padding:5px 10px;cursor:pointer}
+button:hover{background:#f0efec}
+button.a{background:#ecfdf3;border-color:#86d3a4}button.r{background:#fff1ee;border-color:#f3a58a}button.d{background:#fff6ec;border-color:#f6b878}
+button.on{outline:2px solid var(--ink)}
+select,input[type=text],textarea{font:inherit;font-size:13px;width:100%;border:1px solid var(--line);border-radius:4px;padding:4px 6px;background:#fff}
+textarea{min-height:52px;resize:vertical}
+#body{padding:12px 18px 60px}
+.loc{font-size:12px;color:var(--muted);margin-bottom:4px}
+blockquote{margin:0 0 12px;padding:8px 10px;background:#f7f6f2;border-left:3px solid var(--pending-b);font:13.5px/1.45 Charter,Georgia,serif}
+.card{border:1px solid var(--line);border-radius:7px;padding:10px 12px;margin-bottom:12px}
+.card.cur{border-color:var(--focus);box-shadow:0 0 0 1px var(--focus)}
+.card h3{margin:0 0 8px;font-size:13.5px;display:flex;justify-content:space-between;gap:8px}
+.badge{font-size:11px;padding:1px 7px;border-radius:9px;background:#eee;white-space:nowrap}
+.b-approve{background:var(--approve)}.b-reject{background:var(--reject)}.b-discuss{background:var(--discuss)}.b-skip_ok{background:var(--skip)}.b-edited{background:#dbeafe}
+.grid{display:grid;grid-template-columns:110px minmax(0,1fr) 110px minmax(0,1fr);gap:6px 10px;align-items:center;font-size:13px}
+.grid .wide{grid-column:span 3}
+.grid label{color:var(--muted)}
+.grid .changed{background:#eff6ff;border-color:#93c5fd}
+.note{font-size:12.5px;background:#f5f3ff;border-radius:5px;padding:6px 8px;margin:8px 0;color:#3f3a63}
+.note b{font-weight:600}
+.reason{font-size:13px;margin:4px 0 8px}
+.list{font-size:12.5px;width:100%;border-collapse:collapse}
+.list td{padding:3px 4px;border-bottom:1px solid #f0eee9;cursor:pointer;vertical-align:top}
+.list tr:hover td{background:#faf9f6}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.hint{font-size:11.5px;color:var(--muted);margin-top:6px}
+.warn{color:#b45309;font-size:12px}
+.saved{font-size:11.5px;color:var(--approve-b);margin-left:auto}
+kbd{font:11px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:3px;padding:0 4px;background:#fafaf9}
+@media (max-width:1050px){.grid{grid-template-columns:110px minmax(0,1fr)}.grid .wide{grid-column:auto}}
+@media (max-width:1200px){#paperwrap{padding:10px 8px 120px}#paper{padding:16px}}
+@media (max-width:640px){#app{grid-template-columns:1fr;grid-template-rows:60vh 40vh}#panel{border-left:0;border-top:1px solid var(--line)}#paperwrap{padding:12px}#paper{padding:18px}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="paperwrap"><div id="paper">Loading…</div></div>
+  <div id="panel">
+    <div id="top"></div>
+    <div id="body"></div>
+  </div>
+</div>
+<script>
+const V = {
+  taxon_rank_as_cited: ["species","genus","family","order","class","phylum","functional group"],
+  direction: ["protective","exacerbating","context-dependent","unspecified","null"],
+  evidence: ["human observational","human interventional","murine","unspecified"],
+  mechanism_specific: ["0. Unattributed","1a. SCFA / butyrate signaling","1b. Bile acid signaling",
+    "1c. Tryptophan / indole signaling","1d. Other metabolites","2a. Innate immune","2b. T-cell adaptive",
+    "2c. Other immune","3a. Epithelial barrier","3b. Colonization resistance / competitive exclusion",
+    "4b. Pathobiont expansion / mono-dominance"],
+  target_type: ["taxon","mechanism"],
+  intervention: ["","diet","antibiotic","probiotic / LBP","FMT","defined consortium"],
+};
+const BROAD = s => {const k=s.split(".")[0];
+  return k==="0"?"Class 0: Unattributed":k[0]==="1"?"Class 1: Metabolite-mediated":k[0]==="2"?"Class 2: Immune cell targeting":
+  k==="3a"?"Class 3: Barrier and structural":"Class 4: Pathobiont expansion";};
+const LAYOUT = [["taxon_as_cited","text","taxon"],["taxon_rank_as_cited","sel","rank"],["direction","sel","direction"],
+  ["intervention","sel","intervention"],["evidence_as_stated","text","evidence (as stated)"],["evidence","sel","evidence"],
+  ["target_type","sel","target type"],["ref_string","text","refs"],["mechanism_specific","sel","mechanism"],
+  ["mechanism_as_named","text","claim (short)"]];
+const WIDE = new Set(["mechanism_specific","mechanism_as_named"]);
+const COLORS = {pending:"var(--pending-b)",approve:"var(--approve-b)",reject:"var(--reject-b)",discuss:"var(--discuss-b)",skip:"var(--skip-b)",skip_ok:"var(--skip-b)"};
+
+let PAPER, ITEMS=[], DEC={}, GROUPS=[], byId={}, cur={g:null,item:null}, unplaced=new Set(), filter="all";
+
+const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function normStr(s){let o="";for(const ch of s){const c=normChar(ch);if(c===" "&&(o===""||o.endsWith(" ")))continue;o+=c;}return o.trim();}
+function normChar(ch){
+  let c=ch.normalize("NFKC");
+  if(/[‘’ʼ′`]/.test(c))return "'";
+  if(/[“”]/.test(c))return '"';
+  if(/[‐-―−]/.test(c))return "-";
+  if(/\s/.test(c))return " ";
+  return c.toLowerCase();
+}
+
+async function load(){
+  const params=new URLSearchParams(location.search);
+  let key=params.get("paper");
+  if(!key){const ps=await (await fetch("/api/papers")).json();key=ps[0];}
+  const r=await fetch("/api/paper/"+key); const d=await r.json();
+  if(!r.ok){document.getElementById("paper").textContent=d.error;return;}
+  PAPER=d.proposals; ITEMS=PAPER.items; DEC=d.decisions||{};
+  ITEMS.forEach(it=>byId[it.id]=it);
+  document.title="Review: "+PAPER.paper_key;
+  renderPaper(d.markdown);
+  buildGroups(); placeHighlights(); refreshMarks(); renderTop(); showHome();
+}
+
+function renderPaper(md){
+  const skill=PAPER.skill;
+  marked.use({renderer:{
+    link(href,title,text){
+      if(/\.(jpe?g|png)$/i.test(href)){const src="/skill/"+skill+"/"+href.replace(/^\.\.\//,"");
+        return `<img src="${src}" alt="${esc(text)}">`;}
+      if(/\.csv$/i.test(href))return "";
+      return `<a href="${href}" target="_blank">${text}</a>`;
+    }}});
+  document.getElementById("paper").innerHTML=marked.parse(md);
+}
+
+function buildGroups(){
+  const m=new Map();
+  ITEMS.forEach(it=>{const k=normStr(it.quote);if(!m.has(k))m.set(k,{key:k,quote:it.quote,location:it.location,items:[]});m.get(k).items.push(it);});
+  GROUPS=[...m.values()];
+  GROUPS.forEach((g,i)=>{g.idx=i;g.items.forEach(it=>it.g=i);});
+}
+
+// Build a normalized text index of the paper DOM, skipping citation superscripts.
+function textIndex(root){
+  const BLOCK=/^(P|LI|TD|TH|H[1-6]|FIGCAPTION|BLOCKQUOTE|DIV)$/;
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  let s="",map=[],lastBlock=null,n;
+  while((n=walker.nextNode())){
+    const sup=n.parentElement.closest("sup");
+    if(sup&&/^\s*\[[\d,\s\-‐-―]+\]\s*$/.test(sup.textContent))continue;
+    let b=n.parentElement;while(b&&!BLOCK.test(b.tagName))b=b.parentElement;
+    if(b!==lastBlock){if(s&&!s.endsWith(" ")){s+=" ";map.push(null);}lastBlock=b;}
+    const t=n.nodeValue;
+    for(let i=0;i<t.length;i++){const c=normChar(t[i]);
+      if(c===" "&&(s===""||s.endsWith(" ")))continue;
+      for(const cc of c){s+=cc;map.push([n,i]);}}
+  }
+  return {s,map};
+}
+
+function placeHighlights(){
+  const root=document.getElementById("paper");
+  for(const g of GROUPS){
+    const {s,map}=textIndex(root);
+    const at=s.indexOf(g.key);
+    if(at<0){unplaced.add(g.idx);continue;}
+    // collect per-node ranges
+    const segs=new Map();
+    for(let i=at;i<at+g.key.length;i++){const p=map[i];if(!p)continue;
+      const [node,off]=p;const r=segs.get(node)||[off,off];r[0]=Math.min(r[0],off);r[1]=Math.max(r[1],off);segs.set(node,r);}
+    for(const [node,[a,b]] of [...segs.entries()]){
+      const range=document.createRange();range.setStart(node,a);range.setEnd(node,b+1);
+      const mk=document.createElement("mark");mk.className="q";mk.dataset.g=g.idx;
+      range.surroundContents(mk);
+    }
+  }
+  root.addEventListener("click",e=>{const mk=e.target.closest("mark.q");if(mk)select(+mk.dataset.g,true);});
+}
+
+const status=it=>DEC[it.id]?.decision||(it.kind==="skipped"?"skip":"pending");
+function groupStatus(g){
+  const st=g.items.map(status);
+  if(st.includes("pending"))return "pending";
+  if(st.includes("skip"))return "skip";
+  if(st.includes("discuss"))return "discuss";
+  if(st.includes("approve"))return "approve";
+  if(st.includes("reject"))return "reject";
+  return "skip_ok";
+}
+function refreshMarks(){
+  document.querySelectorAll("mark.q").forEach(mk=>{const g=GROUPS[+mk.dataset.g];const st=groupStatus(g);
+    mk.className="q s-"+st+(cur.g===g.idx?" sel":"");});
+}
+
+function counts(){
+  const c={pending:0,approve:0,reject:0,discuss:0,skip:0,skip_ok:0};
+  ITEMS.forEach(it=>c[status(it)]++);return c;
+}
+function renderTop(){
+  const c=counts(),tot=ITEMS.length,done=tot-c.pending-c.skip;
+  const seg=(k)=>`<span style="width:${100*c[k]/tot}%;background:${COLORS[k]}"></span>`;
+  const pnote=DEC._paper_note?.review_note||"";
+  document.getElementById("top").innerHTML=`
+    <h2>${esc(PAPER.title)}</h2>
+    <div class="bar">${seg("approve")}${seg("discuss")}${seg("reject")}${seg("skip_ok")}</div>
+    <div class="counts"><span><b>${done}</b>/${tot} decided</span><span>${c.approve} approved</span><span>${c.discuss} discuss</span>
+      <span>${c.reject} rejected</span><span>${c.pending} rows open</span><span>${c.skip} skips to confirm</span></div>
+    <div class="row"><button onclick="nextOpen()">Next open <kbd>n</kbd></button><button onclick="showHome()">All items</button>
+      <select id="flt" style="width:auto" onchange="filter=this.value;showHome()">
+        ${["all","open","discuss","approve","reject","skipped"].map(f=>`<option ${f===filter?"selected":""}>${f}</option>`).join("")}</select>
+      <span class="saved" id="saved"></span></div>
+    <details style="margin-top:8px"${pnote?" open":""}><summary style="font-size:12.5px;cursor:pointer">Paper notes and missed claims</summary>
+      <textarea id="pnote" placeholder="Anything I missed, or general points for the end-of-paper discussion">${esc(pnote)}</textarea>
+      <button style="margin-top:4px" onclick="savePaperNote()">Save note</button></details>`;
+}
+
+function showHome(){
+  cur={g:null,item:null};refreshMarks();
+  const keep=it=>{const s=status(it);return filter==="all"||(filter==="open"&&(s==="pending"||s==="skip"))||
+    (filter==="skipped"&&it.kind==="skipped")||filter===s;};
+  const rows=ITEMS.filter(keep).map(it=>{const s=status(it);const f=it.fields||{};
+    return `<tr onclick="select(${it.g},true,'${it.id}')"><td><span class="dot" style="background:${COLORS[s]}"></span>${it.id}</td>
+      <td>${it.kind==="skipped"?"<i>skipped by rule</i>":esc(f.taxon_as_cited)}</td><td>${esc(f.direction||"")}</td>
+      <td>${unplaced.has(it.g)?'<span class="warn">not placed</span>':""}</td></tr>`;}).join("");
+  document.getElementById("body").innerHTML=`
+    <p class="hint">Click a highlight in the paper, or a row below. Yellow = proposed row, dashed = something I chose to skip.
+    Keys on the current card: <kbd>a</kbd> approve, <kbd>r</kbd> reject, <kbd>d</kbd> discuss, <kbd>n</kbd> next open.
+    Field edits are saved with Approve and Discuss.</p>
+    ${unplaced.size?`<p class="warn">${unplaced.size} quote(s) could not be placed in the text. They are still reviewable from this list.</p>`:""}
+    <table class="list">${rows}</table>`;
+}
+
+function select(gi,scroll,itemId){
+  const g=GROUPS[gi];cur.g=gi;
+  const first=itemId?byId[itemId]:(g.items.find(it=>["pending","skip"].includes(status(it)))||g.items[0]);
+  cur.item=first.id;refreshMarks();
+  if(scroll){const mk=document.querySelector(`mark.q[data-g="${gi}"]`);if(mk)mk.scrollIntoView({block:"center",behavior:"smooth"});}
+  renderGroup();
+}
+
+function fieldRow(it,key,type,label){
+  const orig=it.fields[key]??"";const val=(DEC[it.id]?.fields||it.fields)[key]??"";
+  const ch=val!==orig?" changed":"";
+  let ctl;
+  if(type==="sel"){const opts=V[key].includes(val)?V[key]:[...V[key],val];
+    ctl=`<select data-k="${key}" class="${ch}${WIDE.has(key)?" wide":""}" onchange="fieldChanged('${it.id}')">${opts.map(o=>`<option ${o===val?"selected":""} value="${esc(o)}">${esc(o)||"(none)"}</option>`).join("")}</select>`;}
+  else ctl=`<input type="text" data-k="${key}" class="${ch}${WIDE.has(key)?" wide":""}" value="${esc(val)}" oninput="fieldChanged('${it.id}')">`;
+  return `<label title="${key}">${label}</label>${ctl}`;
+}
+
+function card(it){
+  const d=DEC[it.id]||{};const s=status(it);const isCur=cur.item===it.id;
+  const badge=(s!=="pending"&&s!=="skip")?`<span class="badge b-${s}">${s==="skip_ok"?"skip agreed":s}</span>`:"";
+  const ed=d.edited?`<span class="badge b-edited">edited</span>`:"";
+  if(it.kind==="skipped"){
+    return `<div class="card${isCur?" cur":""}" id="c-${it.id}" onclick="cur.item='${it.id}';markCur()">
+      <h3><span>${it.id} · skipped by rule</span><span>${badge}</span></h3>
+      <div class="reason">${esc(it.note)}</div>
+      <textarea id="n-${it.id}" placeholder="Note (why it should be a row)">${esc(d.review_note||"")}</textarea>
+      <div class="row"><button class="a${s==="skip_ok"?" on":""}" onclick="decide('${it.id}','skip_ok')">Agree, skip <kbd>a</kbd></button>
+      <button class="d${s==="discuss"?" on":""}" onclick="decide('${it.id}','discuss')">Should be a row <kbd>d</kbd></button>
+      ${badge?`<button onclick="decide('${it.id}',null)">Undo</button>`:""}</div></div>`;
+  }
+  return `<div class="card${isCur?" cur":""}" id="c-${it.id}" onclick="cur.item='${it.id}';markCur()">
+    <h3><span>${it.id} · ${esc(it.fields.taxon_as_cited)}</span><span>${ed} ${badge}</span></h3>
+    <div class="grid">${LAYOUT.map(([k,t,l])=>fieldRow(it,k,t,l)).join("")}
+      <label>class</label><span id="broad-${it.id}" class="wide" style="font-size:12.5px">${esc(BROAD((d.fields||it.fields).mechanism_specific))}</span></div>
+    ${it.note?`<div class="note"><b>My note:</b> ${esc(it.note)}</div>`:""}
+    ${d.discussion?`<div class="note" style="background:#ecfdf3;color:#14532d"><b>Discussion:</b> ${esc(d.discussion)}</div>`:""}
+    <textarea id="n-${it.id}" placeholder="Your note (needed for Discuss, optional otherwise)">${esc(d.review_note||"")}</textarea>
+    <div class="row"><button class="a${s==="approve"?" on":""}" onclick="decide('${it.id}','approve')">Approve <kbd>a</kbd></button>
+      <button class="r${s==="reject"?" on":""}" onclick="decide('${it.id}','reject')">Reject <kbd>r</kbd></button>
+      <button class="d${s==="discuss"?" on":""}" onclick="decide('${it.id}','discuss')">Discuss <kbd>d</kbd></button>
+      ${badge?`<button onclick="decide('${it.id}',null)">Undo</button>`:""}
+      <button onclick="resetFields('${it.id}')" title="Restore my proposed values">Reset fields</button></div></div>`;
+}
+
+function renderGroup(){
+  const g=GROUPS[cur.g];
+  document.getElementById("body").innerHTML=`
+    <div class="row" style="margin:0 0 8px"><button onclick="showHome()">← All items</button>
+      <span class="hint" style="margin:0">${g.items.length} item${g.items.length>1?"s":""} on this quote</span></div>
+    <div class="loc">${esc(g.location)}${unplaced.has(g.idx)?' · <span class="warn">not placed in text</span>':""}</div>
+    <blockquote>${esc(g.quote)}</blockquote>
+    ${g.items.map(card).join("")}`;
+  const c=document.getElementById("c-"+cur.item);if(c)c.scrollIntoView({block:"nearest"});
+}
+function markCur(){document.querySelectorAll(".card").forEach(c=>c.classList.toggle("cur",c.id==="c-"+cur.item));}
+
+function readFields(id){
+  const it=byId[id];const f={...it.fields};
+  document.querySelectorAll(`#c-${id} [data-k]`).forEach(el=>f[el.dataset.k]=el.value);
+  f.mechanism_broad=BROAD(f.mechanism_specific);
+  if(f.taxon_rank_as_cited==="functional group"&&f.target_type==="taxon")f.target_type="mechanism";
+  return f;
+}
+function fieldChanged(id){
+  const it=byId[id];const f=readFields(id);
+  document.querySelectorAll(`#c-${id} [data-k]`).forEach(el=>el.classList.toggle("changed",el.value!==(it.fields[el.dataset.k]??"")));
+  const b=document.getElementById("broad-"+id);if(b)b.textContent=f.mechanism_broad;
+}
+function resetFields(id){const d=DEC[id];if(d){d.fields={...byId[id].fields};d.edited=false;}renderGroup();}
+
+async function post(record){
+  const r=await fetch("/api/decision",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({paper:PAPER.paper_key,record})});
+  const el=document.getElementById("saved");
+  if(el){el.textContent=r.ok?"saved "+new Date().toLocaleTimeString():"SAVE FAILED";el.style.color=r.ok?"":"#b91c1c";}
+  if(!r.ok)alert("Save failed. Is the server still running?");
+}
+
+async function decide(id,decision){
+  const it=byId[id];const note=(document.getElementById("n-"+id)?.value||"").trim();
+  if(decision===null){delete DEC[id];await post({id,decision:null});}
+  else{
+    const rec={id,kind:it.kind,decision,review_note:note,location:it.location,quote:it.quote};
+    if(it.kind==="proposal"){rec.fields=readFields(id);
+      rec.edited=Object.keys(it.fields).some(k=>(rec.fields[k]??"")!==(it.fields[k]??""));}
+    DEC[id]=rec;await post(rec);
+  }
+  refreshMarks();renderTop();
+  const g=GROUPS[cur.g];const nextIn=g.items.find(x=>["pending","skip"].includes(status(x)));
+  if(decision!==null&&!nextIn){setTimeout(nextOpen,250);return;}
+  if(nextIn)cur.item=nextIn.id;
+  renderGroup();
+}
+
+async function savePaperNote(){
+  const v=document.getElementById("pnote").value.trim();
+  DEC._paper_note={id:"_paper_note",kind:"paper_note",decision:"note",review_note:v};
+  await post(DEC._paper_note);
+}
+
+function nextOpen(){
+  const start=cur.g==null?-1:cur.g;
+  for(let k=1;k<=GROUPS.length;k++){const g=GROUPS[(start+k)%GROUPS.length];
+    if(g.items.some(it=>["pending","skip"].includes(status(it)))){select(g.idx,true);return;}}
+  showHome();
+}
+
+document.addEventListener("keydown",e=>{
+  if(e.target.matches("input,textarea,select")||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(e.key==="n"){nextOpen();e.preventDefault();return;}
+  if(!cur.item)return;const it=byId[cur.item];
+  if(e.key==="a")decide(cur.item,it.kind==="skipped"?"skip_ok":"approve");
+  else if(e.key==="r"&&it.kind==="proposal")decide(cur.item,"reject");
+  else if(e.key==="d")decide(cur.item,"discuss");
+});
+load();
+</script>
+</body>
+</html>

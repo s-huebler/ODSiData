@@ -32,6 +32,7 @@ damico_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/DAmico2019/Me
 fujimoto_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/Fujimoto2024/Metadata/fuji_meta_qiime.tsv"))
 ingham_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/Ingham2019/Metadata/ingham_meta_qiime.tsv"))
 liu_raw  <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/Liu2017/Metadata/liu_meta_qiime.tsv")) 
+orberg_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/OrbergMO2024/Metadata/orbergMO_meta_qiime.tsv"))
 vallet_raw <- ensure_sample_id(read_tsv("~/Documents/ODSi/ODSiData/Vallet2023/Metadata/vallet_meta_qiime.tsv"))
 
 jarosch_raw <- read_csv("~/Documents/ODSi/ODSiData/Jarosch2023/Metadata/Raw_metadata/meta_samples.csv")%>%
@@ -108,4 +109,10 @@ harmonized_meta <- bind_rows(artacho,
 ```{r}
 write_tsv(harmonized_meta,
           file = "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
+```
+
+# Reading in
+
+```{r}
+harmonized_meta <- read_tsv("~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
 ```

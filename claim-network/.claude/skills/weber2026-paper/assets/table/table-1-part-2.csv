@@ -1,0 +1,5 @@
+Immune Cell Type,Crosstalk with Gut Microbiota,Key Metabolites/Mechanisms,Functional Impact,Therapeutic Relevance,References
+ILC3s,Alistipes spp. activate AhR in ILC3s to produce IL-22.,"AhR ligands (indole derivatives), SCFAs",Enhances mucosal barrier repair; regulates lymphoid tissue development.,"AhR agonists (e.g., dietary indoles); Alistipes consortia.","[31, 34]"
+,Dysbiosis reduces ILC3-mediated epithelial repair and antimicrobial peptide production.,,,,
+γδ T Cells,Microbiota-derived D-lactate primes γδ T cells for IL-17 production.,"D-lactate, SCFAs",Early defense against pathogens; promotes tissue homeostasis.,D-lactate-producing probiotics; γδ T cell boosters.,[94]
+,Lactobacillus spp. modulate γδ T cell trafficking to gut mucosa through GPR15 signaling.,,,,

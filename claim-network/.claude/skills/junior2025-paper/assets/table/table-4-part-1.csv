@@ -1,0 +1,21 @@
+Outcomes,"Autor, Year
+N
+Sample Timing",Implication
+"Overall Survival [22,32]","Messina 2024 [22]
+98
+Stools were collected once prior to HSCT, weekly until D + 30 and then at days D + 45, D + 90 and D + 180","↓ Overall survival
+Patients with Enterococcus domination had decreased overall survival (p = 0.01).
+Overall survival
+Bacteroides domination at any time point was not significantly associated with overall survival (p = 0.08).
+Akkermansia domination at any time point was not significantly associated with overall survival (p = 0.14).
+Blautia domination at any time point was not significantly associated with overall survival (p value NR).
+Lactobacillus domination was not significantly associated with overall survival (p = 0.52).
+Streptococcus domination was not significantly associated with overall survival (p = 0.70)."
+Overall Survival,"Stein-Thoeringer 2019 [32]
+1325
+Samples were collected in the early post-transplant period (D0 to D + 21)","↓ Overall survival
+Patients with Enterococcus domination in the early-post transplant period had significantly reduced overall survival in univariate analysis (HR 1.97; 95% CI 1.45–2.66; p < 0.001). This finding remained significant in a multivariate analysis adjusted for graft source, age, conditioning intensity, gender and underlying disease (HR 2.06; 95% CI 1.50–2.82; p < 0.0001)."
+Transplantation-related Mortality [22],"Messina 2024 [22]
+98
+Stools were collected once prior to HSCT, weekly until D + 30 and then at days D + 45, D + 90 and D + 180","↑ Treatment-related mortality
+Patients with Enterococcus domination had increased treatment-related mortality (p = 0.02)."

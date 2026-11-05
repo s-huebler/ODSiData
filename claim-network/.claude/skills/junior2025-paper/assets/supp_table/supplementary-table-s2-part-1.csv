@@ -1,0 +1,25 @@
+Fingerprint,"Author, year
+N",Findings
+Enterobacteriaceae abundance >5%[5],"Mancini 2017[5]
+96","↑Sepsis
+Enterobacteriaceae abundance >5% was associated with increased sepsis risk (HR 6.577; 95% CI 2.246-19.255; p = 0.021)."
+Lachnospiraceae abundance ≤10%[5],"Mancini 2017[5]
+96","↑All-cause mortality
+Lachnospiraceae abundance ≤10% was associated with increased all-cause mortality (HR 4.439; 95% CI 2.181-9.035; p < 0.001).
+↑Infection-related mortality
+Lachnospiraceae abundance ≤10% was associated with increased infection-related mortality (HR 7.051; 95% CI 2.007-24.778; p = 0.006).
+↑Non-infection-related mortality
+Lachnospiraceae abundance ≤10% was associated with increased non-infection-related mortality (HR 21.211; 95% CI 4.949-90.915; p < 0.001)."
+Gram-negative MDR[5],"Mancini 2017[5]
+96","↑Non-infection-related mortality
+Enteric colonization by Gram-negative MDR was associated with increased non-infection-related mortality (HR 10.280; 95% CI 1.536-68.795; p = 0.048)."
+"Blautia abundance[6,11]","Masetti 2023[6]β
+90","↓aGvHD
+Higher relative abundance of Blautia was protective against subsequent aGvHD development (p < 0.05)."
+Blautia abundance,"Biagi 2019[11]
+36","↓aGvHD
+When compared to patients who developed GvHD, individuals without aGvHD showed a higher relative abundance of Blautia (mainly Blautia wexlerae) (8.7% vs. 4.0% [skin GvHD] vs. 1.4% [gut GvHD]; p = 0.046). Blautia negative association with aGvHD was confirmed by Random Forest analysis (p = 0.046)"
+Ruminococcus abundance[6],"Masetti 2023[6]β
+90","↓aGvHD
+Higher relative abundance of Ruminococcus was protective against subsequent aGvHD development (p < 0.05)."
+Streptococcus abundance[6],Masetti 2023[6]β,↑aGvHD

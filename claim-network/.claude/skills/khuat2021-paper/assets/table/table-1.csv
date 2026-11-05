@@ -1,0 +1,15 @@
+,Mice,Humans
+Genotype,Inbred (genetically homogeneous),Outbred with tremendous human leukocyte antigen (HLA) diversity
+Age,"Predominantly young (8–12 weeks old), equivalent to early adolescence in humans",Variable age
+Environment,specific-pathogen-free (SPF),"Numerous pathogen exposures (acute, chronic and latent)"
+Microbiome,"Husbandry-related factors such as mouse transfer, water decontamination could affect microbiome change^67,68","Preexisting disease (i.e., obesity^50,57,58), environmental exposure, and antibiotic use all have effects on the human microbiome^69"
+Diet,Changes in diet can alter the intestinal microbiome^70–72,"Diet types (omnivorous, vegan, and vegetarian) determine microbiome profiles^73"
+Recipient health status,Healthy lean (body weight below 30 g),"Highly variable, with an increasing obesity (BMI >30 kg/m^2) and preexisting diseases"
+HSCT,conditioning regimens,"Lethal dose of total body radiation (single or split doses), chemotherapy rarely applied"
+,Myeloablative and non-myeloablative regimens,
+HSCT,application,"Modeling of HSCT for human cancers, including xenogeneic transplant models"
+Treatment of a variety of disease states ranging from cancer to,hematopoietic disorders,
+GVHD,pathogenesis,Donor bone marrow cells do not give rise to GVHD. Donor T cells (mostly naïve T cells) are required to induce GVHD.
+Adult HSC sources are sufficient to cause GVHD,depending on the level of HLA compatibility and the conditioning regimen used,
+GVHD type,"Mostly either acute or chronic, crucially dependent on strain combination used and the type of conditioning.",GVHD can be mixed (acute and chronic)
+Graft-versus-tumor (GVT) effect,"Numerous studies of approaches to enhance GVT effect and limit GVHD, although the emphasis is on GVHD prevention or treatment and only short-term results","Emphasis has been to improve GVT either through adoptive cell therapies or improved immune reconstitution following HSCT, without exacerbating GVHD"

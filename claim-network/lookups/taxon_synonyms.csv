@@ -1,0 +1,18 @@
+name_as_cited,gtdb_query,rank_fix,note
+Firmicutes,Bacillota,,NCBI phylum name -> GTDB
+Proteobacteria,Pseudomonadota,,NCBI phylum name -> GTDB
+Bacteroidetes,Bacteroidota,,NCBI phylum name -> GTDB
+Actinobacteria,Actinomycetota,,NCBI phylum name -> GTDB
+Verrucomicrobia,Verrucomicrobiota,,NCBI phylum name -> GTDB
+γ-Proteobacteria,Gammaproteobacteria,,spelling variant
+Lactobacilli,Lactobacillus,,plural common name
+Enterococci,Enterococcus,,plural common name
+bifidobacteria,Bifidobacterium,,common name
+Ruminococcus 2,Ruminococcus,,SILVA cluster label
+vancomycin-resistant Enterococcus (VRE),Enterococcus,genus,resistance phenotype dropped
+vancomycin-resistant Enterococcus,Enterococcus,genus,resistance phenotype dropped
+Lactobacillus rhamnosus GG,Lacticaseibacillus rhamnosus,,strain to species; genus reclassified
+Clostridium bolteae,Enterocloster bolteae,,genus reclassified
+Clostridium coccoides,Blautia coccoides,,genus reclassified
+Bifidobacterium longum subsp. infantis,Bifidobacterium longum,,subspecies to species
+Enterobacteriales,Enterobacterales,,NCBI order spelling -> GTDB

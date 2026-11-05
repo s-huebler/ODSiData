@@ -85,3 +85,13 @@ Trichoderma,genus,Trichoderma,,Eukaryota,Ascomycota,Sordariomycetes,Hypocreales,
 Vancomycin-resistant bacteria,functional,,,,,,,,,,not_applicable,no,,rank=functional is not a GTDB biological taxon
 Veillonella,genus,Veillonella,genus,Bacteria,Bacillota,Negativicutes,Veillonellales,Veillonellaceae,Veillonella,,exact_gtdb,no,r232,
 bacterial flagellin,molecular_pattern,,,,,,,,,,not_applicable,no,,rank=molecular_pattern is not a GTDB biological taxon
+Candida parapsilosis complex,species,Candida parapsilosis,species,Eukaryota,Ascomycota,Pichiomycetes,Serinales,Debaryomycetaceae,Candida,Candida parapsilosis,manual,no,r232,not in GTDB (non-bacterial); NCBI lineage
+Saccharomyces,genus,Saccharomyces,genus,Eukaryota,Ascomycota,Saccharomycetes,Saccharomycetales,Saccharomycetaceae,Saccharomyces,,manual,no,r232,not in GTDB (non-bacterial); NCBI lineage
+Picobirnaviridae,family,Picobirnaviridae,family,Viruses,Pisuviricota,Duplopiviricetes,Durnavirales,Picobirnaviridae,,,manual,no,r232,not in GTDB (non-bacterial); NCBI lineage
+Erysipelatoclostridium,genus,Thomasclavelia,genus,Bacteria,Bacillota_I,Bacilli_A,Erysipelotrichales,Coprobacillaceae,Thomasclavelia,,manual,yes,r232,Erysipelatoclostridium (type species E. ramosum) is Thomasclavelia in GTDB r232; old name absent
+Pasteurellales,order,Pasteurellaceae,family,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Pasteurellaceae,,,manual,yes,r232,Order absent in GTDB; its only family Pasteurellaceae sits in Enterobacterales. Mapped to the family to keep it distinct from Enterobacterales
+Staphylococcaceae,family,Staphylococcaceae,family,Bacteria,Bacillota,Bacilli,Staphylococcales,Staphylococcaceae,,,auto_exact,no,r232,
+Enterobacteriales,order,Enterobacterales,order,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,,,,auto_exact,yes,r232,name normalized Enterobacteriales -> Enterobacterales
+Pasteurella,genus,Pasteurella,genus,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Pasteurellaceae,Pasteurella,,auto_exact,no,r232,
+Eubacterium limosum,species,Eubacterium limosum,species,Bacteria,Bacillota,Clostridia,Eubacteriales,Eubacteriaceae,Eubacterium,Eubacterium limosum,auto_exact,no,r232,
+Desulfovibrionaceae,family,Desulfovibrionaceae,family,Bacteria,Desulfobacterota,Desulfovibrionia,Desulfovibrionales,Desulfovibrionaceae,,,auto_exact,no,r232,

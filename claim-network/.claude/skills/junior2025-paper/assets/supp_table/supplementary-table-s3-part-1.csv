@@ -1,0 +1,10 @@
+"Author, year
+N",Samples Timing,Intestinal Diversity
+"Mancini 2017[5]
+96","Samples were collected 1) prior to conditioning regimen; 2) D+10, and 3) D+30","Prior to conditioning regimen vs. D+10
+When compared to samples collected prior to the conditioning regimen, samples at D+10 had a significant decrease in alpha diversity metrics:
+Shannon index: 4.65±1.36 vs. 3.08±1.77; p < 0.001.
+Inverse Simpson index: 0.85±0.13 vs. 0.65±0.27; p < 0.001
+Observed OTU: 231.61±126.49 vs. 120.23±104.95; p < 0.0001
+Chao1: 477.49±330.06 vs. 229.51±227.31; p < 0.0001
+Prior to conditioning regimen vs. D+30"

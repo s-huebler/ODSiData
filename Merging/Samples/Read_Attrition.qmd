@@ -117,7 +117,7 @@ tibble(step = factor(step_order, levels = step_order), y = 1) %>%
 ## Metadata
 
 ```{r}
-meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
+meta <- read_tsv("/Users/sophiehuebler/Documents/ODSi/ODSiData/Merging/merged_minimal_metadata.tsv")
 ```
 
 ## Data frame
@@ -161,6 +161,21 @@ read_counts %>%
               summarise(across(c(input, mapped), sum), .groups = "drop"),
             by = "study") %>%
   mutate(retained = scales::percent(mapped / input, accuracy = 0.1))
+
+
+```
+
+```{r}
+read_counts %>%
+  count(study) %>%
+  left_join(read_counts %>%
+              group_by(study) %>%
+              summarise(across(c(input, non_chimeric, qc, mapped), sum), .groups = "drop"),
+            by = "study") %>%
+  mutate(retained = scales::percent(mapped / input, accuracy = 0.1),
+         retained_input_to_qc = scales::percent(qc / input, accuracy = 0.1),
+         retained_qc_to_map = scales::percent(mapped / qc, accuracy = 0.1))%>%View()
+
 ```
 
 ```{r}

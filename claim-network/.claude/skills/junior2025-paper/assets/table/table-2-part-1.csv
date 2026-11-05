@@ -1,0 +1,20 @@
+Outcome,"Author, Year
+N
+Sample Timing",Finding
+Overall Survival,"Peled 2020 [17]
+704
+At engraftment","↑ Overall Survival
+Patients were categorized into low- vs. high-diversity groups based on the median value.
+High diversity at engraftment was associated with a significant improve in overall survival (HR 0.75; 95% CI 0.58–0.96). This association was also identified after multivariable adjustment for age, intensity of the conditioning regimen, graft source and HCT-CI (HR 0.71; 95% CI 0.55–0.92).
+When considered as a continuous variable, high intestinal diversity was also associated with improved overall survival in both univariate (HR 0.58; 95% CI 0.37–0.91) and multivariate (HR 0.50; 95% CI 0.31–0.80) analysis."
+"Overall Survival [17,23,24]","Taur 2014 [23]
+80
+At engraftment","↑ Overall Survival
+Overall survival at 3 years was 36%, 60% and 67% for low, intermediate and high diversity groups (p = 0.19).
+Patients with low diversity (inverse Simpson < 2) were 3 times more likely to die within the follow-up when compared to those with higher microbial diversity (HR 3.13, 95% CI 1.39–7.98; p = 0.05; adjusted HR 2.56; 95% CI 1.03–7.23; p = 0.42).
+Low diversity showed a strong effect on mortality after multivariate adjustment for other clinical predictors (transplant related mortality: adjusted hazard ratio, 5.25; p = 0.014)."
+Overall Survival,"Gu 2022 [24]
+86
+At engraftment","↑ Overall Survival
+Patients were categorized into low- vs. high- diversity groups based on the median Shannon Index value.
+When compared to patients with low diversity, patients with high diversity had significantly higher two-year overall survival (83.7% vs. 60.6%; p = 0.026). After adjusting for disease risk, pretransplant comorbidity, and previous chemotherapy, low intestinal diversity was an independent predictor of all-cause death (HR 2.62; 95% CI 1.06–6.49; p = 0.038) in a multivariate analysis."

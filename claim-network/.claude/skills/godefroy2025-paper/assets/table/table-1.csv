@@ -1,0 +1,20 @@
+Bacteria,Association with aGVHD,Demonstrated or suspected mechanisms,Refs.
+Akkermansia genus,reduced GvHD risk,"SCFA production, increased Treg induction","[29,105]"
+"Akkermansia muciniphila (at least, certain strains)",reduced aGvHD risk,"SCFA production, increased Treg induction",[106]
+Bacillus spp.,reduced aGI-GvHD risk,decreased MyD88/TLR9 triggering,[107]
+Bacteroides fragilis,reduced both aGvHD (and cGvHD),"glycoantigens (PSA) production, inducing human peripheral Tr1 cell differentiation","[108,109]"
+Bacteroides ovatus,"reduced GvHD severity, reduced steroid-resistant aGI-GvHD, reduced GvHD-related death","xylose production, suppression of mucus-degrading gut microbes",[110]
+Bifidobacterium,reduced aGvHD risk,"increased production of metabolites, i.e., polyamines (N-acetyl putrescine and N-acetyl spermidine), secondary bile acids (isoDCA),",[40]
+Blautia genus,"reduced GvHD-related death, reduced GvHD severity, reduced aGvHD risk","increased Treg/Th17 ratio, SCFA production (butyrate, which binds to GPR43)","[105,106,111–114]"
+"Clostridiales order (Faecalibacterium, Roseburia, Ruminococcus, Blautia)",reduced GvHD risk,Specific Foxp3+ Treg induction in mouse colon; SCFA production,"[107,115]"
+Clostridium butyricum,reduced aGvHD risk,maintenance of intestinal microbiota diversity,[116]
+Coriobacteriaceae family,reduced aGI-GvHD risk,"inflammation prevention, possibly in a TLR4/LPS-dependent manner",[117]
+Faecalibacterium duncaniae,reduced GvHD risk,"TolDC induction, gut microbiota-reactive DP8α Treg induction, NF-κB inhibition via MAM, SCFA (particularly potent butyrate producer) production","[41,65,118–121]"
+Faecalibacterium genus,reduced GvHD risk,"SCFA production, increased Treg induction",[105]
+Lachnospiraceae family,reduced aGvHD risk,"SCFA production, increased Treg/Th17 ratio","[105,114,118]"
+Lactobacillus,reduced GvHD risk,"SCFA (mainly, lactate) production, inflammation, and gut damage prevention",[114]
+Ruminococcaceae genus,reduced aGvHD risk,"SCFA production, increased Treg induction","[105,114,118]"
+Veillonella genus,reduced aGvHD risk,SCFA (propionate) production,"[105,118]"
+"lactase-producing bacteria (mainly, Actinobacteria, Proteobacteria, Firmicutes)",reduced GvHD risk,"SCFA (mainly, lactate) production, inflammation prevention, and increased Treg induction","[114,122]"
+gentamicin-resistant bacteria,reduced GvHD-related death,modulation of MHC-II expression on IECs,[31]
+vancomycin-resistant bacteria,reduced GvHD-related death,modulation of MHC-II expression on IECs,[31]

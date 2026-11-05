@@ -1,0 +1,9 @@
+variant	median_richness	q25	q75	median_shannon	runs_with_richness_equal_to_any_published
+earlier_repro	32	21	52	2.298	13
+A_27F_nochim	16	12	32	1.755	12
+A_27F_pre	22	13	33	1.77	16
+B_both_nochim	35	23	58	2.25	21
+B_both_pre	41	26	63	2.326	17
+C_27F_pseudo_nochim	21	14	35	1.759	10
+C_27F_pseudo_pre	24	15	38	1.787	13
+published_TableS1	61.5	38.25	96.5	2.127	NA

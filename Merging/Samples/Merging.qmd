@@ -31,6 +31,7 @@ source("~/Documents/ODSi/ODSiData/Functions/debiasm.R")
 source("~/Documents/ODSi/ODSiData/Functions/build_phyloseq.R")
 source("~/Documents/ODSi/ODSiData/Functions/plot_beta_correction.R")
 source("~/Documents/ODSi/ODSiData/Functions/suppress_all.R")
+source("~/Documents/ODSi/ODSiData/Functions/color_tips_alt.R")
 ```
 
 # Build phyloseq
@@ -40,7 +41,7 @@ Building from the Merging/Samples/full_cohort folder
 ```{r}
 ps <- build_phyloseq("~/Documents/ODSi/ODSiData/Merging/Samples/full_cohort",
                      prefix   = "merged-",
-                     meta_tsv = "~/Documents/ODSi/ODSiData/Merging/merged_metadata.tsv")
+                     meta_tsv = "~/Documents/ODSi/ODSiData/Merging/merged_minimal_metadata.tsv")
 ```
 
 ```{r}
@@ -50,7 +51,8 @@ check_phyloseq(ps)
 # Visualizing
 
 ```{r}
-genus_tree <- vizualize_collapse(ps, "Genus", show_labels = TRUE)
+genus_tree <- vizualize_collapse_dots(ps, "Genus")
+  #vizualize_collapse(ps, "Genus", show_labels = TRUE)
 
 genus_tree
 ```
@@ -310,6 +312,14 @@ plot_beta_correction("!is.na(study)",
                      ord_method = "bray",
                      phylo_obj = filtered_ps,
                      rare_depth = 900)
+```
+
+```{r}
+beta_pipe(filtered_ps, rare_depth = 900, ord_method = "bray",  norm_method = "rarefy",
+          title_str = 
+"Beta Diversity (Bray Curtis Distance)
+Rarefied to 900"
+)
 ```
 
 ### Weighted Unifrac

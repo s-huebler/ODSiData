@@ -1,0 +1,45 @@
+Outcome,"Author, Year
+N
+Sample Timing",Finding
+Transplantation-related mortality,"Taur 2014 [23]
+80
+At engraftment","↑ Transplant-related mortality
+Transplant-related mortality was 9%, 23%, and 53% for high, intermediate and low diversity groups, respectively (p = 0.03).
+Patients with low diversity (inverse Simpson < 2) were 7.5 times more likely to experience transplant-related mortality within the follow-up when compared to those with higher microbial diversity (HR 7.54; 95% CI 2.12–47.88; p = 0.001; adjusted hazard ratio, 5.25; 95% CI 1.36–35.07; p = 0.014)."
+"Transplantation-related mortality [23,24,41]","Gu 2022 [24]
+86
+At engraftment","↑ Transplantation-related Mortality
+When compared to patients in the high diversity group, patients in the low-diversity group had higher estimated 2-year transplanted related mortality (20.0% vs. 4.7%; p = 0.04).
+After adjusting for pretransplant comorbidity, disease status at the time of allo-HSCT and previous chemotherapy, low intestinal diversity was an independent predictor of transplant-related mortality (HR 4.95; 95% CI 1.03–23.76; p = 0.046)."
+Transplantation-related mortality,"Galloway-Pena 2019 [41]
+44
+At engraftment","↓ Transplantation-related Mortality
+The Shannon diversity index at the time of engraftment was significantly associated with transplantation-related mortality (coefficient = −1.44; p = 0.02)"
+aGvHD,"Jenq 2015 [28]
+64
+D + 12","↓ GvHD-related mortality
+Increased intestinal diversity was associated with reduced GvHD-related mortality (p = 0.005)."
+aGvHD,"Mancini 2017 [20]
+96
+D + 10","↑ aGvHD
+Decreased intestinal diversity at D + 10 was associated with increased risk of early onset aGvHD (OR 7.833; 95% CI 2.141–28.658; p = 0.038)."
+aGvHD,"Taur 2014 [23]
+80
+At engraftment","↑ GvHD-related mortality
+GvHD-related mortality was higher in patients with low diversity (p = 0.018)."
+"aGvHD [20,23,26,28,41,46]","Payen 2020 [26]
+70
+At the onset of GvHD","↑ aGvHD severity
+Patients with severe aGvHD had significantly lower indexes of alpha diversity: Chao1 (p = 0.039) and Simpson (p = 0.013)"
+aGvHD,"Golob 2017 [46]
+66
+At engraftment
+Weekly samples from prior to allo-HSCT until D + 100","↑ aGvHD severity
+Patients with severe aGvHD had a significantly lower alpha diversity index compared to both the control group and patients without severe aGvHD (p < 0.05). This finding was statistically significant when analyzing all stool samples collected over the allo-HSCT and when analyzing only samples collected at the engraftment period."
+aGvHD,"Galloway-Pena 2019 [41]
+44
+At engraftment",The Shannon diversity index at the time of engraftment was significantly associated with the incidence of aGvHD (p = 0.02)
+Infections [23],"Taur 2014 [23]
+80
+At engraftment","↑ Infection-related mortality
+Infection related mortality was higher in patients with low diversity (p = 0.018)."
