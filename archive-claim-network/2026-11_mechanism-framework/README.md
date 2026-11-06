@@ -11,7 +11,7 @@ chosen and applied in `build_scratch/` to produce `claims_synthesis_framework.cs
 (329 rows), with references linked through `citation-network/Full_Network/citing_dictionary.csv`
 and taxa harmonized to GTDB r232.
 
-`viz/` built the taxonomy ring (`output/gvhd_taxonomy_ring.html`, still live) and the mechanism
+`viz/` built the taxonomy ring (the Oct 8 page, now archived as `../2026-11_ring-v1/gvhd_taxonomy_ring_2026-10-08.html`) and the mechanism
 bubbles page (`output/gvhd_mechanism_bubbles.html`, not carried forward). To rebuild the ring
 from this framework: `python3 viz/build_tree_data.py` then `python3 viz/render_tree_html.py`
 (the renderer writes to `../output/`, relative to this archive folder).

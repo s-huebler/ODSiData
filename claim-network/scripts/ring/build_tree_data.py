@@ -28,7 +28,7 @@ OUT_PATH = Path(__file__).resolve().parent / "tree_data.json"
 # ---------------------------------------------------------------------------
 RANKS = ["domain", "phylum", "class", "order", "family", "genus", "species"]
 RANK_IDX = {r: i for i, r in enumerate(RANKS)}
-TOP_LEVELS = ["phylum", "class", "order", "family", "genus"]
+TOP_LEVELS = ["phylum", "class", "order", "family", "genus", "species"]
 
 # ---------------------------------------------------------------------------
 # 1. Load taxa lineage table
@@ -80,15 +80,15 @@ for _, row in df.iterrows():
 # ---------------------------------------------------------------------------
 # 4. Edges — aggregate (ref_id, taxon, direction, evidence)
 # ---------------------------------------------------------------------------
-edge_keys = {}  # (ref_id, taxon, direction, evidence) -> {width, rows}
+edge_keys = {}  # (ref_id, taxon, direction, evidence, mechanism_specific) -> {width, rows}
 
 for _, row in df.iterrows():
-    key = (row["ref_id"], row["taxon"], row["direction"], row["evidence"])
+    key = (row["ref_id"], row["taxon"], row["direction"], row["evidence"], row["mechanism_specific"])
     if key not in edge_keys:
         edge_keys[key] = {"width": 0, "rows": []}
     edge_keys[key]["width"] += 1
     quote_raw = row.get("quote", "") or ""
-    quote = str(quote_raw)[:300] if quote_raw else ""
+    quote = str(quote_raw) if quote_raw else ""  # full quote; v2 template shows it in a click popover
     edge_keys[key]["rows"].append({
         "statement_id": row.get("statement_id", ""),
         "citing_label": row.get("citing_label", ""),
@@ -99,8 +99,10 @@ for _, row in df.iterrows():
     })
 
 edges = []
-for (ref_id, taxon, direction, evidence), info in edge_keys.items():
+for (ref_id, taxon, direction, evidence, mech_specific), info in edge_keys.items():
     edges.append({
+        "mechanism_specific": mech_specific,
+        "mechanism_broad": info["rows"][0]["mechanism_broad"],
         "ref_id": ref_id,
         "ref_label": papers.get(ref_id, ref_id),
         "taxon": taxon,
@@ -216,6 +218,8 @@ def build_subtree_for_level(top_level):
         # Group taxa_list by next rank values, descending through ranks
         def group_by_rank(taxa_list, from_rank):
             """Group taxa by their value at from_rank, skipping ranks with no variation."""
+            if from_rank is None:  # species level: nothing below to group by
+                return None, {}, taxa_list
             from_idx = RANK_IDX[from_rank]
             remaining_ranks = RANKS[from_idx:]
 
@@ -378,12 +382,12 @@ print(f"  {'level':<8} {'taxa':>6} {'edges':>7} {'papers':>8}")
 print(f"  {'-'*35}")
 for level in TOP_LEVELS:
     lc = level_counts[level]
-    exp = EXPECTED[level]
+    exp = EXPECTED.get(level, {})
     marks = []
     for k in ["taxa", "edges", "papers"]:
         v = lc[k]
-        e = exp[k]
-        marks.append(f"{v}{'✓' if v == e else f' ✗exp{e}'}")
+        e = exp.get(k)
+        marks.append(f"{v}" if e is None else f"{v}{'✓' if v == e else f' ✗exp{e}'}")
     print(f"  {level:<8} {marks[0]:>12} {marks[1]:>12} {marks[2]:>12}")
 
 # Check all claim taxa have complete lineage (at least domain+phylum)

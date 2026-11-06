@@ -1,0 +1,734 @@
+{
+ "paper_key": "moses2026",
+ "skill": "moses2026-paper",
+ "citing_bibtex": "Moses_2026",
+ "statement_prefix": "MOS",
+ "codebook_version": "1.0 (2026-11-05); resolved to 1.1 at discussion",
+ "drafted": "2026-11-05",
+ "model": "claude-opus-4-8",
+ "title": "The gut microbiome in graft-versus-host disease: mechanisms of immune modulation and therapeutic approaches",
+ "citation_style": "numeric [n]; ref_string holds the printed numbers, resolved to Author Year at the end-of-paper step",
+ "items": [
+  {
+   "id": "MOS_001",
+   "kind": "proposal",
+   "quote": "loss of apparently beneficial, often anaerobic commensal bacteria associated with favorable GvHD outcomes",
+   "location": "body: Introduction",
+   "fields": {
+    "taxon_as_cited": "anaerobic commensal bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "anaerobic commensals associated with favorable GvHD outcomes",
+    "ref_string": "[9-12]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Functional group (obligate anaerobes). Association only, no mechanism stated. Same canonical claim as MOS_015; dedupe at synthesis. Borderline: 'often anaerobic commensal bacteria' is close to a dysbiosis statement; flag for review."
+  },
+  {
+   "id": "MOS_002",
+   "kind": "proposal",
+   "quote": "expansion of pathobionts associated with increased GvHD",
+   "location": "body: Introduction",
+   "fields": {
+    "taxon_as_cited": "pathobionts",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "pathobiont expansion associated with increased GvHD",
+    "ref_string": "[13-15]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "'pathobionts' is the codebook-named functional group. Paired with MOS_001 in one sentence."
+  },
+  {
+   "id": "MOS_003",
+   "kind": "proposal",
+   "quote": "domination of certain pathobionts, such as Escherichia coli may aggravate GvHD",
+   "location": "body: Phase 1: microbial exposure and the innate immune response",
+   "fields": {
+    "taxon_as_cited": "Escherichia coli",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2a. Innate immune",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Escherichia coli domination may aggravate GvHD via MAMPs",
+    "ref_string": "",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Uncited authors' synthesis ('may aggravate'). Mechanism assigned 2a because the stated pathway is MAMP/LPS/TLR4 innate activation (Phase 1). Escherichia is also a listed pathobiont, so 4b is a defensible alternative; flag."
+  },
+  {
+   "id": "MOS_004",
+   "kind": "proposal",
+   "quote": "which target MHC II peptides derived from bacterial flagellin or Clostridium savagella in the recipient GI tract, exacerbated GvHD in murine models harboring respective commensal organisms",
+   "location": "body: Phase 2: adaptive immunity, how microbes shape the donor T-cell response",
+   "fields": {
+    "taxon_as_cited": "Clostridium savagella",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "murine models",
+    "evidence": "murine",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Clostridium savagella-specific donor T cells exacerbate GvHD",
+    "ref_string": "[46]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Donor microbiota-specific T cells targeting C. savagella antigen exacerbate GvHD. Flagellin half is a molecular antigen, logged skipped (MOS_S04)."
+  },
+  {
+   "id": "MOS_005",
+   "kind": "proposal",
+   "quote": "anaerobic bacteria such as Faecalibacterium prausnitzii that produce short-chain fatty acids (SCFA) experimentally induce Treg differentiation",
+   "location": "body: Donor memory T cells are shaped by the donor microbiota",
+   "fields": {
+    "taxon_as_cited": "Faecalibacterium prausnitzii",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "experimentally induce Treg differentiation",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Faecalibacterium prausnitzii SCFA production induces protective Tregs",
+    "ref_string": "[57]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "SCFA producer -> 1a per codebook (GUO_015 precedent). Evidence 'experimentally' does not state animal vs in vitro, so unspecified. The Treg effect could alternatively be read as 2b; flag."
+  },
+  {
+   "id": "MOS_006",
+   "kind": "proposal",
+   "quote": "Metalloprotease secretion found in taxa such as Enterococcus, which can degrade tight junction proteins and increase intestinal permeability",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus metalloprotease degrades tight junctions",
+    "ref_string": "[13,66]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Mechanism stated (tight-junction degradation, barrier) so 3a, not 4b, even though Enterococcus is a listed pathobiont."
+  },
+  {
+   "id": "MOS_007",
+   "kind": "proposal",
+   "quote": "preserve epithelial cell integrity as an energy source for enterocytes",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "Clostridia",
+    "taxon_rank_as_cited": "class",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Clostridia butyrate preserves epithelial integrity",
+    "ref_string": "[12,68]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Clostridia named as butyrate (SCFA) source -> 1a. Butyrate's epithelial effect. Split from MOS_008 (Treg) because the two effects have separate citations. Butyrate also reported to suppress stem-cell proliferation (ref 72), but that outcome is not GvHD; kept protective."
+  },
+  {
+   "id": "MOS_008",
+   "kind": "proposal",
+   "quote": "and induce intestinal Tregs",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "Clostridia",
+    "taxon_rank_as_cited": "class",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Clostridia butyrate induces intestinal Tregs",
+    "ref_string": "[69]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Second described effect of Clostridia-derived butyrate. Same target as MOS_007; both resolve to 1a (SCFA signaling). Treg effect could be read as 2b; flag."
+  },
+  {
+   "id": "MOS_009",
+   "kind": "proposal",
+   "quote": "Microbial catabolism of dietary tryptophan generates indole derivatives that activate the aryl hydrocarbon receptor (AhR), a transcription factor that promotes IL-22 production by innate lymphoid and T cells to enhances epithelial regeneration and barrier repair",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "tryptophan-metabolizing bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1c. Tryptophan / indole signaling",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "tryptophan-metabolizing bacteria induce IL-22 and barrier repair",
+    "ref_string": "[73]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Functional group derived from the described function (Figure 1 names 'tryptophan-metabolizing bacteria'); the sentence itself names no taxon. GvHD link is via barrier repair (Phase 3). Conflicting urinary-indole finding logged skipped (MOS_S09) and may make this context-dependent; flag."
+  },
+  {
+   "id": "MOS_010",
+   "kind": "proposal",
+   "quote": "upregulates the ability to degrade mucin glycans and thins the colonic mucosal layer, increasing susceptibility to intestinal injury",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "Bacteroides thetaiotaomicron",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides thetaiotaomicron degrades mucin, thins mucus",
+    "ref_string": "[15]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Taxon is the subject of the sentence (precedes citation 15, so not in the quoted span). Carbapenem is context for its expansion, not an evaluated therapy, so intervention left blank. Contradicts MOS_014 (same taxon, MHC II suppression, protective)."
+  },
+  {
+   "id": "MOS_011",
+   "kind": "proposal",
+   "quote": "another commensal organism that also possesses mucus-degrading capabilities, expanded following antibiotic treatment in murine models",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "Akkermansia muciniphilia",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "expanded in murine models; correlated with clinical GvHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Akkermansia mucus degradation correlates with GvHD",
+    "ref_string": "[75]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Murine arm of the Akkermansia sentence (split per the split-by-evidence rule); the human-observational arm is MOS_027."
+  },
+  {
+   "id": "MOS_012",
+   "kind": "proposal",
+   "quote": "the beneficial effects of Bacteroides ovatus were linked to its ability to metabolize dietary polysaccharides, which suppress the mucus-degrading capabilities of other bacteria, including B. thetaiotaomicron and A. muciniphilia and reduce GvHD-related mortality",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "Bacteroides ovatus",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides ovatus suppresses mucin degradation, lowers GvHD mortality",
+    "ref_string": "[11]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Protects the mucus barrier by suppressing other taxa's mucin degradation; GvHD-related mortality counts as a GvHD outcome. Intervention blank (B. ovatus metabolizing dietary polysaccharides is a mechanism, not a delivered therapy)."
+  },
+  {
+   "id": "MOS_013",
+   "kind": "proposal",
+   "quote": "MHC class II inducers include well-studied species such as C. savagella in murine models",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "Clostridium savagella",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "murine models",
+    "evidence": "murine",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2a. Innate immune",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Clostridium savagella induces epithelial MHC II, raising GvHD risk",
+    "ref_string": "[76]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Preceding sentence: inducing epithelial MHC class II 'increases sensitivity to GvHD'. Abbreviation expanded. MHC II / antigen presentation has no clean class; assigned 2a (antigen presentation / innate APC side); 2b or 2c defensible. Flag."
+  },
+  {
+   "id": "MOS_014",
+   "kind": "proposal",
+   "quote": "B. thetaiotaomicron in this context was shown to suppress epithelial MHC class II expression and therefore diminish the risk of tissue injury, contrary to its role as a mucin-degrader",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "Bacteroides thetaiotaomicron",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "in this context was shown",
+    "evidence": "murine",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2a. Innate immune",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides thetaiotaomicron suppresses MHC II, reducing injury",
+    "ref_string": "[76]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Abbreviation expanded. Separate node from MOS_010: the review explicitly notes the contradiction (mucin-degrader exacerbating vs MHC II suppressor protective). Same 2a MHC II caveat as MOS_013; flag."
+  },
+  {
+   "id": "MOS_015",
+   "kind": "proposal",
+   "quote": "commensal anaerobes, which were previously difficult to isolate, were associated with reduced GvHD mortality",
+   "location": "body: Part 1: microbial decontamination",
+   "fields": {
+    "taxon_as_cited": "commensal anaerobes",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "associated with reduced GvHD mortality",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "commensal anaerobes associated with reduced GvHD mortality",
+    "ref_string": "[12]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Functional group (obligate anaerobes), association only. Same canonical claim as MOS_001; dedupe at synthesis."
+  },
+  {
+   "id": "MOS_016",
+   "kind": "proposal",
+   "quote": "expansion of pathobionts such as Enterococcus and Escherichia",
+   "location": "body: Part 1: microbial decontamination",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "correlation with lower diversity and unfavorable outcomes",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus expansion with unfavorable GvHD outcomes",
+    "ref_string": "[14]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Listed pathobiont -> 4b. Diversity half of the sentence is not a target. Shares quote with MOS_017."
+  },
+  {
+   "id": "MOS_017",
+   "kind": "proposal",
+   "quote": "expansion of pathobionts such as Enterococcus and Escherichia",
+   "location": "body: Part 1: microbial decontamination",
+   "fields": {
+    "taxon_as_cited": "Escherichia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "correlation with lower diversity and unfavorable outcomes",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Escherichia expansion with unfavorable GvHD outcomes",
+    "ref_string": "[14]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Listed pathobiont -> 4b. Shares quote with MOS_016."
+  },
+  {
+   "id": "MOS_018",
+   "kind": "proposal",
+   "quote": "murine studies have suggested that the introduction of Lactobacillus rhamnosus reduced bacterial translocation and improved GvHD outcomes",
+   "location": "body: Part 2: pre/probiotics",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus rhamnosus",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "murine studies",
+    "evidence": "murine",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "Lactobacillus rhamnosus reduces translocation, improves GvHD (murine)",
+    "ref_string": "[90]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Probiotic. Mechanism (reduced bacterial translocation) read as barrier 3a; colonization resistance 3b is a defensible alternative. Flag. Contrast with human null MOS_019."
+  },
+  {
+   "id": "MOS_019",
+   "kind": "proposal",
+   "quote": "a randomized study of 31 adults comparing L. rhamnosus supplementation starting at the time of engraftment to no probiotic exposure did not show a difference in aGvHD incidence nor in Lactobacillus colonization",
+   "location": "body: Part 2: pre/probiotics",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus rhamnosus",
+    "taxon_rank_as_cited": "species",
+    "direction": "no effect",
+    "evidence_as_stated": "randomized study of 31 adults",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "Lactobacillus rhamnosus probiotic no effect on aGvHD",
+    "ref_string": "[91]",
+    "mechanism_assignment": "scheme C; null result -> unattributed"
+   },
+   "note": "Abbreviation expanded. Null direction (no aGvHD difference). Kept separate from murine-protective MOS_018."
+  },
+  {
+   "id": "MOS_020",
+   "kind": "proposal",
+   "quote": "the administration of Lactiplantibacillus plantarum from the start of conditioning to 56 days post-transplant period to be safe but ineffective at preventing GI GvHD",
+   "location": "body: Part 2: pre/probiotics",
+   "fields": {
+    "taxon_as_cited": "Lactiplantibacillus plantarum",
+    "taxon_rank_as_cited": "species",
+    "direction": "no effect",
+    "evidence_as_stated": "large clinical trial (ACCL1633), 161 patients",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "Lactiplantibacillus plantarum probiotic ineffective for GI GvHD",
+    "ref_string": "[92]",
+    "mechanism_assignment": "scheme C; null result -> unattributed"
+   },
+   "note": "Null (ineffective at preventing GI GvHD)."
+  },
+  {
+   "id": "MOS_021",
+   "kind": "proposal",
+   "quote": "demonstrated strain-to-strain variability in the capacity of Clostridium bolteae, Blautia spp., and Bifidobacterium longum to produce SCFAs",
+   "location": "body: Part 2: pre/probiotics",
+   "fields": {
+    "taxon_as_cited": "Clostridium bolteae",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "mismatched murine transplant model",
+    "evidence": "murine",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "defined consortium",
+    "mechanism_as_named": "Clostridium bolteae SCFA production could mitigate GvHD",
+    "ref_string": "[93]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Directional GvHD link ('optimization of SCFA production could mitigate GvHD ... in a mismatched murine transplant model') is the clause after citation 93, outside the quoted span. SCFA producer -> 1a. Shares quote with MOS_022/MOS_023."
+  },
+  {
+   "id": "MOS_022",
+   "kind": "proposal",
+   "quote": "demonstrated strain-to-strain variability in the capacity of Clostridium bolteae, Blautia spp., and Bifidobacterium longum to produce SCFAs",
+   "location": "body: Part 2: pre/probiotics",
+   "fields": {
+    "taxon_as_cited": "Blautia spp.",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "mismatched murine transplant model",
+    "evidence": "murine",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "defined consortium",
+    "mechanism_as_named": "Blautia SCFA production could mitigate GvHD",
+    "ref_string": "[93]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "See MOS_021. Shared quote."
+  },
+  {
+   "id": "MOS_023",
+   "kind": "proposal",
+   "quote": "demonstrated strain-to-strain variability in the capacity of Clostridium bolteae, Blautia spp., and Bifidobacterium longum to produce SCFAs",
+   "location": "body: Part 2: pre/probiotics",
+   "fields": {
+    "taxon_as_cited": "Bifidobacterium longum",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "mismatched murine transplant model",
+    "evidence": "murine",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "defined consortium",
+    "mechanism_as_named": "Bifidobacterium longum SCFA production could mitigate GvHD",
+    "ref_string": "[93]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "See MOS_021. Shared quote."
+  },
+  {
+   "id": "MOS_024",
+   "kind": "proposal",
+   "quote": "the restoration of taxa associated with favorable GvHD outcomes (Clostridiales, SCFA-producers) alongside a decrease in taxa associated with poor outcomes (Enterobacteriaceae)",
+   "location": "body: Part 3: ecosystem restoration",
+   "fields": {
+    "taxon_as_cited": "Clostridiales",
+    "taxon_rank_as_cited": "order",
+    "direction": "protective",
+    "evidence_as_stated": "prospective study treating 21 patients at SR aGvHD",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "FMT",
+    "mechanism_as_named": "Clostridiales restored by FMT, favorable GvHD outcomes",
+    "ref_string": "[24]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Restored by successful FMT -> protective. Association only (listed beside 'SCFA-producers' but named as its own taxon) -> 0. Shares quote with MOS_025/MOS_026."
+  },
+  {
+   "id": "MOS_025",
+   "kind": "proposal",
+   "quote": "the restoration of taxa associated with favorable GvHD outcomes (Clostridiales, SCFA-producers) alongside a decrease in taxa associated with poor outcomes (Enterobacteriaceae)",
+   "location": "body: Part 3: ecosystem restoration",
+   "fields": {
+    "taxon_as_cited": "SCFA-producers",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "prospective study treating 21 patients at SR aGvHD",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "mechanism",
+    "intervention": "FMT",
+    "mechanism_as_named": "SCFA-producers restored by FMT, favorable GvHD outcomes",
+    "ref_string": "[24]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Functional group -> 1a. Shared quote with MOS_024/MOS_026."
+  },
+  {
+   "id": "MOS_026",
+   "kind": "proposal",
+   "quote": "the restoration of taxa associated with favorable GvHD outcomes (Clostridiales, SCFA-producers) alongside a decrease in taxa associated with poor outcomes (Enterobacteriaceae)",
+   "location": "body: Part 3: ecosystem restoration",
+   "fields": {
+    "taxon_as_cited": "Enterobacteriaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "prospective study treating 21 patients at SR aGvHD",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "FMT",
+    "mechanism_as_named": "Enterobacteriaceae decreased by FMT, poor-outcome taxa",
+    "ref_string": "[24]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Listed pathobiont; decreased by successful FMT -> exacerbating. Shared quote with MOS_024/MOS_025."
+  },
+  {
+   "id": "MOS_S01",
+   "kind": "skipped",
+   "quote": "a reduction of alpha diversity in the GI microbiota and domination of specific taxa at the time of neutrophil engraftment were linked to GvHD mortality",
+   "location": "body: Introduction",
+   "note": "2020 landmark study. Diversity is not a target and 'specific taxa' names none; diversity-only plus unnamed taxa."
+  },
+  {
+   "id": "MOS_S02",
+   "kind": "skipped",
+   "quote": "the lifespan of the intestinal epithelium is reduced in conventional vs. germ-free mice",
+   "location": "body: Phase 1: microbial exposure and the innate immune response",
+   "note": "Germ-free vs conventional whole-community comparison; outcome is epithelial lifespan, not GvHD."
+  },
+  {
+   "id": "MOS_S03",
+   "kind": "skipped",
+   "quote": "enabled the translocation of lipopolysaccharide (LPS), a prototypical MAMP, from damaged intestinal mucosa, which directly amplified GvHD",
+   "location": "body: Phase 1: microbial exposure and the innate immune response",
+   "note": "LPS is a molecular MAMP, not a microbial taxon or functional group. The taxon version (E. coli via MAMPs) is MOS_003."
+  },
+  {
+   "id": "MOS_S04",
+   "kind": "skipped",
+   "quote": "MHC II peptides derived from bacterial flagellin",
+   "location": "body: Phase 2: adaptive immunity, how microbes shape the donor T-cell response",
+   "note": "Bacterial flagellin is a molecular antigen, not a taxon or biologically-defined functional group. The C. savagella half of the same sentence is MOS_004."
+  },
+  {
+   "id": "MOS_S05",
+   "kind": "skipped",
+   "quote": "Microbiota-specific memory T cells in circulation that react to heat-inactivated Escherichia, Lactobacillus, Bifidobaterium, Faecalibacterium, Bacteroides, Roseburia, Ruminococcus, Salmonela, and Clostridium",
+   "location": "body: Donor memory T cells are shaped by the donor microbiota",
+   "note": "T-cell reactivity in healthy individuals; no GvHD outcome and no transplant context."
+  },
+  {
+   "id": "MOS_S06",
+   "kind": "skipped",
+   "quote": "a donor graft containing F. Prausnitzii-specific T cells could play an immunosuppressive/protective role in GvHD biology",
+   "location": "body: Donor memory T cells are shaped by the donor microbiota",
+   "note": "Authors' hypothesis ('could play'), uncited. F. prausnitzii protective is already captured as MOS_005."
+  },
+  {
+   "id": "MOS_S07",
+   "kind": "skipped",
+   "quote": "flagellin-targeting intestinal T cells directed at commensal Clostridium XIVa bacteria that persist as long-term memory T cells",
+   "location": "body: Naive donor T-cell recognition of microbial peptides is likely to promote GVHD during HSCT",
+   "note": "Toxoplasma gondii infection model, explicitly outside the HSCT literature; no GvHD outcome."
+  },
+  {
+   "id": "MOS_S08",
+   "kind": "skipped",
+   "quote": "GVHD patients harbored a reduction in microbe-derived bile acids upon disease onset",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "note": "Microbe-derived bile acids are a metabolite, not a taxon; FXR/bile-acid mechanism (1b) but no microbial target named."
+  },
+  {
+   "id": "MOS_S09",
+   "kind": "skipped",
+   "quote": "production of urinary indole metabolites have also been associated with worse GvHD outcomes in a study of 54 patients",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "note": "Urinary indole metabolites (metabolite, no taxon). Conflicts with MOS_009 (protective tryptophan-metabolizers) and may make it context-dependent; flag for discussion."
+  },
+  {
+   "id": "MOS_S10",
+   "kind": "skipped",
+   "quote": "correlated with lower enterococcal positivity, higher urinary 3-indoxyl sulfate associated with commensal bacteria, and lower 1-year transplant related mortality",
+   "location": "body: Part 1: microbial decontamination",
+   "note": "Rifaximin (antibiotic) decontamination; outcomes are enterococcal positivity, indoxyl sulfate and transplant-related mortality, none of which is a GvHD outcome."
+  },
+  {
+   "id": "MOS_S11",
+   "kind": "skipped",
+   "quote": "antibiotic usage, particularly those with broad anaerobic activity, such as piperacillin/tazobactam and carbapenems, was also observed to paradoxically increase GvHD risk",
+   "location": "body: Part 1: microbial decontamination",
+   "note": "Antibiotic-intervention harm acting via anaerobe loss; no single taxon as target. The anaerobe-protective claim is captured as MOS_001/MOS_015."
+  },
+  {
+   "id": "MOS_S12",
+   "kind": "skipped",
+   "quote": "a trend towards reduced Enterococcus translocation",
+   "location": "body: Part 2: pre/probiotics",
+   "note": "GFO prebiotic; outcome is Enterococcus translocation and oral mucositis, not a GvHD outcome."
+  },
+  {
+   "id": "MOS_S13",
+   "kind": "skipped",
+   "quote": "decreased the duration of oral mucositis and reduced grade II-IV GvHD incidence",
+   "location": "body: Part 2: pre/probiotics",
+   "note": "Resistant starch + prebiotic mixture reduces grade II-IV GvHD, but the target is a dietary substrate, not a microbial taxon (effect attributed to diversity/butyrate, no taxon named)."
+  },
+  {
+   "id": "MOS_S14",
+   "kind": "skipped",
+   "quote": "but numerically increased GvHD risk",
+   "location": "body: Part 3: ecosystem restoration",
+   "note": "FMT prophylaxis (whole-community intervention); GvHD outcome stated but no specific taxon as target."
+  },
+  {
+   "id": "MOS_S15",
+   "kind": "skipped",
+   "quote": "the restoration of colonization resistance by diversifying the anaerobic community and preventing domination by pathogenic taxa, which is a major predictor of bloodstream infection",
+   "location": "body: Part 3: ecosystem restoration",
+   "note": "Anaerobe-driven colonization resistance (3b), but the stated outcome is bloodstream infection, not GvHD; uncited. Promote if read as a GvHD-barrier claim."
+  },
+  {
+   "id": "MOS_S16",
+   "kind": "skipped",
+   "quote": "designed to restore gut microbiota diversity, strengthen epithelial barrier integrity, and reduce bacterial bloodstream infections and GvHD in allo-HSCT patients",
+   "location": "body: Part 3: ecosystem restoration",
+   "note": "SER-155 defined consortium (16 Firmicutes strains). GvHD reduction is stated design intent; the phase 1b outcome demonstrated was bloodstream-infection reduction, not GvHD. Promote if intent counts."
+  },
+  {
+   "id": "MOS_027",
+   "kind": "proposal",
+   "quote": "was correlated with clinical GvHD",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "Akkermansia muciniphilia",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "correlated with clinical GvHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Akkermansia correlated with clinical GvHD",
+    "ref_string": "[75]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Human-observational arm split from MOS_011 at discussion (split-by-evidence rule). Same mucus-degrading mechanism (3a)."
+  },
+  {
+   "id": "MOS_028",
+   "kind": "proposal",
+   "quote": "decreased the duration of oral mucositis and reduced grade II-IV GvHD incidence",
+   "location": "body: Part 2: pre/probiotics",
+   "fields": {
+    "taxon_as_cited": "SCFA-producers",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "follow-up prospective study, 49 patients",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "mechanism",
+    "intervention": "diet",
+    "mechanism_as_named": "resistant starch (prebiotic) raises butyrate, reduces grade II-IV GvHD",
+    "ref_string": "[89]",
+    "mechanism_assignment": "scheme C; therapy assigned to the SCFA mechanism it acts on"
+   },
+   "note": "Promoted from MOS_S13 at discussion. Prebiotic names no taxon, so the target is the SCFA-producer functional group the diet acts on; the butyrate/diversity link is the preceding sentence."
+  },
+  {
+   "id": "MOS_029",
+   "kind": "proposal",
+   "quote": "GVHD patients harbored a reduction in microbe-derived bile acids upon disease onset",
+   "location": "body: Phase 3: impact of the microbiota on host tissue injury and susceptibility",
+   "fields": {
+    "taxon_as_cited": "secondary bile acid producers",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "GVHD patients upon disease onset",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1b. Bile acid signaling",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "secondary bile acids depleted in GvHD patients",
+    "ref_string": "[67]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Promoted from MOS_S08 at discussion; 'secondary bile acid producers' added as a functional group (codebook 1.1). Human-observational arm; the preclinical FXR arm in the same sentence is left unpromoted (split per rule 5 if wanted)."
+  }
+ ]
+}

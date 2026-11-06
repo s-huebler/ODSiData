@@ -62,3 +62,7 @@ Scripts need only Python 3 except the ring builder, which uses pandas.
 | Review | Proposals | Approved | Codebook |
 |---|---|---|---|
 | guo2024 | 39 (+13 skipped) | 34 | pre-1.0, resolved to 1.0 |
+| moses2026 | 29 (+16 skipped) | 27 | 1.0, resolved to 1.1 |
+| paredes2026 | 55 (+16 skipped) | 52 | 1.0, reconciled to 1.3 |
+
+Latest build (2026-11-06): all three reviews linked — `reviews/claims_linked.csv` 133 rows, 46 taxa, 50 papers, 111 edges. Ring: `output/claim_network_2026-11-06.html`.

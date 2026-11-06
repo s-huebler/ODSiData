@@ -9,85 +9,102 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: Arial, sans-serif; font-size: 13px; background: #f0f4f8; display: flex; height: 100vh; overflow: hidden; }
 
-  /* Sidebar left */
+  /* Left sidebar: controls */
   #sidebar {
-    width: 220px; min-width: 220px; background: #fff; border-right: 1px solid #ccc;
-    padding: 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+    width: 250px; min-width: 250px; background: #fff; border-right: 1px solid #ccc;
+    padding: 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;
     font-size: 12px; z-index: 10;
   }
-  #sidebar h3 { font-size: 13px; margin-bottom: 4px; color: #333; }
-  .filter-group label { display: flex; align-items: center; gap: 5px; margin: 2px 0; cursor: pointer; }
-  .filter-group label input[type=checkbox] { cursor: pointer; }
+  #sidebar h3 { font-size: 13px; margin-bottom: 4px; color: #333; display: flex; align-items: baseline; gap: 6px; }
+  #sidebar h3 .mini-links { font-weight: normal; font-size: 11px; color: #888; }
+  #sidebar h3 .mini-links a { color: #4a6fa5; cursor: pointer; text-decoration: none; }
+  #sidebar h3 .mini-links a:hover { text-decoration: underline; }
+  .filter-group label, .rank-group label { display: flex; align-items: flex-start; gap: 5px; margin: 2px 0; cursor: pointer; line-height: 1.3; }
+  .filter-group input, .rank-group input { cursor: pointer; margin-top: 2px; flex: none; }
   .count-badge { color: #888; font-size: 11px; }
-  .rank-group label { display: flex; align-items: center; gap: 5px; margin: 2px 0; cursor: pointer; }
-  #search-box {
-    width: 100%; padding: 4px 6px; border: 1px solid #bbb; border-radius: 3px; font-size: 12px;
-  }
-  .btn {
-    padding: 4px 8px; border: 1px solid #bbb; border-radius: 3px; background: #f5f5f5;
-    cursor: pointer; font-size: 12px;
-  }
+  .dir-swatch { display: inline-block; width: 16px; height: 4px; border-radius: 2px; margin: 0 2px 2px 0; vertical-align: middle; flex: none; align-self: center; }
+  .mech-broad-label { font-weight: bold; margin-top: 5px !important; }
+  .mech-leaf-label { padding-left: 18px; }
+  #arc-mode { width: 100%; margin-top: 4px; font-size: 12px; padding: 2px; }
+  #search-box { width: 100%; padding: 4px 6px; border: 1px solid #bbb; border-radius: 3px; font-size: 12px; }
+  .btn { padding: 4px 8px; border: 1px solid #bbb; border-radius: 3px; background: #f5f5f5; cursor: pointer; font-size: 12px; }
   .btn:hover { background: #e0e8f0; }
   .btn-row { display: flex; gap: 5px; flex-wrap: wrap; }
 
-  /* Main canvas area */
-  #canvas-wrap { flex: 1; position: relative; overflow: hidden; }
-  #main-svg { width: 100%; height: 100%; }
+  /* Main canvas */
+  #canvas-wrap { flex: 1; position: relative; overflow: hidden; min-width: 200px; }
+  #main-svg { width: 100%; height: 100%; cursor: grab; touch-action: none; }
+  #main-svg:active { cursor: grabbing; }
 
-  /* Info panel right */
+  /* Drag handle between canvas and info panel */
+  #resizer { width: 6px; cursor: col-resize; background: #e3e8ee; border-left: 1px solid #ccc; flex: none; z-index: 11; }
+  #resizer:hover, #resizer.dragging { background: #b9c7d8; }
+
+  /* Right info panel */
   #info-panel {
-    width: 280px; min-width: 280px; background: #fff; border-left: 1px solid #ccc;
-    padding: 10px; overflow-y: auto; font-size: 12px; z-index: 10;
+    width: 520px; min-width: 300px; background: #fff;
+    padding: 10px 12px; overflow-y: auto; font-size: 12px; z-index: 10; flex: none;
   }
   #info-panel h3 { font-size: 13px; margin-bottom: 6px; color: #333; }
   #info-content { color: #444; }
-  #info-content table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 11px; }
-  #info-content th, #info-content td { border: 1px solid #ddd; padding: 3px 5px; text-align: left; }
-  #info-content th { background: #eef2f8; }
+  #info-content table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 11px; table-layout: auto; }
+  #info-content th, #info-content td { border: 1px solid #ddd; padding: 3px 5px; text-align: left; vertical-align: top; overflow-wrap: break-word; }
+  #info-content td.nowrap { white-space: nowrap; }
+  #info-content th { background: #eef2f8; position: sticky; top: -10px; }
+  #info-content tr.edge-row { cursor: pointer; }
+  #info-content tr.edge-row:hover td { background: #f4f8fd; }
+  #info-content tr.edge-row.selected td { background: #fff4d6; }
   #info-content .dim { color: #888; }
-  #info-content .prot { color: #2d8a4e; font-weight: bold; }
-  #info-content .exac { color: #c0392b; font-weight: bold; }
-  #info-content .ctxd { color: #888; }
   #info-content .lineage { font-size: 10px; color: #666; margin-top: 4px; }
-  #row-tooltip {
-    margin-top: 6px; padding: 5px 7px; background: #f8f6ee; border: 1px solid #ccc;
-    border-radius: 3px; font-size: 10px; color: #555; display: none;
-  }
+  #info-content .dir-cell { font-weight: bold; }
+  #info-content .dir-summary span { margin-right: 8px; font-weight: bold; }
+  #info-content .hint { font-size: 10px; color: #999; margin-top: 4px; }
 
-  /* Tooltip */
+  /* Quote popover (opens to the left of the info panel) */
+  #quote-pop {
+    position: fixed; display: none; width: 360px; max-height: 70vh; overflow-y: auto;
+    background: #fffdf5; border: 1px solid #c9b77a; border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18); padding: 10px 12px 10px 12px; z-index: 2000;
+    font-size: 12px; color: #333; line-height: 1.45;
+  }
+  #quote-pop .qp-close { position: absolute; top: 4px; right: 8px; cursor: pointer; color: #999; font-size: 16px; }
+  #quote-pop .qp-close:hover { color: #333; }
+  #quote-pop .qp-head { font-weight: bold; margin-right: 16px; margin-bottom: 3px; }
+  #quote-pop .qp-meta { font-size: 11px; color: #666; margin-bottom: 6px; }
+  #quote-pop .qp-quote { font-style: italic; border-left: 3px solid #d4a849; padding-left: 8px; margin: 6px 0 3px 0; }
+  #quote-pop .qp-src { font-size: 10px; color: #777; }
+  #quote-pop .qp-arrow { position: absolute; right: -8px; width: 0; height: 0;
+    border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 8px solid #c9b77a; }
+
+  /* Hover tooltip */
   #tooltip {
     position: fixed; background: rgba(40,40,40,0.92); color: #fff; padding: 6px 10px;
-    border-radius: 4px; font-size: 11px; pointer-events: none; display: none;
+    border-radius: 4px; font-size: 12px; pointer-events: none; display: none;
     max-width: 320px; z-index: 1000; line-height: 1.5;
   }
 
-  /* Legend */
-  #legend {
-    position: fixed; bottom: 12px; left: 228px; background: #ffffffee;
-    border: 1px solid #ccc; border-radius: 4px; padding: 8px 12px; font-size: 11px;
-    z-index: 100; max-width: 380px;
-  }
-  #legend h4 { font-size: 12px; margin-bottom: 5px; }
+  /* Legend (in the left sidebar) */
+  #legend { border-top: 1px solid #ddd; padding-top: 8px; font-size: 11px; }
+  #legend summary { font-size: 13px; font-weight: bold; color: #333; cursor: pointer; user-select: none; }
+  #legend-body { margin-top: 4px; }
   .legend-row { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
-  .legend-swatch { width: 24px; height: 6px; border-radius: 3px; }
-  .legend-circle { width: 14px; height: 14px; border-radius: 50%; }
-  #legend .section-title { font-weight: bold; margin-top: 5px; margin-bottom: 2px; color: #555; }
+  .legend-swatch { width: 24px; height: 5px; border-radius: 3px; flex: none; }
+  .legend-circle { width: 14px; height: 14px; border-radius: 50%; flex: none; }
+  #legend .section-title { font-weight: bold; margin-top: 6px; margin-bottom: 2px; color: #555; }
+  #legend .note { font-size: 10px; color: #555; }
 
-  /* Footer note */
-  #footer-note {
-    position: fixed; bottom: 4px; right: 290px; font-size: 10px; color: #888;
-    background: #ffffffcc; padding: 2px 6px; border-radius: 3px; z-index: 100;
-  }
-
-  /* SVG styles */
-  .group-circle { fill: none; stroke-width: 2; }
+  /* SVG */
   .struct-circle { fill: none; stroke: #aaa; stroke-width: 1; }
   .claim-circle { stroke-width: 2; }
   .paper-circle { fill: #d4a849; stroke: #996; stroke-width: 1; }
-  .paper-label { font-size: 8px; fill: #555; }
-  .group-label { font-size: 12px; font-weight: bold; fill: #333; }
-  .taxon-label { font-size: 9px; fill: #222; }
-  .edge-path { fill: none; opacity: 0.5; }
+  .taxon-label { font-size: 13px; fill: #222; pointer-events: none;
+    paint-order: stroke; stroke: #ffffff; stroke-width: 3px; stroke-linejoin: round; }
+  .group-label { font-weight: bold; fill: #333; pointer-events: none; }
+  .edge-path { fill: none; opacity: 0.55; }
+  #edges-layer.dim .edge-path { opacity: 0.07; }
+  #edges-layer.dim .edge-path.hl { opacity: 0.95; }
+  .lineage-arc { fill: none; stroke-linecap: round; }
+  .lineage-arc-label { fill: #333; }
 </style>
 </head>
 <body>
@@ -97,748 +114,822 @@
   <div>
     <h3>Rank</h3>
     <div class="rank-group" id="rank-controls"></div>
+    <div style="margin-top:6px;color:#555">Lineage arcs
+      <select id="arc-mode">
+        <option value="all" selected>All higher ranks</option>
+        <option value="parent">Parent rank only</option>
+        <option value="phylum">Phylum only</option>
+        <option value="none">None</option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <h3>Direction</h3>
+    <div class="filter-group" id="direction-filters"></div>
   </div>
   <div>
     <h3>Evidence</h3>
     <div class="filter-group" id="evidence-filters"></div>
   </div>
   <div>
-    <h3>Direction</h3>
-    <div class="filter-group" id="direction-filters">
-      <label><input type="checkbox" id="dir-protective" checked> <span style="color:#2d8a4e">protective</span></label>
-      <label><input type="checkbox" id="dir-exacerbating" checked> <span style="color:#c0392b">exacerbating</span></label>
-      <label><input type="checkbox" id="dir-other" checked> context-dep / unspecified / null</label>
-    </div>
+    <h3>Mechanism <span class="mini-links"><a id="mech-all">all</a> · <a id="mech-none">none</a></span></h3>
+    <div class="filter-group" id="mechanism-filters"></div>
   </div>
   <div>
     <input type="text" id="search-box" placeholder="Search taxon or paper..." />
   </div>
   <div class="btn-row">
-    <button class="btn" id="btn-fit">Fit</button>
-    <button class="btn" id="btn-reset">Reset</button>
+    <button class="btn" id="btn-fit" title="Fit the whole ring in view">Fit</button>
+    <button class="btn" id="btn-zoom-in" title="Zoom in">+</button>
+    <button class="btn" id="btn-zoom-out" title="Zoom out">&minus;</button>
+    <button class="btn" id="btn-reset" title="Reset all filters and the view">Reset</button>
     <button class="btn" id="btn-labels">Labels on/off</button>
   </div>
+  <div style="font-size:10px;color:#888">Scroll or pinch to zoom, drag to pan.</div>
+  <details id="legend" open>
+    <summary>Legend</summary>
+    <div id="legend-body">
+    <div class="section-title">Edge color (direction)</div>
+    <div id="legend-directions"></div>
+    <div class="section-title">Taxon circle</div>
+    <div class="legend-row"><div class="legend-circle" style="background:rgba(45,138,78,0.2);border:2px solid #2d8a4e"></div> all visible edges protective</div>
+    <div class="legend-row"><div class="legend-circle" style="background:rgba(192,57,43,0.2);border:2px solid #c0392b"></div> all visible edges exacerbating</div>
+    <div class="legend-row">
+      <div class="legend-circle" style="background:rgba(142,68,173,0.2);border:2px solid #8e44ad"></div>
+      <div class="legend-circle" style="background:rgba(153,153,153,0.2);border:2px solid #999"></div>
+      <div class="legend-circle" style="background:rgba(17,17,17,0.15);border:2px solid #111"></div>
+      all one other direction (takes that color)</div>
+    <div class="legend-row"><div class="legend-circle" style="background:rgba(85,85,85,0.12);border:2px dashed #555"></div> mixed directions</div>
+    <div class="legend-row"><div class="legend-circle" style="background:rgba(153,153,153,0.2);border:2px solid #999;opacity:0.3"></div> no visible edges (faded)</div>
+    <div class="section-title">Primary paper</div>
+    <div class="legend-row"><div class="legend-circle" style="background:#d4a849;border:1px solid #996;width:10px;height:10px"></div> hover for name; area &prop; number of citing reviews</div>
+    <div class="section-title">Lineage arc</div>
+    <div class="legend-row"><svg width="26" height="12"><path d="M3,11 L3,4 Q13,-1 23,4 L23,11" fill="none" stroke="#444" stroke-width="1.6"/></svg> higher-rank grouping of the circles inside it</div>
+    <div class="section-title">Rank toggle</div>
+    <div class="note">Switches grouping level; taxa with rank above the selected level are excluded.</div>
+    </div>
+  </details>
 </div>
 
 <!-- SVG canvas -->
 <div id="canvas-wrap">
   <svg id="main-svg" viewBox="0 0 1800 1100" preserveAspectRatio="xMidYMid meet">
     <defs id="defs-markers"></defs>
-    <g id="edges-layer"></g>
-    <g id="nodes-layer"></g>
-    <g id="labels-layer"></g>
+    <g id="zoom-layer">
+      <g id="arcs-layer"></g>
+      <g id="edges-layer"></g>
+      <g id="nodes-layer"></g>
+      <g id="labels-layer"></g>
+    </g>
   </svg>
 </div>
 
-<!-- Info panel right -->
+<div id="resizer" title="Drag to resize the details panel"></div>
+
+<!-- Right info panel -->
 <div id="info-panel">
   <h3>Details</h3>
   <div id="info-content"><p style="color:#aaa">Click a node or paper to see details.</p></div>
-  <div id="row-tooltip"></div>
 </div>
 
-<!-- Tooltip -->
+<div id="quote-pop"><span class="qp-close" title="Close">&times;</span><div class="qp-arrow"></div><div id="quote-pop-body"></div></div>
 <div id="tooltip"></div>
 
-<!-- Legend -->
-<div id="legend">
-  <h4>Legend</h4>
-  <div class="section-title">Edge color</div>
-  <div class="legend-row"><div class="legend-swatch" style="background:#2d8a4e"></div> protective</div>
-  <div class="legend-row"><div class="legend-swatch" style="background:#c0392b"></div> exacerbating</div>
-  <div class="legend-row"><div class="legend-swatch" style="background:#888888"></div> context-dependent / unspecified / null</div>
-  <div class="section-title">Taxon circle</div>
-  <div class="legend-row"><div class="legend-circle" style="background:rgba(45,138,78,0.2);border:2px solid #2d8a4e"></div> all visible edges protective</div>
-  <div class="legend-row"><div class="legend-circle" style="background:rgba(192,57,43,0.2);border:2px solid #c0392b"></div> all visible edges exacerbating</div>
-  <div class="legend-row"><div class="legend-circle" style="background:rgba(136,136,136,0.2);border:2px solid #888"></div> mixed / no visible edges</div>
-  <div class="legend-row"><div class="legend-circle" style="background:none;border:1px solid #aaa"></div> structural (non-claim) node</div>
-  <div class="section-title">Rank toggle</div>
-  <div style="font-size:10px;color:#555;">Switches grouping level; taxa with rank<br>above selected level are excluded.</div>
-</div>
-
-<!-- Footer note -->
-<div id="footer-note">__FOOTER__</div>
 
 <script>
 (function () {
 "use strict";
 
 // -------------------------------------------------------------------------
-// Data (injected by render script)
+// Data (injected by the render script)
 // -------------------------------------------------------------------------
-var DATA = __DATA__;
+const DATA = __DATA__;
 
 // -------------------------------------------------------------------------
 // Constants
 // -------------------------------------------------------------------------
-var SVG_W = 1800, SVG_H = 1100;
-var CX = 900, CY = 550;
-var R_INNER = 185;       // paper ring radius
-var R_PAPER_LABEL = 230; // paper label radius
-var R_GROUP_BASE = 270;  // minimum distance from center to group center
+let SVG_W = 1800, SVG_H = 1100;   // reset to the canvas size in px (see sizeViewBox)
+const CX = 900, CY = 550;          // layout centre; Fit moves it into view
+const R_GROUP_BASE_MIN = 270;   // minimum distance from center to inner edge of group circles
+const PAPER_RING_FRAC = 0.685;  // paper ring radius as a fraction of the group base radius
 
-var PROT_COLOR = "#2d8a4e";
-var EXAC_COLOR = "#c0392b";
-var OTHER_COLOR = "#888888";
+const RANKS_ORDER = ["domain", "phylum", "class", "order", "family", "genus", "species"];
+const DOMAIN_ORDER = { "Bacteria": 0, "Archaea": 1, "Eukaryota": 2, "Viruses": 3 };
 
-// Domain tint colors for group circles
-var DOMAIN_TINT = {
+const DIR_ORDER = ["protective", "exacerbating", "context-dependent", "unspecified", "no effect"];
+const DIR_COLOR = {
+  "protective": "#2d8a4e",
+  "exacerbating": "#c0392b",
+  "context-dependent": "#8e44ad",
+  "unspecified": "#999999",
+  "no effect": "#000000",
+};
+const MIXED_COLOR = "#555555";
+
+const DOMAIN_TINT = {
   "Bacteria": { stroke: "#7a9cc0", fill: "rgba(200,220,240,0.25)" },
   "Eukaryota": { stroke: "#7ab87a", fill: "rgba(200,235,200,0.25)" },
   "Viruses": { stroke: "#c8a060", fill: "rgba(240,220,190,0.25)" },
   "default": { stroke: "#9a9ab0", fill: "rgba(220,220,230,0.25)" },
 };
 
+// Style of the lineage arc for each rank
+const ARC_STYLE = {
+  "phylum": { stroke: "#444", width: 2.0, font: 15, weight: "bold", italic: false },
+  "class":  { stroke: "#5c5c5c", width: 1.7, font: 13, weight: "bold", italic: false },
+  "order":  { stroke: "#707070", width: 1.4, font: 12, weight: "normal", italic: false },
+  "family": { stroke: "#828282", width: 1.3, font: 11, weight: "normal", italic: false },
+  "genus":  { stroke: "#949494", width: 1.2, font: 11, weight: "normal", italic: true },
+};
+
+// -------------------------------------------------------------------------
+// Helpers
+// -------------------------------------------------------------------------
+const rankIdx = r => RANKS_ORDER.indexOf(r);
+const slug = s => String(s).replace(/[^A-Za-z0-9]+/g, "_");
+const natCmp = (a, b) => String(a).localeCompare(String(b), undefined, { numeric: true, sensitivity: "base" });
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const dirColor = d => DIR_COLOR[d] || DIR_COLOR["unspecified"];
+const mechOf = e => e.mechanism_specific || ((e.rows || [])[0] || {}).mechanism_specific || "(none)";
+const mechBroadOf = e => e.mechanism_broad || ((e.rows || [])[0] || {}).mechanism_broad || "(none)";
+const edgeKey = e => e.ref_id + "|" + e.taxon + "|" + e.direction;
+const deg2rad = d => d * Math.PI / 180;
+const polar = (r, deg) => [CX + r * Math.cos(deg2rad(deg)), CY + r * Math.sin(deg2rad(deg))];
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+  return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+}
+function taxonHtml(t) {
+  const info = DATA.taxa[t] || {};
+  return info.italic ? "<i>" + esc(t) + "</i>" : esc(t);
+}
+
+// Number of distinct citing reviews per primary paper, across all claims
+const paperReviews = {};
+DATA.edges.forEach(e => (e.rows || []).forEach(r => {
+  if (!r.citing_label) return;
+  (paperReviews[e.ref_id] = paperReviews[e.ref_id] || new Set()).add(r.citing_label);
+}));
+const nReviews = pid => (paperReviews[pid] ? paperReviews[pid].size : 0);
+const paperRadius = pid => 5 * Math.sqrt(Math.max(1, nReviews(pid)));   // area proportional to review count
+
 // -------------------------------------------------------------------------
 // State
 // -------------------------------------------------------------------------
-var currentLevel = "phylum";
-var labelsOn = true;
-var selectedNode = null;
-
-// node positions computed per layout: taxonName -> {x, y, r}
-var taxonPositions = {};
-// paper positions: ref_id -> {x, y}
-var paperPositions = {};
-// all rendered node data for click: id -> {type, data, x, y, r}
-var nodeRegistry = {};
+let currentLevel = "phylum";
+let labelsOn = true;
+let arcMode = "all";
+let taxonPositions = {};
+let paperPositions = {};
+let lastInfo = null;   // function that re-renders the current info panel view
 
 // -------------------------------------------------------------------------
-// Color helpers
+// Filter UI
 // -------------------------------------------------------------------------
-function dirColor(d) {
-  if (d === "protective") return PROT_COLOR;
-  if (d === "exacerbating") return EXAC_COLOR;
-  return OTHER_COLOR;
+function makeCheck(container, dim, val, labelHtml, extraClass) {
+  const lbl = document.createElement("label");
+  if (extraClass) lbl.className = extraClass;
+  const chk = document.createElement("input");
+  chk.type = "checkbox"; chk.checked = true; chk.dataset.dim = dim; chk.dataset.val = val;
+  const span = document.createElement("span");
+  span.innerHTML = labelHtml + ' <span class="count-badge" id="badge-' + dim + "-" + slug(val) + '"></span>';
+  lbl.appendChild(chk); lbl.appendChild(span);
+  container.appendChild(lbl);
+  return chk;
 }
 
-function taxonColor(dirSet) {
-  // dirSet: array of directions from visible edges
-  if (!dirSet || dirSet.length === 0) return OTHER_COLOR;
-  var allProt = dirSet.every(function(d){ return d === "protective"; });
-  var allExac = dirSet.every(function(d){ return d === "exacerbating"; });
-  if (allProt) return PROT_COLOR;
-  if (allExac) return EXAC_COLOR;
-  return OTHER_COLOR;
-}
-
-// -------------------------------------------------------------------------
-// Evidence types and filter UI
-// -------------------------------------------------------------------------
-var evidenceTypes = [];
-(function() {
-  var seen = {};
-  DATA.edges.forEach(function(e) {
-    if (!seen[e.evidence]) {
-      seen[e.evidence] = 0;
-      evidenceTypes.push(e.evidence);
-    }
-    seen[e.evidence]++;
-  });
-  evidenceTypes.sort();
-  var div = document.getElementById("evidence-filters");
-  evidenceTypes.forEach(function(ev) {
-    var lbl = document.createElement("label");
-    var chk = document.createElement("input");
-    chk.type = "checkbox"; chk.checked = true;
-    chk.id = "ev-" + ev.replace(/\s+/g,"_");
-    chk.dataset.ev = ev;
-    var span = document.createElement("span");
-    span.textContent = ev + " ";
-    var badge = document.createElement("span");
-    badge.className = "count-badge";
-    badge.id = "badge-" + chk.id;
-    lbl.appendChild(chk); lbl.appendChild(span); lbl.appendChild(badge);
-    div.appendChild(lbl);
+// Direction: the fixed vocabulary first, then anything unexpected in the data
+const directionTypes = DIR_ORDER.slice();
+DATA.edges.forEach(e => { if (!directionTypes.includes(e.direction)) directionTypes.push(e.direction); });
+(function () {
+  const div = document.getElementById("direction-filters");
+  const leg = document.getElementById("legend-directions");
+  directionTypes.forEach(d => {
+    const sw = '<span class="dir-swatch" style="background:' + dirColor(d) + '"></span>';
+    makeCheck(div, "dir", d, sw + '<span style="color:' + dirColor(d) + '">' + esc(d || "(blank)") + "</span>");
+    leg.insertAdjacentHTML("beforeend",
+      '<div class="legend-row"><div class="legend-swatch" style="background:' + dirColor(d) + '"></div> ' + esc(d || "(blank)") + "</div>");
   });
 })();
 
-// Rank controls
-(function() {
-  var div = document.getElementById("rank-controls");
-  DATA.top_levels.forEach(function(lvl, i) {
-    var lbl = document.createElement("label");
-    var rb = document.createElement("input");
-    rb.type = "radio"; rb.name = "rank"; rb.value = lvl;
-    rb.id = "rank-" + lvl;
-    if (lvl === "phylum") rb.checked = true;
-    rb.addEventListener("change", function() {
-      if (rb.checked) { currentLevel = lvl; rebuildLayout(lvl); }
+// Evidence
+const evidenceTypes = Array.from(new Set(DATA.edges.map(e => e.evidence))).sort(natCmp);
+(function () {
+  const div = document.getElementById("evidence-filters");
+  evidenceTypes.forEach(ev => makeCheck(div, "ev", ev, esc(ev)));
+})();
+
+// Mechanism: broad class headers with their specific mechanisms underneath
+const mechTree = {};
+DATA.edges.forEach(e => { (mechTree[mechBroadOf(e)] = mechTree[mechBroadOf(e)] || new Set()).add(mechOf(e)); });
+(function () {
+  const div = document.getElementById("mechanism-filters");
+  Object.keys(mechTree).sort(natCmp).forEach(broad => {
+    const parent = makeCheck(div, "mechbroad", broad, esc(broad), "mech-broad-label");
+    parent.classList.add("mech-broad");
+    Array.from(mechTree[broad]).sort(natCmp).forEach(m => {
+      const c = makeCheck(div, "mech", m, esc(m), "mech-leaf-label");
+      c.classList.add("mech-leaf"); c.dataset.broad = broad;
     });
+  });
+})();
+
+function syncMechParents() {
+  document.querySelectorAll("#mechanism-filters input.mech-broad").forEach(p => {
+    const kids = Array.from(document.querySelectorAll("#mechanism-filters input.mech-leaf"))
+      .filter(c => c.dataset.broad === p.dataset.val);
+    const n = kids.filter(c => c.checked).length;
+    p.checked = n === kids.length;
+    p.indeterminate = n > 0 && n < kids.length;
+  });
+}
+
+// Rank radio buttons
+(function () {
+  const div = document.getElementById("rank-controls");
+  DATA.top_levels.forEach(lvl => {
+    const lbl = document.createElement("label");
+    const rb = document.createElement("input");
+    rb.type = "radio"; rb.name = "rank"; rb.value = lvl; rb.id = "rank-" + lvl;
+    if (lvl === currentLevel) rb.checked = true;
+    rb.addEventListener("change", () => { if (rb.checked) { rebuildLayout(lvl); fitView(true); } });
     lbl.appendChild(rb);
     lbl.appendChild(document.createTextNode(" " + lvl));
     div.appendChild(lbl);
   });
 })();
 
-// -------------------------------------------------------------------------
-// Get visible edges based on current filters
-// -------------------------------------------------------------------------
-function getVisibleEdges() {
-  var checkedEv = new Set();
-  document.querySelectorAll("#evidence-filters input[type=checkbox]").forEach(function(c) {
-    if (c.checked) checkedEv.add(c.dataset.ev);
-  });
-  var protOk = document.getElementById("dir-protective").checked;
-  var exacOk = document.getElementById("dir-exacerbating").checked;
-  var otherOk = document.getElementById("dir-other").checked;
-  function dirOk(d) {
-    if (d === "protective") return protOk;
-    if (d === "exacerbating") return exacOk;
-    return otherOk;
-  }
-
-  // Get taxa visible at current level
-  var visibleTaxa = getVisibleTaxaAtLevel(currentLevel);
-
-  return DATA.edges.filter(function(e) {
-    return visibleTaxa.has(e.taxon) &&
-           checkedEv.has(e.evidence) &&
-           dirOk(e.direction);
-  });
+function filterState() {
+  const pick = dim => new Set(Array.from(document.querySelectorAll('#sidebar input[data-dim="' + dim + '"]'))
+    .filter(c => c.checked).map(c => c.dataset.val));
+  return { dir: pick("dir"), ev: pick("ev"), mech: pick("mech") };
 }
 
-function getVisibleTaxaAtLevel(level) {
-  var s = new Set();
-  var levelIdx = rankIdx(level);
-  Object.keys(DATA.taxa).forEach(function(t) {
-    var info = DATA.taxa[t];
-    var ri = rankIdx(info.taxon_rank);
-    if (ri >= levelIdx && info[level]) s.add(t);
+function edgePasses(e, st, skip) {
+  return (skip === "dir" || st.dir.has(e.direction)) &&
+         (skip === "ev" || st.ev.has(e.evidence)) &&
+         (skip === "mech" || st.mech.has(mechOf(e)));
+}
+
+function visibleTaxaAtLevel(level) {
+  const s = new Set();
+  const li = rankIdx(level);
+  Object.keys(DATA.taxa).forEach(t => {
+    const info = DATA.taxa[t];
+    if (rankIdx(info.taxon_rank) >= li && info[level]) s.add(t);
   });
   return s;
 }
 
-var RANKS_ORDER = ["domain","phylum","class","order","family","genus","species"];
-function rankIdx(r) { return RANKS_ORDER.indexOf(r); }
+function getVisibleEdges() {
+  const st = filterState();
+  const vt = visibleTaxaAtLevel(currentLevel);
+  return DATA.edges.filter(e => vt.has(e.taxon) && edgePasses(e, st));
+}
+
+// Badge counts: edges at the current rank that pass every *other* filter
+function updateBadges() {
+  const st = filterState();
+  const vt = visibleTaxaAtLevel(currentLevel);
+  const c = { dir: {}, ev: {}, mech: {}, mechbroad: {} };
+  DATA.edges.forEach(e => {
+    if (!vt.has(e.taxon)) return;
+    if (edgePasses(e, st, "dir")) c.dir[e.direction] = (c.dir[e.direction] || 0) + 1;
+    if (edgePasses(e, st, "ev")) c.ev[e.evidence] = (c.ev[e.evidence] || 0) + 1;
+    if (edgePasses(e, st, "mech")) {
+      c.mech[mechOf(e)] = (c.mech[mechOf(e)] || 0) + 1;
+      c.mechbroad[mechBroadOf(e)] = (c.mechbroad[mechBroadOf(e)] || 0) + 1;
+    }
+  });
+  document.querySelectorAll("#sidebar input[data-dim]").forEach(chk => {
+    const b = document.getElementById("badge-" + chk.dataset.dim + "-" + slug(chk.dataset.val));
+    if (b) b.textContent = "(" + (c[chk.dataset.dim][chk.dataset.val] || 0) + ")";
+  });
+}
 
 // -------------------------------------------------------------------------
-// Layout computation
+// Layout
 // -------------------------------------------------------------------------
-function computeGroupRadius(nLeaves) {
-  return Math.max(38, 17 * Math.sqrt(nLeaves));
-}
+const computeGroupRadius = nLeaves => Math.max(38, 17 * Math.sqrt(nLeaves));
 
 function countLeaves(node) {
-  if (!node.children || node.children.length === 0) {
-    return node.is_claim ? 1 : 0;
-  }
-  return node.children.reduce(function(s, c){ return s + countLeaves(c); }, 0);
+  if (!node.children || node.children.length === 0) return node.is_claim ? 1 : 0;
+  return node.children.reduce((s, c) => s + countLeaves(c), 0);
 }
 
-function buildPackLayout(groupTree, R_group) {
-  // Build d3 hierarchy
-  var root = d3.hierarchy(groupTree, function(d) {
-    return (d.children && d.children.length > 0) ? d.children : null;
-  }).sum(function(d) {
-    return (!d.children || d.children.length === 0) ? 1 : 0;
-  });
+function firstClaim(node) {
+  if (node.is_claim) return node.name;
+  for (const c of (node.children || [])) { const r = firstClaim(c); if (r) return r; }
+  return null;
+}
 
-  d3.pack()
-    .size([2 * R_group, 2 * R_group])
-    .padding(3)(root);
-
-  return root; // root.x = R_group, root.y = R_group
+function buildPackLayout(groupTree, R) {
+  const root = d3.hierarchy(groupTree, d => (d.children && d.children.length > 0) ? d.children : null)
+    .sum(d => (!d.children || d.children.length === 0) ? 1 : 0);
+  d3.pack().size([2 * R, 2 * R]).padding(3)(root);
+  return root;
 }
 
 function computeLayout(level) {
-  var hierarchies = DATA.hierarchies[level];
-  var groups = Object.keys(hierarchies);
+  const hier = DATA.hierarchies[level] || {};
+  const L = rankIdx(level);
+  const groups = Object.keys(hier);
 
-  // Sort: bacteria phyla alphabetically, then Eukaryota, then Viruses
-  groups.sort(function(a, b) {
-    var da = hierarchies[a];
-    var db = hierarchies[b];
-    // Find domain for each group via first claim taxon
-    function getDomain(tree) {
-      if (!tree) return "Bacteria";
-      // The top-level rank value maps to a group; find domain from taxa data
-      // Walk tree to find first claim taxon
-      function findTaxon(node) {
-        if (node.is_claim) return node.name;
-        if (node.children) {
-          for (var i=0; i<node.children.length; i++) {
-            var r = findTaxon(node.children[i]);
-            if (r) return r;
-          }
-        }
-        return null;
-      }
-      var t = findTaxon(tree);
-      return t ? (DATA.taxa[t] || {}).domain || "Bacteria" : "Bacteria";
+  // Lineage of each group: [domain, phylum, ..., value at `level`]
+  const lineage = {};
+  groups.forEach(g => {
+    const t = firstClaim(hier[g]);
+    const info = DATA.taxa[t] || {};
+    lineage[g] = RANKS_ORDER.slice(0, L).map(r => info[r] || "").concat([g]);
+  });
+
+  // Taxonomic order: sort by full lineage so relatives sit next to each other at every rank
+  groups.sort((a, b) => {
+    const la = lineage[a], lb = lineage[b];
+    const da = DOMAIN_ORDER[la[0]] !== undefined ? DOMAIN_ORDER[la[0]] : 9;
+    const db = DOMAIN_ORDER[lb[0]] !== undefined ? DOMAIN_ORDER[lb[0]] : 9;
+    if (da !== db) return da - db;
+    for (let i = 1; i < la.length; i++) {
+      const c = natCmp(la[i], lb[i]);
+      if (c) return c;
     }
-    var domA = getDomain(da), domB = getDomain(db);
-    var order = {"Bacteria":0, "Eukaryota":1, "Viruses":2};
-    var oa = order[domA] !== undefined ? order[domA] : 0;
-    var ob = order[domB] !== undefined ? order[domB] : 0;
-    if (oa !== ob) return oa - ob;
-    // Within bacteria: alphabetical
-    return a < b ? -1 : a > b ? 1 : 0;
+    return 0;
   });
 
-  // Compute R_group per group
-  var groupData = {};
-  groups.forEach(function(g) {
-    var tree = hierarchies[g];
-    var nLeaves = countLeaves(tree);
-    var R = computeGroupRadius(nLeaves);
-    groupData[g] = { tree: tree, nLeaves: nLeaves, R: R };
+  const n = groups.length;
+  const groupData = {};
+  groups.forEach(g => {
+    const tree = hier[g];
+    const nLeaves = countLeaves(tree);
+    groupData[g] = { tree: tree, nLeaves: nLeaves, R: computeGroupRadius(nLeaves), lineage: lineage[g] };
   });
 
-  var sumR = groups.reduce(function(s,g){ return s + groupData[g].R; }, 0);
-  var nGroups = groups.length;
-  var totalAvailAngle = 360 - nGroups * 3;
-  var startAngle = -90; // degrees, 12 o'clock
-  var cursor = startAngle;
+  // Angular gap after each group: wider where the shared ancestry is shallower
+  function gapBetween(a, b) {
+    const la = lineage[a], lb = lineage[b];
+    let k = 0;
+    while (k < la.length && la[k] === lb[k]) k++;
+    if (k >= la.length - 1) return 2.5;          // siblings under the same parent
+    return Math.max(3, 12 - 2 * k);              // domain 12, phylum 10, class 8, order 6, ...
+  }
+  const gaps = groups.map((g, i) => (n > 1 ? gapBetween(g, groups[(i + 1) % n]) : 0));
+  const sumGaps = gaps.reduce((s, x) => s + x, 0);
 
-  groups.forEach(function(g) {
-    var gd = groupData[g];
-    var share = (gd.R / sumR) * totalAvailAngle;
-    var midAngle = cursor + share / 2;
-    var dist = R_GROUP_BASE + gd.R;
-    var rad = midAngle * Math.PI / 180;
-    gd.cx = CX + dist * Math.cos(rad);
-    gd.cy = CY + dist * Math.sin(rad);
-    gd.midAngle = midAngle;
-    gd.startAngle = cursor;
-    gd.endAngle = cursor + share;
-    cursor += share + 3; // 3° gap
+  // Grow the base radius until all circles fit without overlapping
+  const halfDeg = (R, base) => Math.asin(R / (base + R)) * 180 / Math.PI;
+  let base = R_GROUP_BASE_MIN;
+  const footprint = b => groups.reduce((s, g) => s + 2 * halfDeg(groupData[g].R, b), 0);
+  while (footprint(base) + sumGaps > 345 && base < 4000) base += 15;
+  const sumFoot = footprint(base);
+  const extra = Math.max(0, 360 - sumFoot - sumGaps);
+
+  let cursor = -90;
+  groups.forEach((g, i) => {
+    const gd = groupData[g];
+    gd.halfDeg = halfDeg(gd.R, base);
+    const span = 2 * gd.halfDeg + (sumFoot > 0 ? extra * (2 * gd.halfDeg / sumFoot) : 0);
+    gd.midAngle = cursor + span / 2;
+    const dist = base + gd.R;
+    [gd.cx, gd.cy] = polar(dist, gd.midAngle);
+    cursor += span + gaps[i];
   });
 
-  // Build pack layouts and collect taxon positions
-  var allTaxonPositions = {};
-  groups.forEach(function(g) {
-    var gd = groupData[g];
-    var packRoot = buildPackLayout(gd.tree, gd.R);
-    gd.packRoot = packRoot;
-
-    // Walk pack and record positions
-    packRoot.each(function(node) {
-      var d = node.data;
-      if (d.is_claim) {
-        var svgX = gd.cx + (node.x - gd.R);
-        var svgY = gd.cy + (node.y - gd.R);
-        allTaxonPositions[d.name] = { x: svgX, y: svgY, r: node.r, group: g };
+  // Pack each group and record claim-taxon positions
+  const allTaxonPositions = {};
+  groups.forEach(g => {
+    const gd = groupData[g];
+    gd.packRoot = buildPackLayout(gd.tree, gd.R);
+    gd.packRoot.each(node => {
+      if (node.data.is_claim) {
+        allTaxonPositions[node.data.name] = { x: gd.cx + (node.x - gd.R), y: gd.cy + (node.y - gd.R), r: node.r, group: g };
       }
     });
   });
 
-  // Compute paper ordering: circular mean angle of target taxa
-  var visibleTaxa = getVisibleTaxaAtLevel(level);
-  var paperAngles = {};
-  DATA.edges.forEach(function(e) {
-    if (!visibleTaxa.has(e.taxon)) return;
-    var tp = allTaxonPositions[e.taxon];
+  // Papers: order by circular mean angle of their targets, spaced evenly on the inner ring
+  const rPaper = base * PAPER_RING_FRAC;
+  const vt = visibleTaxaAtLevel(level);
+  const paperAngles = {};
+  DATA.edges.forEach(e => {
+    if (!vt.has(e.taxon)) return;
+    const tp = allTaxonPositions[e.taxon];
     if (!tp) return;
-    var angle = Math.atan2(tp.y - CY, tp.x - CX);
-    if (!paperAngles[e.ref_id]) paperAngles[e.ref_id] = [];
-    paperAngles[e.ref_id].push(angle);
+    (paperAngles[e.ref_id] = paperAngles[e.ref_id] || []).push(Math.atan2(tp.y - CY, tp.x - CX));
+  });
+  const pids = Object.keys(paperAngles);
+  const meanAngle = {};
+  pids.forEach(pid => {
+    let sx = 0, sy = 0;
+    paperAngles[pid].forEach(a => { sx += Math.cos(a); sy += Math.sin(a); });
+    meanAngle[pid] = Math.atan2(sy, sx);
+  });
+  pids.sort((a, b) => meanAngle[a] - meanAngle[b]);
+  const allPaperPositions = {};
+  pids.forEach((pid, i) => {
+    const angle = (i / pids.length) * 2 * Math.PI - Math.PI / 2;
+    allPaperPositions[pid] = { x: CX + rPaper * Math.cos(angle), y: CY + rPaper * Math.sin(angle), angle: angle };
   });
 
-  // Papers with positions are those with at least one target taxon at this level
-  var papersWithPos = Object.keys(paperAngles);
-
-  // Compute circular mean angle per paper
-  function circularMean(angles) {
-    var sx = 0, sy = 0;
-    angles.forEach(function(a){ sx += Math.cos(a); sy += Math.sin(a); });
-    return Math.atan2(sy / angles.length, sx / angles.length);
-  }
-
-  var paperMeanAngles = {};
-  papersWithPos.forEach(function(pid) {
-    paperMeanAngles[pid] = circularMean(paperAngles[pid]);
-  });
-
-  // Sort papers by mean angle
-  papersWithPos.sort(function(a, b) {
-    return paperMeanAngles[a] - paperMeanAngles[b];
-  });
-
-  var allPaperPositions = {};
-  var nPapers = papersWithPos.length;
-  papersWithPos.forEach(function(pid, i) {
-    var angle = (i / nPapers) * 2 * Math.PI - Math.PI / 2;
-    allPaperPositions[pid] = {
-      x: CX + R_INNER * Math.cos(angle),
-      y: CY + R_INNER * Math.sin(angle),
-      angle: angle,
-    };
-  });
-
-  return { groupData: groupData, groups: groups, taxonPositions: allTaxonPositions, paperPositions: allPaperPositions };
+  return { groupData, groups, base, taxonPositions: allTaxonPositions, paperPositions: allPaperPositions };
 }
 
 // -------------------------------------------------------------------------
 // Drawing
 // -------------------------------------------------------------------------
-var svg = d3.select("#main-svg");
-var defsEl = document.getElementById("defs-markers");
-var edgesLayer = d3.select("#edges-layer");
-var nodesLayer = d3.select("#nodes-layer");
-var labelsLayer = d3.select("#labels-layer");
+const svg = d3.select("#main-svg");
+const svgNode = svg.node();
+const zoomLayer = d3.select("#zoom-layer");
+const arcsLayer = d3.select("#arcs-layer");
+const edgesLayer = d3.select("#edges-layer");
+const nodesLayer = d3.select("#nodes-layer");
+const labelsLayer = d3.select("#labels-layer");
 
-// Create arrowhead markers
-function ensureMarkers() {
-  // Clear existing
-  while (defsEl.firstChild) defsEl.removeChild(defsEl.firstChild);
-
-  ["protective", "exacerbating", "other"].forEach(function(dir) {
-    var color = dirColor(dir === "other" ? "other" : dir);
-    var marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
-    marker.setAttribute("id", "arrow-" + dir);
-    marker.setAttribute("markerWidth", "6");
-    marker.setAttribute("markerHeight", "6");
-    marker.setAttribute("refX", "5");
-    marker.setAttribute("refY", "3");
-    marker.setAttribute("orient", "auto");
-    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", "M0,0 L0,6 L6,3 Z");
-    path.setAttribute("fill", color);
-    marker.appendChild(path);
-    defsEl.appendChild(marker);
+// Arrowheads (fixed size, independent of stroke width)
+(function () {
+  const defs = document.getElementById("defs-markers");
+  directionTypes.concat(["__mixed"]).forEach(d => {
+    const m = document.createElementNS("http://www.w3.org/2000/svg", "marker");
+    m.setAttribute("id", "arrow-" + slug(d));
+    m.setAttribute("markerUnits", "userSpaceOnUse");
+    m.setAttribute("markerWidth", "10"); m.setAttribute("markerHeight", "10");
+    m.setAttribute("refX", "8"); m.setAttribute("refY", "4"); m.setAttribute("orient", "auto");
+    const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    p.setAttribute("d", "M0,0 L0,8 L9,4 Z");
+    p.setAttribute("fill", d === "__mixed" ? MIXED_COLOR : dirColor(d));
+    m.appendChild(p); defs.appendChild(m);
   });
-}
-ensureMarkers();
+})();
 
-function markerForDir(d) {
-  if (d === "protective") return "url(#arrow-protective)";
-  if (d === "exacerbating") return "url(#arrow-exacerbating)";
-  return "url(#arrow-other)";
+// Text width helper (measured in the live SVG)
+function measureText(str, fontSize, weight, italic) {
+  const t = labelsLayer.append("text").attr("font-size", fontSize).attr("font-weight", weight || "normal")
+    .attr("font-style", italic ? "italic" : "normal").text(str);
+  const w = t.node().getComputedTextLength();
+  t.remove();
+  return w;
 }
 
-// -------------------------------------------------------------------------
-// rebuildLayout — main draw function
-// -------------------------------------------------------------------------
 function rebuildLayout(level) {
   currentLevel = level;
+  arcsLayer.selectAll("*").remove();
   edgesLayer.selectAll("*").remove();
   nodesLayer.selectAll("*").remove();
   labelsLayer.selectAll("*").remove();
-  nodeRegistry = {};
+  hideTooltip();
 
-  var layout = computeLayout(level);
+  // Labels must be displayed while we measure them
+  labelsLayer.style("display", null);
+
+  const layout = computeLayout(level);
   taxonPositions = layout.taxonPositions;
   paperPositions = layout.paperPositions;
+  const { groupData, groups, base } = layout;
+  const groupItalic = level === "genus" || level === "species";
 
-  var groupData = layout.groupData;
-  var groups = layout.groups;
+  // ------- Group circles, inner structure, claim circles -------
+  groups.forEach(g => {
+    const gd = groupData[g];
+    const t0 = firstClaim(gd.tree);
+    const domain = (DATA.taxa[t0] || {}).domain || "Bacteria";
+    const tint = DOMAIN_TINT[domain] || DOMAIN_TINT["default"];
 
-  // ------- Draw group circles (background) -------
-  groups.forEach(function(g) {
-    var gd = groupData[g];
-    var tree = gd.tree;
-    // Find domain via first taxon
-    var domain = "Bacteria";
-    function findDomain(node) {
-      if (node.is_claim && DATA.taxa[node.name]) {
-        domain = DATA.taxa[node.name].domain || "Bacteria";
-        return true;
-      }
-      if (node.children) return node.children.some(findDomain);
-      return false;
-    }
-    findDomain(tree);
-    var tint = DOMAIN_TINT[domain] || DOMAIN_TINT["default"];
+    gd.packRoot.each(node => {
+      const d = node.data;
+      const x = gd.cx + (node.x - gd.R);
+      const y = gd.cy + (node.y - gd.R);
+      const r = node.r;
 
-    // Draw all circles from pack
-    gd.packRoot.each(function(node) {
-      var d = node.data;
-      var svgX = gd.cx + (node.x - gd.R);
-      var svgY = gd.cy + (node.y - gd.R);
-      var r = node.r;
-
-      if (node.depth === 0) {
-        // Top-level group circle
+      if (node.depth === 0 && !d.is_claim) {
         nodesLayer.append("circle")
-          .attr("cx", svgX).attr("cy", svgY).attr("r", r)
+          .attr("cx", x).attr("cy", y).attr("r", r)
           .attr("class", "group-circle")
-          .attr("fill", tint.fill)
-          .attr("stroke", tint.stroke)
-          .attr("stroke-width", 2)
-          .attr("data-type", "group")
+          .attr("fill", tint.fill).attr("stroke", tint.stroke).attr("stroke-width", 2)
           .attr("data-name", g)
           .style("cursor", "pointer")
-          .on("click", function(event) {
-            event.stopPropagation();
-            showGroupInfo(g, gd, true);
-          });
-
-        nodeRegistry[g] = { type: "group", name: g, x: svgX, y: svgY, r: r, gd: gd };
-
+          .on("click", ev => { ev.stopPropagation(); showGroupInfo(g, gd); })
+          .on("mouseover", ev => showTooltip(ev, "<b>" + (groupItalic ? "<i>" + esc(g) + "</i>" : esc(g)) + "</b><br>" + level))
+          .on("mouseout", hideTooltip);
       } else if (d.is_claim) {
-        // Claim taxon circle
-        var info = DATA.taxa[d.name] || {};
-        var circ = nodesLayer.append("circle")
-          .attr("cx", svgX).attr("cy", svgY).attr("r", r)
+        const info = DATA.taxa[d.name] || {};
+        nodesLayer.append("circle")
+          .attr("cx", x).attr("cy", y).attr("r", r)
           .attr("class", "claim-circle")
-          .attr("data-type", "claim")
           .attr("data-taxon", d.name)
           .style("cursor", "pointer")
-          .on("click", function(event) {
-            event.stopPropagation();
-            showTaxonInfo(d.name, false);
-          });
+          .on("click", ev => { ev.stopPropagation(); showTaxonInfo(d.name, false); })
+          .on("mouseover", ev => {
+            showTooltip(ev, "<b>" + taxonHtml(d.name) + "</b><br>" + esc(info.taxon_rank || ""));
+            highlightEdges(e => e.taxon === d.name);
+          })
+          .on("mouseout", () => { hideTooltip(); clearHighlight(); });
 
-        nodeRegistry[d.name] = { type: "claim", name: d.name, x: svgX, y: svgY, r: r };
-
-        // Labels for claim taxa if r >= 10
-        if (labelsOn && r >= 10) {
-          var lbl = labelsLayer.append("text")
-            .attr("x", svgX).attr("y", svgY + 1)
-            .attr("text-anchor", "middle")
-            .attr("dominant-baseline", "middle")
-            .attr("class", "taxon-label")
-            .attr("data-taxon-label", d.name);
-          if (info.italic) {
-            lbl.append("tspan").attr("font-style", "italic").text(d.name);
-          } else {
-            lbl.text(d.name);
+        // Label inside the circle: shrink to fit (13px down to 9px); otherwise hover only
+        if (r >= 10) {
+          const w13 = measureText(d.name, 13, "normal", info.italic);
+          const room = 2 * r + 10;
+          const fsz = w13 <= room ? 13 : 13 * room / w13;
+          if (fsz >= 9) {
+            const lbl = labelsLayer.append("text")
+              .attr("x", x).attr("y", y + 1)
+              .attr("text-anchor", "middle").attr("dominant-baseline", "middle")
+              .attr("class", "taxon-label").attr("data-taxon-label", d.name)
+              .style("font-size", fsz.toFixed(1) + "px");
+            if (info.italic) lbl.append("tspan").attr("font-style", "italic").text(d.name);
+            else lbl.text(d.name);
           }
         }
-      } else {
-        // Structural (non-claim) circle
-        if (r > 5) { // don't draw tiny structural nodes
-          nodesLayer.append("circle")
-            .attr("cx", svgX).attr("cy", svgY).attr("r", r)
-            .attr("class", "struct-circle")
-            .attr("data-type", "struct")
-            .attr("data-name", d.name)
-            .style("cursor", "pointer")
-            .on("click", function(event) {
-              event.stopPropagation();
-              showStructInfo(d, svgX, svgY, r, gd);
-            });
-        }
+      } else if (r > 5) {
+        nodesLayer.append("circle")
+          .attr("cx", x).attr("cy", y).attr("r", r)
+          .attr("class", "struct-circle")
+          .attr("data-name", d.name)
+          .style("cursor", "pointer")
+          .on("click", ev => { ev.stopPropagation(); showStructInfo(d, gd); })
+          .on("mouseover", ev => showTooltip(ev, "<b>" + esc(d.name) + "</b><br>" + esc(d.rank)))
+          .on("mouseout", hideTooltip);
       }
     });
 
-    // Group label: just outside the group circle, along the radial direction
-    if (labelsOn) {
-      var angleRad = gd.midAngle * Math.PI / 180;
-      // Group center is at (R_GROUP_BASE + gd.R) from SVG center.
-      // Label at group center + R + 10px in the outward direction.
-      var outerDist = R_GROUP_BASE + gd.R + gd.R + 10;
-      var lx = CX + outerDist * Math.cos(angleRad);
-      var ly = CY + outerDist * Math.sin(angleRad);
-      // Rotate text to read radially (tangent perpendicular to radius);
-      // if left half flip so text doesn't run inward
-      var onRight = Math.cos(angleRad) >= 0;
-      // Use the angle + 90 so text aligns with the radius line (tangential)
-      // Actually: text "along" the radius means rotate by midAngle so baseline points outward
-      var textRot = onRight ? gd.midAngle : gd.midAngle + 180;
-      var anchor = onRight ? "start" : "end";
-      labelsLayer.append("text")
-        .attr("x", lx).attr("y", ly)
-        .attr("text-anchor", anchor)
-        .attr("dominant-baseline", "middle")
-        .attr("font-size", gd.R >= 60 ? "12" : "10")
-        .attr("font-weight", "bold")
-        .attr("fill", "#333")
-        .attr("transform", "rotate(" + textRot + "," + lx + "," + ly + ")")
-        .attr("data-group-label", g)
-        .text(g);
-    }
+    // Group label: radial, just outside the group circle
+    const fs = 16;
+    const outerDist = base + 2 * gd.R + 10;
+    const [lx, ly] = polar(outerDist, gd.midAngle);
+    const onRight = Math.cos(deg2rad(gd.midAngle)) >= 0;
+    const rot = onRight ? gd.midAngle : gd.midAngle + 180;
+    const txt = labelsLayer.append("text")
+      .attr("x", lx).attr("y", ly)
+      .attr("text-anchor", onRight ? "start" : "end")
+      .attr("dominant-baseline", "middle")
+      .attr("font-size", fs).attr("class", "group-label")
+      .attr("font-style", groupItalic ? "italic" : "normal")
+      .attr("transform", "rotate(" + rot + "," + lx + "," + ly + ")")
+      .attr("data-group-label", g)
+      .text(g);
+    gd.outerExtent = outerDist + txt.node().getComputedTextLength();
   });
 
-  // ------- Draw paper circles -------
-  Object.keys(paperPositions).forEach(function(pid) {
-    var pp = paperPositions[pid];
-    var label = DATA.papers[pid] || pid;
+  drawLineageArcs(layout);
 
+  // ------- Paper circles (name on hover only) -------
+  Object.keys(paperPositions).forEach(pid => {
+    const pp = paperPositions[pid];
+    const label = DATA.papers[pid] || pid;
+    const nr = nReviews(pid);
+    const nClaims = DATA.edges.filter(e => e.ref_id === pid).reduce((s, e) => s + e.width, 0);
     nodesLayer.append("circle")
-      .attr("cx", pp.x).attr("cy", pp.y).attr("r", 5)
-      .attr("class", "paper-circle")
-      .attr("data-type", "paper")
-      .attr("data-pid", pid)
+      .attr("cx", pp.x).attr("cy", pp.y).attr("r", paperRadius(pid))
+      .attr("class", "paper-circle").attr("data-pid", pid)
       .style("cursor", "pointer")
-      .on("click", function(event) {
-        event.stopPropagation(); showPaperInfo(pid);
+      .on("click", ev => { ev.stopPropagation(); showPaperInfo(pid); })
+      .on("mouseover", ev => {
+        showTooltip(ev, "<b>" + esc(label) + "</b><br>cited by " + nr + " review" + (nr === 1 ? "" : "s") +
+          (nr ? " (" + esc(Array.from(paperReviews[pid]).sort().join(", ")) + ")" : "") +
+          "<br>" + nClaims + " claim" + (nClaims === 1 ? "" : "s"));
+        highlightEdges(e => e.ref_id === pid);
       })
-      .on("mouseover", function(event) {
-        showTooltip(event, "<b>" + label + "</b>");
-      })
-      .on("mouseout", function() { hideTooltip(); });
-
-    nodeRegistry[pid] = { type: "paper", name: pid, x: pp.x, y: pp.y, r: 5 };
-
-    // Paper label — radial, flip if left half
-    if (labelsOn) {
-      var angleDeg = pp.angle * 180 / Math.PI;
-      var onRight = pp.x >= CX;
-      var lx = CX + R_PAPER_LABEL * Math.cos(pp.angle);
-      var ly = CY + R_PAPER_LABEL * Math.sin(pp.angle);
-      var rot = onRight ? angleDeg : angleDeg + 180;
-      var anchor = onRight ? "start" : "end";
-
-      labelsLayer.append("text")
-        .attr("x", lx).attr("y", ly)
-        .attr("text-anchor", anchor)
-        .attr("dominant-baseline", "middle")
-        .attr("class", "paper-label")
-        .attr("data-paper-label", pid)
-        .attr("transform", "rotate(" + rot + "," + lx + "," + ly + ")")
-        .text(label);
-    }
+      .on("mouseout", () => { hideTooltip(); clearHighlight(); });
   });
 
-  // ------- Draw edges -------
-  var visibleEdges = getVisibleEdges();
-  var edgeByPaperTaxonDir = {}; // group overlapping edges
-
-  visibleEdges.forEach(function(e) {
-    var pp = paperPositions[e.ref_id];
-    var tp = taxonPositions[e.taxon];
-    if (!pp || !tp) return;
-
-    var key = e.ref_id + "|" + e.taxon + "|" + e.direction;
-    if (!edgeByPaperTaxonDir[key]) {
-      edgeByPaperTaxonDir[key] = { edge: e, pp: pp, tp: tp };
-    }
+  // ------- Edges: one path per paper / taxon / direction -------
+  const keys = {};
+  DATA.edges.forEach(e => {
+    if (!paperPositions[e.ref_id] || !taxonPositions[e.taxon]) return;
+    const k = edgeKey(e);
+    if (!keys[k]) keys[k] = { ref_id: e.ref_id, taxon: e.taxon, direction: e.direction, edges: [] };
+    keys[k].edges.push(e);
   });
-
-  Object.values(edgeByPaperTaxonDir).forEach(function(item) {
-    var e = item.edge, pp = item.pp, tp = item.tp;
-    // Control point: lerp(paper, center, 0.5)
-    var cpx = (pp.x + CX) / 2;
-    var cpy = (pp.y + CY) / 2;
-    var d = "M" + pp.x + "," + pp.y + " Q" + cpx + "," + cpy + " " + tp.x + "," + tp.y;
-    var w = e.width * 1.5 + 0.5;
-    var col = dirColor(e.direction);
-
+  // Paper-taxon pairs with several directions get slightly separated curves
+  const pairDirs = {};
+  Object.values(keys).forEach(it => {
+    const p = it.ref_id + "|" + it.taxon;
+    (pairDirs[p] = pairDirs[p] || []).push(it.direction);
+  });
+  Object.entries(keys).forEach(([k, it]) => {
+    const pp = paperPositions[it.ref_id], tp = taxonPositions[it.taxon];
+    const dirs = pairDirs[it.ref_id + "|" + it.taxon];
+    const off = (dirs.indexOf(it.direction) - (dirs.length - 1) / 2) * 14;
+    let cpx = (pp.x + CX) / 2, cpy = (pp.y + CY) / 2;
+    const dx = tp.x - pp.x, dy = tp.y - pp.y, len = Math.hypot(dx, dy) || 1;
+    cpx += -dy / len * off; cpy += dx / len * off;
+    // Stop the arrow at the rim of the taxon circle
+    const ex = tp.x - cpx, ey = tp.y - cpy, el = Math.hypot(ex, ey) || 1;
+    const endX = tp.x - ex / el * (tp.r + 1), endY = tp.y - ey / el * (tp.r + 1);
     edgesLayer.append("path")
       .attr("class", "edge-path")
-      .attr("d", d)
-      .attr("stroke", col)
-      .attr("stroke-width", w)
-      .attr("marker-end", markerForDir(e.direction))
-      .attr("data-ref", e.ref_id)
-      .attr("data-taxon", e.taxon)
-      .attr("data-dir", e.direction)
-      .attr("data-ev", e.evidence)
-      .on("mouseover", function(event) {
-        var rows = e.rows || [];
-        var citingSet = new Set(rows.map(function(r){ return r.citing_label; }));
-        var citing = Array.from(citingSet).filter(Boolean).join(", ");
-        showTooltip(event,
-          "<b>" + e.ref_label + "</b> → <b>" + e.taxon + "</b>" +
-          "<br>" + e.direction + " | " + e.evidence +
-          (citing ? "<br>Review: " + citing : "")
-        );
+      .attr("d", "M" + pp.x + "," + pp.y + " Q" + cpx + "," + cpy + " " + endX + "," + endY)
+      .attr("stroke", dirColor(it.direction))
+      .attr("marker-end", "url(#arrow-" + slug(it.direction) + ")")
+      .attr("data-key", k).attr("data-ref", it.ref_id).attr("data-taxon", it.taxon).attr("data-dir", it.direction)
+      .on("mouseover", ev => {
+        const vis = currentEdgeSet();
+        const shown = it.edges.filter(e => vis.has(e));
+        const reviews = new Set();
+        shown.forEach(e => e.rows.forEach(r => r.citing_label && reviews.add(r.citing_label)));
+        showTooltip(ev, "<b>" + esc(DATA.papers[it.ref_id] || it.ref_id) + "</b> → <b>" + taxonHtml(it.taxon) + "</b>" +
+          "<br>" + esc(it.direction) +
+          shown.map(e => "<br>" + esc(e.evidence) + " | " + esc(mechOf(e))).join("") +
+          (reviews.size ? "<br>Review: " + esc(Array.from(reviews).join(", ")) : ""));
       })
-      .on("mouseout", function() { hideTooltip(); });
+      .on("mouseout", hideTooltip);
   });
 
-  // Apply visual filters (colors, opacity)
+  labelsLayer.style("display", labelsOn ? null : "none");
   applyFilters();
+  applySearch();
 }
 
 // -------------------------------------------------------------------------
-// applyFilters — owns all visibility/color after layout
+// Lineage arcs: brackets outside the ring that show the higher-rank grouping
 // -------------------------------------------------------------------------
-function applyFilters() {
-  var visibleEdges = getVisibleEdges();
-  var visibleEdgeSet = new Set();
-  var taxonDirs = {};  // taxon -> [directions]
-  var papersWithEdge = new Set();
+let arcLabelCounter = 0;
+function drawLineageArcs(layout) {
+  const { groupData, groups } = layout;
+  const L = rankIdx(currentLevel);
+  let ranks = RANKS_ORDER.slice(1, L);           // phylum .. rank above the current level
+  if (arcMode === "parent") ranks = ranks.slice(-1);
+  else if (arcMode === "phylum") ranks = ranks.slice(0, 1);
+  else if (arcMode === "none") ranks = [];
+  if (!ranks.length || !groups.length) return;
 
-  visibleEdges.forEach(function(e) {
-    var pp = paperPositions[e.ref_id];
-    var tp = taxonPositions[e.taxon];
-    if (!pp || !tp) return;
-    var key = e.ref_id + "|" + e.taxon + "|" + e.direction;
-    visibleEdgeSet.add(key);
-    papersWithEdge.add(e.ref_id);
-    if (!taxonDirs[e.taxon]) taxonDirs[e.taxon] = [];
-    taxonDirs[e.taxon].push(e.direction);
-  });
+  const n = groups.length;
+  const extent = groups.map(g => groupData[g].outerExtent);   // current outer radius at each group position
+  const PAD = 14;
 
-  // Update edge visibility
-  var edgeBadgeCounts = {};
-  edgesLayer.selectAll("path.edge-path").each(function() {
-    var el = d3.select(this);
-    var key = el.attr("data-ref") + "|" + el.attr("data-taxon") + "|" + el.attr("data-dir");
-    var visible = visibleEdgeSet.has(key);
-    el.style("display", visible ? null : "none");
-    if (visible) {
-      var ev = el.attr("data-ev");
-      edgeBadgeCounts[ev] = (edgeBadgeCounts[ev] || 0) + 1;
+  // Innermost (closest rank) first, so outer arcs wrap around inner ones
+  for (let ri = ranks.length - 1; ri >= 0; ri--) {
+    const rank = ranks[ri];
+    const k = rankIdx(rank);
+    const st = ARC_STYLE[rank] || ARC_STYLE["genus"];
+    let i = 0;
+    while (i < n) {
+      const prefix = groupData[groups[i]].lineage.slice(0, k + 1).join("|");
+      let j = i;
+      while (j + 1 < n && groupData[groups[j + 1]].lineage.slice(0, k + 1).join("|") === prefix) j++;
+      const name = groupData[groups[i]].lineage[k];
+      if (name) {
+        const rr = Math.max(...extent.slice(i, j + 1)) + PAD;
+        const gi = groupData[groups[i]], gj = groupData[groups[j]];
+        let a0 = gi.midAngle - gi.halfDeg - 1.5;
+        let a1 = gj.midAngle + gj.halfDeg + 1.5;
+        if (a1 - a0 > 359) { a1 = a0 + 359; }
+        drawOneArc(name, rank, rr, a0, a1, st);
+        for (let q = i; q <= j; q++) extent[q] = rr + st.font + 8;
+      }
+      i = j + 1;
     }
-  });
-
-  // Update badge counts
-  evidenceTypes.forEach(function(ev) {
-    var badge = document.getElementById("badge-ev-" + ev.replace(/\s+/g,"_"));
-    if (badge) badge.textContent = "(" + (edgeBadgeCounts[ev] || 0) + ")";
-  });
-
-  // Update claim circle colors and opacity
-  nodesLayer.selectAll("circle.claim-circle").each(function() {
-    var el = d3.select(this);
-    var taxon = el.attr("data-taxon");
-    var dirs = taxonDirs[taxon] || [];
-    var col = taxonColor(dirs);
-    var opacity = dirs.length > 0 ? 1.0 : 0.25;
-    el.attr("fill", col.replace("#", "rgba(").replace(/^rgba\(([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})\)$/i, function(_, r,g,b) {
-      return "rgba(" + parseInt(r,16) + "," + parseInt(g,16) + "," + parseInt(b,16) + ",0.2)";
-    }));
-    // Use a simpler approach for fill with opacity
-    el.attr("fill", hexToRgba(col, 0.2));
-    el.attr("stroke", col);
-    el.attr("opacity", opacity);
-  });
-
-  // Update paper opacity
-  nodesLayer.selectAll("circle.paper-circle").each(function() {
-    var el = d3.select(this);
-    var pid = el.attr("data-pid");
-    el.attr("opacity", papersWithEdge.has(pid) ? 1.0 : 0.25);
-  });
-
-  // Update paper labels
-  labelsLayer.selectAll("text[data-paper-label]").each(function() {
-    var el = d3.select(this);
-    var pid = el.attr("data-paper-label");
-    el.attr("opacity", papersWithEdge.has(pid) ? 1.0 : 0.25);
-  });
-
-  // Update taxon labels
-  labelsLayer.selectAll("text[data-taxon-label]").each(function() {
-    var el = d3.select(this);
-    var taxon = el.attr("data-taxon-label");
-    var dirs = taxonDirs[taxon] || [];
-    el.attr("opacity", dirs.length > 0 ? 1.0 : 0.25);
-  });
+  }
 }
 
-function hexToRgba(hex, alpha) {
-  var r = parseInt(hex.slice(1,3), 16);
-  var g = parseInt(hex.slice(3,5), 16);
-  var b = parseInt(hex.slice(5,7), 16);
-  return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+function arcD(r, a0, a1, sweep) {
+  const p0 = polar(r, sweep ? a0 : a1), p1 = polar(r, sweep ? a1 : a0);
+  const large = Math.abs(a1 - a0) > 180 ? 1 : 0;
+  return "M" + p0[0] + "," + p0[1] + " A" + r + "," + r + " 0 " + large + " " + (sweep ? 1 : 0) + " " + p1[0] + "," + p1[1];
+}
+
+function drawOneArc(name, rank, rr, a0, a1, st) {
+  // Bracket: arc with short ticks pointing toward the centre at both ends
+  const tick = 9;
+  const t0 = polar(rr - tick, a0), t1 = polar(rr - tick, a1);
+  const p1 = polar(rr, a1);
+  const large = (a1 - a0) > 180 ? 1 : 0;
+  const p0 = polar(rr, a0);
+  arcsLayer.append("path")
+    .attr("class", "lineage-arc")
+    .attr("d", "M" + t0[0] + "," + t0[1] + " L" + p0[0] + "," + p0[1] +
+      " A" + rr + "," + rr + " 0 " + large + " 1 " + p1[0] + "," + p1[1] + " L" + t1[0] + "," + t1[1])
+    .attr("stroke", st.stroke).attr("stroke-width", st.width)
+    .append("title").text(rank + ": " + name);
+
+  // Label on a curved path just outside the arc; flipped on the bottom half so it reads left to right
+  let mid = (a0 + a1) / 2;
+  const midNorm = ((mid % 360) + 360) % 360;
+  const bottom = midNorm > 0 && midNorm < 180;
+  const rl = bottom ? rr + 5 + st.font * 0.8 : rr + 5;
+  const w = measureText(name, st.font, st.weight, st.italic) + 10;
+  const half = Math.max((a1 - a0) / 2, (w / 2) / rl * 180 / Math.PI);
+  const id = "arclbl-" + (arcLabelCounter++);
+  arcsLayer.append("path").attr("id", id).attr("fill", "none").attr("stroke", "none")
+    .attr("d", arcD(rl, mid - half, mid + half, !bottom));
+  arcsLayer.append("text")
+    .attr("class", "lineage-arc-label")
+    .attr("font-size", st.font).attr("font-weight", st.weight).attr("font-style", st.italic ? "italic" : "normal")
+    .append("textPath").attr("href", "#" + id).attr("startOffset", "50%").attr("text-anchor", "middle")
+    .text(name);
+}
+
+// -------------------------------------------------------------------------
+// applyFilters: owns visibility and colors after layout
+// -------------------------------------------------------------------------
+let _edgeSetCache = null;
+function currentEdgeSet() {
+  if (!_edgeSetCache) _edgeSetCache = new Set(getVisibleEdges());
+  return _edgeSetCache;
+}
+
+function applyFilters() {
+  _edgeSetCache = null;
+  const vis = getVisibleEdges();
+  const keyW = {}, taxonDirs = {}, papersOn = new Set();
+  vis.forEach(e => {
+    if (!paperPositions[e.ref_id] || !taxonPositions[e.taxon]) return;
+    const k = edgeKey(e);
+    keyW[k] = (keyW[k] || 0) + e.width;
+    (taxonDirs[e.taxon] = taxonDirs[e.taxon] || new Set()).add(e.direction);
+    papersOn.add(e.ref_id);
+  });
+
+  edgesLayer.selectAll("path.edge-path").each(function () {
+    const w = keyW[this.dataset.key];
+    d3.select(this).style("display", w ? null : "none").attr("stroke-width", w ? 1.3 * w + 0.7 : 0);
+  });
+
+  nodesLayer.selectAll("circle.claim-circle").each(function () {
+    const el = d3.select(this);
+    const dirs = taxonDirs[el.attr("data-taxon")];
+    let col, dash = null, alpha = 0.2;
+    if (!dirs || dirs.size === 0) col = DIR_COLOR["unspecified"];
+    else if (dirs.size === 1) col = dirColor(Array.from(dirs)[0]);
+    else { col = MIXED_COLOR; dash = "4,3"; alpha = 0.12; }
+    if (col === DIR_COLOR["no effect"]) alpha = 0.15;
+    el.attr("fill", hexToRgba(col, alpha)).attr("stroke", col)
+      .attr("stroke-dasharray", dash).attr("opacity", dirs && dirs.size ? 1 : 0.25);
+  });
+
+  nodesLayer.selectAll("circle.paper-circle").each(function () {
+    d3.select(this).attr("opacity", papersOn.has(this.dataset.pid) ? 1 : 0.25);
+  });
+
+  labelsLayer.selectAll("text[data-taxon-label]").each(function () {
+    const dirs = taxonDirs[this.getAttribute("data-taxon-label")];
+    d3.select(this).attr("opacity", dirs && dirs.size ? 1 : 0.3);
+  });
+
+  updateBadges();
+}
+
+function highlightEdges(pred) {
+  edgesLayer.classed("dim", true);
+  edgesLayer.selectAll("path.edge-path").classed("hl", function () {
+    return pred({ ref_id: this.dataset.ref, taxon: this.dataset.taxon, direction: this.dataset.dir });
+  });
+}
+function clearHighlight() {
+  edgesLayer.classed("dim", false);
+  edgesLayer.selectAll("path.edge-path").classed("hl", false);
+}
+
+// -------------------------------------------------------------------------
+// Zoom and pan (mouse wheel, trackpad scroll and pinch, drag)
+// -------------------------------------------------------------------------
+// Match the viewBox to the canvas so 1 unit = 1 px and Fit can use the whole area
+function sizeViewBox() {
+  const wrap = document.getElementById("canvas-wrap");
+  SVG_W = Math.max(200, wrap.clientWidth); SVG_H = Math.max(200, wrap.clientHeight);
+  svgNode.setAttribute("viewBox", "0 0 " + SVG_W + " " + SVG_H);
+}
+sizeViewBox();
+let resizeTimer = null;
+new ResizeObserver(() => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => { sizeViewBox(); fitView(false); }, 120);
+}).observe(document.getElementById("canvas-wrap"));
+
+const zoom = d3.zoom()
+  .scaleExtent([0.2, 15])
+  .on("zoom", ev => { zoomLayer.attr("transform", ev.transform); hideTooltip(); });
+svg.call(zoom).on("dblclick.zoom", null);
+
+// Safari pinch arrives as gesture events rather than ctrl+wheel
+let gestureStartK = 1;
+svgNode.addEventListener("gesturestart", e => { e.preventDefault(); gestureStartK = d3.zoomTransform(svgNode).k; });
+svgNode.addEventListener("gesturechange", e => {
+  e.preventDefault();
+  zoom.scaleTo(svg, gestureStartK * e.scale, d3.pointer(e, svgNode));
+});
+
+function fitView(animate) {
+  const bb = zoomLayer.node().getBBox();
+  if (!bb.width || !bb.height) return;
+  const pad = 30;
+  const k = Math.min(SVG_W / (bb.width + 2 * pad), SVG_H / (bb.height + 2 * pad), 3);
+  const t = d3.zoomIdentity
+    .translate(SVG_W / 2 - k * (bb.x + bb.width / 2), SVG_H / 2 - k * (bb.y + bb.height / 2))
+    .scale(k);
+  (animate ? svg.transition().duration(450) : svg).call(zoom.transform, t);
 }
 
 // -------------------------------------------------------------------------
 // Tooltip
 // -------------------------------------------------------------------------
-var tooltipEl = document.getElementById("tooltip");
-
+const tooltipEl = document.getElementById("tooltip");
 function showTooltip(event, html) {
   tooltipEl.innerHTML = html;
   tooltipEl.style.display = "block";
-  positionTooltip(event);
-}
-
-function positionTooltip(event) {
   tooltipEl.style.left = (event.clientX + 14) + "px";
   tooltipEl.style.top = (event.clientY + 14) + "px";
 }
-
-function hideTooltip() {
-  tooltipEl.style.display = "none";
-}
-
-document.getElementById("main-svg").addEventListener("mousemove", function(evt) {
+function hideTooltip() { tooltipEl.style.display = "none"; }
+svgNode.addEventListener("mousemove", evt => {
   if (tooltipEl.style.display !== "none") {
     tooltipEl.style.left = (evt.clientX + 14) + "px";
     tooltipEl.style.top = (evt.clientY + 14) + "px";
@@ -846,252 +937,246 @@ document.getElementById("main-svg").addEventListener("mousemove", function(evt) 
 });
 
 // -------------------------------------------------------------------------
-// Info panel helpers
+// Info panel
 // -------------------------------------------------------------------------
-function dirClass(d) {
-  if (d === "protective") return "prot";
-  if (d === "exacerbating") return "exac";
-  return "ctxd";
+const infoPanel = document.getElementById("info-panel");
+const infoContent = document.getElementById("info-content");
+let tableEdges = [];
+
+const COLS = {
+  paper: { th: "Paper", td: e => esc(e.ref_label || e.ref_id), cls: "nowrap" },
+  taxon: { th: "Taxon", td: e => taxonHtml(e.taxon) },
+  mech:  { th: "Mechanism", td: e => esc(mechOf(e)) },
+  dir:   { th: "Direction", cls: "nowrap", td: e => '<span class="dir-cell" style="color:' + dirColor(e.direction) + '">' + esc(e.direction) + "</span>" },
+  ev:    { th: "Evidence", td: e => esc(e.evidence) },
+};
+
+function edgeTable(edges, cols) {
+  tableEdges = edges.slice().sort((a, b) =>
+    natCmp(mechOf(a), mechOf(b)) || natCmp(a.taxon, b.taxon) || natCmp(a.ref_label || "", b.ref_label || ""));
+  if (!tableEdges.length) return '<p class="dim" style="margin-top:8px">No edges pass the current filters.</p>';
+  let html = "<table><tr>" + cols.map(c => "<th>" + COLS[c].th + "</th>").join("") + "</tr>";
+  tableEdges.forEach((e, i) => {
+    html += '<tr class="edge-row" data-idx="' + i + '">' + cols.map(c => "<td" + (COLS[c].cls ? ' class="' + COLS[c].cls + '"' : "") + ">" + COLS[c].td(e) + "</td>").join("") + "</tr>";
+  });
+  return html + '</table><div class="hint">Click a row to see the quote. Hover a row to highlight its edge.</div>';
 }
 
-function getEdgesForTaxon(taxon, includeDescendants, currentPackRoot) {
-  var targetTaxa = new Set([taxon]);
-  if (includeDescendants && currentPackRoot) {
-    // Find all claim taxa that are descendants in tree
-    function collectDesc(node) {
-      if (node.data && node.data.is_claim) {
-        // Check if taxon is descendant of our target
-        var info = DATA.taxa[node.data.name];
-        if (info) {
-          // check if target taxon is an ancestor
-          for (var r of RANKS_ORDER) {
-            if (info[r] === taxon && RANKS_ORDER.indexOf(r) < rankIdx(DATA.taxa[taxon] ? DATA.taxa[taxon].taxon_rank : "species")) {
-              targetTaxa.add(node.data.name);
-            }
-          }
-        }
-      }
-      if (node.children) node.children.forEach(collectDesc);
-    }
-    currentPackRoot.each(collectDesc);
-  }
+function dirSummary(edges) {
+  const c = {};
+  edges.forEach(e => { c[e.direction] = (c[e.direction] || 0) + 1; });
+  const parts = directionTypes.filter(d => c[d]).map(d => '<span style="color:' + dirColor(d) + '">' + esc(d) + " " + c[d] + "</span>");
+  return parts.length ? '<div class="dir-summary" style="margin-top:4px">' + parts.join("") + "</div>" : "";
+}
 
-  return DATA.edges.filter(function(e) {
-    return targetTaxa.has(e.taxon);
+function setInfo(html, renderFn) {
+  hidePop();
+  infoContent.innerHTML = html;
+  lastInfo = renderFn || null;
+  infoContent.querySelectorAll("tr.edge-row").forEach(tr => {
+    const e = tableEdges[+tr.dataset.idx];
+    tr.addEventListener("click", ev => { ev.stopPropagation(); togglePop(tr, e); });
+    tr.addEventListener("mouseenter", () => highlightEdges(x => x.ref_id === e.ref_id && x.taxon === e.taxon && x.direction === e.direction));
+    tr.addEventListener("mouseleave", clearHighlight);
   });
 }
 
-function buildEdgeTable(rows, visibleFilter) {
-  // rows: filtered edges (not CSV rows)
-  // Build table: Paper | Mechanism | Direction | Evidence
-  var html = '<table><tr><th>Paper</th><th>Mechanism</th><th>Direction</th><th>Evidence</th></tr>';
-  // Sort by mechanism_specific then paper
-  var sorted = rows.slice().sort(function(a, b) {
-    var ms_a = (a.rows[0] || {}).mechanism_specific || "";
-    var ms_b = (b.rows[0] || {}).mechanism_specific || "";
-    if (ms_a < ms_b) return -1;
-    if (ms_a > ms_b) return 1;
-    return (a.ref_label || "").localeCompare(b.ref_label || "");
-  });
-  sorted.forEach(function(e, idx) {
-    var ms = (e.rows[0] || {}).mechanism_specific || "";
-    html += '<tr class="edge-row" data-edge-idx="' + idx + '" style="cursor:pointer;">';
-    html += '<td>' + (e.ref_label || e.ref_id) + '</td>';
-    html += '<td>' + ms + '</td>';
-    html += '<td class="' + dirClass(e.direction) + '">' + e.direction + '</td>';
-    html += '<td>' + e.evidence + '</td>';
-    html += '</tr>';
-  });
-  html += '</table>';
-  return { html: html, sorted: sorted };
+function clearInfo() {
+  setInfo('<p style="color:#aaa">Click a node or paper to see details.</p>', null);
 }
 
-function attachRowHover(sorted) {
-  var rowTooltip = document.getElementById("row-tooltip");
-  document.querySelectorAll("#info-content .edge-row").forEach(function(tr) {
-    var idx = parseInt(tr.getAttribute("data-edge-idx"));
-    tr.addEventListener("mouseenter", function() {
-      var e = sorted[idx];
-      if (!e) return;
-      var r = e.rows[0] || {};
-      var quote = (r.quote || "").substring(0, 200);
-      var intervention = r.intervention || "";
-      var citing = r.citing_label || "";
-      rowTooltip.innerHTML = (quote ? '<i>"' + quote + (r.quote && r.quote.length > 200 ? "…" : "") + '"</i><br>' : "") +
-        (citing ? "<b>Review:</b> " + citing + "<br>" : "") +
-        (intervention ? "<b>Intervention:</b> " + intervention : "");
-      rowTooltip.style.display = "block";
+function showTaxonInfo(taxon, includeDesc) {
+  const info = DATA.taxa[taxon] || {};
+  const targets = new Set([taxon]);
+  if (includeDesc && info.taxon_rank) {
+    Object.keys(DATA.taxa).forEach(t => {
+      const ti = DATA.taxa[t];
+      if (ti[info.taxon_rank] === taxon && rankIdx(ti.taxon_rank) > rankIdx(info.taxon_rank)) targets.add(t);
     });
-    tr.addEventListener("mouseleave", function() {
-      rowTooltip.style.display = "none";
-    });
-  });
-}
-
-function showTaxonInfo(taxon, includeDescendants) {
-  var info = DATA.taxa[taxon] || {};
-  var italic = info.italic;
-  var nameHtml = italic ? "<i>" + taxon + "</i>" : taxon;
-
-  // Build lineage path
-  var lineageParts = [];
-  RANKS_ORDER.forEach(function(r) {
-    var v = info[r];
-    if (v && v !== taxon) lineageParts.push(v);
-    if (r === info.taxon_rank) return;
-  });
-
-  var html = '<b style="font-size:13px">' + nameHtml + '</b>';
-  html += '<br><span class="dim">Rank: ' + (info.taxon_rank || "?") + '</span>';
-  var cited = info.taxon_as_cited || [];
-  if (cited.length) html += '<br><span class="dim">As cited: ' + cited.join(", ") + '</span>';
-  html += '<br><div class="lineage">' + lineageParts.join(" › ") + '</div>';
-
-  // Mechanisms from visible edges
-  var visibleEdges = getVisibleEdges().filter(function(e){ return e.taxon === taxon; });
-  var mechs = new Set(visibleEdges.flatMap(function(e){ return e.rows.map(function(r){ return r.mechanism_specific; }).filter(Boolean); }));
-  if (mechs.size) html += '<br><span class="dim">Mechanisms: ' + Array.from(mechs).join(", ") + '</span>';
-
-  // Descendants checkbox
-  html += '<br><label style="margin-top:6px;display:flex;align-items:center;gap:4px;">' +
-    '<input type="checkbox" id="desc-chk"' + (includeDescendants ? " checked" : "") + '> Include descendant taxa</label>';
-
-  // Filter note
-  var allEdges = DATA.edges.filter(function(e){ return e.taxon === taxon; });
-  html += '<br><span class="dim" style="font-size:10px">' + visibleEdges.length + ' of ' + allEdges.length + ' rows shown (filters active)</span>';
-
-  var tableResult = buildEdgeTable(visibleEdges, true);
-  html += tableResult.html;
-
-  document.getElementById("info-content").innerHTML = html;
-  document.getElementById("row-tooltip").style.display = "none";
-  attachRowHover(tableResult.sorted);
-
-  // Descendants checkbox handler
-  var chk = document.getElementById("desc-chk");
-  if (chk) chk.addEventListener("change", function() {
-    showTaxonInfo(taxon, chk.checked);
-  });
-}
-
-function showGroupInfo(groupName, gd, forceDescendants) {
-  // Collect all claim taxa in this group
-  var claimTaxa = [];
-  gd.packRoot.each(function(node) {
-    if (node.data && node.data.is_claim) claimTaxa.push(node.data.name);
-  });
-  var claimSet = new Set(claimTaxa);
-
-  var html = '<b style="font-size:13px">' + groupName + '</b>';
-  html += '<br><span class="dim">Group rank: ' + currentLevel + ' | ' + claimTaxa.length + ' claim taxa</span>';
-
-  var visibleEdges = getVisibleEdges().filter(function(e){ return claimSet.has(e.taxon); });
-  var tableResult = buildEdgeTable(visibleEdges, true);
-  html += '<br><span class="dim" style="font-size:10px">' + visibleEdges.length + ' visible edges</span>';
-  html += tableResult.html;
-
-  document.getElementById("info-content").innerHTML = html;
-  document.getElementById("row-tooltip").style.display = "none";
-  attachRowHover(tableResult.sorted);
-}
-
-function showStructInfo(nodeData, svgX, svgY, r, gd) {
-  // Find all claim taxa that are children of this struct node
-  // We need to walk the pack root to find this node's subtree
-  var claimTaxa = [];
-  function collectFromNode(packNode) {
-    if (packNode.data.id === nodeData.id || packNode.data.name === nodeData.name) {
-      // Collect all claims under this node
-      packNode.each(function(n) {
-        if (n.data.is_claim) claimTaxa.push(n.data.name);
-      });
-      return true;
-    }
-    if (packNode.children) return packNode.children.some(collectFromNode);
-    return false;
   }
-  gd.packRoot.each(function(n) { collectFromNode(n); });
-  var claimSet = new Set(claimTaxa);
+  const lineageParts = RANKS_ORDER.slice(0, Math.max(0, rankIdx(info.taxon_rank))).map(r => info[r]).filter(Boolean);
+  const edges = getVisibleEdges().filter(e => targets.has(e.taxon));
+  const all = DATA.edges.filter(e => targets.has(e.taxon));
 
-  var skipped = (nodeData.skipped_ranks || []).map(function(s){ return s.rank + ": " + s.name; }).join(", ");
-  var html = '<b style="font-size:13px">' + nodeData.name + '</b>';
-  html += '<br><span class="dim">Rank: ' + nodeData.rank + ' (structural)</span>';
-  if (skipped) html += '<br><span class="dim">Skipped: ' + skipped + '</span>';
-  html += '<br><span class="dim">' + claimTaxa.length + ' descendant claim taxa</span>';
+  let html = '<b style="font-size:14px">' + taxonHtml(taxon) + "</b>";
+  html += '<br><span class="dim">Rank: ' + esc(info.taxon_rank || "?") + "</span>";
+  const cited = info.taxon_as_cited || [];
+  if (cited.length) html += '<br><span class="dim">As cited: ' + esc(cited.join(", ")) + "</span>";
+  html += '<div class="lineage">' + esc(lineageParts.join(" › ")) + "</div>";
+  html += '<label style="margin-top:6px;display:flex;align-items:center;gap:4px;cursor:pointer">' +
+    '<input type="checkbox" id="desc-chk"' + (includeDesc ? " checked" : "") + "> Include descendant taxa" +
+    (includeDesc ? ' <span class="dim">(' + (targets.size - 1) + ")</span>" : "") + "</label>";
+  html += '<div class="dim" style="font-size:10px;margin-top:4px">' + edges.length + " of " + all.length + " edges shown (filters active)</div>";
+  html += dirSummary(edges);
+  html += edgeTable(edges, includeDesc ? ["paper", "taxon", "mech", "dir", "ev"] : ["paper", "mech", "dir", "ev"]);
+  setInfo(html, () => showTaxonInfo(taxon, includeDesc));
+  const chk = document.getElementById("desc-chk");
+  if (chk) chk.addEventListener("change", () => showTaxonInfo(taxon, chk.checked));
+}
 
-  var visibleEdges = getVisibleEdges().filter(function(e){ return claimSet.has(e.taxon); });
-  var tableResult = buildEdgeTable(visibleEdges, true);
-  html += tableResult.html;
+function claimTaxaUnder(packNode) {
+  const out = [];
+  packNode.each(n => { if (n.data.is_claim) out.push(n.data.name); });
+  return out;
+}
 
-  document.getElementById("info-content").innerHTML = html;
-  document.getElementById("row-tooltip").style.display = "none";
-  attachRowHover(tableResult.sorted);
+function showGroupInfo(g, gd) {
+  const taxa = claimTaxaUnder(gd.packRoot);
+  const set = new Set(taxa);
+  const edges = getVisibleEdges().filter(e => set.has(e.taxon));
+  const lin = gd.lineage.slice(1, -1).filter(Boolean);
+  let html = '<b style="font-size:14px">' + esc(g) + "</b>";
+  html += '<br><span class="dim">Group rank: ' + esc(currentLevel) + " | " + taxa.length + " claim taxa | " + edges.length + " visible edges</span>";
+  if (lin.length) html += '<div class="lineage">' + esc(lin.join(" › ")) + "</div>";
+  html += dirSummary(edges);
+  html += edgeTable(edges, ["paper", "taxon", "mech", "dir", "ev"]);
+  setInfo(html, () => showGroupInfo(g, gd));
+}
+
+function showStructInfo(nodeData, gd) {
+  let sub = null;
+  gd.packRoot.each(n => { if (!sub && n.data.id === nodeData.id) sub = n; });
+  const taxa = sub ? claimTaxaUnder(sub) : [];
+  const set = new Set(taxa);
+  const edges = getVisibleEdges().filter(e => set.has(e.taxon));
+  const skipped = (nodeData.skipped_ranks || []).map(s => s.rank + ": " + s.name).join(", ");
+  let html = '<b style="font-size:14px">' + esc(nodeData.name) + "</b>";
+  html += '<br><span class="dim">Rank: ' + esc(nodeData.rank) + " (structural) | " + taxa.length + " descendant claim taxa</span>";
+  if (skipped) html += '<br><span class="dim">Skipped: ' + esc(skipped) + "</span>";
+  html += dirSummary(edges);
+  html += edgeTable(edges, ["paper", "taxon", "mech", "dir", "ev"]);
+  setInfo(html, () => showStructInfo(nodeData, gd));
 }
 
 function showPaperInfo(pid) {
-  var label = DATA.papers[pid] || pid;
-  var allEdges = DATA.edges.filter(function(e){ return e.ref_id === pid; });
-  var visibleEdges = getVisibleEdges().filter(function(e){ return e.ref_id === pid; });
-
-  var html = '<b style="font-size:13px">' + label + '</b>';
-  html += '<br><span class="dim">ref_id: ' + pid + '</span>';
-  html += '<br><span class="dim" style="font-size:10px">' + visibleEdges.length + ' of ' + allEdges.length + ' rows shown</span>';
-
-  // Table: Taxon | Mechanism | Direction | Evidence
-  var html2 = '<table><tr><th>Taxon</th><th>Mechanism</th><th>Direction</th><th>Evidence</th></tr>';
-  var sorted = visibleEdges.slice().sort(function(a,b) {
-    var ma = (a.rows[0] || {}).mechanism_specific || "";
-    var mb = (b.rows[0] || {}).mechanism_specific || "";
-    return ma.localeCompare(mb);
-  });
-  sorted.forEach(function(e, idx) {
-    var ms = (e.rows[0] || {}).mechanism_specific || "";
-    var info = DATA.taxa[e.taxon] || {};
-    var tname = info.italic ? "<i>" + e.taxon + "</i>" : e.taxon;
-    html2 += '<tr class="edge-row" data-edge-idx="' + idx + '" style="cursor:pointer;">';
-    html2 += '<td>' + tname + '</td>';
-    html2 += '<td>' + ms + '</td>';
-    html2 += '<td class="' + dirClass(e.direction) + '">' + e.direction + '</td>';
-    html2 += '<td>' + e.evidence + '</td>';
-    html2 += '</tr>';
-  });
-  html2 += '</table>';
-  html += html2;
-  document.getElementById("info-content").innerHTML = html;
-  document.getElementById("row-tooltip").style.display = "none";
-  attachRowHover(sorted);
+  const label = DATA.papers[pid] || pid;
+  const all = DATA.edges.filter(e => e.ref_id === pid);
+  const edges = getVisibleEdges().filter(e => e.ref_id === pid);
+  const revs = paperReviews[pid] ? Array.from(paperReviews[pid]).sort() : [];
+  let html = '<b style="font-size:14px">' + esc(label) + "</b>";
+  html += '<br><span class="dim">ref_id: ' + esc(pid) + "</span>";
+  html += '<br><span class="dim">Cited by ' + revs.length + " review" + (revs.length === 1 ? "" : "s") +
+    (revs.length ? ": " + esc(revs.join(", ")) : "") + "</span>";
+  html += '<div class="dim" style="font-size:10px;margin-top:4px">' + edges.length + " of " + all.length + " edges shown</div>";
+  html += dirSummary(edges);
+  html += edgeTable(edges, ["taxon", "mech", "dir", "ev"]);
+  setInfo(html, () => showPaperInfo(pid));
 }
 
 // -------------------------------------------------------------------------
-// Background click clears panel
+// Quote popover: click a row to open it to the left of the panel; click elsewhere to close
 // -------------------------------------------------------------------------
-document.getElementById("main-svg").addEventListener("click", function() {
-  document.getElementById("info-content").innerHTML = '<p style="color:#aaa">Click a node or paper to see details.</p>';
-  document.getElementById("row-tooltip").style.display = "none";
+const pop = document.getElementById("quote-pop");
+const popBody = document.getElementById("quote-pop-body");
+const popArrow = pop.querySelector(".qp-arrow");
+let popRow = null;
+
+function togglePop(tr, e) {
+  if (popRow === tr) { hidePop(); return; }
+  hidePop();
+  popRow = tr;
+  tr.classList.add("selected");
+  let html = '<div class="qp-head">' + esc(e.ref_label || e.ref_id) + " → " + taxonHtml(e.taxon) + "</div>";
+  html += '<div class="qp-meta"><span style="color:' + dirColor(e.direction) + ';font-weight:bold">' + esc(e.direction) +
+    "</span> · " + esc(e.evidence) + " · " + esc(mechOf(e)) + "</div>";
+  (e.rows || []).forEach(r => {
+    html += '<div class="qp-quote">' + (r.quote ? "“" + esc(r.quote) + "”" : '<span class="dim">(no quote recorded)</span>') + "</div>";
+    const src = [];
+    if (r.citing_label) src.push("Review: " + esc(r.citing_label));
+    if (r.statement_id) src.push(esc(r.statement_id));
+    if (r.intervention) src.push("Intervention: " + esc(r.intervention));
+    if (src.length) html += '<div class="qp-src">' + src.join(" · ") + "</div>";
+  });
+  popBody.innerHTML = html;
+  pop.style.display = "block";
+  placePop();
+}
+
+function placePop() {
+  if (!popRow || !document.body.contains(popRow)) { hidePop(); return; }
+  const rr = popRow.getBoundingClientRect();
+  const pr = infoPanel.getBoundingClientRect();
+  if (rr.bottom < pr.top || rr.top > pr.bottom) { hidePop(); return; }
+  pop.style.left = Math.max(8, pr.left - 12 - pop.offsetWidth) + "px";
+  const rowMid = rr.top + rr.height / 2;
+  let top = rowMid - pop.offsetHeight / 2;
+  top = Math.max(8, Math.min(top, window.innerHeight - pop.offsetHeight - 8));
+  pop.style.top = top + "px";
+  popArrow.style.top = Math.max(6, Math.min(rowMid - top - 8, pop.offsetHeight - 22)) + "px";
+}
+
+function hidePop() {
+  if (popRow) popRow.classList.remove("selected");
+  popRow = null;
+  pop.style.display = "none";
+}
+
+pop.querySelector(".qp-close").addEventListener("click", ev => { ev.stopPropagation(); hidePop(); });
+document.addEventListener("click", ev => {
+  if (pop.contains(ev.target)) return;
+  if (ev.target.closest && ev.target.closest("#info-content tr.edge-row")) return;
+  hidePop();
 });
+infoPanel.addEventListener("scroll", () => { if (popRow) placePop(); });
+window.addEventListener("resize", () => { if (popRow) placePop(); });
 
 // -------------------------------------------------------------------------
-// Filter change handlers
+// Resizable info panel
 // -------------------------------------------------------------------------
-document.querySelectorAll("#evidence-filters input, #direction-filters input").forEach(function(chk) {
-  chk.addEventListener("change", applyFilters);
-});
+(function () {
+  const handle = document.getElementById("resizer");
+  let dragging = false;
+  handle.addEventListener("mousedown", ev => { dragging = true; handle.classList.add("dragging"); ev.preventDefault(); });
+  window.addEventListener("mousemove", ev => {
+    if (!dragging) return;
+    const w = Math.max(300, Math.min(window.innerWidth - 500, window.innerWidth - ev.clientX));
+    infoPanel.style.width = w + "px";
+    if (popRow) placePop();
+  });
+  window.addEventListener("mouseup", () => { dragging = false; handle.classList.remove("dragging"); });
+})();
+
+// -------------------------------------------------------------------------
+// Background click clears the panel
+// -------------------------------------------------------------------------
+svgNode.addEventListener("click", () => clearInfo());
+
+// -------------------------------------------------------------------------
+// Filter handlers
+// -------------------------------------------------------------------------
+function onFiltersChanged() {
+  applyFilters();
+  if (lastInfo) lastInfo();
+}
+document.querySelectorAll("#direction-filters input, #evidence-filters input").forEach(c => c.addEventListener("change", onFiltersChanged));
+document.querySelectorAll("#mechanism-filters input.mech-broad").forEach(p => p.addEventListener("change", () => {
+  document.querySelectorAll("#mechanism-filters input.mech-leaf").forEach(c => { if (c.dataset.broad === p.dataset.val) c.checked = p.checked; });
+  syncMechParents(); onFiltersChanged();
+}));
+document.querySelectorAll("#mechanism-filters input.mech-leaf").forEach(c => c.addEventListener("change", () => { syncMechParents(); onFiltersChanged(); }));
+function setAllMech(v) {
+  document.querySelectorAll("#mechanism-filters input").forEach(c => { c.checked = v; c.indeterminate = false; });
+  onFiltersChanged();
+}
+document.getElementById("mech-all").addEventListener("click", () => setAllMech(true));
+document.getElementById("mech-none").addEventListener("click", () => setAllMech(false));
+
+document.getElementById("arc-mode").addEventListener("change", ev => { arcMode = ev.target.value; rebuildLayout(currentLevel); });
 
 // -------------------------------------------------------------------------
 // Buttons
 // -------------------------------------------------------------------------
-document.getElementById("btn-fit").addEventListener("click", function() {
-  // Nothing to do - SVG is viewBox-based and fills container
-});
-
-document.getElementById("btn-reset").addEventListener("click", function() {
-  document.querySelectorAll("#evidence-filters input, #direction-filters input").forEach(function(c){ c.checked = true; });
+document.getElementById("btn-fit").addEventListener("click", () => fitView(true));
+document.getElementById("btn-zoom-in").addEventListener("click", () => zoom.scaleBy(svg.transition().duration(250), 1.4));
+document.getElementById("btn-zoom-out").addEventListener("click", () => zoom.scaleBy(svg.transition().duration(250), 1 / 1.4));
+document.getElementById("btn-reset").addEventListener("click", () => {
+  document.querySelectorAll("#sidebar input[type=checkbox]").forEach(c => { c.checked = true; c.indeterminate = false; });
   document.getElementById("search-box").value = "";
-  clearSearch();
-  applyFilters();
+  onFiltersChanged();
+  applySearch();
+  fitView(true);
 });
-
-document.getElementById("btn-labels").addEventListener("click", function() {
+document.getElementById("btn-labels").addEventListener("click", () => {
   labelsOn = !labelsOn;
   labelsLayer.style("display", labelsOn ? null : "none");
 });
@@ -1099,69 +1184,36 @@ document.getElementById("btn-labels").addEventListener("click", function() {
 // -------------------------------------------------------------------------
 // Search
 // -------------------------------------------------------------------------
-function clearSearch() {
-  nodesLayer.selectAll("circle").attr("stroke-width", function() {
-    var el = d3.select(this);
-    if (el.classed("claim-circle")) return 2;
-    if (el.classed("group-circle")) return 2;
-    if (el.classed("struct-circle")) return 1;
-    if (el.classed("paper-circle")) return 1;
-    return 1;
+function applySearch() {
+  const q = document.getElementById("search-box").value.trim().toLowerCase();
+  nodesLayer.selectAll("circle.paper-circle").attr("stroke", "#996").attr("stroke-width", 1);
+  applyFilters();   // restores claim-circle strokes
+  if (!q) return;
+  nodesLayer.selectAll("circle.claim-circle").each(function () {
+    if ((this.dataset.taxon || "").toLowerCase().includes(q)) d3.select(this).attr("stroke-width", 4).attr("stroke", "#f0a500").attr("stroke-dasharray", null);
+  });
+  nodesLayer.selectAll("circle.paper-circle").each(function () {
+    if ((DATA.papers[this.dataset.pid] || "").toLowerCase().includes(q)) d3.select(this).attr("stroke-width", 3).attr("stroke", "#f0a500");
   });
 }
-
-document.getElementById("search-box").addEventListener("input", function() {
-  var q = this.value.trim().toLowerCase();
-  clearSearch();
-  if (!q) return;
-  // Highlight matching taxa
-  nodesLayer.selectAll("circle.claim-circle").each(function() {
-    var el = d3.select(this);
-    var taxon = (el.attr("data-taxon") || "").toLowerCase();
-    if (taxon.includes(q)) {
-      el.attr("stroke-width", 4).attr("stroke", "#f0a500");
-    }
-  });
-  // Highlight matching papers
-  nodesLayer.selectAll("circle.paper-circle").each(function() {
-    var el = d3.select(this);
-    var pid = el.attr("data-pid");
-    var label = (DATA.papers[pid] || "").toLowerCase();
-    if (label.includes(q)) {
-      el.attr("stroke-width", 3).attr("stroke", "#f0a500");
-    }
-  });
-});
+document.getElementById("search-box").addEventListener("input", applySearch);
 
 // -------------------------------------------------------------------------
-// Expose window helper for programmatic clicks (Playwright testing)
+// Test helper for programmatic clicks
 // -------------------------------------------------------------------------
-window._clickNode = function(name) {
-  // Find a claim circle or group circle with this name
-  var found = false;
-  nodesLayer.selectAll("circle.claim-circle").each(function() {
-    var el = d3.select(this);
-    if (el.attr("data-taxon") === name) {
-      found = true;
-      el.dispatch("click");
-    }
-  });
-  if (!found) {
-    nodesLayer.selectAll("circle.group-circle").each(function() {
-      var el = d3.select(this);
-      if (el.attr("data-name") === name) {
-        found = true;
-        el.dispatch("click");
-      }
-    });
-  }
-  return found;
+window._clickNode = function (name) {
+  let el = nodesLayer.selectAll("circle.claim-circle").filter(function () { return this.dataset.taxon === name; });
+  if (el.empty()) el = nodesLayer.selectAll("circle.group-circle").filter(function () { return this.dataset.name === name; });
+  if (el.empty()) return false;
+  el.dispatch("click");
+  return true;
 };
 
 // -------------------------------------------------------------------------
 // Initial build
 // -------------------------------------------------------------------------
-rebuildLayout("phylum");
+rebuildLayout(currentLevel);
+fitView(false);
 
 })();
 </script>

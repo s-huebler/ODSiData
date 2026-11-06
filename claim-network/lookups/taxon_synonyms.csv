@@ -16,3 +16,5 @@ Clostridium bolteae,Enterocloster bolteae,,genus reclassified
 Clostridium coccoides,Blautia coccoides,,genus reclassified
 Bifidobacterium longum subsp. infantis,Bifidobacterium longum,,subspecies to species
 Enterobacteriales,Enterobacterales,,NCBI order spelling -> GTDB
+Akkermansia muciniphilia,Akkermansia muciniphila,,source typo in Moses 2026 (muciniphilia -> muciniphila)
+Blautia spp.,Blautia,,'spp.' suffix normalized to genus Blautia

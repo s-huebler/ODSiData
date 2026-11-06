@@ -19,6 +19,7 @@ claims-related files from the repo root and `claim-network2/`.
 | `2026-07_batch2-intermediate-versions/` | Jul 14 – 15 2026 | Batch 2 working versions that the final files replaced |
 | `2026-11_july-synthesis-network/` | Jul 15 – Oct 8 2026 | Batch 2 pipeline: workbooks, synthesis scripts, lookups, and the scripts that build `gvhd_claims_network2_alt.html` / `network3.html` |
 | `2026-11_mechanism-framework/` | Oct 7 – Nov 5 2026 | Mechanism categories from four anchor reviews, scheme comparison, `claims_synthesis_framework`, ring and bubble builders |
+| `2026-11_ring-v1/` | Oct 8 – Nov 5 2026 | First taxonomy ring renderer/template and the Oct 8 ring page, replaced by the current `claim-network/scripts/ring/` version |
 
 Not archived here (separate projects): `citation-network/`, `citation-network-old/`.
 Large third-party files (Zotero plugin source, `node_modules`, `.xpi`) and the PDFs here are excluded from git via `.gitignore`.

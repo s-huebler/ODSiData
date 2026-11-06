@@ -1,6 +1,6 @@
 # Claims network codebook
 
-**Version 1.0 (2026-11-05).** Every `proposals.json` records the codebook version it was drafted
+**Version 1.3 (2026-11-06).** Every `proposals.json` records the codebook version it was drafted
 under. Change a rule here before the next review, add a changelog line, and never change it
 silently. A new rule applies to reviews drafted after it; earlier reviews it would have changed
 are listed in the changelog so they can be revisited.
@@ -16,7 +16,7 @@ per cited reference.
 
 - **Taxon** at any rank (strain or species up to phylum), named as the review names it.
 - **Functional group** only when its members share a biological function: butyrate or SCFA
-  producers, obligate anaerobes, segmented filamentous bacteria, pathobionts. Not groups defined
+  producers, secondary bile acid producers, obligate anaerobes, segmented filamentous bacteria, pathobionts. Not groups defined
   by an engineering or generic label ("genetically engineered bacteria", "intestinal
   microorganisms", "commensals" used loosely, "the gut microbiota"). *(GUO_032)*
 - Whole-community statements (diversity, dysbiosis, germ-free, "the microbiota") are **not**
@@ -47,6 +47,7 @@ Allogeneic HSCT recipients or transplant models. FMT or probiotic uses in other 
 - Tables: one quote per relevant cell sentence; location gives the table row.
 - Figures: only when the figure carries a claim with a citation that the text does not.
   Figures that repeat the text are skipped.
+- A single statement that reports more than one evidence type (for example a murine model and a human correlation) is split into one proposal per evidence type. *(MOS_011, MOS_027.)*
 
 ## 3. Fields
 
@@ -59,7 +60,7 @@ Allogeneic HSCT recipients or transplant models. FMT or probiotic uses in other 
 | `evidence` | `human observational`, `human interventional`, `murine`, `unspecified`. See 3.2. |
 | `mechanism_specific` | See section 4. `mechanism_broad` is derived from it. |
 | `target_type` | `taxon`, or `mechanism` for a functional group (functional groups point to the mechanism, not a taxon node). |
-| `intervention` | blank, `diet`, `antibiotic`, `probiotic / LBP`, `FMT`, `defined consortium`. The therapy in the statement, if any. |
+| `intervention` | blank, `diet`, `antibiotic`, `probiotic / LBP`, `FMT`, `defined consortium`, `other`. The therapy in the statement, if any. `other` is for an experimental or non-standard manipulation that fits no named category (e.g. single-species reintroduction, a therapeutic replenishing suggestion). |
 | `mechanism_as_named` | Short claim in plain words, under about 12 words. |
 | `ref_string` | Citation as printed: `[30]`, `[32,33]`, `[60-63]`, or `Taur 2014; Jenq 2012`. Blank if uncited. |
 | `mechanism_assignment` | Audit trail of how the mechanism was set (see 4.3). |
@@ -74,10 +75,12 @@ Allogeneic HSCT recipients or transplant models. FMT or probiotic uses in other 
 | `exacerbating` | The reverse: expanded in GVHD, worsens severity or mortality, removed or reduced by a successful therapy. |
 | `context-dependent` | The review reports conflicting or conditional effects ("controversial", "depends on"). |
 | `unspecified` | The review says the target matters for GVHD but gives no direction (e.g. a biomarker). *(GUO_029, 030)* |
-| `null` | The review reports no association or no effect. |
+| `no effect` | The review reports no association or no effect. |
 
 Taxa that rise after a successful FMT are `protective` even if they are often considered harmful
 elsewhere; the row records the review's framing. *(GUO_038, Desulfovibrionaceae)*
+
+A conflicting finding reported elsewhere in the review, including one that is itself skipped (for example a metabolite-level result with no taxon), may set a claim's direction to `context-dependent`. This is a reviewer judgment call, is likely to apply only when the two statements sit in close proximity, and must be recorded in the row note. *(MOS_009 with MOS_S09.)*
 
 ### 3.2 Evidence
 
@@ -97,15 +100,15 @@ review does not say so, so `unspecified`.)*
 | Broad class | Specific | Use for |
 |---|---|---|
 | Class 0: Unattributed | 0. Unattributed | Association with no mechanism stated |
-| Class 1: Metabolite-mediated | 1a. SCFA / butyrate signaling | SCFAs; also targets described as SCFA, butyrate or propionate producers *(GUO_015)* |
+| Class 1: Metabolite-mediated | 1a. SCFA / butyrate signaling | SCFAs, and the case where SCFA/metabolite signaling is itself the operative GvHD mechanism; also a taxon called an SCFA, butyrate or propionate producer when the review gives only an association or outcome with no distinct downstream mechanism *(GUO_015)*. When the review attributes the effect to a distinct mechanism (barrier, Treg/T-cell), classify there even if the taxon is also a producer *(MOS_005, MOS_007, MOS_008)* |
 | | 1b. Bile acid signaling | Secondary bile acids, FXR/TGR5 |
 | | 1c. Tryptophan / indole signaling | Indoles, indoxyl sulfate, AhR, IL-22 via AhR *(GUO_031)* |
 | | 1d. Other metabolites | Other named metabolites |
 | Class 2: Immune cell targeting | 2a. Innate immune | Macrophages, DCs, NK, innate sensing |
-| | 2b. T-cell adaptive | Treg/Th17 balance, T-cell differentiation |
+| | 2b. T-cell adaptive | Treg/Th17 balance, T-cell differentiation, and antigen presentation to T cells including epithelial MHC class II induction or suppression *(MOS_013, MOS_014)* |
 | | 2c. Other immune | B cells, MAIT, γδ T cells, ILC3 |
 | Class 3: Barrier and structural | 3a. Epithelial barrier | Tight junctions, mucus, epithelial survival |
-| Class 4: Pathobiont expansion | 3b. Colonization resistance / competitive exclusion | Niche competition that keeps pathobionts out |
+| Class 4: Pathobiont expansion | 4a. Colonization resistance / competitive exclusion | Niche competition that keeps pathobionts out |
 | | 4b. Pathobiont expansion / mono-dominance | Expansion of the listed pathobionts |
 
 ### 4.1 Pathobiont list (4b without a stated mechanism)
@@ -122,7 +125,7 @@ Therapy claims are assigned to the mechanism the therapy acts on, with the thera
 
 ### 4.3 `mechanism_assignment` values
 
-`scheme C` (mechanism stated or listed pathobiont); `scheme C; 4a diversity/dysbiosis ->
+`scheme C` (mechanism stated or listed pathobiont); `scheme C; diversity/dysbiosis ->
 unattributed` (association only); `class 5 reassigned: mechanism stated`; `class 5 reassigned: no
 mechanism stated`; `class 5 reassigned: from outcome described`.
 
@@ -162,6 +165,9 @@ the resolution is written to `decisions.json` under `discussion`. Only approved 
 
 ## Changelog
 
+- **1.3 (2026-11-06).** Added `other` to the `intervention` controlled vocabulary for experimental or non-standard manipulations that fit no named category. Applied while reviewing Paredes 2026 (PAR_025 B. ovatus reintroduction; PAR_032, PAR_033 bile-acid-strain replenishing). No existing rows invalidated; other reviews not retro-edited.
+- **1.2 (2026-11-05).** Renamed the direction value `null` to `no effect`. The string `null` was being coerced to a missing value by pandas in the ring builder and drew a blank edge. Applied to all existing rows.
+- **1.1 (2026-11-05).** Broadened 2b to include antigen presentation and epithelial MHC class II induction/suppression. Reworded the 1a rule so a stated downstream mechanism (barrier, Treg/T-cell) outranks an SCFA/producer descriptor; a producer label still maps to 1a when only an association is given. Added `secondary bile acid producers` as a functional group. Renumbered 3b to 4a (colonization resistance / competitive exclusion sits under Class 4 alongside 4b). Added that a conflicting finding elsewhere in the review, even a skipped one, may set direction to context-dependent as a noted reviewer judgment call. Added a split-by-evidence rule. Applied while reviewing Moses 2026. Guo recheck: GUO_013 and GUO_015 unchanged under the reworded 1a rule; GUO_032 mechanism relabeled 3b to 4a (mechanical, same meaning).
 - **1.0 (2026-11-05).** First version, written after the Guo 2024 review. New relative to the
   anchor-review framework: GVHD outcomes only; `null` direction separated from `unspecified`;
   `clinical trial` renamed `human interventional` and widened to any treated patients;

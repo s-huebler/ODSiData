@@ -18,7 +18,7 @@
    "intervention": "",
    "mechanism_as_named": "Lactobacillales expanded in aGVHD",
    "ref_string": "[30]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:38:03"
@@ -42,7 +42,7 @@
    "intervention": "",
    "mechanism_as_named": "Staphylococcaceae expanded in aGVHD",
    "ref_string": "[30]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:38:10"
@@ -90,7 +90,7 @@
    "intervention": "",
    "mechanism_as_named": "Pasteurellales expanded in aGVHD",
    "ref_string": "[30]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:38:34"
@@ -138,7 +138,7 @@
    "intervention": "",
    "mechanism_as_named": "role of Lactobacillus in aGVHD controversial",
    "ref_string": "[30]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:39:20"
@@ -186,7 +186,7 @@
    "intervention": "",
    "mechanism_as_named": "Pasteurella associated with GI-aGVHD diarrhea severity in children",
    "ref_string": "[31]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:40:50"
@@ -210,7 +210,7 @@
    "intervention": "",
    "mechanism_as_named": "Clostridiales reduced in aGVHD",
    "ref_string": "[32,33]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:41:05"
@@ -234,7 +234,7 @@
    "intervention": "",
    "mechanism_as_named": "Bacteroidetes reduced in aGVHD",
    "ref_string": "[32,33]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:41:12"
@@ -258,7 +258,7 @@
    "intervention": "",
    "mechanism_as_named": "Actinomycetaceae reduced in aGVHD",
    "ref_string": "[32,33]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:41:20"
@@ -282,7 +282,7 @@
    "intervention": "",
    "mechanism_as_named": "small-intestine Bacteroidetes increase related to GVHD improvement",
    "ref_string": "[34]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:42:00"
@@ -405,7 +405,7 @@
    "intervention": "",
    "mechanism_as_named": "lower Blautia in aGVHD-predisposing state",
    "ref_string": "[35]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:45:01"
@@ -429,7 +429,7 @@
    "intervention": "",
    "mechanism_as_named": "Fusobacterium increase in aGVHD-predisposing state",
    "ref_string": "[35]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:45:10"
@@ -453,7 +453,7 @@
    "intervention": "",
    "mechanism_as_named": "Lachnospiraceae decreased in aGVHD",
    "ref_string": "[36]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:45:28"
@@ -477,7 +477,7 @@
    "intervention": "",
    "mechanism_as_named": "Blautia lower in aGVHD",
    "ref_string": "[36]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:45:40"
@@ -501,7 +501,7 @@
    "intervention": "",
    "mechanism_as_named": "Lachnoclostridium lower in aGVHD",
    "ref_string": "[36]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:45:43"
@@ -525,7 +525,7 @@
    "intervention": "",
    "mechanism_as_named": "Erysipelatoclostridium lower in aGVHD",
    "ref_string": "[36]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:45:49"
@@ -549,7 +549,7 @@
    "intervention": "",
    "mechanism_as_named": "Eubacterium lower in aGVHD",
    "ref_string": "[36]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:45:56"
@@ -573,7 +573,7 @@
    "intervention": "",
    "mechanism_as_named": "Clostridia depleted in aGVHD",
    "ref_string": "[37]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:46:25"
@@ -597,7 +597,7 @@
    "intervention": "",
    "mechanism_as_named": "Lachnospiraceae depleted in aGVHD",
    "ref_string": "[37]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:46:38"
@@ -621,7 +621,7 @@
    "intervention": "",
    "mechanism_as_named": "Ruminococcaceae depleted in aGVHD",
    "ref_string": "[37]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:46:50"
@@ -717,7 +717,7 @@
    "intervention": "",
    "mechanism_as_named": "Blautia abundance as GVHD biomarker",
    "ref_string": "[53]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:48:41",
@@ -742,7 +742,7 @@
    "intervention": "",
    "mechanism_as_named": "E. limosum abundance as GVHD/relapse biomarker",
    "ref_string": "[53]",
-   "mechanism_assignment": "scheme C; 4a diversity/dysbiosis -> unattributed"
+   "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
   },
   "edited": false,
   "decided_at": "2026-11-05T11:48:48",
@@ -795,7 +795,7 @@
    "evidence_as_stated": "unspecified",
    "evidence": "unspecified",
    "mechanism_broad": "Class 4: Pathobiont expansion",
-   "mechanism_specific": "3b. Colonization resistance / competitive exclusion",
+   "mechanism_specific": "4a. Colonization resistance / competitive exclusion",
    "target_type": "mechanism",
    "intervention": "probiotic / LBP",
    "mechanism_as_named": "engineered bacteria compete with pathogens to reduce GVHD risk",
