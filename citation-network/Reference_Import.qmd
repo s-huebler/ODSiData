@@ -678,6 +678,60 @@ write_csv(fill_log, file.path(corr, paste0("crossref_fill_log_", stamp, ".csv"))
 count(fill_log, field)
 ```
 
+## Inject a manually attributed primary source (Alba 2026)
+
+One-off (2026-11-06). In the Paredes 2026 claim network, the figure-only claim *Thomasclavelia -\> severe GVHD* is supported by Alba et al. 2026 (*Int. J. Mol. Sci.*), which Paredes did not cite (likely drawn from unpublished work). It is added here as a primary source under the reserved sentinel `local_number` **900** ("primary source attributed manually, not cited by the review"). The row is appended to `bib` and `ref_dictionary` together, in the same position, so `identical(ref_dictionary$BIBTEXKEY, bib$BIBTEXKEY)` still holds, and linked from `citing_dictionary` (citing node `Paredes_2026`, `citing_id` 890a94fb). The sync chunk below then refreshes `ref_dictionary` from `bib`, and the checks confirm the citing row resolves to a ref in `ref_dictionary`. Idempotent: skipped if `Alba_2026` already exists.
+
+```{r post-qa-inject-alba}
+alba_key <- "Alba_2026"
+alba_doi <- "10.3390/ijms27052331"
+if (!alba_key %in% bib$BIBTEXKEY) {
+  stopifnot(!alba_key %in% ref_dictionary$BIBTEXKEY,
+            !tolower(alba_doi) %in% tolower(ref_dictionary$DOI))
+  new_hex_id <- function(exclude) {
+    repeat {
+      id <- paste(sprintf("%02x", sample(0:255, 4, replace = TRUE)), collapse = "")
+      if (!id %in% exclude) return(id)
+    }
+  }
+  set.seed(900)
+  alba_ref_id <- new_hex_id(ref_dictionary$ref_id)
+  alba_authors <- c("Alba, C.", "Palomino, L.", "Vergara, B.", "Rodríguez-Belvís, M.V.",
+    "Aragón, A.", "Zaghlul, M.A.D.C.", "Jurado, R.", "Martín-Fernández, C.",
+    "Vázquez-Gómez, J.A.", "González-Vicent, M.", "Molina-Angulo, B.",
+    "Sánchez-Llorente, P.", "García-Hernández, P.", "Rodríguez, J.M.",
+    "Muñoz-Codoceo, R.A.", "Herranz, C.")
+  alba_title <- "Metataxonomic Analysis and Fatty Acid Profiling of Feces from Children Undergoing Hematopoietic Stem Cell Transplantation"
+  alba_full  <- paste0("Alba, C. et al. ", alba_title,
+                       ". Int. J. Mol. Sci. 27, 2331 (2026). https://doi.org/", alba_doi)
+
+  alba_bib <- bib[NA_integer_, ][1, , drop = FALSE]
+  alba_bib$CATEGORY <- "ARTICLE"; alba_bib$BIBTEXKEY <- alba_key
+  alba_bib$AUTHOR <- list(alba_authors); alba_bib$TITLE <- alba_title
+  alba_bib$JOURNAL <- "Int. J. Mol. Sci."; alba_bib$VOLUME <- "27"
+  alba_bib$PAGES <- "2331"; alba_bib$YEAR <- "2026"; alba_bib$DOI <- alba_doi
+  bib <- bind_rows(bib, alba_bib)
+
+  alba_rd <- ref_dictionary[NA_integer_, ][1, , drop = FALSE]
+  alba_rd$ref_id <- alba_ref_id; alba_rd$BIBTEXKEY <- alba_key
+  alba_rd$DOI <- alba_doi; alba_rd$TITLE <- alba_title; alba_rd$AUTHOR <- list(alba_authors)
+  ref_dictionary <- bind_rows(ref_dictionary, alba_rd)
+
+  alba_cd <- citing_dictionary[NA_integer_, ][1, , drop = FALSE]
+  alba_cd$id <- new_hex_id(citing_dictionary$id)
+  alba_cd$call_id <- "Paredes_2026_900"; alba_cd$citing_bibtex <- "Paredes_2026"
+  alba_cd$citing_id <- "890a94fb"; alba_cd$local_number <- 900
+  alba_cd$full_citation <- alba_full
+  alba_cd$Type <- "Paper"; alba_cd$TypeOfIdentifier <- "DOI"; alba_cd$Identifier <- alba_doi
+  alba_cd$ref_id <- alba_ref_id; alba_cd$ref_bibtex <- alba_key
+  citing_dictionary <- bind_rows(citing_dictionary, alba_cd)
+
+  cat("Injected", alba_key, "ref_id", alba_ref_id, "as Paredes_2026 local_number 900\n")
+} else {
+  cat(alba_key, "already present; no change\n")
+}
+```
+
 ## Sync, check and write
 
 ```{r post-qa-sync}
