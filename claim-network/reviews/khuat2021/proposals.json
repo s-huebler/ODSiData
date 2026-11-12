@@ -1,0 +1,405 @@
+{
+ "paper_key": "khuat2021",
+ "skill": "khuat2021-paper",
+ "citing_bibtex": "Khuat_2021",
+ "statement_prefix": "KHU",
+ "codebook_version": "1.3 (2026-11-06)",
+ "drafted": "2026-11-12",
+ "model": "claude-opus-5-5",
+ "title": "The emerging roles of the gut microbiome in allogeneic hematopoietic stem cell transplantation",
+ "citation_style": "numeric [n]",
+ "items": [
+  {
+   "id": "KHU_S01",
+   "kind": "skipped",
+   "quote": "Increased susceptibility to bacterial infections such as Pseudomonas, Enterobacter, Klebsiella, parasites, fungi, and reactivation of latent viruses",
+   "location": "body: Current concepts in hematopoietic stem cell transplantation",
+   "note": "Non-GVHD outcome: opportunistic infection after allo-HSCT, not tied to GVHD in the statement. [7]"
+  },
+  {
+   "id": "KHU_S02",
+   "kind": "skipped",
+   "quote": "Bifidobacterium spp. is associated with delayed tumor progression and increased responses to programmed death-ligand 1 (PD-L1) checkpoint blockade",
+   "location": "body: Graft-versus-tumor effect",
+   "note": "Non-transplant context (checkpoint immunotherapy) and no GVHD outcome; the next sentence on Bacteroides spp. and CTLA-4 blockade fails for the same reason. [32], [33]"
+  },
+  {
+   "id": "KHU_S03",
+   "kind": "skipped",
+   "quote": "The decreased abundances of Bifidobacterium and Lactobacillus, together with an increased abundance of Enterobacteriaceae are the key microbiota shifts in elderly individuals",
+   "location": "body: Significant differences between HSCT in murine models and humans",
+   "note": "Composition shift with aging; no GVHD link in the statement. [55]"
+  },
+  {
+   "id": "KHU_S04",
+   "kind": "skipped",
+   "quote": "transfer of Christensenella minuta to germ-free mice significantly reduced adiposity gain",
+   "location": "body: Significant differences between HSCT in murine models and humans",
+   "note": "Non-transplant context and non-GVHD outcome (adiposity); the preceding Bifidobacteria aging-biomarker sentence fails for the same reason. [64]"
+  },
+  {
+   "id": "KHU_S05",
+   "kind": "skipped",
+   "quote": "High microbiome diversity correlates with better survival rate, lower incidence and severity of GVHD",
+   "location": "body: Methodological approach to study intestinal microbiota",
+   "note": "Diversity only; whole-community measure is not a target. [59,60,83,84]"
+  },
+  {
+   "id": "KHU_001",
+   "kind": "proposal",
+   "quote": "some pathogenic bacterial taxa have been shown to increase in the GVHD recipients such as Enterococcaceae, Akkermansia muciniphila, and Lactobacillales",
+   "location": "body: Microbiota modification and HSCT outcomes",
+   "fields": {
+    "taxon_as_cited": "Enterococcaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcaceae increased in GVHD recipients",
+    "ref_string": "[50,61,84,87]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Family rank; the 4.1 pathobiont list names Enterococcus (genus) only, so assigned 0 rather than 4b. Two sentences later the review calls Enterococcaceae essential for GI integrity after radiation (skipped, non-GVHD outcome); direction kept exacerbating."
+  },
+  {
+   "id": "KHU_002",
+   "kind": "proposal",
+   "quote": "some pathogenic bacterial taxa have been shown to increase in the GVHD recipients such as Enterococcaceae, Akkermansia muciniphila, and Lactobacillales",
+   "location": "body: Microbiota modification and HSCT outcomes",
+   "fields": {
+    "taxon_as_cited": "Akkermansia muciniphila",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Akkermansia muciniphila increased in GVHD recipients",
+    "ref_string": "[50,61,84,87]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Figure 2 places A. muciniphila beside the mucus layer, but the text gives no mechanism for it and the figure is uncited, so 0."
+  },
+  {
+   "id": "KHU_003",
+   "kind": "proposal",
+   "quote": "some pathogenic bacterial taxa have been shown to increase in the GVHD recipients such as Enterococcaceae, Akkermansia muciniphila, and Lactobacillales",
+   "location": "body: Microbiota modification and HSCT outcomes",
+   "fields": {
+    "taxon_as_cited": "Lactobacillales",
+    "taxon_rank_as_cited": "order",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lactobacillales increased in GVHD recipients",
+    "ref_string": "[50,61,84,87]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "KHU_S06",
+   "kind": "skipped",
+   "quote": "Blautia has been shown as the beneficial bacterial genus for HSCT",
+   "location": "body: Microbiota modification and HSCT outcomes",
+   "note": "Non-GVHD outcome: benefit is stated for HSCT generally, with no GVHD outcome in the statement. Promote if 'beneficial for HSCT' is read as GVHD. [88]"
+  },
+  {
+   "id": "KHU_004",
+   "kind": "proposal",
+   "quote": "the correlation of increased GVHD with reduced abundances of some bacterial genera such as Faecalibacterium, Bacteroides, and Parabacteroides",
+   "location": "body: Microbiota modification and HSCT outcomes",
+   "fields": {
+    "taxon_as_cited": "Faecalibacterium",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Reduced Faecalibacterium correlates with increased GVHD",
+    "ref_string": "[89]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "KHU_005",
+   "kind": "proposal",
+   "quote": "the correlation of increased GVHD with reduced abundances of some bacterial genera such as Faecalibacterium, Bacteroides, and Parabacteroides",
+   "location": "body: Microbiota modification and HSCT outcomes",
+   "fields": {
+    "taxon_as_cited": "Bacteroides",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Reduced Bacteroides correlates with increased GVHD",
+    "ref_string": "[89]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "KHU_006",
+   "kind": "proposal",
+   "quote": "the correlation of increased GVHD with reduced abundances of some bacterial genera such as Faecalibacterium, Bacteroides, and Parabacteroides",
+   "location": "body: Microbiota modification and HSCT outcomes",
+   "fields": {
+    "taxon_as_cited": "Parabacteroides",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Reduced Parabacteroides correlates with increased GVHD",
+    "ref_string": "[89]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "KHU_S07",
+   "kind": "skipped",
+   "quote": "Lachnospiraceae and Enterococcaceae are essential to maintain GI tract integrity and facilitate immune reconstitution long-term after radiation exposure",
+   "location": "body: Microbiota modification and HSCT outcomes",
+   "note": "Non-GVHD outcome (GI integrity and immune reconstitution after radiation exposure, not HSCT GVHD). [90]"
+  },
+  {
+   "id": "KHU_S08",
+   "kind": "skipped",
+   "quote": "We and others demonstrated in murine HSCT models that prior administration of broad spectrum antibiotics reduced acute GVHD post-allogeneic HSCT in part due to significantly decreased bacterial translocation into bloodstream",
+   "location": "body: Antibiotics",
+   "note": "No microbial target: broad-spectrum antibiotic depletion of the whole microbiota; the surrounding MHC class II, neutrophil and T-cell migration mechanisms are likewise untargeted. [50,94]"
+  },
+  {
+   "id": "KHU_S09",
+   "kind": "skipped",
+   "quote": "multiple selective microbiota alteration approaches have been extensively studied to ameliorate GVHD and improve HSCT outcomes (Figure 2)",
+   "location": "figure 2",
+   "note": "Figure 2 (no legend in source) depicts Enterococcus and Akkermansia muciniphila with increased GVHD, and Blautia and Clostridia producing SCFAs acting on ILCs and IL-22, but carries no citations; the cited taxa are already rows from the text. Figure rule: no cited claim beyond the text."
+  },
+  {
+   "id": "KHU_S10",
+   "kind": "skipped",
+   "quote": "Vossen et al. used the combination of neomycin, polymyxin B, cephaloridin, and amphotericin B to target all bacteria, yeasts, and fungi and demonstrated reductions in both infections and GVHD in children",
+   "location": "body: Antibiotics",
+   "note": "No microbial target: complete gut decontamination of the whole community; the follow-up decontamination study [101] fails for the same reason. [100]"
+  },
+  {
+   "id": "KHU_007",
+   "kind": "proposal",
+   "quote": "Antibiotics targeting anaerobic bacteria are associated with higher rates of GVHD-related mortality targeting the intestinal tract due to the development of mucus-degrading bacteria",
+   "location": "body: Antibiotics",
+   "fields": {
+    "taxon_as_cited": "anaerobic bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "mechanism",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Anaerobe-targeting antibiotics raise GVHD mortality via mucus-degrading bacteria",
+    "ref_string": "[87]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Direction read from depletion by antibiotics worsening GVHD-related mortality. Mechanism set to 3a (mucus degradation); 4a colonization resistance is a plausible alternative."
+  },
+  {
+   "id": "KHU_008",
+   "kind": "proposal",
+   "quote": "Antibiotics targeting anaerobic bacteria are associated with higher rates of GVHD-related mortality targeting the intestinal tract due to the development of mucus-degrading bacteria",
+   "location": "body: Antibiotics",
+   "fields": {
+    "taxon_as_cited": "mucus-degrading bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "mechanism",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Mucus-degrading bacteria expand and raise intestinal GVHD mortality",
+    "ref_string": "[87]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Treated as a functional group (shared biological function: mucus degradation), which is not among the codebook's listed examples."
+  },
+  {
+   "id": "KHU_S11",
+   "kind": "skipped",
+   "quote": "Continuous prophylactic treatment using broad-spectrum antibiotic cocktail with ampicillin, vancomycin, and neomycin demonstrated a protective effect in gut permeability and GVHD outcomes in high-fat diet fed obese mice",
+   "location": "body: Antibiotics",
+   "note": "No microbial target: broad-spectrum antibiotic effect on the whole microbiota. [50]"
+  },
+  {
+   "id": "KHU_S12",
+   "kind": "skipped",
+   "quote": "butyrate, which has been shown to mitigate GVHD through the signaling by G-protein-coupled receptor 43 (GPR43) on the intestinal epithelial cells",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "No microbial target: metabolite (butyrate) only, no producing taxon or producer group named. [109]"
+  },
+  {
+   "id": "KHU_S13",
+   "kind": "skipped",
+   "quote": "Dietary fiber changed the gut microbiota profiles by increasing diversity (Bacteroidaceae and Bifidobacteriaceae), which enhances SCFAs production",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "No GVHD outcome in the statement (diet effect on composition and SCFA production). [110]"
+  },
+  {
+   "id": "KHU_S14",
+   "kind": "skipped",
+   "quote": "a high-fat only diet increases Bacteroides, Enterobacteriaceae, Escherichia, Klebsiella, and Shigella",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "Composition change with diet; no GVHD link in the statement. [111]"
+  },
+  {
+   "id": "KHU_S15",
+   "kind": "skipped",
+   "quote": "contribute to the increase of genus Bifidobacterium and Lactobacilli and the decrease of the genus Bacteroides",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "Prebiotic effect on composition; benefit is stated for HSCT patients generally (uncited preprint DOI) or checkpoint blockade, with no GVHD outcome. [112]"
+  },
+  {
+   "id": "KHU_S16",
+   "kind": "skipped",
+   "quote": "Patients that consumed prebiotics had reduced mucosal tissue damage and ameliorated acute GVHD",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "No microbial target: prebiotic intervention with no taxon named. [114]"
+  },
+  {
+   "id": "KHU_009",
+   "kind": "proposal",
+   "quote": "Oral administration of Lactobacillus rhamnosus GG in drinking water before and after HSCT resulted in reduced bacterial translocation, improved survival, and reduced acute GVHD pathogenesis",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus rhamnosus GG",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "murine models",
+    "evidence": "murine",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "Lactobacillus rhamnosus GG probiotic reduced acute GVHD in mice",
+    "ref_string": "[115]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Strain GG coded at species rank (no strain rank in the codebook). Reduced bacterial translocation is listed as a co-outcome, not stated as the mechanism, so 0 rather than 3a."
+  },
+  {
+   "id": "KHU_S17",
+   "kind": "skipped",
+   "quote": "Administration of 17 butyrate-producing Clostridia spp. strains by oral gavage before and after allogeneic HSCT with an MHC mismatched model demonstrated a significant increase of butyrate in the intestine and better survival rate",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "Non-GVHD outcome: survival only, GVHD not named in the statement. Promote if survival in an MHC-mismatched model is read as GVHD mortality. [116]"
+  },
+  {
+   "id": "KHU_S18",
+   "kind": "skipped",
+   "quote": "A cocktail of Clostridium bolteae, Ruminococcus gnavus, Ruminococcus torques, and Blautia producta delivered by oral gavage also showed significant survival in mice",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "Non-GVHD outcome: survival only, GVHD not named in the statement. [117]"
+  },
+  {
+   "id": "KHU_S19",
+   "kind": "skipped",
+   "quote": "The use of probiotics-enriched yogurt in a case report of a patient with autologous HSCT for treating mantle-cell lymphoma resulted in unexpected Lactobacillus acidophilus sepsis",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "Non-GVHD outcome (sepsis) and autologous HSCT. [118]"
+  },
+  {
+   "id": "KHU_S20",
+   "kind": "skipped",
+   "quote": "another clinical study reported the bloodstream infections with Lactobacillus bacteremia in patients with autologous and allogeneic HSCT within the first 100 d post-HSCT",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "Non-GVHD outcome (bacteremia). [119]"
+  },
+  {
+   "id": "KHU_S21",
+   "kind": "skipped",
+   "quote": "administration of probiotics with Lactobacillus plantarum was safe and feasible with no bacteremia case recorded",
+   "location": "body: Diet, prebiotics, and probiotics",
+   "note": "Non-GVHD outcome (safety and bacteremia only). [120]"
+  },
+  {
+   "id": "KHU_S22",
+   "kind": "skipped",
+   "quote": "Early clinical studies used FMT to treat patients with Clostridium difficile infections with high efficacy and minimal complications",
+   "location": "body: Fecal microbiota transplantation",
+   "note": "Non-GVHD outcome (C. difficile infection). [121-127]"
+  },
+  {
+   "id": "KHU_S23",
+   "kind": "skipped",
+   "quote": "FMT was also performed in steroid-resistant acute GVHD patients with no adverse effect and resulted in the restored microbiome diversity, an increase of peripheral regulatory T cells and better progression-free survival",
+   "location": "body: Fecal microbiota transplantation",
+   "note": "Diversity only; no microbial target named. [128-130]"
+  },
+  {
+   "id": "KHU_010",
+   "kind": "proposal",
+   "quote": "when FMT was used in patients with steroid-refractory or steroid-dependent intestinal GVHD, researchers observed a significant increase of microbiome alpha-diversity, increased abundances of butyrate-producing Clostridiales and Blautia",
+   "location": "body: Fecal microbiota transplantation",
+   "fields": {
+    "taxon_as_cited": "butyrate-producing Clostridiales",
+    "taxon_rank_as_cited": "order",
+    "direction": "protective",
+    "evidence_as_stated": "patients with steroid-refractory or steroid-dependent intestinal GVHD",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "FMT",
+    "mechanism_as_named": "Butyrate-producing Clostridiales increased after FMT for refractory GVHD",
+    "ref_string": "[131]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Producer descriptor with no distinct downstream mechanism, so 1a. Direction from rise after FMT; the quote reports no clinical response, success taken from the next sentence calling FMT promising for intestinal GVHD."
+  },
+  {
+   "id": "KHU_011",
+   "kind": "proposal",
+   "quote": "when FMT was used in patients with steroid-refractory or steroid-dependent intestinal GVHD, researchers observed a significant increase of microbiome alpha-diversity, increased abundances of butyrate-producing Clostridiales and Blautia",
+   "location": "body: Fecal microbiota transplantation",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "patients with steroid-refractory or steroid-dependent intestinal GVHD",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "FMT",
+    "mechanism_as_named": "Blautia increased after FMT for refractory GVHD",
+    "ref_string": "[131]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "'butyrate-producing' read as modifying Clostridiales only, so Blautia is 0; 1a if the descriptor is read as covering both. Direction as for the Clostridiales row."
+  }
+ ]
+}

@@ -1,0 +1,1350 @@
+{
+ "paper_key": "pinzonleal2025",
+ "skill": "pinzonleal2025-paper",
+ "citing_bibtex": "Pinzon-Leal_2025",
+ "statement_prefix": "PIN",
+ "codebook_version": "1.3 (2026-11-06)",
+ "drafted": "2026-11-12",
+ "model": "claude-opus-5-5",
+ "title": "The Microbiome, Inflammation, and GVHD Axis: The Balance Between the “Gut” and the Bad",
+ "citation_style": "numeric [n]; ref_string holds the printed number. Conversion notes record a source numbering offset from [31] upward (printed [n] usually means reference n-1), to be resolved at the end-of-paper step",
+ "items": [
+  {
+   "id": "PIN_S01",
+   "kind": "skipped",
+   "quote": "germ-free mice undergoing bone marrow transplantation exhibited higher survival rates and an apparent absence of GVHD compared to mice without decontamination",
+   "location": "body: 2. Pre-Clinical Studies",
+   "note": "Germ-free / whole-community statement; germ-free is not a microbial target (codebook 1.1). [32]"
+  },
+  {
+   "id": "PIN_S02",
+   "kind": "skipped",
+   "quote": "using animal models in mice and dogs treated with antibiotics as a decontamination method, also found lower rates of GVHD and increased survival rates",
+   "location": "body: 2. Pre-Clinical Studies",
+   "note": "Antibiotic decontamination result with no microbial target named. [34-37]"
+  },
+  {
+   "id": "PIN_001",
+   "kind": "proposal",
+   "quote": "in mice treated with ampicillin, a reduction in Lactobacillus species was associated with worse GVHD outcomes",
+   "location": "body: 2. Pre-Clinical Studies",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "mice treated with ampicillin",
+    "evidence": "murine",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Lactobacillus loss under ampicillin worsens GVHD",
+    "ref_string": "[20]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Direction is the mirror of a depletion effect. The same reference [20] is used two paragraphs later for the human finding that Lactobacillus is increased in GVHD patients (PIN_004); kept as stated in each statement rather than collapsed to context-dependent."
+  },
+  {
+   "id": "PIN_002",
+   "kind": "proposal",
+   "quote": "the reintroduction of L. johnsonii protected against the dominance of Enterococcus species and reduced GVHD lethality",
+   "location": "body: 2. Pre-Clinical Studies",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus johnsonii",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "mice treated with ampicillin",
+    "evidence": "murine",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4a. Colonization resistance / competitive exclusion",
+    "target_type": "taxon",
+    "intervention": "other",
+    "mechanism_as_named": "L. johnsonii reintroduction blocks Enterococcus dominance, reduces GVHD lethality",
+    "ref_string": "[20]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Abbreviation expanded per codebook 3. Single-species reintroduction -> intervention 'other' (codebook 1.3)."
+  },
+  {
+   "id": "PIN_003",
+   "kind": "proposal",
+   "quote": "the reintroduction of L. johnsonii protected against the dominance of Enterococcus species and reduced GVHD lethality",
+   "location": "body: 2. Pre-Clinical Studies",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "mice treated with ampicillin",
+    "evidence": "murine",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "other",
+    "mechanism_as_named": "Enterococcus dominance drives GVHD lethality in mice",
+    "ref_string": "[20]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with PIN_002; listed pathobiont -> 4b."
+  },
+  {
+   "id": "PIN_004",
+   "kind": "proposal",
+   "quote": "unlike patients who did not develop any clinical signs of GVHD, exhibited lower microbiota diversity, an increase in Lactobacillus species, and a decrease in Clostridiales levels",
+   "location": "body: 3. Clinical Studies",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "cohort of transplanted patients with GVHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lactobacillus increased in patients with GVHD",
+    "ref_string": "[20]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Conflicts with PIN_001 (same reference [20], murine arm, protective); directions kept as the review frames each statement, with the conflict flagged here rather than coded context-dependent."
+  },
+  {
+   "id": "PIN_005",
+   "kind": "proposal",
+   "quote": "unlike patients who did not develop any clinical signs of GVHD, exhibited lower microbiota diversity, an increase in Lactobacillus species, and a decrease in Clostridiales levels",
+   "location": "body: 3. Clinical Studies",
+   "fields": {
+    "taxon_as_cited": "Clostridiales",
+    "taxon_rank_as_cited": "order",
+    "direction": "protective",
+    "evidence_as_stated": "cohort of transplanted patients with GVHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Clostridiales decreased in patients with GVHD",
+    "ref_string": "[20]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with PIN_004; the diversity clause in the same sentence is not a row (codebook 1.1)."
+  },
+  {
+   "id": "PIN_006",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ Lactobacillales and ↓ Clostridiales.",
+   "location": "table 1, row n = 18, adults ([20])",
+   "fields": {
+    "taxon_as_cited": "Lactobacillales",
+    "taxon_rank_as_cited": "order",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 18, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lactobacillales increased in the GVHD profile",
+    "ref_string": "[20]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Lactobacillales is not on the codebook 4.1 pathobiont list, so association only -> 0."
+  },
+  {
+   "id": "PIN_007",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ Lactobacillales and ↓ Clostridiales.",
+   "location": "table 1, row n = 18, adults ([20])",
+   "fields": {
+    "taxon_as_cited": "Clostridiales",
+    "taxon_rank_as_cited": "order",
+    "direction": "protective",
+    "evidence_as_stated": "n = 18, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Clostridiales decreased in the GVHD profile",
+    "ref_string": "[20]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "PIN_S03",
+   "kind": "skipped",
+   "quote": "Diversity lost over time, particularly after GVHD.",
+   "location": "table 1, row n = 18, adults ([20])",
+   "note": "Diversity only (codebook 1.1)."
+  },
+  {
+   "id": "PIN_S04",
+   "kind": "skipped",
+   "quote": "Increased microbial “chaos” early after allogeneic BMT as a potential risk factor for subsequent GVHD.",
+   "location": "table 1, row n = 18, adults ([20])",
+   "note": "Whole-community statement ('chaos'), no microbial target."
+  },
+  {
+   "id": "PIN_S05",
+   "kind": "skipped",
+   "quote": "Dominance during HSCT: Enterococcus, Streptococcus, Enterobacteriaceae, and Lactobacillus",
+   "location": "table 1, row n = 80, adults ([21])",
+   "note": "Composition described with no direction and no GVHD link; the row's outcomes are 3-year OS and TRM, not GVHD (codebook 1.2)."
+  },
+  {
+   "id": "PIN_008",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ Enterococci.",
+   "location": "table 1, row n = 31, adults ([22])",
+   "fields": {
+    "taxon_as_cited": "Enterococci",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 31, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococci increased in the GVHD profile",
+    "ref_string": "[22]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Listed pathobiont -> 4b. The same cell's shift sentence repeats the Enterococci increase; only the GVHD-profile sentence is taken for this target to avoid a duplicate row."
+  },
+  {
+   "id": "PIN_009",
+   "kind": "proposal",
+   "quote": "During HSCT microbiota shift: ↑ Enterococci and ↓ other Firmitcutes (especially if AB use or GI aGVHD.",
+   "location": "table 1, row n = 31, adults ([22])",
+   "fields": {
+    "taxon_as_cited": "other Firmitcutes",
+    "taxon_rank_as_cited": "phylum",
+    "direction": "protective",
+    "evidence_as_stated": "n = 31, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Other Firmicutes decreased in GI aGVHD",
+    "ref_string": "[22]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Printed as 'Firmitcutes' (source typo for Firmicutes) and the parenthesis is unclosed in the source; name kept as printed per codebook 3. 'Other' means Firmicutes other than Enterococci."
+  },
+  {
+   "id": "PIN_S06",
+   "kind": "skipped",
+   "quote": "Indoxyl sulfate levels lower during AB and in GI GVHD (indirect marker of bacterial diversity).",
+   "location": "table 1, row n = 31, adults ([22])",
+   "note": "Metabolite-level finding with no microbial target."
+  },
+  {
+   "id": "PIN_010",
+   "kind": "proposal",
+   "quote": "↑ Blautia associated with reduced GVHD mortality, incidence of aGVHD, and improved OS.",
+   "location": "table 1, row n = 64, adults ([23])",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "n = 64, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia associated with lower aGVHD incidence and GVHD mortality",
+    "ref_string": "[23]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "PIN_S07",
+   "kind": "skipped",
+   "quote": "Increased bacterial diversity was associated with reduced GVHD lethality.",
+   "location": "table 1, row n = 64, adults ([23])",
+   "note": "Diversity only (codebook 1.1)."
+  },
+  {
+   "id": "PIN_011",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ Enterococcus spp. and Enterobacteriaceae family but ↓anti-inflammatory Clostridia.",
+   "location": "table 1, row n = 15, children ([24])",
+   "fields": {
+    "taxon_as_cited": "Enterococcus spp.",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 15, children",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus increased in the GVHD profile",
+    "ref_string": "[24]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": ""
+  },
+  {
+   "id": "PIN_012",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ Enterococcus spp. and Enterobacteriaceae family but ↓anti-inflammatory Clostridia.",
+   "location": "table 1, row n = 15, children ([24])",
+   "fields": {
+    "taxon_as_cited": "Enterobacteriaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 15, children",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterobacteriaceae increased in the GVHD profile",
+    "ref_string": "[24]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with PIN_011; listed pathobiont -> 4b."
+  },
+  {
+   "id": "PIN_013",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ Enterococcus spp. and Enterobacteriaceae family but ↓anti-inflammatory Clostridia.",
+   "location": "table 1, row n = 15, children ([24])",
+   "fields": {
+    "taxon_as_cited": "anti-inflammatory Clostridia",
+    "taxon_rank_as_cited": "class",
+    "direction": "protective",
+    "evidence_as_stated": "n = 15, children",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Anti-inflammatory Clostridia decreased in the GVHD profile",
+    "ref_string": "[24]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Name kept as printed, including the 'anti-inflammatory' descriptor; the descriptor is not a stated mechanism, so association only -> 0."
+  },
+  {
+   "id": "PIN_014",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ Firmicutes (p < 0.01) and ↓ Bacteroides (p = 0.106).",
+   "location": "table 1, row n = 107, adults ([25])",
+   "fields": {
+    "taxon_as_cited": "Firmicutes",
+    "taxon_rank_as_cited": "phylum",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 107, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Firmicutes increased in the GVHD profile",
+    "ref_string": "[25]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "PIN_015",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ Firmicutes (p < 0.01) and ↓ Bacteroides (p = 0.106).",
+   "location": "table 1, row n = 107, adults ([25])",
+   "fields": {
+    "taxon_as_cited": "Bacteroides",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "n = 107, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides decreased in the GVHD profile",
+    "ref_string": "[25]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Direction taken from the printed arrow; the row itself reports p = 0.106, so the decrease is not statistically significant."
+  },
+  {
+   "id": "PIN_S08",
+   "kind": "skipped",
+   "quote": "No difference in OS, relapse, NRM, or GI GVHD II-IV incidence between diversity groups.",
+   "location": "table 1, row n = 107, adults ([25])",
+   "note": "Diversity-only null result; diversity is not a row (codebook 1.1)."
+  },
+  {
+   "id": "PIN_016",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ oral Actinobacteria and ↑ Firmicutes in stool, ↓ Lachnospiraceae.",
+   "location": "table 1, row n = 66, adults ([26])",
+   "fields": {
+    "taxon_as_cited": "oral Actinobacteria",
+    "taxon_rank_as_cited": "phylum",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 66, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Oral Actinobacteria increased in the GVHD profile",
+    "ref_string": "[26]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "'oral' is a sampling-site qualifier kept as printed; the taxon is the phylum Actinobacteria."
+  },
+  {
+   "id": "PIN_017",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ oral Actinobacteria and ↑ Firmicutes in stool, ↓ Lachnospiraceae.",
+   "location": "table 1, row n = 66, adults ([26])",
+   "fields": {
+    "taxon_as_cited": "Firmicutes",
+    "taxon_rank_as_cited": "phylum",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 66, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Stool Firmicutes increased in the GVHD profile",
+    "ref_string": "[26]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "PIN_018",
+   "kind": "proposal",
+   "quote": "GVHD profile: ↑ oral Actinobacteria and ↑ Firmicutes in stool, ↓ Lachnospiraceae.",
+   "location": "table 1, row n = 66, adults ([26])",
+   "fields": {
+    "taxon_as_cited": "Lachnospiraceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "n = 66, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lachnospiraceae decreased in the GVHD profile",
+    "ref_string": "[26]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "PIN_S09",
+   "kind": "skipped",
+   "quote": "GVHD associated with lower alpha diversity.",
+   "location": "table 1, row n = 66, adults ([26])",
+   "note": "Diversity only (codebook 1.1)."
+  },
+  {
+   "id": "PIN_019",
+   "kind": "proposal",
+   "quote": "Presence of Eubacterium limosum decreased risk of relapse/progression (HR 0.82, p = 0.009) and increase OS, but not associated with aGVHD.",
+   "location": "table 1, row n = 541, adults ([27])",
+   "fields": {
+    "taxon_as_cited": "Eubacterium limosum",
+    "taxon_rank_as_cited": "species",
+    "direction": "no effect",
+    "evidence_as_stated": "n = 541, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Eubacterium limosum not associated with aGVHD",
+    "ref_string": "[27]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Statement carries both a non-GVHD outcome (relapse, OS) and a GVHD outcome; the row records the GVHD part, which is an explicit null (codebook 1.2, 3.1)."
+  },
+  {
+   "id": "PIN_020",
+   "kind": "proposal",
+   "quote": "aGVHD profile: lower diversity (p = 0.018) and ↓ Clostridia (e.g., the Lachnospiraceae and Ruminococcaceae families) and ↑ Gammaproteobacteria (e.g., the Enterobacteriaceae family).",
+   "location": "table 1, row n = 141, adults ([28])",
+   "fields": {
+    "taxon_as_cited": "Clostridia",
+    "taxon_rank_as_cited": "class",
+    "direction": "protective",
+    "evidence_as_stated": "n = 141, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Clostridia decreased in the aGVHD profile",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "PIN_021",
+   "kind": "proposal",
+   "quote": "aGVHD profile: lower diversity (p = 0.018) and ↓ Clostridia (e.g., the Lachnospiraceae and Ruminococcaceae families) and ↑ Gammaproteobacteria (e.g., the Enterobacteriaceae family).",
+   "location": "table 1, row n = 141, adults ([28])",
+   "fields": {
+    "taxon_as_cited": "Lachnospiraceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "n = 141, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lachnospiraceae decreased in the aGVHD profile",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Named as an example of Clostridia; examples get their own row (codebook 2)."
+  },
+  {
+   "id": "PIN_022",
+   "kind": "proposal",
+   "quote": "aGVHD profile: lower diversity (p = 0.018) and ↓ Clostridia (e.g., the Lachnospiraceae and Ruminococcaceae families) and ↑ Gammaproteobacteria (e.g., the Enterobacteriaceae family).",
+   "location": "table 1, row n = 141, adults ([28])",
+   "fields": {
+    "taxon_as_cited": "Ruminococcaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "n = 141, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Ruminococcaceae decreased in the aGVHD profile",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Named as an example of Clostridia; examples get their own row (codebook 2)."
+  },
+  {
+   "id": "PIN_023",
+   "kind": "proposal",
+   "quote": "aGVHD profile: lower diversity (p = 0.018) and ↓ Clostridia (e.g., the Lachnospiraceae and Ruminococcaceae families) and ↑ Gammaproteobacteria (e.g., the Enterobacteriaceae family).",
+   "location": "table 1, row n = 141, adults ([28])",
+   "fields": {
+    "taxon_as_cited": "Gammaproteobacteria",
+    "taxon_rank_as_cited": "class",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 141, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Gammaproteobacteria increased in the aGVHD profile",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Listed pathobiont -> 4b."
+  },
+  {
+   "id": "PIN_024",
+   "kind": "proposal",
+   "quote": "aGVHD profile: lower diversity (p = 0.018) and ↓ Clostridia (e.g., the Lachnospiraceae and Ruminococcaceae families) and ↑ Gammaproteobacteria (e.g., the Enterobacteriaceae family).",
+   "location": "table 1, row n = 141, adults ([28])",
+   "fields": {
+    "taxon_as_cited": "Enterobacteriaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 141, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterobacteriaceae increased in the aGVHD profile",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Example of Gammaproteobacteria; listed pathobiont -> 4b."
+  },
+  {
+   "id": "PIN_025",
+   "kind": "proposal",
+   "quote": "Depletion of lactose in vitro and in vivo inhibited Enterococcal expansion and mitigated GVHD.",
+   "location": "table 1, row n = 1324, adults ([29])",
+   "fields": {
+    "taxon_as_cited": "Enterococcal",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "in vitro and in vivo",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "diet",
+    "mechanism_as_named": "Lactose depletion blocks Enterococcus expansion and mitigates GVHD",
+    "ref_string": "[29]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Split from PIN_026 by evidence type (codebook 2): this sentence is in vitro / in vivo and the review does not say which species, so evidence is unspecified. Name kept as printed in the adjectival form 'Enterococcal', i.e. the genus Enterococcus."
+  },
+  {
+   "id": "PIN_026",
+   "kind": "proposal",
+   "quote": "Enterococcus domination increases risk for GVHD and overall GVHD-related mortality.",
+   "location": "table 1, row n = 1324, adults ([29])",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "n = 1324, adults",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus domination increases GVHD risk and GVHD mortality",
+    "ref_string": "[29]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": ""
+  },
+  {
+   "id": "PIN_S10",
+   "kind": "skipped",
+   "quote": "GVHD profile: ↑ Enterococcus domination.",
+   "location": "table 1, row n = 1324, adults ([29])",
+   "note": "Restates the same row's outcome cell, which is taken as PIN_026; kept out to avoid a duplicate target x mechanism row for the same reference."
+  },
+  {
+   "id": "PIN_S11",
+   "kind": "skipped",
+   "quote": "Lactose-free diet could attenuate the outgrowth of pathobionts",
+   "location": "table 1, row n = 1324, adults ([29])",
+   "note": "No GVHD outcome in the statement (outcome is pathobiont outgrowth); the diet-to-GVHD link in this row is captured as PIN_025."
+  },
+  {
+   "id": "PIN_S12",
+   "kind": "skipped",
+   "quote": "Lower diversity associated with lower OS (HR 0.75), TRM (HR 0.63), and GVHD-related mortality (HR 0.89).",
+   "location": "table 1, row n = 1362, adults ([30])",
+   "note": "Diversity only; diversity is not a row (codebook 1.1)."
+  },
+  {
+   "id": "PIN_S13",
+   "kind": "skipped",
+   "quote": "Low diversity or low butyrogens not associated with clinical outcomes.",
+   "location": "table 1, row n = 74, children ([31])",
+   "note": "'Butyrogens' would be a butyrate-producer functional group with a no-effect direction, but the outcome is generic 'clinical outcomes', not a GVHD outcome (codebook 1.2). Promote if the row's aGVHD mention is taken to cover it."
+  },
+  {
+   "id": "PIN_S14",
+   "kind": "skipped",
+   "quote": "Facultative anaerobes (e.g., Lachnoclostridium, Parabacteroides) prior to conditioning predicted bacteremia risk (HR 3.89).",
+   "location": "table 1, row n = 74, children ([31])",
+   "note": "Non-GVHD outcome (bacteremia) (codebook 1.2)."
+  },
+  {
+   "id": "PIN_S15",
+   "kind": "skipped",
+   "quote": "Compositional signatures predict both infectious and aGVHD.",
+   "location": "table 1, row n = 74, children ([31])",
+   "note": "Whole-community compositional signature, no microbial target."
+  },
+  {
+   "id": "PIN_S16",
+   "kind": "skipped",
+   "quote": "in the latter group, higher microbiota diversity was associated with better overall survival (OS), lower rates of transplant-related mortality (TRM), and reduced GVHD-related mortality",
+   "location": "body: 3. Clinical Studies",
+   "note": "Diversity only (codebook 1.1); target is diversity, not a taxon. [27]"
+  },
+  {
+   "id": "PIN_S17",
+   "kind": "skipped",
+   "quote": "Early exposure to these antibiotics is associated with lower levels of urinary 3-indoxyl sulfate (indicative of a disrupted gut microbiome) and a reduction in commensal Clostridiales species",
+   "location": "body: 3. Clinical Studies",
+   "note": "Clostridiales reduction tied to antibiotic exposure with no GVHD outcome in the statement. [39]"
+  },
+  {
+   "id": "PIN_027",
+   "kind": "proposal",
+   "quote": "the expansion of Enterococcus has been linked to bloodstream infections, GVHD, and mortality in most studies",
+   "location": "body: 3. Clinical Studies",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "most studies (Table 1)",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus expansion linked to GVHD across studies",
+    "ref_string": "",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "The review's own synthesis statement; printed support is '(Table 1)' rather than a numbered citation, so ref_string is blank. Statement also carries non-GVHD outcomes (bacteremia, mortality); the GVHD part is recorded (codebook 1.2)."
+  },
+  {
+   "id": "PIN_S18",
+   "kind": "skipped",
+   "quote": "They also demonstrated the suppression of anaerobic bacterial growth for 5 weeks post-transplantation",
+   "location": "body: 4. Antibiotics Impact in Microbiome",
+   "note": "Anaerobe suppression and the aGVHD reduction of the ciprofloxacin + metronidazole arm are in separate sentences, so no single statement links the target to GVHD; it also runs against the anti-anaerobic antibiotic claims captured as PIN_028 to PIN_030. [53,54]"
+  },
+  {
+   "id": "PIN_028",
+   "kind": "proposal",
+   "quote": "have found that the use of anti-anaerobic antibiotics reduces anti-inflammatory Clostridia and increases the incidence of aGVHD",
+   "location": "body: 4. Antibiotics Impact in Microbiome",
+   "fields": {
+    "taxon_as_cited": "anti-inflammatory Clostridia",
+    "taxon_rank_as_cited": "class",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Anti-anaerobic antibiotics deplete Clostridia and raise aGVHD incidence",
+    "ref_string": "[24,45]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Evidence inferred as human observational from the clinical decontamination context of the paragraph (GUO_007); the sentence itself names no study type."
+  },
+  {
+   "id": "PIN_S19",
+   "kind": "skipped",
+   "quote": "The main findings supported the conclusion that an increased aGVHD risk is associated with the use of antibiotic prophylaxis (OR 1.65) and gut decontamination strategies (OR 1.58).",
+   "location": "body: 4. Antibiotics Impact in Microbiome",
+   "note": "Antibiotic result with a GVHD outcome but no microbial target. [56]"
+  },
+  {
+   "id": "PIN_029",
+   "kind": "proposal",
+   "quote": "its use was associated with higher risk of aGVHD of gut/liver (HR 1.26) and aGVHD mortality (HR 1.63), lower gut bacterial diversity by the metagenomic sequencing of serial fecal samples that specifically found a reduction in Bifidobacteriales and Clostridiales",
+   "location": "body: 4. Antibiotics Impact in Microbiome",
+   "fields": {
+    "taxon_as_cited": "Bifidobacteriales",
+    "taxon_rank_as_cited": "order",
+    "direction": "protective",
+    "evidence_as_stated": "1214 patients who received antibiotics",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Bifidobacteriales depleted under anti-anaerobic antibiotics with higher aGVHD",
+    "ref_string": "[55]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Alternative mechanism: the same sentence reports a loss of butyrate-synthesis genes, which would support 1a; kept at 0 because the review does not label these taxa as butyrate producers."
+  },
+  {
+   "id": "PIN_030",
+   "kind": "proposal",
+   "quote": "its use was associated with higher risk of aGVHD of gut/liver (HR 1.26) and aGVHD mortality (HR 1.63), lower gut bacterial diversity by the metagenomic sequencing of serial fecal samples that specifically found a reduction in Bifidobacteriales and Clostridiales",
+   "location": "body: 4. Antibiotics Impact in Microbiome",
+   "fields": {
+    "taxon_as_cited": "Clostridiales",
+    "taxon_rank_as_cited": "order",
+    "direction": "protective",
+    "evidence_as_stated": "1214 patients who received antibiotics",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Clostridiales depleted under anti-anaerobic antibiotics with higher aGVHD",
+    "ref_string": "[55]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with PIN_029; same 1a-versus-0 judgment call."
+  },
+  {
+   "id": "PIN_S20",
+   "kind": "skipped",
+   "quote": "along with a loss of bacterial genes related with butyrate synthesis",
+   "location": "body: 4. Antibiotics Impact in Microbiome",
+   "note": "Gene-content finding with no microbial target. [55]"
+  },
+  {
+   "id": "PIN_S21",
+   "kind": "skipped",
+   "quote": "particularly the selection of E. faecium and the vanA and vanC genes",
+   "location": "body: 4. Antibiotics Impact in Microbiome",
+   "note": "Non-GVHD outcome (antibiotic resistance selection) (codebook 1.2). [70]"
+  },
+  {
+   "id": "PIN_031",
+   "kind": "proposal",
+   "quote": "A decrease in the abundance of Clostridia, Lachnospiraceae, Blautia, Bacteroides, and Akkermansia muciniphila is linked to a higher probability of acute graft-versus-host disease (aGVHD) and lower survival rates",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "fields": {
+    "taxon_as_cited": "Clostridia",
+    "taxon_rank_as_cited": "class",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Clostridia decrease linked to higher aGVHD probability",
+    "ref_string": "[75,76]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Evidence inferred as human observational from the section's patient context (GUO_007); the sentence names no study type."
+  },
+  {
+   "id": "PIN_032",
+   "kind": "proposal",
+   "quote": "A decrease in the abundance of Clostridia, Lachnospiraceae, Blautia, Bacteroides, and Akkermansia muciniphila is linked to a higher probability of acute graft-versus-host disease (aGVHD) and lower survival rates",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "fields": {
+    "taxon_as_cited": "Lachnospiraceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lachnospiraceae decrease linked to higher aGVHD probability",
+    "ref_string": "[75,76]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Evidence inferred as human observational from the section's patient context (GUO_007); the sentence names no study type."
+  },
+  {
+   "id": "PIN_033",
+   "kind": "proposal",
+   "quote": "A decrease in the abundance of Clostridia, Lachnospiraceae, Blautia, Bacteroides, and Akkermansia muciniphila is linked to a higher probability of acute graft-versus-host disease (aGVHD) and lower survival rates",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia decrease linked to higher aGVHD probability",
+    "ref_string": "[75,76]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Evidence inferred as human observational from the section's patient context (GUO_007); the sentence names no study type."
+  },
+  {
+   "id": "PIN_034",
+   "kind": "proposal",
+   "quote": "A decrease in the abundance of Clostridia, Lachnospiraceae, Blautia, Bacteroides, and Akkermansia muciniphila is linked to a higher probability of acute graft-versus-host disease (aGVHD) and lower survival rates",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "fields": {
+    "taxon_as_cited": "Bacteroides",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides decrease linked to higher aGVHD probability",
+    "ref_string": "[75,76]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Evidence inferred as human observational from the section's patient context (GUO_007); the sentence names no study type."
+  },
+  {
+   "id": "PIN_035",
+   "kind": "proposal",
+   "quote": "A decrease in the abundance of Clostridia, Lachnospiraceae, Blautia, Bacteroides, and Akkermansia muciniphila is linked to a higher probability of acute graft-versus-host disease (aGVHD) and lower survival rates",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "fields": {
+    "taxon_as_cited": "Akkermansia muciniphila",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Akkermansia muciniphila decrease linked to higher aGVHD probability",
+    "ref_string": "[75,76]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Evidence inferred as human observational from the section's patient context (GUO_007); the sentence names no study type."
+  },
+  {
+   "id": "PIN_036",
+   "kind": "proposal",
+   "quote": "the abundance of Lactobacillales, Staphylococcaceae, Enterobacteriales, and Enterococcus has been observed in patients with aGVHD and is concomitantly associated with GVHD severity, lower overall survival, and higher GVHD-related mortality",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "fields": {
+    "taxon_as_cited": "Lactobacillales",
+    "taxon_rank_as_cited": "order",
+    "direction": "exacerbating",
+    "evidence_as_stated": "patients with aGVHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lactobacillales abundance linked to GVHD severity and mortality",
+    "ref_string": "[22,77]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Not on the codebook 4.1 pathobiont list, so association only -> 0."
+  },
+  {
+   "id": "PIN_037",
+   "kind": "proposal",
+   "quote": "the abundance of Lactobacillales, Staphylococcaceae, Enterobacteriales, and Enterococcus has been observed in patients with aGVHD and is concomitantly associated with GVHD severity, lower overall survival, and higher GVHD-related mortality",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "fields": {
+    "taxon_as_cited": "Staphylococcaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "patients with aGVHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Staphylococcaceae abundance linked to GVHD severity and mortality",
+    "ref_string": "[22,77]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Staphylococcaceae is explicitly not on the 4.1 pathobiont list (GUO_002)."
+  },
+  {
+   "id": "PIN_038",
+   "kind": "proposal",
+   "quote": "the abundance of Lactobacillales, Staphylococcaceae, Enterobacteriales, and Enterococcus has been observed in patients with aGVHD and is concomitantly associated with GVHD severity, lower overall survival, and higher GVHD-related mortality",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "fields": {
+    "taxon_as_cited": "Enterobacteriales",
+    "taxon_rank_as_cited": "order",
+    "direction": "exacerbating",
+    "evidence_as_stated": "patients with aGVHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterobacteriales abundance linked to GVHD severity and mortality",
+    "ref_string": "[22,77]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Listed pathobiont (Enterobacterales) -> 4b."
+  },
+  {
+   "id": "PIN_039",
+   "kind": "proposal",
+   "quote": "the abundance of Lactobacillales, Staphylococcaceae, Enterobacteriales, and Enterococcus has been observed in patients with aGVHD and is concomitantly associated with GVHD severity, lower overall survival, and higher GVHD-related mortality",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "patients with aGVHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus abundance linked to GVHD severity and mortality",
+    "ref_string": "[22,77]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Listed pathobiont -> 4b."
+  },
+  {
+   "id": "PIN_S22",
+   "kind": "skipped",
+   "quote": "samples from all four centers demonstrated the common dominance of the genera Enterococcus and Streptococcus",
+   "location": "body: 5. Molecular Microbiological Techniques and Their Impact on Microbiota Studies in HSCT",
+   "note": "Dominance described with no GVHD outcome in the statement; the GVHD-related mortality in the next sentence is tied to diversity, not to these genera. [78]"
+  },
+  {
+   "id": "PIN_S23",
+   "kind": "skipped",
+   "quote": "Studies in mice have shown that the gut microbiota can either upregulate or downregulate the expression of MHC class II, directly influencing the severity of GVHD.",
+   "location": "body: 6.1. HLA Regulation by the Microbiome During GVHD",
+   "note": "Whole-community statement ('the gut microbiota'), no microbial target (codebook 1.1)."
+  },
+  {
+   "id": "PIN_S24",
+   "kind": "skipped",
+   "quote": "interleukin-12 (IL-12) secreted by lamina propria lymphocytes, in a microbiota-dependent manner, induces MHC class II expression on intestinal epithelial cells (IECs)",
+   "location": "body: 6.1. HLA Regulation by the Microbiome During GVHD",
+   "note": "Microbiota-dependent host mechanism with no microbial target named. [79]"
+  },
+  {
+   "id": "PIN_040",
+   "kind": "proposal",
+   "quote": "The depletion of these bacteria with vancomycin not only reduced MHC-II expression and IFN-γ production but also decreased the lethality of GVHD",
+   "location": "body: 6.1. HLA Regulation by the Microbiome During GVHD",
+   "fields": {
+    "taxon_as_cited": "bacteria that induce MHC-II",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "exacerbating",
+    "evidence_as_stated": "genetically identical BALB/c mice from different vendor sources",
+    "evidence": "murine",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "mechanism",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "MHC-II-inducing bacteria raise GVHD lethality via epithelial MHC-II",
+    "ref_string": "[87]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "'These bacteria' refers to the MHC-II inducers named in the two preceding sentences; the group is defined by a shared biological function (epithelial MHC-II induction), so it is a functional group (codebook 1.1) and 2b covers epithelial MHC class II induction (codebook 1.1 changelog)."
+  },
+  {
+   "id": "PIN_S25",
+   "kind": "skipped",
+   "quote": "Fecal MHC-II-inducing and -suppressing bacteria in genetically identical BALB/c mice from different vendor origins.",
+   "location": "table 2, rows JAX Mice and Taconic and Charles River ([79])",
+   "note": "Table 2 cells are bare taxon-name lists, so no cell sentence carries a claim, and neither the cells nor the caption state a GVHD outcome; the GVHD link sits in the body text, captured as PIN_040 to PIN_042. Promoting it would create about 25 taxon rows keyed to one reference, whose printed Ref [79] the conversion notes say does not fit (vendor data best fit ref 86, Koyama 2023)."
+  },
+  {
+   "id": "PIN_041",
+   "kind": "proposal",
+   "quote": "These findings confirm that the microbiota directly influence GVHD outcomes, where suppressor bacteria will inhibit the activation of T cells in a MHC-II direct pathway, directly impacting the Th1 and Th17 T cell population",
+   "location": "body: 6.1. HLA Regulation by the Microbiome During GVHD",
+   "fields": {
+    "taxon_as_cited": "suppressor bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "murine",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "MHC-II-suppressing bacteria blunt Th1/Th17 activation and GVHD",
+    "ref_string": "[88]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Citation problem: the printed [88] sits at the end of a sentence whose closing clause is about IFN-γ and LPS; the vendor experiment behind the claim is [87] (= ref 86, Koyama 2023, per the conversion notes). Evidence read as murine from the vendor-mouse experiment being summarized."
+  },
+  {
+   "id": "PIN_S26",
+   "kind": "skipped",
+   "quote": "MHC-II-inducing bacteria upregulate the expression of MHC-II on IECs, leading to the activation of T cells, which polarize into the Th1 or Th17 subsets.",
+   "location": "figure 1 caption",
+   "note": "Figure repeats the body text (PIN_040 to PIN_042) and carries no citation of its own (codebook 2)."
+  },
+  {
+   "id": "PIN_042",
+   "kind": "proposal",
+   "quote": "were treated with a three-antibiotic cocktail (cefoxitin, gentamicin, and vancomycin) to increase the MHC-II suppressor bacteria. The treatment not only reduced the GVHD but also attenuated the GvT",
+   "location": "body: 6.1. HLA Regulation by the Microbiome During GVHD",
+   "fields": {
+    "taxon_as_cited": "MHC-II suppressor bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "lethally irradiated mice transplanted with bone marrow and CD4+ T cells",
+    "evidence": "murine",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "mechanism",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Expanding MHC-II-suppressor bacteria reduces GVHD but also GvT",
+    "ref_string": "[87]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Two-sentence quote because the target and the GVHD outcome are split across the sentence break. Distinct from PIN_041: an antibiotic manipulation rather than the review's mechanism summary."
+  },
+  {
+   "id": "PIN_043",
+   "kind": "proposal",
+   "quote": "its polysaccharide A activates TLR2 on Treg cells, inducing their proliferation and the induction of immunological tolerance",
+   "location": "body: 6.1. HLA Regulation by the Microbiome During GVHD",
+   "fields": {
+    "taxon_as_cited": "Bacteroides fragilis",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "B. fragilis PSA induces Tregs and tolerance, mitigating GVHD",
+    "ref_string": "[89]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Taxon is named in the preceding sentence and the GVHD outcome in the following one ('This response could mitigate GVHD to some degree'), which is hedged. Mechanism is Treg induction -> 2b, even though the receptor is TLR2."
+  },
+  {
+   "id": "PIN_044",
+   "kind": "proposal",
+   "quote": "filamentous bacteria in mice have been shown to increase the production of IL-17 and IL-22 by Th17 cells in the lamina propria",
+   "location": "body: 6.1. HLA Regulation by the Microbiome During GVHD",
+   "fields": {
+    "taxon_as_cited": "filamentous bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "exacerbating",
+    "evidence_as_stated": "in mice",
+    "evidence": "murine",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "Filamentous bacteria drive Th17 IL-17, implicated in GVHD severity",
+    "ref_string": "[90]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Segmented filamentous bacteria are a listed functional group (codebook 1.1). GVHD outcome is in the next sentence ('the Th17 response is one of the immune pathways involved in the severity of GVHD')."
+  },
+  {
+   "id": "PIN_S27",
+   "kind": "skipped",
+   "quote": "Ileal MHC-II-inducing and -suppressing bacteria in genetically identical BALB/c mice from different vendor origins.",
+   "location": "table 3, rows JAX Mice and Taconic and Charles River ([79])",
+   "note": "Same as Table 2: bare taxon-name lists, no cell sentence and no GVHD outcome in the table; the body-level claims are PIN_040 to PIN_042."
+  },
+  {
+   "id": "PIN_045",
+   "kind": "proposal",
+   "quote": "the use of Lactobacillus in C57BL/6 before whole-body irradiation reduces irradiation-induced epithelial injury in mice through the activation of the TLR and the posterior induction of COX-2 in mesenchymal stem cells that preserve epithelial proliferation",
+   "location": "body: 6.2. Toll-like Receptors’ Regulation by the Microbiome in GVHD",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "C57BL/6 mice before whole-body irradiation",
+    "evidence": "murine",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "Lactobacillus preserves epithelium via TLR-COX-2, mitigating GVHD",
+    "ref_string": "[102]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "The stated outcome is irradiation-induced epithelial injury; the GVHD outcome comes from the section framing ('Evidence suggests that the reduction in GVHD through the microbiota can be achieved by maintaining the integrity of the intestinal epithelium') and the Figure 2 caption."
+  },
+  {
+   "id": "PIN_S28",
+   "kind": "skipped",
+   "quote": "the use of flagellin as an agonist of TLR-5 ameliorates GVHD in lethally irradiated mice",
+   "location": "body: 6.2. Toll-like Receptors’ Regulation by the Microbiome in GVHD",
+   "note": "Flagellin is a bacterial product, not a microbial target (codebook 1.1). [103]"
+  },
+  {
+   "id": "PIN_046",
+   "kind": "proposal",
+   "quote": "the use of specific bacteria such as Bifidobacterium breve, Lactobacillus rhamnosus GG, or probiotics containing multiple strains of Lactobacillus and Bifidobacterium spp. appears to increase Reg3γ expression in the intestine, which can inhibit GVHD progression",
+   "location": "body: 6.2. Toll-like Receptors’ Regulation by the Microbiome in GVHD",
+   "fields": {
+    "taxon_as_cited": "Bifidobacterium breve",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "B. breve raises Reg3γ, inhibiting GVHD progression",
+    "ref_string": "[107]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Reg3γ is described as a survival signal for intestinal stem cells and Paneth cells -> 3a."
+  },
+  {
+   "id": "PIN_047",
+   "kind": "proposal",
+   "quote": "the use of specific bacteria such as Bifidobacterium breve, Lactobacillus rhamnosus GG, or probiotics containing multiple strains of Lactobacillus and Bifidobacterium spp. appears to increase Reg3γ expression in the intestine, which can inhibit GVHD progression",
+   "location": "body: 6.2. Toll-like Receptors’ Regulation by the Microbiome in GVHD",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus rhamnosus GG",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "L. rhamnosus GG raises Reg3γ, inhibiting GVHD progression",
+    "ref_string": "[107]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Named at strain level (GG); the codebook rank vocabulary stops at species, so rank is species with the strain kept in the name."
+  },
+  {
+   "id": "PIN_048",
+   "kind": "proposal",
+   "quote": "the use of specific bacteria such as Bifidobacterium breve, Lactobacillus rhamnosus GG, or probiotics containing multiple strains of Lactobacillus and Bifidobacterium spp. appears to increase Reg3γ expression in the intestine, which can inhibit GVHD progression",
+   "location": "body: 6.2. Toll-like Receptors’ Regulation by the Microbiome in GVHD",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "Multi-strain Lactobacillus probiotic raises Reg3γ, inhibiting GVHD",
+    "ref_string": "[107]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Multi-strain probiotic component; examples and listed members get their own rows (codebook 2)."
+  },
+  {
+   "id": "PIN_049",
+   "kind": "proposal",
+   "quote": "the use of specific bacteria such as Bifidobacterium breve, Lactobacillus rhamnosus GG, or probiotics containing multiple strains of Lactobacillus and Bifidobacterium spp. appears to increase Reg3γ expression in the intestine, which can inhibit GVHD progression",
+   "location": "body: 6.2. Toll-like Receptors’ Regulation by the Microbiome in GVHD",
+   "fields": {
+    "taxon_as_cited": "Bifidobacterium",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "Multi-strain Bifidobacterium probiotic raises Reg3γ, inhibiting GVHD",
+    "ref_string": "[107]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Multi-strain probiotic component; examples and listed members get their own rows (codebook 2)."
+  },
+  {
+   "id": "PIN_S29",
+   "kind": "skipped",
+   "quote": "The activation of the TLR by bacteria like Lactobacillus or Bifidobacterium triggers survival and proliferative signals via the Cox-2 or Reg3 pathways into mesenchymal and intestinal stem cells, respectively, thereby enhancing and maintaining tissue integrity and mitigating GVHD.",
+   "location": "figure 2 caption",
+   "note": "Figure repeats the body text (PIN_045 to PIN_049) and carries no citation of its own (codebook 2)."
+  },
+  {
+   "id": "PIN_S30",
+   "kind": "skipped",
+   "quote": "microbial metabolites such SCFAs, butyrate, and propionate mitigate GVHD by G-protein-coupled receptor 43 (GPR43)—NLRP3 inflammasome pathway increasing IL-18 production",
+   "location": "body: 6.3. Inflammasome and Microbiome During GVHD",
+   "note": "Metabolite-level claim with no microbial target (codebook 1.1). [117]"
+  },
+  {
+   "id": "PIN_S31",
+   "kind": "skipped",
+   "quote": "the microbiota shared between the wild type and the Asc-/-, Caspase-1-/-, Nlrp6-/-, and Il18-/- mice directly impact DSS-induced colitis",
+   "location": "body: 6.3. Inflammasome and Microbiome During GVHD",
+   "note": "Non-transplant context (DSS colitis) and whole-community target (codebook 1.1, 1.3). [119]"
+  },
+  {
+   "id": "PIN_S32",
+   "kind": "skipped",
+   "quote": "The activation of NLRP3 and NLRP6 by PAMPs and AMPs from the microbiota leads to an increase in IL-18 that changes the T cell profile form Th1/Th17 to Th2 T, with an increase in donor T cell apoptosis responsible for the development of GVHD.",
+   "location": "figure 3 caption",
+   "note": "Whole-community schematic repeating the body text; no microbial target and no citation in the caption (codebook 1.1, 2)."
+  },
+  {
+   "id": "PIN_S33",
+   "kind": "skipped",
+   "quote": "This reduction in diversity can lead to the proliferation of bacteria associated with worsened GVHD outcomes.",
+   "location": "figure 4 caption",
+   "note": "Diversity plus unnamed 'bacteria'; figure repeats the text and has no citation (codebook 1.1, 2)."
+  },
+  {
+   "id": "PIN_S34",
+   "kind": "skipped",
+   "quote": "Low urinary levels of 3-IS have been described in transplant patients undergoing antibiotic treatment and in cohorts with gut GVHD, suggesting it as a biomarker for microbiota diversity",
+   "location": "body: 7. Prevention and Treatment",
+   "note": "Metabolite biomarker with no microbial target (codebook 1.1). [122]"
+  },
+  {
+   "id": "PIN_S35",
+   "kind": "skipped",
+   "quote": "A decrease in fecal SCFAs has been observed in patients with aGVHD, and low blood levels of butyrate and propionate have been seen in patients with cGVHD",
+   "location": "body: 7. Prevention and Treatment",
+   "note": "Metabolite-level claim with no microbial target (codebook 1.1). [125]"
+  },
+  {
+   "id": "PIN_S36",
+   "kind": "skipped",
+   "quote": "In murine models, butyrate supplementation reduced the severity of GVHD",
+   "location": "body: 7. Prevention and Treatment",
+   "note": "Metabolite supplementation with no microbial target (codebook 1.1). [126]"
+  },
+  {
+   "id": "PIN_S37",
+   "kind": "skipped",
+   "quote": "a tyrosine-enriched diet administered prior to HSCT promotes positive changes in the microbiome and reduces aGVHD",
+   "location": "body: 7. Prevention and Treatment",
+   "note": "Diet-to-GVHD result whose microbial target is only 'the microbiome' (codebook 1.1). [130]"
+  },
+  {
+   "id": "PIN_050",
+   "kind": "proposal",
+   "quote": "Studies on the supplementation with resistant starch and GFO (glutamine, fiber, and oligosaccharide) have shown a reduction in the incidence and severity of aGVHD while preserving butyrate-producing bacteria",
+   "location": "body: 7. Prevention and Treatment",
+   "fields": {
+    "taxon_as_cited": "butyrate-producing bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "studies on supplementation with resistant starch and GFO",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "mechanism",
+    "intervention": "diet",
+    "mechanism_as_named": "Prebiotics preserve butyrate producers and reduce aGVHD",
+    "ref_string": "[133]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Producer label with an outcome and no distinct downstream mechanism -> 1a (codebook 4, GUO_015). Prebiotic supplementation has no own intervention value, so 'diet' is used; evidence read as human interventional because patients were supplemented."
+  },
+  {
+   "id": "PIN_S38",
+   "kind": "skipped",
+   "quote": "a symbiotic mixture containing high levels of seven safe bacterial strains plus fructo-oligosaccharides in 21 allo-HSCT patients during 21 days prior transplantation, and it found the absence of any aGVHD signs (0% vs. 25% p = 0.047)",
+   "location": "body: 7. Prevention and Treatment",
+   "note": "Interventional aGVHD result, but the target is an unnamed generic group ('seven safe bacterial strains'), which is not a microbial target (codebook 1.1). [139]"
+  },
+  {
+   "id": "PIN_S39",
+   "kind": "skipped",
+   "quote": "On day 14 after FMT administration, 12 patients in the treatment group (52%) achieved permanent remission, compared to none in the control group.",
+   "location": "body: 7. Prevention and Treatment",
+   "note": "FMT result with a whole-community target (codebook 1.1). [146]"
+  },
+  {
+   "id": "PIN_S40",
+   "kind": "skipped",
+   "quote": "The FMT group also showed a restoration of microbiota diversity post-antibiotics and a reduction in the dominance of certain microorganisms, such as Enterococcus, Streptococcus, Veillonella, and Dialister.",
+   "location": "body: 7. Prevention and Treatment",
+   "note": "FMT reduced these taxa, yet the same trial reported higher GVHD incidence in the FMT arm (separate sentence), so no direction can be assigned to them: the codebook's 'reduced by a successful therapy' test fails. [147]"
+  },
+  {
+   "id": "PIN_S41",
+   "kind": "skipped",
+   "quote": "the specific contributions of bacterial groups such as Enterococci and Lactobacilli remain under investigation",
+   "location": "body: 8. Conclusions",
+   "note": "Uncited conclusion with no direction and no specific GVHD finding; the underlying rows are captured from the body and Table 1. Promote as context-dependent for Enterococci and Lactobacilli if wanted."
+  }
+ ]
+}

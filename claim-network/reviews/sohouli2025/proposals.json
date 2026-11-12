@@ -1,0 +1,895 @@
+{
+  "paper_key": "sohouli2025",
+  "skill": "sohouli2025-paper",
+  "citing_bibtex": "Sohouli_2025",
+  "statement_prefix": "SOH",
+  "codebook_version": "1.3 (2026-11-06)",
+  "drafted": "2026-11-12",
+  "model": "claude-opus-5-5",
+  "title": "Gut microbiota variation and diversity and gut graft-versus-host disease (GVHD) in pediatrics: A systematic review",
+  "citation_style": "numeric [n] in body text (inline brackets); Table 2 cells print no number, so table rows use the row label's author-year as ref_string and give the matching reference number in location",
+  "items": [
+    {
+      "id": "SOH_S01",
+      "kind": "skipped",
+      "quote": "the cleansing of intestinal microorganisms reduced the incidence of gut GVHD",
+      "location": "body: 1. Introduction",
+      "note": "No specific microbial target (generic 'intestinal microorganisms'); decontamination/antibiotic result only. [4]"
+    },
+    {
+      "id": "SOH_001",
+      "kind": "proposal",
+      "quote": "The reduction of obligatory anaerobes, such as Clostridium, and the mono-dominance of other bacteria, such as Enterococcus, are correlated with severe gut graft-versus-host disease (stages 3–4)",
+      "location": "body: 1. Introduction",
+      "fields": {
+        "taxon_as_cited": "obligatory anaerobes",
+        "taxon_rank_as_cited": "functional group",
+        "direction": "protective",
+        "evidence_as_stated": "correlated with severe gut GVHD (stages 3-4)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "mechanism",
+        "intervention": "",
+        "mechanism_as_named": "loss of obligate anaerobes correlates with severe gut GVHD",
+        "ref_string": "[5–7]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Evidence inferred as human observational from the clinical staging (stages 3-4) in the statement; no study type named."
+    },
+    {
+      "id": "SOH_002",
+      "kind": "proposal",
+      "quote": "The reduction of obligatory anaerobes, such as Clostridium, and the mono-dominance of other bacteria, such as Enterococcus, are correlated with severe gut graft-versus-host disease (stages 3–4)",
+      "location": "body: 1. Introduction",
+      "fields": {
+        "taxon_as_cited": "Clostridium",
+        "taxon_rank_as_cited": "genus",
+        "direction": "protective",
+        "evidence_as_stated": "correlated with severe gut GVHD (stages 3-4)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "reduced Clostridium correlates with severe gut GVHD",
+        "ref_string": "[5–7]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Example of obligatory anaerobes. Evidence inferred as human observational from the clinical staging (stages 3-4) in the statement; no study type named."
+    },
+    {
+      "id": "SOH_003",
+      "kind": "proposal",
+      "quote": "The reduction of obligatory anaerobes, such as Clostridium, and the mono-dominance of other bacteria, such as Enterococcus, are correlated with severe gut graft-versus-host disease (stages 3–4)",
+      "location": "body: 1. Introduction",
+      "fields": {
+        "taxon_as_cited": "Enterococcus",
+        "taxon_rank_as_cited": "genus",
+        "direction": "exacerbating",
+        "evidence_as_stated": "correlated with severe gut GVHD (stages 3-4)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 4: Pathobiont expansion",
+        "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Enterococcus mono-dominance correlates with severe gut GVHD",
+        "ref_string": "[5–7]",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "Evidence inferred as human observational from the clinical staging (stages 3-4) in the statement; no study type named. The review is internally inconsistent on Enterococcus (exacerbating in Introduction, Table 2 Biagi 2015 row and Discussion enterococci sentence; depleted/beneficial in Results and Discussion SCFA sentence); each row keeps its own statement's direction rather than context-dependent because the statements are far apart."
+    },
+    {
+      "id": "SOH_S02",
+      "kind": "skipped",
+      "quote": "mono-dominance of species like Enterococcus had elevated overall mortality rates post-HSCT",
+      "location": "body: 1. Introduction",
+      "note": "Outcome is overall mortality, not GVHD (rule 1.2). [8,9]"
+    },
+    {
+      "id": "SOH_004",
+      "kind": "proposal",
+      "quote": "a group of bacteria producing propionic acid was less frequent in children with GVHD than in children without GVHD",
+      "location": "body: 1. Introduction",
+      "fields": {
+        "taxon_as_cited": "bacteria producing propionic acid",
+        "taxon_rank_as_cited": "functional group",
+        "direction": "protective",
+        "evidence_as_stated": "one study, children with vs without GVHD",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 3: Barrier and structural",
+        "mechanism_specific": "3a. Epithelial barrier",
+        "target_type": "mechanism",
+        "intervention": "",
+        "mechanism_as_named": "propionate producers depleted in GVHD; support mucosal healing",
+        "ref_string": "[11]",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "Mechanism 3a from the next (uncited) sentence: 'These bacteria can contribute to the mucosal healing rate ... by changing intestinal integrity'; propionate producers treated as SCFA producers. Without that sentence it would be 1a."
+    },
+    {
+      "id": "SOH_S03",
+      "kind": "skipped",
+      "quote": "stool microbiota variance over time was considerably greater in patients with stage 3–4 gut GVHD compared to the control group",
+      "location": "body: 3. Results",
+      "note": "Diversity/variation only; no microbial target (Gray et al.). [14]"
+    },
+    {
+      "id": "SOH_005",
+      "kind": "proposal",
+      "quote": "Decreased variety, reduced Blautia levels, and heightened Fusobacterium abundance prior to HSCT led to the onset of gut aGVHD",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Blautia",
+        "taxon_rank_as_cited": "genus",
+        "direction": "protective",
+        "evidence_as_stated": "subjects of the research conducted by Biagi et al. (2019)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "low pre-HSCT Blautia precedes gut aGVHD",
+        "ref_string": "[19]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": ""
+    },
+    {
+      "id": "SOH_006",
+      "kind": "proposal",
+      "quote": "Decreased variety, reduced Blautia levels, and heightened Fusobacterium abundance prior to HSCT led to the onset of gut aGVHD",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Fusobacterium",
+        "taxon_rank_as_cited": "genus",
+        "direction": "exacerbating",
+        "evidence_as_stated": "subjects of the research conducted by Biagi et al. (2019)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "high pre-HSCT Fusobacterium precedes gut aGVHD",
+        "ref_string": "[19]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Not a listed pathobiont, so association only -> 0."
+    },
+    {
+      "id": "SOH_007",
+      "kind": "proposal",
+      "quote": "non-aGVHD patients exhibited a greater prevalence of propionate-producing Bacteroidetes in the pre-HSCT samples",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Bacteroidetes",
+        "taxon_rank_as_cited": "phylum",
+        "direction": "protective",
+        "evidence_as_stated": "non-aGVHD patients, pre-HSCT samples (Biagi et al.)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 1: Metabolite-mediated",
+        "mechanism_specific": "1a. SCFA / butyrate signaling",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "propionate-producing Bacteroidetes higher in non-aGVHD patients",
+        "ref_string": "[11]",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "Producer label with association only -> 1a here; the Discussion restates this finding with a barrier mechanism (separate 3a row)."
+    },
+    {
+      "id": "SOH_008",
+      "kind": "proposal",
+      "quote": "The development of aGVHD correlated with a reduction in the amounts of beneficial Faecalibacterium and Enterococcus",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Faecalibacterium",
+        "taxon_rank_as_cited": "genus",
+        "direction": "protective",
+        "evidence_as_stated": "development of aGVHD (Biagi et al. 2015 cohort)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Faecalibacterium reduced with aGVHD development",
+        "ref_string": "[11]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Sentence is uncited; [11] carried from the preceding sentence ('a further research by the same author'), confirmed by Table 2 row 3 (Biagi 2015)."
+    },
+    {
+      "id": "SOH_009",
+      "kind": "proposal",
+      "quote": "The development of aGVHD correlated with a reduction in the amounts of beneficial Faecalibacterium and Enterococcus",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Enterococcus",
+        "taxon_rank_as_cited": "genus",
+        "direction": "protective",
+        "evidence_as_stated": "development of aGVHD (Biagi et al. 2015 cohort)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Enterococcus reduced with aGVHD development",
+        "ref_string": "[11]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Sentence is uncited; [11] carried from the preceding sentence ('a further research by the same author'), confirmed by Table 2 row 3 (Biagi 2015). Table 2 for the same study says 'high percentages of Enterococcus' (opposite). Listed pathobiont but depletion, not expansion, so 0. The review is internally inconsistent on Enterococcus (exacerbating in Introduction, Table 2 Biagi 2015 row and Discussion enterococci sentence; depleted/beneficial in Results and Discussion SCFA sentence); each row keeps its own statement's direction rather than context-dependent because the statements are far apart."
+    },
+    {
+      "id": "SOH_S04",
+      "kind": "skipped",
+      "quote": "effective total gastrointestinal decontamination of the graft recipient inhibits moderate to severe acute graft-versus-host disease (aGVHD)",
+      "location": "body: 3. Results",
+      "note": "No specific microbial target ('gastrointestinal microorganisms' as MAMPs); antibiotic decontamination result. Would be 2a if a taxon were named. [20]"
+    },
+    {
+      "id": "SOH_S05",
+      "kind": "skipped",
+      "quote": "gut microbiota diversity was diminished during the occurrence of aGVHD, which correlated with increased mortality and resistance to therapy",
+      "location": "body: 3. Results",
+      "note": "Diversity only. [20,21]"
+    },
+    {
+      "id": "SOH_010",
+      "kind": "proposal",
+      "quote": "Pasteurellaceae significantly influenced the severity of intestinal aGVHD and diarrhea",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Pasteurellaceae",
+        "taxon_rank_as_cited": "family",
+        "direction": "unspecified",
+        "evidence_as_stated": "research conducted by Song et al.",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Pasteurellaceae influenced intestinal aGVHD severity",
+        "ref_string": "[18]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Sentence is uncited; [18] carried from the paragraph's Song et al. [18] sentence two sentences on, confirmed by Table 2 row 8. No direction stated. Table 2 dates Song 2020; reference [18] is 2021."
+    },
+    {
+      "id": "SOH_S06",
+      "kind": "skipped",
+      "quote": "Bifidobacteriaceae resulted in infectious diarrhea during HSCT",
+      "location": "body: 3. Results",
+      "note": "Outcome is infectious diarrhea, not GVHD (rule 1.2). [18]"
+    },
+    {
+      "id": "SOH_S07",
+      "kind": "skipped",
+      "quote": "Particular bacteria served as indicators for survival, including Moraxellaceae, Enterococcaceae, and Alphaproteobacteria",
+      "location": "body: 3. Results",
+      "note": "Outcome is survival, not GVHD (rule 1.2); also covers Proteobacteria, Gammaproteobacteria, Odoribacteraceae pre-HSCT. [18]"
+    },
+    {
+      "id": "SOH_S08",
+      "kind": "skipped",
+      "quote": "Ruminococcaceae exhibited a consistent decline after HSCT",
+      "location": "body: 3. Results",
+      "note": "Composition change over HSCT with no GVHD link (Luo et al.); also Rothia mucilaginosa, Bacteroidetes/Firmicutes/Lachnospiraceae dominance. [16]"
+    },
+    {
+      "id": "SOH_011",
+      "kind": "proposal",
+      "quote": "the ratio of Enterobacter species to oral microbes (Prevotella and Staphylococcus species) was predictive of aGVHD at baseline",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Enterobacter",
+        "taxon_rank_as_cited": "genus",
+        "direction": "unspecified",
+        "evidence_as_stated": "predictive of aGVHD at baseline (Margolis et al.)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Enterobacter-to-oral-microbe ratio predicts aGVHD",
+        "ref_string": "[15]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Component of a ratio predictive of aGVHD; the review gives no direction for the ratio, so unspecified (biomarker). Listed pathobiont but no expansion stated -> 0."
+    },
+    {
+      "id": "SOH_012",
+      "kind": "proposal",
+      "quote": "the ratio of Enterobacter species to oral microbes (Prevotella and Staphylococcus species) was predictive of aGVHD at baseline",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Prevotella",
+        "taxon_rank_as_cited": "genus",
+        "direction": "unspecified",
+        "evidence_as_stated": "predictive of aGVHD at baseline (Margolis et al.)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Enterobacter-to-Prevotella ratio predicts aGVHD",
+        "ref_string": "[15]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Component of a ratio predictive of aGVHD; the review gives no direction for the ratio, so unspecified (biomarker). 'Oral microbes' itself is a generic group (no row)."
+    },
+    {
+      "id": "SOH_013",
+      "kind": "proposal",
+      "quote": "the ratio of Enterobacter species to oral microbes (Prevotella and Staphylococcus species) was predictive of aGVHD at baseline",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Staphylococcus",
+        "taxon_rank_as_cited": "genus",
+        "direction": "unspecified",
+        "evidence_as_stated": "predictive of aGVHD at baseline (Margolis et al.)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Enterobacter-to-Staphylococcus ratio predicts aGVHD",
+        "ref_string": "[15]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Component of a ratio predictive of aGVHD; the review gives no direction for the ratio, so unspecified (biomarker)."
+    },
+    {
+      "id": "SOH_014",
+      "kind": "proposal",
+      "quote": "at neutrophil recovery, the ratio of lactate producers to strict anaerobes was predictive of aGVHD",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "strict anaerobes",
+        "taxon_rank_as_cited": "functional group",
+        "direction": "unspecified",
+        "evidence_as_stated": "predictive of aGVHD at neutrophil recovery (Margolis et al.)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "mechanism",
+        "intervention": "",
+        "mechanism_as_named": "lactate-producer-to-strict-anaerobe ratio predicts aGVHD",
+        "ref_string": "[15]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Component of a ratio predictive of aGVHD; the review gives no direction for the ratio, so unspecified (biomarker). Strict anaerobes = obligate anaerobes functional group."
+    },
+    {
+      "id": "SOH_S09",
+      "kind": "skipped",
+      "quote": "at neutrophil recovery, the ratio of lactate producers to strict anaerobes was predictive of aGVHD",
+      "location": "body: 3. Results",
+      "note": "'Lactate producers' is not one of the codebook's functional groups (1.1 list); its species examples in Table 2 row 6 get their own rows. Promote if the list is extended. [15]"
+    },
+    {
+      "id": "SOH_S10",
+      "kind": "skipped",
+      "quote": "The presence of the arginine metabolic pathway at baseline was also predictive of aGVHD",
+      "location": "body: 3. Results",
+      "note": "No microbial target (functional pathway only). [15]"
+    },
+    {
+      "id": "SOH_015",
+      "kind": "proposal",
+      "quote": "elevated levels of intestinal P. distasonis (Tannerellaceae), together with oral Actinomyces sp. (Actinomycetaceae) and several taxa from other anatomical regions prior to HSCT, are predictive of the onset of moderate to severe aGvHD after transplantation",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Parabacteroides distasonis",
+        "taxon_rank_as_cited": "species",
+        "direction": "exacerbating",
+        "evidence_as_stated": "research conducted by Ingham et al., pre-HSCT samples",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "high pre-HSCT P. distasonis predicts moderate-severe aGVHD",
+        "ref_string": "[17]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Family in parentheses (Tannerellaceae) is a label for the same taxon, not a separate row."
+    },
+    {
+      "id": "SOH_016",
+      "kind": "proposal",
+      "quote": "elevated levels of intestinal P. distasonis (Tannerellaceae), together with oral Actinomyces sp. (Actinomycetaceae) and several taxa from other anatomical regions prior to HSCT, are predictive of the onset of moderate to severe aGvHD after transplantation",
+      "location": "body: 3. Results",
+      "fields": {
+        "taxon_as_cited": "Actinomyces sp.",
+        "taxon_rank_as_cited": "genus",
+        "direction": "exacerbating",
+        "evidence_as_stated": "research conducted by Ingham et al., pre-HSCT samples",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "high pre-HSCT oral Actinomyces predicts moderate-severe aGVHD",
+        "ref_string": "[17]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Oral, not gut, site. Family label (Actinomycetaceae) not a separate row."
+    },
+    {
+      "id": "SOH_S11",
+      "kind": "skipped",
+      "quote": "This group is distinguished by elevated relative abundances of possibly health-associated microbial families, including Ruminococcaceae and Oscillospiraceae",
+      "location": "body: 3. Results",
+      "note": "Taxa characterize the higher-diversity group; the GVHD association is stated for diversity, not for the taxa (diversity only). Promote as protective 0 if a taxon->diversity group->GVHD chain should count. [7]"
+    },
+    {
+      "id": "SOH_S12",
+      "kind": "skipped",
+      "quote": "the lower-diversity group had a surplus of Enterococcaceae and Enterobacteriaceae",
+      "location": "body: 3. Results",
+      "note": "As above: taxa characterize the lower-diversity group; GVHD link is through diversity only. [7]"
+    },
+    {
+      "id": "SOH_S13",
+      "kind": "skipped",
+      "quote": "Summary of characteristics studies.",
+      "location": "table 1",
+      "note": "Table 1 gives study characteristics (sample, conditioning, antibiotics, GVHD stages); no microbial target to GVHD statements."
+    },
+    {
+      "id": "SOH_S14",
+      "kind": "skipped",
+      "quote": "Reduced diversity, lower Blautia content, increase in Fusobacterium abundance before HSCT caused developing gut aGVHD.",
+      "location": "table 2, row 2-E Biagi/2019/Italy ([19])",
+      "note": "Repeats the cited Results statement (Blautia and Fusobacterium rows, [19]); table repeat skipped by analogy with the figure-repeat rule."
+    },
+    {
+      "id": "SOH_S15",
+      "kind": "skipped",
+      "quote": "in pre-HSCT samples, non-aGVHD patients showed higher abundances of propionate-producing Bacteroidetes.",
+      "location": "table 2, row 3-E Biagi/2015/Italy ([11])",
+      "note": "Repeats the cited Results Bacteroidetes statement ([11])."
+    },
+    {
+      "id": "SOH_017",
+      "kind": "proposal",
+      "quote": "the aGVHD onset is associated, with a drop in the abundance of the known health-promoting Faecalibacterium and high percentages of Enterococcus.",
+      "location": "table 2, row 3-E Biagi/2015/Italy ([11])",
+      "fields": {
+        "taxon_as_cited": "Enterococcus",
+        "taxon_rank_as_cited": "genus",
+        "direction": "exacerbating",
+        "evidence_as_stated": "aGVHD onset (Biagi 2015 pediatric cohort)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 4: Pathobiont expansion",
+        "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "high Enterococcus percentages at aGVHD onset",
+        "ref_string": "Biagi 2015",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "Contradicts the Results sentence for the same study (Enterococcus reduced); kept because the direction differs. The Faecalibacterium half repeats the Results row and gets no new row. The review is internally inconsistent on Enterococcus (exacerbating in Introduction, Table 2 Biagi 2015 row and Discussion enterococci sentence; depleted/beneficial in Results and Discussion SCFA sentence); each row keeps its own statement's direction rather than context-dependent because the statements are far apart."
+    },
+    {
+      "id": "SOH_S16",
+      "kind": "skipped",
+      "quote": "Network analysis detected short-chain fatty acid producers, such as Blautia, Faecalibacterium, Roseburia, and Bacteroides, as keystones in the higher-diversity group.",
+      "location": "table 2, row 4- Masetti/2023/Italy ([7])",
+      "note": "Keystone taxa of diversity groups (also Enterococcus, Escherichia-Shigella, Enterobacter in the lower-diversity group); GVHD link only through diversity."
+    },
+    {
+      "id": "SOH_018",
+      "kind": "proposal",
+      "quote": "GVHD patients presented decreased levels of Bacteroidetes compared to those without GVHD",
+      "location": "table 2, row 5- Luo/2023/China ([16])",
+      "fields": {
+        "taxon_as_cited": "Bacteroidetes",
+        "taxon_rank_as_cited": "phylum",
+        "direction": "protective",
+        "evidence_as_stated": "GVHD patients vs those without GVHD (Luo 2023)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Bacteroidetes decreased in GVHD patients",
+        "ref_string": "Luo 2023",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Table-only claim (not in body text)."
+    },
+    {
+      "id": "SOH_019",
+      "kind": "proposal",
+      "quote": "Blautia levels significantly decreased in critically ill GVHD patients",
+      "location": "table 2, row 5- Luo/2023/China ([16])",
+      "fields": {
+        "taxon_as_cited": "Blautia",
+        "taxon_rank_as_cited": "genus",
+        "direction": "protective",
+        "evidence_as_stated": "critically ill GVHD patients (Luo 2023)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Blautia decreased in critically ill GVHD patients",
+        "ref_string": "Luo 2023",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Table-only claim (not in body text)."
+    },
+    {
+      "id": "SOH_S17",
+      "kind": "skipped",
+      "quote": "ratios of Enterobacter species to oral microbes (Prevotella and Staphylococcus spp) were predictive of aGVHD (any grade) at baseline",
+      "location": "table 2, row 6- B. Margolis/2023/USA ([15])",
+      "note": "Repeats the cited Results Margolis statement ([15])."
+    },
+    {
+      "id": "SOH_020",
+      "kind": "proposal",
+      "quote": "a ratio of lactate producers (includes Enterococcus dispar and Streptococcus sanguinis) to strict anaerobes (includes Blautia massiliensis and Bacteroides vulgatus) was predictive of aGVHD (any grade)",
+      "location": "table 2, row 6- B. Margolis/2023/USA ([15])",
+      "fields": {
+        "taxon_as_cited": "Enterococcus dispar",
+        "taxon_rank_as_cited": "species",
+        "direction": "unspecified",
+        "evidence_as_stated": "predictive of aGVHD at neutrophil recovery (Margolis 2023)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "E. dispar in lactate-producer ratio predicting aGVHD",
+        "ref_string": "Margolis 2023",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Table-only species examples of the ratio terms; no direction stated for the ratio, so unspecified. Listed pathobiont genus but no expansion stated -> 0."
+    },
+    {
+      "id": "SOH_021",
+      "kind": "proposal",
+      "quote": "a ratio of lactate producers (includes Enterococcus dispar and Streptococcus sanguinis) to strict anaerobes (includes Blautia massiliensis and Bacteroides vulgatus) was predictive of aGVHD (any grade)",
+      "location": "table 2, row 6- B. Margolis/2023/USA ([15])",
+      "fields": {
+        "taxon_as_cited": "Streptococcus sanguinis",
+        "taxon_rank_as_cited": "species",
+        "direction": "unspecified",
+        "evidence_as_stated": "predictive of aGVHD at neutrophil recovery (Margolis 2023)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "S. sanguinis in lactate-producer ratio predicting aGVHD",
+        "ref_string": "Margolis 2023",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Table-only species examples of the ratio terms; no direction stated for the ratio, so unspecified. Listed pathobiont genus but no expansion stated -> 0."
+    },
+    {
+      "id": "SOH_022",
+      "kind": "proposal",
+      "quote": "a ratio of lactate producers (includes Enterococcus dispar and Streptococcus sanguinis) to strict anaerobes (includes Blautia massiliensis and Bacteroides vulgatus) was predictive of aGVHD (any grade)",
+      "location": "table 2, row 6- B. Margolis/2023/USA ([15])",
+      "fields": {
+        "taxon_as_cited": "Blautia massiliensis",
+        "taxon_rank_as_cited": "species",
+        "direction": "unspecified",
+        "evidence_as_stated": "predictive of aGVHD at neutrophil recovery (Margolis 2023)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "B. massiliensis in strict-anaerobe ratio predicting aGVHD",
+        "ref_string": "Margolis 2023",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Table-only species examples of the ratio terms; no direction stated for the ratio, so unspecified."
+    },
+    {
+      "id": "SOH_023",
+      "kind": "proposal",
+      "quote": "a ratio of lactate producers (includes Enterococcus dispar and Streptococcus sanguinis) to strict anaerobes (includes Blautia massiliensis and Bacteroides vulgatus) was predictive of aGVHD (any grade)",
+      "location": "table 2, row 6- B. Margolis/2023/USA ([15])",
+      "fields": {
+        "taxon_as_cited": "Bacteroides vulgatus",
+        "taxon_rank_as_cited": "species",
+        "direction": "unspecified",
+        "evidence_as_stated": "predictive of aGVHD at neutrophil recovery (Margolis 2023)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "B. vulgatus in strict-anaerobe ratio predicting aGVHD",
+        "ref_string": "Margolis 2023",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Table-only species examples of the ratio terms; no direction stated for the ratio, so unspecified."
+    },
+    {
+      "id": "SOH_S18",
+      "kind": "skipped",
+      "quote": "high abundances of intestinal P. distasonis (Tannerellaceae) as well as oral Actinomyces sp. (Actinomycetaceae) and other taxa from different body sites pre-HSCT predict the development of moderate to severe aGVHD post-transplant",
+      "location": "table 2, row 7- Ingham/2021/Denmark ([17])",
+      "note": "Repeats the cited Results Ingham statement ([17])."
+    },
+    {
+      "id": "SOH_S19",
+      "kind": "skipped",
+      "quote": "the study found rapid B and NK cell reconstitution to be associated with high abundances of Lachnospiraceae and Ruminococcaceae",
+      "location": "table 2, row 7- Ingham/2021/Denmark ([17])",
+      "note": "Outcome is immune reconstitution, not GVHD (rule 1.2)."
+    },
+    {
+      "id": "SOH_S20",
+      "kind": "skipped",
+      "quote": "Pasteurellaceae played an important role in gut aGVHD and diarrhea severity.",
+      "location": "table 2, row 8- Song/2020/China ([18])",
+      "note": "Repeats the Results Pasteurellaceae statement ([18]). Row dates Song 2020; reference [18] is 2021."
+    },
+    {
+      "id": "SOH_S21",
+      "kind": "skipped",
+      "quote": "complete gastrointestinal decontamination in a strict protective environment is a feasible and very effective method for preventing severe infections and acute graft-versus-host disease",
+      "location": "table 2, row 9-M. Vossen/1990/Netherlands ([21])",
+      "note": "No specific microbial target; antibiotic decontamination result only."
+    },
+    {
+      "id": "SOH_S22",
+      "kind": "skipped",
+      "quote": "Flow-chart depicting the study selection process.",
+      "location": "figure 1",
+      "note": "PRISMA flow chart; no claims."
+    },
+    {
+      "id": "SOH_024",
+      "kind": "proposal",
+      "quote": "most of the studies showed a decrease in the levels of beneficial bacteria and producers of short-chain fatty acid products in the intestine such as Ruminococcaceae and Enterococcus",
+      "location": "body: 4. Discussion",
+      "fields": {
+        "taxon_as_cited": "producers of short-chain fatty acid products",
+        "taxon_rank_as_cited": "functional group",
+        "direction": "protective",
+        "evidence_as_stated": "most of the 10 reviewed pediatric studies",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 1: Metabolite-mediated",
+        "mechanism_specific": "1a. SCFA / butyrate signaling",
+        "target_type": "mechanism",
+        "intervention": "",
+        "mechanism_as_named": "SCFA producers decreased following GVHD",
+        "ref_string": "[11,15,20]",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "Same sentence appears uncited in the Abstract; this row is the cited Discussion copy. Of the cited studies, Table 2 shows no Ruminococcaceae/Enterococcus result for [15] or [20] (Vossen 2014 decontamination)."
+    },
+    {
+      "id": "SOH_025",
+      "kind": "proposal",
+      "quote": "most of the studies showed a decrease in the levels of beneficial bacteria and producers of short-chain fatty acid products in the intestine such as Ruminococcaceae and Enterococcus",
+      "location": "body: 4. Discussion",
+      "fields": {
+        "taxon_as_cited": "Ruminococcaceae",
+        "taxon_rank_as_cited": "family",
+        "direction": "protective",
+        "evidence_as_stated": "most of the 10 reviewed pediatric studies",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 1: Metabolite-mediated",
+        "mechanism_specific": "1a. SCFA / butyrate signaling",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "SCFA-producing Ruminococcaceae decreased following GVHD",
+        "ref_string": "[11,15,20]",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "Producer label with association only -> 1a. Same sentence appears uncited in the Abstract; this row is the cited Discussion copy. Of the cited studies, Table 2 shows no Ruminococcaceae/Enterococcus result for [15] or [20] (Vossen 2014 decontamination)."
+    },
+    {
+      "id": "SOH_026",
+      "kind": "proposal",
+      "quote": "most of the studies showed a decrease in the levels of beneficial bacteria and producers of short-chain fatty acid products in the intestine such as Ruminococcaceae and Enterococcus",
+      "location": "body: 4. Discussion",
+      "fields": {
+        "taxon_as_cited": "Enterococcus",
+        "taxon_rank_as_cited": "genus",
+        "direction": "protective",
+        "evidence_as_stated": "most of the 10 reviewed pediatric studies",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 1: Metabolite-mediated",
+        "mechanism_specific": "1a. SCFA / butyrate signaling",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "Enterococcus, called an SCFA producer, decreased following GVHD",
+        "ref_string": "[11,15,20]",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "Listed pathobiont, but depletion with an SCFA-producer label -> 1a, not 4b. Same sentence appears uncited in the Abstract; this row is the cited Discussion copy. Of the cited studies, Table 2 shows no Ruminococcaceae/Enterococcus result for [15] or [20] (Vossen 2014 decontamination). The review is internally inconsistent on Enterococcus (exacerbating in Introduction, Table 2 Biagi 2015 row and Discussion enterococci sentence; depleted/beneficial in Results and Discussion SCFA sentence); each row keeps its own statement's direction rather than context-dependent because the statements are far apart."
+    },
+    {
+      "id": "SOH_S23",
+      "kind": "skipped",
+      "quote": "Enterococcus is indeed one of the producers of short-chain fatty acids (SCFAs), particularly butyrate",
+      "location": "body: 4. Discussion",
+      "note": "No GVHD outcome; supports the producer label only. [22]"
+    },
+    {
+      "id": "SOH_S24",
+      "kind": "skipped",
+      "quote": "higher levels of Clostridiales were associated with superior overall survival, while the higher abundance of Enterococcus, γ-proteobacteria, and Candida was a poor overall survival",
+      "location": "body: 4. Discussion",
+      "note": "Outcome is overall survival, not GVHD (rule 1.2); adult meta-analysis. [24]"
+    },
+    {
+      "id": "SOH_S25",
+      "kind": "skipped",
+      "quote": "a decrease in grade II to IV acute and intestinal GVHD among individuals who did not undergo gut decontamination",
+      "location": "body: 4. Discussion",
+      "note": "No microbial target; antibiotic decontamination result. [25]"
+    },
+    {
+      "id": "SOH_S26",
+      "kind": "skipped",
+      "quote": "diminished intestinal diversity correlates with increased mortality due to transplantation and gut GVHD in adults",
+      "location": "body: 4. Discussion",
+      "note": "Diversity only. [27]"
+    },
+    {
+      "id": "SOH_027",
+      "kind": "proposal",
+      "quote": "children with GVHD exhibited a diminished prevalence of Bacteroidetes, a phylum known for its synthesis of propionic acid, which has been demonstrated to improve gut integrity and promote bacterial colonization in naïve hosts, thus contributing to the compromised or delayed mucosal repair observed in GVHD patients",
+      "location": "body: 4. Discussion",
+      "fields": {
+        "taxon_as_cited": "Bacteroidetes",
+        "taxon_rank_as_cited": "phylum",
+        "direction": "protective",
+        "evidence_as_stated": "children with GVHD (Biagi et al.)",
+        "evidence": "human observational",
+        "mechanism_broad": "Class 3: Barrier and structural",
+        "mechanism_specific": "3a. Epithelial barrier",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "loss of propionate-producing Bacteroidetes impairs mucosal repair in GVHD",
+        "ref_string": "[11]",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "Sentence is uncited; [11] carried from the preceding Biagi et al. sentence. Stated barrier mechanism outranks the producer label (1a rule)."
+    },
+    {
+      "id": "SOH_S27",
+      "kind": "skipped",
+      "quote": "a pre-transplant stool composition characterized by a reduction in Bacteroides and Ruminococcaceae compared to healthy controls",
+      "location": "body: 4. Discussion",
+      "note": "Comparison is with healthy controls, not GVHD vs non-GVHD; no GVHD outcome. [10]"
+    },
+    {
+      "id": "SOH_028",
+      "kind": "proposal",
+      "quote": "Numerous studies have linked enterococci to an increased incidence of GVHD",
+      "location": "body: 4. Discussion",
+      "fields": {
+        "taxon_as_cited": "enterococci",
+        "taxon_rank_as_cited": "genus",
+        "direction": "exacerbating",
+        "evidence_as_stated": "numerous studies",
+        "evidence": "unspecified",
+        "mechanism_broad": "Class 4: Pathobiont expansion",
+        "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "enterococci linked to increased GVHD incidence",
+        "ref_string": "[28,29]",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "The review is internally inconsistent on Enterococcus (exacerbating in Introduction, Table 2 Biagi 2015 row and Discussion enterococci sentence; depleted/beneficial in Results and Discussion SCFA sentence); each row keeps its own statement's direction rather than context-dependent because the statements are far apart."
+    },
+    {
+      "id": "SOH_029",
+      "kind": "proposal",
+      "quote": "lactobacilli may rise in concentration prior to the beginning of GVHD while still providing some protection",
+      "location": "body: 4. Discussion",
+      "fields": {
+        "taxon_as_cited": "lactobacilli",
+        "taxon_rank_as_cited": "genus",
+        "direction": "context-dependent",
+        "evidence_as_stated": "Jenq and colleagues' results from a mouse model",
+        "evidence": "murine",
+        "mechanism_broad": "Class 0: Unattributed",
+        "mechanism_specific": "0. Unattributed",
+        "target_type": "taxon",
+        "intervention": "",
+        "mechanism_as_named": "lactobacilli rise before GVHD yet may be protective",
+        "ref_string": "[28]",
+        "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+      },
+      "note": "Evidence and [28] taken from the next sentence ('This scenario is supported by ... a mouse model [28]'); the preceding sentence ('unclear how lactobacilli contribute', [28,29]) frames it as uncertain."
+    },
+    {
+      "id": "SOH_S28",
+      "kind": "skipped",
+      "quote": "a reduction in beneficial anaerobic bacteria such as Clostridium and Bacteroides, which may influence patient recovery and susceptibility to infections",
+      "location": "body: 4. Discussion",
+      "note": "Outcome is recovery/infection, not GVHD (rule 1.2). [30]"
+    },
+    {
+      "id": "SOH_S29",
+      "kind": "skipped",
+      "quote": "microbiome imbalances are linked to increased risks of gastrointestinal toxicity, infections, and graft-versus-host disease (GVHD)",
+      "location": "body: 4. Discussion",
+      "note": "Dysbiosis only; no microbial target. [31]"
+    },
+    {
+      "id": "SOH_S30",
+      "kind": "skipped",
+      "quote": "Restoring microbiota diversity through interventions like fecal microbiota transplantation (FMT) could help reduce GVHD severity",
+      "location": "body: 4. Discussion",
+      "note": "Diversity only; FMT with no named target. [24,30]"
+    },
+    {
+      "id": "SOH_S31",
+      "kind": "skipped",
+      "quote": "the alteration of the microbiome brought on by the use of antibiotic therapy—particularly broad-spectrum antibiotics—increases both acute GI GVHD and GVHD-associated mortality",
+      "location": "body: 4. Discussion",
+      "note": "No microbial target; antibiotic result. [32]"
+    },
+    {
+      "id": "SOH_S32",
+      "kind": "skipped",
+      "quote": "may allow pathogenic bacteria to proliferate, potentially leading to infections or complications such as GVHD",
+      "location": "body: 4. Discussion",
+      "note": "Generic 'pathogenic bacteria' (not named pathobionts) in a paragraph about autologous HSCT conditioning; outside rule 1.1/1.3. [6,8,27,30]"
+    },
+    {
+      "id": "SOH_S33",
+      "kind": "skipped",
+      "quote": "the microbiota may promote host cell inflammation",
+      "location": "body: 4. Discussion",
+      "note": "Whole microbiota / MAMPs, no specific target. [34,35]"
+    },
+    {
+      "id": "SOH_S34",
+      "kind": "skipped",
+      "quote": "via the synthesis of compounds such SCFA butyrate (e.g., by Lachnospiraceae), the gut microbiota might affect host cell physiology",
+      "location": "body: 4. Discussion",
+      "note": "Lachnospiraceae tied to 'host cell physiology', not to GVHD in the same statement (rule 1.2); promote as protective 1a if the paragraph's GVHD framing is accepted. [36]"
+    },
+    {
+      "id": "SOH_S35",
+      "kind": "skipped",
+      "quote": "SCFAs produced by the gut microbiota in a mouse model reduced GVHD",
+      "location": "body: 4. Discussion",
+      "note": "Metabolite only; no taxon. [40]"
+    },
+    {
+      "id": "SOH_030",
+      "kind": "proposal",
+      "quote": "regardless of Treg number, gavage with butyrate or a Clostridium combination decreased GVHD",
+      "location": "body: 4. Discussion",
+      "fields": {
+        "taxon_as_cited": "Clostridium",
+        "taxon_rank_as_cited": "genus",
+        "direction": "protective",
+        "evidence_as_stated": "gavage (mouse model context of the preceding sentence)",
+        "evidence": "murine",
+        "mechanism_broad": "Class 1: Metabolite-mediated",
+        "mechanism_specific": "1a. SCFA / butyrate signaling",
+        "target_type": "taxon",
+        "intervention": "defined consortium",
+        "mechanism_as_named": "Clostridium combination gavage, like butyrate, decreased GVHD",
+        "ref_string": "[39]",
+        "mechanism_assignment": "scheme C"
+      },
+      "note": "Murine inferred from 'gavage' and the preceding sentence's mouse model; 1a from pairing with butyrate gavage in an SCFA paragraph, with Treg explicitly excluded ('regardless of Treg number')."
+    },
+    {
+      "id": "SOH_S36",
+      "kind": "skipped",
+      "quote": "butyrate inhibits antigen-stimulated T cells that induce GVHD by acting as a histone deacetylase inhibitor",
+      "location": "body: 4. Discussion",
+      "note": "Metabolite only; no taxon. [41,42]"
+    }
+  ]
+}

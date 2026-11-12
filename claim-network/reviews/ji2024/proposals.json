@@ -1,0 +1,1378 @@
+{
+ "paper_key": "ji2024",
+ "skill": "ji2024-paper",
+ "citing_bibtex": "Ji_2024",
+ "statement_prefix": "JI",
+ "codebook_version": "1.3",
+ "drafted": "2026-11-12",
+ "model": "claude-sonnet-4-6",
+ "title": "Effect of GVHD on the gut and intestinal microflora",
+ "citation_style": "numeric [n]; ref_string holds the printed numbers, resolved to Author Year at the end-of-paper step",
+ "items": [
+  {
+   "id": "JI_001",
+   "kind": "proposal",
+   "quote": "The amplification of Enterococcaceae, Lactobacillaceae, Streptococcaceae in Lactobacillales, and Staphylococcaceae in Bacillales is associated with the occurrence of GVHD",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Enterococcaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcaceae amplification associated with GVHD",
+    "ref_string": "[64,65]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Family-level pathobiont expansion; Enterococcaceae not itself on codebook 4b pathobiont list (only genus Enterococcus is). Shared quote with JI_002, JI_003, JI_004."
+  },
+  {
+   "id": "JI_002",
+   "kind": "proposal",
+   "quote": "The amplification of Enterococcaceae, Lactobacillaceae, Streptococcaceae in Lactobacillales, and Staphylococcaceae in Bacillales is associated with the occurrence of GVHD",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Lactobacillaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lactobacillaceae amplification associated with GVHD",
+    "ref_string": "[64,65]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_001, JI_003, JI_004. Not a listed pathobiont."
+  },
+  {
+   "id": "JI_003",
+   "kind": "proposal",
+   "quote": "The amplification of Enterococcaceae, Lactobacillaceae, Streptococcaceae in Lactobacillales, and Staphylococcaceae in Bacillales is associated with the occurrence of GVHD",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Streptococcaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Streptococcaceae amplification associated with GVHD",
+    "ref_string": "[64,65]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Family-level; Streptococcaceae not itself on codebook 4b pathobiont list (only genus Streptococcus is). Shared quote with JI_001, JI_002, JI_004."
+  },
+  {
+   "id": "JI_004",
+   "kind": "proposal",
+   "quote": "The amplification of Enterococcaceae, Lactobacillaceae, Streptococcaceae in Lactobacillales, and Staphylococcaceae in Bacillales is associated with the occurrence of GVHD",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Staphylococcaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Staphylococcaceae amplification associated with GVHD",
+    "ref_string": "[64,65]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_001, JI_002, JI_003. Codebook GUO_002 note explicitly keeps Staphylococcaceae off the 4b pathobiont list."
+  },
+  {
+   "id": "JI_005",
+   "kind": "proposal",
+   "quote": "Of these, Enterococcus and Streptococcus are the common dominant taxa",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus dominant pathobiont in GVHD",
+    "ref_string": "[65]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_006. Listed pathobiont → 4b."
+  },
+  {
+   "id": "JI_006",
+   "kind": "proposal",
+   "quote": "Of these, Enterococcus and Streptococcus are the common dominant taxa",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Streptococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Streptococcus dominant pathobiont in GVHD",
+    "ref_string": "[65]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_005. Listed pathobiont → 4b."
+  },
+  {
+   "id": "JI_007",
+   "kind": "proposal",
+   "quote": "The Enterococcus quantity significantly increased before or during GVHD after allo-HSCT",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus expands before/during GVHD",
+    "ref_string": "[66]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": ""
+  },
+  {
+   "id": "JI_008",
+   "kind": "proposal",
+   "quote": "Increased Enterococcus abundance (relative abundance ≥30%) was associated with increased GVHD risk and GVHD-related mortality in allo-HSCT recipients",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus domination (≥30%) raises GVHD risk and mortality",
+    "ref_string": "[67,68]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": ""
+  },
+  {
+   "id": "JI_009",
+   "kind": "proposal",
+   "quote": "Enterococcus produces metalloproteinase, which aggravates intestinal inflammation by impairing epithelial barrier integrity and up-regulating the phosphotransferase system",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus metalloprotease impairs epithelial barrier",
+    "ref_string": "[69,70]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Mechanism (barrier impairment) takes precedence over 4b per rule 1.1."
+  },
+  {
+   "id": "JI_010",
+   "kind": "proposal",
+   "quote": "Furthermore, Enterococcus propagation requires lactose; therefore, a high lactose diet may cause higher GVHD morbidity and mortality",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "diet",
+    "mechanism_as_named": "Lactose diet drives Enterococcus expansion in GVHD",
+    "ref_string": "[67]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Therapy/intervention claim: diet modulates Enterococcus; target = Enterococcus (listed pathobiont)."
+  },
+  {
+   "id": "JI_011",
+   "kind": "proposal",
+   "quote": "Lactobacillus can improve GVHD by regulating T helper cell 17 / T cell balance and limiting the expansion of Enterococcus",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lactobacillus regulates Th17/Treg balance to improve GVHD",
+    "ref_string": "[71,72]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_012 (two mechanisms for one taxon → two proposals)."
+  },
+  {
+   "id": "JI_012",
+   "kind": "proposal",
+   "quote": "Lactobacillus can improve GVHD by regulating T helper cell 17 / T cell balance and limiting the expansion of Enterococcus",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4a. Colonization resistance / competitive exclusion",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lactobacillus limits Enterococcus expansion",
+    "ref_string": "[71,72]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_011."
+  },
+  {
+   "id": "JI_013",
+   "kind": "proposal",
+   "quote": "when the abundance of Lactobacillus exceeds Enterococcus, it stimulates T cell reconstruction, including TH17, thereby promoting inflammation",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Lactobacillus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lactobacillus overabundance drives Th17 inflammation",
+    "ref_string": "[73]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Conflicting finding with JI_011/JI_012 - review frames Lactobacillus role as uncertain."
+  },
+  {
+   "id": "JI_014",
+   "kind": "proposal",
+   "quote": "Lachnospiraceae and Ruminococcaceae of Clostridiales can regulate acetylated H3 levels in CD4 + T cells and maintain the regulatory T cells (Treg) / Th17 ratio",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Lachnospiraceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lachnospiraceae maintain Treg/Th17 ratio in GVHD",
+    "ref_string": "[75]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_015. Downstream mechanism (Treg) classified via rule 1.1 even though SCFA/producer context."
+  },
+  {
+   "id": "JI_015",
+   "kind": "proposal",
+   "quote": "Lachnospiraceae and Ruminococcaceae of Clostridiales can regulate acetylated H3 levels in CD4 + T cells and maintain the regulatory T cells (Treg) / Th17 ratio",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Ruminococcaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Ruminococcaceae maintain Treg/Th17 ratio in GVHD",
+    "ref_string": "[75]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_014."
+  },
+  {
+   "id": "JI_016",
+   "kind": "proposal",
+   "quote": "A higher abundance of Lachnospiraceae and Ruminococcaceae increases the number of natural killer (NK) and B cells, alleviates GVHD symptoms and improves overall survival",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Lachnospiraceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2c. Other immune",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lachnospiraceae raise NK/B cells and alleviate GVHD",
+    "ref_string": "[76,77]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_017. Mechanism combines NK (innate) + B cells; classified as 2c given B-cell listing; NK noted in review_note. [76] Ingham pediatric HSCT, [77] Payen HSCT cohort."
+  },
+  {
+   "id": "JI_017",
+   "kind": "proposal",
+   "quote": "A higher abundance of Lachnospiraceae and Ruminococcaceae increases the number of natural killer (NK) and B cells, alleviates GVHD symptoms and improves overall survival",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Ruminococcaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2c. Other immune",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Ruminococcaceae raise NK/B cells and alleviate GVHD",
+    "ref_string": "[76,77]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_016."
+  },
+  {
+   "id": "JI_018",
+   "kind": "proposal",
+   "quote": "The genus Blautia (Blautia obeum, Blautia hydrogenotrophic, and Blautia hansenii) is beneficial to allo-HSCT",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia genus beneficial in allo-HSCT",
+    "ref_string": "[78]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_019, JI_020, JI_021 (examples get their own rows per codebook)."
+  },
+  {
+   "id": "JI_019",
+   "kind": "proposal",
+   "quote": "The genus Blautia (Blautia obeum, Blautia hydrogenotrophic, and Blautia hansenii) is beneficial to allo-HSCT",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Blautia obeum",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia obeum beneficial in allo-HSCT",
+    "ref_string": "[78]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Example taxon from JI_018 sentence."
+  },
+  {
+   "id": "JI_020",
+   "kind": "proposal",
+   "quote": "The genus Blautia (Blautia obeum, Blautia hydrogenotrophic, and Blautia hansenii) is beneficial to allo-HSCT",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Blautia hydrogenotrophic",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia hydrogenotrophic beneficial in allo-HSCT",
+    "ref_string": "[78]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Example taxon from JI_018 sentence. Name as cited (actual species is Blautia hydrogenotrophica)."
+  },
+  {
+   "id": "JI_021",
+   "kind": "proposal",
+   "quote": "The genus Blautia (Blautia obeum, Blautia hydrogenotrophic, and Blautia hansenii) is beneficial to allo-HSCT",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Blautia hansenii",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia hansenii beneficial in allo-HSCT",
+    "ref_string": "[78]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Example taxon from JI_018 sentence."
+  },
+  {
+   "id": "JI_022",
+   "kind": "proposal",
+   "quote": "Blautia coccoides group (cluster XIVa) was significantly reduced in aGVHD patients, and its abundance was associated with GVHD-related mortality and severity",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Blautia coccoides group",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia coccoides reduced in aGVHD, linked to mortality",
+    "ref_string": "[77,79]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Review names 'Blautia coccoides group (cluster XIVa)'; kept as species-level name as cited."
+  },
+  {
+   "id": "JI_023",
+   "kind": "proposal",
+   "quote": "Faecalibacterium (Clostridiaceae, Clostridiales) and the Eubacterium limosum groups were negatively correlated with GVHD",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Faecalibacterium",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Faecalibacterium negatively correlated with GVHD",
+    "ref_string": "[76]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_024."
+  },
+  {
+   "id": "JI_024",
+   "kind": "proposal",
+   "quote": "Faecalibacterium (Clostridiaceae, Clostridiales) and the Eubacterium limosum groups were negatively correlated with GVHD",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Eubacterium limosum",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Eubacterium limosum negatively correlated with GVHD",
+    "ref_string": "[76]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_023."
+  },
+  {
+   "id": "JI_025",
+   "kind": "proposal",
+   "quote": "Peptostreptoccaceae in Clostridiales decreased significantly during GVHD",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Peptostreptoccaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Peptostreptococcaceae decreased during GVHD",
+    "ref_string": "",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Uncited. Name as cited ('Peptostreptoccaceae'); correct spelling Peptostreptococcaceae."
+  },
+  {
+   "id": "JI_026",
+   "kind": "proposal",
+   "quote": "the amplification of Veillonella parvula in Veillonella and Rothia mucilaginosa in Rothia was associated with increased GVHD-related mortality",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Veillonella parvula",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Veillonella parvula amplification linked to GVHD mortality",
+    "ref_string": "[80]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_027."
+  },
+  {
+   "id": "JI_027",
+   "kind": "proposal",
+   "quote": "the amplification of Veillonella parvula in Veillonella and Rothia mucilaginosa in Rothia was associated with increased GVHD-related mortality",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Rothia mucilaginosa",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Rothia mucilaginosa amplification linked to GVHD mortality",
+    "ref_string": "[80]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_026."
+  },
+  {
+   "id": "JI_028",
+   "kind": "proposal",
+   "quote": "The Erysipelotrichaceae of Erysipelotrichales under Erysipelotrichia Erysipelatoclostridium decreased significantly in the event of GVHD",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "fields": {
+    "taxon_as_cited": "Erysipelotrichaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Erysipelotrichaceae decreased in GVHD",
+    "ref_string": "[81]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "JI_029",
+   "kind": "proposal",
+   "quote": "Bacteroides belong to Bacteroidales of Bacteroidia and can promote and inhibit intestinal GVHD incidence",
+   "location": "body: 4.2. Changes of flora in Bacteroidetes",
+   "fields": {
+    "taxon_as_cited": "Bacteroides",
+    "taxon_rank_as_cited": "genus",
+    "direction": "context-dependent",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides can promote or inhibit intestinal GVHD",
+    "ref_string": "[82]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Review explicitly states conflicting effects."
+  },
+  {
+   "id": "JI_030",
+   "kind": "proposal",
+   "quote": "Bacteroides luti, Bacteroides thetaiotaomicron, Bacteroides ovatus, and Bacteroides caccae were negatively correlated, whereas Bacteroides dorei was positively correlated with intestinal GVHD",
+   "location": "body: 4.2. Changes of flora in Bacteroidetes",
+   "fields": {
+    "taxon_as_cited": "Bacteroides luti",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides luti negatively correlated with intestinal GVHD",
+    "ref_string": "[80]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_031, JI_032, JI_033, JI_034."
+  },
+  {
+   "id": "JI_031",
+   "kind": "proposal",
+   "quote": "Bacteroides luti, Bacteroides thetaiotaomicron, Bacteroides ovatus, and Bacteroides caccae were negatively correlated, whereas Bacteroides dorei was positively correlated with intestinal GVHD",
+   "location": "body: 4.2. Changes of flora in Bacteroidetes",
+   "fields": {
+    "taxon_as_cited": "Bacteroides thetaiotaomicron",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides thetaiotaomicron negatively correlated with GVHD",
+    "ref_string": "[80]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_030."
+  },
+  {
+   "id": "JI_032",
+   "kind": "proposal",
+   "quote": "Bacteroides luti, Bacteroides thetaiotaomicron, Bacteroides ovatus, and Bacteroides caccae were negatively correlated, whereas Bacteroides dorei was positively correlated with intestinal GVHD",
+   "location": "body: 4.2. Changes of flora in Bacteroidetes",
+   "fields": {
+    "taxon_as_cited": "Bacteroides ovatus",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides ovatus negatively correlated with GVHD",
+    "ref_string": "[80]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_030."
+  },
+  {
+   "id": "JI_033",
+   "kind": "proposal",
+   "quote": "Bacteroides luti, Bacteroides thetaiotaomicron, Bacteroides ovatus, and Bacteroides caccae were negatively correlated, whereas Bacteroides dorei was positively correlated with intestinal GVHD",
+   "location": "body: 4.2. Changes of flora in Bacteroidetes",
+   "fields": {
+    "taxon_as_cited": "Bacteroides caccae",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides caccae negatively correlated with GVHD",
+    "ref_string": "[80]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_030."
+  },
+  {
+   "id": "JI_034",
+   "kind": "proposal",
+   "quote": "Bacteroides luti, Bacteroides thetaiotaomicron, Bacteroides ovatus, and Bacteroides caccae were negatively correlated, whereas Bacteroides dorei was positively correlated with intestinal GVHD",
+   "location": "body: 4.2. Changes of flora in Bacteroidetes",
+   "fields": {
+    "taxon_as_cited": "Bacteroides dorei",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bacteroides dorei positively correlated with GVHD",
+    "ref_string": "[80]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_030."
+  },
+  {
+   "id": "JI_035",
+   "kind": "proposal",
+   "quote": "Bacillus fragilis showed anti-inflammatory effects in vitro and in vivo, and reduced inflammatory cytokines (TNF-α, IL-1β, IL-6) and increased IL-10 levels in colon tissue",
+   "location": "body: 4.2. Changes of flora in Bacteroidetes",
+   "fields": {
+    "taxon_as_cited": "Bacillus fragilis",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "in vitro and in vivo",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2a. Innate immune",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "B. fragilis reduces innate inflammatory cytokines in GVHD",
+    "ref_string": "[83]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Review prints 'Bacillus fragilis' (typo for Bacteroides fragilis, as next sentence confirms). Name kept as cited. TNF-α/IL-1β/IL-6 are hallmark innate cytokines → 2a."
+  },
+  {
+   "id": "JI_036",
+   "kind": "proposal",
+   "quote": "It could also improve the development of intestinal GVHD by increasing the gut microbiota diversity, increasing short-chain fatty acids, IL-22, and regulatory T cells",
+   "location": "body: 4.2. Changes of flora in Bacteroidetes",
+   "fields": {
+    "taxon_as_cited": "Bacteroides fragilis",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "B. fragilis induces Treg/IL-22 to improve intestinal GVHD",
+    "ref_string": "[84]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Quote subject 'It' refers to Bacteroides fragilis from preceding sentence. Multiple downstream (SCFA, IL-22, Treg); downstream Treg wins per rule 1.1."
+  },
+  {
+   "id": "JI_037",
+   "kind": "proposal",
+   "quote": "Porphyromonadaceae Obligate anaerobes of the Genus Barnesiella protect the intestine by clearing the intestinal vancomycin-resistant Enterococcus (VRE) colonization",
+   "location": "body: 4.2. Changes of flora in Bacteroidetes",
+   "fields": {
+    "taxon_as_cited": "Barnesiella",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4a. Colonization resistance / competitive exclusion",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Barnesiella clears VRE colonization",
+    "ref_string": "[85]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Classic colonization resistance claim."
+  },
+  {
+   "id": "JI_038",
+   "kind": "proposal",
+   "quote": "Amplification of Enterobacteriales from γ-Proteobacteria was observed in animal GVHD models",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "Enterobacteriales",
+    "taxon_rank_as_cited": "order",
+    "direction": "exacerbating",
+    "evidence_as_stated": "animal GVHD models",
+    "evidence": "murine",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterobacteriales amplification in animal GVHD models",
+    "ref_string": "[81]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Enterobacterales is explicitly on the 4b pathobiont list."
+  },
+  {
+   "id": "JI_039",
+   "kind": "proposal",
+   "quote": "Enterobacteriaceae are effective inflammatory PAMPs and are involved in LPS biosynthesis, promoting Th17 activation, Treg/ Th17 imbalance, intestinal inflammation, and GVHD",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "Enterobacteriaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterobacteriaceae drive Th17/Treg imbalance in GVHD",
+    "ref_string": "[87]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Downstream mechanism (Th17 imbalance) outranks pathobiont default per rule 1.1."
+  },
+  {
+   "id": "JI_040",
+   "kind": "proposal",
+   "quote": "Therefore, the increased abundance of γ-Proteobacteria, including Enterobacteriaceae, is associated with increased GVHD-related mortality",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "γ-Proteobacteria",
+    "taxon_rank_as_cited": "class",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "γ-Proteobacteria amplification linked to GVHD mortality",
+    "ref_string": "",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Gammaproteobacteria is explicitly on the 4b pathobiont list. Summary sentence (no own ref)."
+  },
+  {
+   "id": "JI_041",
+   "kind": "proposal",
+   "quote": "It may produce indole to prevent GVHD",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "Escherichia coli",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1c. Tryptophan / indole signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "E. coli indole may prevent GVHD",
+    "ref_string": "[88]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Subject 'It' refers to E. coli from preceding sentence. Conflicting with JI_042/JI_043; review explicitly says role requires further study."
+  },
+  {
+   "id": "JI_042",
+   "kind": "proposal",
+   "quote": "a preclinical study found an association between E. coli amplification with worse GVHD",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "E. coli",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "preclinical study",
+    "evidence": "murine",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "E. coli amplification linked to worse GVHD (preclinical)",
+    "ref_string": "[89]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Escherichia is a listed pathobiont genus. Conflicts with JI_041."
+  },
+  {
+   "id": "JI_043",
+   "kind": "proposal",
+   "quote": "Oral polymyxin B can reduce E. coli levels and improve GVHD",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "E. coli",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "murine",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Polymyxin B reduces E. coli, improves GVHD",
+    "ref_string": "[89]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Therapy claim: antibiotic reduces listed pathobiont."
+  },
+  {
+   "id": "JI_044",
+   "kind": "proposal",
+   "quote": "Campylobacter in Epsilonproteobacteria was significantly associated with reduced GVHD risk",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "Campylobacter",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Campylobacter associated with reduced GVHD risk",
+    "ref_string": "[78]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "JI_045",
+   "kind": "proposal",
+   "quote": "Akkermansia and Akkermansia muciniphila were markedly associated with alleviated GVHD risk",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "Akkermansia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Akkermansia associated with alleviated GVHD risk",
+    "ref_string": "[78]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_046."
+  },
+  {
+   "id": "JI_046",
+   "kind": "proposal",
+   "quote": "Akkermansia and Akkermansia muciniphila were markedly associated with alleviated GVHD risk",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "Akkermansia muciniphila",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "A. muciniphila associated with alleviated GVHD risk",
+    "ref_string": "[78]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_045. Conflicting with JI_047."
+  },
+  {
+   "id": "JI_047",
+   "kind": "proposal",
+   "quote": "previous studies have suggested that Akkermansia muciniphila may increase GVHD incidence",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "Akkermansia muciniphila",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "A. muciniphila may increase GVHD incidence",
+    "ref_string": "[29]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Conflicting with JI_046 within same paragraph."
+  },
+  {
+   "id": "JI_048",
+   "kind": "proposal",
+   "quote": "Coriobacteriia is a class of Gram-positive bacteria in Actinobacteria, which negatively correlates with the GVHD incidence",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "Coriobacteriia",
+    "taxon_rank_as_cited": "class",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Coriobacteriia negatively correlated with GVHD",
+    "ref_string": "[90]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": ""
+  },
+  {
+   "id": "JI_049",
+   "kind": "proposal",
+   "quote": "Bifidobacteriaceae in Bifidobacteriales is associated with subsequent GVHD after transplantation",
+   "location": "body: 4.3. Bacterial changes in other related phyla",
+   "fields": {
+    "taxon_as_cited": "Bifidobacteriaceae",
+    "taxon_rank_as_cited": "family",
+    "direction": "unspecified",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bifidobacteriaceae associated with subsequent GVHD",
+    "ref_string": "[91]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Review phrase 'associated with subsequent GVHD' gives no direction."
+  },
+  {
+   "id": "JI_050",
+   "kind": "proposal",
+   "quote": "Narrow-spectrum antibiotic rifaximin helps to maintain intestinal microbial diversity, reduces enterococci proliferation, and increases urinary 3-indolyl sulfate concentration",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "fields": {
+    "taxon_as_cited": "enterococci",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Rifaximin reduces enterococci and improves GVHD outcomes",
+    "ref_string": "[101]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Therapy claim. GVHD/mortality outcome stated in next sentence ('Therefore, it can reduce GVHD...')."
+  },
+  {
+   "id": "JI_051",
+   "kind": "proposal",
+   "quote": "Imipenem-cilastatin aggravates GVHD by disrupting the intestinal mucus layer, amplifying the symbiotic bacteria Akkermansia muciniphila with mucus degradation ability, and reducing the colonization of Clostridium",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "fields": {
+    "taxon_as_cited": "Akkermansia muciniphila",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Imipenem amplifies A. muciniphila, degrading mucus and aggravating GVHD",
+    "ref_string": "[29]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_052. Antibiotic-driven expansion of A. muciniphila, acting via mucus degradation → 3a."
+  },
+  {
+   "id": "JI_052",
+   "kind": "proposal",
+   "quote": "Imipenem-cilastatin aggravates GVHD by disrupting the intestinal mucus layer, amplifying the symbiotic bacteria Akkermansia muciniphila with mucus degradation ability, and reducing the colonization of Clostridium",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "fields": {
+    "taxon_as_cited": "Clostridium",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Imipenem reduces protective Clostridium",
+    "ref_string": "[29]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_051. Clostridium colonization reduced by imipenem → antibiotic loss of protective taxon."
+  },
+  {
+   "id": "JI_053",
+   "kind": "proposal",
+   "quote": "Clindamycin can aggravate intestinal GVHD by consuming Clostridium but can help reduce GVHD by oral Clostridium (AIC)",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "fields": {
+    "taxon_as_cited": "Clostridium",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "antibiotic",
+    "mechanism_as_named": "Clindamycin consumes protective Clostridium, aggravating GVHD",
+    "ref_string": "[91]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_054. [91] is a pediatric HSCT cohort."
+  },
+  {
+   "id": "JI_054",
+   "kind": "proposal",
+   "quote": "Clindamycin can aggravate intestinal GVHD by consuming Clostridium but can help reduce GVHD by oral Clostridium (AIC)",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "fields": {
+    "taxon_as_cited": "Clostridium",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "Oral Clostridium (AIC) reduces GVHD",
+    "ref_string": "[91]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_053. AIC = anti-inflammatory Clostridium (live oral administration)."
+  },
+  {
+   "id": "JI_055",
+   "kind": "proposal",
+   "quote": "FMT can improve GI-GVHD by restoring gut microbiome α diversity, increasing the abundance of Clostridia and Blautia",
+   "location": "body: 6. Recovery of the gut microbiota induced by fecal microbiota transplantation",
+   "fields": {
+    "taxon_as_cited": "Clostridia",
+    "taxon_rank_as_cited": "class",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "FMT",
+    "mechanism_as_named": "FMT increases Clostridia to improve GI-GVHD",
+    "ref_string": "[108,109]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_056. [108] Phase 2 trial; [109] human study."
+  },
+  {
+   "id": "JI_056",
+   "kind": "proposal",
+   "quote": "FMT can improve GI-GVHD by restoring gut microbiome α diversity, increasing the abundance of Clostridia and Blautia",
+   "location": "body: 6. Recovery of the gut microbiota induced by fecal microbiota transplantation",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 0: Unattributed",
+    "mechanism_specific": "0. Unattributed",
+    "target_type": "taxon",
+    "intervention": "FMT",
+    "mechanism_as_named": "FMT increases Blautia to improve GI-GVHD",
+    "ref_string": "[108,109]",
+    "mechanism_assignment": "scheme C; diversity/dysbiosis -> unattributed"
+   },
+   "note": "Shared quote with JI_055."
+  },
+  {
+   "id": "JI_057",
+   "kind": "proposal",
+   "quote": "Clostridium leptum can produce short-chain fatty acids (SCFAs) to reduce intestinal barrier damage and induce immune tolerance",
+   "location": "body: 7. Effect of microbiota metabolites on the gut",
+   "fields": {
+    "taxon_as_cited": "Clostridium leptum",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 3: Barrier and structural",
+    "mechanism_specific": "3a. Epithelial barrier",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "C. leptum SCFAs reduce intestinal barrier damage",
+    "ref_string": "[4]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_058. Downstream barrier mechanism takes precedence over 1a per rule 1.1."
+  },
+  {
+   "id": "JI_058",
+   "kind": "proposal",
+   "quote": "Clostridium leptum can produce short-chain fatty acids (SCFAs) to reduce intestinal barrier damage and induce immune tolerance",
+   "location": "body: 7. Effect of microbiota metabolites on the gut",
+   "fields": {
+    "taxon_as_cited": "Clostridium leptum",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "C. leptum SCFAs induce immune tolerance (Treg)",
+    "ref_string": "[4]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with JI_057. Two mechanisms → two proposals per codebook. [4] is Smith 2013 (SCFA → colonic Treg)."
+  },
+  {
+   "id": "JI_S01",
+   "kind": "skipped",
+   "quote": "The literature suggests that removing gut microbiota reduces the risk of GVHD",
+   "location": "body: 4. Changes of intestinal flora after hematopoietic stem cell transplantation",
+   "note": "whole-community decontamination; no specific microbial target"
+  },
+  {
+   "id": "JI_S02",
+   "kind": "skipped",
+   "quote": "The dominant obligate anaerobic bacteria are important in maintaining intestinal homeostasis",
+   "location": "body: 4. Changes of intestinal flora after hematopoietic stem cell transplantation",
+   "note": "obligate anaerobes named but outcome is homeostasis, not a GVHD outcome per codebook 1.2"
+  },
+  {
+   "id": "JI_S03",
+   "kind": "skipped",
+   "quote": "The imbalance of gut microbiota in allo-HSCT patients is usually manifested by the loss of obligate anaerobic symbiotic bacteria, the pathogenic bacteria expansion, and decreased abundance and diversity of gut microbiota",
+   "location": "body: 4. Changes of intestinal flora after hematopoietic stem cell transplantation",
+   "note": "general dysbiosis/diversity statement in HSCT context; no specific target and no direct GVHD outcome"
+  },
+  {
+   "id": "JI_S04",
+   "kind": "skipped",
+   "quote": "Clostridia is the most abundant symbiotic bacteria in the intestine, and most of its members are Gram-positive anaerobic obligates, short-chain fatty acid producers",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "note": "descriptive statement about Clostridia; no GVHD outcome in this sentence"
+  },
+  {
+   "id": "JI_S05",
+   "kind": "skipped",
+   "quote": "Therefore, most bacteria under the Clostridiales help reduce GVHD and are negatively correlated with severe GVHD development",
+   "location": "body: 4.1. Changes of flora in Firmicutes",
+   "note": "summary sentence that aggregates earlier specific Clostridiales claims; no new citation"
+  },
+  {
+   "id": "JI_S06",
+   "kind": "skipped",
+   "quote": "the incidence of GVHD was significantly reduced after complete intestinal purification with high-dose non-absorbable antibiotics",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "note": "whole-community decontamination; no specific microbial target"
+  },
+  {
+   "id": "JI_S07",
+   "kind": "skipped",
+   "quote": "Penicillin derivatives and carbapenem broad-spectrum antibiotics were independent risk factors for intestinal GVHD",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "note": "antibiotic risk factor; no specific microbial target"
+  },
+  {
+   "id": "JI_S08",
+   "kind": "skipped",
+   "quote": "Carbapenem use for >7 days was associated with an increased risk of intestinal GVHD",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "note": "antibiotic exposure; no specific microbial target"
+  },
+  {
+   "id": "JI_S09",
+   "kind": "skipped",
+   "quote": "The cumulative GI-GVHD incidence also notably increased in patients treated with fourth-generation cephalosporin",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "note": "antibiotic exposure; no specific microbial target"
+  },
+  {
+   "id": "JI_S10",
+   "kind": "skipped",
+   "quote": "Vancomycin is suggested to affect intestinal microbial diversity; however, it does not enhance the GI-GVHD risk or disease recurrence",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "note": "antibiotic/diversity; no specific microbial target"
+  },
+  {
+   "id": "JI_S11",
+   "kind": "skipped",
+   "quote": "The use of anaerobic antibiotics for allo-HSCT, such as imipenem-cilastatin, piperacillin-tazobactam, ticarcillin, meropenem, clindamycin, and metronidazole, can significantly decrease intestinal microbial diversity and increase intestinal GVHD-related mortality",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "note": "diversity + mortality; no specific microbial target"
+  },
+  {
+   "id": "JI_S12",
+   "kind": "skipped",
+   "quote": "mucin-degrading bacteria stimulate ISC-mediated epithelial development and maintain intestinal homeostasis",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "note": "generic/non-standard functional group ('mucin-degrading bacteria' not in codebook list); outcome is homeostasis"
+  },
+  {
+   "id": "JI_S13",
+   "kind": "skipped",
+   "quote": "FMT combined with ruxolitinib may be an effective treatment for intestinal steroid-refractory GVHD (SR-GVHD) after HSCT",
+   "location": "body: 6. Recovery of the gut microbiota induced by fecal microbiota transplantation",
+   "note": "FMT treatment statement; no specific microbial target"
+  },
+  {
+   "id": "JI_S14",
+   "kind": "skipped",
+   "quote": "increasing peripheral regulatory T cells and ILC3",
+   "location": "body: 6. Recovery of the gut microbiota induced by fecal microbiota transplantation",
+   "note": "FMT raises host immune cells; no microbial target"
+  },
+  {
+   "id": "JI_S15",
+   "kind": "skipped",
+   "quote": "rifaximin helps to maintain intestinal microbial diversity, reduces enterococci proliferation, and increases urinary 3-indolyl sulfate concentration",
+   "location": "body: 5. Effect of antibiotics on the intestinal microflora",
+   "note": "the '3-IS increase' arm of this sentence has no microbial target (metabolite only); enterococci arm captured by JI_050"
+  },
+  {
+   "id": "JI_S16",
+   "kind": "skipped",
+   "quote": "SCFAs can be used as the main energy source of IECs by up-regulating the tight junction proteins expression, stimulating goblet cells to produce mucins, and promoting IEC histones acetylation",
+   "location": "body: 7. Effect of microbiota metabolites on the gut",
+   "note": "metabolite mechanism; no microbial target named"
+  },
+  {
+   "id": "JI_S17",
+   "kind": "skipped",
+   "quote": "Butyrate in SCFAs can inhibit the differentiation, maturation, and function of dendritic cells and macrophages, inhibit the production of IL-12 and interferon-γ (IFN-γ), block NF-kappa B signaling pathway, and promote IL-10",
+   "location": "body: 7. Effect of microbiota metabolites on the gut",
+   "note": "metabolite (butyrate); no microbial target named"
+  },
+  {
+   "id": "JI_S18",
+   "kind": "skipped",
+   "quote": "BAs alleviate GVHD severity by reducing antigen-presenting activity and preventing IEC apoptosis without changing the intestinal bacterial composition and graft anti-leukemia effects",
+   "location": "body: 7. Effect of microbiota metabolites on the gut",
+   "note": "metabolite (bile acids); no microbial target named"
+  },
+  {
+   "id": "JI_S19",
+   "kind": "skipped",
+   "quote": "Polyamines promote intestinal epithelial renewal, maintain IEC barrier integrity",
+   "location": "body: 7. Effect of microbiota metabolites on the gut",
+   "note": "metabolite (polyamines); no microbial target named"
+  },
+  {
+   "id": "JI_S20",
+   "kind": "skipped",
+   "quote": "indole metabolites limit GI-GVHD-related intestinal inflammation and injury through type I IFN",
+   "location": "body: 7. Effect of microbiota metabolites on the gut",
+   "note": "metabolite (indole); no microbial target named"
+  },
+  {
+   "id": "JI_S21",
+   "kind": "skipped",
+   "quote": "lower 3-IS in urine is associated with increased transplant-related mortality and intestinal GVHD",
+   "location": "body: 7. Effect of microbiota metabolites on the gut",
+   "note": "metabolite biomarker (3-IS); no microbial target named"
+  }
+ ]
+}

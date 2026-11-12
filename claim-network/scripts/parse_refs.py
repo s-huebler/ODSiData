@@ -18,6 +18,9 @@ YEAR_RULES = [r"\((19|20)\d{2}[a-z]?\)", r"\b(19|20)\d{2}[a-z]?;", r"\b(19|20)\d
 
 def first_author(t):
     t = re.sub(r"[*_]", "", t).strip()
+    lead = re.match(r"^(?:[A-Z][a-z]?\.-?\s?)+\s*([A-Za-z][^,.;]{1,40}?)\s*,", t)
+    if lead:                             # leading initials: "E.B. Margolis, ..." -> "Margolis"
+        return lead.group(1)
     head = re.split(r",| et al| and |\.\s", t, maxsplit=1)[0]
     toks = head.split()
     while len(toks) > 1 and re.fullmatch(r"([A-Z]\.?-?){1,4}", toks[-1]):
@@ -34,7 +37,7 @@ def year_of(t):
 
 
 def parse(md):
-    m = re.search(r"^#{1,3}\s*references?\s*$", md, flags=re.I | re.M)
+    m = re.search(r"^#{1,3}\s*references?\b.*$", md, flags=re.I | re.M)
     if not m:
         sys.exit("No REFERENCES heading found in paper.md")
     rest = md[m.end():]

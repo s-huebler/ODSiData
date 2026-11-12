@@ -1,0 +1,475 @@
+{
+ "paper_key": "junior2025",
+ "skill": "junior2025-paper",
+ "citing_bibtex": "SoaresFerreiraJunior_2025",
+ "statement_prefix": "JUN",
+ "codebook_version": "1.3",
+ "drafted": "2026-11-12",
+ "model": "claude-opus-5-5",
+ "title": "Unraveling the Intestinal Microbiota Conundrum in Allogeneic Hematopoietic Stem Cell Transplantation: Fingerprints, Clinical Implications and Future Directions",
+ "citation_style": "numeric [n]",
+ "items": [
+  {
+   "id": "JUN_S01",
+   "kind": "skipped",
+   "quote": "decreased abundance of SCFA (short-chain fatty acids)-producing bacteria [14,25,28–30]; and (3) Enterococcus intestinal domination",
+   "location": "body: 2. The Dynamics of Intestinal Microbiota Through the Patient Journey",
+   "note": "No GVHD outcome in the statement: fingerprints are listed as patterns of dysbiosis; outcomes (including aGvHD) are named only generically in a later sentence, not tied to a target."
+  },
+  {
+   "id": "JUN_001",
+   "kind": "proposal",
+   "quote": "higher abundance of Blautia , which produces SCFA and promotes gut homeostasis, was associated with lower risk of aGvHD development in two studies",
+   "location": "body: 3. Intestinal Microbiota Fingerprints Prior to Allo-HSCT",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "two studies of pre-transplant patients",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "pre-transplant Blautia abundance linked to lower aGvHD risk",
+    "ref_string": "[21,35]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Producer label with association only -> 1a; 'promotes gut homeostasis' is too vague to count as a distinct barrier mechanism. Patient cohorts implied by context (pre-transplant patient compositions)."
+  },
+  {
+   "id": "JUN_S02",
+   "kind": "skipped",
+   "quote": "The cumulative incidence of grade 2 to 4 aGvHD was significantly lower in the higher diversity group than in the lower diversity group",
+   "location": "table 1, row aGvHD: Masetti 2023 ([21])",
+   "note": "Diversity only."
+  },
+  {
+   "id": "JUN_S03",
+   "kind": "skipped",
+   "quote": "The diversity between pre-HSCT samples were greater in individuals who developed intestinal GvHD",
+   "location": "table 1, row aGvHD: Biagi 2019 ([35])",
+   "note": "Diversity only (opposite direction to the rest of Table 1). The paper's conversion notes flag that the aGvHD group label cites only [21] although the row is Biagi 2019 [35]."
+  },
+  {
+   "id": "JUN_S04",
+   "kind": "skipped",
+   "quote": "Increased intestinal diversity was associated with reduced GvHD-related mortality",
+   "location": "table 2, row aGvHD: Jenq 2015 ([28])",
+   "note": "Diversity only; Table 2 aGvHD rows and the 4.1 body statement linking low diversity at aGvHD diagnosis to severe disease (Mancini, Taur, Payen, Golob, Galloway-Pena) are all diversity and skipped for the same reason."
+  },
+  {
+   "id": "JUN_S05",
+   "kind": "skipped",
+   "quote": "These findings consistently outline a profound depletion of SCFA and their producers over the allo-HSCT journey",
+   "location": "body: 4.2. SCFA-Producing Bacteria and Implications to Clinical Outcomes",
+   "note": "No GVHD outcome: depletion of SCFA producers over the transplant course, no GVHD link."
+  },
+  {
+   "id": "JUN_002",
+   "kind": "proposal",
+   "quote": "Important clinical outcomes modulated by SCFA and their producers are: (1) Overall survival [28]; (2) GvHD",
+   "location": "body: 4.2. SCFA-Producing Bacteria and Implications to Clinical Outcomes",
+   "fields": {
+    "taxon_as_cited": "SCFA-producing bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "previous studies",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "decreased SCFA producers contribute to GvHD",
+    "ref_string": "[25,26,28,30,42]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Evidence inferred from context: the surrounding paragraph and Table 3 describe patient cohorts. Citation list includes studies the review reports only at the SCFA-metabolite level (Romick-Rosendale [25], Artacho [42])."
+  },
+  {
+   "id": "JUN_S06",
+   "kind": "skipped",
+   "quote": "a high abundance of SCFA-producing bacteria at the engraftment period was independently associated with a fivefold decrease in the risk of viral lower respiratory tract infection",
+   "location": "body: 4.2. SCFA-Producing Bacteria and Implications to Clinical Outcomes",
+   "note": "Non-GVHD outcome (viral lower respiratory tract infection)."
+  },
+  {
+   "id": "JUN_003",
+   "kind": "proposal",
+   "quote": "in a study of 64 allo-HSCT recipients, a higher abundance of Blautia (a key SCFA-producing genus) was independently associated with lower GvHD-related mortality",
+   "location": "body: 4.2. SCFA-Producing Bacteria and Implications to Clinical Outcomes",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "study of 64 allo-HSCT recipients",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia linked to lower GvHD mortality and refractory GvHD",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Same sentence also reports reduced refractory GvHD; one target, mechanism and evidence type, so one row."
+  },
+  {
+   "id": "JUN_S07",
+   "kind": "skipped",
+   "quote": "Increased Blautia abundance was strongly associated with improved overall survival",
+   "location": "table 3, row Overall Survival: Jenq 2015 ([28])",
+   "note": "Non-GVHD outcome (overall survival)."
+  },
+  {
+   "id": "JUN_004",
+   "kind": "proposal",
+   "quote": "By using a taxonomic discovery analysis, increase in the genus Blautia was significantly associated with reduced GvHD-related mortality",
+   "location": "table 3, row aGvHD: Jenq 2015 ([28])",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT cohort (N = 64), taxonomic discovery analysis",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia increase linked to reduced GvHD-related mortality",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_005",
+   "kind": "proposal",
+   "quote": "By stratifying patients based on Blautia median abundance, patients with higher abundance had reduced GvHD-related mortality",
+   "location": "table 3, row aGvHD: Jenq 2015 ([28])",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT cohort (N = 64), stratified by median abundance",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "higher Blautia linked to reduced GvHD-related mortality",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_006",
+   "kind": "proposal",
+   "quote": "In a multivariable analysis, Blautia abundance remained associated with GvHD-related mortality",
+   "location": "table 3, row aGvHD: Jenq 2015 ([28])",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT cohort (N = 64), multivariable analysis",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia independently linked to lower GvHD-related mortality",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Direction taken from the cell's '↓ GvHD-related mortality' label; the sentence itself gives none. SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_007",
+   "kind": "proposal",
+   "quote": "Increased Blautia abundance was associated with reduced development of acute GvHD that required treatment with systemic corticosteroids or was steroid refractory",
+   "location": "table 3, row aGvHD: Jenq 2015 ([28])",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT cohort (N = 64)",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia linked to less steroid-requiring or refractory aGvHD",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_008",
+   "kind": "proposal",
+   "quote": "In a multivariable analysis, Blautia abundance remained associated with refractory GvHD",
+   "location": "table 3, row aGvHD: Jenq 2015 ([28])",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT cohort (N = 64), multivariable analysis",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia independently linked to less refractory GvHD",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Direction taken from the cell's '↓ Refractory GvHD' label; the sentence itself gives none. SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_009",
+   "kind": "proposal",
+   "quote": "Increased Blautia abundance was associated with reduced liver GvHD",
+   "location": "table 3, row aGvHD: Jenq 2015 ([28])",
+   "fields": {
+    "taxon_as_cited": "Blautia",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT cohort (N = 64)",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia linked to reduced liver GvHD",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_010",
+   "kind": "proposal",
+   "quote": "When compared to controls (patients undergoing allo-HSCT without GvHD), patients with severe GvHD had a significant depletion of the Blautia coccoides group",
+   "location": "table 3, row aGvHD: Payen 2020 ([26])",
+   "fields": {
+    "taxon_as_cited": "Blautia coccoides group",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT patients with severe GvHD versus patients without GvHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Blautia coccoides group depleted in severe aGvHD",
+    "ref_string": "[26]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Rank set to species for a species-group label. Conversion notes flag p = 0.07 printed as 'significant'; the next sentence (vs mild aGvHD, p = 0.036) supports the same direction. SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_011",
+   "kind": "proposal",
+   "quote": "When compared to controls (patients undergoing allo-HSCT without GvHD), patients with severe GvHD had a significant depletion of Anaerostipes",
+   "location": "table 3, row aGvHD: Payen 2020 ([26])",
+   "fields": {
+    "taxon_as_cited": "Anaerostipes",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT patients with severe GvHD versus patients without GvHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Anaerostipes depleted in severe aGvHD",
+    "ref_string": "[26]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_012",
+   "kind": "proposal",
+   "quote": "When compared to controls (patients undergoing allo-HSCT without GvHD), patients with severe GvHD had a significant depletion of Faecalibacterium",
+   "location": "table 3, row aGvHD: Payen 2020 ([26])",
+   "fields": {
+    "taxon_as_cited": "Faecalibacterium",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT patients with severe GvHD versus patients without GvHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Faecalibacterium depleted in severe aGvHD",
+    "ref_string": "[26]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Supplementary Table S2 (Doki 2017) reports higher Faecalibacterium with aGvHD; not used to set context-dependent because the supplement is out of extraction scope and not in close proximity. SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_013",
+   "kind": "proposal",
+   "quote": "When compared to controls (patients undergoing allo-HSCT without GvHD), patients with severe GvHD had a significant depletion of Lachnoclostridium",
+   "location": "table 3, row aGvHD: Payen 2020 ([26])",
+   "fields": {
+    "taxon_as_cited": "Lachnoclostridium",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "allo-HSCT patients with severe GvHD versus patients without GvHD",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lachnoclostridium depleted in severe aGvHD",
+    "ref_string": "[26]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "SCFA-producer label comes from the Table 3 title (and the body calls Blautia a key SCFA-producing genus); association only -> 1a."
+  },
+  {
+   "id": "JUN_S08",
+   "kind": "skipped",
+   "quote": "patients with severe GvHD had significantly lower levels of total SCFAs",
+   "location": "table 3, row aGvHD: Payen 2020 ([26])",
+   "note": "No microbial target: SCFA metabolite levels (total SCFAs, acetate, butyrate, propionate)."
+  },
+  {
+   "id": "JUN_S09",
+   "kind": "skipped",
+   "quote": "patients without GvHD had significantly higher levels of butyrate",
+   "location": "table 3, row aGvHD: Romick-Rosendale 2018 ([25])",
+   "note": "No microbial target: SCFA metabolite levels only."
+  },
+  {
+   "id": "JUN_S10",
+   "kind": "skipped",
+   "quote": "Low BCoAT copy numbers at GvHD onset were correlated with GI-GvHD severity",
+   "location": "table 3, row aGvHD: Meedt 2022 ([30])",
+   "note": "No named microbial target: butyryl-CoA:acetate CoA-transferase gene copy number, which the review elsewhere describes as fecal butyrate levels. Same cell also links low BCoAT to GI-GvHD and GvHD-related mortality. Could be promoted as functional group 'butyrate producers' (1a, protective) if the reviewer reads the gene as a producer marker."
+  },
+  {
+   "id": "JUN_S11",
+   "kind": "skipped",
+   "quote": "A significant decrease in acetate levels was detected in patients who developed GvHD",
+   "location": "table 3, row aGvHD: Artacho 2024 ([42])",
+   "note": "No microbial target: acetate metabolite level only."
+  },
+  {
+   "id": "JUN_S12",
+   "kind": "skipped",
+   "quote": "Enterococcus domination was associated with the following outcomes: bloodstream infection",
+   "location": "body: 4.3. Intestinal Domination and Implications to Clinical Outcomes",
+   "note": "Non-GVHD outcomes (bloodstream infection, C. difficile colitis, overall survival, treatment-related mortality). The paper's only Enterococcus-GVHD statements are in Table 4 (proposed)."
+  },
+  {
+   "id": "JUN_S13",
+   "kind": "skipped",
+   "quote": "overall survival was not impacted by domination for the following genera",
+   "location": "body: 4.3. Intestinal Domination and Implications to Clinical Outcomes",
+   "note": "Non-GVHD outcome: no effect of Bacteroides, Akkermansia, Blautia, Lactobacillus or Streptococcus domination on overall survival."
+  },
+  {
+   "id": "JUN_014",
+   "kind": "proposal",
+   "quote": "Patients with Enterococcus domination in the early-post transplant period had significantly increased GvHD-related mortality",
+   "location": "table 4, row aGvHD: Stein-Thoeringer 2019 ([32])",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "allo-HSCT cohort (N = 1325), univariate and multivariate analysis",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus domination raises GvHD-related mortality",
+    "ref_string": "[32]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Listed pathobiont domination -> 4b. Conversion notes flag univariate p = 0.05 printed as 'significant'; multivariate result in the next sentence holds."
+  },
+  {
+   "id": "JUN_015",
+   "kind": "proposal",
+   "quote": "Patients with Enterococcus domination in the early-post transplant period had significantly increased GvHD severity",
+   "location": "table 4, row aGvHD: Stein-Thoeringer 2019 ([32])",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "allo-HSCT cohort (N = 1325), univariate and multivariate analysis",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus domination raises grade 2-4 GvHD",
+    "ref_string": "[32]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": ""
+  },
+  {
+   "id": "JUN_S14",
+   "kind": "skipped",
+   "quote": "Patients with Proteobacteria domination had a 5-fold increased risk of Gram-negative bacteremia",
+   "location": "table 4, row Infections: Taur 2012 ([34])",
+   "note": "Non-GVHD outcome (bacteremia)."
+  },
+  {
+   "id": "JUN_S15",
+   "kind": "skipped",
+   "quote": "the potential mechanisms by which SCFAs may impact the aforementioned allo-HSCT outcomes",
+   "location": "body: 5. Mechanistic Insights Modulating the Relationship Between Intestinal Microbiota and Allo-HSCT",
+   "note": "No microbial target: SCFA metabolites (barrier, mucin, HDAC inhibition, Treg) discussed without a taxon or producer group, and outcomes not GVHD-specific."
+  },
+  {
+   "id": "JUN_S16",
+   "kind": "skipped",
+   "quote": "Clinical outcomes that have been improved by FMT include: (1) GvHD",
+   "location": "body: 6. Strategies to Modulate the Intestinal Microbiota During Allo-HSCT",
+   "note": "No microbial target: FMT as a whole-community therapy."
+  },
+  {
+   "id": "JUN_016",
+   "kind": "proposal",
+   "quote": "patients who responded to the FMT exhibited a significant increase in both intestinal diversity and the abundance of SCFA-producing bacteria",
+   "location": "body: 6. Strategies to Modulate the Intestinal Microbiota During Allo-HSCT",
+   "fields": {
+    "taxon_as_cited": "SCFA-producing bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "study of 15 adult patients with steroid-refractory or steroid-dependent GvHD that received allogeneic FMT",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "mechanism",
+    "intervention": "FMT",
+    "mechanism_as_named": "SCFA producers rise in FMT responders with refractory GvHD",
+    "ref_string": "[60]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Rises after a successful therapy -> protective; diversity part of the sentence is not a row."
+  },
+  {
+   "id": "JUN_S17",
+   "kind": "skipped",
+   "quote": "When compared to the control group, patients receiving synbiotics had lower rates of severe GvHD",
+   "location": "body: 6. Strategies to Modulate the Intestinal Microbiota During Allo-HSCT",
+   "note": "No named microbial target: synbiotic of seven unnamed bacterial strains plus fructo-oligosaccharides."
+  },
+  {
+   "id": "JUN_S18",
+   "kind": "skipped",
+   "quote": "Table S2: Implications of Intestinal Microbiota Fingerprints Prior to Allo-HSCT",
+   "location": "body: 8. Conclusions and Future Directions",
+   "note": "Supplementary Table S2 (taxon-aGvHD rows for Blautia, Ruminococcus, Streptococcus, Actinomyces, Lacticaseibacillus, Rothia, Firmicutes, Faecalibacterium, Eubacterium, Fusobacterium) not extracted: the codebook defines quotes and locations only for the paper text (body, tables, figures, boxes) and is silent on supplements; flag for a codebook decision."
+  }
+ ]
+}

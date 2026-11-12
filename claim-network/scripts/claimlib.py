@@ -98,7 +98,7 @@ def norm_text(s):
 def markdown_plain(md):
     """Approximate the rendered text of a paper.md (for quote checks outside the viewer)."""
     s = re.sub(r"<sup>\s*\[[\d,\s\-‐-―]+\]\s*</sup>", "", md)   # citation superscripts
-    s = re.sub(r"<[^>]+>", "", s)                                          # other tags
+    s = re.sub(r"</?[A-Za-z][^>]*>", "", s)                                          # other tags
     s = re.sub(r"!?\[([^\]]*)\]\([^)]*\)", r"\1", s)                       # links
     s = re.sub(r"(?<![A-Za-z0-9])[_*]+|[_*]+(?![A-Za-z0-9])", "", s)       # emphasis markers
     s = s.replace("\\", "").replace("|", " ")

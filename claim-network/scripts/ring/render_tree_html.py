@@ -5,10 +5,11 @@ Reads tree_data.json and tree_template.html, injects the JSON into the data
 placeholder, writes the taxonomy ring HTML.
 
     python3 claim-network/scripts/ring/build_tree_data.py
-    python3 claim-network/scripts/ring/render_tree_html.py [--out PATH] [--force]
+    python3 claim-network/scripts/ring/render_tree_html.py [--data PATH] [--out PATH] [--force]
 
 Default output is claim-network/output/gvhd_taxonomy_ring.html. It will not overwrite an
-existing file unless --force is given.
+existing file unless --force is given. --data reads a tree_data.json other than the default
+(e.g. a subset for testing).
 
 Promoted to the main renderer 2026-11-05. The previous version (v1) is in
 archive-claim-network/2026-11_ring-v1/. Changes from v1:
@@ -23,6 +24,8 @@ archive-claim-network/2026-11_ring-v1/. Changes from v1:
   - wider, resizable details panel; group tables include a Taxon column
   - mechanism filter (broad class -> specific mechanism)
   - click a details row to open its quote in a popover left of the panel; click elsewhere closes it
+  - paper details panel links to the DOI and PubMed (from paper_links); double-click a paper
+    circle to open its DOI (added 2026-11-12)
 """
 
 import json
@@ -30,7 +33,7 @@ import sys
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
-DATA_PATH = BASE / "tree_data.json"
+DATA_PATH = Path(sys.argv[sys.argv.index("--data") + 1]).resolve() if "--data" in sys.argv else BASE / "tree_data.json"
 TEMPLATE_PATH = BASE / "tree_template.html"
 DEFAULT_OUT = BASE.parents[1] / "output" / "gvhd_taxonomy_ring.html"
 OUT_PATH = Path(sys.argv[sys.argv.index("--out") + 1]).resolve() if "--out" in sys.argv else DEFAULT_OUT
@@ -46,6 +49,8 @@ if template.count(PLACEHOLDER) != 1:
     raise ValueError(f"Template must contain exactly one {PLACEHOLDER} placeholder")
 if "mechanism_specific" not in (data["edges"][0] if data["edges"] else {"mechanism_specific": 1}):
     print("Note: tree_data.json predates the per-edge mechanism field; rerun build_tree_data.py")
+if "paper_links" not in data:
+    print("Note: tree_data.json has no paper_links (DOI/PMID); rerun build_tree_data.py")
 if "species" not in data["top_levels"]:
     print("Note: tree_data.json has no species level; rerun build_tree_data.py")
 

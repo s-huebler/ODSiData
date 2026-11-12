@@ -108,3 +108,72 @@ Clostridium butyricum MIYAIRI 588 (CBM588),species,Clostridium butyricum,species
 Clostridium cluster XIVa,genus,Lachnospiraceae,family,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,,,manual,yes,r232,Historical Collins cluster XIVa (Clostridium coccoides group) ~ family Lachnospiraceae; rank promoted genus->family. Judgment call.
 Ruminococcus bromii,species,Ruminococcoides bromii,species,Bacteria,Bacillota,Clostridia,Oscillospirales,Acutalibacteraceae,Ruminococcoides,Ruminococcoides bromii,manual,yes,r232,"NCBI Ruminococcus bromii -> GTDB Ruminococcoides bromii (g__Ruminococcoides, f__Acutalibacteraceae)"
 Ruminococcus species,genus,Ruminococcus,genus,Bacteria,Bacillota,Clostridia,Oscillospirales,Ruminococcaceae,Ruminococcus,,manual,no,r232,'Ruminococcus species' (Lindner) = genus Ruminococcus; dropped trailing 'species'
+Eubacteriaceae,family,Eubacteriaceae,family,Bacteria,Bacillota,Clostridia,Eubacteriales,Eubacteriaceae,,,auto_exact,no,r232,
+Peptostreptococcaceae,family,Peptostreptococcaceae,family,Bacteria,Bacillota,Clostridia,Peptostreptococcales,Peptostreptococcaceae,,,auto_exact,no,r232,
+Parabacteroides,genus,Parabacteroides,genus,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Tannerellaceae,Parabacteroides,,auto_exact,no,r232,
+Actinobacteria,phylum,Actinomycetota,phylum,Bacteria,Actinomycetota,,,,,,auto_exact,yes,r232,name normalized Actinobacteria -> Actinomycetota
+Verrucomicrobia,phylum,Verrucomicrobiota,phylum,Bacteria,Verrucomicrobiota,,,,,,auto_exact,yes,r232,name normalized Verrucomicrobia -> Verrucomicrobiota
+Erysipelotrichaceae,family,Erysipelotrichaceae,family,Bacteria,Bacillota_I,Bacilli_A,Erysipelotrichales,Erysipelotrichaceae,,,auto_exact,no,r232,
+Lactobacillus johnsonii,species,Lactobacillus johnsonii,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Lactobacillus,Lactobacillus johnsonii,auto_exact,no,r232,
+Enterococci,genus,Enterococcus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,,auto_exact,yes,r232,name normalized Enterococci -> Enterococcus
+Bifidobacterium breve,species,Bifidobacterium breve,species,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Bifidobacteriaceae,Bifidobacterium,Bifidobacterium breve,auto_exact,no,r232,
+Enterococcus faecium,species,Enterococcus_B faecium,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus_B,Enterococcus_B faecium,auto_suffix_variant_renamed,yes,r232,
+Barnesiella,genus,Barnesiella,genus,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Barnesiellaceae,Barnesiella,,auto_exact,no,r232,
+Lactobacillus acidophilus,species,Lactobacillus acidophilus,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Lactobacillus,Lactobacillus acidophilus,auto_exact,no,r232,
+Staphylococcus,genus,Staphylococcus,genus,Bacteria,Bacillota,Bacilli,Staphylococcales,Staphylococcaceae,Staphylococcus,,auto_exact,no,r232,
+Enterococcus dispar,species,Enterococcus_C dispar,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus_C,Enterococcus_C dispar,auto_suffix_variant_renamed,yes,r232,
+Streptococcus sanguinis,species,Streptococcus sanguinis,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Streptococcaceae,Streptococcus,Streptococcus sanguinis,auto_exact,no,r232,
+Bifidobacterium adolescentis,species,Bifidobacterium adolescentis,species,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Bifidobacteriaceae,Bifidobacterium,Bifidobacterium adolescentis,auto_exact,no,r232,
+Lactobacilli,genus,Lactobacillus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Lactobacillus,,auto_exact,yes,r232,name normalized Lactobacilli -> Lactobacillus
+Citrobacter rodentium,species,Citrobacter_A rodentium,species,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Citrobacter_A,Citrobacter_A rodentium,auto_suffix_variant_renamed,yes,r232,
+Kluyvera,genus,Kluyvera,genus,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Kluyvera,,auto_exact,no,r232,
+Bacteroides caccae,species,Bacteroides caccae,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides caccae,auto_exact,no,r232,
+Blautia luti,species,Blautia_A luti,species,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Blautia_A,Blautia_A luti,auto_suffix_variant_renamed,yes,r232,"GTDB splits into Blautia_A luti(8), Blautia_A luti_A(6); used largest"
+Butyricicoccus,genus,Butyricicoccus,genus,Bacteria,Bacillota,Clostridia,Oscillospirales,Butyricicoccaceae,Butyricicoccus,,auto_exact,no,r232,
+Clostridiaceae,family,Clostridiaceae,family,Bacteria,Bacillota,Clostridia,Clostridiales,Clostridiaceae,,,auto_exact,no,r232,
+Neisseriaceae,family,Neisseriaceae,family,Bacteria,Pseudomonadota,Gammaproteobacteria,Burkholderiales,Neisseriaceae,,,auto_exact,no,r232,
+Klebsiella,genus,Klebsiella,genus,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Klebsiella,,auto_exact,no,r232,
+Coprococcus,genus,Coprococcus,genus,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Coprococcus,,auto_exact,no,r232,
+Gamma-Proteobacteria,class,Gammaproteobacteria,class,Bacteria,Pseudomonadota,Gammaproteobacteria,,,,,auto_exact,yes,r232,name normalized Gamma-Proteobacteria -> Gammaproteobacteria
+Ruminococcaceae,genus,Ruminococcaceae,family,Bacteria,Bacillota,Clostridia,Oscillospirales,Ruminococcaceae,,,auto_exact,no,r232,
+Blautia coccoides group,species,Blautia,genus,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Blautia,,auto_exact,yes,r232,name normalized Blautia coccoides group -> Blautia
+butyrate-producing Clostridiales,order,Clostridiales,order,Bacteria,Bacillota,Clostridia,Clostridiales,,,,auto_exact,yes,r232,name normalized butyrate-producing Clostridiales -> Clostridiales
+other Firmitcutes,phylum,Bacillota,phylum,Bacteria,Bacillota,,,,,,auto_exact,yes,r232,name normalized other Firmitcutes -> Bacillota
+Enterococcus spp.,genus,Enterococcus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,,auto_exact,yes,r232,name normalized Enterococcus spp. -> Enterococcus
+anti-inflammatory Clostridia,class,Clostridia,class,Bacteria,Bacillota,Clostridia,,,,,auto_exact,yes,r232,name normalized anti-inflammatory Clostridia -> Clostridia
+oral Actinobacteria,phylum,Actinomycetota,phylum,Bacteria,Actinomycetota,,,,,,auto_exact,yes,r232,name normalized oral Actinobacteria -> Actinomycetota
+Enterococcal,genus,Enterococcus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,,auto_exact,yes,r232,name normalized Enterococcal -> Enterococcus
+Bifidobacteriales,order,Bifidobacteriaceae,family,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Bifidobacteriaceae,,,auto_exact,yes,r232,name normalized Bifidobacteriales -> Bifidobacteriaceae
+Enterococcus species,genus,Enterococcus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,,auto_exact,yes,r232,name normalized Enterococcus species -> Enterococcus
+Clostridia clusters IV and XIVa,class,Clostridia,class,Bacteria,Bacillota,Clostridia,,,,,auto_exact,yes,r232,name normalized Clostridia clusters IV and XIVa -> Clostridia
+Clostridiales species,order,Clostridiales,order,Bacteria,Bacillota,Clostridia,Clostridiales,,,,auto_exact,yes,r232,name normalized Clostridiales species -> Clostridiales
+Lactobacillus Rhamnosus GG,species,Lacticaseibacillus rhamnosus,species,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Lacticaseibacillus,Lacticaseibacillus rhamnosus,auto_exact,yes,r232,name normalized Lactobacillus Rhamnosus GG -> Lacticaseibacillus rhamnosus
+Actinomyces sp.,genus,Actinomyces,genus,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Actinomycetaceae,Actinomyces,,auto_exact,yes,r232,name normalized Actinomyces sp. -> Actinomyces
+Blautia massiliensis,species,Blautia,genus,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Blautia,,auto_exact,yes,r232,name normalized Blautia massiliensis -> Blautia
+Bacteroides vulgatus,species,Phocaeicola vulgatus,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Phocaeicola,Phocaeicola vulgatus,auto_exact,yes,r232,name normalized Bacteroides vulgatus -> Phocaeicola vulgatus
+enterococci,genus,Enterococcus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Enterococcaceae,Enterococcus,,auto_exact,yes,r232,name normalized enterococci -> Enterococcus
+lactobacilli,genus,Lactobacillus,genus,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,Lactobacillus,,auto_exact,yes,r232,name normalized lactobacilli -> Lactobacillus
+"Clostridium clusters (IV, XIVa, XVIII)",genus,Clostridia,class,Bacteria,Bacillota,Clostridia,,,,,auto_exact,yes,r232,"name normalized Clostridium clusters (IV, XIVa, XVIII) -> Clostridia"
+Lachnospiracea,family,Lachnospiraceae,family,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,,,auto_exact,yes,r232,name normalized Lachnospiracea -> Lachnospiraceae
+Gamma-proteobacteria,class,Gammaproteobacteria,class,Bacteria,Pseudomonadota,Gammaproteobacteria,,,,,auto_exact,yes,r232,name normalized Gamma-proteobacteria -> Gammaproteobacteria
+Bacteroides dorei,species,Phocaeicola dorei,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Phocaeicola,Phocaeicola dorei,auto_exact,yes,r232,name normalized Bacteroides dorei -> Phocaeicola dorei
+oral Firmicutes,phylum,Bacillota,phylum,Bacteria,Bacillota,,,,,,auto_exact,yes,r232,name normalized oral Firmicutes -> Bacillota
+gamma-proteobacteria,class,Gammaproteobacteria,class,Bacteria,Pseudomonadota,Gammaproteobacteria,,,,,auto_exact,yes,r232,name normalized gamma-proteobacteria -> Gammaproteobacteria
+Bacteroide,genus,Bacteroides,genus,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,,auto_exact,yes,r232,name normalized Bacteroide -> Bacteroides
+Akkermansia muciniphil,species,Akkermansia muciniphila,species,Bacteria,Verrucomicrobiota,Verrucomicrobiia,Verrucomicrobiales,Akkermansiaceae,Akkermansia,Akkermansia muciniphila,auto_exact,yes,r232,name normalized Akkermansia muciniphil -> Akkermansia muciniphila
+Porphyromonadacea,family,Porphyromonadaceae,family,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Porphyromonadaceae,,,auto_exact,yes,r232,name normalized Porphyromonadacea -> Porphyromonadaceae
+Clostridium cluster XIVa (CCXIVa),genus,Lachnospiraceae,family,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,,,auto_exact,yes,r232,name normalized Clostridium cluster XIVa (CCXIVa) -> Lachnospiraceae
+Lactobacillaceae,family,Lactobacillaceae,family,Bacteria,Bacillota,Bacilli,Lactobacillales,Lactobacillaceae,,,auto_exact,no,r232,
+Streptococcaceae,family,Streptococcaceae,family,Bacteria,Bacillota,Bacilli,Lactobacillales,Streptococcaceae,,,auto_exact,no,r232,
+Blautia obeum,species,Blautia_A obeum,species,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Blautia_A,Blautia_A obeum,auto_suffix_variant_renamed,yes,r232,
+Blautia hansenii,species,Blautia hansenii,species,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Blautia,Blautia hansenii,auto_exact,no,r232,
+Rothia mucilaginosa,species,Rothia mucilaginosa,species,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Micrococcaceae,Rothia,Rothia mucilaginosa,auto_exact,no,r232,
+Bacteroides luti,species,Bacteroides luti,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides luti,auto_exact,no,r232,
+γ-Proteobacteria,class,Gammaproteobacteria,class,Bacteria,Pseudomonadota,Gammaproteobacteria,,,,,auto_exact,yes,r232,name normalized γ-Proteobacteria -> Gammaproteobacteria
+Campylobacter,genus,Campylobacter,genus,Bacteria,Campylobacterota,Campylobacteria,Campylobacterales,Campylobacteraceae,Campylobacter,,auto_exact,no,r232,
+Coriobacteriia,class,Coriobacteriia,class,Bacteria,Actinomycetota,Coriobacteriia,,,,,auto_exact,no,r232,
+Bifidobacteriaceae,family,Bifidobacteriaceae,family,Bacteria,Actinomycetota,Actinomycetes,Actinomycetales,Bifidobacteriaceae,,,auto_exact,no,r232,
+Blautia hydrogenotrophic,species,Blautia_A hydrogenotrophica,species,Bacteria,Bacillota,Clostridia,Lachnospirales,Lachnospiraceae,Blautia_A,Blautia_A hydrogenotrophica,auto_suffix_variant_renamed,yes,r232,name normalized Blautia hydrogenotrophic -> Blautia hydrogenotrophica
+Peptostreptoccaceae,family,Peptostreptococcaceae,family,Bacteria,Bacillota,Clostridia,Peptostreptococcales,Peptostreptococcaceae,,,auto_exact,yes,r232,name normalized Peptostreptoccaceae -> Peptostreptococcaceae
+Bacillus fragilis,species,Bacteroides fragilis,species,Bacteria,Bacteroidota,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroides fragilis,auto_exact,yes,r232,name normalized Bacillus fragilis -> Bacteroides fragilis
+E. coli,species,Escherichia coli,species,Bacteria,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Escherichia,Escherichia coli,auto_exact,yes,r232,name normalized E. coli -> Escherichia coli

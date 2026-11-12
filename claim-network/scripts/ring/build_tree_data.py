@@ -5,10 +5,19 @@ Reads reviews/claims_linked.csv (target_type=taxon) and reviews/taxa.csv (GTDB l
 taxon), then writes scripts/ring/tree_data.json for the D3 taxonomic ring visualization.
 Adapted 2026-11-05 from archive-claim-network/2026-11_mechanism-framework/viz/build_tree_data.py.
 Rows without a ref_id (uncited or unlinked) are left out because ring edges are paper -> taxon.
+
+DOI and PMID per primary paper come from citation-network/Full_Network/ref_dictionary.csv
+(joined on ref_id) and are written to paper_links, which the ring uses for the DOI and
+PubMed links in the paper details panel and for double-click on a paper circle.
+
+    python3 claim-network/scripts/ring/build_tree_data.py [--out PATH]
+
+Default output is scripts/ring/tree_data.json; --out writes elsewhere (e.g. for a test).
 """
 
 import json
 import math
+import re
 import sys
 from pathlib import Path
 
@@ -21,7 +30,9 @@ import pandas as pd
 CN = Path(__file__).resolve().parents[2]  # claim-network/
 CSV_PATH = CN / "reviews" / "claims_linked.csv"
 TAXA_PATH = CN / "reviews" / "taxa.csv"
-OUT_PATH = Path(__file__).resolve().parent / "tree_data.json"
+REF_DICT_PATH = CN.parent / "citation-network" / "Full_Network" / "ref_dictionary.csv"
+OUT_PATH = (Path(sys.argv[sys.argv.index("--out") + 1]).resolve() if "--out" in sys.argv
+            else Path(__file__).resolve().parent / "tree_data.json")
 
 # ---------------------------------------------------------------------------
 # Rank order
@@ -76,6 +87,25 @@ for _, row in df.iterrows():
     rid = row["ref_id"]
     if rid not in papers:
         papers[rid] = row["ref_label"]
+
+# DOI / PMID links from the citation-network reference dictionary. DOIs are stored bare
+# (10.xxxx/...); a few carry a publisher "?casa_token = ..." tracking suffix, which is cut.
+def clean_doi(x):
+    x = re.sub(r"^\s*(https?://(dx\.)?doi\.org/|doi:\s*)", "", str(x), flags=re.I)
+    return re.split(r"\?casa_token", x)[0].strip()
+
+ref_dict = pd.read_csv(REF_DICT_PATH, dtype=str).fillna("").set_index("ref_id")
+paper_links = {}
+for rid in papers:
+    if rid not in ref_dict.index:
+        continue
+    doi, pmid = clean_doi(ref_dict.at[rid, "DOI"]), ref_dict.at[rid, "PMID"].strip()
+    link = {k: v for k, v in (("doi", doi), ("pmid", pmid)) if v}
+    if link:
+        paper_links[rid] = link
+no_link = sorted(papers[r] for r in papers if r not in paper_links)
+print(f"{len(paper_links)} of {len(papers)} papers have a DOI or PMID"
+      + (f"; none for: {', '.join(no_link)}" if no_link else ""))
 
 # ---------------------------------------------------------------------------
 # 4. Edges — aggregate (ref_id, taxon, direction, evidence)
@@ -415,6 +445,7 @@ else:
 out = {
     "taxa": taxa_info,
     "papers": papers,
+    "paper_links": paper_links,
     "edges": edges,
     "level_counts": level_counts,
     "hierarchies": hierarchies,

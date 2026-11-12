@@ -59,6 +59,9 @@
   #info-content .dir-cell { font-weight: bold; }
   #info-content .dir-summary span { margin-right: 8px; font-weight: bold; }
   #info-content .hint { font-size: 10px; color: #999; margin-top: 4px; }
+  #info-content .ext-links { margin-top: 4px; font-size: 12px; }
+  #info-content .ext-links a { color: #4a6fa5; text-decoration: none; margin-right: 12px; }
+  #info-content .ext-links a:hover { text-decoration: underline; }
 
   /* Quote popover (opens to the left of the info panel) */
   #quote-pop {
@@ -249,6 +252,17 @@ const rankIdx = r => RANKS_ORDER.indexOf(r);
 const slug = s => String(s).replace(/[^A-Za-z0-9]+/g, "_");
 const natCmp = (a, b) => String(a).localeCompare(String(b), undefined, { numeric: true, sensitivity: "base" });
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// External links for primary papers (DOI, PubMed), from paper_links in tree_data.json
+const PAPER_LINKS = DATA.paper_links || {};
+function doiUrl(pid) {
+  const d = (PAPER_LINKS[pid] || {}).doi;
+  return d ? "https://doi.org/" + d.split("/").map(encodeURIComponent).join("/") : null;
+}
+function pubmedUrl(pid) {
+  const p = (PAPER_LINKS[pid] || {}).pmid;
+  return p ? "https://pubmed.ncbi.nlm.nih.gov/" + encodeURIComponent(p) + "/" : null;
+}
 const dirColor = d => DIR_COLOR[d] || DIR_COLOR["unspecified"];
 const mechOf = e => e.mechanism_specific || ((e.rows || [])[0] || {}).mechanism_specific || "(none)";
 const mechBroadOf = e => e.mechanism_broad || ((e.rows || [])[0] || {}).mechanism_broad || "(none)";
@@ -681,10 +695,16 @@ function rebuildLayout(level) {
       .attr("class", "paper-circle").attr("data-pid", pid)
       .style("cursor", "pointer")
       .on("click", ev => { ev.stopPropagation(); showPaperInfo(pid); })
+      .on("dblclick", ev => {
+        ev.stopPropagation();
+        const u = doiUrl(pid);
+        if (u) window.open(u, "_blank", "noopener");
+      })
       .on("mouseover", ev => {
         showTooltip(ev, "<b>" + esc(label) + "</b><br>cited by " + nr + " review" + (nr === 1 ? "" : "s") +
           (nr ? " (" + esc(Array.from(paperReviews[pid]).sort().join(", ")) + ")" : "") +
-          "<br>" + nClaims + " claim" + (nClaims === 1 ? "" : "s"));
+          "<br>" + nClaims + " claim" + (nClaims === 1 ? "" : "s") +
+          (doiUrl(pid) ? '<br><span style="color:#999">double-click to open DOI</span>' : ""));
         highlightEdges(e => e.ref_id === pid);
       })
       .on("mouseout", () => { hideTooltip(); clearHighlight(); });
@@ -1055,6 +1075,11 @@ function showPaperInfo(pid) {
   const revs = paperReviews[pid] ? Array.from(paperReviews[pid]).sort() : [];
   let html = '<b style="font-size:14px">' + esc(label) + "</b>";
   html += '<br><span class="dim">ref_id: ' + esc(pid) + "</span>";
+  const du = doiUrl(pid), pu = pubmedUrl(pid);
+  html += '<div class="ext-links">' +
+    (du ? '<a href="' + esc(du) + '" target="_blank" rel="noopener">DOI: ' + esc(PAPER_LINKS[pid].doi) + " &#8599;</a>" : "") +
+    (pu ? '<a href="' + esc(pu) + '" target="_blank" rel="noopener">PubMed &#8599;</a>' : "") +
+    (du || pu ? "" : '<span class="dim">No DOI or PMID on file</span>') + "</div>";
   html += '<br><span class="dim">Cited by ' + revs.length + " review" + (revs.length === 1 ? "" : "s") +
     (revs.length ? ": " + esc(revs.join(", ")) : "") + "</span>";
   html += '<div class="dim" style="font-size:10px;margin-top:4px">' + edges.length + " of " + all.length + " edges shown</div>";

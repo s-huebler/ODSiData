@@ -18,3 +18,36 @@ Bifidobacterium longum subsp. infantis,Bifidobacterium longum,,subspecies to spe
 Enterobacteriales,Enterobacterales,,NCBI order spelling -> GTDB
 Akkermansia muciniphilia,Akkermansia muciniphila,,source typo in Moses 2026 (muciniphilia -> muciniphila)
 Blautia spp.,Blautia,,'spp.' suffix normalized to genus Blautia
+Actinomyces sp.,Actinomyces,genus,'sp.' suffix normalized to genus
+Akkermansia muciniphil,Akkermansia muciniphila,,truncated species epithet (source or quote extraction)
+Bacteroide,Bacteroides,,truncated genus name
+Bacteroides dorei,Phocaeicola dorei,,genus reclassified
+Bacteroides vulgatus,Phocaeicola vulgatus,,genus reclassified
+Bifidobacteriales,Bifidobacteriaceae,family,NCBI order not in GTDB; its only family Bifidobacteriaceae sits in GTDB o__Actinomycetales
+Blautia coccoides group,Blautia,genus,species-group label; no s__Blautia coccoides in GTDB r232; collapsed to genus
+Blautia massiliensis,Blautia,genus,species not named in GTDB r232; collapsed to genus
+Clostridia clusters IV and XIVa,Clostridia,class,Collins clusters IV and XIVa span Oscillospirales and Lachnospirales; collapsed to class
+Clostridiales species,Clostridiales,,'species' suffix dropped; matched literally to GTDB o__Clostridiales as for Clostridiales
+Clostridium cluster XIVa (CCXIVa),Lachnospiraceae,family,Collins cluster XIVa ~ Lachnospiraceae (same as existing manual row for Clostridium cluster XIVa)
+"Clostridium clusters (IV, XIVa, XVIII)",Clostridia,class,Collins clusters IV/XIVa/XVIII span several families; collapsed to class
+Enterococcal,Enterococcus,genus,adjectival form
+Enterococcus species,Enterococcus,genus,'species' suffix normalized to genus
+Enterococcus spp.,Enterococcus,genus,'spp.' suffix normalized to genus
+enterococci,Enterococcus,genus,plural common name (lower case)
+Gamma-Proteobacteria,Gammaproteobacteria,class,spelling variant
+Gamma-proteobacteria,Gammaproteobacteria,class,spelling variant
+gamma-proteobacteria,Gammaproteobacteria,class,spelling variant
+Lachnospiracea,Lachnospiraceae,family,truncated family name
+Lactobacillus Rhamnosus GG,Lacticaseibacillus rhamnosus,species,strain to species; genus reclassified (capitalization variant)
+Porphyromonadacea,Porphyromonadaceae,family,truncated family name
+Ruminococcaceae,Ruminococcaceae,family,cited at genus rank in source row; family name used at family rank
+anti-inflammatory Clostridia,Clostridia,class,descriptor dropped
+butyrate-producing Clostridiales,Clostridiales,order,descriptor dropped; matched literally to GTDB o__Clostridiales as for Clostridiales
+lactobacilli,Lactobacillus,genus,plural common name (lower case)
+oral Actinobacteria,Actinomycetota,phylum,body-site descriptor dropped; NCBI phylum name -> GTDB
+oral Firmicutes,Bacillota,phylum,body-site descriptor dropped; NCBI phylum name -> GTDB
+other Firmitcutes,Bacillota,phylum,source typo (Firmitcutes) and 'other' dropped; NCBI phylum name -> GTDB
+Bacillus fragilis,Bacteroides fragilis,species,source misprint in Ji 2024 (Bacillus fragilis -> Bacteroides fragilis; see paper skill conversion notes)
+Blautia hydrogenotrophic,Blautia hydrogenotrophica,species,truncated species epithet; GTDB Blautia_A hydrogenotrophica
+E. coli,Escherichia coli,species,abbreviated binomial
+Peptostreptoccaceae,Peptostreptococcaceae,family,source typo

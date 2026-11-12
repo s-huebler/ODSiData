@@ -1,0 +1,566 @@
+{
+ "paper_key": "weber2026",
+ "skill": "weber2026-paper",
+ "citing_bibtex": "Weber_2026",
+ "statement_prefix": "WEB",
+ "codebook_version": "1.3",
+ "drafted": "2026-11-06",
+ "model": "claude-opus-4-8",
+ "title": "Microbiome, GvHD, and immune reconstitution in allogeneic hematopoietic cell transplantation",
+ "citation_style": "numeric [n]; ref_string holds the printed numbers, resolved to Author Year at the end-of-paper step",
+ "items": [
+  {
+   "id": "WEB_001",
+   "kind": "proposal",
+   "quote": "Specific commensal bacteria, such as Bacteroides fragilis, further amplify Treg development via polysaccharide A (PSA)-dependent signaling, which primes dendritic cells to foster Foxp3+ Treg induction",
+   "location": "body: Crosstalk between microbiota and immune cell subsets",
+   "fields": {
+    "taxon_as_cited": "Bacteroides fragilis",
+    "taxon_rank_as_cited": "species",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "B. fragilis induces Tregs, limiting GVHD severity",
+    "ref_string": "[24]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Judgment call: GVHD link is in the adjacent sentence [25] (microbiota-induced Tregs suppress alloreactive CD8 T cells, limiting GvHD severity; disruption heightens severity)."
+  },
+  {
+   "id": "WEB_002",
+   "kind": "proposal",
+   "quote": "Certain commensal bacteria, including segmented filamentous bacteria (SFB) and Bifidobacterium adolescentis, are known to drive Th17 differentiation",
+   "location": "body: Crosstalk between microbiota and immune cell subsets",
+   "fields": {
+    "taxon_as_cited": "segmented filamentous bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "SFB drive Th17 differentiation, worsening intestinal GVHD",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_003. SFB listed as a functional group in codebook. GVHD link in adjacent sentence [25,29] (IL-17 cells in severe intestinal GvHD)."
+  },
+  {
+   "id": "WEB_003",
+   "kind": "proposal",
+   "quote": "Certain commensal bacteria, including segmented filamentous bacteria (SFB) and Bifidobacterium adolescentis, are known to drive Th17 differentiation",
+   "location": "body: Crosstalk between microbiota and immune cell subsets",
+   "fields": {
+    "taxon_as_cited": "Bifidobacterium adolescentis",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "B. adolescentis drives Th17 differentiation in GVHD",
+    "ref_string": "[28]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_002. GVHD link in adjacent sentence [25,29]."
+  },
+  {
+   "id": "WEB_004",
+   "kind": "proposal",
+   "quote": "Butyrate produced by Clostridium clusters (IV, XIVa, XVIII) and Bifidobacterium, enhance Treg differentiation by inhibiting histone deacetylases (HDACs) and maintaining Foxp3 expression, thereby expanding colonic Treg populations, which are essential for reducing inflammation and promoting mucosal repair",
+   "location": "body: Gut-derived metabolites and immune reconstitution",
+   "fields": {
+    "taxon_as_cited": "Clostridium clusters (IV, XIVa, XVIII)",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Clostridium clusters produce butyrate, expanding Tregs",
+    "ref_string": "[36]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_005. Butyrate producer but stated downstream mechanism (Treg/HDAC) outranks 1a per codebook. Rank 'genus' is approximate (clostridial clusters). GVHD link via adjacent vorinostat/HDAC sentence (reduces acute GVHD incidence and severity) [37,38]."
+  },
+  {
+   "id": "WEB_005",
+   "kind": "proposal",
+   "quote": "Butyrate produced by Clostridium clusters (IV, XIVa, XVIII) and Bifidobacterium, enhance Treg differentiation by inhibiting histone deacetylases (HDACs) and maintaining Foxp3 expression, thereby expanding colonic Treg populations, which are essential for reducing inflammation and promoting mucosal repair",
+   "location": "body: Gut-derived metabolites and immune reconstitution",
+   "fields": {
+    "taxon_as_cited": "Bifidobacterium",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Bifidobacterium produces butyrate, expanding Tregs",
+    "ref_string": "[36]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_004. GVHD link via adjacent vorinostat/HDAC sentence [37,38]."
+  },
+  {
+   "id": "WEB_006",
+   "kind": "proposal",
+   "quote": "Indole derivatives produced by commensals like Lactobacilli and Proteobacteria activate the aryl hydrocarbon receptor (AhR), which regulates the IL-22/IL-10 axis, promotes Treg differentiation and ILC homeostasis, and suppresses hyperinflammation",
+   "location": "body: Gut-derived metabolites and immune reconstitution",
+   "fields": {
+    "taxon_as_cited": "Lactobacilli",
+    "taxon_rank_as_cited": "genus",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1c. Tryptophan / indole signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Lactobacilli indoles activate AhR, protecting against GVHD",
+    "ref_string": "[40]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_007. GVHD link in adjacent sentence (dysbiosis reduces AhR ligands and exacerbates GVHD)."
+  },
+  {
+   "id": "WEB_007",
+   "kind": "proposal",
+   "quote": "Indole derivatives produced by commensals like Lactobacilli and Proteobacteria activate the aryl hydrocarbon receptor (AhR), which regulates the IL-22/IL-10 axis, promotes Treg differentiation and ILC homeostasis, and suppresses hyperinflammation",
+   "location": "body: Gut-derived metabolites and immune reconstitution",
+   "fields": {
+    "taxon_as_cited": "Proteobacteria",
+    "taxon_rank_as_cited": "phylum",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1c. Tryptophan / indole signaling",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Proteobacteria indoles activate AhR, protecting against GVHD",
+    "ref_string": "[40]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_006. Proteobacteria framed as protective indole producers here (records the review's framing). GVHD link in adjacent sentence."
+  },
+  {
+   "id": "WEB_008",
+   "kind": "proposal",
+   "quote": "SFB and Citrobacter rodentium drive RORγt + Th17 cells via IL-6/IL-23.",
+   "location": "table 1, row Th17 ([26,27])",
+   "fields": {
+    "taxon_as_cited": "segmented filamentous bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "SFB drive RORγt Th17 cells, exacerbating GVHD",
+    "ref_string": "[26,27]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_009. GVHD link in the row's Functional Impact cell ('exacerbates GVHD if dysregulated'). Distinct from body WEB_002 (ref [28])."
+  },
+  {
+   "id": "WEB_009",
+   "kind": "proposal",
+   "quote": "SFB and Citrobacter rodentium drive RORγt + Th17 cells via IL-6/IL-23.",
+   "location": "table 1, row Th17 ([26,27])",
+   "fields": {
+    "taxon_as_cited": "Citrobacter rodentium",
+    "taxon_rank_as_cited": "species",
+    "direction": "exacerbating",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 2: Immune cell targeting",
+    "mechanism_specific": "2b. T-cell adaptive",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Citrobacter rodentium drives Th17 cells, exacerbating GVHD",
+    "ref_string": "[26,27]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_008. GVHD link in the row's Functional Impact cell. C. rodentium is a general-immunology example placed in the GVHD context; flag for scope."
+  },
+  {
+   "id": "WEB_010",
+   "kind": "proposal",
+   "quote": "Abundance of Enterococcus and Streptococcus spp. linked to increased GVHD risk.",
+   "location": "table 2, Peled et al. ([6])",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "Humans (allo-HSCT, n = 1,362)",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus abundance linked to increased GVHD risk",
+    "ref_string": "[6]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_011. Listed pathobiont -> 4b. Overlaps body WEB_013 but distinct study-level statement (Peled)."
+  },
+  {
+   "id": "WEB_011",
+   "kind": "proposal",
+   "quote": "Abundance of Enterococcus and Streptococcus spp. linked to increased GVHD risk.",
+   "location": "table 2, Peled et al. ([6])",
+   "fields": {
+    "taxon_as_cited": "Streptococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "Humans (allo-HSCT, n = 1,362)",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Streptococcus abundance linked to increased GVHD risk",
+    "ref_string": "[6]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Shared quote with WEB_010. Listed pathobiont -> 4b."
+  },
+  {
+   "id": "WEB_012",
+   "kind": "proposal",
+   "quote": "the presence of SCFA-producing bacterial species was found to be associated with protection against acute GvHD-related mortality and the development of chronic GvHD",
+   "location": "body: MICROBIOME AND GVHD",
+   "fields": {
+    "taxon_as_cited": "SCFA-producing bacterial species",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "unspecified",
+    "evidence": "unspecified",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "mechanism",
+    "intervention": "",
+    "mechanism_as_named": "SCFA producers protect against acute and chronic GVHD",
+    "ref_string": "[29,54]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Producer functional group, association only -> 1a. Two GVHD outcomes (acute GvHD mortality; chronic GvHD development)."
+  },
+  {
+   "id": "WEB_013",
+   "kind": "proposal",
+   "quote": "shift to Enterococcus domination, which is associated with an increased risk of severe GvHD and GvHD-related mortality",
+   "location": "body: MICROBIOME AND GVHD",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "association in patients (implied)",
+    "evidence": "human observational",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcus domination raises severe GVHD and mortality",
+    "ref_string": "[4,6]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Patient cohort implied by context -> human observational (GUO_007 precedent)."
+  },
+  {
+   "id": "WEB_014",
+   "kind": "proposal",
+   "quote": "In murine models enterococcal administration aggravated GvHD severity, demonstrating causality",
+   "location": "body: MICROBIOME AND GVHD",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "murine models",
+    "evidence": "murine",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "",
+    "mechanism_as_named": "Enterococcal administration aggravates GVHD severity in mice",
+    "ref_string": "[14]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Split from WEB_013 by evidence (murine vs human). Inline citation [14] is printed on the following lactose sentence; same study (Stein-Thoeringer)."
+  },
+  {
+   "id": "WEB_015",
+   "kind": "proposal",
+   "quote": "a diet free of lactose, a substrate mainly utilized by enterococci, prevented enterococcal overgrowth and reduced GvHD severity",
+   "location": "body: MICROBIOME AND GVHD",
+   "fields": {
+    "taxon_as_cited": "Enterococcus",
+    "taxon_rank_as_cited": "genus",
+    "direction": "exacerbating",
+    "evidence_as_stated": "murine model (lactose-free diet)",
+    "evidence": "murine",
+    "mechanism_broad": "Class 4: Pathobiont expansion",
+    "mechanism_specific": "4b. Pathobiont expansion / mono-dominance",
+    "target_type": "taxon",
+    "intervention": "diet",
+    "mechanism_as_named": "Lactose-free diet curbs enterococci, reducing GVHD severity",
+    "ref_string": "[14]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Target is Enterococcus (diet acts on it; removing it reduces GVHD -> exacerbating). Diet intervention. Same [14] study as WEB_014 (PAR_023 precedent)."
+  },
+  {
+   "id": "WEB_016",
+   "kind": "proposal",
+   "quote": "the administration of butyrate or butyrate producing bacteria mitigated GvHD severity and improved transplant outcome in murine GvHD",
+   "location": "body: MICROBIOME AND GVHD",
+   "fields": {
+    "taxon_as_cited": "butyrate producing bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "murine GvHD",
+    "evidence": "murine",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "mechanism",
+    "intervention": "probiotic / LBP",
+    "mechanism_as_named": "Butyrate-producing bacteria mitigate GVHD severity in mice",
+    "ref_string": "[21]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Target is the butyrate-producer functional group; butyrate itself (postbiotic) co-named. Producer, outcome only -> 1a."
+  },
+  {
+   "id": "WEB_017",
+   "kind": "proposal",
+   "quote": "preservation of butyrate-producing bacterial. In particular fecal butyrate concentration after alloHCT was maintained or even increased in the prebiotics group. This translated in a clinical benefit with a significantly lower cumulative incidence of gastro-intestinal grade II-IV GvHD",
+   "location": "body: Probiotics, prebiotics, and postbiotics",
+   "fields": {
+    "taxon_as_cited": "butyrate-producing bacteria",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "prospective trial, 49 patients and 142 matched historic controls",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "mechanism",
+    "intervention": "diet",
+    "mechanism_as_named": "Preserved butyrate producers lower GI grade II-IV GVHD",
+    "ref_string": "[71]",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Prebiotic (RS + GFO) preserves butyrate producers -> lower GI grade II-IV GvHD (and reduced skin aGVHD, next sentence). Target is the functional group the diet acts on (MOS_028 pattern)."
+  },
+  {
+   "id": "WEB_018",
+   "kind": "proposal",
+   "quote": "In all studies stools from responding patients demonstrated higher microbiota richness and increased levels of beneficial bacteria, in particular butyrate producers",
+   "location": "body: Probiotics, prebiotics, and postbiotics",
+   "fields": {
+    "taxon_as_cited": "butyrate producers",
+    "taxon_rank_as_cited": "functional group",
+    "direction": "protective",
+    "evidence_as_stated": "responding patients across FMT studies",
+    "evidence": "human interventional",
+    "mechanism_broad": "Class 1: Metabolite-mediated",
+    "mechanism_specific": "1a. SCFA / butyrate signaling",
+    "target_type": "mechanism",
+    "intervention": "FMT",
+    "mechanism_as_named": "Butyrate producers enriched in FMT-responding GVHD patients",
+    "ref_string": "",
+    "mechanism_assignment": "scheme C"
+   },
+   "note": "Uncited cross-study summary of FMT for GI-aGVHD [75-79]; rises in responders -> protective (GUO_038 pattern). Reviewer may assign the FMT study refs or reject."
+  },
+  {
+   "id": "WEB_S01",
+   "kind": "skipped",
+   "quote": "introducing potentially beneficial bacteria such as Lactobacillus significantly modified intestinal inflammation and outcome of transplant recipients",
+   "location": "body: INTRODUCTION",
+   "note": "No explicit GVHD outcome; 'intestinal inflammation and outcome' is generic. Lactobacillus in an early transplant model."
+  },
+  {
+   "id": "WEB_S02",
+   "kind": "skipped",
+   "quote": "domination by single bacterial taxa such as Enterococci were associated with high transplant-related mortality",
+   "location": "body: RISK FACTORS IMPACTING MICROBIOME DYSBIOSIS AND IMPACT OF MICROBIOME ON PATIENTS' OUTCOME AFTER ALLOHCT",
+   "note": "Non-GVHD outcome: transplant-related mortality."
+  },
+  {
+   "id": "WEB_S03",
+   "kind": "skipped",
+   "quote": "Depletion of SCFA producing bacteria is associated with expansion of opportunistic pathogens",
+   "location": "body: RISK FACTORS IMPACTING MICROBIOME DYSBIOSIS AND IMPACT OF MICROBIOME ON PATIENTS' OUTCOME AFTER ALLOHCT",
+   "note": "Non-GVHD outcome: pathogen expansion. SCFA producers named."
+  },
+  {
+   "id": "WEB_S04",
+   "kind": "skipped",
+   "quote": "absence of normal dietary intake and prolonged parenteral nutrition leads to loss of protective beneficial bacteria such as Blautia",
+   "location": "body: RISK FACTORS IMPACTING MICROBIOME DYSBIOSIS AND IMPACT OF MICROBIOME ON PATIENTS' OUTCOME AFTER ALLOHCT",
+   "note": "No GVHD outcome in statement; Blautia loss attributed to nutrition. Blautia called protective."
+  },
+  {
+   "id": "WEB_S05",
+   "kind": "skipped",
+   "quote": "Disruption of the microbiome leads to a marked reduction in Tregs and their regulatory crosstalk with alloreactive cytotoxic T cells, resulting in heightened GvHD severity",
+   "location": "body: Crosstalk between microbiota and immune cell subsets",
+   "note": "Whole-community (dysbiosis), no specific taxon."
+  },
+  {
+   "id": "WEB_S06",
+   "kind": "skipped",
+   "quote": "Certain microbial metabolites, such as 3-oxo LCA (a secondary bile acid), can inhibit Th17 cell differentiation and mitigate GvHD",
+   "location": "body: Crosstalk between microbiota and immune cell subsets",
+   "note": "Metabolite, no taxon."
+  },
+  {
+   "id": "WEB_S07",
+   "kind": "skipped",
+   "quote": "In murine alloHCT models, ILC3-derived IL-22 protects the intestinal stem cells, limits epithelial damage, and enhances production of antimicrobial peptides and mucins, all promoting effective epithelial repair and reduced severity of GvHD",
+   "location": "body: Crosstalk between microbiota and immune cell subsets",
+   "note": "Host immune cell (ILC3), no microbial target."
+  },
+  {
+   "id": "WEB_S08",
+   "kind": "skipped",
+   "quote": "Secondary bile acids, such as 3-oxoLCA and isoalloLCA, modulate the TH17/Treg balance",
+   "location": "body: Gut-derived metabolites and immune reconstitution",
+   "note": "Metabolites, no taxon."
+  },
+  {
+   "id": "WEB_S09",
+   "kind": "skipped",
+   "quote": "Prophylactic tauroursodeoxycholic acid (TUDCA) administration reduced acute GVHD severity in murine transplantation models",
+   "location": "body: Gut-derived metabolites and immune reconstitution",
+   "note": "Compound/metabolite (TUDCA), no microbial target. Clear GVHD outcome."
+  },
+  {
+   "id": "WEB_S10",
+   "kind": "skipped",
+   "quote": "LPS from Enterobacteriaceae induces pro-inflammatory M1 polarization.",
+   "location": "table 1, row Macrophages ([30, 90])",
+   "note": "No GVHD outcome in the cell (Functional Impact is general)."
+  },
+  {
+   "id": "WEB_S11",
+   "kind": "skipped",
+   "quote": "Bacteroides fragilis PSA induces IL-10+ Tregs via TLR2.",
+   "location": "table 1, row Treg ([24, 25, 36])",
+   "note": "Repeats body B. fragilis -> Treg (WEB_001) and Clostridia -> Treg (WEB_004); group-level refs [24,25,36] are ambiguous per sub-row."
+  },
+  {
+   "id": "WEB_S12",
+   "kind": "skipped",
+   "quote": "Recent data identified a microbiome signature of Lachnospiraceae and Oscillospiraceae and their associated bacteriophages",
+   "location": "body: MICROBIOME AND GVHD",
+   "note": "Outcome stated is generic 'alloHCT outcome' (survival/relapse, ref [53]), not GVHD."
+  },
+  {
+   "id": "WEB_S13",
+   "kind": "skipped",
+   "quote": "Domination by Enterococcus, Streptococcus, Enterobacteriaceae, and Lactobacillus spp. linked to poor outcomes.",
+   "location": "table 2, Taur et al. ([12])",
+   "note": "Outcomes are OS / 'poor outcomes', not GVHD."
+  },
+  {
+   "id": "WEB_S14",
+   "kind": "skipped",
+   "quote": "Increased abundance of Staphylococcus associated with poor CD4 T-cell recovery.",
+   "location": "table 2, Miltiadous et al. ([97])",
+   "note": "Immune reconstitution outcome, not GVHD."
+  },
+  {
+   "id": "WEB_S15",
+   "kind": "skipped",
+   "quote": "high abundance of beneficial commensals such as Blautia has been associated with accelerated recovery of CD4+ and CD8+ T cells, enhanced antiviral immunity, and reduced risk of leukemia relapse",
+   "location": "body: MICROBIOME AND IMMUNE RECONSTITUTION AFTER ALLOHCT",
+   "note": "Non-GVHD outcomes: immune reconstitution, relapse. Blautia called beneficial."
+  },
+  {
+   "id": "WEB_S16",
+   "kind": "skipped",
+   "quote": "the presence of butyrate-producing taxa—including members of Lachnospiraceae and Ruminococcaceae—has been associated with robust B cell reconstitution and intestinal IgA production",
+   "location": "body: MICROBIOME AND IMMUNE RECONSTITUTION AFTER ALLOHCT",
+   "note": "Non-GVHD outcome: immune reconstitution (B cells, IgA)."
+  },
+  {
+   "id": "WEB_S17",
+   "kind": "skipped",
+   "quote": "Antibiotics like carbapenems and piperacillin/tazobactam that suppress commensal bacteria have been associated with increased GvHD-related mortality",
+   "location": "body: Antibiotic stewardship",
+   "note": "Antibiotic effect via generic 'commensal bacteria'; no specific microbial target."
+  },
+  {
+   "id": "WEB_S18",
+   "kind": "skipped",
+   "quote": "This has been attributed to specific bacteria such as Akkermansia muciniphila, a mucus degrading bacterium",
+   "location": "body: Antibiotic stewardship",
+   "note": "Stated outcome is mucus/barrier disruption under imipenem (murine), not an explicit GVHD outcome. Notable: reviewer may promote (A. muciniphila, 3a, exacerbating)."
+  },
+  {
+   "id": "WEB_S19",
+   "kind": "skipped",
+   "quote": "patients who received antibiotics prior to the day of transplantation showed loss of protective Clostridia and increased transplant related mortality",
+   "location": "body: Antibiotic stewardship",
+   "note": "Non-GVHD outcome: transplant-related mortality. Clostridia called protective."
+  },
+  {
+   "id": "WEB_S20",
+   "kind": "skipped",
+   "quote": "led to reduced antibiotic administration in general, more microbiome diversity and a trend towards a reduced incidence of severe GI GvHD",
+   "location": "body: Antibiotic stewardship",
+   "note": "Diversity/stewardship, no specific taxon."
+  },
+  {
+   "id": "WEB_S21",
+   "kind": "skipped",
+   "quote": "in the prebiotic group a significant increase of the relative abundance of lactobacillus_C rhamnosus",
+   "location": "body: Probiotics, prebiotics, and postbiotics",
+   "note": "No GVHD outcome (AMR gene expression)."
+  },
+  {
+   "id": "WEB_S22",
+   "kind": "skipped",
+   "quote": "effective and safe use of FMT was first reported by Kakihana et al. in 2016 in 4 patients with steroid-resistant",
+   "location": "body: Probiotics, prebiotics, and postbiotics",
+   "note": "FMT whole-ecosystem, no specific taxon (GUO_S10 precedent). Represents the FMT-for-GI-aGVHD case series/response claims."
+  },
+  {
+   "id": "WEB_S23",
+   "kind": "skipped",
+   "quote": "reduced the abundance of expanded genera like Enterococcus, Streptococcus, Veillonella, and Dialister",
+   "location": "body: Probiotics, prebiotics, and postbiotics",
+   "note": "Outcome is post-antibiotic microbiome recovery, not GVHD."
+  },
+  {
+   "id": "WEB_S24",
+   "kind": "skipped",
+   "quote": "SER-155 (n = 20) was generally well tolerated with a safety profile similar to placebo and the incidence of bloodstream infections, a secondary endpoint, was significantly lower",
+   "location": "body: Probiotics, prebiotics, and postbiotics",
+   "note": "Non-GVHD outcome: bloodstream infections. Defined consortium (16 Firmicutes strains)."
+  },
+  {
+   "id": "WEB_S25",
+   "kind": "skipped",
+   "quote": "Twenty patients ingested sodium butyrate (600 mg × 2 capsules per day) from engraftment",
+   "location": "body: Probiotics, prebiotics, and postbiotics",
+   "note": "Postbiotic metabolite (sodium butyrate), no microbial target. Clear GVHD outcome (lower grade III-IV aGVHD)."
+  }
+ ]
+}

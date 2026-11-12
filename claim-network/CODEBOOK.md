@@ -1,6 +1,6 @@
 # Claims network codebook
 
-**Version 1.3 (2026-11-06).** Every `proposals.json` records the codebook version it was drafted
+**Version 1.4 (2026-11-12).** Every `proposals.json` records the codebook version it was drafted
 under. Change a rule here before the next review, add a changelog line, and never change it
 silently. A new rule applies to reviews drafted after it; earlier reviews it would have changed
 are listed in the changelog so they can be revisited.
@@ -44,7 +44,9 @@ Allogeneic HSCT recipients or transplant models. FMT or probiotic uses in other 
 - Taxa named as examples ("e.g.", "such as") get their own proposals. *(GUO_024, 025, 027)*
 - A sentence naming two mechanisms for one taxon gives two proposals, one per mechanism.
   *(GUO_013, 014)*
-- Tables: one quote per relevant cell sentence; location gives the table row.
+- Tables, including supplementary tables: one quote per relevant cell sentence; location gives
+  the table row. A cell that repeats a claim already taken from the text is skipped. A cell that
+  adds a new claim, or conflicts with the text, gets its own proposal (note the conflict).
 - Figures: only when the figure carries a claim with a citation that the text does not.
   Figures that repeat the text are skipped.
 - A single statement that reports more than one evidence type (for example a murine model and a human correlation) is split into one proposal per evidence type. *(MOS_011, MOS_027.)*
@@ -64,7 +66,7 @@ Allogeneic HSCT recipients or transplant models. FMT or probiotic uses in other 
 | `mechanism_as_named` | Short claim in plain words, under about 12 words. |
 | `ref_string` | Citation as printed: `[30]`, `[32,33]`, `[60-63]`, or `Taur 2014; Jenq 2012`. Blank if uncited. |
 | `mechanism_assignment` | Audit trail of how the mechanism was set (see 4.3). |
-| `location` | `body: <section heading>`, `table N, row R ([refs])`, `figure N`, `box N`. |
+| `location` | `body: <section heading>`, `table N, row R ([refs])`, `supplementary table SN, row R ([refs])`, `figure N`, `box N`. |
 | `quote` | Verbatim from the paper text in the paper skill, as it renders (no markdown, citation superscripts dropped). Shortest span that carries the claim. |
 
 ### 3.1 Direction (describes the target, never the intervention)
@@ -114,8 +116,10 @@ review does not say so, so `unspecified`.)*
 ### 4.1 Pathobiont list (4b without a stated mechanism)
 
 Enterococcus (any species), Enterobacterales / Enterobacteriaceae and member genera (Klebsiella,
-Escherichia, Enterobacter), Gammaproteobacteria, Streptococcus. Expansion of these in GVHD goes to
-4b even when the review states association only. Anything else with association only goes to 0.
+Escherichia, Enterobacter), Gammaproteobacteria, Streptococcus. The families of listed genera
+count as pathobionts too (Enterococcaceae, Streptococcaceae); orders that also hold
+non-pathobiont genera (Lactobacillales) do not. Expansion of these in GVHD goes to 4b even when
+the review states association only. Anything else with association only goes to 0.
 Extend the list only by a codebook change. *(Staphylococcaceae in GUO_002 is not on the list.)*
 
 ### 4.2 Interventions
@@ -165,6 +169,17 @@ the resolution is written to `decisions.json` under `discussion`. Only approved 
 
 ## Changelog
 
+- **1.4 (2026-11-12).** (a) Families of listed pathobiont genera (Enterococcaceae,
+  Streptococcaceae) count as pathobionts, so expansion goes to 4b. Applied directly to the three
+  approved rows coded 0 under 1.3: JI_001 and KHU_001 (Enterococcaceae), JI_003
+  (Streptococcaceae); PAR_018 and YUE_088 were already 4b. (b) Supplementary tables are in scope
+  and follow the table rules; reviews with supplementary tables: junior2025 (Supplementary Table
+  S2, about 10 taxon-aGvHD rows; see JUN_S18) and moses2026 (Supplementary Table 1, intervention
+  studies). Not retro-applied. `validate_proposals.py` checks quotes against paper.md only, so it
+  needs to read the supplementary table CSVs before supplementary rows can validate. (c) Table
+  cells follow the figure rule: skip a cell that repeats the text, propose a cell that is new or
+  conflicts. Not retro-applied; drafts that took one row per cell sentence even where the body
+  already carried the claim (e.g. junior2025 Table 3, Jenq 2015 [28]) can be revisited.
 - **1.3 (2026-11-06).** Added `other` to the `intervention` controlled vocabulary for experimental or non-standard manipulations that fit no named category. Applied while reviewing Paredes 2026 (PAR_025 B. ovatus reintroduction; PAR_032, PAR_033 bile-acid-strain replenishing). No existing rows invalidated; other reviews not retro-edited.
 - **1.2 (2026-11-05).** Renamed the direction value `null` to `no effect`. The string `null` was being coerced to a missing value by pandas in the ring builder and drew a blank edge. Applied to all existing rows.
 - **1.1 (2026-11-05).** Broadened 2b to include antigen presentation and epithelial MHC class II induction/suppression. Reworded the 1a rule so a stated downstream mechanism (barrier, Treg/T-cell) outranks an SCFA/producer descriptor; a producer label still maps to 1a when only an association is given. Added `secondary bile acid producers` as a functional group. Renumbered 3b to 4a (colonization resistance / competitive exclusion sits under Class 4 alongside 4b). Added that a conflicting finding elsewhere in the review, even a skipped one, may set direction to context-dependent as a noted reviewer judgment call. Added a split-by-evidence rule. Applied while reviewing Moses 2026. Guo recheck: GUO_013 and GUO_015 unchanged under the reworded 1a rule; GUO_032 mechanism relabeled 3b to 4a (mechanical, same meaning).
